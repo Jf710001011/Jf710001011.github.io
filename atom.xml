@@ -86,35 +86,6 @@ first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&
   </entry>
   
   <entry>
-    <title>ML-Lab</title>
-    <link href="https://jf710001011.github.io/2023/02/11/ml04/"/>
-    <id>https://jf710001011.github.io/2023/02/11/ml04/</id>
-    <published>2023-02-10T16:00:00.000Z</published>
-    <updated>2023-02-10T21:46:52.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;实验前准备&quot;&gt;实验前准备&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;安装最新的ANACONDA3,并更新所有的库(否则会出现很多报错&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure class=&quot;highlight powershell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
-        
-      
-    
-    
-    
-    <category term="机器学习" scheme="https://jf710001011.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-    <category term="lab" scheme="https://jf710001011.github.io/tags/lab/"/>
-    
-  </entry>
-  
-  <entry>
     <title>多类特征</title>
     <link href="https://jf710001011.github.io/2023/02/11/ml05/"/>
     <id>https://jf710001011.github.io/2023/02/11/ml05/</id>
@@ -136,6 +107,35 @@ first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&
     
     <category term="机器学习" scheme="https://jf710001011.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
+    
+  </entry>
+  
+  <entry>
+    <title>ML-Lab</title>
+    <link href="https://jf710001011.github.io/2023/02/11/ml04/"/>
+    <id>https://jf710001011.github.io/2023/02/11/ml04/</id>
+    <published>2023-02-10T16:00:00.000Z</published>
+    <updated>2023-02-10T21:46:52.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;实验前准备&quot;&gt;实验前准备&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;安装最新的ANACONDA3,并更新所有的库(否则会出现很多报错&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;language-powershell&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="机器学习" scheme="https://jf710001011.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="lab" scheme="https://jf710001011.github.io/tags/lab/"/>
     
   </entry>
   
@@ -475,7 +475,7 @@ href=&quot;https://blog.csd</summary>
         
         
     <summary type="html">&lt;h3 id=&quot;本地文件包含&quot;&gt;本地文件包含&lt;/h3&gt;
-&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
+&lt;pre class=&quot;language-php&quot; data-language=&quot;php&quot;&gt;&lt;code class=&quot;language-php&quot;&gt;&lt;span class=&quot;token php</summary>
         
       
     

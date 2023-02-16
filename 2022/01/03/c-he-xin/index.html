@@ -488,7 +488,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.4k
+                    2k
                 </div>
                 
 
@@ -510,148 +510,149 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
-## 内存分区模型
-
->   - 代码区：二进制代码
->       - 运行前，共享，只读
->   - 全局区：全局变量、静态变量、全局常量
->       - 运行前，操作系统释放
->   - 栈区：参数值、局部变量，编译器自动分配释放
->       - 不要返回局部变量的地址
->   - 堆区：由程序员分配和释放，若程序员不释放，则由操作系统回收
->       - new开辟内存
-
-## 引用
-
-> - 引用必须要初始化，一旦初始化，便不可更改（是谁的别名），可以赋值
->   - 不要返回局部变量的引用
->   - 函数的调用可以成为左值
->   - 引用的本质：指针常量
->   - 自动解引用
->   - 常量引用:用在函数参数中，防止修改值
->       - `const int& ref = 10`的本质：创建int temp;
-
-## 函数提高
-
-- 默认参数
-    > 从这个默认值往后都必须有默认值
-    > 或者声明有默认参数，或者实现有默认参数，不可同时有
-- 函数占位参数:可以有默认参数，调用时参数必须填补
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">fuction</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span>)</span></span>&#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;this is function &quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-- 函数重载: 函数名可以相同
-    > 同一个作用域下
-    > 函数名称相同
-    > 函数类型不同 或 参数个数不同 或 参数顺序不同
-    > 返回值不能作为重载的条件
-    > int a = 10;func(a)`(引用)`;func(10)`(const 引用)`，有无const 也能发生重载
-    > 函数重载遇上默认参数
-
-## 面向对象
-
-- 访问权限
-    > public  类内/外都可以访问
-    > protected  类内可以，类外不可以
-    > private 类内可以，类外不可以
-    > struct默认公有访问权限，class默认私有访问权限
-    > 成员属性设置为私有：1. 可以自己控制读写权限。2.对于写可以控制数据的有效性。在方法上操作
-- .h 与.cpp文件的分工
-- 构造函数与析构函数
-    > 构造函数可以重载
-    > 拷贝构造
-    > 析构函数没有参数
-    > 匿名对象`Person(10)`,当前执行结束后，会立即收回匿名对象，不要用拷贝构造函数初始化匿名对象（重定义） 
-    > 拷贝构造函数：1.值传递给函数传参。2.以值方式返回局部对象
-    > 默认构造函数、默认析构函数、默认拷贝构造函数
-    > - 构造函数调用规则：1. 如果用户定义有参构造函数， 则c++不提供默认构造函数，但提供默认拷贝构造函数。2. 如果用户定义拷贝构造函数，C++不会提供默认构造函数。
-    
-    > 析构函数：将堆区开辟数据释放
-    > 浅拷贝：堆区的内存重复释放。深拷贝解决
-
-- 初始化列表
-    > `Person(int a,int b,int c):A(a),B(b),C(c){}`
-    > 先构造类对象，再构造自身，析构顺序与之相反
-
-- 静态成员
-    > 所有对象共享
-    > 静态成员函数只能访问静态成员：1. 可以类名访问
-
-- 对象特性
-    > 空对象占用一个字节
-    > 只有非静态成员属于类的对象
-    > 返回对象 与 返回对象的引用
-    > 空指针访问成员函数
-
-- 常函数`void ShowPerson()const{}`不可以修改成员属性，除非变量前加`mutable`
-  
-- 常对象只能调用常函数
-
-- thi指针的本质是指针常量，指向不可修改
-  
-- 友元：让一个函数或类访问另一个类中私有成员
-    > - 全局函数做友元:在Building类中`friend void GoodGuy(Building& building)`
-    > - 类做友元： 在Building类中`friend class GoodGuy;`
-    > - 成员函数做友元:在Building类中`friend void Goodguy::visit() `
-
-- 运算符重载
-    > - 成员函数重载 或 全局函数重载
-    > `Person operator+()`
-    > 只能利用全局函数重载`<<`：`ostream& operator <<(ostream& out,Person& p) `
-    > 区分重置前置++与后置++：使用占位参数。后置递增返回值而不是引用：返回的临时变量不用引用返回
-    > - 函数调用运算符重载：仿函数
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Myadd</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:   </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="type">int</span> num1,<span class="type">int</span> num2)</span></span>&#123;</span><br><span class="line">    rerturn num1 + num2;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Myadd myadd;</span><br><span class="line">    <span class="type">int</span> ret = <span class="built_in">myadd</span>(<span class="number">10</span>,<span class="number">10</span>); </span><br><span class="line">    cout &lt;&lt; ret &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 匿名函数对象 ：类型（）</span></span><br><span class="line">cout &lt;&lt; <span class="built_in">Myadd</span>()(<span class="number">10</span>,<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
-
-## 三大特性
-- 封装  
-- 继承:`class 子类：继承方式 父类`,减少重复代码
-    > `class java: public BasePage{}` 
-    ![继承方式](/images/0_6.png)
-    > 父类中所有非静态成员属性都会被继承
-    > 开发人员命令提示符：查看对象模型：1.跳转文件路径 2. `cl /d1 reportSingleClassLayout类名 文件名` 
-    > 构造函数先父类后子类，析构顺序正好相反
-    > 继承同名：子类的直接访问，父类的加作用域。 `son s;s.m_a,s.base::m_a,`同名函数同理 
-    > 如果子类中出现和父类同名的成员函数，子类的同名成员函数会隐藏掉父类中所有同名成员函数
-    > source\images\0_6.png：animal->(sheep,tuo)->yangtuo,资源浪费
-    > - **虚基类**
-    > - **vbptr** **vbtable**
-- 多态
-    > **静态多态：**函数重载，运算符重载，编译阶段确定函数地址
-    > **动态多态：**派生类和虚函数，运行阶段确定函数地址
-        > 1. 继承关系 2. 子类重写父类的虚函数
-        > **使用**：父类的指针 或 引用 指向子类对象（ 函数参数）
-        > **vfptr**: 当子类重写虚函数后，子类中的虚函数表（记录函数地址）中的内容会更新，会覆盖原先继承的来自父类的表
-
-    > **计算器类**：对扩展进行开放，对修改进行关闭 
-- 纯虚函数 
-    > 基类中纯虚函数的实现毫无意义，**抽象类：**含有纯虚函数的类，无法实例化对象。**纯虚函数：** `virtual 返回值 函数名（） = 0 `
-    > **虚析构函数**：解决父类指针释放子类对象时不干净的问题
-    > **虚析构和纯虚析构**：都需要在父类中有实现。含纯虚析构函数的类为抽象类，无法实例化
-
-## 文件
-- `#include<fstream>`:通过文件可以将数持久化
-    > - 文本文件与二进制文件
-    > ofstream,ifstream,fstream
-- 写文件
-    > - 创建流对象`ofstream ofs;`
-    > - 打开文件`ofs.open("文件路径"，打开方式)`
-    > - `ofs << "写入的数据"`
-    > - 关闭文件
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">ios::in</span></span><br><span class="line"><span class="comment">ios::out</span></span><br><span class="line"><span class="comment">ios::ate       初始位置：文件尾</span></span><br><span class="line"><span class="comment">ios::app       追加方式写文件</span></span><br><span class="line"><span class="comment">ios::trunc     如果文件存在先删除，在创建 </span></span><br><span class="line"><span class="comment">ios::binary    二进制方式</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 文件打开方式可以配合使用，利用|操作符</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;fstream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test01</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	ofstream ofs;</span><br><span class="line">	ofs.<span class="built_in">open</span>(<span class="string">&quot;test.txt&quot;</span>, ios::out);</span><br><span class="line"></span><br><span class="line">	ofs &lt;&lt; <span class="string">&quot;姓名：张三&quot;</span> &lt;&lt; endl;</span><br><span class="line">	ofs &lt;&lt; <span class="string">&quot;性别：男&quot;</span> &lt;&lt; endl;</span><br><span class="line">	ofs &lt;&lt; <span class="string">&quot;年龄：18&quot;</span> &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	ofs.<span class="built_in">close</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">test01</span>();</span><br><span class="line"></span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-- 读文件
-  
+                <h2 id="内存分区模型">内存分区模型</h2>
+<blockquote>
+<ul>
+<li>代码区：二进制代码
+<ul>
+<li>运行前，共享，只读</li>
+</ul></li>
+<li>全局区：全局变量、静态变量、全局常量
+<ul>
+<li>运行前，操作系统释放</li>
+</ul></li>
+<li>栈区：参数值、局部变量，编译器自动分配释放
+<ul>
+<li>不要返回局部变量的地址</li>
+</ul></li>
+<li>堆区：由程序员分配和释放，若程序员不释放，则由操作系统回收
+<ul>
+<li>new开辟内存</li>
+</ul></li>
+</ul>
+</blockquote>
+<h2 id="引用">引用</h2>
+<blockquote>
+<ul>
+<li>引用必须要初始化，一旦初始化，便不可更改（是谁的别名），可以赋值
+<ul>
+<li>不要返回局部变量的引用</li>
+<li>函数的调用可以成为左值</li>
+<li>引用的本质：指针常量</li>
+<li>自动解引用</li>
+<li>常量引用:用在函数参数中，防止修改值
+<ul>
+<li><code>const int&amp; ref = 10</code>的本质：创建int temp;</li>
+</ul></li>
+</ul></li>
+</ul>
+</blockquote>
+<h2 id="函数提高">函数提高</h2>
+<ul>
+<li><p>默认参数 &gt; 从这个默认值往后都必须有默认值 &gt;
+或者声明有默认参数，或者实现有默认参数，不可同时有</p></li>
+<li><p>函数占位参数:可以有默认参数，调用时参数必须填补
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">fuction</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span>)</span></span>&#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;this is function &quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
+<li><p>函数重载: 函数名可以相同 &gt; 同一个作用域下 &gt; 函数名称相同
+&gt; 函数类型不同 或 参数个数不同 或 参数顺序不同 &gt;
+返回值不能作为重载的条件 &gt; int a =
+10;func(a)<code>(引用)</code>;func(10)<code>(const 引用)</code>，有无const
+也能发生重载 &gt; 函数重载遇上默认参数</p></li>
+</ul>
+<h2 id="面向对象">面向对象</h2>
+<ul>
+<li><p>访问权限 &gt; public 类内/外都可以访问 &gt; protected
+类内可以，类外不可以 &gt; private 类内可以，类外不可以 &gt;
+struct默认公有访问权限，class默认私有访问权限 &gt;
+成员属性设置为私有：1.
+可以自己控制读写权限。2.对于写可以控制数据的有效性。在方法上操作</p></li>
+<li><p>.h 与.cpp文件的分工</p></li>
+<li><p>构造函数与析构函数 &gt; 构造函数可以重载 &gt; 拷贝构造 &gt;
+析构函数没有参数 &gt;
+匿名对象<code>Person(10)</code>,当前执行结束后，会立即收回匿名对象，不要用拷贝构造函数初始化匿名对象（重定义）
+&gt; 拷贝构造函数：1.值传递给函数传参。2.以值方式返回局部对象 &gt;
+默认构造函数、默认析构函数、默认拷贝构造函数 &gt; - 构造函数调用规则：1.
+如果用户定义有参构造函数，
+则c++不提供默认构造函数，但提供默认拷贝构造函数。2.
+如果用户定义拷贝构造函数，C++不会提供默认构造函数。</p>
+<blockquote>
+<p>析构函数：将堆区开辟数据释放
+浅拷贝：堆区的内存重复释放。深拷贝解决</p>
+</blockquote></li>
+<li><p>初始化列表 &gt;
+<code>Person(int a,int b,int c):A(a),B(b),C(c)&#123;&#125;</code> &gt;
+先构造类对象，再构造自身，析构顺序与之相反</p></li>
+<li><p>静态成员 &gt; 所有对象共享 &gt; 静态成员函数只能访问静态成员：1.
+可以类名访问</p></li>
+<li><p>对象特性 &gt; 空对象占用一个字节 &gt; 只有非静态成员属于类的对象
+&gt; 返回对象 与 返回对象的引用 &gt; 空指针访问成员函数</p></li>
+<li><p>常函数<code>void ShowPerson()const&#123;&#125;</code>不可以修改成员属性，除非变量前加<code>mutable</code></p></li>
+<li><p>常对象只能调用常函数</p></li>
+<li><p>thi指针的本质是指针常量，指向不可修改</p></li>
+<li><p>友元：让一个函数或类访问另一个类中私有成员 &gt; -
+全局函数做友元:在Building类中<code>friend void GoodGuy(Building&amp; building)</code>
+&gt; - 类做友元： 在Building类中<code>friend class GoodGuy;</code> &gt;
+-
+成员函数做友元:在Building类中<code>friend void Goodguy::visit()</code></p></li>
+<li><p>运算符重载 &gt; - 成员函数重载 或 全局函数重载 &gt;
+<code>Person operator+()</code> &gt;
+只能利用全局函数重载<code>&lt;&lt;</code>：<code>ostream&amp; operator &lt;&lt;(ostream&amp; out,Person&amp; p)</code>
+&gt;
+区分重置前置++与后置++：使用占位参数。后置递增返回值而不是引用：返回的临时变量不用引用返回
+&gt; - 函数调用运算符重载：仿函数 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Myadd</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:   </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="type">int</span> num1,<span class="type">int</span> num2)</span></span>&#123;</span><br><span class="line">    rerturn num1 + num2;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Myadd myadd;</span><br><span class="line">    <span class="type">int</span> ret = <span class="built_in">myadd</span>(<span class="number">10</span>,<span class="number">10</span>); </span><br><span class="line">    cout &lt;&lt; ret &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 匿名函数对象 ：类型（）</span></span><br><span class="line">cout &lt;&lt; <span class="built_in">Myadd</span>()(<span class="number">10</span>,<span class="number">10</span>);</span><br></pre></td></tr></table></figure></p></li>
+</ul>
+<h2 id="三大特性">三大特性</h2>
+<ul>
+<li><p>封装<br />
+</p></li>
+<li><p>继承:<code>class 子类：继承方式 父类</code>,减少重复代码 &gt;
+<code>class java: public BasePage&#123;&#125;</code> <img src="/images/0_6.png"
+alt="继承方式" /> &gt; 父类中所有非静态成员属性都会被继承 &gt;
+开发人员命令提示符：查看对象模型：1.跳转文件路径 2.
+<code>cl /d1 reportSingleClassLayout类名 文件名</code> &gt;
+构造函数先父类后子类，析构顺序正好相反 &gt;
+继承同名：子类的直接访问，父类的加作用域。
+<code>son s;s.m_a,s.base::m_a,</code>同名函数同理 &gt;
+如果子类中出现和父类同名的成员函数，子类的同名成员函数会隐藏掉父类中所有同名成员函数
+&gt; source\0_6.png：animal-&gt;(sheep,tuo)-&gt;yangtuo,资源浪费 &gt; -
+<strong>虚基类</strong> &gt; - <strong>vbptr</strong>
+<strong>vbtable</strong></p></li>
+<li><p>多态 &gt;
+<strong>静态多态：</strong>函数重载，运算符重载，编译阶段确定函数地址
+&gt; <strong>动态多态：</strong>派生类和虚函数，运行阶段确定函数地址
+&gt; 1. 继承关系 2. 子类重写父类的虚函数 &gt;
+<strong>使用</strong>：父类的指针 或 引用 指向子类对象（ 函数参数） &gt;
+<strong>vfptr</strong>:
+当子类重写虚函数后，子类中的虚函数表（记录函数地址）中的内容会更新，会覆盖原先继承的来自父类的表</p>
+<blockquote>
+<p><strong>计算器类</strong>：对扩展进行开放，对修改进行关闭</p>
+</blockquote></li>
+<li><p>纯虚函数 &gt;
+基类中纯虚函数的实现毫无意义，<strong>抽象类：</strong>含有纯虚函数的类，无法实例化对象。<strong>纯虚函数：</strong>
+<code>virtual 返回值 函数名（） = 0</code> &gt;
+<strong>虚析构函数</strong>：解决父类指针释放子类对象时不干净的问题 &gt;
+<strong>虚析构和纯虚析构</strong>：都需要在父类中有实现。含纯虚析构函数的类为抽象类，无法实例化</p></li>
+</ul>
+<h2 id="文件">文件</h2>
+<ul>
+<li><p><code>#include&lt;fstream&gt;</code>:通过文件可以将数持久化 &gt;
+- 文本文件与二进制文件 &gt; ofstream,ifstream,fstream</p></li>
+<li><p>写文件 &gt; - 创建流对象<code>ofstream ofs;</code> &gt; -
+打开文件<code>ofs.open("文件路径"，打开方式)</code> &gt; -
+<code>ofs &lt;&lt; "写入的数据"</code> &gt; - 关闭文件
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">ios::in</span></span><br><span class="line"><span class="comment">ios::out</span></span><br><span class="line"><span class="comment">ios::ate       初始位置：文件尾</span></span><br><span class="line"><span class="comment">ios::app       追加方式写文件</span></span><br><span class="line"><span class="comment">ios::trunc     如果文件存在先删除，在创建 </span></span><br><span class="line"><span class="comment">ios::binary    二进制方式</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 文件打开方式可以配合使用，利用|操作符</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;fstream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test01</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	ofstream ofs;</span><br><span class="line">	ofs.<span class="built_in">open</span>(<span class="string">&quot;test.txt&quot;</span>, ios::out);</span><br><span class="line"></span><br><span class="line">	ofs &lt;&lt; <span class="string">&quot;姓名：张三&quot;</span> &lt;&lt; endl;</span><br><span class="line">	ofs &lt;&lt; <span class="string">&quot;性别：男&quot;</span> &lt;&lt; endl;</span><br><span class="line">	ofs &lt;&lt; <span class="string">&quot;年龄：18&quot;</span> &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	ofs.<span class="built_in">close</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">test01</span>();</span><br><span class="line"></span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></p></li>
+<li><p>读文件</p></li>
+</ul>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;fstream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test02</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	ifstream ifs;</span><br><span class="line">	ifs.<span class="built_in">open</span>(<span class="string">&quot;test.txt&quot;</span>, ios::in);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (!ifs.<span class="built_in">is_open</span>()) &#123;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;文件打开失败&quot;</span> &lt;&lt; endl;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 第一种方式</span></span><br><span class="line">	<span class="comment">//char buf[] = &#123;0&#125;;</span></span><br><span class="line">	<span class="comment">//while (ifs &gt;&gt; buf) &#123;</span></span><br><span class="line">	<span class="comment">// cout &lt;&lt; buf &lt;&lt; endl;</span></span><br><span class="line">	<span class="comment">//&#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 第二种</span></span><br><span class="line">	<span class="comment">//char buf[1024] = &#123; 0 &#125;;</span></span><br><span class="line">	<span class="comment">//while (ifs.getline(buf,sizeof(buf)))</span></span><br><span class="line">	<span class="comment">//&#123;</span></span><br><span class="line">	<span class="comment">//	cout &lt;&lt; buf &lt;&lt; endl;</span></span><br><span class="line">	<span class="comment">//&#125;</span></span><br><span class="line">	<span class="comment">//ifs.close();</span></span><br><span class="line"></span><br><span class="line">	<span class="type">char</span> c ;</span><br><span class="line">	<span class="keyword">while</span> ((c = ifs.<span class="built_in">get</span>()) != EOF) &#123;</span><br><span class="line">		cout &lt;&lt; c;</span><br><span class="line">	&#125;</span><br><span class="line">	ifs.<span class="built_in">close</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">test02</span>();</span><br><span class="line"></span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-- 二进制写
-
+<ul>
+<li>二进制写</li>
+</ul>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;fstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="type">char</span> m_name[<span class="number">64</span>];</span><br><span class="line">	<span class="type">int</span> m_age;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 二进制文件 写文件</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test03</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 1. 包含头文件</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// 2. 创建输出流对象</span></span><br><span class="line">	<span class="function">ofstream <span class="title">ofs</span><span class="params">(<span class="string">&quot;person.txt&quot;</span>, ios::out | ios::binary)</span></span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 3.打开文件</span></span><br><span class="line">	</span><br><span class="line">	Person p = &#123; <span class="string">&quot;张三&quot;</span>,<span class="number">18</span> &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 写文件</span></span><br><span class="line">	ofs.<span class="built_in">write</span>((<span class="type">const</span> <span class="type">char</span>*)&amp;p, <span class="built_in">sizeof</span>(p));</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 关闭文件</span></span><br><span class="line">	ofs.<span class="built_in">close</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">test03</span>();</span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-- 二进制读
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">istream&amp; <span class="title">read</span><span class="params">(<span class="type">char</span> *buffer,<span class="type">int</span> len)</span></span>;</span><br></pre></td></tr></table></figure>
-
-- 职工管理系统
-    > case 语句里：代码过长需要用“{}”括起来。
-    > `ios::trunk`:删除文件后重新创建
+<ul>
+<li><p>二进制读 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">istream&amp; <span class="title">read</span><span class="params">(<span class="type">char</span> *buffer,<span class="type">int</span> len)</span></span>;</span><br></pre></td></tr></table></figure></p></li>
+<li><p>职工管理系统 &gt; case 语句里：代码过长需要用“{}”括起来。 &gt;
+<code>ios::trunk</code>:删除文件后重新创建</p></li>
+</ul>
 
                 
             </div>
@@ -1160,7 +1161,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">51.9k</span>&nbsp;字
+                class="white-color">48.4k</span>&nbsp;字
             
             
             

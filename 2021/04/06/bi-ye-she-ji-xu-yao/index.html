@@ -510,163 +510,176 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
-
-##  
-
-## 论文题目
-> UE4引擎下射击类游戏的设计与开发
-
-## 论文内容格式
-> “概念+现状+问题+建议”
-> 提出问题,解决概念,分析问题,提出建议
-
-
-## 毕设初次分析
-> 1. UE4 playerpawn和botpawn
-> 2. 摄像机组件控制视野，C++ 代码实现
-> 3. UE4 characters:Fpp和Tpp
-> 4. online/ C++ GameMode在:ShooterGame_menu,UI,创建游戏和加入游戏
-> 5. player/ShooterPlayerCameraManager: 继承UpdateCamera ,DefaultFov,摄像机类型，UpdateCamera视角更新计算，UE4/source/runtime/engine/private/playerCameraManager.cpp: UpdateViwtarget,定义：查看轨道动画
-> 6. 蓝图和c++实现，场景，UE4+vs2019
-> 7. 论文设计目标： 基于虚幻4游戏引擎和VS2019开发一个多人的射击游戏,带来较为逼真的游戏体验，通过本次设计，深入学习虚幻4游戏引擎，主要是涉及虚幻4编辑器的使用、蓝图的编写、角色与场景制作，体会游戏的制作逻辑，同时学习并实现网络通信，利用VS2019进一步学习C++编程。与此同时，对虚幻引擎和VS2019之间的连接关系有更深刻体会。
-> 8. 内容：角色创建，为游戏导入需要的动画与音效，为角色绑定控制器实现角色控制，游戏菜单UI的制作，游戏碰撞击与打效果的实现，场景搭建，武器设计系统的实现，玩家武器库的制作，玩家相机系统的实现，在线多人游戏系统的实现，菜单系统和其中选项菜单的实现，主要通过蓝图编程和c++编程实现特定功能。
-> 9. 参考文献：	
-[1]黄冈.基于虚幻引擎的FPS游戏开发与设计 .青海师范大学 .2020    
-[2]朱悦.基于UE4的射击类手机游戏系统的设计与实现 .华中科技大学 .2018 
-[3]朱阅晗; 张海翔; 马文娟基于虚幻4引擎的三维游戏开发实践  2017
+                <h2 id="section"></h2>
+<h2 id="论文题目">论文题目</h2>
+<blockquote>
+<p>UE4引擎下射击类游戏的设计与开发</p>
+</blockquote>
+<h2 id="论文内容格式">论文内容格式</h2>
+<blockquote>
+<p>“概念+现状+问题+建议” 提出问题,解决概念,分析问题,提出建议</p>
+</blockquote>
+<h2 id="毕设初次分析">毕设初次分析</h2>
+<blockquote>
+<ol type="1">
+<li>UE4 playerpawn和botpawn</li>
+<li>摄像机组件控制视野，C++ 代码实现</li>
+<li>UE4 characters:Fpp和Tpp</li>
+<li>online/ C++ GameMode在:ShooterGame_menu,UI,创建游戏和加入游戏</li>
+<li>player/ShooterPlayerCameraManager: 继承UpdateCamera
+,DefaultFov,摄像机类型，UpdateCamera视角更新计算，UE4/source/runtime/engine/private/playerCameraManager.cpp:
+UpdateViwtarget,定义：查看轨道动画</li>
+<li>蓝图和c++实现，场景，UE4+vs2019</li>
+<li>论文设计目标：
+基于虚幻4游戏引擎和VS2019开发一个多人的射击游戏,带来较为逼真的游戏体验，通过本次设计，深入学习虚幻4游戏引擎，主要是涉及虚幻4编辑器的使用、蓝图的编写、角色与场景制作，体会游戏的制作逻辑，同时学习并实现网络通信，利用VS2019进一步学习C++编程。与此同时，对虚幻引擎和VS2019之间的连接关系有更深刻体会。</li>
+<li>内容：角色创建，为游戏导入需要的动画与音效，为角色绑定控制器实现角色控制，游戏菜单UI的制作，游戏碰撞击与打效果的实现，场景搭建，武器设计系统的实现，玩家武器库的制作，玩家相机系统的实现，在线多人游戏系统的实现，菜单系统和其中选项菜单的实现，主要通过蓝图编程和c++编程实现特定功能。</li>
+<li>参考文献：<br />
+[1]黄冈.基于虚幻引擎的FPS游戏开发与设计 .青海师范大学 .2020<br />
+[2]朱悦.基于UE4的射击类手机游戏系统的设计与实现 .华中科技大学 .2018
+[3]朱阅晗; 张海翔; 马文娟基于虚幻4引擎的三维游戏开发实践 2017
 [4]高海阳.基于Unreal Engine 3 的RPG射击游戏开发.吉林大学 .2015
 [5]谢飏霄.虚幻引擎下的次时代游戏场景射击研究[D].浙江工业大学，2018
 [6]沈士钊.基于Unity3D引擎的三维角色扮演游戏设计与实现[D].华中科技大学，2017
 [7]郑帅.基于Socket的游戏服务器的设计与实现[D].背景交通大学，2014.
 [8]郝运.行为树驱动的人工智能决策模型设计与实现[D].西南交通大学，2017.
 [9]郭东方.基于unity3D坦克战争游戏的设计与实现[D].河北科技大学.2017.
-[10]黄杨煜.基于实时全局光照的3D绘制引擎研究和开发[D].北京化工大学，2015.
-
-## 毕设所需：
-> 资源引用、目录结构、游戏模块
-![游戏型编程参考目录.](/images/游戏型编程参考目录.png)
-> 游戏控制的摄像机
-> 组件和碰撞
-> 建立第一人称射击游戏教程项目
-> 蓝图可视化脚本
-> Ue4中的C++
-> 游戏逻辑编程
-> GamePlay 框架（游戏流程、控制器、）
-> 多人游戏（在单人游戏或本地多人游戏中，游戏在 独立 游戏上本地运行。玩家将输入连接到一台计算机，直接控制其上所有内容，而包括Actor、场景和各玩家的用户界面在内的所有游戏项目均存在于这台本地机器上。）
-> AI（EQS）
-> slate UI框架
-> GamePlay 入门指南
-> UMG UI设计器
-> Game框架
-> 反射实现来支持动态功能，如垃圾回收、序列化、网络复制和蓝图/C++通信。
-> 在线子系统
-> 场景搭建、碰撞
-> 物理（碰撞）
-> 输入
-> 使用计时器
-> 多人游戏编程快速入门指南
-
-
-
-## 论文目录技术部分
-> chaper2:引擎，蓝图可视化，AI，网络模式 
-> chapter4:1：
-> 服务器作用：玩家交互数据的广播，同步
-
-2：玩家数据存储
-
-3：做好验证，防止外挂
-
-4：交互的流畅性
-
-4.3 客户端的设计  
-4.3.1 游戏主菜单设计
-## 编程基础
->1. <https://docs.unrealengine.com/zh-CN/ProgrammingAndScripting/ProgrammingWithCPP/Basics/index.html>
-
-## 游戏逻辑编程
->1. <https://docs.unrealengine.com/zh-CN/ProgrammingAndScripting/ProgrammingWithCPP/UnrealArchitecture/index.html>
-
-## Tip
->1. 任何蓝图项目均可转换为C++项目。
-## 修改
-> 删除游戏特效
-
-## 开题报告
-> 1. 选题目的和意义
-> 现如今，电子竞技行业正如火如荼地在全世界范围内盛行，除了专业的职业选手外，游戏也已经融入到人们工作学习之余不可或缺的娱乐生活，尽管普通玩家只在闲暇时间享受游戏，但是他们对游戏品质和玩法的追求也越来越高，现在越来越多的玩家倾向与选择射击型游戏与好友一起游玩，大多数的游戏玩家都是年轻一代，从画质到帧数、渲染、模式的多样性、操作性、对抗性和画面的真实感，他们都有着较高的需求，因此基于虚幻引擎去开发这么一款游戏是非常适合的。
-> 2. 国内外研究现状
-> 虚幻引擎是由Epic Games公司推出的一款游戏开发引擎， 它支持DirectX 11、物理引擎Physx、APEX和NVIDIA 3D技术，支持二代机。虚幻引擎有着强大的骨骼动画系统、物理学碰撞系统和友好的编辑界面、逼真的渲染效果，并且免费开源，可以发布至Windows、Linux、IOS、Android等流行平台。目前，全球虚幻引擎用户数已经突破了1000万人，目前占有全球商业游戏引擎市场80%的份额。基于虚幻引擎开发的游戏大作数不胜数，有前两年火爆全球的《绝地求生》，还有《堡垒之夜》、《流星蝴蝶剑OL》和《剑灵》等等，尤其是《绝地求生》，刚上市一两年，风头就已经盖过了塔防类游戏代表作《英雄联盟》。
+[10]黄杨煜.基于实时全局光照的3D绘制引擎研究和开发[D].北京化工大学，2015.</li>
+</ol>
+</blockquote>
+<h2 id="毕设所需">毕设所需：</h2>
+<blockquote>
+<p>资源引用、目录结构、游戏模块 <img
+src="/images/游戏型编程参考目录.png" alt="游戏型编程参考目录." />
+游戏控制的摄像机 组件和碰撞 建立第一人称射击游戏教程项目 蓝图可视化脚本
+Ue4中的C++ 游戏逻辑编程 GamePlay 框架（游戏流程、控制器、）
+多人游戏（在单人游戏或本地多人游戏中，游戏在 独立
+游戏上本地运行。玩家将输入连接到一台计算机，直接控制其上所有内容，而包括Actor、场景和各玩家的用户界面在内的所有游戏项目均存在于这台本地机器上。）
+AI（EQS） slate UI框架 GamePlay 入门指南 UMG UI设计器 Game框架
+反射实现来支持动态功能，如垃圾回收、序列化、网络复制和蓝图/C++通信。
+在线子系统 场景搭建、碰撞 物理（碰撞） 输入 使用计时器
+多人游戏编程快速入门指南</p>
+</blockquote>
+<h2 id="论文目录技术部分">论文目录技术部分</h2>
+<blockquote>
+<p>chaper2:引擎，蓝图可视化，AI，网络模式 chapter4:1：
+服务器作用：玩家交互数据的广播，同步</p>
+</blockquote>
+<p>2：玩家数据存储</p>
+<p>3：做好验证，防止外挂</p>
+<p>4：交互的流畅性</p>
+<p>4.3 客户端的设计<br />
+4.3.1 游戏主菜单设计 ## 编程基础 &gt;1. <a
+target="_blank" rel="noopener" href="https://docs.unrealengine.com/zh-CN/ProgrammingAndScripting/ProgrammingWithCPP/Basics/index.html"
+class="uri">https://docs.unrealengine.com/zh-CN/ProgrammingAndScripting/ProgrammingWithCPP/Basics/index.html</a></p>
+<h2 id="游戏逻辑编程">游戏逻辑编程</h2>
+<blockquote>
+<ol type="1">
+<li><a
+target="_blank" rel="noopener" href="https://docs.unrealengine.com/zh-CN/ProgrammingAndScripting/ProgrammingWithCPP/UnrealArchitecture/index.html"
+class="uri">https://docs.unrealengine.com/zh-CN/ProgrammingAndScripting/ProgrammingWithCPP/UnrealArchitecture/index.html</a></li>
+</ol>
+</blockquote>
+<h2 id="tip">Tip</h2>
+<blockquote>
+<ol type="1">
+<li>任何蓝图项目均可转换为C++项目。 ## 修改 删除游戏特效</li>
+</ol>
+</blockquote>
+<h2 id="开题报告">开题报告</h2>
+<blockquote>
+<ol type="1">
+<li>选题目的和意义
+现如今，电子竞技行业正如火如荼地在全世界范围内盛行，除了专业的职业选手外，游戏也已经融入到人们工作学习之余不可或缺的娱乐生活，尽管普通玩家只在闲暇时间享受游戏，但是他们对游戏品质和玩法的追求也越来越高，现在越来越多的玩家倾向与选择射击型游戏与好友一起游玩，大多数的游戏玩家都是年轻一代，从画质到帧数、渲染、模式的多样性、操作性、对抗性和画面的真实感，他们都有着较高的需求，因此基于虚幻引擎去开发这么一款游戏是非常适合的。</li>
+<li>国内外研究现状 虚幻引擎是由Epic Games公司推出的一款游戏开发引擎，
+它支持DirectX 11、物理引擎Physx、APEX和NVIDIA
+3D技术，支持二代机。虚幻引擎有着强大的骨骼动画系统、物理学碰撞系统和友好的编辑界面、逼真的渲染效果，并且免费开源，可以发布至Windows、Linux、IOS、Android等流行平台。目前，全球虚幻引擎用户数已经突破了1000万人，目前占有全球商业游戏引擎市场80%的份额。基于虚幻引擎开发的游戏大作数不胜数，有前两年火爆全球的《绝地求生》，还有《堡垒之夜》、《流星蝴蝶剑OL》和《剑灵》等等，尤其是《绝地求生》，刚上市一两年，风头就已经盖过了塔防类游戏代表作《英雄联盟》。
 国内《古剑奇谭》、《逆水寒》、《仙剑奇侠》也都是非常成功的游戏大作，可是在游戏引擎的研发上还是相对落后，例如我国网易公司研发的弥赛亚引擎、搜狐畅游研发“黑火”引擎和西山居研发的“剑三”引擎在动画系统、游戏框架、物理碰撞、人工智能等方面相较于上述的两款优质引擎仍存在较大差距。唯独在网页游戏的制作上，白鹭科技公司凭借自己建立的一套比较完整的游戏研发解决方案，在该领域有着一席之地。
-随着以PS4、Wii U、XboxOne等第八世代游戏机为平台的游戏作品问世，“次时代游戏”世代宣布到来。虚幻引擎凭借着实时逼真渲染、可视化脚本开发、健壮的游戏框架和先进的人工智能成为了次时代的主要游戏引擎。
-> 3. 研究内容
-> 学习虚幻引擎和主流引擎，设计和开发了一款单人和本地多人游戏；详细介绍游戏的设计开发流程，主要是UI界面和使用的网络模式，主要技术：蓝图可视化编程技术、UE4中的C++编程、多人游戏中的独立网络模式和主要游戏模块。
+随着以PS4、Wii
+U、XboxOne等第八世代游戏机为平台的游戏作品问世，“次时代游戏”世代宣布到来。虚幻引擎凭借着实时逼真渲染、可视化脚本开发、健壮的游戏框架和先进的人工智能成为了次时代的主要游戏引擎。</li>
+<li>研究内容
+学习虚幻引擎和主流引擎，设计和开发了一款单人和本地多人游戏；详细介绍游戏的设计开发流程，主要是UI界面和使用的网络模式，主要技术：蓝图可视化编程技术、UE4中的C++编程、多人游戏中的独立网络模式和主要游戏模块。</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="4" type="1">
+<li>实施方案、进度安排及预期效果：</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>实施方案： 1.
+尽可能多地查看相关文献和相关教程，对整体的游戏开发流程有更深入认知，并熟悉虚幻引擎的使用，巩固和复习相关技术知识，准备制作游戏的相关素材，例如场景地图、音频和动画等。
+2. 准备如下硬件和软件环境： 硬件：GTX1660ti-6G显卡，处理器Intel
+i5-9300h,运行内存8G,1T固态硬盘。开发环境为Windows 10系统。
+软件：虚幻引擎4，Visual Studio2019 3. 需求分析 4. 设计与实现 5. 游戏测试
+6. 论文写作</p>
+</blockquote>
+<blockquote>
+<p>进度安排：
+2月份完成项目的前置工作，即方案中的1、2两点，4月份中旬前完成需求分析和实现，5月份前完成测试，5月中旬完成论文。</p>
+</blockquote>
+<blockquote>
+<p>预期效果：当玩家启动游戏后，首先映入眼帘的便是游戏主菜单。在游戏主菜单中，玩家可以选择自己主持一局游戏，也可以通过局域网加入到其他玩家创建的游戏；也能在进入游戏前进行分辨率、窗口大小等基础设置。选择主持游戏选项，进入子菜单，玩家可以从个人竞技模式和团队竞技模式中选择其中一种模式，从两种地图种选择一种，同时可以设定机器人数量。在加入游戏选项中，如果附近有玩家创建了游戏，那么其它玩家就可以在此看到该房间服务器。在游戏中，玩家可以实现一系列的动作控制、战绩查看和进行聊天对话等操作。游戏结束弹出战绩排行。</p>
+</blockquote>
+<h2 id="毕业答辩20210522">毕业答辩2021/05/22</h2>
+<h3 id="基础概念">基础概念</h3>
+<ol type="1">
+<li>关卡：三维场景</li>
+<li>Actor：编程类，放在关卡中的对象</li>
+<li>光源</li>
+<li>材质</li>
+<li>蓝图</li>
+<li>测试方法</li>
+</ol>
+<h3 id="要点">要点</h3>
+<ol type="1">
+<li>设置游戏默认地图</li>
+<li>添加碰撞</li>
+<li>术语基本概念：<a
+target="_blank" rel="noopener" href="https://docs.unrealengine.com/zh-CN/Basics/UnrealEngineTerminology/index.html"
+class="uri">https://docs.unrealengine.com/zh-CN/Basics/UnrealEngineTerminology/index.html</a></li>
+<li>AI组件</li>
+<li>音频组件</li>
+<li>摄像机组件</li>
+<li>移动组件</li>
+<li>寻路组件？？？</li>
+<li>物理组件</li>
+<li>渲染组件：Atmospheric Fog Component，Exponential Height Fog
+Componen， &gt; DecalComponent
+是一个被渲染到网格模型表面上的材质（一种适用于模型的"保险杠标贴"）。贴花组件可用于任何目的，如发射子弹时在墙上撞出的痕迹，车辆在道路上擦出的打滑印记，被击中时在地上溅出的血迹等（下面有一个相关的示例）。
+&gt; ParticleSystemComponent
+可以让你添加一个粒子发射器作为其他对象的子对象。添加
+ParticleSystemComponent
+可用于多种目的，例如，为想要摧毁的对象添加爆炸效果，或是为可以点燃的对象增加着火效果。通过添加这类组件到其他对象，你便可以在游戏过程中借助脚本访问和设置任何粒子效果参数（例如打开或关闭效果）。</li>
+<li>盒体组件，Spline Component （样条组件）</li>
+<li>应用程序生命周期组件
+应用程序生命周期组件（ApplicationLifecycleComponent）
+处理从OS（操作系统）接收的关于应用程序的状态（开始、停止、结束等）的通知。
+子Actor组件（ChildActorComponent）
+是一个在注册时生成Actor并在取消注册时销毁Actor的组件。</li>
+<li>蓝图和C++类：<a
+target="_blank" rel="noopener" href="https://docs.unrealengine.com/zh-CN/Basics/UnrealEngineForUnityDevs/index.html"
+class="uri">https://docs.unrealengine.com/zh-CN/Basics/UnrealEngineForUnityDevs/index.html</a></li>
+<li>目录结构</li>
+<li>事件（event）
+是一个入口，或者说是可视化脚本的第一个执行节点。该入口通常由游戏中的事件触发。</li>
+<li>渲染：色温，材质，抗锯齿，曝光，泛光，阴影，色差，材质，着色，GPU粒子</li>
+<li>C++控制摄像机</li>
+<li>基于C++类创建蓝图（扩展类到蓝图）</li>
+<li>创建动画蓝图</li>
+<li>UMG:创建菜单控件蓝图<br />
+</li>
+<li></li>
+</ol>
+<h3 id="编程相关">编程相关</h3>
+<ol type="1">
+<li>NewObject 用于新建 UObject 类型的实例，而 SpawnActor 用于新建 AActor
+类型的实例。</li>
+<li>我们使用 Instantiate 函数来新建对象的实例。</li>
+<li>'check()' 函数来触发严重的断言错误</li>
+<li>断言： 虚幻引擎4（UE4）提供 assert
+等同项的三个不同族系：check、verify 和 ensure</li>
+</ol>
 
-
-> 4. 实施方案、进度安排及预期效果：
-
-
-> 实施方案：
-> 1. 尽可能多地查看相关文献和相关教程，对整体的游戏开发流程有更深入认知，并熟悉虚幻引擎的使用，巩固和复习相关技术知识，准备制作游戏的相关素材，例如场景地图、音频和动画等。
-> 2. 准备如下硬件和软件环境：
-> 硬件：GTX1660ti-6G显卡，处理器Intel i5-9300h,运行内存8G,1T固态硬盘。开发环境为Windows 10系统。
-> 软件：虚幻引擎4，Visual Studio2019
-> 3. 需求分析
-> 4. 设计与实现
-> 5. 游戏测试
-> 6. 论文写作
-
-> 进度安排：
-> 2月份完成项目的前置工作，即方案中的1、2两点，4月份中旬前完成需求分析和实现，5月份前完成测试，5月中旬完成论文。
-
-
-> 预期效果：当玩家启动游戏后，首先映入眼帘的便是游戏主菜单。在游戏主菜单中，玩家可以选择自己主持一局游戏，也可以通过局域网加入到其他玩家创建的游戏；也能在进入游戏前进行分辨率、窗口大小等基础设置。选择主持游戏选项，进入子菜单，玩家可以从个人竞技模式和团队竞技模式中选择其中一种模式，从两种地图种选择一种，同时可以设定机器人数量。在加入游戏选项中，如果附近有玩家创建了游戏，那么其它玩家就可以在此看到该房间服务器。在游戏中，玩家可以实现一系列的动作控制、战绩查看和进行聊天对话等操作。游戏结束弹出战绩排行。
-
-## 毕业答辩2021/05/22
-### 基础概念
-1. 关卡：三维场景
-2. Actor：编程类，放在关卡中的对象
-3. 光源
-4. 材质
-5. 蓝图
-6. 测试方法
-
-### 要点
-1. 设置游戏默认地图
-2. 添加碰撞
-3. 术语基本概念：<https://docs.unrealengine.com/zh-CN/Basics/UnrealEngineTerminology/index.html>
-4. AI组件
-5. 音频组件
-6. 摄像机组件
-7. 移动组件
-8. 寻路组件？？？
-9. 物理组件
-10. 渲染组件：Atmospheric Fog Component，Exponential Height Fog Componen，
-> DecalComponent 是一个被渲染到网格模型表面上的材质（一种适用于模型的"保险杠标贴"）。贴花组件可用于任何目的，如发射子弹时在墙上撞出的痕迹，车辆在道路上擦出的打滑印记，被击中时在地上溅出的血迹等（下面有一个相关的示例）。
-> ParticleSystemComponent 可以让你添加一个粒子发射器作为其他对象的子对象。添加 ParticleSystemComponent 可用于多种目的，例如，为想要摧毁的对象添加爆炸效果，或是为可以点燃的对象增加着火效果。通过添加这类组件到其他对象，你便可以在游戏过程中借助脚本访问和设置任何粒子效果参数（例如打开或关闭效果）。
-11. 盒体组件，Spline Component （样条组件）
-12. 应用程序生命周期组件
-应用程序生命周期组件（ApplicationLifecycleComponent） 处理从OS（操作系统）接收的关于应用程序的状态（开始、停止、结束等）的通知。
-子Actor组件（ChildActorComponent） 是一个在注册时生成Actor并在取消注册时销毁Actor的组件。
-13. 蓝图和C++类：<https://docs.unrealengine.com/zh-CN/Basics/UnrealEngineForUnityDevs/index.html>
-14. 目录结构
-15. 事件（event） 是一个入口，或者说是可视化脚本的第一个执行节点。该入口通常由游戏中的事件触发。
-16. 渲染：色温，材质，抗锯齿，曝光，泛光，阴影，色差，材质，着色，GPU粒子
-17. C++控制摄像机
-18. 基于C++类创建蓝图（扩展类到蓝图）
-19. 创建动画蓝图
-20. UMG:创建菜单控件蓝图   
-21.
-
-
-
-
-### 编程相关
-1. NewObject 用于新建 UObject 类型的实例，而 SpawnActor 用于新建 AActor 类型的实例。
-2. 我们使用 Instantiate 函数来新建对象的实例。
-3.  'check()' 函数来触发严重的断言错误
-4. 断言： 虚幻引擎4（UE4）提供 assert 等同项的三个不同族系：check、verify 和 ensure
                 
             </div>
             <hr/>
@@ -1174,7 +1187,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">51.9k</span>&nbsp;字
+                class="white-color">48.4k</span>&nbsp;字
             
             
             

@@ -488,7 +488,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    959
+                    966
                 </div>
                 
 
@@ -510,105 +510,144 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
-## 常量定义的两种方式
-> - #define 定义常量：`#define 常量名 常量值`，   
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> day 7  </span></span><br></pre></td></tr></table></figure>
-
-> - `const 数据类型 常量名 = 常量值`,   
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> month = <span class="number">30</span></span><br></pre></td></tr></table></figure>
-
-## 数据类型存在的意义
-> - 给变量分配合适的内存空间
-> - sizeof（数据类型/变量）
-> - 浮点型
->   - float: 3.14默认为双精度，3.14f则为单精度 
->   - 小数默认6位有效数字
-> - char型：char ch = 'a'(注意单引号)
-> - 转义字符
-> - string 头文件
-
-## 运算符
-> - 三目运算符返回的是一个变量
-
-## 结构
-> - switch 结构清晰，执行效率高，判断整型或字符型，不可是一个区间
-> - 随机数种子，利用当前系统时间生成随机数，防止每次随机数都一样
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="built_in">srand</span>((<span class="type">unsigned</span> <span class="type">int</span>)<span class="built_in">time</span>(<span class="literal">NULL</span>));</span><br><span class="line"><span class="type">int</span> num = <span class="built_in">rand</span>()%<span class="number">100</span>+<span class="number">1</span>;</span><br></pre></td></tr></table></figure>
-> - cotinue 退出**本次**循环
-> - goto   
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">goto</span> FLAG;</span><br><span class="line">FLAG:</span><br></pre></td></tr></table></figure>
-
-## 函数
-> - 形参不影响实参，占据不同地址
-> - 函数的声明可以多次，定义只能有一次。 
-> - .h头文件，.cpp源文件
-> - 封装
-> - system("pause")
-
-## 指针
-> - 指针存储的是地址
-> - 解引用
-> - 指针，32bit占用4个字节,64bit占用8个字节
-> - 空指针，指向编号为0的内存块
->   - 给指针变量进行初始化
->   - 空指针指向的内存不可访问（0-255之间的内存编号系统占用） 
-> - 野指针，指向非法的内存空间
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> *p = (<span class="type">int</span>*)ox1100;</span><br></pre></td></tr></table></figure>
-空指针和野指针都不是我们申请的空间，因此不要访问。
-> - const与指针
->   - 修饰指针，常量指针，`const int *p = &a;`指针的指向可以修改，指向的值不可以修改。
->   - 修饰常量，指针常量，`int *const p = &a;`指向的值可以改，指向不可以改。
->   - 双修饰
-
-> - 指针与函数
->   - 传地址，形参与实参指向同一个地址。
-
-> **函数指针**：typedef int (*fun_ptr)(int,int); // 声明一个指向同样参数、返回值的函数指针类型
-
-- **回调函数**
-> 函数指针作为某个函数的参数
-> 函数指针变量可以作为某个函数的参数来使用的，回调函数就是一个通过函数指针> 调>用的函数。
-
-> 简单讲：回调函数是由别人的函数执行时调用你实现的函数。
-
-> 以下是来自知乎作者常溪玲的解说：
-
-> 你到一个商店买东西，刚好你要的东西没有货，于是你在店员那里留下了你的话，> 过了几天店里有货了，店员就打了你的电话，然后你接到电话后就到店里去取货。
-> 在这个例子里，你的电话号码就叫回调函数，你把电话留给店员就叫登记回调函
-> 数，店里后来有货了叫做触发了回调关联的事件，店员给你打电话叫做调用回调函
-> 数，你到店里去取货叫做响应回调事件。
-
-## 结构体
-> - 创建变量时，`struct`可省略。
-> - 结构体指针
-> - 形参改为指针，减少地址空间
-
-## 通讯录管理系统
-> - void ShowMenu()
-> - switch 选择功能
-> - 添加联系人功能
-> - `#define MAX 1000`报错，根据提示更改为`constexpr auto MAX = 1000; `后提示正确
->  
+                <h2 id="常量定义的两种方式">常量定义的两种方式</h2>
+<blockquote>
+<ul>
+<li>#define 定义常量：<code>#define 常量名 常量值</code>，<br />
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> day 7  </span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li><code>const 数据类型 常量名 = 常量值</code>,<br />
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> month = <span class="number">30</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</blockquote>
+<h2 id="数据类型存在的意义">数据类型存在的意义</h2>
+<blockquote>
+<ul>
+<li>给变量分配合适的内存空间</li>
+<li>sizeof（数据类型/变量）</li>
+<li>浮点型
+<ul>
+<li>float: 3.14默认为双精度，3.14f则为单精度</li>
+<li>小数默认6位有效数字</li>
+</ul></li>
+<li>char型：char ch = 'a'(注意单引号)</li>
+<li>转义字符</li>
+<li>string 头文件</li>
+</ul>
+</blockquote>
+<h2 id="运算符">运算符</h2>
+<blockquote>
+<ul>
+<li>三目运算符返回的是一个变量</li>
+</ul>
+</blockquote>
+<h2 id="结构">结构</h2>
+<blockquote>
+<ul>
+<li>switch 结构清晰，执行效率高，判断整型或字符型，不可是一个区间</li>
+<li>随机数种子，利用当前系统时间生成随机数，防止每次随机数都一样
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="built_in">srand</span>((<span class="type">unsigned</span> <span class="type">int</span>)<span class="built_in">time</span>(<span class="literal">NULL</span>));</span><br><span class="line"><span class="type">int</span> num = <span class="built_in">rand</span>()%<span class="number">100</span>+<span class="number">1</span>;</span><br></pre></td></tr></table></figure></li>
+<li>cotinue 退出<strong>本次</strong>循环</li>
+<li>goto<br />
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">goto</span> FLAG;</span><br><span class="line">FLAG:</span><br></pre></td></tr></table></figure></li>
+</ul>
+</blockquote>
+<h2 id="函数">函数</h2>
+<blockquote>
+<ul>
+<li>形参不影响实参，占据不同地址</li>
+<li>函数的声明可以多次，定义只能有一次。</li>
+<li>.h头文件，.cpp源文件</li>
+<li>封装</li>
+<li>system("pause")</li>
+</ul>
+</blockquote>
+<h2 id="指针">指针</h2>
+<blockquote>
+<ul>
+<li>指针存储的是地址</li>
+<li>解引用</li>
+<li>指针，32bit占用4个字节,64bit占用8个字节</li>
+<li>空指针，指向编号为0的内存块
+<ul>
+<li>给指针变量进行初始化</li>
+<li>空指针指向的内存不可访问（0-255之间的内存编号系统占用）</li>
+</ul></li>
+<li>野指针，指向非法的内存空间 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> *p = (<span class="type">int</span>*)ox1100;</span><br></pre></td></tr></table></figure>
+空指针和野指针都不是我们申请的空间，因此不要访问。</li>
+<li>const与指针
+<ul>
+<li>修饰指针，常量指针，<code>const int *p = &amp;a;</code>指针的指向可以修改，指向的值不可以修改。</li>
+<li>修饰常量，指针常量，<code>int *const p = &amp;a;</code>指向的值可以改，指向不可以改。</li>
+<li>双修饰</li>
+</ul></li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>指针与函数
+<ul>
+<li>传地址，形参与实参指向同一个地址。</li>
+</ul></li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>函数指针</strong>：typedef int (*fun_ptr)(int,int); //
+声明一个指向同样参数、返回值的函数指针类型</p>
+</blockquote>
+<ul>
+<li><strong>回调函数</strong> &gt; 函数指针作为某个函数的参数 &gt;
+函数指针变量可以作为某个函数的参数来使用的，回调函数就是一个通过函数指针&gt;
+调&gt;用的函数。</li>
+</ul>
+<blockquote>
+<p>简单讲：回调函数是由别人的函数执行时调用你实现的函数。</p>
+</blockquote>
+<blockquote>
+<p>以下是来自知乎作者常溪玲的解说：</p>
+</blockquote>
+<blockquote>
+<p>你到一个商店买东西，刚好你要的东西没有货，于是你在店员那里留下了你的话，&gt;
+过了几天店里有货了，店员就打了你的电话，然后你接到电话后就到店里去取货。
+在这个例子里，你的电话号码就叫回调函数，你把电话留给店员就叫登记回调函
+数，店里后来有货了叫做触发了回调关联的事件，店员给你打电话叫做调用回调函
+数，你到店里去取货叫做响应回调事件。</p>
+</blockquote>
+<h2 id="结构体">结构体</h2>
+<blockquote>
+<ul>
+<li>创建变量时，<code>struct</code>可省略。</li>
+<li>结构体指针</li>
+<li>形参改为指针，减少地址空间</li>
+</ul>
+</blockquote>
+<h2 id="通讯录管理系统">通讯录管理系统</h2>
+<blockquote>
+<ul>
+<li>void ShowMenu()</li>
+<li>switch 选择功能</li>
+<li>添加联系人功能</li>
+<li><code>#define MAX 1000</code>报错，根据提示更改为<code>constexpr auto MAX = 1000;</code>后提示正确</li>
+</ul>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">default</span>:</span><br><span class="line"><span class="keyword">break</span>;</span><br></pre></td></tr></table></figure>
->
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">system</span>(<span class="string">&quot;cls&quot;</span>);</span><br></pre></td></tr></table></figure>
-> 
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">  .....</span><br><span class="line">  <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-## main函数理解
-
-- 对`int main(argc,argv* [])`中两个参数的理解 
-
-## 修补
-
-- `printf("%s",p)`: %s,~~s%~~  
-
-- (int*)(74):74号地址
-
+</blockquote>
+<h2 id="main函数理解">main函数理解</h2>
+<ul>
+<li>对<code>int main(argc,argv* [])</code>中两个参数的理解</li>
+</ul>
+<h2 id="修补">修补</h2>
+<ul>
+<li><p><code>printf("%s",p)</code>: %s,<del>s%</del></p></li>
+<li><p>(int*)(74):74号地址</p></li>
+</ul>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>* <span class="title function_">test</span><span class="params">()</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> (<span class="type">int</span>*) (<span class="number">74</span>);				<span class="comment">// 将整型强制转化为地址</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">	</span><br><span class="line">	<span class="type">int</span>* p = test();</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, p);                              <span class="comment">// 十进制输出 74</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;返回值是：&quot;</span> &lt;&lt; p &lt;&lt; <span class="built_in">endl</span>;				<span class="comment">// 0000004A   </span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;返回值是：&quot;</span> &lt;&lt; &amp;p &lt;&lt; <span class="built_in">endl</span>;			    <span class="comment">// 005EF780</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;返回值是：&quot;</span> &lt;&lt; (<span class="type">int</span>)p &lt;&lt; <span class="built_in">endl</span>;		    <span class="comment">// 74</span></span><br><span class="line">	system(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>* a = <span class="number">5</span>;</span><br><span class="line"><span class="type">int</span>* p = (<span class="type">int</span>*)a;         <span class="comment">// 将5强转为地址</span></span><br><span class="line"><span class="type">int</span>* q = (<span class="type">int</span>*)&amp;a;        <span class="comment">// 将a的地址强转为指针</span></span><br></pre></td></tr></table></figure>
+
                 
             </div>
             <hr/>
@@ -1112,7 +1151,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">51.9k</span>&nbsp;字
+                class="white-color">48.4k</span>&nbsp;字
             
             
             

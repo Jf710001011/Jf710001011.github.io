@@ -480,7 +480,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    3.5k
+                    3.3k
                 </div>
                 
 
@@ -502,277 +502,368 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
-[github](https://github.com/halfrost/LeetCode-Go)
-
-[books](https://books.halfrost.com/leetcode/)
-
-### 在2022-12-26日之前
-
-- 已完成
-
-![image-20221226234508236](https://s2.loli.net/2022/12/26/3xWKJkqlvZTAgm6.png)
-
-- 北林OJ上的刷题
-
-![image-20230113002007660](https://s2.loli.net/2023/01/13/v8oiGFITWqMRYnd.png)
-
---------
-
-### 2023-02-12：[48. 旋转图像](https://leetcode.cn/problems/rotate-image/)
-
-- 我思
-
-  - 原地操作（只能采用交换）
-  - 对二维数组的操作
-  - 我感觉是个找规律题：甚至我尝试把坐标变换列出来，去找规律，但是不行
-    - 变化步数和（列变+行变）＝n
-  - 事实上：旋转90度，可我们直接把原先的列当成行去读，就是旋转后的答案，但是**原地操作**
-  - 
-  - 从几何视角看：直线角度变化
-    - 从中间到外围是一个个正方形
-
-- 参考
-
-  - 事实上就是找规律
-  - 关于矩阵的知识联想：转置，对称。(正好是容易进行的操作）
-
-  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">   <span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">rotate</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; matrix)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 00 02    10 01   20 00</span></span><br><span class="line">        <span class="comment">// 01 12    11 11   21 12</span></span><br><span class="line">        <span class="comment">// 02 22    12 21   22 20</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 00 03    01 13   02 23   03 33</span></span><br><span class="line">        <span class="comment">// 10 02    11 12   12 22</span></span><br><span class="line">        <span class="comment">//</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 规律就是转置+镜像(纵向)对称</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 转置：限定j&lt;i 或 i &lt; j</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; matrix.<span class="built_in">size</span>(); ++i) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; i; j++) &#123;</span><br><span class="line">                <span class="built_in">swap</span>(matrix[i][j], matrix[j][i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 对称</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; matrix.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; matrix.<span class="built_in">size</span>() / <span class="number">2</span>; j++) &#123;</span><br><span class="line">                <span class="built_in">swap</span>(matrix[i][j], matrix[i][matrix.<span class="built_in">size</span>() - <span class="number">1</span> - j]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-  
-
-### 2022-01-23：[46. 全排列](https://leetcode.cn/problems/permutations/)
-
-- 我思
-
-  - 回溯
-  - 问题是：取出第一个数字后，如何取出剩余其它数字
-
-- 参考：
-
-  - 方法正确
-  - 解决我思的问题：
-    - 法1：标记法
-    - 法2：数组分割交换
-
-- submit
-
-  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">   <span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// 回溯法</span></span><br><span class="line">    <span class="comment">// 标记数组</span></span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; path;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; ans;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">backTrace</span><span class="params">(vector&lt;<span class="type">int</span>&gt; nums,vector&lt;<span class="type">bool</span>&gt;flag)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (path.<span class="built_in">size</span>() == nums.<span class="built_in">size</span>()) &#123;</span><br><span class="line">            ans.<span class="built_in">emplace_back</span>(path);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); ++i) &#123; </span><br><span class="line">            <span class="keyword">if</span>(!flag[i]) &#123;  <span class="comment">// 没被标记则可使用</span></span><br><span class="line">                path.<span class="built_in">emplace_back</span>(nums[i]);</span><br><span class="line">                flag[i] = <span class="literal">true</span>;</span><br><span class="line">                <span class="built_in">backTrace</span>(nums,flag);</span><br><span class="line">                path.<span class="built_in">pop_back</span>();</span><br><span class="line">                flag[i] = <span class="literal">false</span>;        <span class="comment">// 这句 必须加</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">permute</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        vector&lt;<span class="type">bool</span>&gt;<span class="built_in">flag</span> (nums.<span class="built_in">size</span>(),<span class="literal">false</span>);</span><br><span class="line">        <span class="built_in">backTrace</span>(nums, flag);</span><br><span class="line">        <span class="keyword">return</span> ans; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-  ![image-20230125192151573](https://s2.loli.net/2023/01/25/sAe9u5NWUXcJT7w.png)
-
-### 2022-01-21: [33. 搜索旋转排序数组](https://leetcode.cn/problems/search-in-rotated-sorted-array/)
-
-- 我思
-  - 一开始没看懂题目，总感觉它想让我们求旋转后的数组
-  - 结果是考查找
-  - 然后把时间复杂度要求O(log n )看成了O(n)
-  - 根据时间复杂度O(log n )很容易联想到二分查找
-  - 二分查找要求有序，旋转数组后数组分成两段分别有序，那么如何找到这个分界点是一个问题。
-- 参考
-  - 旋转后的数组必定：一部分有序，另一部分无序或有序；难以理解。
-  - 并且如果mid 小于right,则这部分必定有序
-  - 以上两条结论是如何解释
-- submit
-
+                <p><a target="_blank" rel="noopener" href="https://github.com/halfrost/LeetCode-Go">github</a></p>
+<p><a target="_blank" rel="noopener" href="https://books.halfrost.com/leetcode/">books</a></p>
+<h3 id="在2022-12-26日之前">在2022-12-26日之前</h3>
+<ul>
+<li>已完成</li>
+</ul>
+<figure>
+<img src="https://s2.loli.net/2022/12/26/3xWKJkqlvZTAgm6.png"
+alt="image-20221226234508236" />
+<figcaption aria-hidden="true">image-20221226234508236</figcaption>
+</figure>
+<ul>
+<li>北林OJ上的刷题</li>
+</ul>
+<figure>
+<img src="https://s2.loli.net/2023/01/13/v8oiGFITWqMRYnd.png"
+alt="image-20230113002007660" />
+<figcaption aria-hidden="true">image-20230113002007660</figcaption>
+</figure>
+<hr />
+<h3 id="旋转图像">2023-02-12：<a
+target="_blank" rel="noopener" href="https://leetcode.cn/problems/rotate-image/">48. 旋转图像</a></h3>
+<ul>
+<li><p>我思</p>
+<ul>
+<li>原地操作（只能采用交换）</li>
+<li>对二维数组的操作</li>
+<li>我感觉是个找规律题：甚至我尝试把坐标变换列出来，去找规律，但是不行
+<ul>
+<li>变化步数和（列变+行变）＝n</li>
+</ul></li>
+<li>事实上：旋转90度，可我们直接把原先的列当成行去读，就是旋转后的答案，但是<strong>原地操作</strong></li>
+<li></li>
+<li>从几何视角看：直线角度变化
+<ul>
+<li>从中间到外围是一个个正方形</li>
+</ul></li>
+</ul></li>
+<li><p>参考</p>
+<ul>
+<li>事实上就是找规律</li>
+<li>关于矩阵的知识联想：转置，对称。(正好是容易进行的操作）</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">   <span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">rotate</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; matrix)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 00 02    10 01   20 00</span></span><br><span class="line">        <span class="comment">// 01 12    11 11   21 12</span></span><br><span class="line">        <span class="comment">// 02 22    12 21   22 20</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 00 03    01 13   02 23   03 33</span></span><br><span class="line">        <span class="comment">// 10 02    11 12   12 22</span></span><br><span class="line">        <span class="comment">//</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 规律就是转置+镜像(纵向)对称</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 转置：限定j&lt;i 或 i &lt; j</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; matrix.<span class="built_in">size</span>(); ++i) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; i; j++) &#123;</span><br><span class="line">                <span class="built_in">swap</span>(matrix[i][j], matrix[j][i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 对称</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; matrix.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; matrix.<span class="built_in">size</span>() / <span class="number">2</span>; j++) &#123;</span><br><span class="line">                <span class="built_in">swap</span>(matrix[i][j], matrix[i][matrix.<span class="built_in">size</span>() - <span class="number">1</span> - j]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="全排列">2022-01-23：<a
+target="_blank" rel="noopener" href="https://leetcode.cn/problems/permutations/">46. 全排列</a></h3>
+<ul>
+<li><p>我思</p>
+<ul>
+<li>回溯</li>
+<li>问题是：取出第一个数字后，如何取出剩余其它数字</li>
+</ul></li>
+<li><p>参考：</p>
+<ul>
+<li>方法正确</li>
+<li>解决我思的问题：
+<ul>
+<li>法1：标记法</li>
+<li>法2：数组分割交换</li>
+</ul></li>
+</ul></li>
+<li><p>submit</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">   <span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// 回溯法</span></span><br><span class="line">    <span class="comment">// 标记数组</span></span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; path;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; ans;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">backTrace</span><span class="params">(vector&lt;<span class="type">int</span>&gt; nums,vector&lt;<span class="type">bool</span>&gt;flag)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (path.<span class="built_in">size</span>() == nums.<span class="built_in">size</span>()) &#123;</span><br><span class="line">            ans.<span class="built_in">emplace_back</span>(path);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); ++i) &#123; </span><br><span class="line">            <span class="keyword">if</span>(!flag[i]) &#123;  <span class="comment">// 没被标记则可使用</span></span><br><span class="line">                path.<span class="built_in">emplace_back</span>(nums[i]);</span><br><span class="line">                flag[i] = <span class="literal">true</span>;</span><br><span class="line">                <span class="built_in">backTrace</span>(nums,flag);</span><br><span class="line">                path.<span class="built_in">pop_back</span>();</span><br><span class="line">                flag[i] = <span class="literal">false</span>;        <span class="comment">// 这句 必须加</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">permute</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        vector&lt;<span class="type">bool</span>&gt;<span class="built_in">flag</span> (nums.<span class="built_in">size</span>(),<span class="literal">false</span>);</span><br><span class="line">        <span class="built_in">backTrace</span>(nums, flag);</span><br><span class="line">        <span class="keyword">return</span> ans; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="https://s2.loli.net/2023/01/25/sAe9u5NWUXcJT7w.png"
+alt="image-20230125192151573" />
+<figcaption aria-hidden="true">image-20230125192151573</figcaption>
+</figure></li>
+</ul>
+<h3 id="搜索旋转排序数组">2022-01-21: <a
+target="_blank" rel="noopener" href="https://leetcode.cn/problems/search-in-rotated-sorted-array/">33.
+搜索旋转排序数组</a></h3>
+<ul>
+<li>我思
+<ul>
+<li>一开始没看懂题目，总感觉它想让我们求旋转后的数组</li>
+<li>结果是考查找</li>
+<li>然后把时间复杂度要求O(log n )看成了O(n)</li>
+<li>根据时间复杂度O(log n )很容易联想到二分查找</li>
+<li>二分查找要求有序，旋转数组后数组分成两段分别有序，那么如何找到这个分界点是一个问题。</li>
+</ul></li>
+<li>参考
+<ul>
+<li>旋转后的数组必定：一部分有序，另一部分无序或有序；难以理解。</li>
+<li>并且如果mid 小于right,则这部分必定有序</li>
+<li>以上两条结论是如何解释</li>
+</ul></li>
+<li>submit</li>
+</ul>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">   <span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">search</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> right = nums.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 总的来说比起常规</span></span><br><span class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="type">int</span> mid = (left + right) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (nums[mid] == target) &#123;</span><br><span class="line">                <span class="keyword">return</span> mid;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (nums[left] &lt;= nums[mid]) &#123;    <span class="comment">// 前半段有序</span></span><br><span class="line">                <span class="keyword">if</span> (target &gt;= nums[left] &amp;&amp; target &lt; nums[mid]) &#123;    <span class="comment">// 先查找前半段;注意等号</span></span><br><span class="line">                    right = mid - <span class="number">1</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;    <span class="comment">// 在后半段查找</span></span><br><span class="line">                    left = mid + <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;    <span class="comment">// 后半段有序</span></span><br><span class="line">                <span class="keyword">if</span>(target &gt; nums[mid] &amp;&amp; target &lt;= nums[right]) &#123;    <span class="comment">// 先查找后半段</span></span><br><span class="line">                    left = mid + <span class="number">1</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;    <span class="comment">// 在前半段查找</span></span><br><span class="line">                    right = mid - <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums[left] == target ? left : <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-![image-20230121155254016](https://s2.loli.net/2023/01/21/P8WAcpr6adluZLK.png)
-
-### 2022-01-18: [31. 下一个排列](https://leetcode.cn/problems/next-permutation/)
-
-- 我思：
-  - 按题意：将所有的数字排列进行排序并构成一个循环，下一个排列就是按大小排在后一位的排列。
-  - 一个条件：必须原地修改，且是常数空间
-  - 我猜是：交换。
-    - 但是这个交换规则应该是怎样呢。
-    - 注意到：他们的排序，实质就是转化为：从左到右，将数字放在相应的百十个位上形成的值。
-    - 一个特殊情况是：最大-》最小是一种特殊情况:
-      - 其实这种情况可以理解为正序，则我们将它逆序即为所求。
-    - 忽然想到一个词：正序。
-      - 那么找到第一个正序（这个正序的交换得到的结果得是最小），并将他们进行交换即是所求。
-- 参考：
-  - 看了题解，我的思路是正确的。但还需要修补：
-  - 首先，除了对发现的第一个逆序进行交换外，对他们之间的数字应该进行一次排序。可以确保在大于前一个排序后，这个排列还可能尽可能的小。即能满足下一个排列
-  - 其次，又是双指针法
-- submit
-- 以下不能保证left >= 0
-
-![image-20230119010340407](https://s2.loli.net/2023/01/19/S1VuI6BoCOx4nmy.png)
-
+<figure>
+<img src="https://s2.loli.net/2023/01/21/P8WAcpr6adluZLK.png"
+alt="image-20230121155254016" />
+<figcaption aria-hidden="true">image-20230121155254016</figcaption>
+</figure>
+<h3 id="下一个排列">2022-01-18: <a
+target="_blank" rel="noopener" href="https://leetcode.cn/problems/next-permutation/">31.
+下一个排列</a></h3>
+<ul>
+<li>我思：
+<ul>
+<li>按题意：将所有的数字排列进行排序并构成一个循环，下一个排列就是按大小排在后一位的排列。</li>
+<li>一个条件：必须原地修改，且是常数空间</li>
+<li>我猜是：交换。
+<ul>
+<li>但是这个交换规则应该是怎样呢。</li>
+<li>注意到：他们的排序，实质就是转化为：从左到右，将数字放在相应的百十个位上形成的值。</li>
+<li>一个特殊情况是：最大-》最小是一种特殊情况:
+<ul>
+<li>其实这种情况可以理解为正序，则我们将它逆序即为所求。</li>
+</ul></li>
+<li>忽然想到一个词：正序。
+<ul>
+<li>那么找到第一个正序（这个正序的交换得到的结果得是最小），并将他们进行交换即是所求。</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>参考：
+<ul>
+<li>看了题解，我的思路是正确的。但还需要修补：</li>
+<li>首先，除了对发现的第一个逆序进行交换外，对他们之间的数字应该进行一次排序。可以确保在大于前一个排序后，这个排列还可能尽可能的小。即能满足下一个排列</li>
+<li>其次，又是双指针法</li>
+</ul></li>
+<li>submit</li>
+<li>以下不能保证left &gt;= 0</li>
+</ul>
+<figure>
+<img src="https://s2.loli.net/2023/01/19/S1VuI6BoCOx4nmy.png"
+alt="image-20230119010340407" />
+<figcaption aria-hidden="true">image-20230119010340407</figcaption>
+</figure>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">   <span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">nextPermutation</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 双指针遍历</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> left = nums.<span class="built_in">size</span>() - <span class="number">2</span>; left &gt;= <span class="number">0</span>; left--) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> right = nums.<span class="built_in">size</span>() - <span class="number">1</span>; right &gt; left; right--) &#123;    <span class="comment">// 是否考虑数组只有一个数字</span></span><br><span class="line">                <span class="keyword">if</span> (nums[left] &lt; nums[right]) &#123;</span><br><span class="line">                    <span class="built_in">swap</span>(nums[left], nums[right]);</span><br><span class="line">                    <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>() + left + <span class="number">1</span>, nums.<span class="built_in">end</span>());</span><br><span class="line">                    <span class="keyword">return</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">reverse</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-![image-20230119011004353](https://s2.loli.net/2023/01/19/osqg5QPNem6SAuU.png)
-
-### 2022-01-16
-
-#### [22. 括号生成](https://leetcode.cn/problems/generate-parentheses/)
-
-- 我思：
-
-  - 全部有效的括号，如何分类：可以根据括号嵌套层数，最深层数=n
-
-  - 还有个不同层数排序的问题：涉及数字的拆解，
-
-    - n = 5,（用最高层数限定，且必有这个最高层数）
-      - 5
-        - 5*1
-      - 4(4,1)
-        - 4+1
-        - 1+4
-      - 3（3,2,1）
-        - 3+2
-        - 2+3
-        - 3+1+1
-        - 1+3+1
-        - 1+1+3
-      - 2（1,2）
-        - 2+1+1+1
-        - 1+2+1+1
-        - 1+1+2+1
-        - 1+1+1+2
-      - 1
-        - 1+1+1+1+1
-    - 上面分类是错误的。还有可能这种情况：最深两层，但是第二层有两个并列的一层
-    - 因此什么算法能包含所有情况呢：我认为回溯法
-
-  - 参考
-
-    - 回溯法确实对的；问题是，我不知道递归单层该完成的任务
-    - 规则是：每层先尝试添加左括号，直到左括号不能添加为止再添加右括号。
-    - 那么递归终止条件是什么：
-      - 可用括号数量不够
-      - 使用的右括号数量超过了左括号
-
-  - submit
-
-    <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">   <span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;string&gt; <span class="title">generateParenthesis</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        vector&lt;string&gt; ans;</span><br><span class="line">        string path;</span><br><span class="line">        <span class="built_in">backTrace</span>(ans, path, <span class="number">0</span>, <span class="number">0</span>, n);    <span class="comment">// path 直接放空也行</span></span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ans 得是引用</span></span><br><span class="line">    <span class="comment">// left 是已用还是剩余需明确</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">backTrace</span><span class="params">(vector&lt;string&gt;&amp; ans, string path, <span class="type">int</span> left, <span class="type">int</span> right, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (left &gt; n || right &gt; n || right &gt; left) &#123;    <span class="comment">// 递归终止条件</span></span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (left == n &amp;&amp; right == n) &#123;    <span class="comment">// 压入返回值的条件(全部括号得用完，且左右相等)</span></span><br><span class="line">            ans.<span class="built_in">push_back</span>(path);</span><br><span class="line">            <span class="keyword">return</span>;     <span class="comment">// 压入之后返回上一层 </span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 路径的生成在传参时完成</span></span><br><span class="line">        <span class="comment">// path 参数需要特别注意不能用引用，且使用加法更不会出错，因为返回上一层时，path的值还得是上一层的值，而不能是下一层的值</span></span><br><span class="line">        <span class="built_in">backTrace</span>(ans, path + <span class="string">&quot;(&quot;</span>, left + <span class="number">1</span>, right, n);</span><br><span class="line">        <span class="built_in">backTrace</span>(ans, path + <span class="string">&quot;)&quot;</span>, left, right + <span class="number">1</span>, n);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-    ![image-20230116222246838](https://s2.loli.net/2023/01/16/YBOfm2SCD7kxAWM.png)
-
-  - dfs （回溯）
-
-  - 注意它括号的添加规则
-
-  - 注意到回溯，其实这确实也是一个从所有子集中选取符合条件子集的类型
-
-### 2022-01-14
-
-#### [17. 电话号码的字母组合](https://leetcode.cn/problems/letter-combinations-of-a-phone-number/)
-
-- 我思：
-  1. 列出数字与字母的映射
-  2. 注意有多少个数字，组合的字母串就有多长
-  3. 多重循环。（如果数字多是不是会超时）add:另外循环层数不确定，代码是写不出来的
-     - 到此，我判断我的思路错误
-- 递归三要素
-  1. 确定递归函数的参数和返回值
-  2. 确定终止条件
-  3. 确定单层递归的逻辑
-- 回溯三要素（代表性问题：集合中取满足条件的子集）
-  1. 回溯函数参数和返回值
-  1. 回溯函数终止条件
-  1. 回溯搜索的遍历（for循环 横向遍历，递归（回溯）纵向遍历）
-- 参考
-- submit
-
+<figure>
+<img src="https://s2.loli.net/2023/01/19/osqg5QPNem6SAuU.png"
+alt="image-20230119011004353" />
+<figcaption aria-hidden="true">image-20230119011004353</figcaption>
+</figure>
+<h3 id="section">2022-01-16</h3>
+<h4 id="括号生成"><a
+target="_blank" rel="noopener" href="https://leetcode.cn/problems/generate-parentheses/">22.
+括号生成</a></h4>
+<ul>
+<li><p>我思：</p>
+<ul>
+<li><p>全部有效的括号，如何分类：可以根据括号嵌套层数，最深层数=n</p></li>
+<li><p>还有个不同层数排序的问题：涉及数字的拆解，</p>
+<ul>
+<li>n = 5,（用最高层数限定，且必有这个最高层数）
+<ul>
+<li>5
+<ul>
+<li>5*1</li>
+</ul></li>
+<li>4(4,1)
+<ul>
+<li>4+1</li>
+<li>1+4</li>
+</ul></li>
+<li>3（3,2,1）
+<ul>
+<li>3+2</li>
+<li>2+3</li>
+<li>3+1+1</li>
+<li>1+3+1</li>
+<li>1+1+3</li>
+</ul></li>
+<li>2（1,2）
+<ul>
+<li>2+1+1+1</li>
+<li>1+2+1+1</li>
+<li>1+1+2+1</li>
+<li>1+1+1+2</li>
+</ul></li>
+<li>1
+<ul>
+<li>1+1+1+1+1</li>
+</ul></li>
+</ul></li>
+<li>上面分类是错误的。还有可能这种情况：最深两层，但是第二层有两个并列的一层</li>
+<li>因此什么算法能包含所有情况呢：我认为回溯法</li>
+</ul></li>
+<li><p>参考</p>
+<ul>
+<li>回溯法确实对的；问题是，我不知道递归单层该完成的任务</li>
+<li>规则是：每层先尝试添加左括号，直到左括号不能添加为止再添加右括号。</li>
+<li>那么递归终止条件是什么：
+<ul>
+<li>可用括号数量不够</li>
+<li>使用的右括号数量超过了左括号</li>
+</ul></li>
+</ul></li>
+<li><p>submit</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">   <span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;string&gt; <span class="title">generateParenthesis</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        vector&lt;string&gt; ans;</span><br><span class="line">        string path;</span><br><span class="line">        <span class="built_in">backTrace</span>(ans, path, <span class="number">0</span>, <span class="number">0</span>, n);    <span class="comment">// path 直接放空也行</span></span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ans 得是引用</span></span><br><span class="line">    <span class="comment">// left 是已用还是剩余需明确</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">backTrace</span><span class="params">(vector&lt;string&gt;&amp; ans, string path, <span class="type">int</span> left, <span class="type">int</span> right, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (left &gt; n || right &gt; n || right &gt; left) &#123;    <span class="comment">// 递归终止条件</span></span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (left == n &amp;&amp; right == n) &#123;    <span class="comment">// 压入返回值的条件(全部括号得用完，且左右相等)</span></span><br><span class="line">            ans.<span class="built_in">push_back</span>(path);</span><br><span class="line">            <span class="keyword">return</span>;     <span class="comment">// 压入之后返回上一层 </span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 路径的生成在传参时完成</span></span><br><span class="line">        <span class="comment">// path 参数需要特别注意不能用引用，且使用加法更不会出错，因为返回上一层时，path的值还得是上一层的值，而不能是下一层的值</span></span><br><span class="line">        <span class="built_in">backTrace</span>(ans, path + <span class="string">&quot;(&quot;</span>, left + <span class="number">1</span>, right, n);</span><br><span class="line">        <span class="built_in">backTrace</span>(ans, path + <span class="string">&quot;)&quot;</span>, left, right + <span class="number">1</span>, n);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="https://s2.loli.net/2023/01/16/YBOfm2SCD7kxAWM.png"
+alt="image-20230116222246838" />
+<figcaption aria-hidden="true">image-20230116222246838</figcaption>
+</figure></li>
+<li><p>dfs （回溯）</p></li>
+<li><p>注意它括号的添加规则</p></li>
+<li><p>注意到回溯，其实这确实也是一个从所有子集中选取符合条件子集的类型</p></li>
+</ul></li>
+</ul>
+<h3 id="section-1">2022-01-14</h3>
+<h4 id="电话号码的字母组合"><a
+target="_blank" rel="noopener" href="https://leetcode.cn/problems/letter-combinations-of-a-phone-number/">17.
+电话号码的字母组合</a></h4>
+<ul>
+<li>我思：
+<ol type="1">
+<li>列出数字与字母的映射</li>
+<li>注意有多少个数字，组合的字母串就有多长</li>
+<li>多重循环。（如果数字多是不是会超时）add:另外循环层数不确定，代码是写不出来的
+<ul>
+<li>到此，我判断我的思路错误</li>
+</ul></li>
+</ol></li>
+<li>递归三要素
+<ol type="1">
+<li>确定递归函数的参数和返回值</li>
+<li>确定终止条件</li>
+<li>确定单层递归的逻辑</li>
+</ol></li>
+<li>回溯三要素（代表性问题：集合中取满足条件的子集）
+<ol type="1">
+<li>回溯函数参数和返回值</li>
+<li>回溯函数终止条件</li>
+<li>回溯搜索的遍历（for循环 横向遍历，递归（回溯）纵向遍历）</li>
+</ol></li>
+<li>参考</li>
+<li>submit</li>
+</ul>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">   <span class="keyword">private</span>:</span><br><span class="line">    <span class="type">const</span> string s[<span class="number">10</span>] = &#123;</span><br><span class="line">        <span class="string">&quot;&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="string">&quot;abc&quot;</span>, <span class="string">&quot;def&quot;</span>, <span class="string">&quot;ghi&quot;</span>, <span class="string">&quot;jkl&quot;</span>, <span class="string">&quot;mno&quot;</span>, <span class="string">&quot;pqrs&quot;</span>, <span class="string">&quot;tuv&quot;</span>, <span class="string">&quot;wxyz&quot;</span>,</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">public</span>:</span><br><span class="line">    vector&lt;string&gt; ans;</span><br><span class="line">    string path;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">backtracking</span><span class="params">(string digits, <span class="type">int</span> level)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (level == digits.<span class="built_in">size</span>()) &#123;    <span class="comment">// 终止条件：纵向遍历完(每条分支)</span></span><br><span class="line">            ans.<span class="built_in">push_back</span>(path);</span><br><span class="line">            <span class="keyword">return</span>; <span class="comment">// 返回上一层</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> digit = digits[level] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; s[digit].<span class="built_in">size</span>(); ++i) &#123;</span><br><span class="line">            path.<span class="built_in">push_back</span>(s[digit][i]);</span><br><span class="line">            <span class="comment">// backtracking(digits, ++level);   // ++level的执行时间(所在层数)，这是错误的</span></span><br><span class="line">            <span class="built_in">backtracking</span>(digits, level+<span class="number">1</span>);     <span class="comment">// 返回上一层后，level的值还是本层的值，不会加一</span></span><br><span class="line">            path.<span class="built_in">pop_back</span>();    <span class="comment">// 回溯，弹出最后一层</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">vector&lt;string&gt; <span class="title">letterCombinations</span><span class="params">(string digits)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (digits.<span class="built_in">size</span>() == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> ans;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">backtracking</span>(digits,<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-- 注意这个问题
-
+<ul>
+<li>注意这个问题</li>
+</ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// backtracking(digits, ++level);   // ++level的执行时间(所在层数)，这是错误的</span><br><span class="line">backtracking(digits, level+1);     // 返回上一层后，level的值还是本层的值，不会加一</span><br></pre></td></tr></table></figure>
-
-![image-20230114032944436](https://s2.loli.net/2023/01/14/6elTax8Eyf2rYuh.png)
-
-### 2022-01-13
-
-#### [15. 三数之和](https://leetcode.cn/problems/3sum/)
-
-- 我的思路
-  - 排序效果应该不错
-  - 参考双指针，采用三指针（~~定2移1~~）：这里我错了，因此陷入了一个胡同。因为双指针不需要固定指针，因此三指针应该是定1移2。
-- 参考思路
-  - 看了下评论区，果然不出所料
-  - 问题在于如何移动指针，其实还是类似双指针
-    - 固定左指针，移动中指针和右指针（将三指针转化为双指针）
-  - 还注意到 有 `哈希-剪枝法`
-- submit
-
+<figure>
+<img src="https://s2.loli.net/2023/01/14/6elTax8Eyf2rYuh.png"
+alt="image-20230114032944436" />
+<figcaption aria-hidden="true">image-20230114032944436</figcaption>
+</figure>
+<h3 id="section-2">2022-01-13</h3>
+<h4 id="三数之和"><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/3sum/">15.
+三数之和</a></h4>
+<ul>
+<li>我的思路
+<ul>
+<li>排序效果应该不错</li>
+<li>参考双指针，采用三指针（<del>定2移1</del>）：这里我错了，因此陷入了一个胡同。因为双指针不需要固定指针，因此三指针应该是定1移2。</li>
+</ul></li>
+<li>参考思路
+<ul>
+<li>看了下评论区，果然不出所料</li>
+<li>问题在于如何移动指针，其实还是类似双指针
+<ul>
+<li>固定左指针，移动中指针和右指针（将三指针转化为双指针）</li>
+</ul></li>
+<li>还注意到 有 <code>哈希-剪枝法</code></li>
+</ul></li>
+<li>submit</li>
+</ul>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">   <span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">threeSum</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>());    <span class="comment">// 先排序</span></span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; ans;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> mid;</span><br><span class="line">        <span class="type">int</span> right = nums.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (nums[left] &gt; <span class="number">0</span> || nums[right] &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> ans;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 每次固定左指针，最中、右指针处理</span></span><br><span class="line">        <span class="keyword">for</span> (left; left &lt; nums.<span class="built_in">size</span>() - <span class="number">2</span>; left++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(left != <span class="number">0</span> &amp;&amp; nums[left] == nums[left<span class="number">-1</span>]) &#123;   <span class="comment">// left 也得去重</span></span><br><span class="line">                <span class="keyword">continue</span>;   <span class="comment">// 不是break</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// left 移动，则mid,right重置</span></span><br><span class="line">            mid = left + <span class="number">1</span>;</span><br><span class="line">            right = nums.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">while</span> (mid &lt; right) &#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[left] + nums[mid] + nums[right] &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                    right--;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[right] + nums[mid] + nums[left] &lt; <span class="number">0</span>) &#123;</span><br><span class="line">                    mid++;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    ans.<span class="built_in">push_back</span>(vector&lt;<span class="type">int</span>&gt;&#123;nums[left], nums[mid], nums[right]&#125;);</span><br><span class="line"></span><br><span class="line">                    <span class="comment">//  去重</span></span><br><span class="line">                    <span class="comment">// mid 先去重</span></span><br><span class="line">                    mid++;</span><br><span class="line">                    <span class="keyword">while</span> (mid &lt; right &amp;&amp; nums[mid] == nums[mid - <span class="number">1</span>]) &#123;</span><br><span class="line">                        mid++;</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                    right--;</span><br><span class="line">                    <span class="keyword">while</span> (mid &lt; right &amp;&amp; nums[right] == nums[right + <span class="number">1</span>]) &#123;</span><br><span class="line">                        right--;</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-![image-20230113040033052](https://s2.loli.net/2023/01/13/f2U3YDbKH87xnRt.png)
-
-- 
-  - 效率这么低
-  - 但是暂时不折腾了
-- 一题做了一晚上，天亮了，牛批
-  - 脑子出问题了，没法debug，提交了多次错误的。（提交正确率今晚可降了不少  :sob:
-
-![image-20230113040338308](https://s2.loli.net/2023/01/13/JoInHm3p5qFU9lr.png)
-
-### 2022-01-12
-
-#### [11. 盛最多水的容器](https://leetcode.cn/problems/container-with-most-water/)
-
-- **我的思路**
-  - 分析：容积以两轴中短轴为准
-    - 两根轴要尽可能远，且短轴尽可能高，能保证最大容积。但是显然最优解不一定要同时满足这两个条件。
-    - 这个问题本质是确定两个边界
-    - 问题是：如何确定这两个边界呢，暴力解法O(n²)不考虑
-    - 两个边界很容易联想到**双指针**
-    - 双指针的移动规则怎么确定呢，是否要遍历每一种情况呢（显然不要，不然不就是暴力吗）
-- **参考答案**
-  - 两个边界肯定不是同时移动，那么就是一次移动一个
-  - 每次不管左移还是右移，底边都是-1，因此得确保高尽量高，也就是长轴保持，移动短轴寻找更长轴
-  - 不容易注意到的一个问题是：如果要保证之后的结果比现在更大，那么最短轴一定要更长（因为底边再减小），也就是说每次移动，最短轴一定要变化。**如果最短轴不变，那么这次移动是无效的。**
-- **submit**
-
+<figure>
+<img src="https://s2.loli.net/2023/01/13/f2U3YDbKH87xnRt.png"
+alt="image-20230113040033052" />
+<figcaption aria-hidden="true">image-20230113040033052</figcaption>
+</figure>
+<ul>
+<li><ul>
+<li>效率这么低</li>
+<li>但是暂时不折腾了</li>
+</ul></li>
+<li>一题做了一晚上，天亮了，牛批
+<ul>
+<li>脑子出问题了，没法debug，提交了多次错误的。（提交正确率今晚可降了不少
+:sob:</li>
+</ul></li>
+</ul>
+<figure>
+<img src="https://s2.loli.net/2023/01/13/JoInHm3p5qFU9lr.png"
+alt="image-20230113040338308" />
+<figcaption aria-hidden="true">image-20230113040338308</figcaption>
+</figure>
+<h3 id="section-3">2022-01-12</h3>
+<h4 id="盛最多水的容器"><a
+target="_blank" rel="noopener" href="https://leetcode.cn/problems/container-with-most-water/">11.
+盛最多水的容器</a></h4>
+<ul>
+<li><strong>我的思路</strong>
+<ul>
+<li>分析：容积以两轴中短轴为准
+<ul>
+<li>两根轴要尽可能远，且短轴尽可能高，能保证最大容积。但是显然最优解不一定要同时满足这两个条件。</li>
+<li>这个问题本质是确定两个边界</li>
+<li>问题是：如何确定这两个边界呢，暴力解法O(n²)不考虑</li>
+<li>两个边界很容易联想到<strong>双指针</strong></li>
+<li>双指针的移动规则怎么确定呢，是否要遍历每一种情况呢（显然不要，不然不就是暴力吗）</li>
+</ul></li>
+</ul></li>
+<li><strong>参考答案</strong>
+<ul>
+<li>两个边界肯定不是同时移动，那么就是一次移动一个</li>
+<li>每次不管左移还是右移，底边都是-1，因此得确保高尽量高，也就是长轴保持，移动短轴寻找更长轴</li>
+<li>不容易注意到的一个问题是：如果要保证之后的结果比现在更大，那么最短轴一定要更长（因为底边再减小），也就是说每次移动，最短轴一定要变化。<strong>如果最短轴不变，那么这次移动是无效的。</strong></li>
+</ul></li>
+<li><strong>submit</strong></li>
+</ul>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">   <span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxArea</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; height)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> right = height.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">            ans = <span class="built_in">max</span>(ans, (right - left) * <span class="built_in">min</span>(height[left], height[right]));</span><br><span class="line">            <span class="keyword">if</span> (height[left] &lt; height[right]) &#123;</span><br><span class="line">                left++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                right--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-![image-20230112012322777](https://s2.loli.net/2023/01/12/1wToSpzrQuWtLyq.png)
-
-### 2022-12-28
-
-#### [1750. 删除字符串两端相同字符后的最短长度](https://leetcode.cn/problems/minimum-length-of-string-after-deleting-similar-ends/)
-
-- 我的思路：无
-
-- 分析：
-  - 双指针法
-  - 不能有交集：left < right
-  - 边界处理
-    - s长度为1：无法删除
-- submit
-
+<figure>
+<img src="https://s2.loli.net/2023/01/12/1wToSpzrQuWtLyq.png"
+alt="image-20230112012322777" />
+<figcaption aria-hidden="true">image-20230112012322777</figcaption>
+</figure>
+<h3 id="section-4">2022-12-28</h3>
+<h4 id="删除字符串两端相同字符后的最短长度"><a
+target="_blank" rel="noopener" href="https://leetcode.cn/problems/minimum-length-of-string-after-deleting-similar-ends/">1750.
+删除字符串两端相同字符后的最短长度</a></h4>
+<ul>
+<li><p>我的思路：无</p></li>
+<li><p>分析：</p>
+<ul>
+<li>双指针法</li>
+<li>不能有交集：left &lt; right</li>
+<li>边界处理
+<ul>
+<li>s长度为1：无法删除</li>
+</ul></li>
+</ul></li>
+<li><p>submit</p></li>
+</ul>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">   <span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">minimumLength</span><span class="params">(string s)</span> </span>&#123;    <span class="comment">// 双指针法</span></span><br><span class="line">        <span class="keyword">if</span> (s.<span class="built_in">length</span>() &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> s.<span class="built_in">length</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> right = s.<span class="built_in">length</span>() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt; right &amp;&amp; s[left] == s[right]) &#123;</span><br><span class="line">                left++;</span><br><span class="line">                <span class="keyword">while</span> (left &lt; right &amp;&amp; s[left - <span class="number">1</span>] == s[left]) &#123;    <span class="comment">// 删除左边的全部</span></span><br><span class="line">                    left++;</span><br><span class="line">                &#125;</span><br><span class="line">                right--;</span><br><span class="line">                <span class="keyword">while</span> (left &lt; right &amp;&amp; s[right + <span class="number">1</span>] == s[right]) &#123;    <span class="comment">// 删除右边的全部</span></span><br><span class="line">                    right--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> right - left + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-
-### 2022-12-27
-
-#### [448. 找到所有数组中消失的数字](https://leetcode.cn/problems/find-all-numbers-disappeared-in-an-array/)
-
-- 自己没有特别好的思路
-- 我的第一思路：遍历一遍数组，记录每个数字出现的次数
-
+<h3 id="section-5">2022-12-27</h3>
+<h4 id="找到所有数组中消失的数字"><a
+target="_blank" rel="noopener" href="https://leetcode.cn/problems/find-all-numbers-disappeared-in-an-array/">448.
+找到所有数组中消失的数字</a></h4>
+<ul>
+<li>自己没有特别好的思路</li>
+<li>我的第一思路：遍历一遍数组，记录每个数字出现的次数</li>
+</ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nums = [4,3,2,7,8,2,3,1]</span><br></pre></td></tr></table></figure>
-
-例如上述数组：
-
+<p>例如上述数组：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">数组s[n]=&#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.</span>....,<span class="number">0</span>&#125;;</span><br><span class="line">s[<span class="number">4</span>]++;</span><br><span class="line">s[<span class="number">3</span>]++;</span><br><span class="line">s[<span class="number">2</span>]++</span><br></pre></td></tr></table></figure>
-
-最后统计值为0的下标
-
-- 评论区看到的巧妙解法
-
-![image-20221226235202663](https://s2.loli.net/2022/12/26/qBLNDi9wk1AvSl4.png)
-
-> - 本质上还是将研究的那一串数字，作为下标去研究，此解法是做标记（正负数区分）
-
-- submit
-
+<p>最后统计值为0的下标</p>
+<ul>
+<li>评论区看到的巧妙解法</li>
+</ul>
+<figure>
+<img src="https://s2.loli.net/2022/12/26/qBLNDi9wk1AvSl4.png"
+alt="image-20221226235202663" />
+<figcaption aria-hidden="true">image-20221226235202663</figcaption>
+</figure>
+<blockquote>
+<ul>
+<li>本质上还是将研究的那一串数字，作为下标去研究，此解法是做标记（正负数区分）</li>
+</ul>
+</blockquote>
+<ul>
+<li>submit</li>
+</ul>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">   <span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">findDisappearedNumbers</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            nums[<span class="built_in">abs</span>(nums[i]) - <span class="number">1</span>] = -<span class="built_in">abs</span>(nums[<span class="built_in">abs</span>(nums[i]) - <span class="number">1</span>]); <span class="comment">// 取绝对值的原因在于有些数字会重复出现，第一次出现就会更改为负数，而负数不能作为下标</span></span><br><span class="line">        &#125;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; result;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                result.<span class="built_in">push_back</span>(i + <span class="number">1</span>);    <span class="comment">// 这里是i+1</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
 
                 
             </div>
@@ -1267,7 +1358,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">51.9k</span>&nbsp;字
+                class="white-color">48.4k</span>&nbsp;字
             
             
             

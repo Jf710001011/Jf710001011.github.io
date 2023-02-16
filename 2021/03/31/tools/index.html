@@ -484,7 +484,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.2k
+                    1k
                 </div>
                 
 
@@ -506,227 +506,271 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
-### Win11 Pro WorkStation
-
-- win11 企业版升级失败，导致重装系统
-- next I tell you,下载win11 镜像
-- 制作u盘启动盘
-- 选择安装安装你想要的系统类型
-- 激活
-  - 网上很多是企业的激活秘钥，可用如下教程
-  - [教程](https://www.cnblogs.com/brf-test/p/16572521.html)
-
-### 截图
-
-> 1. snipaste <https://zh.snipaste.com/>
-> 2. 优点       
->       1. 截图保存文件夹可自由确定
->       2. 贴图,例如将UE4的截图贴到我的电脑桌面![](/images/贴图.png)
-
-- qq 滚动截图功能
-
-
-### c盘扩容
-
->1. 参考网站<https://www.disktool.cn/>
->2. 下载软件
->3. 直接在主界面操作   
->    1. 右键D盘，选择分配空闲空间。  
->    2. 按文字提示，最后左上角提交。  
->    3. 接下来so easy,简单的。  
-      ![](/images/c盘.png)
-
-### IDM破解
-
-> 参考b站视频：<https://www.bilibili.com/video/av499042907/>
-> [破解工具下载](https://songjielin.lanzoui.com/iOwG8ew90fa)
-> 按`patch`
-
-**更新版本后、该方法破解失败**
-> 方法2：参考网址，<http://idman.ys168.com/>
-
-### vscode
-
-1. 快捷键
-
-> 1. **当前目录查找**：`ctrl+shift+f`
->
-> 2. **列选择**：`alt + shift + 鼠标拖动`
-> 3. `ctrl + d` : 批量选择
-
-2. 运行`python file`报错：`invalid syntax`
-
-`solu`:   清除多个python命令行窗口 ![image-20220803145215289](https://s2.loli.net/2022/08/03/fSz58QJBA2PjxIr.png)
-
-3. 加载web视图时出错：转到文件资源管理器和路`C:\Users<user_name>\AppData\Roaming\Code`并清除文件夹的内容`Cache, CachedData,   CachedExtensions, CachedExtensionVSIXs (if this folder exists) and Code Cache`。
-
-4. `auto save` 设置更改:导致编辑的网页实际不更新
-
-5. ssh 远程连接：通信管道不存在
-
-   [参考博客](https://zhuanlan.zhihu.com/p/68577071)
-
-   - 在.ssh目录下打开终端powershell，用`ssh-keygen`命令生成密钥
-
-   - 然后将生成的id_rsa.pub文件传到远程根目录下.ssh文件夹中
-
-   - 用ssh命令（`ssh username@ip -p port`）连接远程主机
-
-
-### visual studio
-
-- 调试 <https://docs.microsoft.com/zh-cn/visualstudio/debugger/quickstart-debug-with-cplusplus?view=vs-2022&viewFallbackFrom=msvc-170>
-  
-  > 设置断点，F5调试，F11单步执行，查看各个变量的值
-  
-- 快捷键：
-  > - 格式化所有：ctrl+k+d
-  > - 注释：ctrl+k+/。取消注释：ctrl+u+/
-  > - 
-
-- 读取中文出现乱码，将格式变为ANSI，另存覆盖。      
-
-### Sqlyog
-
-1. 
-
-> Professional:  8e053a86-cdd3-48ed-b5fe-94c51b3d343c
-> Enterprise:   a46683b0-d3ec-4c16-8e3c-198d25a7fb52
-> Ultimate:     60c1b896-7c22-4405-9f46-a6bce776ab36
-
-### Openssh 不在支持rsa算法
-
-- 使用新的加密算法
-
-> ssh-keygen -t ed25519 -C "xxxxxx@qq.com"
-
-### Chrome使用方向键操作失灵
-
-> 在 `chrome`内找到 *关于*，更新升级到最新版本
-
-### 虚拟机
-
-1. `win10` 共享文件夹 。**勾选：映射为网络驱动器**
-
-![image-20220708154451888](https://s2.loli.net/2022/07/08/cgdveLChsTUFEAB.png)
-
-2. 虚拟机没网（前提：已经使用`Nat`模式
-
+                <h3 id="win11-pro-workstation">Win11 Pro WorkStation</h3>
+<ul>
+<li>win11 企业版升级失败，导致重装系统</li>
+<li>next I tell you,下载win11 镜像</li>
+<li>制作u盘启动盘</li>
+<li>选择安装安装你想要的系统类型</li>
+<li>激活
+<ul>
+<li>网上很多是企业的激活秘钥，可用如下教程</li>
+<li><a
+target="_blank" rel="noopener" href="https://www.cnblogs.com/brf-test/p/16572521.html">教程</a></li>
+</ul></li>
+</ul>
+<h3 id="截图">截图</h3>
+<blockquote>
+<ol type="1">
+<li>snipaste <a target="_blank" rel="noopener" href="https://zh.snipaste.com/"
+class="uri">https://zh.snipaste.com/</a></li>
+<li>优点
+<ol type="1">
+<li>截图保存文件夹可自由确定</li>
+<li>贴图,例如将UE4的截图贴到我的电脑桌面<img
+src="/images/贴图.png" /></li>
+</ol></li>
+</ol>
+</blockquote>
+<ul>
+<li>qq 滚动截图功能</li>
+</ul>
+<h3 id="c盘扩容">c盘扩容</h3>
+<blockquote>
+<ol type="1">
+<li>参考网站<a target="_blank" rel="noopener" href="https://www.disktool.cn/"
+class="uri">https://www.disktool.cn/</a></li>
+<li>下载软件</li>
+<li>直接在主界面操作
+<ol type="1">
+<li>右键D盘，选择分配空闲空间。<br />
+</li>
+<li>按文字提示，最后左上角提交。<br />
+</li>
+<li>接下来so easy,简单的。<br />
+<img src="/images/c盘.png" /></li>
+</ol></li>
+</ol>
+</blockquote>
+<h3 id="idm破解">IDM破解</h3>
+<blockquote>
+<p>参考b站视频：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av499042907/"
+class="uri">https://www.bilibili.com/video/av499042907/</a> <a
+target="_blank" rel="noopener" href="https://songjielin.lanzoui.com/iOwG8ew90fa">破解工具下载</a>
+按<code>patch</code></p>
+</blockquote>
+<p><strong>更新版本后、该方法破解失败</strong> &gt; 方法2：参考网址，<a
+target="_blank" rel="noopener" href="http://idman.ys168.com/"
+class="uri">http://idman.ys168.com/</a></p>
+<h3 id="vscode">vscode</h3>
+<ol type="1">
+<li>快捷键</li>
+</ol>
+<blockquote>
+<ol type="1">
+<li><p><strong>当前目录查找</strong>：<code>ctrl+shift+f</code></p></li>
+<li><p><strong>列选择</strong>：<code>alt + shift + 鼠标拖动</code></p></li>
+<li><p><code>ctrl + d</code> : 批量选择</p></li>
+</ol>
+</blockquote>
+<ol start="2" type="1">
+<li>运行<code>python file</code>报错：<code>invalid syntax</code></li>
+</ol>
+<p><code>solu</code>: 清除多个python命令行窗口 <img
+src="https://s2.loli.net/2022/08/03/fSz58QJBA2PjxIr.png"
+alt="image-20220803145215289" /></p>
+<ol start="3" type="1">
+<li><p>加载web视图时出错：转到文件资源管理器和路<code>C:\Users&lt;user_name&gt;\AppData\Roaming\Code</code>并清除文件夹的内容<code>Cache, CachedData,   CachedExtensions, CachedExtensionVSIXs (if this folder exists) and Code Cache</code>。</p></li>
+<li><p><code>auto save</code> 设置更改:导致编辑的网页实际不更新</p></li>
+<li><p>ssh 远程连接：通信管道不存在</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/68577071">参考博客</a></p>
+<ul>
+<li><p>在.ssh目录下打开终端powershell，用<code>ssh-keygen</code>命令生成密钥</p></li>
+<li><p>然后将生成的id_rsa.pub文件传到远程根目录下.ssh文件夹中</p></li>
+<li><p>用ssh命令（<code>ssh username@ip -p port</code>）连接远程主机</p></li>
+</ul></li>
+</ol>
+<h3 id="visual-studio">visual studio</h3>
+<ul>
+<li><p>调试 <a
+target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/visualstudio/debugger/quickstart-debug-with-cplusplus?view=vs-2022&amp;viewFallbackFrom=msvc-170"
+class="uri">https://docs.microsoft.com/zh-cn/visualstudio/debugger/quickstart-debug-with-cplusplus?view=vs-2022&amp;viewFallbackFrom=msvc-170</a></p>
+<blockquote>
+<p>设置断点，F5调试，F11单步执行，查看各个变量的值</p>
+</blockquote></li>
+<li><p>快捷键： &gt; - 格式化所有：ctrl+k+d &gt; -
+注释：ctrl+k+/。取消注释：ctrl+u+/ &gt; -</p></li>
+<li><p>读取中文出现乱码，将格式变为ANSI，另存覆盖。</p></li>
+</ul>
+<h3 id="sqlyog">Sqlyog</h3>
+<ol type="1">
+<li></li>
+</ol>
+<blockquote>
+<p>Professional: 8e053a86-cdd3-48ed-b5fe-94c51b3d343c Enterprise:
+a46683b0-d3ec-4c16-8e3c-198d25a7fb52 Ultimate:
+60c1b896-7c22-4405-9f46-a6bce776ab36</p>
+</blockquote>
+<h3 id="openssh-不在支持rsa算法">Openssh 不在支持rsa算法</h3>
+<ul>
+<li>使用新的加密算法</li>
+</ul>
+<blockquote>
+<p>ssh-keygen -t ed25519 -C "xxxxxx@qq.com"</p>
+</blockquote>
+<h3 id="chrome使用方向键操作失灵">Chrome使用方向键操作失灵</h3>
+<blockquote>
+<p>在 <code>chrome</code>内找到 <em>关于</em>，更新升级到最新版本</p>
+</blockquote>
+<h3 id="虚拟机">虚拟机</h3>
+<ol type="1">
+<li><code>win10</code> 共享文件夹
+。<strong>勾选：映射为网络驱动器</strong></li>
+</ol>
+<figure>
+<img src="https://s2.loli.net/2022/07/08/cgdveLChsTUFEAB.png"
+alt="image-20220708154451888" />
+<figcaption aria-hidden="true">image-20220708154451888</figcaption>
+</figure>
+<ol start="2" type="1">
+<li>虚拟机没网（前提：已经使用<code>Nat</code>模式</li>
+</ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl start NetworkManager</span><br><span class="line">nmcli networking off</span><br><span class="line">nmcli networking on</span><br></pre></td></tr></table></figure>
-
-
-
-### Xshell
-
-1. 物理机与虚拟机之间直接拖动复制文件
-
-### Markdown
-
-1.  typora + picgo
-
-> 1. 设置快捷键
-
-### 电脑某些应用没网或者某网站下载速度慢
-
-1. 更换为手机热点
-
-### picgo 
-
-- 报错
-
-  2022-08-18 19:06:34 [PicGo ERROR] 
-  ------Error Stack Begin------
-  RequestError: Error: connect ETIMEDOUT 46.82.174.69:443
-      at new RequestError (D:\PicGo\resources\app.asar\node_modules\request-promise-core\lib\errors.js:14:15)
-      at Request.plumbing.callback (D:\PicGo\resources\app.asar\node_modules\request-promise-core\lib\plumbing.js:87:29)
-      at Request.RP$callback [as _callback] (D:\PicGo\resources\app.asar\node_modules\request-promise-core\lib\plumbing.js:46:31)
-      at self.callback (D:\PicGo\resources\app.asar\node_modules\request\request.js:185:22)
-      at Request.emit (events.js:200:13)
-      at Request.onRequestError (D:\PicGo\resources\app.asar\node_modules\request\request.js:877:8)
-      at ClientRequest.emit (events.js:200:13)
-      at TLSSocket.socketErrorListener (_http_client.js:402:9)
-      at TLSSocket.emit (events.js:200:13)
-      at emitErrorNT (internal/streams/destroy.js:91:8)
-  -------Error Stack End------- 
-
-![image-20220818192856967](https://s2.loli.net/2022/08/18/dbprV51QowY4D7c.png)
-
-- 图床从sm.ms 迁移到github
-
-### typora
-
-- crack
-  - 三个文件![image-20230216062751757](C:\Users\22514\AppData\Roaming\Typora\typora-user-images\image-20230216062751757.png)
-  - 文件三需要去掉后缀txt，上图已去
-  - 文件三移入`typora\resource`目录，覆盖原文件
-  - 从文件2找到密钥激活typora,邮箱需要正确的格式
-
-- 拼写检查关闭
-
-![image-20230208014107021](https://s2.loli.net/2023/02/08/gFiRp5oyumqhA3n.png)
-
-- 恢复未保存文件
-
-![image-20221202160859222](https://s2.loli.net/2022/12/02/8OjmoSG7C5v9sQy.png)
-
-- 快捷键设置
-
-### trojan-go 搭建
-
-[参考博客](https://www.itblogcn.com/article/1048.html)
-
-- vps服务器
-  - 系统centOS
-  - ping.pe 工具
-- 免费域名freenom
-  - 必须美国ip
-
-
-- 域名解析托管cloudflare
-- 安装trojan
-
+<h3 id="xshell">Xshell</h3>
+<ol type="1">
+<li>物理机与虚拟机之间直接拖动复制文件</li>
+</ol>
+<h3 id="markdown">Markdown</h3>
+<ol type="1">
+<li>typora + picgo</li>
+</ol>
+<blockquote>
+<ol type="1">
+<li>设置快捷键</li>
+</ol>
+</blockquote>
+<h3
+id="电脑某些应用没网或者某网站下载速度慢">电脑某些应用没网或者某网站下载速度慢</h3>
+<ol type="1">
+<li>更换为手机热点</li>
+</ol>
+<h3 id="picgo">picgo</h3>
+<ul>
+<li><p>报错</p>
+<p>2022-08-18 19:06:34 [PicGo ERROR] ------Error Stack Begin------
+RequestError: Error: connect ETIMEDOUT 46.82.174.69:443 at new
+RequestError (D:.asar_modules-promise-core.js:14:15) at
+Request.plumbing.callback (D:.asar_modules-promise-core.js:87:29) at
+Request.RP$callback [as _callback]
+(D:.asar_modules-promise-core.js:46:31) at self.callback
+(D:.asar_modules.js:185:22) at Request.emit (events.js:200:13) at
+Request.onRequestError (D:.asar_modules.js:877:8) at ClientRequest.emit
+(events.js:200:13) at TLSSocket.socketErrorListener
+(_http_client.js:402:9) at TLSSocket.emit (events.js:200:13) at
+emitErrorNT (internal/streams/destroy.js:91:8) -------Error Stack
+End-------</p></li>
+</ul>
+<figure>
+<img src="https://s2.loli.net/2022/08/18/dbprV51QowY4D7c.png"
+alt="image-20220818192856967" />
+<figcaption aria-hidden="true">image-20220818192856967</figcaption>
+</figure>
+<ul>
+<li>图床从sm.ms 迁移到github</li>
+</ul>
+<h3 id="typora">typora</h3>
+<ul>
+<li>crack
+<ul>
+<li>三个文件<img
+src="C:\Users\22514\AppData\Roaming\Typora\typora-user-images\image-20230216062751757.png"
+alt="image-20230216062751757" /></li>
+<li>文件三需要去掉后缀txt，上图已去</li>
+<li>文件三移入<code>typora\resource</code>目录，覆盖原文件</li>
+<li>从文件2找到密钥激活typora,邮箱需要正确的格式</li>
+</ul></li>
+<li>拼写检查关闭</li>
+</ul>
+<figure>
+<img src="https://s2.loli.net/2023/02/08/gFiRp5oyumqhA3n.png"
+alt="image-20230208014107021" />
+<figcaption aria-hidden="true">image-20230208014107021</figcaption>
+</figure>
+<ul>
+<li>恢复未保存文件</li>
+</ul>
+<figure>
+<img src="https://s2.loli.net/2022/12/02/8OjmoSG7C5v9sQy.png"
+alt="image-20221202160859222" />
+<figcaption aria-hidden="true">image-20221202160859222</figcaption>
+</figure>
+<ul>
+<li>快捷键设置</li>
+</ul>
+<h3 id="trojan-go-搭建">trojan-go 搭建</h3>
+<p><a target="_blank" rel="noopener" href="https://www.itblogcn.com/article/1048.html">参考博客</a></p>
+<ul>
+<li>vps服务器
+<ul>
+<li>系统centOS</li>
+<li>ping.pe 工具</li>
+</ul></li>
+<li>免费域名freenom
+<ul>
+<li>必须美国ip</li>
+</ul></li>
+<li>域名解析托管cloudflare</li>
+<li>安装trojan</li>
+</ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -N --no-check-certificate -q -O trojan_install.sh <span class="string">&quot;https://raw.githubusercontent.com/V2RaySSR/Trojan/master/trojan_install.sh&quot;</span> &amp;&amp; <span class="built_in">chmod</span> +x trojan_install.sh &amp;&amp; bash trojan_install.sh</span><br></pre></td></tr></table></figure>
-
-- 申请证书报错
-
-[博客](https://blog.csdn.net/wengek/article/details/120559397)
-
-![image-20220823104153133](https://cdn.jsdelivr.net/gh/5had0wKv/pictureBed/img/202208231042276.png)
-
-- 查看配置
-
+<ul>
+<li>申请证书报错</li>
+</ul>
+<p><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/wengek/article/details/120559397">博客</a></p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/5had0wKv/pictureBed/img/202208231042276.png"
+alt="image-20220823104153133" />
+<figcaption aria-hidden="true">image-20220823104153133</figcaption>
+</figure>
+<ul>
+<li>查看配置</li>
+</ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> /usr/src/trojan-macos/trojan/config.json</span><br></pre></td></tr></table></figure>
-
-- 安装bbrplus 加速（重要）
-
-### ShadowsocksR+TLS+Web+CDN
-
-​	[参考博客](https://iyideng.net/black-technology/cgfw/shadowsocksr-ssr-server-building-and-using-tutorial.html)
-
+<ul>
+<li>安装bbrplus 加速（重要）</li>
+</ul>
+<h3 id="shadowsocksrtlswebcdn">ShadowsocksR+TLS+Web+CDN</h3>
+<p>​ <a
+target="_blank" rel="noopener" href="https://iyideng.net/black-technology/cgfw/shadowsocksr-ssr-server-building-and-using-tutorial.html">参考博客</a></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bash -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/JeannieStudio/all_install/master/SixForOne_install.sh)</span>&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-![image-20220824191243048](https://cdn.jsdelivr.net/gh/5had0wKv/pictureBed/img/202208241912152.png)
-
-- bbr 加速
-
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/5had0wKv/pictureBed/img/202208241912152.png"
+alt="image-20220824191243048" />
+<figcaption aria-hidden="true">image-20220824191243048</figcaption>
+</figure>
+<ul>
+<li>bbr 加速</li>
+</ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/etc/all_mgr.sh</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-[参考教程](https://iyideng.net/black-technology/cgfw/shadowsocksr-ssr-server-building-and-using-tutorial.html)
-
-### git
-
-- 改了github id应当重新登录github desktop
-
-​	firewall-cmd --permanent --add-port=16070/tcp
-
-### ipv6
-
-- [教程](https://www.jixing.one/vps/v2ray-xui-v2rayn/)
-- 注意事项
-  - 系统代理->配置系统代理
+<p><a
+target="_blank" rel="noopener" href="https://iyideng.net/black-technology/cgfw/shadowsocksr-ssr-server-building-and-using-tutorial.html">参考教程</a></p>
+<h3 id="git">git</h3>
+<ul>
+<li>改了github id应当重新登录github desktop</li>
+</ul>
+<p>​ firewall-cmd --permanent --add-port=16070/tcp</p>
+<h3 id="ipv6">ipv6</h3>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.jixing.one/vps/v2ray-xui-v2rayn/">教程</a></li>
+<li>注意事项
+<ul>
+<li>系统代理-&gt;配置系统代理</li>
+</ul></li>
+</ul>
 
                 
             </div>
@@ -1223,7 +1267,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">51.9k</span>&nbsp;字
+                class="white-color">48.4k</span>&nbsp;字
             
             
             

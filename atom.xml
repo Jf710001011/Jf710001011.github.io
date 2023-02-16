@@ -28,15 +28,7 @@
       
         
         
-    <summary type="html">
-### 桥接、NAT转换、仅主机模式
-
-- 桥接
-  - 虚拟机网卡与主机网卡连接通信，将主机视为一个交换机VMnet0
-- NAT模式
-  - 虚拟机借助主机访问网络，主机采用双网卡模式（VMnet1和VMnet8）
-- 仅主机
-  -</summary>
+    <summary type="html">&lt;h3</summary>
         
       
     
@@ -54,8 +46,17 @@
     <link href="https://jf710001011.github.io/2023/02/16/test-my-site/"/>
     <id>https://jf710001011.github.io/2023/02/16/test-my-site/</id>
     <published>2023-02-16T11:44:05.000Z</published>
-    <updated>2023-02-16T11:44:05.725Z</updated>
+    <updated>2023-02-16T17:20:34.196Z</updated>
     
+    
+      
+      
+        
+        
+    <summary type="html">
+</summary>
+        
+      
     
     
     
@@ -74,7 +75,8 @@
       
         
         
-    <summary type="html">Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get</summary>
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very
+first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
         
       
     
@@ -95,12 +97,11 @@
       
         
         
-    <summary type="html">
-### 实验前准备
-
-- 安装最新的ANACONDA3,并更新所有的库(否则会出现很多报错
-
-&lt;figure class=&quot;highlight powershell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</summary>
+    <summary type="html">&lt;h3 id=&quot;实验前准备&quot;&gt;实验前准备&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;安装最新的ANACONDA3,并更新所有的库(否则会出现很多报错&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight powershell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
         
       
     
@@ -125,13 +126,9 @@
       
         
         
-    <summary type="html">
-### 多类特征
-
-- $$
-  x^{(2)}是一个特征向量：表示第二个训练集上的所有特征集合\\
-  x^{(2)}_3：表示第二个训练集的第三个特征
- </summary>
+    <summary type="html">&lt;h3 id=&quot;多类特征&quot;&gt;多类特征&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class=&quot;math</summary>
         
       
     
@@ -154,16 +151,7 @@
       
         
         
-    <summary type="html">
-### 语法
-
-- 四种集合类型
-  - List[]：有序可更改
-  - Turple()：有序不可更改
-  - Set{}：无序，无索引
-  - Dictionary{}：无序，可变，有索引
-
-- python</summary>
+    <summary type="html">&lt;h3</summary>
         
       
     
@@ -186,16 +174,12 @@
       
         
         
-    <summary type="html">
-### INTRODUCTION
-
-- read team
-- blue team
-- OWASP：industry standard
-- some commom vulnerbility scanners:
-  - Nessus
-  - Nexpose
-  -</summary>
+    <summary type="html">&lt;h3 id=&quot;introduction&quot;&gt;INTRODUCTION&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;read team&lt;/li&gt;
+&lt;li&gt;blue team&lt;/li&gt;
+&lt;li&gt;OWASP：industry standard&lt;/li&gt;
+&lt;li&gt;some commom</summary>
         
       
     
@@ -220,11 +204,7 @@
       
         
         
-    <summary type="html">
-### 资料收集
-
-- 关键词：**多模态、空管、大数据、融合与表征**（航空、空管）
-  -</summary>
+    <summary type="html">&lt;h3</summary>
         
       
     
@@ -249,11 +229,7 @@
       
         
         
-    <summary type="html">
-### 函数
-
-- strrpos:查找字符串在另一字符串中最后一次出现的位置
--</summary>
+    <summary type="html">&lt;h3</summary>
         
       
     
@@ -278,14 +254,9 @@
       
         
         
-    <summary type="html">
-[github](https://github.com/halfrost/LeetCode-Go)
-
-[books](https://books.halfrost.com/leetcode/)
-
-### 在2022-12-26日之前
-
--</summary>
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://github.com/halfrost/LeetCode-Go&quot;&gt;github&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://books.halfrost.com/leetcode/&quot;&gt;books&lt;/a&gt;&lt;/p&gt;
+&lt;h3</summary>
         
       
     
@@ -308,14 +279,8 @@
       
         
         
-    <summary type="html">
-### 搭建
-
-[repo](https://github.com/digininja/DVWA)
-
-[参考视频](https://www.youtube.com/watch?v=Yzksa_WjnY0&amp;ab_channel=RobinWood)
-
--</summary>
+    <summary type="html">&lt;h3 id=&quot;搭建&quot;&gt;搭建&lt;/h3&gt;
+&lt;p&gt;&lt;a</summary>
         
       
     
@@ -340,16 +305,12 @@
       
         
         
-    <summary type="html">
-### 实验环境的准备
-
-- 注册页面
-
-
-
-![image-20221216053536450](https://s2.loli.net/2022/12/16/MsJPaD53mTfpXiZ.png)
-
--</summary>
+    <summary type="html">&lt;h3 id=&quot;实验环境的准备&quot;&gt;实验环境的准备&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;注册页面&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure&gt;
+&lt;img</summary>
         
       
     
@@ -374,10 +335,10 @@
       
         
         
-    <summary type="html">
-[视频链接](https://www.bilibili.com/video/BV1Zt4y1H78P?p=7&amp;vd_source=03c4adad8a71f5349bd0c6db2d174203)
-
-[github笔记](https://github.com/fengdu78/</summary>
+    <summary type="html">&lt;p&gt;&lt;a
+href=&quot;https://www.bilibili.com/video/BV1Zt4y1H78P?p=7&amp;amp;vd_source=03c4adad8a71f5349bd0c6db2d174203&quot;&gt;视频链接&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a
+href=&quot;http</summary>
         
       
     
@@ -402,8 +363,7 @@
       
         
         
-    <summary type="html">
-###</summary>
+    <summary type="html">&lt;h3</summary>
         
       
     
@@ -428,12 +388,10 @@
       
         
         
-    <summary type="html">
-
-
-[教程1](https://blog.csdn.net/m0_37442062/article/details/116404462?spm=1001.2014.3001.5502)
-
-[教程2](https://blog.csdn.net/weixin_39561364/a</summary>
+    <summary type="html">&lt;p&gt;&lt;a
+href=&quot;https://blog.csdn.net/m0_37442062/article/details/116404462?spm=1001.2014.3001.5502&quot;&gt;教程1&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a
+href=&quot;https://blog.csd</summary>
         
       
     
@@ -458,21 +416,15 @@
       
         
         
-    <summary type="html">
-
-
-**一堆数学公式，好难**
-
-- 训练误差和泛化误差
-- 过拟合和欠拟合
-- 留出法
-- 交叉验证法
-- 自助法
-- 参数配置
-- 性能度量
-- 假设检验
-- 比较检验
--</summary>
+    <summary type="html">&lt;p&gt;&lt;strong&gt;一堆数学公式，好难&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;训练误差和泛化误差&lt;/li&gt;
+&lt;li&gt;过拟合和欠拟合&lt;/li&gt;
+&lt;li&gt;留出法&lt;/li&gt;
+&lt;li&gt;交叉验证法&lt;/li&gt;
+&lt;li&gt;自助法&lt;/li&gt;
+&lt;li&gt;参数配置&lt;/li&gt;
+&lt;l</summary>
         
       
     
@@ -497,16 +449,7 @@
       
         
         
-    <summary type="html">
-### 在虚拟机中分析恶意代码
-
-- Host-only模式:在宿主操作系统和客户操作系统之间创建一个**隔离**的私有局域网
-- 创建多个虚拟机
-  - 一个虚拟机运行恶意代码
-  - 第二个虚拟机则提供一些必要的网络服务
-  - 改为host-only会改变IP地址
-
--</summary>
+    <summary type="html">&lt;h3</summary>
         
       
     
@@ -531,9 +474,7 @@
       
         
         
-    <summary type="html">
-### 本地文件包含
-
+    <summary type="html">&lt;h3 id=&quot;本地文件包含&quot;&gt;本地文件包含&lt;/h3&gt;
 &lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
         
       
@@ -559,29 +500,8 @@
       
         
         
-    <summary type="html">
-### 绪论
-
-#### 概念术语
-
-- 模型
-- 数据集
-- 样本空间
-- 特征向量
-- 训练
-- 分类和回归
-- 聚类
-- 监督学习和无监督学习
-- 泛化
-
-#### 假设空间
-
-- 归纳和演绎
-- 泛化和特化
-- 版本空间
-- 归纳偏好
-- 奥卡姆剃刀
--</summary>
+    <summary type="html">&lt;h3 id=&quot;绪论&quot;&gt;绪论&lt;/h3&gt;
+&lt;h4</summary>
         
       
     
@@ -606,19 +526,7 @@
       
         
         
-    <summary type="html">
-### 什么是恶意代码分析
-
-- 也称恶意软件
-- 对用户、计算机、网络造成破坏的软件，是一种解剖恶意代码的艺术
-- 了解恶意代码是如何工作、如何识别以及如何战胜和消除它
-  - 计算机病毒
-  - 木马
-  - 蠕虫
-  - 内核套件
-  - 勒索软件
-  - 间谍软件
--</summary>
+    <summary type="html">&lt;h3</summary>
         
       
     

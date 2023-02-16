@@ -484,7 +484,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.5k
+                    1.3k
                 </div>
                 
 
@@ -506,213 +506,273 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                > 初衷：想成为游戏开发中的一员，毕业设计也选了射击游戏的开发。  
->指导资料：
->1. <https://www.bilibili.com/read/cv4648495>
->2. <https://docs.unrealengine.com/zh-CN/index.html>
--------------------
-`2021/03/30`
-## 补充前面
->1. 创建静态网格体
->2. 合并Actor  
-
-
-## 光照渲染、曝光、雾
->1. 构建光照---->转动太阳光
->2. 区分几种光照
->3. 曝光(设置-渲染)
->4. 指数级高度雾
->5. 光束、体积雾
-     1. light soucrce(光束遮挡和光泛)
-     2. 体积雾(在指数级高度雾里开启体积雾)：改变光源，改变体积雾本身  
-
-
-## 角色控制权
->1. 拖入角色，设置角色控制权
->2. 与1会冲突，设置Gamemode,设置palystart
-
-## 打包游戏
->1. 必须安装VS2019
-
-## 蓝图（可视化编程）
->1. 开关门  
-    1. 碰撞
-    2. 感应装置 （触发器、蓝图）
-    3. 关卡蓝图、事件（）
-
-
-## 开门（鼠标+左键，新建Actor）
-> 1. 相对位置、世界坐标
-> 2. E键开门
-> 3. 鼠标开门  
-
-
-![](/images/E键实现.png)   
- ![](/images/鼠标开关门.png)
-
-
-> 4. 门框和门之间的层级关系，类型转换小白人（不需要层级关系）  
->    5.补充：   
->     1. 改变中心轴（scene）
->     2. setActorRotation、setRelativeRotation、setWorldRotation的区别。
-
-
-![自动门](/images/自动门.png)  
-
-
->     3. gate节点：流程控制  
->     4. 输入节点
->     5. 玩家控制器
->     6. flipFloat节点
->     7. 点击事件、世界场景设置、新建玩家控制器、启用点击（√两个），  
-> 方式二：set show mouse cursor组件（从get controller中拉出）
-
-
- ![](/images/mouse_curse组件.png)
-
-## 字体导入、光照重建
->1. 导入字体（3种方法）
->2. 光照重建（产生阴影）
-
-## 电梯升降（重点）
-> 1. lerp节点    
-> 2. box无法成为cube子层级（退出UE4重进）
-
-
-![](/images/层级关系.png)    
-
-> 3. 组件层级关系很重要
-> 4. 获取玩家控制器、控制输入、禁止输入
-
-
-![蓝图](/images/电梯.png)
-
-## 自动门
-> 1. 材质中玻璃与静态网格体中玻璃窗
-> 2. 连线 连线 注意，看懂蓝图
-> 3. 自动门与E键开门
-
-![E键开门](/images/E键开门.png)
-
-> 4.`存在的问题：`左右两扇门的平移速度不一致，一扇合，一扇不合
-
-## 双开旋转门
-> 1. 注意是鼠标点击开门
-> 2. 两扇门两个lerp，两个点击事件
-
-![](/images/双开旋转门.png)
-> 3. `问题：`第二个时间点设置为85，会旋转很多次，笑死我了。😄     
-
-## 获得本地坐标、修复
->1. 获取当前值存在的问题，solution:新建变量Z,改为浮点型
-
-
-![](/images/获得值改进.png)
-
-
->2. 新建变量Z,浮点+浮点的操作，直接从Z节点引出
-
-
-![](/images/浮点+浮点.png)
-
-## 切记
-> 1. 记下各种组件
-> 2. ctrl+shift+s
-
-## 拾取🔑开门
->1. 布尔组件、branch组件、printf string组件、获取类的所有Actor组件
->2. 多个蓝图需要分清
-
- ![ 捡钥匙蓝图 ](/images/拾取钥匙.png)
- ![钥匙开门](/images/钥匙开门.png)
-
->3. 两蓝图通信关键：set布尔节点
->4. 胶囊体碰撞半径
-
-## 蓝图通信和自定义事件
->1. 蓝图通信：多个类发生联系
->2. 事件：  
-    1. 自定义事件组件（新建Actor-新建图表-）  
-    2. CharacterMovement
-
- ![box](/images/box.png)   ![人物触发](/images/ThirdPerson.png)
-
->3. 触发加速BP:  
-    1. 类型转换作用：蓝图通信&&具有针对性
-
-## 对象引用、变量有效性
->1. 变量引用、提升变量
->2. 有效性
-
-## 实现键盘控制物体自转
->1. fliFlop和branch
->2. 不同BP窗口，不同事件图表
->3. 蓝图修改需要重新移入BP
-
-
-![旋转BP](/images/旋转BP.png)
-![旋转引用](/images/旋转引用.png)
-
-## 简单点名系统
->1. getAllActor节点的使用顺序
-    1. 先选择再获得
-
-## 简单解谜游戏（功能汇总）
->1. 蓝图节点：
-    1. 执行控制台命令  
-    2. For Each Loop with break(可以被中断)
-    3. 设置可视性
->2. 文本渲染组件
->3. **lerp节点底端引脚连线**
->4. 可视性默认值
->5. 点亮灯,文本提示消失
->6. 关卡蓝图
->7. 添加引用
->8. 蓝图可视化编程：节点图标类似，但是要区分名字、名称
-
-![解谜BP](/images/解谜BP.png)
-![Door_BP](/images/Door_Bp.png)
-![Light_BP](/images/Light_BP.png)
-![关卡蓝图](/images/关卡蓝图.png)
-
-## 常见问题&&快捷键汇总
+                <blockquote>
+<p>初衷：想成为游戏开发中的一员，毕业设计也选了射击游戏的开发。<br />
+指导资料： 1. <a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv4648495"
+class="uri">https://www.bilibili.com/read/cv4648495</a> 2. <a
+target="_blank" rel="noopener" href="https://docs.unrealengine.com/zh-CN/index.html"
+class="uri">https://docs.unrealengine.com/zh-CN/index.html</a>
+------------------- <code>2021/03/30</code> ## 补充前面 1.
+创建静态网格体 2. 合并Actor</p>
+</blockquote>
+<h2 id="光照渲染曝光雾">光照渲染、曝光、雾</h2>
+<blockquote>
+<ol type="1">
+<li>构建光照----&gt;转动太阳光</li>
+<li>区分几种光照</li>
+<li>曝光(设置-渲染)</li>
+<li>指数级高度雾</li>
+<li>光束、体积雾</li>
+<li>light soucrce(光束遮挡和光泛)</li>
+<li>体积雾(在指数级高度雾里开启体积雾)：改变光源，改变体积雾本身</li>
+</ol>
+</blockquote>
+<h2 id="角色控制权">角色控制权</h2>
+<blockquote>
+<ol type="1">
+<li>拖入角色，设置角色控制权</li>
+<li>与1会冲突，设置Gamemode,设置palystart</li>
+</ol>
+</blockquote>
+<h2 id="打包游戏">打包游戏</h2>
+<blockquote>
+<ol type="1">
+<li>必须安装VS2019</li>
+</ol>
+</blockquote>
+<h2 id="蓝图可视化编程">蓝图（可视化编程）</h2>
+<blockquote>
+<ol type="1">
+<li>开关门<br />
+</li>
+<li>碰撞</li>
+<li>感应装置 （触发器、蓝图）</li>
+<li>关卡蓝图、事件（）</li>
+</ol>
+</blockquote>
+<h2 id="开门鼠标左键新建actor">开门（鼠标+左键，新建Actor）</h2>
+<blockquote>
+<ol type="1">
+<li>相对位置、世界坐标</li>
+<li>E键开门</li>
+<li>鼠标开门</li>
+</ol>
+</blockquote>
+<p><img src="/images/E键实现.png" /><br />
+<img src="/images/鼠标开关门.png" /></p>
+<blockquote>
+<ol start="4" type="1">
+<li>门框和门之间的层级关系，类型转换小白人（不需要层级关系）<br />
+5.补充：
+<ol type="1">
+<li>改变中心轴（scene）</li>
+<li>setActorRotation、setRelativeRotation、setWorldRotation的区别。</li>
+</ol></li>
+</ol>
+</blockquote>
+<figure>
+<img src="/images/自动门.png" alt="自动门" />
+<figcaption aria-hidden="true">自动门</figcaption>
+</figure>
+<blockquote>
+<pre><code>3. gate节点：流程控制  
+4. 输入节点
+5. 玩家控制器
+6. flipFloat节点
+7. 点击事件、世界场景设置、新建玩家控制器、启用点击（√两个），  </code></pre>
+<p>方式二：set show mouse cursor组件（从get controller中拉出）</p>
+</blockquote>
+<p><img src="/images/mouse_curse组件.png" /></p>
+<h2 id="字体导入光照重建">字体导入、光照重建</h2>
+<blockquote>
+<ol type="1">
+<li>导入字体（3种方法）</li>
+<li>光照重建（产生阴影）</li>
+</ol>
+</blockquote>
+<h2 id="电梯升降重点">电梯升降（重点）</h2>
+<blockquote>
+<ol type="1">
+<li>lerp节点<br />
+</li>
+<li>box无法成为cube子层级（退出UE4重进）</li>
+</ol>
+</blockquote>
+<p><img src="/images/层级关系.png" /></p>
+<blockquote>
+<ol start="3" type="1">
+<li>组件层级关系很重要</li>
+<li>获取玩家控制器、控制输入、禁止输入</li>
+</ol>
+</blockquote>
+<figure>
+<img src="/images/电梯.png" alt="蓝图" />
+<figcaption aria-hidden="true">蓝图</figcaption>
+</figure>
+<h2 id="自动门">自动门</h2>
+<blockquote>
+<ol type="1">
+<li>材质中玻璃与静态网格体中玻璃窗</li>
+<li>连线 连线 注意，看懂蓝图</li>
+<li>自动门与E键开门</li>
+</ol>
+</blockquote>
+<figure>
+<img src="/images/E键开门.png" alt="E键开门" />
+<figcaption aria-hidden="true">E键开门</figcaption>
+</figure>
+<blockquote>
+<p>4.<code>存在的问题：</code>左右两扇门的平移速度不一致，一扇合，一扇不合</p>
+</blockquote>
+<h2 id="双开旋转门">双开旋转门</h2>
+<blockquote>
+<ol type="1">
+<li>注意是鼠标点击开门</li>
+<li>两扇门两个lerp，两个点击事件</li>
+</ol>
+</blockquote>
+<p><img src="/images/双开旋转门.png" /> &gt; 3.
+<code>问题：</code>第二个时间点设置为85，会旋转很多次，笑死我了。😄</p>
+<h2 id="获得本地坐标修复">获得本地坐标、修复</h2>
+<blockquote>
+<ol type="1">
+<li>获取当前值存在的问题，solution:新建变量Z,改为浮点型</li>
+</ol>
+</blockquote>
+<p><img src="/images/获得值改进.png" /></p>
+<blockquote>
+<ol start="2" type="1">
+<li>新建变量Z,浮点+浮点的操作，直接从Z节点引出</li>
+</ol>
+</blockquote>
+<p><img src="/images/浮点+浮点.png" /></p>
+<h2 id="切记">切记</h2>
+<blockquote>
+<ol type="1">
+<li>记下各种组件</li>
+<li>ctrl+shift+s</li>
+</ol>
+</blockquote>
+<h2 id="拾取开门">拾取🔑开门</h2>
+<blockquote>
+<ol type="1">
+<li>布尔组件、branch组件、printf string组件、获取类的所有Actor组件</li>
+<li>多个蓝图需要分清</li>
+</ol>
+</blockquote>
+<p><img src="/images/拾取钥匙.png" alt="捡钥匙蓝图" /> <img
+src="/images/钥匙开门.png" alt="钥匙开门" /></p>
+<blockquote>
+<ol start="3" type="1">
+<li>两蓝图通信关键：set布尔节点</li>
+<li>胶囊体碰撞半径</li>
+</ol>
+</blockquote>
+<h2 id="蓝图通信和自定义事件">蓝图通信和自定义事件</h2>
+<blockquote>
+<ol type="1">
+<li>蓝图通信：多个类发生联系</li>
+<li>事件：<br />
+</li>
+<li>自定义事件组件（新建Actor-新建图表-）<br />
+</li>
+<li>CharacterMovement</li>
+</ol>
+</blockquote>
+<p><img src="/images/box.png" alt="box" /> <img
+src="/images/ThirdPerson.png" alt="人物触发" /></p>
+<blockquote>
+<ol start="3" type="1">
+<li>触发加速BP:<br />
+</li>
+<li>类型转换作用：蓝图通信&amp;&amp;具有针对性</li>
+</ol>
+</blockquote>
+<h2 id="对象引用变量有效性">对象引用、变量有效性</h2>
+<blockquote>
+<ol type="1">
+<li>变量引用、提升变量</li>
+<li>有效性</li>
+</ol>
+</blockquote>
+<h2 id="实现键盘控制物体自转">实现键盘控制物体自转</h2>
+<blockquote>
+<ol type="1">
+<li>fliFlop和branch</li>
+<li>不同BP窗口，不同事件图表</li>
+<li>蓝图修改需要重新移入BP</li>
+</ol>
+</blockquote>
+<p><img src="/images/旋转BP.png" alt="旋转BP" /> <img
+src="/images/旋转引用.png" alt="旋转引用" /></p>
+<h2 id="简单点名系统">简单点名系统</h2>
+<blockquote>
+<ol type="1">
+<li>getAllActor节点的使用顺序</li>
+<li>先选择再获得</li>
+</ol>
+</blockquote>
+<h2 id="简单解谜游戏功能汇总">简单解谜游戏（功能汇总）</h2>
+<blockquote>
+<ol type="1">
+<li>蓝图节点：</li>
+<li>执行控制台命令<br />
+</li>
+<li>For Each Loop with break(可以被中断)</li>
+<li>设置可视性</li>
+<li>文本渲染组件</li>
+<li><strong>lerp节点底端引脚连线</strong></li>
+<li>可视性默认值</li>
+<li>点亮灯,文本提示消失</li>
+<li>关卡蓝图</li>
+<li>添加引用</li>
+<li>蓝图可视化编程：节点图标类似，但是要区分名字、名称</li>
+</ol>
+</blockquote>
+<p><img src="/images/解谜BP.png" alt="解谜BP" /> <img
+src="/images/Door_Bp.png" alt="Door_BP" /> <img
+src="/images/Light_BP.png" alt="Light_BP" /> <img
+src="/images/关卡蓝图.png" alt="关卡蓝图" /></p>
+<h2 id="常见问题快捷键汇总">常见问题&amp;&amp;快捷键汇总</h2>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">1. 自定义快捷键</span><br><span class="line">2. 常用</span><br><span class="line">    1. ALT+num</span><br><span class="line">    2. ALT+L:显隐地形</span><br><span class="line">    3. ALT+C:显隐碰撞</span><br><span class="line">    4. ALT+F:显隐雾 </span><br><span class="line">    5. T:是否能够选中半透明物体</span><br><span class="line">    6. CTRL+P:快速打开资源</span><br><span class="line">    7. CTRL+ALT+鼠标左键”:框选</span><br><span class="line">    8. H/(CTRL+H):隐藏/显示选中物体</span><br><span class="line">    9. 鼠标中键：测距</span><br><span class="line">    10. CTRL+E:编辑选中物体</span><br><span class="line">    11. CTRL+B:快速查找选中物体路径</span><br><span class="line">    12. CTRL+G:打组</span><br><span class="line">    13. SHIFT+G:取消打组</span><br><span class="line">    14. ALT+P:开始游戏</span><br><span class="line">    15. ALT+S:模拟运行</span><br><span class="line">    16. CTRL+W:复制选中</span><br><span class="line">    17. CTRL+N:新建关卡</span><br><span class="line">    18. 书签功能</span><br><span class="line">    19. C:注释</span><br><span class="line">    20. *：未保存文件</span><br><span class="line">    21. 情景关联（蓝图节点）</span><br></pre></td></tr></table></figure>
-
-## 蓝图概念、面向对象思想、函数事件宏的区别
+<h2
+id="蓝图概念面向对象思想函数事件宏的区别">蓝图概念、面向对象思想、函数事件宏的区别</h2>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. Object &gt; Actor(门，角色，模型，蓝图，各种各样的角色) &gt; Pawn（被控制） &gt; Character（人性角色） &gt; Component</span><br><span class="line">2. pawn和character都能够被角色控制，Actor不行</span><br><span class="line">3. 关卡蓝图是Actor的子类</span><br></pre></td></tr></table></figure>
-
-## 多个角色控制权转换
+<h2 id="多个角色控制权转换">多个角色控制权转换</h2>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. 世界场景设置：Game mode</span><br><span class="line">2. 蓝图节点：MultiGate、使用混合设置视图目标、控制</span><br><span class="line">![角色控制切换_整体](/images/角色控制切换_整体.png)</span><br></pre></td></tr></table></figure>
+<p><img src="/images/角色控制_前半.png" alt="角色控制_前半" /> <img
+src="/images/角色控制_后半.png" alt="角色控制_后半" /></p>
+<h2 id="角色上下车">角色上下车</h2>
+<blockquote>
+<ol type="1">
+<li>组件：</li>
+<li><code>附加到组件</code>:选择保持场景</li>
+<li>sphere碰撞</li>
+<li>问题：下车后任务无法动弹，按“跳跃”后一直坠落</li>
+<li>新建事件、新建变量</li>
+</ol>
+</blockquote>
+<p><img src="/images/上下车_角色BP.png" alt="上下车_角色BP" /> <img
+src="/images/上车_BP.png" alt="上车_BP" /> <img
+src="/images/下车_BP.png" alt="下车_BP" /></p>
+<h2 id="下车减速">下车减速</h2>
+<p><img src="/images/上下车_油门更改.png" alt="油门更改" /> <img
+src="/images/下车刹车change.png" alt="下车刹车change" /></p>
+<h2 id="冲刺瞬移多段跳">冲刺、瞬移、多段跳</h2>
+<blockquote>
+<ol type="1">
+<li>次数判断</li>
+<li>蓝图节点</li>
+<li>获取Actor位置、获取Actor向前向量相加。</li>
+<li>FolloCamera</li>
+<li>多段跳：ThirdpersonCharacter(自身)</li>
+</ol>
+</blockquote>
+<figure>
+<img src="/images/冲刺瞬移BP.png" alt="冲刺瞬移BP" />
+<figcaption aria-hidden="true">冲刺瞬移BP</figcaption>
+</figure>
 
-
-![角色控制_前半](/images/角色控制_前半.png)
-![角色控制_后半](/images/角色控制_后半.png)
-
-## 角色上下车
->1. 组件：
->   1. `附加到组件`:选择保持场景
->2. sphere碰撞
->3. 问题：下车后任务无法动弹，按“跳跃”后一直坠落
->4. 新建事件、新建变量
-
-![上下车_角色BP](/images/上下车_角色BP.png) 
-![上车_BP](/images/上车_BP.png)
-![下车_BP](/images/下车_BP.png)
-
-## 下车减速
-![油门更改](/images/上下车_油门更改.png)
-![下车刹车change](/images/下车刹车change.png)
-
-## 冲刺、瞬移、多段跳
->1. 次数判断
->2. 蓝图节点
->   1. 获取Actor位置、获取Actor向前向量相加。
->3. FolloCamera
->4. 多段跳：ThirdpersonCharacter(自身)
-
-![冲刺瞬移BP](/images/冲刺瞬移BP.png)
-
- 
                 
             </div>
             <hr/>
@@ -1212,7 +1272,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">51.9k</span>&nbsp;字
+                class="white-color">48.4k</span>&nbsp;字
             
             
             

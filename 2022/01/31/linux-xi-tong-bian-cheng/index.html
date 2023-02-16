@@ -479,7 +479,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    278
+                    272
                 </div>
                 
 
@@ -501,121 +501,115 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
-**2021-02-20结束**
-
-### makefile
-
-- 一些概念
-
-> `$@`:目标文件，`$^`:所有的依赖文件，`$<`:第一个依赖文件
-> `AR = ar rc` : 生成静态库文件命令
-> `-fPIC` 作用于编译阶段，告诉编译器产生与位置无关代码(*Position-Independent Code*)
-
-- 自制sharedLibrary
-
-> 导入环境变量：[refference](https://unix.stackexchange.com/questions/25218/error-while-loading-shared-libraries)
-
-- temporary:`export LD_LIBRARY_PATH="$PROJ/lib/3rdpartylib/:$LD_LIBRARY_PATH"`
-  - new configFile
-
-### API
-
-- open()
-
-- read()
-
-- write()
-
-- lseek()
-
-- ftruncate()
-
-> 需要写权限
-
-- dup()
-
-- dup2()
-
-- wait()
-
-- waitpid()
-
-- int execlp(const char *file, const char*arg, …)
-
-- int execl(const char *path, const char*arg, …)
-
-- fork()
-
-### 通信
-
-- pipe()：匿名管道
-
-- FIFO：有名管道
-
-- mmap()
-
-> 先pipe后fork():创建子进程，并在管道上与父进程有相同的实现。
-
-- ummap
-
-> 父子进程：**全局变量**：读时共享，写时复制
-
-- 特殊文件
-
-> /dev/zero
-> /dev/null
-
-- alarm函数
-
+                <p><strong>2021-02-20结束</strong></p>
+<h3 id="makefile">makefile</h3>
+<ul>
+<li>一些概念</li>
+</ul>
+<blockquote>
+<p><code>$@</code>:目标文件，<code>$^</code>:所有的依赖文件，<code>$&lt;</code>:第一个依赖文件
+<code>AR = ar rc</code> : 生成静态库文件命令 <code>-fPIC</code>
+作用于编译阶段，告诉编译器产生与位置无关代码(<em>Position-Independent
+Code</em>)</p>
+</blockquote>
+<ul>
+<li>自制sharedLibrary</li>
+</ul>
+<blockquote>
+<p>导入环境变量：<a
+target="_blank" rel="noopener" href="https://unix.stackexchange.com/questions/25218/error-while-loading-shared-libraries">refference</a></p>
+</blockquote>
+<ul>
+<li>temporary:<code>export LD_LIBRARY_PATH="$PROJ/lib/3rdpartylib/:$LD_LIBRARY_PATH"</code>
+<ul>
+<li>new configFile</li>
+</ul></li>
+</ul>
+<h3 id="api">API</h3>
+<ul>
+<li><p>open()</p></li>
+<li><p>read()</p></li>
+<li><p>write()</p></li>
+<li><p>lseek()</p></li>
+<li><p>ftruncate()</p></li>
+</ul>
+<blockquote>
+<p>需要写权限</p>
+</blockquote>
+<ul>
+<li><p>dup()</p></li>
+<li><p>dup2()</p></li>
+<li><p>wait()</p></li>
+<li><p>waitpid()</p></li>
+<li><p>int execlp(const char <em>file, const char</em>arg, …)</p></li>
+<li><p>int execl(const char <em>path, const char</em>arg, …)</p></li>
+<li><p>fork()</p></li>
+</ul>
+<h3 id="通信">通信</h3>
+<ul>
+<li><p>pipe()：匿名管道</p></li>
+<li><p>FIFO：有名管道</p></li>
+<li><p>mmap()</p></li>
+</ul>
+<blockquote>
+<p>先pipe后fork():创建子进程，并在管道上与父进程有相同的实现。</p>
+</blockquote>
+<ul>
+<li>ummap</li>
+</ul>
+<blockquote>
+<p>父子进程：<strong>全局变量</strong>：读时共享，写时复制</p>
+</blockquote>
+<ul>
+<li>特殊文件</li>
+</ul>
+<blockquote>
+<p>/dev/zero /dev/null</p>
+</blockquote>
+<ul>
+<li>alarm函数</li>
+</ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux | grep 1630</span><br></pre></td></tr></table></figure>
-
-> 实现`ls|wc -l`
-
-### 信号
-
-- 段错误：非法访问内存
-
+<blockquote>
+<p>实现<code>ls|wc -l</code></p>
+</blockquote>
+<h3 id="信号">信号</h3>
+<ul>
+<li>段错误：非法访问内存</li>
+</ul>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">sigset_t</span> <span class="built_in">set</span>;</span><br><span class="line">sigempty(&amp;<span class="built_in">set</span>);</span><br><span class="line">sigaddset(&amp;<span class="built_in">set</span>,SIGINT);</span><br><span class="line">sigprocmask(SIG_BLOCK,&amp;<span class="built_in">set</span>,&amp;oldset);</span><br><span class="line">sigpending(&amp;myset);</span><br></pre></td></tr></table></figure>
-
-- signal()
-
-- sigaction()
-
-### 会话
-
-- setsid()
-
-- chdir()
-
-### 线程
-
-- 编译加 -lpthread
-- pthread_t pthread_self();
-- int pthread_create();
-- exit(0);      // 退出进程
-- pthread_exit();
-- pthread_join();
-- pthread_cancel();
-- pthread_testcancel();
-- pthread_detach();
-- fprintf(stderr,"xxx error %s\n",stderror());
-
-### 命令
-
-- ps ajx
-
-- ulimit -a
-
-- kill -l
-
-- ps ajx
-
-- time ./alarm
-
-- cat|cat|cat|wc -l
-
-- ps -Lf 进程id
+<ul>
+<li><p>signal()</p></li>
+<li><p>sigaction()</p></li>
+</ul>
+<h3 id="会话">会话</h3>
+<ul>
+<li><p>setsid()</p></li>
+<li><p>chdir()</p></li>
+</ul>
+<h3 id="线程">线程</h3>
+<ul>
+<li>编译加 -lpthread</li>
+<li>pthread_t pthread_self();</li>
+<li>int pthread_create();</li>
+<li>exit(0); // 退出进程</li>
+<li>pthread_exit();</li>
+<li>pthread_join();</li>
+<li>pthread_cancel();</li>
+<li>pthread_testcancel();</li>
+<li>pthread_detach();</li>
+<li>fprintf(stderr,"xxx error %s",stderror());</li>
+</ul>
+<h3 id="命令">命令</h3>
+<ul>
+<li><p>ps ajx</p></li>
+<li><p>ulimit -a</p></li>
+<li><p>kill -l</p></li>
+<li><p>ps ajx</p></li>
+<li><p>time ./alarm</p></li>
+<li><p>cat|cat|cat|wc -l</p></li>
+<li><p>ps -Lf 进程id</p></li>
+</ul>
 
                 
             </div>
@@ -1120,7 +1114,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">51.9k</span>&nbsp;字
+                class="white-color">48.4k</span>&nbsp;字
             
             
             

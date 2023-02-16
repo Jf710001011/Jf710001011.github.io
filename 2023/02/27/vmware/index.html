@@ -484,7 +484,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    235
+                    178
                 </div>
                 
 
@@ -506,42 +506,56 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
-### 桥接、NAT转换、仅主机模式
+                <h3 id="桥接nat转换仅主机模式">桥接、NAT转换、仅主机模式</h3>
+<ul>
+<li>桥接
+<ul>
+<li>虚拟机网卡与主机网卡连接通信，将主机视为一个交换机VMnet0</li>
+</ul></li>
+<li>NAT模式
+<ul>
+<li>虚拟机借助主机访问网络，主机采用双网卡模式（VMnet1和VMnet8）</li>
+</ul></li>
+<li>仅主机
+<ul>
+<li>虚拟机通过VMnet1与主机连接，主机将虚拟机与外网隔绝。</li>
+</ul></li>
+</ul>
+<h3 id="xshell-不能连接虚拟机">xshell 不能连接虚拟机</h3>
+<ul>
+<li><p>问题描述：</p>
+<ul>
+<li>主机上无VMnet1和VMnet8</li>
+<li>主机无法ping通虚拟机</li>
+</ul></li>
+<li><p>重复安装vmware ，未卸载干净，需要清理注册表</p></li>
+<li><p>安装ccleaner</p>
+<ul>
+<li>先建立一个<strong>空文件夹</strong>，否则安装空白</li>
+</ul></li>
+<li><p><a
+target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1jd4y1w72L/?spm_id_from=333.337.search-card.all.click&amp;vd_source=03c4adad8a71f5349bd0c6db2d174203">安装</a><img
+src="https://s2.loli.net/2023/02/15/X8M3lgIYWNJv5kq.png"
+alt="image-20230215142928964" /></p>
+<ul>
+<li><strong>patch 压缩文件内启动</strong></li>
+</ul>
+<figure>
+<img src="https://s2.loli.net/2023/02/15/FQoBrvCuxGmcHXI.png"
+alt="image-20230215143129296" />
+<figcaption aria-hidden="true">image-20230215143129296</figcaption>
+</figure></li>
+<li><p>最关键的一步</p>
+<ul>
+<li><p>更改设置<img
+src="https://s2.loli.net/2023/02/15/SRBqbMPJ6KOLifj.png"
+alt="image-20230215144316587" /></p></li>
+<li><p>VMnet8 也需要来一遍<img
+src="https://s2.loli.net/2023/02/15/AMxldjIpNiSQcFC.png"
+alt="image-20230215144609089" /></p></li>
+</ul></li>
+</ul>
 
-- 桥接
-  - 虚拟机网卡与主机网卡连接通信，将主机视为一个交换机VMnet0
-- NAT模式
-  - 虚拟机借助主机访问网络，主机采用双网卡模式（VMnet1和VMnet8）
-- 仅主机
-  - 虚拟机通过VMnet1与主机连接，主机将虚拟机与外网隔绝。
-
-
-
-### xshell 不能连接虚拟机
-
-- 问题描述：
-
-  - 主机上无VMnet1和VMnet8
-  - 主机无法ping通虚拟机
-
-- 重复安装vmware ，未卸载干净，需要清理注册表
-
-- 安装ccleaner
-
-  - 先建立一个**空文件夹**，否则安装空白
-
-- [安装](https://www.bilibili.com/video/BV1jd4y1w72L/?spm_id_from=333.337.search-card.all.click&vd_source=03c4adad8a71f5349bd0c6db2d174203)![image-20230215142928964](https://s2.loli.net/2023/02/15/X8M3lgIYWNJv5kq.png)
-
-  - **patch 压缩文件内启动**
-
-  ![image-20230215143129296](https://s2.loli.net/2023/02/15/FQoBrvCuxGmcHXI.png)
-
-- 最关键的一步
-
-  - 更改设置![image-20230215144316587](https://s2.loli.net/2023/02/15/SRBqbMPJ6KOLifj.png)
-
-  - VMnet8 也需要来一遍![image-20230215144609089](https://s2.loli.net/2023/02/15/AMxldjIpNiSQcFC.png)
                 
             </div>
             <hr/>
@@ -1029,7 +1043,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">51.9k</span>&nbsp;字
+                class="white-color">48.4k</span>&nbsp;字
             
             
             

@@ -484,7 +484,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    742
+                    712
                 </div>
                 
 
@@ -506,118 +506,135 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
-### 什么是恶意代码分析
-
-- 也称恶意软件
-- 对用户、计算机、网络造成破坏的软件，是一种解剖恶意代码的艺术
-- 了解恶意代码是如何工作、如何识别以及如何战胜和消除它
-  - 计算机病毒
-  - 木马
-  - 蠕虫
-  - 内核套件
-  - 勒索软件
-  - 间谍软件
-- 主要专注于windows系统的恶意代码分析，也会研究js 脚本的恶意代码
-- 将会学习如下的知识、工具、技术和研究方法
-
-![00000](https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209091459035.png)
-
-- 并在学习过程进行实践
-
-### 第0章
-
-#### 分析目标
-
-- 尽管恶意代码以不同的形式出现，但是分析的方法是通用的
-- 而选择哪项技术，取决于你的目标
-- 通常的目标：确定一个可疑的二进制目标程序可以做什么、如何在网络中检测出来以及如何消除损害
-- 编写检测特征码
-  - 基于主机的特征码
-  - 网络特征码
-- 分析malware工作流程
-
-#### 分析技术
-
-- 静态分析：检查可执行文件和具体指令
-- 动态分析：运行恶意代码
-- 静态分析高级技术：逆向工程、反汇编、代码结构、windows 操作系统
-- 动态分析高级技术：调试器检查内部状态
-
-### 恶意代码分类
-
-- 后门
-- 僵尸网络
-- 下载器
-- 间谍软件
-- 间谍软件
-- 启动器
-- 内核套件
-- 勒索软件
-- 发送垃圾的恶意代码
-- 蠕虫或计算机病毒
-
-- 其他分类：大众恶意代码和针对性恶意代码
-
-#### 恶意代码分析通用规则
-
-- 没用通吃的方法，自由不断尝试各种方法
-
-### 静态分析基础技术
-
-- 分析程序指令和结构
-
-- 反病毒引擎扫描
-
-  - 依靠一个恶意代码可识别片段的特征数据库（病毒文件特征库），以及基于行为与模式匹配的分析来识别可疑文件（启发式检测）
-
-- 哈希值：唯一标识恶意代码
-
-  - MD5
-  - SHA-1
-  - 哈希值可以分享
-
-- 查找字符串
-
-  - ASCII:1字节
-  - Unicode：2字节
-  - string 程序检测字符串
-
-- 加壳与混淆恶意代码：让文件更加难以检测和分析
-
-  - 混淆：隐藏执行过程
-  - 加壳：恶意程序被压缩，难以分析
-
-  ![image-20220930005310820](https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209300053906.png)
-
-​	
-
--  PEiD检测加壳
-  - PEiD也可能会受到安全漏洞的威胁
-  - upx
--  PE文件（可移植执行文件）格式:是windows 可执行文件、对象代码、DLL所使用的标准格式，实际是一种数据结构
-- PE文件头
-  -  分节
-     -  .text
-     -  .rdata
-     -  .data
-  
-  -  PEview
-  -  代码信息
-  -  应用程序类型
-  -  所需的库函数与空间要求
-  
--  链接库和函数
-  -  静态链接
-  -  运行时链接
-  -  动态链接：恶意代码中常见
-
-![image-20221007122133374](https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202210071221523.png)
-
-- dependency walker
-
-### 	lab-1
-
+                <h3 id="什么是恶意代码分析">什么是恶意代码分析</h3>
+<ul>
+<li>也称恶意软件</li>
+<li>对用户、计算机、网络造成破坏的软件，是一种解剖恶意代码的艺术</li>
+<li>了解恶意代码是如何工作、如何识别以及如何战胜和消除它
+<ul>
+<li>计算机病毒</li>
+<li>木马</li>
+<li>蠕虫</li>
+<li>内核套件</li>
+<li>勒索软件</li>
+<li>间谍软件</li>
+</ul></li>
+<li>主要专注于windows系统的恶意代码分析，也会研究js 脚本的恶意代码</li>
+<li>将会学习如下的知识、工具、技术和研究方法</li>
+</ul>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209091459035.png"
+alt="00000" />
+<figcaption aria-hidden="true">00000</figcaption>
+</figure>
+<ul>
+<li>并在学习过程进行实践</li>
+</ul>
+<h3 id="第0章">第0章</h3>
+<h4 id="分析目标">分析目标</h4>
+<ul>
+<li>尽管恶意代码以不同的形式出现，但是分析的方法是通用的</li>
+<li>而选择哪项技术，取决于你的目标</li>
+<li>通常的目标：确定一个可疑的二进制目标程序可以做什么、如何在网络中检测出来以及如何消除损害</li>
+<li>编写检测特征码
+<ul>
+<li>基于主机的特征码</li>
+<li>网络特征码</li>
+</ul></li>
+<li>分析malware工作流程</li>
+</ul>
+<h4 id="分析技术">分析技术</h4>
+<ul>
+<li>静态分析：检查可执行文件和具体指令</li>
+<li>动态分析：运行恶意代码</li>
+<li>静态分析高级技术：逆向工程、反汇编、代码结构、windows 操作系统</li>
+<li>动态分析高级技术：调试器检查内部状态</li>
+</ul>
+<h3 id="恶意代码分类">恶意代码分类</h3>
+<ul>
+<li><p>后门</p></li>
+<li><p>僵尸网络</p></li>
+<li><p>下载器</p></li>
+<li><p>间谍软件</p></li>
+<li><p>间谍软件</p></li>
+<li><p>启动器</p></li>
+<li><p>内核套件</p></li>
+<li><p>勒索软件</p></li>
+<li><p>发送垃圾的恶意代码</p></li>
+<li><p>蠕虫或计算机病毒</p></li>
+<li><p>其他分类：大众恶意代码和针对性恶意代码</p></li>
+</ul>
+<h4 id="恶意代码分析通用规则">恶意代码分析通用规则</h4>
+<ul>
+<li>没用通吃的方法，自由不断尝试各种方法</li>
+</ul>
+<h3 id="静态分析基础技术">静态分析基础技术</h3>
+<ul>
+<li><p>分析程序指令和结构</p></li>
+<li><p>反病毒引擎扫描</p>
+<ul>
+<li>依靠一个恶意代码可识别片段的特征数据库（病毒文件特征库），以及基于行为与模式匹配的分析来识别可疑文件（启发式检测）</li>
+</ul></li>
+<li><p>哈希值：唯一标识恶意代码</p>
+<ul>
+<li>MD5</li>
+<li>SHA-1</li>
+<li>哈希值可以分享</li>
+</ul></li>
+<li><p>查找字符串</p>
+<ul>
+<li>ASCII:1字节</li>
+<li>Unicode：2字节</li>
+<li>string 程序检测字符串</li>
+</ul></li>
+<li><p>加壳与混淆恶意代码：让文件更加难以检测和分析</p>
+<ul>
+<li>混淆：隐藏执行过程</li>
+<li>加壳：恶意程序被压缩，难以分析</li>
+</ul>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209300053906.png"
+alt="image-20220930005310820" />
+<figcaption aria-hidden="true">image-20220930005310820</figcaption>
+</figure></li>
+</ul>
+<p>​</p>
+<ul>
+<li>PEiD检测加壳</li>
+<li>PEiD也可能会受到安全漏洞的威胁</li>
+<li>upx</li>
+<li>PE文件（可移植执行文件）格式:是windows
+可执行文件、对象代码、DLL所使用的标准格式，实际是一种数据结构</li>
+<li>PE文件头
+<ul>
+<li>分节
+<ul>
+<li>.text</li>
+<li>.rdata</li>
+<li>.data</li>
+</ul></li>
+<li>PEview</li>
+<li>代码信息</li>
+<li>应用程序类型</li>
+<li>所需的库函数与空间要求</li>
+</ul></li>
+<li>链接库和函数</li>
+<li>静态链接</li>
+<li>运行时链接</li>
+<li>动态链接：恶意代码中常见</li>
+</ul>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202210071221523.png"
+alt="image-20221007122133374" />
+<figcaption aria-hidden="true">image-20221007122133374</figcaption>
+</figure>
+<ul>
+<li>dependency walker</li>
+</ul>
+<h3 id="lab-1">lab-1</h3>
 
                 
             </div>
@@ -1116,7 +1133,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">51.9k</span>&nbsp;字
+                class="white-color">48.4k</span>&nbsp;字
             
             
             

@@ -488,7 +488,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    729
+                    693
                 </div>
                 
 
@@ -510,143 +510,147 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
-### 网络基础大便
-
-- 网络字节序:大端
-
-- 主机字节序与网络字节序不同的系统上使用这四个函数
-
-- htons();
-
-- ntohs();
-
-### sever
-
-- lsof:
-
-- socket();
-
-- bind();
-
-- listen()  
-
-- **accept();:** 创建一个新socket
-  
-### client
-
-- socket()
-
-- connect()
-
-**封装函数**：逻辑清晰。
-
----
-
-### 多进程并发服务器
-
-多线程并发服务器
-
-- 兄弟线程之间可以相互回收；兄弟线程不可以。
-
-- find /mnt （寻找文件夹） 
-  
-- memset()
-
-- bzero()
-
-- 信号捕捉函数（信号概念的理解）
-
-- read():
-
-### TCP的建立
-
-> 1. listen()被动打开，accept()阻塞服务器直到连接建立
-> 2. 客户端connect（）主动打开，发送SYN报文，服务器发送ACK和SYN
-> 3. 客服端返回确认
-
-![TCP连接建立](https://s2.loli.net/2022/03/19/H3Ea9YAGSIzu7Wc.png)
-
----
-
-### TCP连接终止
-
-- **2MSL**:1 个 MSL 时间留给最后的 ACK 确认报文到达对端 TCP 结点，另一个 MSL 时间留给必须发送的 FIN 报文。
-
-- 监视套接字：netstat
-
-  > 参数: -a,-n,-p
-
-- 端口复用：int setsockopt(int sockfd,int level,int optanme,const void* optval,socklen_t optlen)
-
-- FIN_WAIT2 : 半关闭 
-
-  - close()
-  - shutdown(): 多个文件描述符时，全关闭。 
-
-> 1. close()主动关闭，发送FIN报文
-> 2. 发送ACK响应，read()结束
-> 3. 服务器发送FIN报文
-> 4. 客户端确认
-
-![TCP连接终止](https://s2.loli.net/2022/03/19/K16X9lADwgSfFzb.png)
-
-
-
-------
-
-### 多路转接IO:响应式
-
-1. `select`
-
-   - `int select()`函数原型：nfds指定被监听的文件描述符的总数，其值为总数+1
-
-     - 一般来说 `listen fd`最小
-
-     - 对 `read` 描述符集合的理解
-
-       > 1. `listen` 连接请求行为
-       > 2.  数据通信行为 
-
-     - 有好几个参数都是 **传入+传出参数**,**传入的描述符**是自己感兴趣的，**传出的描述符**是属于就绪状态的，因此**感兴趣的**描述符集合需要备份
-
-
-   - `FD_SET()`初调用 select,传入`lfd`(监听连接请求)，属于读事件。传出 集合里有`lfd`,就确定了有连接请求，则通知 `server`调用 `accept()` 处理连接请求，处理正常通信。如果 `select`返回值大于1则读入了多个请求，可能有连接，也有通信。
-
-
-   - 起初调用 `select`,传入`lfd`(监听连接请求)，属于读事件。处理连接请求后，处理正常通信。
-
-
-   - `FD_ISSET()`:是否有客户端连接请求
-
-2. `poll`：半成品、鸡肋
-
-3. `epoll` : 红黑树
-
-> - `int epoll_create(int size)`: 创建一个 epoll 实例，返回代表该实例的文件描述符，创建红黑树。
-> - `int epoll_ctl(int epfd, int op, int fd, struct epoll_event *event)`：操作监听的红黑树
-> - `int epoll_wait(int epfd, struct epoll_event *events, int maxevents, int timeout)`：阻塞监听
-
-- 事件模型
-
-> 1. 边沿触发：只需要部分数据 （**非阻塞模式**）
-> 2. 水平触发：缓冲区剩下的下次会直接读走
-
-### epoll 反应堆模型
-
-1. 心跳检测机制
-
-> - 心跳包:
-> - 乒乓包：简单数据
-> - 设置TCP属性：SO_KEEPALIVE
-
-### 事件驱动模型
-
-1. reactor 模式
-2. 
-
-### 线程池
-
+                <h3 id="网络基础大便">网络基础大便</h3>
+<ul>
+<li><p>网络字节序:大端</p></li>
+<li><p>主机字节序与网络字节序不同的系统上使用这四个函数</p></li>
+<li><p>htons();</p></li>
+<li><p>ntohs();</p></li>
+</ul>
+<h3 id="sever">sever</h3>
+<ul>
+<li><p>lsof:</p></li>
+<li><p>socket();</p></li>
+<li><p>bind();</p></li>
+<li><p>listen()</p></li>
+<li><p><strong>accept();:</strong> 创建一个新socket</p></li>
+</ul>
+<h3 id="client">client</h3>
+<ul>
+<li><p>socket()</p></li>
+<li><p>connect()</p></li>
+</ul>
+<p><strong>封装函数</strong>：逻辑清晰。</p>
+<hr />
+<h3 id="多进程并发服务器">多进程并发服务器</h3>
+<p>多线程并发服务器</p>
+<ul>
+<li><p>兄弟线程之间可以相互回收；兄弟线程不可以。</p></li>
+<li><p>find /mnt （寻找文件夹）</p></li>
+<li><p>memset()</p></li>
+<li><p>bzero()</p></li>
+<li><p>信号捕捉函数（信号概念的理解）</p></li>
+<li><p>read():</p></li>
+</ul>
+<h3 id="tcp的建立">TCP的建立</h3>
+<blockquote>
+<ol type="1">
+<li>listen()被动打开，accept()阻塞服务器直到连接建立</li>
+<li>客户端connect（）主动打开，发送SYN报文，服务器发送ACK和SYN</li>
+<li>客服端返回确认</li>
+</ol>
+</blockquote>
+<figure>
+<img src="https://s2.loli.net/2022/03/19/H3Ea9YAGSIzu7Wc.png"
+alt="TCP连接建立" />
+<figcaption aria-hidden="true">TCP连接建立</figcaption>
+</figure>
+<hr />
+<h3 id="tcp连接终止">TCP连接终止</h3>
+<ul>
+<li><p><strong>2MSL</strong>:1 个 MSL 时间留给最后的 ACK
+确认报文到达对端 TCP 结点，另一个 MSL 时间留给必须发送的 FIN
+报文。</p></li>
+<li><p>监视套接字：netstat</p>
+<blockquote>
+<p>参数: -a,-n,-p</p>
+</blockquote></li>
+<li><p>端口复用：int setsockopt(int sockfd,int level,int optanme,const
+void* optval,socklen_t optlen)</p></li>
+<li><p>FIN_WAIT2 : 半关闭</p>
+<ul>
+<li>close()</li>
+<li>shutdown(): 多个文件描述符时，全关闭。</li>
+</ul></li>
+</ul>
+<blockquote>
+<ol type="1">
+<li>close()主动关闭，发送FIN报文</li>
+<li>发送ACK响应，read()结束</li>
+<li>服务器发送FIN报文</li>
+<li>客户端确认</li>
+</ol>
+</blockquote>
+<figure>
+<img src="https://s2.loli.net/2022/03/19/K16X9lADwgSfFzb.png"
+alt="TCP连接终止" />
+<figcaption aria-hidden="true">TCP连接终止</figcaption>
+</figure>
+<hr />
+<h3 id="多路转接io响应式">多路转接IO:响应式</h3>
+<ol type="1">
+<li><p><code>select</code></p>
+<ul>
+<li><p><code>int select()</code>函数原型：nfds指定被监听的文件描述符的总数，其值为总数+1</p>
+<ul>
+<li><p>一般来说 <code>listen fd</code>最小</p></li>
+<li><p>对 <code>read</code> 描述符集合的理解</p>
+<blockquote>
+<ol type="1">
+<li><code>listen</code> 连接请求行为</li>
+<li>数据通信行为</li>
+</ol>
+</blockquote></li>
+<li><p>有好几个参数都是
+<strong>传入+传出参数</strong>,<strong>传入的描述符</strong>是自己感兴趣的，<strong>传出的描述符</strong>是属于就绪状态的，因此<strong>感兴趣的</strong>描述符集合需要备份</p></li>
+</ul></li>
+<li><p><code>FD_SET()</code>初调用
+select,传入<code>lfd</code>(监听连接请求)，属于读事件。传出
+集合里有<code>lfd</code>,就确定了有连接请求，则通知
+<code>server</code>调用 <code>accept()</code>
+处理连接请求，处理正常通信。如果
+<code>select</code>返回值大于1则读入了多个请求，可能有连接，也有通信。</p></li>
+<li><p>起初调用
+<code>select</code>,传入<code>lfd</code>(监听连接请求)，属于读事件。处理连接请求后，处理正常通信。</p></li>
+<li><p><code>FD_ISSET()</code>:是否有客户端连接请求</p></li>
+</ul></li>
+<li><p><code>poll</code>：半成品、鸡肋</p></li>
+<li><p><code>epoll</code> : 红黑树</p></li>
+</ol>
+<blockquote>
+<ul>
+<li><code>int epoll_create(int size)</code>: 创建一个 epoll
+实例，返回代表该实例的文件描述符，创建红黑树。</li>
+<li><code>int epoll_ctl(int epfd, int op, int fd, struct epoll_event *event)</code>：操作监听的红黑树</li>
+<li><code>int epoll_wait(int epfd, struct epoll_event *events, int maxevents, int timeout)</code>：阻塞监听</li>
+</ul>
+</blockquote>
+<ul>
+<li>事件模型</li>
+</ul>
+<blockquote>
+<ol type="1">
+<li>边沿触发：只需要部分数据 （<strong>非阻塞模式</strong>）</li>
+<li>水平触发：缓冲区剩下的下次会直接读走</li>
+</ol>
+</blockquote>
+<h3 id="epoll-反应堆模型">epoll 反应堆模型</h3>
+<ol type="1">
+<li>心跳检测机制</li>
+</ol>
+<blockquote>
+<ul>
+<li>心跳包:</li>
+<li>乒乓包：简单数据</li>
+<li>设置TCP属性：SO_KEEPALIVE</li>
+</ul>
+</blockquote>
+<h3 id="事件驱动模型">事件驱动模型</h3>
+<ol type="1">
+<li>reactor 模式</li>
+<li></li>
+</ol>
+<h3 id="线程池">线程池</h3>
 
                 
             </div>
@@ -1147,7 +1151,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">51.9k</span>&nbsp;字
+                class="white-color">48.4k</span>&nbsp;字
             
             
             

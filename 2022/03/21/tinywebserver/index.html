@@ -488,7 +488,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    675
+                    641
                 </div>
                 
 
@@ -510,53 +510,83 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
-​	1. 参考书的意义永远是随时查阅和补充
-
----
-
-### 什么是webServer
-
-1. `B/S`或`C/S`模型
-2. `HTML` 
-3. `HTTP`
-
-> 1. `TCP`: 80端口
-> 2. 请求分类: `get`、`head`  、`post`
-
-​	**补充**
-
-> 1. 有限状态集：现态、条件、动作、次态
-
-4. 一些`API`
-
-> 1. `getopt()`
-> 2. `assert()`  假设成立、正常运行
-> 3. `int socket(int domain,int type, int protocol)`
->    1. 域 AF_INET 、SOCK_STREAM 或SOCK_DGRAM、传表示默认协议
-> 4. `struct sockaddr_in`
-
+                <p>​ 1. 参考书的意义永远是随时查阅和补充</p>
+<hr />
+<h3 id="什么是webserver">什么是webServer</h3>
+<ol type="1">
+<li><code>B/S</code>或<code>C/S</code>模型</li>
+<li><code>HTML</code></li>
+<li><code>HTTP</code></li>
+</ol>
+<blockquote>
+<ol type="1">
+<li><code>TCP</code>: 80端口</li>
+<li>请求分类: <code>get</code>、<code>head</code>
+、<code>post</code></li>
+</ol>
+</blockquote>
+<p>​ <strong>补充</strong></p>
+<blockquote>
+<ol type="1">
+<li>有限状态集：现态、条件、动作、次态</li>
+</ol>
+</blockquote>
+<ol start="4" type="1">
+<li>一些<code>API</code></li>
+</ol>
+<blockquote>
+<ol type="1">
+<li><code>getopt()</code></li>
+<li><code>assert()</code> 假设成立、正常运行</li>
+<li><code>int socket(int domain,int type, int protocol)</code>
+<ol type="1">
+<li>域 AF_INET 、SOCK_STREAM 或SOCK_DGRAM、传表示默认协议</li>
+</ol></li>
+<li><code>struct sockaddr_in</code></li>
+</ol>
+</blockquote>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">sockaddr_in</span> &#123;</span><br><span class="line">　　<span class="type">short</span> <span class="type">int</span> sin_family; <span class="comment">/* 指代协议族，在socket编程中只能是AF_INET */</span></span><br><span class="line">　　<span class="type">unsigned</span> <span class="type">short</span> <span class="type">int</span> sin_port; <span class="comment">/* 存储端口号（使用网络字节顺序） */</span></span><br><span class="line">　　<span class="keyword">struct</span> <span class="title class_">in_addr</span> sin_addr; <span class="comment">/* 存储IP地址，使用in_addr这个数据结构 */</span></span><br><span class="line">　　<span class="type">unsigned</span> <span class="type">char</span> sin_zero[<span class="number">8</span>]; <span class="comment">/* 是为了让sockaddr与sockaddr_in两个数据结构保持大小相同而保留的空字节 */</span></span><br><span class="line">　　&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">in_addr</span> &#123;</span><br><span class="line">　　<span class="keyword">union</span> &#123;</span><br><span class="line">　　<span class="keyword">struct</span>&#123; <span class="type">unsigned</span> <span class="type">char</span> s_b1,s_b2, s_b3,s_b4;&#125; S_un_b; <span class="comment">//第一种用四个字节来表示IP地址的四个数字；</span></span><br><span class="line">　　<span class="keyword">struct</span>&#123; <span class="type">unsigned</span> <span class="type">short</span> s_w1, s_w2;&#125; S_un_w;	<span class="comment">// 用两个双字节来表示IP地址</span></span><br><span class="line">　　<span class="type">unsigned</span> <span class="type">long</span> S_addr;		<span class="comment">// 用一个长整型来表示IP地址</span></span><br><span class="line">　　&#125; S_un;</span><br><span class="line">　　&#125; IN_ADDR;</span><br><span class="line">	</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">in_addr</span></span><br><span class="line">  &#123;</span><br><span class="line">    <span class="type">in_addr_t</span> s_addr;</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<ol start="5" type="1">
+<li><code>bezero()</code> : 将整块地址清0</li>
+<li><code>uint32_t htonl(uint32_t hostlong)</code>：
+将一个32位数从主机字节顺序转换成网络字节顺序
+<ol type="1">
+<li><code>INADDR_ANY</code>： 不确定地址、任意地址</li>
+</ol></li>
+<li><code>htons()</code>： “Host to Network Short”</li>
+<li><code>int setsockopt(int sock, int level, int optname, const void *optval, socklen_t optlen)</code></li>
+</ol>
+</blockquote>
+<ol start="5" type="1">
+<li>基础概念与理论</li>
+</ol>
+<blockquote>
+<ol type="1">
+<li>文件描述符：文件描述符就是内核为了高效管理已被打开的文件所创建的索引，用来指向被打开的文件，所有执行I/O操作的系统调用都会通过文件描述符。</li>
+<li>进程级文件描述符表与系统级文件描述符表
+<ol type="1">
+<li><code>inode节点</code>：
+文件数据都储存在"块"中，那么很显然，我们还必须找到一个地方储存文件的元信息，比如文件的创建者、文件的创建日期、文件的大小等等</li>
+</ol></li>
+<li><code>句柄</code>： 句柄的作用就是在 C 语言环境下代替 C++
+的对象指针来用的。</li>
+<li><code>EPOLLONESHOT</code>：采用EPOLLONETSHOT事件的文件描述符上的注册事件只触发一次，要想重新注册事件则需要调用epoll_ctl重置文件描述符上的事件，这样前面的socket就不会出现竞态。</li>
+<li><code>#ifndef, #define, #endif 作用</code> ：
+如果在h文件中定义了全局变量，一个c文件包含同一个h文件多次，如果不加#ifndef宏定义，会出现变量重复定义的错误；如果加了#ifndef，则不会出现这种错误</li>
+</ol>
+</blockquote>
+<ol start="6" type="1">
+<li><code>epoll</code>： <a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/64138532">我的理解转变由此开始</a></li>
+</ol>
+<blockquote>
+<ol type="1">
+<li><code>rdlist</code>: 双向链表</li>
+<li><code>rbt</code>: 监视队列</li>
+</ol>
+</blockquote>
 
-> 5. `bezero()` : 将整块地址清0
-> 6. `uint32_t htonl(uint32_t hostlong)`： 将一个32位数从主机字节顺序转换成网络字节顺序
->    1. `INADDR_ANY`： 不确定地址、任意地址
-> 7. `htons()`： “Host to Network Short”
-> 8. `int setsockopt(int sock, int level, int optname, const void *optval, socklen_t optlen)`
-
-5. 基础概念与理论
-
-> 1. 文件描述符：文件描述符就是内核为了高效管理已被打开的文件所创建的索引，用来指向被打开的文件，所有执行I/O操作的系统调用都会通过文件描述符。
-> 2. 进程级文件描述符表与系统级文件描述符表
->    1. `inode节点`： 文件数据都储存在"块"中，那么很显然，我们还必须找到一个地方储存文件的元信息，比如文件的创建者、文件的创建日期、文件的大小等等
-> 3. `句柄`： 句柄的作用就是在 C 语言环境下代替 C++ 的对象指针来用的。
-> 4. `EPOLLONESHOT`：采用EPOLLONETSHOT事件的文件描述符上的注册事件只触发一次，要想重新注册事件则需要调用epoll_ctl重置文件描述符上的事件，这样前面的socket就不会出现竞态。
-> 5. `#ifndef, #define, #endif 作用` ： 如果在h文件中定义了全局变量，一个c文件包含同一个h文件多次，如果不加#ifndef宏定义，会出现变量重复定义的错误；如果加了#ifndef，则不会出现这种错误
-
-6. `epoll`： [我的理解转变由此开始](https://zhuanlan.zhihu.com/p/64138532)
-
->1. `rdlist`: 双向链表
->2. `rbt`: 监视队列
                 
             </div>
             <hr/>
@@ -825,13 +855,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2022/03/21/test/">
+                <a href="/2022/03/21/test2/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="TEST">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="TEST2">
                         
-                        <span class="card-title">TEST</span>
+                        <span class="card-title">TEST2</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -855,8 +885,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ss/">
-                        <span class="chip bg-color">ss</span>
+                    <a href="/tags/Vmware/">
+                        <span class="chip bg-color">Vmware</span>
                     </a>
                     
                 </div>
@@ -1049,7 +1079,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">51.9k</span>&nbsp;字
+                class="white-color">48.4k</span>&nbsp;字
             
             
             

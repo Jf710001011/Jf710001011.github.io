@@ -497,68 +497,76 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
-**Mysql**
-
----
-
-### 暂留
-
-1. P34,P35 
-
-### 工具
-
-- `sqlyog`
-
-> Professional:  8e053a86-cdd3-48ed-b5fe-94c51b3d343c
-> Enterprise:   a46683b0-d3ec-4c16-8e3c-198d25a7fb52
-> Ultimate:     60c1b896-7c22-4405-9f46-a6bce776ab36
-
-- `mycli`：`sql`补全，高亮
-  - 安装`python`环境
-
----
-
-### 连接
-
-- 尽量使用`UNION ALL`:提高查询效率，两个查询的结果`UNION ALL`
-- `NATURAL JOIN`
-- `USING`：当两个表有关联字段相同时
-- `LEFT JOIN`
-- 自连接 
-
-### 函数
-
-1. 单行函数
-   1. 数值类型的函数
-2. 多行函数
-
-### 流程控制函数
-
-1. `IF(val,val1,val2)`
-2. `IFNULL()`
-
-### 聚合函数
-
-1. `GROUP BY`
-   - `WITH ROLLUP`:不能使用 `ORDER BY`
-   - 使用了聚合函数，则必须使用 `HAVING `代替 `WHERE`
-   - `HAVING` 必须声明在 `GROUP BY`之后
-   - `WHERE`比 `HAVING`执行效率高
-2. `SQL99` 完整结构
-
+                <p><strong>Mysql</strong></p>
+<hr />
+<h3 id="暂留">暂留</h3>
+<ol type="1">
+<li>P34,P35</li>
+</ol>
+<h3 id="工具">工具</h3>
+<ul>
+<li><code>sqlyog</code></li>
+</ul>
+<blockquote>
+<p>Professional: 8e053a86-cdd3-48ed-b5fe-94c51b3d343c Enterprise:
+a46683b0-d3ec-4c16-8e3c-198d25a7fb52 Ultimate:
+60c1b896-7c22-4405-9f46-a6bce776ab36</p>
+</blockquote>
+<ul>
+<li><code>mycli</code>：<code>sql</code>补全，高亮
+<ul>
+<li>安装<code>python</code>环境</li>
+</ul></li>
+</ul>
+<hr />
+<h3 id="连接">连接</h3>
+<ul>
+<li>尽量使用<code>UNION ALL</code>:提高查询效率，两个查询的结果<code>UNION ALL</code></li>
+<li><code>NATURAL JOIN</code></li>
+<li><code>USING</code>：当两个表有关联字段相同时</li>
+<li><code>LEFT JOIN</code></li>
+<li>自连接</li>
+</ul>
+<h3 id="函数">函数</h3>
+<ol type="1">
+<li>单行函数
+<ol type="1">
+<li>数值类型的函数</li>
+</ol></li>
+<li>多行函数</li>
+</ol>
+<h3 id="流程控制函数">流程控制函数</h3>
+<ol type="1">
+<li><code>IF(val,val1,val2)</code></li>
+<li><code>IFNULL()</code></li>
+</ol>
+<h3 id="聚合函数">聚合函数</h3>
+<ol type="1">
+<li><code>GROUP BY</code>
+<ul>
+<li><code>WITH ROLLUP</code>:不能使用 <code>ORDER BY</code></li>
+<li>使用了聚合函数，则必须使用 <code>HAVING</code>代替
+<code>WHERE</code></li>
+<li><code>HAVING</code> 必须声明在 <code>GROUP BY</code>之后</li>
+<li><code>WHERE</code>比 <code>HAVING</code>执行效率高</li>
+</ul></li>
+<li><code>SQL99</code> 完整结构</li>
+</ol>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SELECT.......(存在聚合函数)</span><br><span class="line"><span class="keyword">FROM</span> ......JOIN........OM 多表的连接条件</span><br><span class="line"><span class="keyword">WHERE</span> 不包含聚合函数的过滤条件</span><br><span class="line"><span class="keyword">GROUP</span> BY.........</span><br><span class="line"><span class="keyword">HAVING</span> 包含聚合函数的过滤条件</span><br><span class="line"><span class="keyword">ORDER</span> BY.......(<span class="keyword">ASC</span><span class="operator">/</span><span class="keyword">DESC</span>)</span><br><span class="line">LIMIT......</span><br></pre></td></tr></table></figure>
-
-- SQL语句的执行过程
-
-> FROM -------> ON ------> (LEFT/RIGHT) JOIN -----> WHERE-------->GROUP BY-------> HAVING------>SELECT------>DISTINCT------->ORDER BY----->LIMNIT
-
-### 子查询
-
-### 视图
-
-1. 修改，同步，虚表，基本表
-
+<ul>
+<li>SQL语句的执行过程</li>
+</ul>
+<blockquote>
+<p>FROM -------&gt; ON ------&gt; (LEFT/RIGHT) JOIN -----&gt;
+WHERE--------&gt;GROUP BY-------&gt;
+HAVING------&gt;SELECT------&gt;DISTINCT-------&gt;ORDER
+BY-----&gt;LIMNIT</p>
+</blockquote>
+<h3 id="子查询">子查询</h3>
+<h3 id="视图">视图</h3>
+<ol type="1">
+<li>修改，同步，虚表，基本表</li>
+</ol>
 
                 
             </div>
@@ -1065,7 +1073,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">51.9k</span>&nbsp;字
+                class="white-color">48.4k</span>&nbsp;字
             
             
             

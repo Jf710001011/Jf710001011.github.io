@@ -484,7 +484,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    17
+                    170
                 </div>
                 
 
@@ -519,7 +519,29 @@ alt="image-20230217041839479" /></p></li>
 </ul>
 <h3 id="特征放缩">特征放缩</h3>
 <ul>
+<li><p>特征值大小与参数大小（变化范围）<img
+src="https://s2.loli.net/2023/02/17/PoORt4YiJpSaWlu.png"
+alt="image-20230217050726584" /></p></li>
+<li><p>如果不同参数的数值变化范围差异较大，那么就会形成右图那样怪异的等高线（较为困难收敛到最小值）</p>
+<ul>
+<li>特征值大，导致对应的参数下降的步伐大
+<ul>
+<li>该参数找到合适点，但是其他参数还在寻找</li>
+<li>该参数在左右反复横跳</li>
+</ul></li>
+</ul></li>
+<li><p>方法</p>
+<ul>
+<li><p>最大最小值归一化：将数值缩小到范围[0,1] <span
+class="math display">\[
+x&#39; = \frac {x-min(x)}{max(x)-min(x)}
+\]</span></p></li>
 <li></li>
+<li><p>均值归一化 <span class="math display">\[
+x&#39; = \frac{x-ave(x)}{max(x)-min(x)}
+\]</span></p></li>
+<li><p>z-score 归一化（recommended）:</p></li>
+</ul></li>
 </ul>
 
                 
@@ -1122,7 +1144,7 @@ alt="image-20230217041839479" /></p></li>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">47.8k</span>&nbsp;字
+                class="white-color">47.9k</span>&nbsp;字
             
             
             

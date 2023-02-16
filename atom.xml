@@ -46,7 +46,7 @@
     <link href="https://jf710001011.github.io/2023/02/18/ml06/"/>
     <id>https://jf710001011.github.io/2023/02/18/ml06/</id>
     <published>2023-02-17T16:00:00.000Z</published>
-    <updated>2023-02-16T23:30:07.816Z</updated>
+    <updated>2023-02-16T23:31:00.389Z</updated>
     
     
       
@@ -66,31 +66,6 @@ alt=&quot;image-20230217035330078&quot;</summary>
     
     
     <category term="学术" scheme="https://jf710001011.github.io/tags/%E5%AD%A6%E6%9C%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>多类特征</title>
-    <link href="https://jf710001011.github.io/2023/02/11/ml05/"/>
-    <id>https://jf710001011.github.io/2023/02/11/ml05/</id>
-    <published>2023-02-10T16:00:00.000Z</published>
-    <updated>2023-02-10T22:54:10.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;多类特征&quot;&gt;多类特征&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;span class=&quot;math</summary>
-        
-      
-    
-    
-    
-    <category term="机器学习" scheme="https://jf710001011.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
     
   </entry>
   
@@ -120,6 +95,31 @@ alt=&quot;image-20230217035330078&quot;</summary>
     
     
     <category term="lab" scheme="https://jf710001011.github.io/tags/lab/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>多类特征</title>
+    <link href="https://jf710001011.github.io/2023/02/11/ml05/"/>
+    <id>https://jf710001011.github.io/2023/02/11/ml05/</id>
+    <published>2023-02-10T16:00:00.000Z</published>
+    <updated>2023-02-16T23:29:46.579Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;多类特征&quot;&gt;多类特征&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class=&quot;math</summary>
+        
+      
+    
+    
+    
+    <category term="机器学习" scheme="https://jf710001011.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
     
   </entry>
   

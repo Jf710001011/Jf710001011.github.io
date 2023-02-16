@@ -484,7 +484,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    170
+                    444
                 </div>
                 
 
@@ -537,10 +537,35 @@ class="math display">\[
 x&#39; = \frac {x-min(x)}{max(x)-min(x)}
 \]</span></p></li>
 <li></li>
-<li><p>均值归一化 <span class="math display">\[
+<li><p>均值归一化：将数值范围缩放到 [-1, 1] 区间里，且数据的均值变为0
+<span class="math display">\[
 x&#39; = \frac{x-ave(x)}{max(x)-min(x)}
 \]</span></p></li>
-<li><p>z-score 归一化（recommended）:</p></li>
+<li><p>z-score 归一化（recommended）:
+数值缩放到0附近，且数据的分布变为均值为0，标准差为1的标准正态分布（先减去均值来对特征进行
+<strong>中心化 mean centering</strong> 处理，再除以标准差进行缩放）：
+<span class="math display">\[
+x&#39;=\frac{x-ave(x)} {\sigma}\qquad(\sigma是标准差)
+\]</span></p></li>
+<li><p>最大绝对值归一化：也就是将数值变为单位长度（scaling to unit
+length）,将范围数字缩放到[-1,-1]区间里： <span class="math display">\[
+x&#39;=\frac{x}{||max(x)||}
+\]</span></p></li>
+<li><p>稳健标准化：先减去中位数，再除以四分位间距（interquartile
+range）,因为不涉及极值，因此在数据里有异常值的情况下表现比较稳健： <span
+class="math display">\[
+x&#39;=\frac {x-median(x)}{IQR(x)}\qquad
+median(x)是中位数，IQR(x)是四分位间距。
+\]</span></p></li>
+</ul></li>
+<li><p>鼓励特征缩放，它似乎不会出错，也就是它只会让结果更符合我们预期</p></li>
+</ul>
+<h3 id="检查梯度下降是否收敛">检查梯度下降是否收敛</h3>
+<ul>
+<li>梯度下降的任务是找到使代价函数最小的参数集</li>
+<li>Automatic convergence test
+<ul>
+<li>Let $ $ be</li>
 </ul></li>
 </ul>
 
@@ -1144,7 +1169,7 @@ x&#39; = \frac{x-ave(x)}{max(x)-min(x)}
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">47.9k</span>&nbsp;字
+                class="white-color">48.2k</span>&nbsp;字
             
             
             

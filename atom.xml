@@ -6,7 +6,7 @@
   <link href="https://jf710001011.github.io/atom.xml" rel="self"/>
   
   <link href="https://jf710001011.github.io/"/>
-  <updated>2023-02-17T16:00:00.000Z</updated>
+  <updated>2023-02-05T10:17:48.000Z</updated>
   <id>https://jf710001011.github.io/</id>
   
   <author>
@@ -17,129 +17,51 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>CS-tools</title>
-    <link href="https://jf710001011.github.io/2021/04/01/tools/"/>
-    <id>https://jf710001011.github.io/2021/04/01/tools/</id>
-    <published>2021-03-31T16:00:00.000Z</published>
-    <updated>2023-02-17T16:00:00.000Z</updated>
+    <title>C++侯捷</title>
+    <link href="https://jf710001011.github.io/2022/08/08/c-hou-jie/"/>
+    <id>https://jf710001011.github.io/2022/08/08/c-hou-jie/</id>
+    <published>2022-08-07T16:00:00.000Z</published>
+    <updated>2023-02-05T10:17:48.000Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h3 id=&quot;ccleaner&quot;&gt;CCleaner&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;功能很多&lt;/li&gt;
-&lt;li&gt;我只要用它清理了注册表（当软件没卸载干净时再度安装，注册表就会有问题）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3</summary>
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;&quot;&gt;学习网址后序公开&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;面向对象&quot;&gt;面向对象&lt;/h3&gt;
+&lt;ol type=&quot;1&quot;&gt;
+&lt;li&gt;&lt;code&gt;new&lt;/code&gt; 与 &lt;code&gt;delete&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;array</summary>
         
       
     
     
     
-    <category term="Tool" scheme="https://jf710001011.github.io/categories/Tool/"/>
+    <category term="Note" scheme="https://jf710001011.github.io/categories/Note/"/>
     
     
-    <category term="CS" scheme="https://jf710001011.github.io/tags/CS/"/>
+    <category term="C++" scheme="https://jf710001011.github.io/tags/C/"/>
     
   </entry>
   
   <entry>
-    <title>VMware</title>
-    <link href="https://jf710001011.github.io/2023/02/27/vmware/"/>
-    <id>https://jf710001011.github.io/2023/02/27/vmware/</id>
-    <published>2023-02-26T16:00:00.000Z</published>
-    <updated>2023-02-16T20:24:34.110Z</updated>
+    <title>c++基础（B站黑马）</title>
+    <link href="https://jf710001011.github.io/2021/12/31/c-ji-chu/"/>
+    <id>https://jf710001011.github.io/2021/12/31/c-ji-chu/</id>
+    <published>2021-12-31T15:00:00.000Z</published>
+    <updated>2023-02-05T10:17:52.000Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h3</summary>
-        
-      
-    
-    
-    
-    <category term="算法与数据结构" scheme="https://jf710001011.github.io/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-    
-    <category term="VMware" scheme="https://jf710001011.github.io/tags/VMware/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>TEST2</title>
-    <link href="https://jf710001011.github.io/2022/03/21/test2/"/>
-    <id>https://jf710001011.github.io/2022/03/21/test2/</id>
-    <published>2022-03-20T16:00:00.000Z</published>
-    <updated>2023-02-16T20:24:24.708Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;02-17&lt;/p&gt;
+    <summary type="html">&lt;h2 id=&quot;常量定义的两种方式&quot;&gt;常量定义的两种方式&lt;/h2&gt;
 &lt;blockquote&gt;
-&lt;p&gt;title: Leetcode之旅 date: 2023-02-26 24:00:00 author: Jf710001011
-img: top: false cover: coverImg: password:</summary>
-        
-      
-    
-    
-    
-    
-    <category term="Vmware" scheme="https://jf710001011.github.io/tags/Vmware/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>P28-多元线性回归的梯度下降</title>
-    <link href="https://jf710001011.github.io/2023/02/18/ml06/"/>
-    <id>https://jf710001011.github.io/2023/02/18/ml06/</id>
-    <published>2023-02-17T16:00:00.000Z</published>
-    <updated>2023-02-16T20:24:17.715Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;模型与参数&quot;&gt;模型与参数&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;写法&lt;img src=&quot;https://s2.loli.net/2023/02/17/ESxjwCXKP3p2n6c.png&quot;
-alt=&quot;image-20230217035330078&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="机器学习" scheme="https://jf710001011.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-    <category term="学术" scheme="https://jf710001011.github.io/tags/%E5%AD%A6%E6%9C%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MyBlog</title>
-    <link href="https://jf710001011.github.io/2021/03/23/myblog/"/>
-    <id>https://jf710001011.github.io/2021/03/23/myblog/</id>
-    <published>2021-03-23T14:30:00.000Z</published>
-    <updated>2023-02-16T19:27:05.170Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;2021/03/23 完成基本功能，地点 NUIST
-文园11-605，天气：晴，心情：crazy&lt;br</summary>
+&lt;li&gt;#define 定义常量：&lt;code&gt;#define 常量名 常量值&lt;/code&gt;，&lt;br /&gt;
+&lt;pre class=&quot;language-cpp&quot;</summary>
         
       
     
@@ -148,78 +70,65 @@ alt=&quot;image-20230217035330078&quot;</summary>
     <category term="Technique" scheme="https://jf710001011.github.io/categories/Technique/"/>
     
     
-    <category term="blog" scheme="https://jf710001011.github.io/tags/blog/"/>
+    <category term="C++" scheme="https://jf710001011.github.io/tags/C/"/>
     
-    <category term="hexo" scheme="https://jf710001011.github.io/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>test_my_site</title>
-    <link href="https://jf710001011.github.io/2023/02/16/test-my-site/"/>
-    <id>https://jf710001011.github.io/2023/02/16/test-my-site/</id>
-    <published>2023-02-16T11:44:05.000Z</published>
-    <updated>2023-02-16T17:20:34.196Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">
-</summary>
-        
-      
-    
-    
-    
+    <category term="基础" scheme="https://jf710001011.github.io/tags/%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   
   <entry>
-    <title>Hello World</title>
-    <link href="https://jf710001011.github.io/2023/02/16/hello-world/"/>
-    <id>https://jf710001011.github.io/2023/02/16/hello-world/</id>
-    <published>2023-02-16T11:36:02.884Z</published>
-    <updated>2023-02-16T11:36:02.885Z</updated>
+    <title>c++核心</title>
+    <link href="https://jf710001011.github.io/2022/01/03/c-he-xin/"/>
+    <id>https://jf710001011.github.io/2022/01/03/c-he-xin/</id>
+    <published>2022-01-03T02:00:00.000Z</published>
+    <updated>2023-02-05T10:17:54.000Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very
-first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
+    <summary type="html">&lt;h2</summary>
         
       
     
     
     
+    <category term="Technique" scheme="https://jf710001011.github.io/categories/Technique/"/>
+    
+    
+    <category term="C++" scheme="https://jf710001011.github.io/tags/C/"/>
+    
+    <category term="核心" scheme="https://jf710001011.github.io/tags/%E6%A0%B8%E5%BF%83/"/>
     
   </entry>
   
   <entry>
-    <title>Leetcode之旅</title>
-    <link href="https://jf710001011.github.io/2022/12/27/leetcode-zhi-lu/"/>
-    <id>https://jf710001011.github.io/2022/12/27/leetcode-zhi-lu/</id>
-    <published>2022-12-26T16:00:00.000Z</published>
-    <updated>2023-02-12T14:17:52.000Z</updated>
+    <title>DatabaseSystemConcepts</title>
+    <link href="https://jf710001011.github.io/2022/03/20/databasesystemconcepts/"/>
+    <id>https://jf710001011.github.io/2022/03/20/databasesystemconcepts/</id>
+    <published>2022-03-19T16:00:00.000Z</published>
+    <updated>2023-02-05T10:18:02.000Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://github.com/halfrost/LeetCode-Go&quot;&gt;github&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://books.halfrost.com/leetcode/&quot;&gt;books&lt;/a&gt;&lt;/p&gt;
+    <summary type="html">&lt;p&gt;&lt;strong&gt;Mysql&lt;/strong&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h3 id=&quot;暂留&quot;&gt;暂留&lt;/h3&gt;
+&lt;ol type=&quot;1&quot;&gt;
+&lt;li&gt;P34,P35&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h3</summary>
         
       
     
     
     
-    <category term="算法与数据结构" scheme="https://jf710001011.github.io/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
+    <category term="ss" scheme="https://jf710001011.github.io/tags/ss/"/>
     
   </entry>
   
@@ -257,11 +166,90 @@ first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&
   </entry>
   
   <entry>
-    <title>多模态空管大数据属性融合与表征</title>
-    <link href="https://jf710001011.github.io/2023/02/03/duo-mo-tai-kong-guan-da-shu-ju-shu-xing-rong-he-yu-biao-zheng/"/>
-    <id>https://jf710001011.github.io/2023/02/03/duo-mo-tai-kong-guan-da-shu-ju-shu-xing-rong-he-yu-biao-zheng/</id>
-    <published>2023-02-02T16:00:00.000Z</published>
-    <updated>2023-02-11T16:29:44.000Z</updated>
+    <title>Leetcode之旅</title>
+    <link href="https://jf710001011.github.io/2022/12/27/leetcode-zhi-lu/"/>
+    <id>https://jf710001011.github.io/2022/12/27/leetcode-zhi-lu/</id>
+    <published>2022-12-26T16:00:00.000Z</published>
+    <updated>2023-02-12T14:17:52.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://github.com/halfrost/LeetCode-Go&quot;&gt;github&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://books.halfrost.com/leetcode/&quot;&gt;books&lt;/a&gt;&lt;/p&gt;
+&lt;h3</summary>
+        
+      
+    
+    
+    
+    <category term="算法与数据结构" scheme="https://jf710001011.github.io/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Linux操作系统</title>
+    <link href="https://jf710001011.github.io/2022/01/24/linux/"/>
+    <id>https://jf710001011.github.io/2022/01/24/linux/</id>
+    <published>2022-01-23T16:00:00.000Z</published>
+    <updated>2023-02-05T10:18:14.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;strong&gt;NOTICE&lt;/strong&gt;!&lt;/p&gt;
+&lt;h3
+id=&quot;环境基础vmware下的-ubuntu-18.04.6-lts系统环境中&quot;&gt;环境基础：vmware下的
+Ubuntu 18.04.6</summary>
+        
+      
+    
+    
+    
+    <category term="linux" scheme="https://jf710001011.github.io/categories/linux/"/>
+    
+    
+    <category term="linux" scheme="https://jf710001011.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux系统编程</title>
+    <link href="https://jf710001011.github.io/2022/01/31/linux-xi-tong-bian-cheng/"/>
+    <id>https://jf710001011.github.io/2022/01/31/linux-xi-tong-bian-cheng/</id>
+    <published>2022-01-30T16:00:00.000Z</published>
+    <updated>2023-02-05T10:18:16.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;strong&gt;2021-02-20结束&lt;/strong&gt;&lt;/p&gt;
+&lt;h3</summary>
+        
+      
+    
+    
+    
+    
+    <category term="C" scheme="https://jf710001011.github.io/tags/C/"/>
+    
+    <category term="OS" scheme="https://jf710001011.github.io/tags/OS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux网络编程</title>
+    <link href="https://jf710001011.github.io/2022/03/14/linux-wang-luo-bian-cheng/"/>
+    <id>https://jf710001011.github.io/2022/03/14/linux-wang-luo-bian-cheng/</id>
+    <published>2022-03-13T16:00:00.000Z</published>
+    <updated>2023-02-05T10:18:20.000Z</updated>
     
     
       
@@ -274,111 +262,62 @@ first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&
     
     
     
-    <category term="网安" scheme="https://jf710001011.github.io/categories/%E7%BD%91%E5%AE%89/"/>
+    <category term="Linux" scheme="https://jf710001011.github.io/categories/Linux/"/>
     
     
-    <category term="科研" scheme="https://jf710001011.github.io/tags/%E7%A7%91%E7%A0%94/"/>
+    <category term="C" scheme="https://jf710001011.github.io/tags/C/"/>
     
-  </entry>
-  
-  <entry>
-    <title>The Pentester Blueprint</title>
-    <link href="https://jf710001011.github.io/2023/02/09/the-pentester-blueprint/"/>
-    <id>https://jf710001011.github.io/2023/02/09/the-pentester-blueprint/</id>
-    <published>2023-02-08T16:00:00.000Z</published>
-    <updated>2023-02-11T07:19:52.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;introduction&quot;&gt;INTRODUCTION&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;read team&lt;/li&gt;
-&lt;li&gt;blue team&lt;/li&gt;
-&lt;li&gt;OWASP：industry standard&lt;/li&gt;
-&lt;li&gt;some commom</summary>
-        
-      
-    
-    
-    
-    <category term="网安" scheme="https://jf710001011.github.io/categories/%E7%BD%91%E5%AE%89/"/>
-    
-    
-    <category term="web安全" scheme="https://jf710001011.github.io/tags/web%E5%AE%89%E5%85%A8/"/>
+    <category term="CN" scheme="https://jf710001011.github.io/tags/CN/"/>
     
   </entry>
   
   <entry>
-    <title>多类特征</title>
-    <link href="https://jf710001011.github.io/2023/02/11/ml05/"/>
-    <id>https://jf710001011.github.io/2023/02/11/ml05/</id>
-    <published>2023-02-10T16:00:00.000Z</published>
-    <updated>2023-02-10T22:54:10.000Z</updated>
+    <title>Machine-Learning00</title>
+    <link href="https://jf710001011.github.io/2022/10/01/ml01/"/>
+    <id>https://jf710001011.github.io/2022/10/01/ml01/</id>
+    <published>2022-09-30T16:00:00.000Z</published>
+    <updated>2023-02-05T10:18:22.000Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h3 id=&quot;多类特征&quot;&gt;多类特征&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;span class=&quot;math</summary>
-        
-      
-    
-    
-    
-    <category term="机器学习" scheme="https://jf710001011.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Progress-Report</title>
-    <link href="https://jf710001011.github.io/2022/09/05/report/"/>
-    <id>https://jf710001011.github.io/2022/09/05/report/</id>
-    <published>2022-09-05T15:00:00.000Z</published>
-    <updated>2023-02-10T22:53:38.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;section&quot;&gt;2023-02-10&lt;/h3&gt;
+    <summary type="html">&lt;h3 id=&quot;绪论&quot;&gt;绪论&lt;/h3&gt;
 &lt;h4</summary>
         
       
     
     
     
-    <category term="网安" scheme="https://jf710001011.github.io/categories/%E7%BD%91%E5%AE%89/"/>
+    <category term="机器学习" scheme="https://jf710001011.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="CAUC" scheme="https://jf710001011.github.io/tags/CAUC/"/>
+    <category term="ss" scheme="https://jf710001011.github.io/tags/ss/"/>
     
   </entry>
   
   <entry>
-    <title>ML-Lab</title>
-    <link href="https://jf710001011.github.io/2023/02/11/ml04/"/>
-    <id>https://jf710001011.github.io/2023/02/11/ml04/</id>
-    <published>2023-02-10T16:00:00.000Z</published>
-    <updated>2023-02-10T21:46:52.000Z</updated>
+    <title>模型评估与选择</title>
+    <link href="https://jf710001011.github.io/2022/10/08/ml02/"/>
+    <id>https://jf710001011.github.io/2022/10/08/ml02/</id>
+    <published>2022-10-07T16:00:00.000Z</published>
+    <updated>2023-02-05T10:18:24.000Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h3 id=&quot;实验前准备&quot;&gt;实验前准备&lt;/h3&gt;
+    <summary type="html">&lt;p&gt;&lt;strong&gt;一堆数学公式，好难&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;安装最新的ANACONDA3,并更新所有的库(否则会出现很多报错&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class=&quot;language-powershell&quot;</summary>
+&lt;li&gt;训练误差和泛化误差&lt;/li&gt;
+&lt;li&gt;过拟合和欠拟合&lt;/li&gt;
+&lt;li&gt;留出法&lt;/li&gt;
+&lt;li&gt;交叉验证法&lt;/li&gt;
+&lt;li&gt;自助法&lt;/li&gt;
+&lt;li&gt;参数配置&lt;/li&gt;
+&lt;l</summary>
         
       
     
@@ -387,30 +326,7 @@ first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&
     <category term="机器学习" scheme="https://jf710001011.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="lab" scheme="https://jf710001011.github.io/tags/lab/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python</title>
-    <link href="https://jf710001011.github.io/2023/02/11/python/"/>
-    <id>https://jf710001011.github.io/2023/02/11/python/</id>
-    <published>2023-02-10T16:00:00.000Z</published>
-    <updated>2023-02-10T16:56:06.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3</summary>
-        
-      
-    
-    
-    
-    <category term="Python" scheme="https://jf710001011.github.io/categories/Python/"/>
-    
+    <category term="ss" scheme="https://jf710001011.github.io/tags/ss/"/>
     
   </entry>
   
@@ -443,55 +359,78 @@ href=&quot;http</summary>
   </entry>
   
   <entry>
-    <title>I like</title>
-    <link href="https://jf710001011.github.io/2022/08/10/sui-bian-shuo-dian-shi-me/"/>
-    <id>https://jf710001011.github.io/2022/08/10/sui-bian-shuo-dian-shi-me/</id>
-    <published>2022-08-09T16:00:00.000Z</published>
-    <updated>2023-02-07T17:42:20.000Z</updated>
+    <title>MyBlog</title>
+    <link href="https://jf710001011.github.io/2021/03/23/myblog/"/>
+    <id>https://jf710001011.github.io/2021/03/23/myblog/</id>
+    <published>2021-03-23T14:30:00.000Z</published>
+    <updated>2023-02-16T19:27:05.170Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h3 id=&quot;section&quot;&gt;2023-02-08&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;figure&gt;
-&lt;img</summary>
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;2021/03/23 完成基本功能，地点 NUIST
+文园11-605，天气：晴，心情：crazy&lt;br</summary>
         
       
     
     
     
-    <category term="Life" scheme="https://jf710001011.github.io/categories/Life/"/>
+    <category term="Technique" scheme="https://jf710001011.github.io/categories/Technique/"/>
     
     
-    <category term="easy" scheme="https://jf710001011.github.io/tags/easy/"/>
+    <category term="blog" scheme="https://jf710001011.github.io/tags/blog/"/>
+    
+    <category term="hexo" scheme="https://jf710001011.github.io/tags/hexo/"/>
     
   </entry>
   
   <entry>
-    <title>设计模式</title>
-    <link href="https://jf710001011.github.io/2022/04/20/she-ji-mo-shi/"/>
-    <id>https://jf710001011.github.io/2022/04/20/she-ji-mo-shi/</id>
-    <published>2022-04-19T16:00:00.000Z</published>
-    <updated>2023-02-05T10:23:48.000Z</updated>
+    <title>多类特征</title>
+    <link href="https://jf710001011.github.io/2023/02/11/ml05/"/>
+    <id>https://jf710001011.github.io/2023/02/11/ml05/</id>
+    <published>2023-02-10T16:00:00.000Z</published>
+    <updated>2023-02-10T22:54:10.000Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;ul&gt;
-&lt;li&gt;复用性&lt;/li&gt;
-&lt;li&gt;抵御变化&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;面向对象设计原则&quot;&gt;面向对象设计原则&lt;/h3&gt;
-&lt;ol</summary>
+    <summary type="html">&lt;h3 id=&quot;多类特征&quot;&gt;多类特征&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class=&quot;math</summary>
         
       
     
     
+    
+    <category term="机器学习" scheme="https://jf710001011.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>静态分析</title>
+    <link href="https://jf710001011.github.io/2022/10/01/pma01-jing-tai-fen-xi/"/>
+    <id>https://jf710001011.github.io/2022/10/01/pma01-jing-tai-fen-xi/</id>
+    <published>2022-09-30T16:00:00.000Z</published>
+    <updated>2023-02-05T10:18:46.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3</summary>
+        
+      
+    
+    
+    
+    <category term="网安" scheme="https://jf710001011.github.io/categories/%E7%BD%91%E5%AE%89/"/>
     
     
     <category term="ss" scheme="https://jf710001011.github.io/tags/ss/"/>
@@ -499,38 +438,114 @@ href=&quot;http</summary>
   </entry>
   
   <entry>
-    <title>虚幻-入门</title>
-    <link href="https://jf710001011.github.io/2021/03/29/xu-huan-zhi-lu-zhi-ru-men-pian/"/>
-    <id>https://jf710001011.github.io/2021/03/29/xu-huan-zhi-lu-zhi-ru-men-pian/</id>
-    <published>2021-03-29T04:15:00.000Z</published>
-    <updated>2023-02-05T10:23:42.000Z</updated>
+    <title>动态分析</title>
+    <link href="https://jf710001011.github.io/2022/10/08/pma02-dong-tai-fen-xi/"/>
+    <id>https://jf710001011.github.io/2022/10/08/pma02-dong-tai-fen-xi/</id>
+    <published>2022-10-07T16:00:00.000Z</published>
+    <updated>2023-02-05T10:18:50.000Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;初衷：想成为游戏开发中的一员，毕业设计也选了射击游戏的开发。&lt;br /&gt;
-指导资料： 1. &lt;a</summary>
+    <summary type="html">&lt;h3</summary>
         
       
     
     
     
-    <category term="Note" scheme="https://jf710001011.github.io/categories/Note/"/>
+    <category term="网安" scheme="https://jf710001011.github.io/categories/%E7%BD%91%E5%AE%89/"/>
     
     
-    <category term="虚幻4" scheme="https://jf710001011.github.io/tags/%E8%99%9A%E5%B9%BB4/"/>
+    <category term="ss" scheme="https://jf710001011.github.io/tags/ss/"/>
     
   </entry>
   
   <entry>
-    <title>虚幻4-FPS游戏开发</title>
-    <link href="https://jf710001011.github.io/2021/04/13/xu-huan-4-c-you-xi-kai-fa/"/>
-    <id>https://jf710001011.github.io/2021/04/13/xu-huan-4-c-you-xi-kai-fa/</id>
-    <published>2021-04-13T05:19:00.000Z</published>
-    <updated>2023-02-05T10:23:38.000Z</updated>
+    <title>lab-1</title>
+    <link href="https://jf710001011.github.io/2022/10/12/pma03-lab1/"/>
+    <id>https://jf710001011.github.io/2022/10/12/pma03-lab1/</id>
+    <published>2022-10-11T16:00:00.000Z</published>
+    <updated>2023-02-05T10:18:54.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a
+href=&quot;https://blog.csdn.net/m0_37442062/article/details/116404462?spm=1001.2014.3001.5502&quot;&gt;教程1&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a
+href=&quot;https://blog.csd</summary>
+        
+      
+    
+    
+    
+    <category term="网安" scheme="https://jf710001011.github.io/categories/%E7%BD%91%E5%AE%89/"/>
+    
+    
+    <category term="ss" scheme="https://jf710001011.github.io/tags/ss/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>lab-3</title>
+    <link href="https://jf710001011.github.io/2022/11/04/pma04-lab3/"/>
+    <id>https://jf710001011.github.io/2022/11/04/pma04-lab3/</id>
+    <published>2022-11-04T15:59:59.000Z</published>
+    <updated>2023-02-05T10:18:56.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3</summary>
+        
+      
+    
+    
+    
+    <category term="网安" scheme="https://jf710001011.github.io/categories/%E7%BD%91%E5%AE%89/"/>
+    
+    
+    <category term="ss" scheme="https://jf710001011.github.io/tags/ss/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>STL基础</title>
+    <link href="https://jf710001011.github.io/2022/01/11/stl/"/>
+    <id>https://jf710001011.github.io/2022/01/11/stl/</id>
+    <published>2022-01-10T16:00:00.000Z</published>
+    <updated>2023-02-05T10:19:22.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="CS" scheme="https://jf710001011.github.io/categories/CS/"/>
+    
+    
+    <category term="STL" scheme="https://jf710001011.github.io/tags/STL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Sql</title>
+    <link href="https://jf710001011.github.io/2021/04/05/sql-yu-yan/"/>
+    <id>https://jf710001011.github.io/2021/04/05/sql-yu-yan/</id>
+    <published>2021-04-05T14:40:00.000Z</published>
+    <updated>2023-02-05T10:19:18.000Z</updated>
     
     
       
@@ -538,7 +553,10 @@ href=&quot;http</summary>
         
         
     <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;学习资料：&lt;a</summary>
+&lt;p&gt;学习网站：&lt;a href=&quot;http://xuesql.cn/&quot;
+class=&quot;uri&quot;&gt;http://xuesql.cn/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2</summary>
         
       
     
@@ -547,9 +565,9 @@ href=&quot;http</summary>
     <category term="Note" scheme="https://jf710001011.github.io/categories/Note/"/>
     
     
-    <category term="C++" scheme="https://jf710001011.github.io/tags/C/"/>
+    <category term="database" scheme="https://jf710001011.github.io/tags/database/"/>
     
-    <category term="游戏开发" scheme="https://jf710001011.github.io/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"/>
+    <category term="sql" scheme="https://jf710001011.github.io/tags/sql/"/>
     
   </entry>
   

@@ -494,7 +494,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    686
+                    785
                 </div>
                 
 
@@ -621,13 +621,26 @@ f_ {\vec w,\vec b}：描述y值的概率 \\
 <li><p>决策边界</p>
 <ul>
 <li><p>使得y=0和1的概率几乎相等<img
-src="https://s2.loli.net/2023/02/17/6jc34F7krLAvMaN.png"
-alt="image-20230217163759490" /></p></li>
+src="https://s2.loli.net/2023/02/17/6jc34F7krLAvMaN.png" /></p></li>
 <li><p>非直线的决策边界<img
 src="https://s2.loli.net/2023/02/17/7LpPI5frKcq4mOQ.png"
 alt="image-20230217170739531" /></p></li>
 <li><p>上述取决于你的多项式特征</p></li>
 </ul></li>
+</ul>
+<h3 id="逻辑回归的代价函数">逻辑回归的代价函数</h3>
+<ul>
+<li>平方误差代价函数不适合逻辑回归<img
+src="C:/Users/22514/AppData/Roaming/Typora/typora-user-images/image-20230217175748058.png"
+alt="image-20230217175748058" /> <span class="math display">\[
+L(f_{\vec w,b}(\vec x^{(i)},y^{i}))=\begin{cases} -log(f_{\vec w,b}(\vec
+x^{(i)}) \qquad if\quad y_{(i)}=1 \\
+-log(1-f_{\vec w,b}(\vec x^{(i)})) \qquad if\quad y_{(i)}=0\end
+{cases}\\
+f：描述的是y的概率 \\
+L ：单个训练样本的loss \\
+而我们需要的是整个训练集的loss
+\]</span></li>
 </ul>
 
                 
@@ -1245,7 +1258,7 @@ alt="image-20230217170739531" /></p></li>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">48.5k</span>&nbsp;字
+                class="white-color">48.6k</span>&nbsp;字
             
             
             

@@ -479,14 +479,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2023-02-19
+                    2023-02-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    948
+                    1.8k
                 </div>
                 
 
@@ -511,20 +511,92 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3
-id="trinity-a-distributed-publishsubscribe-broker-with-blockchain-based-immutability">Trinity:
-A Distributed Publish/Subscribe Broker with Blockchain-based
-Immutability</h3>
-<h4 id="简介">简介</h4>
+                <h4 id="看完以下内容后的初步想法">看完以下内容后的初步想法</h4>
 <ul>
-<li>CoAP[2]是一个针对资源受限的物联网系统的轻量级请求-回复协议，它消耗的资源有限，但它仍然缺乏对广泛平台的可扩展性和可移植性的支持。另外，发布-订阅消息模型因其低通信开销和资源效率而被广泛使用。</li>
-<li>发布/订阅模型<img
-src="https://s2.loli.net/2023/02/19/jWmJTpQ6as3lY5y.png"
-alt="image-20230219195146007" /></li>
-<li></li>
+<li>这篇文章是我看的以下几篇内容中使用了<strong>较为现代的技术了</strong>，2018年被收录的文章
+<ul>
+<li>另外两篇讲的是<strong>传统</strong>发布/订阅系统，零几年的文章</li>
+<li>这篇文章<strong>挺多内容没看懂</strong>，尤其是第4部分（架构）</li>
+</ul></li>
+<li>本文是使用<code>区块链技术（Tendermint Blockchain frame-work.）</code>+<code>发布/订阅模型（Mosquitto (MQTT) Broker）</code>实现<code>Trinity</code>
+<code>framework</code></li>
+<li>关于改进
+<ul>
+<li>文中结论提到可以使用<code>HyperLedger Fabric</code>和<code>IOTA</code>等区块链框架实现Trinity框架</li>
+<li>同时文中也提到<code>Kafka</code>发布/订阅模型（但是还不确定能否拿过来用），以下是Kafka的介绍
+<ul>
+<li>Kafka是一个更为强大的发布-订阅代理，是为数据中心使用而开发的，它拥有<strong>丰富</strong>的功能。</li>
+<li>与Mosquitto相比，Kafka的<strong>重量相对较重，</strong>并使用专有协议进行通信。它被设计成以分布式的方式运行，内置了对分区和复制的支持。分区是一种在不同实例间进行负载平衡的方法，而复制则是在多个实例间复制相同的数据。尽管Kafka提供了排序保证和可配置的消息持久性，但它假设软件是由一个组织管理的，这意味着在系统运行过程中没有穿越信任边界。</li>
+<li><strong>没有任何东西可以防止数据被篡改</strong>，因为Kafka部署的每一个实例都是由一个实体拥有和操作的。在我们设计的Trinity中，我们不做这种关于信任的假设。通过使用区块链网络，Trinity可以保证跨信任边界的持久性、有序性和不可更改性。</li>
+</ul></li>
+</ul></li>
 </ul>
 <h3
-id="基于内容的发布订阅关键技术研究--苑宏亮这篇很好">基于内容的发布订阅关键技术研究--苑宏亮（这篇很好）</h3>
+id="trinity-a-distributed-publishsubscribe-broker-with-blockchain-based-immutability2018年被收录">Trinity:
+A Distributed Publish/Subscribe Broker with Blockchain-based
+Immutability(2018年被收录)</h3>
+<h4 id="简介">简介</h4>
+<ul>
+<li><p>CoAP[2]是一个针对资源受限的物联网系统的轻量级请求-回复协议，它消耗的资源有限，但它仍然缺乏对广泛平台的可扩展性和可移植性的支持。另外，发布-订阅消息模型因其低通信开销和资源效率而被广泛使用。</p></li>
+<li><p>发布/订阅模型(single blocker)<img
+src="https://s2.loli.net/2023/02/19/jWmJTpQ6as3lY5y.png"
+alt="image-20230219195146007" /></p></li>
+<li><p>Trinity framework</p>
+<ul>
+<li><p>blockchain technology</p>
+<ul>
+<li>consensus algorithm</li>
+<li>distributed ledger</li>
+<li>public-key cryptography</li>
+</ul>
+<hr />
+<ul>
+<li>public blockchain</li>
+<li>permissioned blockchains</li>
+</ul></li>
+<li><p>publish-subscribe messaging model</p></li>
+<li><p>WHY DISTRIBUTED BROKER</p>
+<ul>
+<li>Overview of the Trinity framework.<img
+src="https://s2.loli.net/2023/02/19/jcIriLePOHARaVF.png"
+alt="image-20230219222322132" /></li>
+</ul></li>
+</ul></li>
+</ul>
+<h4 id="architecture-oftrinity">ARCHITECTURE OFTRINITY</h4>
+<p>MENTATION ANDEVALUATION</p>
+<ul>
+<li><p>Trinity framework</p>
+<ul>
+<li>Mosquitto (MQTT) Broker
+<ul>
+<li>smart contact 验证消息</li>
+</ul></li>
+<li>Tendermint Blockchain frame-work.
+<ul>
+<li>开源的区块链框架</li>
+<li>使用Byzantine Fault Tolerance (BFT) consensus protocol,</li>
+</ul></li>
+<li>Application Blockchain Interface (ABC接口)</li>
+<li>连接MQTT Broker与Tendermint</li>
+</ul></li>
+</ul>
+<h4 id="related-works">Related Works</h4>
+<ul>
+<li>Kafka[13]是一个更为强大的发布-订阅代理，是为数据中心使用而开发的，它拥有丰富的功能。
+<ul>
+<li>与Mosquitto相比，Kafka的重量相对较重，并使用专有协议进行通信。它被设计成以分布式的方式运行，内置了对分区和复制的支持。分区是一种在不同实例间进行负载平衡的方法，而复制则是在多个实例间复制相同的数据。尽管Kafka提供了排序保证和可配置的消息持久性，但它假设软件是由一个组织管理的，这意味着在系统运行过程中没有穿越信任边界。</li>
+<li>没有任何东西可以防止数据被篡改，因为Kafka部署的每一个实例都是由一个实体拥有和操作的。在我们设计的Trinity中，我们不做这种关于信任的假设。通过使用区块链网络，Trinity可以保证跨信任边界的持久性、有序性和不可更改性。</li>
+</ul></li>
+</ul>
+<h4 id="总结">总结</h4>
+<ul>
+<li>we will implement the Trinity framework using blockchain frame-works
+such as HyperLedger Fabric and IOTA to evaluate the performance cost of
+various consensus algorithms.</li>
+</ul>
+<h3
+id="基于内容的发布订阅关键技术研究--苑宏亮这篇很好但是2007被收录">基于内容的发布订阅关键技术研究--苑宏亮（这篇很好，但是2007被收录）</h3>
 <h4 id="发布订阅通信范型">发布/订阅通信范型</h4>
 <ul>
 <li>概念模型<img
@@ -1270,7 +1342,7 @@ alt="image-20230219142838762" />
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">50.1k</span>&nbsp;字
+                class="white-color">51k</span>&nbsp;字
             
             
             

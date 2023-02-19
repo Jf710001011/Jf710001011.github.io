@@ -511,13 +511,16 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="看完以下内容后的初步想法">看完以下内容后的初步想法</h4>
+                <h4
+id="看完以下4部分内容后的初步想法">看完以下4部分内容后的初步想法</h4>
 <ul>
-<li>这篇文章是我看的以下几篇内容中使用了<strong>较为现代的技术了</strong>，2018年被收录的文章
+<li>基于区块链的那片英文文献是我看的以下几篇内容中使用了<strong>较为现代的技术了</strong>，2018年被收录的文章</li>
+<li>这篇文章<strong>挺多内容没看懂</strong>，尤其是第4部分（架构）
 <ul>
-<li>另外两篇讲的是<strong>传统</strong>发布/订阅系统，零几年的文章</li>
-<li>这篇文章<strong>挺多内容没看懂</strong>，尤其是第4部分（架构）</li>
+<li>另外两篇中文文献讲的是<strong>传统</strong>发布/订阅系统，零几年的文章</li>
 </ul></li>
+<li>以下是对那篇英文文献的总结
+<ul>
 <li>本文是使用<code>区块链技术（Tendermint Blockchain frame-work.）</code>+<code>发布/订阅模型（Mosquitto (MQTT) Broker）</code>实现<code>Trinity</code>
 <code>framework</code></li>
 <li>关于改进
@@ -528,6 +531,7 @@
 <li>Kafka是一个更为强大的发布-订阅代理，是为数据中心使用而开发的，它拥有<strong>丰富</strong>的功能。</li>
 <li>与Mosquitto相比，Kafka的<strong>重量相对较重，</strong>并使用专有协议进行通信。它被设计成以分布式的方式运行，内置了对分区和复制的支持。分区是一种在不同实例间进行负载平衡的方法，而复制则是在多个实例间复制相同的数据。尽管Kafka提供了排序保证和可配置的消息持久性，但它假设软件是由一个组织管理的，这意味着在系统运行过程中没有穿越信任边界。</li>
 <li><strong>没有任何东西可以防止数据被篡改</strong>，因为Kafka部署的每一个实例都是由一个实体拥有和操作的。在我们设计的Trinity中，我们不做这种关于信任的假设。通过使用区块链网络，Trinity可以保证跨信任边界的持久性、有序性和不可更改性。</li>
+</ul></li>
 </ul></li>
 </ul></li>
 </ul>

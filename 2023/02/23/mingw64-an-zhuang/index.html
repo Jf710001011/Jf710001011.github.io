@@ -6,7 +6,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="发布订阅系统, 我的一生">
+    <meta name="keywords" content="Vscode 相关, 我的一生">
     <meta name="description" content="信念认知">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -29,7 +29,7 @@
 </script>
 
 
-    <title>发布订阅系统 | Jf710001011</title>
+    <title>Vscode 相关 | Jf710001011</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -326,12 +326,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">发布订阅系统</h1>
+                    <h1 class="description center-align post-title">Vscode 相关</h1>
                 </div>
             </div>
         </div>
@@ -445,13 +445,9 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/%E5%AD%A6%E6%9C%AF/">
-                                <span class="chip bg-color">学术</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">No tag</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -459,8 +455,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                机器学习
+                            <a href="/categories/tool/" class="post-category">
+                                tool
                             </a>
                         
                     </div>
@@ -472,21 +468,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2023-02-20
+                    2023-02-23
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2023-02-20
+                    2023-02-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.8k
+                    20
                 </div>
                 
 
@@ -511,231 +507,21 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4
-id="看完以下4部分内容后的初步想法">看完以下4部分内容后的初步想法</h4>
+                <h3 id="安装mingw64">安装MingW64</h3>
 <ul>
-<li>基于区块链的那片英文文献是我看的以下几篇内容中使用了<strong>较为现代的技术了</strong>，2018年被收录的文章</li>
-<li>这篇文章<strong>挺多内容没看懂</strong>，尤其是第4部分（架构）
-<ul>
-<li>另外两篇中文文献讲的是<strong>传统</strong>发布/订阅系统，零几年的文章</li>
-</ul></li>
-<li>以下是对那篇英文文献的总结
-<ul>
-<li>本文是使用<code>区块链技术（Tendermint Blockchain frame-work.）</code>+<code>发布/订阅模型（Mosquitto (MQTT) Broker）</code>实现<code>Trinity</code>
-<code>framework</code></li>
-<li>关于改进
-<ul>
-<li>文中结论提到可以使用<code>HyperLedger Fabric</code>和<code>IOTA</code>等区块链框架实现Trinity框架</li>
-<li>同时文中也提到<code>Kafka</code>发布/订阅模型（但是还不确定能否拿过来用），以下是Kafka的介绍
-<ul>
-<li>Kafka是一个更为强大的发布-订阅代理，是为数据中心使用而开发的，它拥有<strong>丰富</strong>的功能。</li>
-<li>与Mosquitto相比，Kafka的<strong>重量相对较重，</strong>并使用专有协议进行通信。它被设计成以分布式的方式运行，内置了对分区和复制的支持。分区是一种在不同实例间进行负载平衡的方法，而复制则是在多个实例间复制相同的数据。尽管Kafka提供了排序保证和可配置的消息持久性，但它假设软件是由一个组织管理的，这意味着在系统运行过程中没有穿越信任边界。</li>
-<li><strong>没有任何东西可以防止数据被篡改</strong>，因为Kafka部署的每一个实例都是由一个实体拥有和操作的。在我们设计的Trinity中，我们不做这种关于信任的假设。通过使用区块链网络，Trinity可以保证跨信任边界的持久性、有序性和不可更改性。</li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
-<h3
-id="trinity-a-distributed-publishsubscribe-broker-with-blockchain-based-immutability2018年被收录">Trinity:
-A Distributed Publish/Subscribe Broker with Blockchain-based
-Immutability(2018年被收录)</h3>
-<h4 id="简介">简介</h4>
-<ul>
-<li><p>CoAP[2]是一个针对资源受限的物联网系统的轻量级请求-回复协议，它消耗的资源有限，但它仍然缺乏对广泛平台的可扩展性和可移植性的支持。另外，发布-订阅消息模型因其低通信开销和资源效率而被广泛使用。</p></li>
-<li><p>发布/订阅模型(single blocker)<img
-src="https://s2.loli.net/2023/02/19/jWmJTpQ6as3lY5y.png"
-alt="image-20230219195146007" /></p></li>
-<li><p>Trinity framework</p>
-<ul>
-<li><p>blockchain technology</p>
-<ul>
-<li>consensus algorithm</li>
-<li>distributed ledger</li>
-<li>public-key cryptography</li>
-</ul>
-<hr />
-<ul>
-<li>public blockchain</li>
-<li>permissioned blockchains</li>
-</ul></li>
-<li><p>publish-subscribe messaging model</p></li>
-<li><p>WHY DISTRIBUTED BROKER</p>
-<ul>
-<li>Overview of the Trinity framework.<img
-src="https://s2.loli.net/2023/02/19/jcIriLePOHARaVF.png"
-alt="image-20230219222322132" /></li>
-</ul></li>
-</ul></li>
-</ul>
-<h4 id="architecture-oftrinity">ARCHITECTURE OFTRINITY</h4>
-<p>MENTATION ANDEVALUATION</p>
-<ul>
-<li><p>Trinity framework</p>
-<ul>
-<li>Mosquitto (MQTT) Broker
-<ul>
-<li>smart contact 验证消息</li>
-</ul></li>
-<li>Tendermint Blockchain frame-work.
-<ul>
-<li>开源的区块链框架</li>
-<li>使用Byzantine Fault Tolerance (BFT) consensus protocol,</li>
-</ul></li>
-<li>Application Blockchain Interface (ABC接口)</li>
-<li>连接MQTT Broker与Tendermint</li>
-</ul></li>
-</ul>
-<h4 id="related-works">Related Works</h4>
-<ul>
-<li>Kafka[13]是一个更为强大的发布-订阅代理，是为数据中心使用而开发的，它拥有丰富的功能。
-<ul>
-<li>与Mosquitto相比，Kafka的重量相对较重，并使用专有协议进行通信。它被设计成以分布式的方式运行，内置了对分区和复制的支持。分区是一种在不同实例间进行负载平衡的方法，而复制则是在多个实例间复制相同的数据。尽管Kafka提供了排序保证和可配置的消息持久性，但它假设软件是由一个组织管理的，这意味着在系统运行过程中没有穿越信任边界。</li>
-<li>没有任何东西可以防止数据被篡改，因为Kafka部署的每一个实例都是由一个实体拥有和操作的。在我们设计的Trinity中，我们不做这种关于信任的假设。通过使用区块链网络，Trinity可以保证跨信任边界的持久性、有序性和不可更改性。</li>
-</ul></li>
-</ul>
-<h4 id="总结">总结</h4>
-<ul>
-<li>we will implement the Trinity framework using blockchain frame-works
-such as HyperLedger Fabric and IOTA to evaluate the performance cost of
-various consensus algorithms.</li>
-</ul>
-<h3
-id="基于内容的发布订阅关键技术研究--苑宏亮这篇很好但是2007被收录">基于内容的发布订阅关键技术研究--苑宏亮（这篇很好，但是2007被收录）</h3>
-<h4 id="发布订阅通信范型">发布/订阅通信范型</h4>
-<ul>
-<li>概念模型<img
-src="https://s2.loli.net/2023/02/19/nsipa5UfoMJ31wY.png" /></li>
-<li>交互模型<img
-src="https://s2.loli.net/2023/02/19/HyadvmbMRYhfz7r.png"
-alt="image-20230219163927512" /></li>
-<li>分类
-<ul>
-<li>基于通道</li>
-<li>基于主题</li>
-<li>基于内容</li>
-<li>基于类型</li>
-</ul></li>
-<li>挑战
-<ul>
-<li>提高事件的匹配速度</li>
-<li>事件的可靠传输</li>
-</ul></li>
-<li>本文成果
-<ul>
-<li>移动计算环境的扩展支持技术研究</li>
-</ul></li>
-<li>系统实现
-<ul>
-<li>以分布计算中间件StasrBus+为基础，设计和实现了一个通知服务原型系统Densa。</li>
-</ul></li>
-</ul>
-<h3 id="一文搞懂发布订阅模式">一文搞懂发布订阅模式</h3>
-<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903834196656141">blog</a></p>
-<ul>
-<li>参考微信公众号<img
-src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/5/2/16a7448d45a9e91a~tplv-t2oaga2asx-zoom-in-crop-mark:4536:0:0:0.awebp"
-alt="img" /></li>
-<li>属于设计模式中的行为模式<img
-src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/5/2/16a7448a32a040cb~tplv-t2oaga2asx-zoom-in-crop-mark:4536:0:0:0.awebp"
-alt="img" /></li>
-<li>特点：松耦合</li>
-<li>优点：
-<ul>
-<li>松耦合</li>
-<li>高伸缩性</li>
-<li>高可靠性</li>
-<li>灵活性</li>
-<li>可测试性</li>
-</ul></li>
-<li>设计系统该考虑的点
-<ul>
-<li>订阅处理</li>
-<li>安全</li>
-<li>内容筛选</li>
-<li>单向还是双向通信</li>
-<li>消息排序</li>
-<li>消息优先级</li>
-<li>有毒信息</li>
-<li>消息重复</li>
-<li>消息过期</li>
-<li>消息调度</li>
-</ul></li>
-<li>此模式的应用场景
-<ul>
-<li>应用程序需要向大量消费者广播信息。例如微信订阅号就是一个消费者量庞大的广播平台。</li>
-<li>应用程序需要与一个或多个独立开发的应用程序或服务通信，这些应用程序或服务可能使用不同的平台、编程语言和通信协议。</li>
-<li>应用程序可以向消费者发送信息，而不需要消费者的实时响应。</li>
-<li>被集成的系统被设计为支持其数据的最终一致性模型。</li>
-<li>应用程序需要将信息传递给多个消费者，这些消费者可能具有与发送者不同的可用性要求或正常运行时间计划。例如你消息在上午发布了出去，消费者计划在下午才去处理这些消息。</li>
-</ul></li>
-<li>发布/订阅模式与观察者模式<img
-src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/5/2/16a7448aaf090b32~tplv-t2oaga2asx-zoom-in-crop-mark:4536:0:0:0.awebp"
-alt="img" />
-<ul>
-<li>异同：</li>
-<li></li>
-</ul></li>
-</ul>
-<h3
-id="发布订阅系统关键技术研究---王辰">发布订阅系统关键技术研究---王辰</h3>
-<p>​ <strong>（本文主要侧重点在安全设计上，而不是系统）</strong></p>
-<h4 id="背景">背景</h4>
-<ul>
-<li><p>关键词：分布式网络、</p></li>
-<li><p>点对点网络</p>
-<ul>
-<li>问题：当前的互联网架构与当前的数据以及以内容为中心的应用之间不互相匹配，无论信息的来源是什么，用户需要的数据在很多情况下是未知的</li>
-<li>基于内容的网络：正好解决上述问题</li>
-<li>因为优点：高效率、低网络负载，低延迟和高能源效率的优势</li>
-</ul></li>
-<li><p>发布订阅通信范式是一个不错的例子</p>
-<ul>
-<li>实现高效、安全的信息分布和管理，保证信息的完整性、保密性和可用性</li>
-<li>成果：
-<ul>
-<li>基于冗余属性的分布订阅系统加密算法</li>
-<li>基于广告信息加密的发布订阅系统访问控制</li>
-<li>混合模式的密钥管理机制来管理事件的加密密钥</li>
-</ul></li>
-</ul></li>
-<li><p>研究现状</p>
-<ul>
-<li>对安全关键技术的研究成果较少。</li>
-<li>很少考虑访问控制策略加密、订阅条件加密机制和叛逆者追踪手段等与发布订阅系统紧密相关的问题。</li>
-</ul></li>
-</ul>
-<h4 id="系统">系统</h4>
-<ul>
-<li>基本结构<img
-src="https://s2.loli.net/2023/02/19/MGF578bdWCfHpcO.png"
-alt="image-20230219142300975" />
-<ul>
-<li>交互原理<img
-src="https://s2.loli.net/2023/02/19/JjfuDg1sCmhnHPw.png"
-alt="image-20230219142537059" /></li>
-</ul></li>
-<li>解耦<img src="https://s2.loli.net/2023/02/19/bayenYjR15F8TO9.png"
-alt="image-20230219142838762" />
-<ul>
-<li>空间</li>
-<li>时间</li>
-<li>同步</li>
-</ul></li>
-<li>种类
-<ul>
-<li>基于主题</li>
-<li>基于内容</li>
-<li>基于类型</li>
-<li>基于概念</li>
-</ul></li>
-<li>组成要素：
-<ul>
-<li>事件结构</li>
-<li>订阅结构</li>
-<li>匹配定义</li>
-<li>订阅覆盖</li>
-</ul></li>
-<li>网络拓扑</li>
+<li><p><a
+target="_blank" rel="noopener" href="https://sourceforge.net/projects/mingw-w64/files/mingw-w64/">地址</a><img
+src="https://s2.loli.net/2023/02/22/dotxPejI6TaNOvu.png"
+alt="image-20230222012454189" /></p></li>
+<li><p>报错<img src="https://s2.loli.net/2023/02/22/1fyvF9jc2HIlWiS.png"
+alt="image-20230222013610489" /></p></li>
+<li><p><a
+target="_blank" rel="noopener" href="https://stackoverflow.com/questions/46455927/mingw-w64-installer-the-file-has-been-downloaded-incorrectly">搜索</a></p></li>
+<li><p>下载地址<a target="_blank" rel="noopener" href="https://winlibs.com/#download-release">2</a><img
+src="https://s2.loli.net/2023/02/22/HlnWhu4MsrLB2iD.png" /></p></li>
+<li><p>写入环境变量<img
+src="https://s2.loli.net/2023/02/22/9bQuwlB5hLTeqmO.png"
+alt="image-20230222021511634" /></p></li>
 </ul>
 
                 
@@ -763,7 +549,7 @@ alt="image-20230219142838762" />
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://jf710001011.github.io/2023/02/20/fa-bu-ding-yue-xi-tong/">https://jf710001011.github.io/2023/02/20/fa-bu-ding-yue-xi-tong/</a>
+                    <a href="https://jf710001011.github.io/2023/02/23/mingw64-an-zhuang/">https://jf710001011.github.io/2023/02/23/mingw64-an-zhuang/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -800,11 +586,7 @@ alt="image-20230219142838762" />
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/%E5%AD%A6%E6%9C%AF/">
-                                    <span class="chip bg-color">学术</span>
-                                </a>
-                            
+                            <span class="chip bg-color">No tag</span>
                         </div>
                     
                 </div>
@@ -1162,31 +944,31 @@ alt="image-20230219142838762" />
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/02/18/ml06/">
+                <a href="/2023/02/22/jian-dao-shi-tou-bu-ren-ji-dui-kang/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="P28-多元线性回归的梯度下降">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="高级程序设计作业">
                         
-                        <span class="card-title">P28-多元线性回归的梯度下降</span>
+                        <span class="card-title">高级程序设计作业</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            梯度下降
+                            作业
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-18
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-22
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    机器学习
+                            <a href="/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" class="post-category">
+                                    程序设计
                                 </a>
                             
                             
@@ -1196,8 +978,12 @@ alt="image-20230219142838762" />
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%AD%A6%E6%9C%AF/">
-                        <span class="chip bg-color">学术</span>
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C++</span>
+                    </a>
+                    
+                    <a href="/tags/%E4%BD%9C%E4%B8%9A-%E4%BB%BB%E5%8A%A1/">
+                        <span class="chip bg-color">作业/任务</span>
                     </a>
                     
                 </div>
@@ -1346,7 +1132,7 @@ alt="image-20230219142838762" />
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">51k</span>&nbsp;字
+                class="white-color">51.3k</span>&nbsp;字
             
             
             

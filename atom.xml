@@ -43,23 +43,50 @@
   
   <entry>
     <title>Vscode 相关</title>
-    <link href="https://jf710001011.github.io/2023/02/23/mingw64-an-zhuang/"/>
-    <id>https://jf710001011.github.io/2023/02/23/mingw64-an-zhuang/</id>
+    <link href="https://jf710001011.github.io/2023/02/23/vscode/"/>
+    <id>https://jf710001011.github.io/2023/02/23/vscode/</id>
     <published>2023-02-22T16:00:00.000Z</published>
-    <updated>2023-02-21T18:15:14.993Z</updated>
+    <updated>2023-02-22T09:48:20.122Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h3</summary>
+    <summary type="html">&lt;h3
+id=&quot;设置vscode代码格式化c时大括号不换行&quot;&gt;设置vscode代码格式化c++时大括号不换行&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;在setting.json中加入这行代码&lt;/p&gt;
+&lt;pre class=&quot;language-json&quot;</summary>
         
       
     
     
     
     <category term="tool" scheme="https://jf710001011.github.io/categories/tool/"/>
+    
+    
+    <category term="Vscode" scheme="https://jf710001011.github.io/tags/Vscode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://jf710001011.github.io/2023/02/22/chatgpt/"/>
+    <id>https://jf710001011.github.io/2023/02/22/chatgpt/</id>
+    <published>2023-02-22T14:09:28.538Z</published>
+    <updated>2023-02-22T14:21:17.642Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;加入new-bing&quot;&gt;加入New</summary>
+        
+      
+    
+    
     
     
   </entry>
@@ -96,18 +123,16 @@
     <link href="https://jf710001011.github.io/2023/02/19/fa-bu-ding-yue-xi-tong/"/>
     <id>https://jf710001011.github.io/2023/02/19/fa-bu-ding-yue-xi-tong/</id>
     <published>2023-02-19T04:52:01.179Z</published>
-    <updated>2023-02-21T16:48:02.288Z</updated>
+    <updated>2023-02-22T09:25:50.433Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h4
-id=&quot;看完以下4部分内容后的初步想法&quot;&gt;看完以下4部分内容后的初步想法&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;基于区块链的那片英文文献是我看的以下几篇内容中使用了&lt;strong&gt;较为现代的技术了&lt;/strong&gt;，2018年被收录的文章&lt;/li&gt;
-&lt;li&gt;这篇文章&lt;str</summary>
+    <summary type="html">&lt;h2 id=&quot;a-publish-subscribe-system-over-ndn-psndn&quot;&gt;A Publish Subscribe
+System Over NDN (PSNDN)&lt;/h2&gt;
+&lt;p&gt;&lt;a</summary>
         
       
     
@@ -509,32 +534,6 @@ href=&quot;https://blog.csd</summary>
         
         
     <summary type="html">&lt;h3</summary>
-        
-      
-    
-    
-    
-    <category term="网安" scheme="https://jf710001011.github.io/categories/%E7%BD%91%E5%AE%89/"/>
-    
-    
-    <category term="ss" scheme="https://jf710001011.github.io/tags/ss/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>xss文件包含漏洞原理</title>
-    <link href="https://jf710001011.github.io/2022/10/03/xss-wen-jian-bao-han-lou-dong-yuan-li/"/>
-    <id>https://jf710001011.github.io/2022/10/03/xss-wen-jian-bao-han-lou-dong-yuan-li/</id>
-    <published>2022-10-02T16:00:00.000Z</published>
-    <updated>2023-02-05T10:19:50.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;本地文件包含&quot;&gt;本地文件包含&lt;/h3&gt;
-&lt;pre class=&quot;language-php&quot; data-language=&quot;php&quot;&gt;&lt;code class=&quot;language-php&quot;&gt;&lt;span class=&quot;token php</summary>
         
       
     

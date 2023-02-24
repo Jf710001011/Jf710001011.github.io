@@ -42,6 +42,84 @@
   </entry>
   
   <entry>
+    <title>TEST2</title>
+    <link href="https://jf710001011.github.io/2023/02/24/test2/"/>
+    <id>https://jf710001011.github.io/2023/02/24/test2/</id>
+    <published>2023-02-23T16:00:00.000Z</published>
+    <updated>2023-02-24T04:15:21.886Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;02-17&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;title: win11 美化 date: 2023-02-23 24:00:00 author: Jf710001011 img:
+top: cover: coverImg: password: toc:</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>win11 美化</title>
+    <link href="https://jf710001011.github.io/2023/02/24/win11-mei-hua/"/>
+    <id>https://jf710001011.github.io/2023/02/24/win11-mei-hua/</id>
+    <published>2023-02-23T16:00:00.000Z</published>
+    <updated>2023-02-24T00:05:15.447Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;字体&quot;&gt;字体&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;新宋体，Fira Code&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3</summary>
+        
+      
+    
+    
+    
+    <category term="tool" scheme="https://jf710001011.github.io/categories/tool/"/>
+    
+    
+    <category term="windows" scheme="https://jf710001011.github.io/tags/windows/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Web工具</title>
+    <link href="https://jf710001011.github.io/2023/02/24/web-tools/"/>
+    <id>https://jf710001011.github.io/2023/02/24/web-tools/</id>
+    <published>2023-02-23T16:00:00.000Z</published>
+    <updated>2023-02-24T09:41:51.229Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3</summary>
+        
+      
+    
+    
+    
+    <category term="网安" scheme="https://jf710001011.github.io/categories/%E7%BD%91%E5%AE%89/"/>
+    
+    
+    <category term="web" scheme="https://jf710001011.github.io/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
     <title>ChatGpt</title>
     <link href="https://jf710001011.github.io/2023/02/23/chatgpt/"/>
     <id>https://jf710001011.github.io/2023/02/23/chatgpt/</id>
@@ -306,6 +384,31 @@ alt=&quot;image-20230217035330078&quot;</summary>
   </entry>
   
   <entry>
+    <title>CTF赛事</title>
+    <link href="https://jf710001011.github.io/2023/01/31/ctf/"/>
+    <id>https://jf710001011.github.io/2023/01/31/ctf/</id>
+    <published>2023-01-30T16:00:00.000Z</published>
+    <updated>2023-02-24T00:03:16.030Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3</summary>
+        
+      
+    
+    
+    
+    <category term="CTF" scheme="https://jf710001011.github.io/categories/CTF/"/>
+    
+    
+    <category term="web" scheme="https://jf710001011.github.io/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
     <title>php</title>
     <link href="https://jf710001011.github.io/2023/01/18/php/"/>
     <id>https://jf710001011.github.io/2023/01/18/php/</id>
@@ -382,6 +485,34 @@ alt=&quot;image-20230217035330078&quot;</summary>
   </entry>
   
   <entry>
+    <title>upload-labs</title>
+    <link href="https://jf710001011.github.io/2022/12/20/web-upload-labs/"/>
+    <id>https://jf710001011.github.io/2022/12/20/web-upload-labs/</id>
+    <published>2022-12-19T16:00:00.000Z</published>
+    <updated>2023-02-05T10:19:46.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;靶场安装&quot;&gt;靶场安装&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/c0ny1/upload-labs&quot;&gt;仓库&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;windows-php（linux</summary>
+        
+      
+    
+    
+    
+    <category term="网安" scheme="https://jf710001011.github.io/categories/%E7%BD%91%E5%AE%89/"/>
+    
+    
+    <category term="web" scheme="https://jf710001011.github.io/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
     <title>xss文件上传漏洞原理</title>
     <link href="https://jf710001011.github.io/2022/12/17/web-wen-jian-shang-chuan-lou-dong-yuan-li/"/>
     <id>https://jf710001011.github.io/2022/12/17/web-wen-jian-shang-chuan-lou-dong-yuan-li/</id>
@@ -408,145 +539,6 @@ alt=&quot;image-20230217035330078&quot;</summary>
     
     
     <category term="web" scheme="https://jf710001011.github.io/tags/web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>监督学习和无监督学习</title>
-    <link href="https://jf710001011.github.io/2022/12/03/ml03/"/>
-    <id>https://jf710001011.github.io/2022/12/03/ml03/</id>
-    <published>2022-12-02T16:00:00.000Z</published>
-    <updated>2023-02-10T15:52:52.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;a
-href=&quot;https://www.bilibili.com/video/BV1Zt4y1H78P?p=7&amp;amp;vd_source=03c4adad8a71f5349bd0c6db2d174203&quot;&gt;视频链接&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a
-href=&quot;http</summary>
-        
-      
-    
-    
-    
-    <category term="机器学习" scheme="https://jf710001011.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-    <category term="ss" scheme="https://jf710001011.github.io/tags/ss/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>lab-3</title>
-    <link href="https://jf710001011.github.io/2022/11/04/pma04-lab3/"/>
-    <id>https://jf710001011.github.io/2022/11/04/pma04-lab3/</id>
-    <published>2022-11-04T15:59:59.000Z</published>
-    <updated>2023-02-05T10:18:56.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3</summary>
-        
-      
-    
-    
-    
-    <category term="网安" scheme="https://jf710001011.github.io/categories/%E7%BD%91%E5%AE%89/"/>
-    
-    
-    <category term="ss" scheme="https://jf710001011.github.io/tags/ss/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>lab-1</title>
-    <link href="https://jf710001011.github.io/2022/10/12/pma03-lab1/"/>
-    <id>https://jf710001011.github.io/2022/10/12/pma03-lab1/</id>
-    <published>2022-10-11T16:00:00.000Z</published>
-    <updated>2023-02-05T10:18:54.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;a
-href=&quot;https://blog.csdn.net/m0_37442062/article/details/116404462?spm=1001.2014.3001.5502&quot;&gt;教程1&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a
-href=&quot;https://blog.csd</summary>
-        
-      
-    
-    
-    
-    <category term="网安" scheme="https://jf710001011.github.io/categories/%E7%BD%91%E5%AE%89/"/>
-    
-    
-    <category term="ss" scheme="https://jf710001011.github.io/tags/ss/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>模型评估与选择</title>
-    <link href="https://jf710001011.github.io/2022/10/08/ml02/"/>
-    <id>https://jf710001011.github.io/2022/10/08/ml02/</id>
-    <published>2022-10-07T16:00:00.000Z</published>
-    <updated>2023-02-05T10:18:24.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;strong&gt;一堆数学公式，好难&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;训练误差和泛化误差&lt;/li&gt;
-&lt;li&gt;过拟合和欠拟合&lt;/li&gt;
-&lt;li&gt;留出法&lt;/li&gt;
-&lt;li&gt;交叉验证法&lt;/li&gt;
-&lt;li&gt;自助法&lt;/li&gt;
-&lt;li&gt;参数配置&lt;/li&gt;
-&lt;l</summary>
-        
-      
-    
-    
-    
-    <category term="机器学习" scheme="https://jf710001011.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-    <category term="ss" scheme="https://jf710001011.github.io/tags/ss/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>动态分析</title>
-    <link href="https://jf710001011.github.io/2022/10/08/pma02-dong-tai-fen-xi/"/>
-    <id>https://jf710001011.github.io/2022/10/08/pma02-dong-tai-fen-xi/</id>
-    <published>2022-10-07T16:00:00.000Z</published>
-    <updated>2023-02-05T10:18:50.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3</summary>
-        
-      
-    
-    
-    
-    <category term="网安" scheme="https://jf710001011.github.io/categories/%E7%BD%91%E5%AE%89/"/>
-    
-    
-    <category term="ss" scheme="https://jf710001011.github.io/tags/ss/"/>
     
   </entry>
   

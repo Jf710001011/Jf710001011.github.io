@@ -479,14 +479,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2023-02-24
+                    2023-02-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.2k
+                    1.5k
                 </div>
                 
 
@@ -579,6 +579,8 @@ target="_blank" rel="noopener" href="https://www.linkedin.com/pulse/top-10-penet
 <ul>
 <li><a
 target="_blank" rel="noopener" href="https://github.com/RESETHACKER-COMMUNITY/Pentesting-Bugbounty">渗透</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://ctf101.org/web-exploitation/overview/">CTF101</a></li>
 </ul>
 <h3 id="ctf实战">CTF实战</h3>
 <p><a target="_blank" rel="noopener" href="https://ctf.show/challenges#web2-7">CTF-show</a></p>
@@ -722,9 +724,9 @@ alt="image-20230214002748134" /></li>
 </ul></li>
 </ul></li>
 </ul></li>
-<li><p>web5（Md5绕过）<img
+<li><h4 id="web5md5绕过image-20230224013307979">web5（Md5绕过）<img
 src="https://s2.loli.net/2023/02/24/D4cHsIlnwoBGeSr.png"
-alt="image-20230224013307979" /></p>
+alt="image-20230224013307979" /></h4>
 <ul>
 <li><p>代码解释</p>
 <pre class="language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?</span>php：这是 <span class="token constant">PHP</span> 代码的起始标记，它告诉 <span class="token constant">PHP</span> 解释器该文件包含 <span class="token constant">PHP</span> 代码。
@@ -763,6 +765,48 @@ interpreted as zero times some power of ten.</li>
 </ul></li>
 </ul></li>
 </ul></li>
+</ul>
+<h4 id="web6">Web6</h4>
+<ul>
+<li><p>页面<img src="https://s2.loli.net/2023/02/25/QtruVIXhqz2R9if.png"
+alt="image-20230225104806734" /></p></li>
+<li><p>表单<img src="https://s2.loli.net/2023/02/25/X5ak7DRAqsKVTxU.png"
+alt="image-20230225105038312" /></p></li>
+<li><p>sql注入</p>
+<figure>
+<img src="https://s2.loli.net/2023/02/25/WvULqfVondwGrut.png"
+alt="image-20230225105104252" />
+<figcaption aria-hidden="true">image-20230225105104252</figcaption>
+</figure>
+<figure>
+<img src="https://s2.loli.net/2023/02/25/U4QmcNSGstJopKX.png"
+alt="image-20230225110632732" />
+<figcaption aria-hidden="true">image-20230225110632732</figcaption>
+</figure></li>
+<li><p>考虑</p>
+<ul>
+<li>关键字过滤</li>
+<li>空格过滤</li>
+</ul>
+<pre class="language-sql" data-language="sql"><code class="language-sql">
+<span class="token keyword">SQL</span>注入是一种利用Web应用程序对用户输入的数据没有进行充分过滤，从而构造恶意的<span class="token keyword">SQL</span>语句执行攻击者想要的操作的技术³。
+
+关键字过滤是指Web应用程序对用户输入的数据进行检查，如果发现包含了一些敏感的<span class="token keyword">SQL</span>关键字，如<span class="token keyword">union</span>、<span class="token keyword">select</span>、<span class="token keyword">drop</span>等，就拒绝执行或者删除这些关键字¹。
+
+空格过滤是指Web应用程序对用户输入的数据进行检查，如果发现包含了空格字符，就拒绝执行或者删除空格字符。这是因为一些<span class="token keyword">SQL</span>语句需要使用空格来分隔不同的部分²。
+
+绕过关键字过滤和空格过滤的方法有很多，比如使用<span class="token keyword">SQL</span>注释符号（<span class="token comment">/**/</span>）、使用十六进制编码（<span class="token number">0</span>x）、使用内置函数（<span class="token keyword">char</span><span class="token punctuation">(</span><span class="token punctuation">)</span>）等¹⁴。具体的方法要根据不同的数据库和情况来选择。</code></pre>
+<ul>
+<li>注释绕过空格过滤<img
+src="https://s2.loli.net/2023/02/25/xfWPh5tCpSzwUKM.png"
+alt="image-20230225110536023" /></li>
+</ul></li>
+<li><p>表名<img src="https://s2.loli.net/2023/02/25/CpaKwB2MLfDqFvm.png"
+alt="image-20230225111301288" /></p></li>
+<li><p>列名<img src="https://s2.loli.net/2023/02/25/cAhi46SkJq2tzKs.png"
+alt="image-20230225111352899" /></p></li>
+<li><p>flag<img src="https://s2.loli.net/2023/02/25/RX8anbUe34ohzwL.png"
+alt="image-20230225111446970" /></p></li>
 </ul>
 
                 
@@ -1380,7 +1424,7 @@ interpreted as zero times some power of ten.</li>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">56k</span>&nbsp;字
+                class="white-color">56.3k</span>&nbsp;字
             
             
             

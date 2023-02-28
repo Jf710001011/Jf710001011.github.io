@@ -6,7 +6,7 @@
   <link href="https://jf710001011.github.io/atom.xml" rel="self"/>
   
   <link href="https://jf710001011.github.io/"/>
-  <updated>2023-02-16T20:24:34.110Z</updated>
+  <updated>2023-02-28T13:36:46.824Z</updated>
   <id>https://jf710001011.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://jf710001011.github.io/2023/02/27/untitled/"/>
+    <id>https://jf710001011.github.io/2023/02/27/untitled/</id>
+    <published>2023-02-27T06:24:37.056Z</published>
+    <updated>2023-02-28T13:36:46.824Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">
+</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>VMware</title>
@@ -178,14 +200,18 @@ top: cover: coverImg: password: toc:</summary>
     <link href="https://jf710001011.github.io/2023/02/22/jian-dao-shi-tou-bu-ren-ji-dui-kang/"/>
     <id>https://jf710001011.github.io/2023/02/22/jian-dao-shi-tou-bu-ren-ji-dui-kang/</id>
     <published>2023-02-21T16:41:52.148Z</published>
-    <updated>2023-02-21T21:21:06.928Z</updated>
+    <updated>2023-02-28T23:42:01.353Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h3</summary>
+    <summary type="html">&lt;h3 id=&quot;作业2&quot;&gt;作业2&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;要求：&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;答案&lt;/p&gt;
+&lt;pre class=&quot;language-json&quot; data-language=&quot;json&quot;&gt;&lt;code</summary>
         
       
     
@@ -257,7 +283,7 @@ alt=&quot;image-20230217035330078&quot;</summary>
     <link href="https://jf710001011.github.io/2023/02/11/ml04/"/>
     <id>https://jf710001011.github.io/2023/02/11/ml04/</id>
     <published>2023-02-10T16:00:00.000Z</published>
-    <updated>2023-02-10T21:46:52.000Z</updated>
+    <updated>2023-02-26T15:37:12.677Z</updated>
     
     
       
@@ -266,9 +292,10 @@ alt=&quot;image-20230217035330078&quot;</summary>
         
     <summary type="html">&lt;h3 id=&quot;实验前准备&quot;&gt;实验前准备&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;安装最新的ANACONDA3,并更新所有的库(否则会出现很多报错&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;装anaconda，就不需要单独装python了&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;安装最新的ANACONDA3,并更新所有的库(否则会出现很多报错&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre class=&quot;language-powershell&quot;</summary>
+&lt;pre</summary>
         
       
     
@@ -311,14 +338,17 @@ alt=&quot;image-20230217035330078&quot;</summary>
     <link href="https://jf710001011.github.io/2023/02/11/python/"/>
     <id>https://jf710001011.github.io/2023/02/11/python/</id>
     <published>2023-02-10T16:00:00.000Z</published>
-    <updated>2023-02-10T16:56:06.000Z</updated>
+    <updated>2023-02-27T06:40:53.915Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h3</summary>
+    <summary type="html">&lt;p&gt;安装、版本&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;指定版本下安装库&lt;/p&gt;
+&lt;pre class=&quot;language-powershell&quot; data-language=&quot;powershell&quot;&gt;&lt;code</summary>
         
       
     
@@ -334,7 +364,7 @@ alt=&quot;image-20230217035330078&quot;</summary>
     <link href="https://jf710001011.github.io/2023/02/09/the-pentester-blueprint/"/>
     <id>https://jf710001011.github.io/2023/02/09/the-pentester-blueprint/</id>
     <published>2023-02-08T16:00:00.000Z</published>
-    <updated>2023-02-25T20:01:09.089Z</updated>
+    <updated>2023-02-28T18:31:34.910Z</updated>
     
     
       
@@ -389,7 +419,7 @@ alt=&quot;image-20230217035330078&quot;</summary>
     <link href="https://jf710001011.github.io/2023/01/31/ctf/"/>
     <id>https://jf710001011.github.io/2023/01/31/ctf/</id>
     <published>2023-01-30T16:00:00.000Z</published>
-    <updated>2023-02-26T15:14:28.434Z</updated>
+    <updated>2023-02-28T04:31:07.764Z</updated>
     
     
       
@@ -501,36 +531,6 @@ alt=&quot;image-20230217035330078&quot;</summary>
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/c0ny1/upload-labs&quot;&gt;仓库&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;windows-php（linux</summary>
-        
-      
-    
-    
-    
-    <category term="网安" scheme="https://jf710001011.github.io/categories/%E7%BD%91%E5%AE%89/"/>
-    
-    
-    <category term="web" scheme="https://jf710001011.github.io/tags/web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>xss文件上传漏洞原理</title>
-    <link href="https://jf710001011.github.io/2022/12/17/web-wen-jian-shang-chuan-lou-dong-yuan-li/"/>
-    <id>https://jf710001011.github.io/2022/12/17/web-wen-jian-shang-chuan-lou-dong-yuan-li/</id>
-    <published>2022-12-16T16:00:00.000Z</published>
-    <updated>2023-02-05T10:19:42.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;实验环境的准备&quot;&gt;实验环境的准备&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;注册页面&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure&gt;
-&lt;img</summary>
         
       
     

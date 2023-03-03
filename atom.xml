@@ -6,7 +6,7 @@
   <link href="https://jf710001011.github.io/atom.xml" rel="self"/>
   
   <link href="https://jf710001011.github.io/"/>
-  <updated>2023-02-28T13:36:46.824Z</updated>
+  <updated>2023-03-03T18:30:46.196Z</updated>
   <id>https://jf710001011.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>逻辑回归的代价函数简化版</title>
+    <link href="https://jf710001011.github.io/2023/03/04/ml07/"/>
+    <id>https://jf710001011.github.io/2023/03/04/ml07/</id>
+    <published>2023-03-03T16:00:00.000Z</published>
+    <updated>2023-03-03T18:30:46.196Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;逻辑回归的代价函数简化版&quot;&gt;逻辑回归的代价函数简化版&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;代价函数 &lt;span class=&quot;math display&quot;&gt;\[
+L(f_{\vec w,b}(\vec x^{(i)}),y^{}(i)) =</summary>
+        
+      
+    
+    
+    
+    <category term="机器学习" scheme="https://jf710001011.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="学术" scheme="https://jf710001011.github.io/tags/%E5%AD%A6%E6%9C%AF/"/>
+    
+  </entry>
   
   <entry>
     <title></title>
@@ -255,7 +283,7 @@ System Over NDN (PSNDN)&lt;/h2&gt;
     <link href="https://jf710001011.github.io/2023/02/18/ml06/"/>
     <id>https://jf710001011.github.io/2023/02/18/ml06/</id>
     <published>2023-02-17T16:00:00.000Z</published>
-    <updated>2023-02-17T10:23:15.178Z</updated>
+    <updated>2023-03-03T17:23:23.282Z</updated>
     
     
       
@@ -364,19 +392,20 @@ alt=&quot;image-20230217035330078&quot;</summary>
     <link href="https://jf710001011.github.io/2023/02/09/the-pentester-blueprint/"/>
     <id>https://jf710001011.github.io/2023/02/09/the-pentester-blueprint/</id>
     <published>2023-02-08T16:00:00.000Z</published>
-    <updated>2023-02-28T18:31:34.910Z</updated>
+    <updated>2023-03-03T11:26:49.209Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h3 id=&quot;introduction&quot;&gt;INTRODUCTION&lt;/h3&gt;
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;这是一本导论书籍、不含有任何技术教学&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;introduction&quot;&gt;INTRODUCTION&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;read team&lt;/li&gt;
-&lt;li&gt;blue team&lt;/li&gt;
-&lt;li&gt;OWASP：industry standard&lt;/li&gt;
-&lt;li&gt;some commom</summary>
+&lt;li&gt;blue</summary>
         
       
     
@@ -503,34 +532,6 @@ alt=&quot;image-20230217035330078&quot;</summary>
         
     <summary type="html">&lt;h3 id=&quot;搭建&quot;&gt;搭建&lt;/h3&gt;
 &lt;p&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="网安" scheme="https://jf710001011.github.io/categories/%E7%BD%91%E5%AE%89/"/>
-    
-    
-    <category term="web" scheme="https://jf710001011.github.io/tags/web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>upload-labs</title>
-    <link href="https://jf710001011.github.io/2022/12/20/web-upload-labs/"/>
-    <id>https://jf710001011.github.io/2022/12/20/web-upload-labs/</id>
-    <published>2022-12-19T16:00:00.000Z</published>
-    <updated>2023-02-05T10:19:46.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;靶场安装&quot;&gt;靶场安装&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/c0ny1/upload-labs&quot;&gt;仓库&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;windows-php（linux</summary>
         
       
     

@@ -6,7 +6,7 @@
   <link href="https://jf710001011.github.io/atom.xml" rel="self"/>
   
   <link href="https://jf710001011.github.io/"/>
-  <updated>2023-03-03T18:39:35.599Z</updated>
+  <updated>2023-03-05T22:02:09.284Z</updated>
   <id>https://jf710001011.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PortSwiger</title>
+    <link href="https://jf710001011.github.io/2023/03/06/portswigger/"/>
+    <id>https://jf710001011.github.io/2023/03/06/portswigger/</id>
+    <published>2023-03-05T16:00:00.000Z</published>
+    <updated>2023-03-05T22:02:09.284Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;sqli&quot;&gt;Sqli&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;SQL injection vulnerability in WHERE clause allowing retrieval of
+hidden</summary>
+        
+      
+    
+    
+    
+    <category term="网安" scheme="https://jf710001011.github.io/categories/%E7%BD%91%E5%AE%89/"/>
+    
+    
+    <category term="基础" scheme="https://jf710001011.github.io/tags/%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
   
   <entry>
     <title>逻辑回归的代价函数简化版</title>
@@ -96,7 +124,7 @@ L(f_{\vec w,b}(\vec x^{(i)}),y^{}(i)) =</summary>
     <link href="https://jf710001011.github.io/2023/02/24/test2/"/>
     <id>https://jf710001011.github.io/2023/02/24/test2/</id>
     <published>2023-02-23T16:00:00.000Z</published>
-    <updated>2023-02-24T04:15:21.886Z</updated>
+    <updated>2023-03-05T20:54:43.739Z</updated>
     
     
       
@@ -105,8 +133,9 @@ L(f_{\vec w,b}(\vec x^{(i)}),y^{}(i)) =</summary>
         
     <summary type="html">&lt;p&gt;02-17&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;title: win11 美化 date: 2023-02-23 24:00:00 author: Jf710001011 img:
-top: cover: coverImg: password: toc:</summary>
+&lt;ul&gt;
+&lt;li&gt;title: 高级程序设计作业 date: 2023-02-222 24:00:00 author:
+Jf710001011 img: top: cover: coverImg: password:</summary>
         
       
     
@@ -225,21 +254,17 @@ top: cover: coverImg: password: toc:</summary>
   
   <entry>
     <title>高级程序设计作业</title>
-    <link href="https://jf710001011.github.io/2023/02/22/jian-dao-shi-tou-bu-ren-ji-dui-kang/"/>
-    <id>https://jf710001011.github.io/2023/02/22/jian-dao-shi-tou-bu-ren-ji-dui-kang/</id>
+    <link href="https://jf710001011.github.io/2023/02/22/gao-ji-cheng-xu-she-ji-zuo-ye/"/>
+    <id>https://jf710001011.github.io/2023/02/22/gao-ji-cheng-xu-she-ji-zuo-ye/</id>
     <published>2023-02-21T16:41:52.148Z</published>
-    <updated>2023-02-28T23:42:01.353Z</updated>
+    <updated>2023-03-05T20:53:53.666Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h3 id=&quot;作业2&quot;&gt;作业2&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;要求：&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;答案&lt;/p&gt;
-&lt;pre class=&quot;language-json&quot; data-language=&quot;json&quot;&gt;&lt;code</summary>
+    <summary type="html">&lt;h3</summary>
         
       
     
@@ -392,7 +417,7 @@ alt=&quot;image-20230217035330078&quot;</summary>
     <link href="https://jf710001011.github.io/2023/02/09/the-pentester-blueprint/"/>
     <id>https://jf710001011.github.io/2023/02/09/the-pentester-blueprint/</id>
     <published>2023-02-08T16:00:00.000Z</published>
-    <updated>2023-03-03T11:26:49.209Z</updated>
+    <updated>2023-03-05T08:56:52.116Z</updated>
     
     
       
@@ -515,32 +540,6 @@ alt=&quot;image-20230217035330078&quot;</summary>
     
     <category term="算法与数据结构" scheme="https://jf710001011.github.io/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>DVWA</title>
-    <link href="https://jf710001011.github.io/2022/12/20/web-dvwa/"/>
-    <id>https://jf710001011.github.io/2022/12/20/web-dvwa/</id>
-    <published>2022-12-19T16:00:00.000Z</published>
-    <updated>2023-02-05T10:19:38.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;搭建&quot;&gt;搭建&lt;/h3&gt;
-&lt;p&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="网安" scheme="https://jf710001011.github.io/categories/%E7%BD%91%E5%AE%89/"/>
-    
-    
-    <category term="web" scheme="https://jf710001011.github.io/tags/web/"/>
     
   </entry>
   

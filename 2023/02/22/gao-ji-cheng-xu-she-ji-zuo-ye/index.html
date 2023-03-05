@@ -483,14 +483,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2023-03-01
+                    2023-03-06
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    462
+                    1.5k
                 </div>
                 
 
@@ -515,7 +515,250 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="作业2">作业2</h3>
+                <h3 id="作业3">作业3</h3>
+<ul>
+<li><p>总结与反思</p>
+<ul>
+<li>画流程图：还是得先画主线和框架</li>
+<li>还是得多用python才方便</li>
+</ul></li>
+<li><p>要求：</p>
+<ul>
+<li>人机打牌</li>
+</ul></li>
+<li><p>思路：</p>
+<ul>
+<li>决定谁出牌</li>
+<li>首次出牌与跟牌两种模式</li>
+</ul></li>
+<li><p>代码</p>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;algorithm></span>  <span class="token comment">// 包含shuffle函数</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;chrono></span>  <span class="token comment">// 包含获取时间的函数，用于产生随机数种子</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;map></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;random></span>  <span class="token comment">// 包含随机数引擎类</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;string></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;vector></span></span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">TOTAL</span> <span class="token expression"><span class="token number">54</span></span></span>
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token comment">// 生成一副扑克牌</span>
+vector<span class="token operator">&lt;</span>string<span class="token operator">></span> <span class="token function">generate_poker</span><span class="token punctuation">(</span>map<span class="token operator">&lt;</span>string<span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">></span><span class="token operator">&amp;</span> rank_map<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    vector<span class="token operator">&lt;</span>string<span class="token operator">></span> cards<span class="token punctuation">;</span>
+    <span class="token comment">// 花色</span>
+    vector<span class="token operator">&lt;</span>string<span class="token operator">></span> colors<span class="token punctuation">&#123;</span><span class="token string">"Hearts"</span><span class="token punctuation">,</span> <span class="token string">"Diamonds"</span><span class="token punctuation">,</span> <span class="token string">"Clubs"</span><span class="token punctuation">,</span> <span class="token string">"Spades"</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+    <span class="token comment">// 牌</span>
+    vector<span class="token operator">&lt;</span>string<span class="token operator">></span> nums <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">"2"</span><span class="token punctuation">,</span> <span class="token string">"3"</span><span class="token punctuation">,</span>  <span class="token string">"4"</span><span class="token punctuation">,</span> <span class="token string">"5"</span><span class="token punctuation">,</span> <span class="token string">"6"</span><span class="token punctuation">,</span> <span class="token string">"7"</span><span class="token punctuation">,</span> <span class="token string">"8"</span><span class="token punctuation">,</span>
+                           <span class="token string">"9"</span><span class="token punctuation">,</span> <span class="token string">"10"</span><span class="token punctuation">,</span> <span class="token string">"J"</span><span class="token punctuation">,</span> <span class="token string">"Q"</span><span class="token punctuation">,</span> <span class="token string">"K"</span><span class="token punctuation">,</span> <span class="token string">"A"</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+    vector<span class="token operator">&lt;</span>string<span class="token operator">></span> ranks <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">"2"</span><span class="token punctuation">,</span> <span class="token string">"3"</span><span class="token punctuation">,</span> <span class="token string">"4"</span><span class="token punctuation">,</span> <span class="token string">"5"</span><span class="token punctuation">,</span>         <span class="token string">"6"</span><span class="token punctuation">,</span>
+                            <span class="token string">"7"</span><span class="token punctuation">,</span> <span class="token string">"8"</span><span class="token punctuation">,</span> <span class="token string">"9"</span><span class="token punctuation">,</span> <span class="token string">"10"</span><span class="token punctuation">,</span>        <span class="token string">"J"</span><span class="token punctuation">,</span>
+                            <span class="token string">"Q"</span><span class="token punctuation">,</span> <span class="token string">"K"</span><span class="token punctuation">,</span> <span class="token string">"A"</span><span class="token punctuation">,</span> <span class="token string">"red joker"</span><span class="token punctuation">,</span> <span class="token string">"black joker"</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> colors<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            string tmp <span class="token operator">=</span> nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">"-"</span> <span class="token operator">+</span> colors<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            cards<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>tmp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    cards<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token string">"red joker"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cards<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token string">"black joker"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// 规定大小规则=</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> ranks<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        rank_map<span class="token punctuation">[</span>ranks<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> i<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> cards<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 洗牌</span>
+<span class="token keyword">void</span> <span class="token function">randCards</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span>string<span class="token operator">></span><span class="token operator">&amp;</span> cards<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">unsigned</span> seed <span class="token operator">=</span> chrono<span class="token double-colon punctuation">::</span>system_clock<span class="token double-colon punctuation">::</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">time_since_epoch</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">shuffle</span><span class="token punctuation">(</span>cards<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> cards<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">default_random_engine</span><span class="token punctuation">(</span>seed<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 牌的排序规则</span>
+<span class="token keyword">bool</span> <span class="token function">compare</span><span class="token punctuation">(</span>string a<span class="token punctuation">,</span> string b<span class="token punctuation">,</span> map<span class="token operator">&lt;</span>string<span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">></span> rank_map<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>rank_map<span class="token punctuation">[</span>a<span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> a<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token char">'-'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span>
+            rank_map<span class="token punctuation">[</span>b<span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> b<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token char">'-'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 发牌器发牌</span>
+<span class="token keyword">void</span> <span class="token function">disTributi</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span>string<span class="token operator">></span><span class="token operator">&amp;</span> cards<span class="token punctuation">,</span>
+                vector<span class="token operator">&lt;</span>string<span class="token operator">></span><span class="token operator">&amp;</span> player<span class="token punctuation">,</span>
+                vector<span class="token operator">&lt;</span>string<span class="token operator">></span><span class="token operator">&amp;</span> computer<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> n <span class="token operator">=</span> cards<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            player<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>cards<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+            computer<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>cards<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 比牌</span>
+<span class="token keyword">int</span> <span class="token function">CompareCards</span><span class="token punctuation">(</span>map<span class="token operator">&lt;</span>string<span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">></span> rank_map<span class="token punctuation">,</span>
+                 <span class="token keyword">const</span> string<span class="token operator">&amp;</span> computer_c<span class="token punctuation">,</span>
+                 <span class="token keyword">const</span> string<span class="token operator">&amp;</span> player_c<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>rank_map<span class="token punctuation">[</span>computer_c<span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> computer_c<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token char">'-'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">></span>
+        rank_map<span class="token punctuation">[</span>player_c<span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> player_c<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token char">'-'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>rank_map<span class="token punctuation">[</span>computer_c<span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> computer_c<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token char">'-'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span>
+               rank_map<span class="token punctuation">[</span>player_c<span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> player_c<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token char">'-'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    vector<span class="token operator">&lt;</span>string<span class="token operator">></span> cards<span class="token punctuation">;</span>     <span class="token comment">// 发牌器</span>
+    vector<span class="token operator">&lt;</span>string<span class="token operator">></span> player<span class="token punctuation">;</span>    <span class="token comment">// 玩家</span>
+    vector<span class="token operator">&lt;</span>string<span class="token operator">></span> table<span class="token punctuation">;</span>     <span class="token comment">// 桌子</span>
+    vector<span class="token operator">&lt;</span>string<span class="token operator">></span> computer<span class="token punctuation">;</span>  <span class="token comment">// 电脑</span>
+    map<span class="token operator">&lt;</span>string<span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">></span> rank_map<span class="token punctuation">;</span>
+
+    <span class="token keyword">int</span> order <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>  <span class="token comment">// 电脑出牌</span>
+    <span class="token keyword">int</span> mode <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>   <span class="token comment">// 出牌模式为首次出牌</span>
+    <span class="token function">srand</span><span class="token punctuation">(</span><span class="token function">time</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 生成扑克牌</span>
+    cards <span class="token operator">=</span> <span class="token function">generate_poker</span><span class="token punctuation">(</span>rank_map<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 洗牌</span>
+    <span class="token function">randCards</span><span class="token punctuation">(</span>cards<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 发牌器发牌</span>
+    <span class="token function">disTributi</span><span class="token punctuation">(</span>cards<span class="token punctuation">,</span> player<span class="token punctuation">,</span> computer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 将手上的牌进行排序</span>
+    <span class="token function">sort</span><span class="token punctuation">(</span>player<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> player<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+         <span class="token punctuation">[</span>rank_map<span class="token punctuation">]</span><span class="token punctuation">(</span>string a<span class="token punctuation">,</span> string b<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token keyword">return</span> <span class="token function">compare</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> rank_map<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">sort</span><span class="token punctuation">(</span>computer<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> computer<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+         <span class="token punctuation">[</span>rank_map<span class="token punctuation">]</span><span class="token punctuation">(</span>string a<span class="token punctuation">,</span> string b<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token keyword">return</span> <span class="token function">compare</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> rank_map<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 出牌顺序</span>
+    order <span class="token operator">=</span> <span class="token function">rand</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// 判胜负</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>computer<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token operator">!</span>player<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>computer<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                cout <span class="token operator">&lt;&lt;</span> <span class="token string">"失败！"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+                cout <span class="token operator">&lt;&lt;</span> <span class="token string">"胜利！"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+
+            cout <span class="token operator">&lt;&lt;</span> <span class="token string">"再来一局：y/n "</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+            <span class="token keyword">char</span> again<span class="token punctuation">;</span>
+            cin <span class="token operator">>></span> again<span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>again <span class="token operator">==</span> <span class="token char">'y'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                mode <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+                order <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+                <span class="token keyword">continue</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+
+        <span class="token comment">// 显示桌面上的牌</span>
+        cout <span class="token operator">&lt;&lt;</span> <span class="token string">"桌面上的牌："</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> table<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            cout <span class="token operator">&lt;&lt;</span> table<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> <span class="token string">","</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>mode <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token punctuation">(</span>order <span class="token operator">%</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>  <span class="token comment">// 首次出牌且电脑出牌</span>
+            cout <span class="token operator">&lt;&lt;</span> <span class="token string">"这一轮电脑首次出牌："</span> <span class="token operator">&lt;&lt;</span> computer<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            table<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>computer<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token comment">// 电脑弹出第一张牌</span>
+            computer<span class="token punctuation">.</span><span class="token function">erase</span><span class="token punctuation">(</span>computer<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            mode <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            order<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>mode <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>order <span class="token operator">%</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>  <span class="token comment">// 首次出牌且玩家出牌</span>
+            <span class="token comment">// 玩家出牌</span>
+            cout <span class="token operator">&lt;&lt;</span> <span class="token string">"这一轮是你首次出牌： "</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+            cout <span class="token operator">&lt;&lt;</span> <span class="token string">"我手中的牌： "</span><span class="token punctuation">;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">auto</span> i <span class="token operator">:</span> player<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                cout <span class="token operator">&lt;&lt;</span> i <span class="token operator">&lt;&lt;</span> <span class="token string">" "</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+
+            cout <span class="token operator">&lt;&lt;</span> <span class="token string">"玩家出牌： "</span><span class="token punctuation">;</span>
+            string current_card<span class="token punctuation">;</span>
+            cin <span class="token operator">>></span> current_card<span class="token punctuation">;</span>
+            cout <span class="token operator">&lt;&lt;</span> current_card <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+            table<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>current_card<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token comment">// 玩家弹出出去的牌</span>
+            <span class="token keyword">auto</span> pop <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>player<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> player<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> current_card<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            player<span class="token punctuation">.</span><span class="token function">erase</span><span class="token punctuation">(</span>pop<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            mode <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            order<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>mode <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token punctuation">(</span>order <span class="token operator">%</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>  <span class="token comment">// 电脑跟牌</span>
+            <span class="token comment">// 找出第一张大于玩家的牌</span>
+            string cur <span class="token operator">=</span> table<span class="token punctuation">.</span><span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">int</span> i<span class="token punctuation">;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> computer<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">CompareCards</span><span class="token punctuation">(</span>rank_map<span class="token punctuation">,</span> computer<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> cur<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"电脑跟牌："</span> <span class="token operator">&lt;&lt;</span> computer<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                    table<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>computer<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    computer<span class="token punctuation">.</span><span class="token function">erase</span><span class="token punctuation">(</span>computer<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+            <span class="token punctuation">&#125;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> computer<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>  <span class="token comment">// 电脑没有大于玩家的牌</span>
+                mode <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            order<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>  <span class="token comment">// 玩家跟牌</span>
+            cout <span class="token operator">&lt;&lt;</span> <span class="token string">"我手中的牌： "</span><span class="token punctuation">;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">auto</span> i <span class="token operator">:</span> player<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                cout <span class="token operator">&lt;&lt;</span> i <span class="token operator">&lt;&lt;</span> <span class="token string">" "</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+            cout <span class="token operator">&lt;&lt;</span> <span class="token string">"玩家跟牌： "</span><span class="token punctuation">;</span>
+            string current_card<span class="token punctuation">;</span>
+            cin <span class="token operator">>></span> current_card<span class="token punctuation">;</span>
+
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>current_card <span class="token operator">==</span> <span class="token string">"pass"</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                cout <span class="token operator">&lt;&lt;</span> <span class="token string">"我要不起"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+                order<span class="token operator">++</span><span class="token punctuation">;</span>
+                mode <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+                <span class="token keyword">continue</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+
+            <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">CompareCards</span><span class="token punctuation">(</span>rank_map<span class="token punctuation">,</span> current_card<span class="token punctuation">,</span> table<span class="token punctuation">.</span><span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                    cout <span class="token operator">&lt;&lt;</span> current_card<span class="token punctuation">;</span>
+                    table<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>current_card<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                    <span class="token comment">// 玩家弹出出去的牌</span>
+                    <span class="token keyword">auto</span> pop <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>player<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> player<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> current_card<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    player<span class="token punctuation">.</span><span class="token function">erase</span><span class="token punctuation">(</span>pop<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+                cout <span class="token operator">&lt;&lt;</span> <span class="token string">"无效，重新选择你的出牌："</span><span class="token punctuation">;</span>
+                cin <span class="token operator">>></span> current_card<span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+
+            order<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre></li>
+<li><p>流程图<img
+src="https://s2.loli.net/2023/03/06/N1WFa7f9w8OUQAX.png"
+alt="未命名绘图 (1)" /></p></li>
+</ul>
+<h3 id="作业2">作业2</h3>
 <ul>
 <li><p>要求：</p></li>
 <li><p>答案</p>
@@ -696,7 +939,7 @@ alt="image-20230222044310576" /></li>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://jf710001011.github.io/2023/02/22/jian-dao-shi-tou-bu-ren-ji-dui-kang/">https://jf710001011.github.io/2023/02/22/jian-dao-shi-tou-bu-ren-ji-dui-kang/</a>
+                    <a href="https://jf710001011.github.io/2023/02/22/gao-ji-cheng-xu-she-ji-zuo-ye/">https://jf710001011.github.io/2023/02/22/gao-ji-cheng-xu-she-ji-zuo-ye/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1271,7 +1514,7 @@ alt="image-20230222044310576" /></li>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">57.8k</span>&nbsp;字
+                class="white-color">58.9k</span>&nbsp;字
             
             
             

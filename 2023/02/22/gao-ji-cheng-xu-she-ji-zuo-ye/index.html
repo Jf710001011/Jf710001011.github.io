@@ -483,14 +483,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2023-03-06
+                    2023-03-07
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.5k
+                    1.7k
                 </div>
                 
 
@@ -760,43 +760,75 @@ alt="未命名绘图 (1)" /></p></li>
 </ul>
 <h3 id="作业2">作业2</h3>
 <ul>
-<li><p>要求：</p></li>
+<li><p>要求：人机对话，多级菜单执行操作，菜单的修改不需要对代码修改</p></li>
 <li><p>答案</p>
-<pre class="language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
-    <span class="token property">"menu"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-        <span class="token punctuation">&#123;</span>
-            <span class="token property">"key"</span><span class="token operator">:</span> <span class="token string">"1"</span><span class="token punctuation">,</span>
-            <span class="token property">"text"</span><span class="token operator">:</span> <span class="token string">"打开文件"</span><span class="token punctuation">,</span>
-            <span class="token property">"func"</span><span class="token operator">:</span> <span class="token string">"open_file"</span>
-        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-        <span class="token punctuation">&#123;</span>
-            <span class="token property">"key"</span><span class="token operator">:</span><span class="token string">"2"</span><span class="token punctuation">,</span>
-            <span class="token property">"text"</span><span class="token operator">:</span><span class="token string">"编辑文件"</span><span class="token punctuation">,</span>
-            <span class="token property">"flag_sub"</span><span class="token operator">:</span><span class="token string">"True"</span><span class="token punctuation">,</span>
-            <span class="token property">"subMenu"</span><span class="token operator">:</span><span class="token string">"Yes"</span><span class="token punctuation">,</span>
-            <span class="token property">"subMenu1"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-                <span class="token property">"key"</span><span class="token operator">:</span> <span class="token string">"2.1"</span><span class="token punctuation">,</span>
-                <span class="token property">"text"</span><span class="token operator">:</span> <span class="token string">"增加内容"</span><span class="token punctuation">,</span>
-                <span class="token property">"func"</span><span class="token operator">:</span> <span class="token string">"add_content"</span>
-            <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-            <span class="token property">"subMenu2"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-                <span class="token property">"key"</span><span class="token operator">:</span> <span class="token string">"2.2"</span><span class="token punctuation">,</span>
-                <span class="token property">"text"</span><span class="token operator">:</span> <span class="token string">"删除内容"</span><span class="token punctuation">,</span>
-                <span class="token property">"func"</span><span class="token operator">:</span> <span class="token string">"delete_content"</span>
-            <span class="token punctuation">&#125;</span>
-        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-        <span class="token punctuation">&#123;</span>
-            <span class="token property">"key"</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
-            <span class="token property">"text"</span><span class="token operator">:</span> <span class="token string">"关闭文件"</span><span class="token punctuation">,</span>
-            <span class="token property">"func"</span><span class="token operator">:</span> <span class="token string">"close_file"</span>
-        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-        <span class="token punctuation">&#123;</span>
-            <span class="token property">"key"</span><span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
-            <span class="token property">"level"</span><span class="token operator">:</span><span class="token string">"0"</span><span class="token punctuation">,</span>
-            <span class="token property">"text"</span><span class="token operator">:</span> <span class="token string">"退出程序"</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">]</span>
-<span class="token punctuation">&#125;</span></code></pre>
+<pre class="language-json" data-language="json"><code class="language-json">import json
+
+
+def load_json(file_path)<span class="token operator">:</span>
+    with open(file_path<span class="token punctuation">,</span> 'r'<span class="token punctuation">,</span> encoding='utf<span class="token number">-8</span>') as f<span class="token operator">:</span>
+        menu_json = f.read()
+    menu_dict = json.loads(menu_json)
+    menu_items = menu_dict<span class="token punctuation">[</span>'menu'<span class="token punctuation">]</span>
+    return menu_items
+
+
+def show_menu(menu_items<span class="token punctuation">,</span> level=<span class="token number">0</span>)<span class="token operator">:</span>
+    for menu_item in menu_items<span class="token operator">:</span>
+        prefix = '  '*level
+        if 'subMenu' in menu_item<span class="token operator">:</span>
+            print(f<span class="token string">"&#123;prefix&#125;&#123;menu_item['key']&#125;:&#123;menu_item['text']&#125;"</span>)
+            show_menu(menu_item<span class="token punctuation">[</span>'subMenu'<span class="token punctuation">]</span><span class="token punctuation">,</span> level+<span class="token number">1</span>)
+        else<span class="token operator">:</span>
+            print(f<span class="token string">"&#123;prefix&#125;&#123;menu_item['key']&#125;:&#123;menu_item['text']&#125;"</span>)
+
+
+# 选择菜单
+def choose_item(menu_items<span class="token punctuation">,</span> choice<span class="token punctuation">,</span> result)<span class="token operator">:</span>
+    for item in menu_items<span class="token operator">:</span>
+        if item<span class="token punctuation">[</span>'key'<span class="token punctuation">]</span> == choice<span class="token operator">:</span>
+            result.append(item)
+            return result
+        # 检索次级菜单
+        elif 'subMenu' in item<span class="token operator">:</span>
+            #  result 存储多级菜单中的多个item
+            result.append(item)
+            choose_item(item<span class="token punctuation">[</span>'subMenu'<span class="token punctuation">]</span><span class="token punctuation">,</span> choice<span class="token punctuation">,</span> result)
+
+    return result
+
+
+def add_content()<span class="token operator">:</span>
+    print(<span class="token string">"增加了一万字"</span>)
+
+
+def delete_content()<span class="token operator">:</span>
+    print(<span class="token string">"删除了一万字"</span>)
+
+
+def open_file()<span class="token operator">:</span>
+    print(<span class="token string">"打开了鲁滨逊漂流记.pdf"</span>)
+
+
+def main_loop(menu_items)<span class="token operator">:</span>
+    while True<span class="token operator">:</span>
+        show_menu(menu_items<span class="token punctuation">,</span> <span class="token number">0</span>)
+        choice = input(<span class="token string">"请选择菜单项："</span>)
+        if choice == 'q'<span class="token operator">:</span>
+            print(<span class="token string">"退出"</span>)
+
+        results = choose_item(menu_items<span class="token punctuation">,</span> choice<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>)
+        if results<span class="token operator">:</span>
+            for item in results<span class="token operator">:</span>
+                func_name = item.get('func')
+                if func_name<span class="token operator">:</span>
+                    globals()<span class="token punctuation">[</span>func_name<span class="token punctuation">]</span>()
+
+
+if __name__ == '__main__'<span class="token operator">:</span>
+    menu_items = load_json('menu.json')
+    main_loop(menu_items)
+</code></pre>
 <pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> json
 
 
@@ -1514,7 +1546,7 @@ alt="image-20230222044310576" /></li>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">58.9k</span>&nbsp;字
+                class="white-color">59.7k</span>&nbsp;字
             
             
             

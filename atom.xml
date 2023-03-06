@@ -6,7 +6,7 @@
   <link href="https://jf710001011.github.io/atom.xml" rel="self"/>
   
   <link href="https://jf710001011.github.io/"/>
-  <updated>2023-03-05T22:02:09.284Z</updated>
+  <updated>2023-03-06T10:03:13.302Z</updated>
   <id>https://jf710001011.github.io/</id>
   
   <author>
@@ -17,11 +17,42 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Json</title>
+    <link href="https://jf710001011.github.io/2023/03/07/json/"/>
+    <id>https://jf710001011.github.io/2023/03/07/json/</id>
+    <published>2023-03-06T16:00:00.000Z</published>
+    <updated>2023-03-06T10:03:13.302Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;语法格式&quot;&gt;语法格式&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;JSON 的基本语法包括：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol type=&quot;1&quot;&gt;
+&lt;li&gt;键/值对：键和值之间用冒号分隔，键值对之间用逗号分隔，键必须是一个字符串，值可以是任意合法的
+JSON</summary>
+        
+      
+    
+    
+    
+    <category term="程序设计" scheme="https://jf710001011.github.io/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    
+    
+    <category term="文件" scheme="https://jf710001011.github.io/tags/%E6%96%87%E4%BB%B6/"/>
+    
+  </entry>
+  
+  <entry>
     <title>PortSwiger</title>
     <link href="https://jf710001011.github.io/2023/03/06/portswigger/"/>
     <id>https://jf710001011.github.io/2023/03/06/portswigger/</id>
     <published>2023-03-05T16:00:00.000Z</published>
-    <updated>2023-03-05T22:02:09.284Z</updated>
+    <updated>2023-03-06T15:51:30.675Z</updated>
     
     
       
@@ -124,7 +155,7 @@ L(f_{\vec w,b}(\vec x^{(i)}),y^{}(i)) =</summary>
     <link href="https://jf710001011.github.io/2023/02/24/test2/"/>
     <id>https://jf710001011.github.io/2023/02/24/test2/</id>
     <published>2023-02-23T16:00:00.000Z</published>
-    <updated>2023-03-05T20:54:43.739Z</updated>
+    <updated>2023-03-06T04:25:26.628Z</updated>
     
     
       
@@ -133,9 +164,8 @@ L(f_{\vec w,b}(\vec x^{(i)}),y^{}(i)) =</summary>
         
     <summary type="html">&lt;p&gt;02-17&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;title: 高级程序设计作业 date: 2023-02-222 24:00:00 author:
-Jf710001011 img: top: cover: coverImg: password:</summary>
+&lt;p&gt;title: Json date: 2023-03-06 24:00:00 author: Jf710001011 img: top:
+cover: coverImg: password: toc: true</summary>
         
       
     
@@ -257,7 +287,7 @@ Jf710001011 img: top: cover: coverImg: password:</summary>
     <link href="https://jf710001011.github.io/2023/02/22/gao-ji-cheng-xu-she-ji-zuo-ye/"/>
     <id>https://jf710001011.github.io/2023/02/22/gao-ji-cheng-xu-she-ji-zuo-ye/</id>
     <published>2023-02-21T16:41:52.148Z</published>
-    <updated>2023-03-05T20:53:53.666Z</updated>
+    <updated>2023-03-06T19:06:02.484Z</updated>
     
     
       
@@ -391,17 +421,18 @@ alt=&quot;image-20230217035330078&quot;</summary>
     <link href="https://jf710001011.github.io/2023/02/11/python/"/>
     <id>https://jf710001011.github.io/2023/02/11/python/</id>
     <published>2023-02-10T16:00:00.000Z</published>
-    <updated>2023-02-27T06:40:53.915Z</updated>
+    <updated>2023-03-06T18:10:59.547Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;安装、版本&lt;/p&gt;
+    <summary type="html">&lt;h3 id=&quot;section&quot;&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;安装版本&quot;&gt;安装、版本&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;指定版本下安装库&lt;/p&gt;
-&lt;pre class=&quot;language-powershell&quot; data-language=&quot;powershell&quot;&gt;&lt;code</summary>
+&lt;pre class=&quot;language-powershell&quot;</summary>
         
       
     
@@ -515,31 +546,6 @@ alt=&quot;image-20230217035330078&quot;</summary>
     
     
     <category term="php" scheme="https://jf710001011.github.io/tags/php/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode之旅</title>
-    <link href="https://jf710001011.github.io/2022/12/27/leetcode-zhi-lu/"/>
-    <id>https://jf710001011.github.io/2022/12/27/leetcode-zhi-lu/</id>
-    <published>2022-12-26T16:00:00.000Z</published>
-    <updated>2023-02-12T14:17:52.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://github.com/halfrost/LeetCode-Go&quot;&gt;github&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://books.halfrost.com/leetcode/&quot;&gt;books&lt;/a&gt;&lt;/p&gt;
-&lt;h3</summary>
-        
-      
-    
-    
-    
-    <category term="算法与数据结构" scheme="https://jf710001011.github.io/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
     
   </entry>
   

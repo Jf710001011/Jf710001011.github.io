@@ -1098,7 +1098,6 @@ article .article-tags .chip {
 
 #artDetail .post-cate a:hover {
     text-decoration: underline;
-    color: #ff79c6;
 }
 
 #artDetail .post-info {
@@ -1205,6 +1204,13 @@ article .article-tags .chip {
     font-size: 1.12rem;
     line-height: 1.3rem;
     font-weight: lighter;
+}
+
+#articleContent a :hover {
+    color: #ff79c6;
+}
+
+#articleContent.article-card-content {
 }
 
 #articleContent .img-item {

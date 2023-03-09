@@ -34,7 +34,7 @@
 }
 
 body {
-    background-color: #000000de;
+    background-color: #282a36;
     margin: 0;
     overflow-x: hidden;
     overflow-y: auto;
@@ -240,11 +240,11 @@ mark {
 }
 
 .bg-color {
-    background-image: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
+    background-image: linear-gradient(to right, #50fa7b 0%, #50fa7b 100%);
 }
 
 .text-color {
-    color: #0f9d58 !important;
+    color: #50fa7b !important;
 }
 
 .white-color {
@@ -296,7 +296,7 @@ header .brand-logo .logo-img {
 
 header .brand-logo .logo-span {
     font-size: 1.6rem;
-    color: #9932CC
+    color: #f1fa8c
 }
 
 /*修改顶部 logo 的文字垂直对齐为 top，避免默认 middle 看起来偏下*/
@@ -584,7 +584,7 @@ header .go-back i {
     font-weight: 300;
     font-size: 1.25rem;
     line-height: 1.4em;
-    color: #eee;
+    color: #bd93f9;
 }
 
 .bg-cover .post-title {
@@ -732,7 +732,8 @@ header .go-back i {
 
 .index-card .card .card-content {
     padding: 20px 40px;
-    background-color: #201e1e;;
+    background-color: #201e1e;
+    ;
 }
 
 @media only screen and (min-width: 1418px) {
@@ -1109,7 +1110,7 @@ article .article-tags .chip {
 }
 
 #artDetail .post-info .post-date {
-    color: #9370DB;
+    color: #ff79c6;
 
 }
 
@@ -1149,8 +1150,8 @@ article .article-tags .chip {
 @media only screen and (min-width: 993px) {
     #artDetail .article-card-content {
         padding: 0 50px 20px 50px;
-        background-color: #201e1e;
-        color: white;
+        background-color: #44475a;
+        color: #f8f8f2;
     }
 }
 
@@ -1188,7 +1189,7 @@ article .article-tags .chip {
 
 #articleContent a {
     padding: 0 2px;
-    color: #42b983;
+    color: #50fa7b;
     font-weight: 500;
     text-decoration: underline;
     word-wrap: break-word;

@@ -1087,17 +1087,18 @@ article .article-tags .chip {
 
 #artDetail .post-cate {
     float: right;
-    color: #42b983;
+    color: #50fa7b;
 }
 
 #artDetail .post-cate a {
     padding-right: 5px;
-    color: #42b983;
+    color: #50fa7b;
     font-weight: 500;
 }
 
 #artDetail .post-cate a:hover {
     text-decoration: underline;
+    color: #ff79c6;
 }
 
 #artDetail .post-info {

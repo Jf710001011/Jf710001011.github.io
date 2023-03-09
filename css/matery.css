@@ -128,8 +128,8 @@ pre {
 code {
     padding: 1px 5px;
     top: 13px !important;
-    font-family: Inconsolata, Monaco, Consolas, 'Courier New', Courier, monospace;
-    font-size: 0.91rem;
+    font-family: 'Fira Code', 新宋体, Consola, 'Courier New', Courier, monospace;
+    font-size: 1.12rem;
     color: #ffb86c;
     background-color: #1e1f29;
     border-radius: 2px;
@@ -1159,6 +1159,7 @@ article .article-tags .chip {
         padding: 0 50px 20px 50px;
         background-color: #44475a;
         color: #f8f8f2;
+        font-family: 'Fira Code', 新宋体, Consaola;
     }
 }
 

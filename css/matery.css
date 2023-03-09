@@ -732,7 +732,8 @@ header .go-back i {
 
 .index-card .card .card-content {
     padding: 20px 40px;
-    background-color: #201e1e;;
+    background-color: #201e1e;
+    ;
 }
 
 @media only screen and (min-width: 1418px) {
@@ -1222,7 +1223,7 @@ article .article-tags .chip {
 #articleContent ol li {
     display: list-item;
     line-height: 1.8rem;
-    font-size: 1rem;
+    font-size: 1.3rem;
 }
 
 #articleContent ul li {

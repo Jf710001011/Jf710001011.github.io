@@ -917,7 +917,6 @@ article .tag-image img {
 
 article .card .card-content {
     padding: 15px 15px 12px 18px;
-    background-color: #6272a4;
 }
 
 article .article-content .summary {
@@ -925,7 +924,6 @@ article .article-content .summary {
     padding-left: 0;
     margin-bottom: 6px;
     word-break: break-all;
-    background-color: #6272a4;
     color: #bd93f9;
 }
 

@@ -1136,7 +1136,7 @@ Pitch:绕x轴旋转，Yaw:绕Y轴旋转，Roll：绕Z轴旋转（虚幻引擎：
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
             collapseDepth: Number('0'),
-            headingSelector: 'h2, h3, h4'
+            headingSelector: 'h3, h4,h5'
         });
 
         // modify the toc link href to support Chinese.
@@ -1148,7 +1148,7 @@ Pitch:绕x轴旋转，Yaw:绕Y轴旋转，Roll：绕Z轴旋转（虚幻引擎：
 
         // modify the heading title id to support Chinese.
         i = 0;
-        $('#articleContent').children('h2, h3, h4').each(function () {
+        $('#articleContent').children('h3, h4,h5').each(function () {
             $(this).attr('id', tocHeading + (++i));
         });
 

@@ -74,9 +74,9 @@ h4 {
 
 h5 {
     margin: 28px 0 8px -4px;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: bold;
-    line-height: 1.2rem;
+    line-height: 1.3rem;
     color: #8be9fd;
 }
 
@@ -88,7 +88,7 @@ h6 {
 }
 
 p {
-    font-size: 1rem;
+    font-size: 1.0rem;
     line-height: 1.5rem;
 }
 
@@ -211,7 +211,7 @@ kbd {
 b,
 strong {
     font-weight: bold;
-    color: #bd93f9;
+    color:#bd93f9;
 }
 
 dfn {
@@ -1210,7 +1210,8 @@ article .article-tags .chip {
     color: #ff79c6;
 }
 
-#articleContent.article-card-content {}
+#articleContent.article-card-content {
+}
 
 #articleContent .img-item {
     text-align: center;

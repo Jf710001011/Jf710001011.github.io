@@ -1,5 +1,6 @@
 /*全局基础样式*/
 /*小屏幕下(手机类)的样式*/
+
 @media only screen and (max-width: 601px) {
     .container {
         width: 95%;
@@ -31,6 +32,11 @@
         margin: 0 auto;
         max-width: 1250px;
     }
+}
+
+.toc-widget.card.toc-fixed {
+    background-color: #1e1f29;
+    color:#f8f8f2;
 }
 
 body {
@@ -1210,8 +1216,6 @@ article .article-tags .chip {
     color: #ff79c6;
 }
 
-#articleContent.article-card-content {}
-
 #articleContent .img-item {
     text-align: center;
 }
@@ -2056,7 +2060,7 @@ footer .copy-right {
 
 /*二级菜单*/
 
-.nav-menu {}
+/* .nav-menu {} */
 
 .nav-menu li .sub-nav {
     position: absolute;

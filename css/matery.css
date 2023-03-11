@@ -35,8 +35,7 @@
 }
 
 .toc-widget.card.toc-fixed {
-    background-color: #1e1f29;
-    color:#f8f8f2;
+    overflow-y: auto;
 }
 
 body {

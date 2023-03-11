@@ -75,6 +75,7 @@ h4 {
     font-weight: bold;
     line-height: 1.45rem;
     color: #8be9fd;
+    word-spacing: -0.5px;
 }
 
 h5 {

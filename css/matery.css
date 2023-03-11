@@ -1035,6 +1035,7 @@ article .article-tags .chip {
     #artDetail {
         margin-top: -60px;
         padding: 0 0.75rem;
+        background-color: #bd93f9;
     }
 }
 

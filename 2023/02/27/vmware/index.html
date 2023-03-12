@@ -479,14 +479,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2023-02-17
+                    2023-03-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    178
+                    336
                 </div>
                 
 
@@ -511,7 +511,41 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="桥接nat转换仅主机模式">桥接、NAT转换、仅主机模式</h3>
+                <h3 id="vmware-联网问题">Vmware 联网问题</h3>
+<ul>
+<li>NAT 模式<img
+src="https://s2.loli.net/2023/03/12/UdxNq3VOY6D8bJn.png"
+alt="image-20230312184001570" /></li>
+<li>操作步骤<img
+src="https://s2.loli.net/2023/03/12/oyPRGjIlTEAdgw3.png"
+alt="image-20230312184342809" /></li>
+<li>在虚拟机系统中：</li>
+</ul>
+<blockquote>
+<ul>
+<li><p>编辑网络接口配置文件： 使用命令 "sudo vi /etc/network/interfaces"
+打开网络接口配置文件，添加以下配置：</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash">auto eth0 <span class="token comment"># 网络接口名称 </span>
+iface eth0 inet dhcp <span class="token comment"># 网络接口类型</span></code></pre>
+<ul>
+<li>编辑网络管理器配置文件：</li>
+<li>使用命令
+<code>sudo vi /etc/NetworkManager/NetworkManager.conf</code>
+打开网络管理器配置文件，将 <code>managed=false</code>改为
+<code>managed=true</code>，保存并关闭文件。</li>
+<li>重启网络服务： 使用命令 <code>sudo service networking restart</code>
+重启网络服务，使配置文件生效。</li>
+<li>报错：ubuntu Unit networking.service is masked
+<ul>
+<li><code>sudo systemctl unmask networking.service</code></li>
+</ul></li>
+</ul></li>
+</ul>
+</blockquote>
+<ul>
+<li></li>
+</ul>
+<h3 id="桥接nat转换仅主机模式">桥接、NAT转换、仅主机模式</h3>
 <ul>
 <li>桥接
 <ul>
@@ -1157,7 +1191,7 @@ alt="image-20230215144609089" /></p></li>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">64.5k</span>&nbsp;字
+                class="white-color">64.7k</span>&nbsp;字
             
             
             

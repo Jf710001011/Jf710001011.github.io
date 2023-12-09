@@ -6,7 +6,7 @@
   <link href="https://jf710001011.github.io/atom.xml" rel="self"/>
   
   <link href="https://jf710001011.github.io/"/>
-  <updated>2023-12-09T09:54:07.782Z</updated>
+  <updated>2023-07-07T17:11:52.000Z</updated>
   <id>https://jf710001011.github.io/</id>
   
   <author>
@@ -17,11 +17,229 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>test_my_site</title>
-    <link href="https://jf710001011.github.io/2023/12/09/test-my-site/"/>
-    <id>https://jf710001011.github.io/2023/12/09/test-my-site/</id>
-    <published>2023-12-09T09:54:07.000Z</published>
-    <updated>2023-12-09T09:54:07.782Z</updated>
+    <title>静态分析与漏洞-论文</title>
+    <link href="https://jf710001011.github.io/2023/12/09/jing-tai-fen-xi-zhong-wen-lun-wen/"/>
+    <id>https://jf710001011.github.io/2023/12/09/jing-tai-fen-xi-zhong-wen-lun-wen/</id>
+    <published>2023-12-09T11:25:08.221Z</published>
+    <updated>2023-07-07T17:11:52.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;源代码漏洞静态分析技术&quot;&gt;源代码漏洞静态分析技术&lt;/h3&gt;
+&lt;h3</summary>
+        
+      
+    
+    
+    
+    <category term="Academic" scheme="https://jf710001011.github.io/categories/Academic/"/>
+    
+    
+    <category term="paper" scheme="https://jf710001011.github.io/tags/paper/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>发布订阅系统</title>
+    <link href="https://jf710001011.github.io/2023/12/09/fa-bu-ding-yue-xi-tong/"/>
+    <id>https://jf710001011.github.io/2023/12/09/fa-bu-ding-yue-xi-tong/</id>
+    <published>2023-12-09T11:25:08.016Z</published>
+    <updated>2023-05-06T16:49:22.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;区块链与雾节点&quot;&gt;区块链与雾节点&lt;/h3&gt;
+&lt;h2 id=&quot;a-publish-subscribe-system-over-ndn-psndn&quot;&gt;A Publish Subscribe
+System Over NDN (PSNDN)&lt;/h2&gt;
+&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Academic" scheme="https://jf710001011.github.io/categories/Academic/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>WindTerm</title>
+    <link href="https://jf710001011.github.io/2023/12/09/windterm/"/>
+    <id>https://jf710001011.github.io/2023/12/09/windterm/</id>
+    <published>2023-12-09T11:25:07.962Z</published>
+    <updated>2023-07-18T00:51:22.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;工作目录&quot;&gt;工作目录&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;设置&lt;img src=&quot;https://s2.loli.net/2023/07/18/dP1cEpBnATFRZSN.png&quot;
+alt=&quot;image-20230718085116774&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Tools" scheme="https://jf710001011.github.io/categories/Tools/"/>
+    
+    
+    <category term="WindTerm" scheme="https://jf710001011.github.io/tags/WindTerm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Windows</title>
+    <link href="https://jf710001011.github.io/2023/12/09/windows/"/>
+    <id>https://jf710001011.github.io/2023/12/09/windows/</id>
+    <published>2023-12-09T11:25:07.946Z</published>
+    <updated>2023-10-02T16:59:06.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;official-documnet&quot;&gt;Official</summary>
+        
+      
+    
+    
+    
+    <category term="Tools" scheme="https://jf710001011.github.io/categories/Tools/"/>
+    
+    
+    <category term="Windows" scheme="https://jf710001011.github.io/tags/Windows/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Web &amp; JavaScript</title>
+    <link href="https://jf710001011.github.io/2023/12/09/web/"/>
+    <id>https://jf710001011.github.io/2023/12/09/web/</id>
+    <published>2023-12-09T11:25:07.853Z</published>
+    <updated>2023-10-06T19:50:04.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;getting-started-with-the-web&quot;&gt;Getting started with the web&lt;/h3&gt;
+&lt;h4 id=&quot;installing-a-local-web-server&quot;&gt;Installing a local</summary>
+        
+      
+    
+    
+    
+    <category term="Cybersecurity" scheme="https://jf710001011.github.io/categories/Cybersecurity/"/>
+    
+    
+    <category term="Web" scheme="https://jf710001011.github.io/tags/Web/"/>
+    
+    <category term="Programming Design" scheme="https://jf710001011.github.io/tags/Programming-Design/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Project:Tabby</title>
+    <link href="https://jf710001011.github.io/2023/12/09/tabby-fen-xi/"/>
+    <id>https://jf710001011.github.io/2023/12/09/tabby-fen-xi/</id>
+    <published>2023-12-09T11:25:07.742Z</published>
+    <updated>2023-12-02T15:33:08.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;开始&quot;&gt;开始&lt;/h3&gt;
+&lt;ol</summary>
+        
+      
+    
+    
+    
+    <category term="Project" scheme="https://jf710001011.github.io/categories/Project/"/>
+    
+    
+    <category term="Java" scheme="https://jf710001011.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Static-Program-Analysis</title>
+    <link href="https://jf710001011.github.io/2023/12/09/static-program-analysis/"/>
+    <id>https://jf710001011.github.io/2023/12/09/static-program-analysis/</id>
+    <published>2023-12-09T11:25:07.678Z</published>
+    <updated>2023-08-26T09:07:50.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;resource&quot;&gt;Resource&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a
+href=&quot;https://en.wikipedia.org/wiki/List_of_tools_for_static_code_analysis&quot;&gt;List
+of tools</summary>
+        
+      
+    
+    
+    
+    <category term="Academic" scheme="https://jf710001011.github.io/categories/Academic/"/>
+    
+    
+    <category term="Static-Analysis" scheme="https://jf710001011.github.io/tags/Static-Analysis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Static Analysis II</title>
+    <link href="https://jf710001011.github.io/2023/12/09/static-analysis-ii/"/>
+    <id>https://jf710001011.github.io/2023/12/09/static-analysis-ii/</id>
+    <published>2023-12-09T11:25:07.656Z</published>
+    <updated>2023-11-29T23:49:32.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;概述&quot;&gt;概述&lt;/h3&gt;
+&lt;ol type=&quot;1&quot;&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;静态分析（Static Analysis）&lt;/strong&gt; 是指在实际运行程序
+&lt;em&gt;P&lt;/em&gt; 之前，通过分析静态程序</summary>
+        
+      
+    
+    
+    
+    <category term="Static Analysis" scheme="https://jf710001011.github.io/categories/Static-Analysis/"/>
+    
+    
+    <category term="Java" scheme="https://jf710001011.github.io/tags/Java/"/>
+    
+    <category term="Programming Design" scheme="https://jf710001011.github.io/tags/Programming-Design/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>sqlmap</title>
+    <link href="https://jf710001011.github.io/2023/12/09/sqlmap/"/>
+    <id>https://jf710001011.github.io/2023/12/09/sqlmap/</id>
+    <published>2023-12-09T11:25:07.609Z</published>
+    <updated>2023-07-25T16:23:56.000Z</updated>
     
     
       
@@ -35,28 +253,319 @@
     
     
     
+    <category term="Tools" scheme="https://jf710001011.github.io/categories/Tools/"/>
+    
+    
+    <category term="Web" scheme="https://jf710001011.github.io/tags/Web/"/>
+    
+    <category term="Sql" scheme="https://jf710001011.github.io/tags/Sql/"/>
     
   </entry>
   
   <entry>
-    <title>Hello World</title>
-    <link href="https://jf710001011.github.io/2023/12/09/hello-world/"/>
-    <id>https://jf710001011.github.io/2023/12/09/hello-world/</id>
-    <published>2023-12-09T09:52:13.148Z</published>
-    <updated>2023-12-09T09:52:13.148Z</updated>
+    <title>Sekiro-只狼</title>
+    <link href="https://jf710001011.github.io/2023/12/09/sekiro/"/>
+    <id>https://jf710001011.github.io/2023/12/09/sekiro/</id>
+    <published>2023-12-09T11:25:07.561Z</published>
+    <updated>2023-07-14T00:34:04.000Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very
-first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
+    <summary type="html">&lt;h3</summary>
         
       
     
     
     
+    <category term="Game" scheme="https://jf710001011.github.io/categories/Game/"/>
+    
+    
+    <category term="Sekiro" scheme="https://jf710001011.github.io/tags/Sekiro/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MSI-afterburner</title>
+    <link href="https://jf710001011.github.io/2023/12/09/msi-afeterburner/"/>
+    <id>https://jf710001011.github.io/2023/12/09/msi-afeterburner/</id>
+    <published>2023-12-09T11:25:07.205Z</published>
+    <updated>2023-11-27T18:59:00.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;install&quot;&gt;Install&lt;/h3&gt;
+&lt;ol</summary>
+        
+      
+    
+    
+    
+    <category term="Tools" scheme="https://jf710001011.github.io/categories/Tools/"/>
+    
+    
+    <category term="Windows" scheme="https://jf710001011.github.io/tags/Windows/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Lab-Static-Analysis</title>
+    <link href="https://jf710001011.github.io/2023/12/09/lab-static-analysis/"/>
+    <id>https://jf710001011.github.io/2023/12/09/lab-static-analysis/</id>
+    <published>2023-12-09T11:25:06.887Z</published>
+    <updated>2023-09-23T13:54:42.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;活跃变量分析和迭代求解器&quot;&gt;1. 活跃变量分析和迭代求解器&lt;/h3&gt;
+&lt;h4 id=&quot;回顾&quot;&gt;回顾&lt;/h4&gt;
+&lt;ol type=&quot;1&quot;&gt;
+&lt;li&gt;transer</summary>
+        
+      
+    
+    
+    
+    <category term="Lab" scheme="https://jf710001011.github.io/categories/Lab/"/>
+    
+    
+    <category term="Java" scheme="https://jf710001011.github.io/tags/Java/"/>
+    
+    <category term="Static-Analysis" scheme="https://jf710001011.github.io/tags/Static-Analysis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java</title>
+    <link href="https://jf710001011.github.io/2023/12/09/java/"/>
+    <id>https://jf710001011.github.io/2023/12/09/java/</id>
+    <published>2023-12-09T11:25:06.853Z</published>
+    <updated>2023-12-07T04:25:38.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3
+id=&quot;setting-environment-variables-for-java-multi-version-environment&quot;&gt;Setting
+Environment Variables for Java Multi-Version</summary>
+        
+      
+    
+    
+    
+    <category term="Programming" scheme="https://jf710001011.github.io/categories/Programming/"/>
+    
+    
+    <category term="Java" scheme="https://jf710001011.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Docker</title>
+    <link href="https://jf710001011.github.io/2023/12/09/docker/"/>
+    <id>https://jf710001011.github.io/2023/12/09/docker/</id>
+    <published>2023-12-09T11:25:06.779Z</published>
+    <updated>2023-07-05T18:10:58.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;注意事项-经验-tips&quot;&gt;注意事项-经验-tips&lt;/h3&gt;
+&lt;ol type=&quot;1&quot;&gt;
+&lt;li&gt;确保tag正确才能pull成功&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3</summary>
+        
+      
+    
+    
+    
+    <category term="Tools" scheme="https://jf710001011.github.io/categories/Tools/"/>
+    
+    
+    <category term="Docker" scheme="https://jf710001011.github.io/tags/Docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Crypto Crash Course</title>
+    <link href="https://jf710001011.github.io/2023/12/09/crypto-crash-course/"/>
+    <id>https://jf710001011.github.io/2023/12/09/crypto-crash-course/</id>
+    <published>2023-12-09T11:25:06.713Z</published>
+    <updated>2023-07-26T14:09:08.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;padding-oracle-原理深度解析-cbc-字节翻转攻击原理解析&quot;&gt;padding
+oracle 原理深度解析 &amp;amp; CBC 字节翻转攻击原理解析&lt;/h3&gt;
+&lt;ol</summary>
+        
+      
+    
+    
+    
+    <category term="Cybersecurity" scheme="https://jf710001011.github.io/categories/Cybersecurity/"/>
+    
+    
+    <category term="Crypto" scheme="https://jf710001011.github.io/tags/Crypto/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>My Color</title>
+    <link href="https://jf710001011.github.io/2023/12/09/color/"/>
+    <id>https://jf710001011.github.io/2023/12/09/color/</id>
+    <published>2023-12-09T11:25:06.681Z</published>
+    <updated>2023-11-29T18:25:10.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;as-the-following&quot;&gt;as the following&lt;/h3&gt;
+&lt;ol type=&quot;1&quot;&gt;
+&lt;li&gt;name:
+&lt;ol</summary>
+        
+      
+    
+    
+    
+    <category term="Tools" scheme="https://jf710001011.github.io/categories/Tools/"/>
+    
+    
+    <category term="Beautify" scheme="https://jf710001011.github.io/tags/Beautify/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>BurpSuite</title>
+    <link href="https://jf710001011.github.io/2023/12/09/burpsuite/"/>
+    <id>https://jf710001011.github.io/2023/12/09/burpsuite/</id>
+    <published>2023-12-09T11:25:06.583Z</published>
+    <updated>2023-09-06T19:47:20.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;intruder&quot;&gt;Intruder&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;A &lt;strong&gt;Sniper&lt;/strong&gt; attack inserts a single set of
+payloads, one by one, into one or</summary>
+        
+      
+    
+    
+    
+    <category term="Tools" scheme="https://jf710001011.github.io/categories/Tools/"/>
+    
+    
+    <category term="BurpSuite" scheme="https://jf710001011.github.io/tags/BurpSuite/"/>
+    
+    <category term="Web" scheme="https://jf710001011.github.io/tags/Web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Browser Extension&amp;Script</title>
+    <link href="https://jf710001011.github.io/2023/12/09/browser-extension-script/"/>
+    <id>https://jf710001011.github.io/2023/12/09/browser-extension-script/</id>
+    <published>2023-12-09T11:25:06.569Z</published>
+    <updated>2023-12-06T04:38:04.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;session-buddy&quot;&gt;Session</summary>
+        
+      
+    
+    
+    
+    <category term="Tools" scheme="https://jf710001011.github.io/categories/Tools/"/>
+    
+    
+    <category term="Extension &amp; Script" scheme="https://jf710001011.github.io/tags/Extension-Script/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>101CTF</title>
+    <link href="https://jf710001011.github.io/2023/12/09/101-ctf/"/>
+    <id>https://jf710001011.github.io/2023/12/09/101-ctf/</id>
+    <published>2023-12-09T11:25:06.521Z</published>
+    <updated>2023-08-07T19:40:36.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;a-little-something-to-get-you-started&quot;&gt;A little something to get
+you started&lt;/h3&gt;
+&lt;ol</summary>
+        
+      
+    
+    
+    
+    <category term="Cybersecurity" scheme="https://jf710001011.github.io/categories/Cybersecurity/"/>
+    
+    
+    <category term="CTF" scheme="https://jf710001011.github.io/tags/CTF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>恶意代码分析环境</title>
+    <link href="https://jf710001011.github.io/2023/03/22/pma05/"/>
+    <id>https://jf710001011.github.io/2023/03/22/pma05/</id>
+    <published>2023-03-21T16:00:00.000Z</published>
+    <updated>2023-05-06T16:28:08.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;tool-list&quot;&gt;Tool list&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Dependency walker&lt;/li&gt;
+&lt;li&gt;Peid&lt;/li&gt;
+&lt;li&gt;BinText&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3</summary>
+        
+      
+    
+    
+    
+    <category term="Tools" scheme="https://jf710001011.github.io/categories/Tools/"/>
+    
+    
+    <category term="Binary exploition" scheme="https://jf710001011.github.io/tags/Binary-exploition/"/>
+    
+    <category term="Reverse engineering" scheme="https://jf710001011.github.io/tags/Reverse-engineering/"/>
     
   </entry>
   

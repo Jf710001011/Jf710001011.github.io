@@ -1,0 +1,1804 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Lab-Static-Analysis, Hunter|Hacker|Coder|Artist">
+    <meta name="description" content="信念与认知">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', '');
+</script>
+
+
+    <title>Lab-Static-Analysis | Jf71o0x1o1l</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 7.0.0"><link rel="alternate" href="/atom.xml" title="Jf71o0x1o1l" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-vs.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+    
+
+                <body>
+                    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Jf71o0x1o1l</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>About</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>Contact</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>Friends</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Jf71o0x1o1l</div>
+        <div class="logo-desc">
+            
+            信念与认知
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			About
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			Friends
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+                        
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Lab-Static-Analysis</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
+                            </a>
+                        
+                            <a href="/tags/Static-Analysis/">
+                                <span class="chip bg-color">Static-Analysis</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Lab/" class="post-category">
+                                Lab
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2023-12-09
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
+                    2023-09-23
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
+                    6.4k
+                </div>
+                
+
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h3 id="活跃变量分析和迭代求解器">1. 活跃变量分析和迭代求解器</h3>
+<h4 id="回顾">回顾</h4>
+<ol type="1">
+<li>transer function<img
+src="https://s2.loli.net/2023/08/26/fo29NwqQgGMXOIr.png"
+alt="image-20230826182222303" /></li>
+</ol>
+<h4 id="任务">任务</h4>
+<ol type="1">
+<li>第一个任务是实现 <code>LiveVariableAnalysis</code> 中的如下
+API：<img src="https://s2.loli.net/2023/08/26/MeRVIOUlGwE2nj1.webp"
+alt="corresponding algorithm location" />
+<ul>
+<li>SetFact newBoundaryFact(CFG)</li>
+<li>SetFact newInitialFact()</li>
+<li>void meetInto(SetFact,SetFact)</li>
+<li>boolean transferNode(Stmt,SetFact,SetFact)</li>
+</ul></li>
+<li>第二个任务是实现上面提到的 <code>Solver</code> 类的两个方法：</li>
+</ol>
+<ul>
+<li>Solver.initializeBackward(CFG,DataflowResult)</li>
+<li>IterativeSolver.doSolveBackward(CFG,DataflowResult)</li>
+</ul>
+<h4 id="实现">实现</h4>
+<ol type="1">
+<li><p>项目结构<img
+src="https://s2.loli.net/2023/08/26/XVpeZTI1QywYsj7.png"
+alt="image-20230826205741382" /></p></li>
+<li><p>需要了解的类：</p>
+<ol type="1">
+<li><p><code>pascal.taie.analysis.dataflow.fact.DataflowResult</code>用于维护数据流分析的
+CFG 中的 fact。你可以通过它的 API 获取、设置 CFG 节点的
+<code>IN facts</code> 和 <code>OUT facts</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pascal.taie.analysis.dataflow.fact.DataflowResult</span><br></pre></td></tr></table></figure></li>
+<li><p><code>pascal.taie.analysis.graph.cfg.CFG</code></p></li>
+<li><p><code>pascal.taie.analysis.dataflow.solver.Solver</code></p></li>
+<li><p><code>pascal.taie.analysis.dataflow.solver.IterativeSolver</code></p></li>
+</ol></li>
+<li><p><code>pascal/taie/analysis/dataflow/analysis/LiveVariableAnalysis.java</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> SetFact&lt;Var&gt; <span class="title function_">newBoundaryFact</span><span class="params">(CFG&lt;Stmt&gt; cfg)</span> &#123;</span><br><span class="line">    <span class="comment">// TODO - finish me</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">SetFact</span>&lt;&gt;();</span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> SetFact&lt;Var&gt; <span class="title function_">newInitialFact</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">// TODO - finish me</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">SetFact</span>&lt;&gt;();</span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">meetInto</span><span class="params">(SetFact&lt;Var&gt; fact, SetFact&lt;Var&gt; target)</span> &#123;</span><br><span class="line">    <span class="comment">// TODO - finish me</span></span><br><span class="line">    target.union(fact);</span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">transferNode</span><span class="params">(Stmt stmt, SetFact&lt;Var&gt; in, SetFact&lt;Var&gt; out)</span> &#123;</span><br><span class="line">    <span class="comment">// TODO - finish me</span></span><br><span class="line">    SetFact&lt;Var&gt; newInFact = <span class="keyword">new</span> <span class="title class_">SetFact</span>&lt;&gt;();</span><br><span class="line">    newInFact.union(out);</span><br><span class="line">   </span><br><span class="line">    <span class="keyword">if</span>(stmt.getDef().isPresent()) &#123;</span><br><span class="line">        <span class="type">LValue</span> <span class="variable">def</span> <span class="operator">=</span> stmt.getDef().get();</span><br><span class="line">        <span class="keyword">if</span>(def <span class="keyword">instanceof</span>  Var) &#123;</span><br><span class="line">            newInFact.remove((Var) def);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">   </span><br><span class="line">    <span class="keyword">for</span> (RValue use: stmt.getUses()) &#123;</span><br><span class="line">        <span class="keyword">if</span> (use <span class="keyword">instanceof</span> Var) &#123;</span><br><span class="line">            newInFact.add((Var) use);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">   </span><br><span class="line">    <span class="keyword">if</span>(!newInFact.equals(in)) &#123;</span><br><span class="line">        in.set(newInFact);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><code>pascal/taie/analysis/dataflow/solver/IterativeSolver.java</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">initializeBackward</span><span class="params">(CFG&lt;Node&gt; cfg, DataflowResult&lt;Node, Fact&gt; result)</span> &#123;</span><br><span class="line">    <span class="comment">// TODO - finish me</span></span><br><span class="line">    result.setInFact(cfg.getExit(), analysis.newBoundaryFact(cfg));</span><br><span class="line">    <span class="keyword">for</span>(Node node : cfg.getNodes()) &#123;</span><br><span class="line">        <span class="keyword">if</span> (cfg.isExit(node)) <span class="keyword">continue</span>;</span><br><span class="line">        result.setInFact(node, analysis.newInitialFact());</span><br><span class="line">        result.setOutFact(node, analysis.newInitialFact());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">   </span><br></pre></td></tr></table></figure></li>
+<li><p><code>IterativeSolver.doSolveBackward(CFG,DataflowResult)</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">doSolveBackward</span><span class="params">(CFG&lt;Node&gt; cfg, DataflowResult&lt;Node, Fact&gt; result)</span> &#123;</span><br><span class="line">    <span class="comment">// TODO - finish me</span></span><br><span class="line">   </span><br><span class="line">    <span class="type">boolean</span> <span class="variable">changed</span> <span class="operator">=</span> <span class="literal">true</span>;</span><br><span class="line">   </span><br><span class="line">    <span class="keyword">while</span> (changed) &#123;</span><br><span class="line">        changed = <span class="literal">false</span>;</span><br><span class="line">   </span><br><span class="line">        <span class="keyword">for</span> (Node node : cfg.getNodes()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (cfg.isExit(node)) <span class="keyword">continue</span>;</span><br><span class="line">   </span><br><span class="line">            <span class="keyword">for</span> (Node succNode : cfg.getSuccsOf(node)) &#123;</span><br><span class="line">                analysis.meetInto(result.getInFact(succNode), result.getOutFact(node));</span><br><span class="line">            &#125;</span><br><span class="line">   </span><br><span class="line">            <span class="keyword">if</span> (analysis.transferNode(node, result.getInFact(node), result.getOutFact(node))) changed = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="常量传播和-worklist-求解器">2：常量传播和 Worklist 求解器</h3>
+<h4 id="需要理解的类">需要理解的类</h4>
+<ol type="1">
+<li><p><code>pascal.taie.ir.exp.IntLiteral</code>： 每个 IntLiteral
+类的实例都表示一个程序中的整数字面量</p></li>
+<li><p><code>pascal.taie.ir.exp.BinaryExp</code>：
+这个类代表程序中的二元表达式。这个类的各个子类对应了表 1
+中的不同种类的二元表达式，并且每个子类中都有一个内部<a
+target="_blank" rel="noopener" href="https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html">枚举类型open
+in new window</a>用于表示该类支持的运算符。例如枚举类型
+<code>ArithmeticExp.Op</code>
+就代表了<code>ArithmeticExp</code>（算术表达式类）所支持的运算符，也就是
+<code>+ - * /</code> 和 <code>%</code>。</p>
+<ol type="1">
+<li><p>需要指出的是，在 Tai-e 中，<code>BinaryExp</code>
+的两个操作数都是 <code>Var</code> 类型的。例如下面的语句</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x = y + <span class="number">6</span>;</span><br></pre></td></tr></table></figure>
+<p>在 Tai-e 中会被转化成如下的 IR：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">%intconst0 = <span class="number">6</span>;     <span class="comment">// %intconst* are temp variables introduced</span></span><br><span class="line">x = y + %intconst0; <span class="comment">// by Tai-e to hold constant int values</span></span><br></pre></td></tr></table></figure></li>
+</ol></li>
+<li><p><code>pascal.taie.ir.stmt.DefinitionStmt</code></p>
+<p>这是 Stmt 的一个子类。它表示了程序中所有的赋值语句，（即形如 x = y 或
+x = m(…) 的语句）。</p></li>
+<li><p><code>pascal.taie.analysis.dataflow.analysis.DataflowAnalysis</code></p>
+<p>这是具体数据流分析算法需要实现的接口。和<a
+target="_blank" rel="noopener" href="https://tai-e.pascal-lab.net/pa1.html">作业 1</a>
+一样，它会被求解器调用。</p></li>
+<li><p><code>pascal.taie.analysis.dataflow.analysis.constprop.Value</code></p>
+<p>这个类表示了常量分析中格上的抽象值 (见第 6 讲课件的第 238
+页)。它的代码和注释解释了它的用法。你应该用下列的静态方法获取格上抽象值（即该类的实例）：</p>
+<p><code>Value getNAC():</code> 返回 NAC <code>Value getUndef()</code>:
+返回 UNDEF <code>Value makeConstant(int)</code>:
+返回给定整数在格上对应的抽象值</p></li>
+<li><p><code>pascal.taie.analysis.dataflow.analysis.constprop.CPFact</code></p>
+<p>这个类表示常量传播中的 data
+facts，即一个从变量（Var）到格上抽象值（Value）的映射</p></li>
+<li><p><code>pascal.taie.analysis.dataflow.analysis.constprop.ConstantPropagation</code></p>
+<p>这个类实现了
+DataflowAnalysis。你需要在其中编写完整的常量传播算法</p></li>
+</ol>
+<h4 id="实现-1">实现</h4>
+<ol type="1">
+<li><p><code>A2/tai-e/src/main/java/pascal/taie/analysis/dataflow/analysis/constprop/ConstantPropagation.java</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> CPFact <span class="title function_">newBoundaryFact</span><span class="params">(CFG&lt;Stmt&gt; cfg)</span> &#123;</span><br><span class="line">    <span class="type">CPFact</span> <span class="variable">fact</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">CPFact</span>();</span><br><span class="line">    List&lt;Var&gt; vars = cfg.getIR().getParams();</span><br><span class="line">    <span class="keyword">for</span> (Var <span class="keyword">var</span> : vars) &#123;</span><br><span class="line">        <span class="keyword">if</span> (canHoldInt(<span class="keyword">var</span>))</span><br><span class="line">            fact.update(<span class="keyword">var</span>, Value.getNAC());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> fact;</span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> CPFact <span class="title function_">newInitialFact</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">CPFact</span>();</span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">meetInto</span><span class="params">(CPFact fact, CPFact target)</span> &#123;</span><br><span class="line">    <span class="comment">// Find a bug here, &quot;fact.ketSet()&quot; instead of &quot;target.ketSet()&quot;.</span></span><br><span class="line">    <span class="keyword">for</span> (Var <span class="keyword">var</span> : fact.keySet()) &#123;</span><br><span class="line">        target.update(<span class="keyword">var</span>, meetValue(fact.get(<span class="keyword">var</span>), target.get(<span class="keyword">var</span>)));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Meets two Values.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> Value <span class="title function_">meetValue</span><span class="params">(Value v1, Value v2)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (v1.isNAC() || v2.isNAC()) &#123;</span><br><span class="line">        <span class="keyword">return</span> Value.getNAC();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (v1.isUndef()) &#123;</span><br><span class="line">        <span class="keyword">return</span> v2;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (v2.isUndef()) &#123;</span><br><span class="line">        <span class="keyword">return</span> v1;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (v1.getConstant() == v2.getConstant()) &#123;</span><br><span class="line">        <span class="keyword">return</span> Value.makeConstant(v1.getConstant());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> Value.getNAC();</span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">transferNode</span><span class="params">(Stmt stmt, CPFact in, CPFact out)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (stmt <span class="keyword">instanceof</span> DefinitionStmt&lt;?,?&gt;) &#123;</span><br><span class="line">        <span class="type">LValue</span> <span class="variable">lv</span> <span class="operator">=</span> ((DefinitionStmt&lt;?, ?&gt;) stmt).getLValue();</span><br><span class="line">        <span class="type">RValue</span> <span class="variable">rv</span> <span class="operator">=</span> ((DefinitionStmt&lt;?, ?&gt;) stmt).getRValue();</span><br><span class="line">        <span class="keyword">if</span> (lv <span class="keyword">instanceof</span> Var &amp;&amp; canHoldInt((Var)lv))&#123;</span><br><span class="line">            <span class="type">CPFact</span> <span class="variable">tf</span> <span class="operator">=</span> in.copy();</span><br><span class="line">            tf.update((Var)lv, evaluate(rv, in));</span><br><span class="line">            <span class="keyword">return</span> out.copyFrom(tf);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> out.copyFrom(in);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><code>A2/tai-e/src/main/java/pascal/taie/analysis/dataflow/solver/Solver.java</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">initializeForward</span><span class="params">(CFG&lt;Node&gt; cfg, DataflowResult&lt;Node, Fact&gt; result)</span> &#123;</span><br><span class="line">    <span class="type">Node</span> <span class="variable">entry_node</span> <span class="operator">=</span> cfg.getEntry();</span><br><span class="line">    result.setOutFact(entry_node, analysis.newBoundaryFact(cfg));</span><br><span class="line">    result.setInFact(entry_node, analysis.newBoundaryFact(cfg));</span><br><span class="line">    <span class="keyword">for</span> (Node node : cfg) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!cfg.isEntry(node)) &#123;</span><br><span class="line">            result.setOutFact(node, analysis.newInitialFact());</span><br><span class="line">            result.setInFact(node, analysis.newInitialFact());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><code>A2/tai-e/src/main/java/pascal/taie/analysis/dataflow/solver/WorkListSolver.java</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">doSolveForward</span><span class="params">(CFG&lt;Node&gt; cfg, DataflowResult&lt;Node, Fact&gt; result)</span> &#123;</span><br><span class="line">    Queue&lt;Node&gt; work_list = <span class="keyword">new</span> <span class="title class_">ArrayDeque</span>&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (Node node:cfg) &#123;</span><br><span class="line">        work_list.add(node);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (!work_list.isEmpty()) &#123;</span><br><span class="line">        <span class="type">Node</span> <span class="variable">node</span> <span class="operator">=</span> work_list.poll();</span><br><span class="line">        <span class="type">Fact</span> <span class="variable">out</span> <span class="operator">=</span> result.getOutFact(node);</span><br><span class="line">        <span class="type">Fact</span> <span class="variable">in</span> <span class="operator">=</span> result.getInFact(node);</span><br><span class="line">        <span class="keyword">for</span> (Node pred_node : cfg.getPredsOf(node)) &#123;</span><br><span class="line">            analysis.meetInto(result.getOutFact(pred_node), in);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(analysis.transferNode(node, in, out)) &#123;</span><br><span class="line">            <span class="keyword">for</span> (Node succ : cfg.getSuccsOf(node)) &#123;</span><br><span class="line">                <span class="keyword">if</span> (!work_list.contains(succ)) &#123;</span><br><span class="line">                    work_list.add(succ);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<hr />
+<h3 id="死代码检测">3. 死代码检测</h3>
+<ol type="1">
+<li><p>组合前两次作业中实现的分析方法：<strong>活跃变量分析</strong>和<strong>常量传播</strong>，来实现一个
+Java 的死代码检测算法</p></li>
+<li><p>死代码指的是程序中不可达的（unreachable）代码（即不会被执行的代码），或者是执行结果永远不会被其他计算过程用到的代码。去除死代码可以在不影响程序输出的前提下简化程序、提高效率</p>
+<ol type="1">
+<li><strong>不可达代码</strong>（unreachable
+code）和<strong>无用赋值</strong>（dead assignment）</li>
+</ol></li>
+<li><p><strong>控制流不可达代码</strong>（control-flow unreachable
+code）和<strong>分支不可达代码</strong>（unreachable branch）</p></li>
+<li><p>控制流不可达的。比如，由于返回语句是一个方法的出口，所以跟在它后面的代码是不可达的。例如在下面的代码中，第
+4 行和第 5 行的代码是控制流不可达的：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">controlFlowUnreachable</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">x</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">    <span class="type">int</span> <span class="variable">z</span> <span class="operator">=</span> <span class="number">42</span>; <span class="comment">// control-flow unreachable code</span></span><br><span class="line">    foo(z); <span class="comment">// control-flow unreachable code</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>检测方式</strong>：这样的代码可以很简单地利用所在方法的控制流图（CFG，即
+control-flow graph）检测出来。我们只需要从方法入口开始，遍历 CFG
+并标记可达语句。当遍历结束时，那些没有被标记的语句就是控制流不可达的。</p></li>
+<li><p>有时即使等号左边的变量 <code>x</code>
+是无用变量，它所属的赋值语句 <code>x = expr</code>
+也不能被去除，因为右边的表达式 <code>expr</code> 可能带有某些<a
+target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/副作用_(计算机科学)">副作用open in
+new window</a>。</p></li>
+<li><p>为了简单起见，不需要考虑由删除死代码而产生的新的死代码。</p></li>
+</ol>
+<h4 id="实现-2">实现</h4>
+<ol type="1">
+<li><p>DeadCodeDetection.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DeadCodeDetection</span> <span class="keyword">extends</span> <span class="title class_">MethodAnalysis</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">ID</span> <span class="operator">=</span> <span class="string">&quot;deadcode&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">DeadCodeDetection</span><span class="params">(AnalysisConfig config)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>(config);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Set&lt;Stmt&gt; <span class="title function_">analyze</span><span class="params">(IR ir)</span> &#123;</span><br><span class="line">        <span class="comment">// obtain CFG</span></span><br><span class="line">        CFG&lt;Stmt&gt; cfg = ir.getResult(CFGBuilder.ID);</span><br><span class="line">        <span class="comment">// obtain result of constant propagation</span></span><br><span class="line">        DataflowResult&lt;Stmt, CPFact&gt; constants =</span><br><span class="line">                ir.getResult(ConstantPropagation.ID);</span><br><span class="line">        <span class="comment">// obtain result of live variable analysis</span></span><br><span class="line">        DataflowResult&lt;Stmt, SetFact&lt;Var&gt;&gt; liveVars =</span><br><span class="line">                ir.getResult(LiveVariableAnalysis.ID);</span><br><span class="line">        <span class="comment">// keep statements (dead code) sorted in the resulting set</span></span><br><span class="line">        Set&lt;Stmt&gt; deadCode = <span class="keyword">new</span> <span class="title class_">TreeSet</span>&lt;&gt;(Comparator.comparing(Stmt::getIndex));</span><br><span class="line">        <span class="comment">// TODO - finish me</span></span><br><span class="line">        <span class="comment">// Your task is to recognize dead code in ir and add it to deadCode</span></span><br><span class="line">        Set&lt;Stmt&gt; liveCode = <span class="keyword">new</span> <span class="title class_">TreeSet</span>&lt;&gt;(Comparator.comparing(Stmt::getIndex));</span><br><span class="line">        Queue&lt;Stmt&gt; queue = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">        queue.add(cfg.getEntry());</span><br><span class="line">        <span class="keyword">while</span> (!queue.isEmpty()) &#123;</span><br><span class="line">            <span class="type">Stmt</span> <span class="variable">stmt</span> <span class="operator">=</span> queue.poll();</span><br><span class="line">            <span class="keyword">if</span> (stmt <span class="keyword">instanceof</span> AssignStmt&lt;?, ?&gt; s &amp;&amp; s.getLValue() <span class="keyword">instanceof</span> Var <span class="keyword">var</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (!liveVars.getResult(stmt).contains(<span class="keyword">var</span>) &amp;&amp; hasNoSideEffect(s.getRValue())) &#123;</span><br><span class="line">                    queue.addAll(cfg.getSuccsOf(stmt));</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 如果添加返回false,说明该语句已经存在于liveCode中了</span></span><br><span class="line">            <span class="keyword">if</span> (!liveCode.add(stmt)) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (stmt <span class="keyword">instanceof</span> If s) &#123;</span><br><span class="line">                <span class="type">Value</span> <span class="variable">res</span> <span class="operator">=</span> ConstantPropagation.evaluate(s.getCondition(), constants.getInFact(stmt));</span><br><span class="line">                <span class="keyword">if</span> (res.isConstant()) &#123;</span><br><span class="line">                    <span class="keyword">for</span> (Edge&lt;Stmt&gt; edge : cfg.getOutEdgesOf(stmt)) &#123;</span><br><span class="line">                        <span class="keyword">if</span> ((res.getConstant() == <span class="number">1</span> &amp;&amp; edge.getKind() == Edge.Kind.IF_TRUE) || (res.getConstant() == <span class="number">0</span> &amp;&amp; edge.getKind() == Edge.Kind.IF_FALSE)) &#123;</span><br><span class="line">                            queue.add(edge.getTarget());</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    queue.addAll(cfg.getSuccsOf(stmt));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (stmt <span class="keyword">instanceof</span> SwitchStmt s) &#123;</span><br><span class="line">                <span class="type">Value</span> <span class="variable">res</span> <span class="operator">=</span> ConstantPropagation.evaluate(s.getVar(), constants.getInFact(stmt));</span><br><span class="line">                <span class="keyword">if</span> (res.isConstant()) &#123;</span><br><span class="line">                    <span class="type">AtomicBoolean</span> <span class="variable">gone</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AtomicBoolean</span>(<span class="literal">false</span>);</span><br><span class="line">                    s.getCaseTargets().stream().filter(cse -&gt; cse.first() == res.getConstant()).forEach(cse -&gt; &#123;</span><br><span class="line">                        gone.set(<span class="literal">true</span>); queue.add(cse.second());</span><br><span class="line">                    &#125;);</span><br><span class="line">                    <span class="keyword">if</span>(!gone.get()) &#123;</span><br><span class="line">                        queue.add(s.getDefaultTarget());</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                    queue.addAll(cfg.getSuccsOf(stmt));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                queue.addAll(cfg.getSuccsOf(stmt))</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        deadCode.addAll(cfg.getNodes());</span><br><span class="line">        deadCode.removeAll(liveCode);</span><br><span class="line">        deadCode.remove(cfg.getExit());</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> deadCode;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="类层次结构分析和过程间常量传播">4.
+类层次结构分析和过程间常量传播</h3>
+<h4 id="目的">目的</h4>
+<ol type="1">
+<li>实现一个基于类层次结构（下面简称为
+<code>CHA</code>）的调用图（<code>call graph</code>）构造器</li>
+<li>还需要实现一个
+<code>worklist 求解器</code>来支持过程间数据流分析</li>
+</ol>
+<h4 id="实现类层次结构分析cha">实现类层次结构分析（CHA）</h4>
+<ol type="1">
+<li><p>Java
+语言的四种方法调用：<code>invokestatic</code>、<code>invokespecial</code>、<code>invokeinterface</code>
+和 <code>invokevirtual</code></p></li>
+<li><p>Java 中的一些新特性会让方法调用的情形更复杂：比如 Java 8
+开始允许接口定义非抽象方法（<a
+target="_blank" rel="noopener" href="https://docs.oracle.com/javase/tutorial/java/IandI/defaultmethods.html">default
+methodsopen in new window</a>）；还有从 Java 11
+开始，<code>invokeinterface</code> 和 <code>invoke-virtual</code>
+可以调用 private
+方法了。这都会使我们构建调用图的过程变得更复杂。</p></li>
+<li><p>需要了解的<code>类</code></p>
+<ol type="1">
+<li><p><code>pascal.taie.analysis.graph.callgraph.DefaultCallGraph</code></p>
+<p>该类代表了程序的调用图。它提供了多样的 API（继承自类
+<code>AbstractCallGraph</code>）来获取到调用图的信息</p></li>
+<li><p><code>pascal.taie.analysis.graph.callgraph.CallKind</code></p>
+<p>该枚举类型表示调用图中边的种类，包括
+<code>INTERFACE</code>、<code>VIRTUAL</code>、<code>SPECIAL</code> 和
+<code>STATIC</code>，它对应<a
+target="_blank" rel="noopener" href="https://cs.nju.edu.cn/tiantan/software-analysis/Inter.pdf#page=21">第
+7 讲</a>中介绍过的 Java 的四种调用类型（call kind）。</p></li>
+<li><p><code>pascal.taie.analysis.graph.callgraph.Edge&lt;Invoke,JMethod&gt;</code></p>
+<p>该类表示调用图中的边</p></li>
+<li><p><code>pascal.taie.ir.stmt.Invoke</code> (subclass of
+<code>Stmt</code>)</p>
+<p>该类表示程序中的方法调用（举个例子：<code>x = o.m(a1,a2,…)</code>）以及调用图中的调用点</p>
+<p>需要使用 <code>getMethodRef()</code>
+来获取目标方法的签名信息。</p></li>
+<li><p><code>pascal.taie.ir.proginfo.MethodRef</code>： Tai-e
+中的目标方法引用，如调用点的目标方法。它包含了调用点所调用的目标方法的签名信息。</p>
+<ol type="1">
+<li><code>JClass getDeclaringClass()</code>：返回该方法签名的声明类，即声明该方法的类</li>
+<li><code>Subsignature getSubsignature()</code>：返回被调用方法的子签名（<code>subsignature</code>）。稍后介绍子签名类——<code>Subsignature</code>。</li>
+</ol></li>
+<li><p><code>pascal.taie.language.classes.JMethod</code></p>
+<p>该类表示 Tai-e 中的 Java 方法。每个 <code>JMethod</code>
+的实例关联着一个方法并包含该方法的各种信息。</p></li>
+<li><p><code>pascal.taie.language.classes.JClass</code></p>
+<p>该类表示 Tai-e 中的 Java 类。每个 <code>JClass</code>
+的实例关联着一个类并包含该类的各种信息。</p></li>
+<li><p><code>pascal.taie.language.classes.Subsignature</code></p></li>
+<li><p>举个例子，下面方法 foo 的子签名是：“<code>T foo(P,Q,R)</code>”
+，而它的完整签名是：“<code>&lt;C: T foo(P,Q,R)&gt;</code>”。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">C</span> &#123;</span><br><span class="line">    T <span class="title function_">foo</span><span class="params">(P p, Q q, R r)</span> &#123; … &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><code>pascal.taie.analysis.graph.callgraph.CHABuilder</code></p></li>
+</ol></li>
+</ol>
+<h5 id="代码实现">代码实现</h5>
+<ol type="1">
+<li><p>算法流程<img
+src="https://s2.loli.net/2023/09/16/mBSvCaAtZyPwnpY.png"
+alt="image-20230916202239032" /></p></li>
+<li><p>Code</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> CallGraph&lt;Invoke, JMethod&gt; <span class="title function_">buildCallGraph</span><span class="params">(JMethod entry)</span> &#123;</span><br><span class="line">    	<span class="comment">// </span></span><br><span class="line">       <span class="type">DefaultCallGraph</span> <span class="variable">callGraph</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DefaultCallGraph</span>();</span><br><span class="line">       callGraph.addEntryMethod(entry);</span><br><span class="line">       <span class="comment">// TODO - check</span></span><br><span class="line">       Queue&lt;JMethod&gt; workList = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">       workList.add(entry);</span><br><span class="line">       <span class="keyword">while</span>(!workList.isEmpty())&#123;</span><br><span class="line">           <span class="type">JMethod</span> <span class="variable">m</span> <span class="operator">=</span> workList.poll();</span><br><span class="line">   </span><br><span class="line">           <span class="keyword">if</span>(callGraph.contains(m))&#123;</span><br><span class="line">               <span class="keyword">continue</span>;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="comment">// add m to RM</span></span><br><span class="line">           callGraph.addReachableMethod(m);</span><br><span class="line">           <span class="comment">// foreach call site cs in m do</span></span><br><span class="line">           <span class="keyword">for</span>(Stmt stmt : m.getIR().getStmts())&#123;</span><br><span class="line">               <span class="keyword">if</span>(stmt <span class="keyword">instanceof</span> Invoke cs)&#123;</span><br><span class="line">                   <span class="comment">// T = Resolve(cs)</span></span><br><span class="line">                   <span class="comment">// foreach target method m1 in T do</span></span><br><span class="line">                   <span class="keyword">for</span>(JMethod m1 : resolve(cs))&#123;</span><br><span class="line">                       <span class="comment">// add cs-&gt;m1 to CG</span></span><br><span class="line">                       callGraph.addEdge(<span class="keyword">new</span> <span class="title class_">Edge</span>&lt;&gt;(CallGraphs.getCallKind(cs), cs, m1));</span><br><span class="line">                       <span class="comment">// add m1 to WL</span></span><br><span class="line">                       workList.add(m1);</span><br><span class="line">                   &#125;</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> callGraph;</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * Resolves call targets (callees) of a call site via CHA.</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="keyword">private</span> Set&lt;JMethod&gt; <span class="title function_">resolve</span><span class="params">(Invoke callSite)</span> &#123;</span><br><span class="line">       <span class="comment">// TODO - check</span></span><br><span class="line">       <span class="comment">// T=&#123;&#125;</span></span><br><span class="line">       Set&lt;JMethod&gt; T = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;&gt;();</span><br><span class="line">       <span class="comment">// m = method signature at cs</span></span><br><span class="line">       <span class="type">MethodRef</span> <span class="variable">methodRef</span> <span class="operator">=</span> callSite.getMethodRef();</span><br><span class="line">       <span class="type">Subsignature</span> <span class="variable">subsignature</span> <span class="operator">=</span> methodRef.getSubsignature();</span><br><span class="line">       <span class="type">JClass</span> <span class="variable">declaringClass</span> <span class="operator">=</span> methodRef.getDeclaringClass();</span><br><span class="line">       <span class="type">JMethod</span> <span class="variable">m</span> <span class="operator">=</span> declaringClass.getDeclaredMethod(subsignature);</span><br><span class="line">       <span class="comment">// if cs is static call Then</span></span><br><span class="line">       <span class="comment">//      T = &#123;m&#125;</span></span><br><span class="line">       <span class="keyword">if</span> (callSite.isStatic()) &#123;</span><br><span class="line">           T.add(m);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="comment">// if cs is special call Then</span></span><br><span class="line">       <span class="comment">//      Cm = class type of m</span></span><br><span class="line">       <span class="comment">//      T = &#123;Dispatch(Cm,m)&#125;</span></span><br><span class="line">       <span class="keyword">if</span> (callSite.isSpecial()) &#123;</span><br><span class="line">           T.add(dispatch(declaringClass, subsignature));</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="comment">// if cs is a virtual call or interface Then</span></span><br><span class="line">       <span class="keyword">if</span> (callSite.isVirtual() || callSite.isInterface()) &#123;</span><br><span class="line">           Queue&lt;JClass&gt; queue = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">           queue.add(declaringClass);</span><br><span class="line">   </span><br><span class="line">           <span class="keyword">while</span> (!queue.isEmpty()) &#123;</span><br><span class="line">               <span class="type">JClass</span> <span class="variable">cur</span> <span class="operator">=</span> queue.poll();</span><br><span class="line">               <span class="type">JMethod</span> <span class="variable">dispatchMethod</span> <span class="operator">=</span> dispatch(cur, subsignature);</span><br><span class="line">               <span class="keyword">if</span> (dispatchMethod != <span class="literal">null</span>) &#123;</span><br><span class="line">                   T.add(dispatchMethod);</span><br><span class="line">               &#125;</span><br><span class="line">               <span class="keyword">if</span> (cur.isInterface()) &#123;</span><br><span class="line">                   queue.addAll(hierarchy.getDirectSubinterfacesOf(cur));</span><br><span class="line">                   queue.addAll(hierarchy.getDirectImplementorsOf(cur));</span><br><span class="line">               &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                   queue.addAll(hierarchy.getDirectSubclassesOf(cur));</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> T;</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * Looks up the target method based on given class and method subsignature.</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@return</span> the dispatched target method, or null if no satisfying method</span></span><br><span class="line"><span class="comment">    * can be found.</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="keyword">private</span> JMethod <span class="title function_">dispatch</span><span class="params">(JClass c, Subsignature subsignature)</span> &#123;</span><br><span class="line">       <span class="comment">// TODO - check</span></span><br><span class="line">       <span class="keyword">if</span> (c == <span class="literal">null</span>) &#123;</span><br><span class="line">           <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">       &#125;</span><br><span class="line">   </span><br><span class="line">       <span class="type">JMethod</span> <span class="variable">m</span> <span class="operator">=</span> c.getDeclaredMethod(subsignature);</span><br><span class="line">       <span class="keyword">if</span> (m != <span class="literal">null</span> &amp;&amp; !m.isAbstract()) &#123;</span><br><span class="line">           <span class="keyword">return</span> m;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> dispatch(c.getSuperClass(), subsignature);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>在Java中,静态调用和特殊调用是两种不同的调用方式:</p>
+<ol type="1">
+<li>静态调用</li>
+</ol>
+<p>调用静态方法时,是直接按方法签名定位并调用的,目标方法是唯一确定的。例如:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Math.max(a, b); <span class="comment">// 直接调用Math类的静态max方法</span></span><br></pre></td></tr></table></figure>
+<ol start="2" type="1">
+<li>特殊调用</li>
+</ol>
+<p>特殊调用主要包括super()、this()等,它们调用的目标方法不是固定的,需要在运行时动态确定,因此需要特殊处理。例如:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">super</span>(); <span class="comment">// 调用父类构造函数,目标构造函数不是固定</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h4 id="实现过程间常量传播">实现过程间常量传播</h4>
+<ol type="1">
+<li><p>过程间常量传播使用了
+<em><code>edge transfer</code></em>，因此能够更准确地处理方法<strong>调用</strong>和<strong>返回</strong>所产生的过程间数据流。</p></li>
+<li><p>举一个前向分析的例子，在传统的过程内数据流分析中，如果我们想计算一个节点的IN
+fact，我们可以直接meet该节点的全部前驱的OUT fact：</p>
+<figure>
+<img src="https://s2.loli.net/2023/09/16/vLlxe3JBsFA4dpV.png"
+alt="image-20230916161718531" />
+<figcaption aria-hidden="true">image-20230916161718531</figcaption>
+</figure>
+<p>然而，在过程间数据流分析中，为了计算一个节点的 IN
+fact，我们需要先对该节点的前驱的 OUT fact 应用 <em>edge
+transfer</em>，然后把得到结果 meet 进该节点的 IN fact。</p></li>
+<li><p>需要了解的类</p>
+<ol type="1">
+<li><p><code>pascal.taie.analysis.graph.icfg.ICFGEdge</code></p>
+<p>该类是一个抽象类，它表示了 ICFG
+中的边。而它有四个子类，分别关联着上一节中提到的四种 ICFG
+边：<code>Normal Edge</code>、<code>CallToReturnEdge</code>、<code>CallEdge</code>、<code>ReturnEdge</code></p></li>
+<li><p><code>pascal.taie.analysis.dataflow.inter.InterDataflowAnalysis</code></p>
+<p>这是一个过程间数据流分析的接口</p></li>
+<li><p><code>pascal.taie.analysis.dataflow.inter.AbstractInterDataflowAnalysis</code></p>
+<p>该抽象类实现了 <code>InterDataflowAnalysis</code>，并为
+<code>InterDataflowAnalysis</code> 的实现提供了一些基本的功能。</p></li>
+<li><p><code>pascal.taie.analysis.dataflow.inter.InterConstantPropagation</code></p>
+<p>该类继承自
+<code>AbstractInterDataflowAnalysis</code>，并且定义了过程间常量传播</p></li>
+<li><p><code>pascal.taie.ir.exp.InvokeExp</code></p>
+<p>该类表示程序中的方法调用表达式</p></li>
+</ol></li>
+<li><p>实验的最后你就可以发现：与保守处理方法调用的<strong>过程内</strong>常量传播相比，<strong>过程间</strong>常量传播可以达到更好的精度。</p></li>
+<li><p>Code</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="type">boolean</span> <span class="title function_">transferCallNode</span><span class="params">(Stmt stmt, CPFact in, CPFact out)</span> &#123;</span><br><span class="line">        <span class="comment">// TODO - check</span></span><br><span class="line">        <span class="type">boolean</span> <span class="variable">change</span> <span class="operator">=</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(Var key : in.keySet())&#123;</span><br><span class="line">            change |= out.update(key, in.get(key));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> change;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="type">boolean</span> <span class="title function_">transferNonCallNode</span><span class="params">(Stmt stmt, CPFact in, CPFact out)</span> &#123;</span><br><span class="line">        <span class="comment">// TODO - check</span></span><br><span class="line">        <span class="keyword">return</span> cp.transferNode(stmt,in,out);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> CPFact <span class="title function_">transferNormalEdge</span><span class="params">(NormalEdge&lt;Stmt&gt; edge, CPFact out)</span> &#123;</span><br><span class="line">        <span class="comment">// TODO - check</span></span><br><span class="line">        <span class="keyword">return</span> out.copy();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> CPFact <span class="title function_">transferCallToReturnEdge</span><span class="params">(CallToReturnEdge&lt;Stmt&gt; edge, CPFact out)</span> &#123;</span><br><span class="line">        <span class="comment">// TODO - check</span></span><br><span class="line">        <span class="type">CPFact</span> <span class="variable">ret</span> <span class="operator">=</span> out.copy();</span><br><span class="line">        <span class="type">LValue</span> <span class="variable">L</span> <span class="operator">=</span> edge.getSource().getDef().orElse(<span class="literal">null</span>);</span><br><span class="line">        <span class="keyword">if</span>(L <span class="keyword">instanceof</span> Var x)&#123;</span><br><span class="line">            ret.remove(x);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> CPFact <span class="title function_">transferCallEdge</span><span class="params">(CallEdge&lt;Stmt&gt; edge, CPFact callSiteOut)</span> &#123;</span><br><span class="line">        <span class="comment">// TODO - check</span></span><br><span class="line">        <span class="type">CPFact</span> <span class="variable">ret</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">CPFact</span>();</span><br><span class="line"></span><br><span class="line">        List&lt;Var&gt; formal = edge.getCallee().getIR().getParams();</span><br><span class="line">        List&lt;Var&gt; args = ((Invoke) edge.getSource()).getInvokeExp().getArgs();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; formal.size(); ++i)&#123;</span><br><span class="line">            <span class="type">Var</span> <span class="variable">x</span> <span class="operator">=</span> formal.get(i);</span><br><span class="line">            <span class="keyword">if</span>(canHoldInt(x))&#123;</span><br><span class="line">                ret.update(x, callSiteOut.get(args.get(i)));</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> CPFact <span class="title function_">transferReturnEdge</span><span class="params">(ReturnEdge&lt;Stmt&gt; edge, CPFact returnOut)</span> &#123;</span><br><span class="line">        <span class="comment">// TODO - check</span></span><br><span class="line">        <span class="type">CPFact</span> <span class="variable">ret</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">CPFact</span>();</span><br><span class="line">        <span class="type">LValue</span> <span class="variable">L</span> <span class="operator">=</span> edge.getCallSite().getDef().orElse(<span class="literal">null</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(L <span class="keyword">instanceof</span> Var def &amp;&amp; canHoldInt(def))&#123;</span><br><span class="line">            <span class="keyword">for</span>(Var x : edge.getReturnVars())&#123;</span><br><span class="line">                ret.update(def, cp.meetValue(ret.get(def), returnOut.get(x)));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h4 id="实现过程间-worklist-求解器">实现过程间 Worklist 求解器</h4>
+<ol type="1">
+<li><p>需要了解的类</p>
+<ol type="1">
+<li><p><code>pascal.taie.analysis.dataflow.fact.DataflowResult</code></p></li>
+<li><p><code>pascal.taie.analysis.graph.icfg.ICFG</code></p>
+<p>该类代表的是程序的过程间控制流图。</p></li>
+<li><p><code>pascal.taie.analysis.dataflow.inter.InterSolver</code></p>
+<p>该类是过程间数据流分析的求解器。</p></li>
+</ol></li>
+<li><p>Code</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">initialize</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// TODO - check</span></span><br><span class="line">        <span class="comment">// WL</span></span><br><span class="line">        workList = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;(icfg.getNodes());</span><br><span class="line">        <span class="comment">// CG</span></span><br><span class="line">        <span class="keyword">for</span>(Node node : icfg)&#123;</span><br><span class="line">            result.setOutFact(node, analysis.newInitialFact());</span><br><span class="line">        &#125;</span><br><span class="line">        icfg.entryMethods().forEach(method -&gt; &#123;</span><br><span class="line">            <span class="type">Node</span> <span class="variable">entry</span> <span class="operator">=</span> icfg.getEntryOf(method);</span><br><span class="line">            result.setOutFact(entry, analysis.newBoundaryFact(entry));</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">doSolve</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// TODO - check</span></span><br><span class="line">        Queue&lt;Node&gt; workList = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;(icfg.getNodes());</span><br><span class="line">        <span class="keyword">while</span>(!workList.isEmpty())&#123;</span><br><span class="line">            <span class="type">Node</span> <span class="variable">node</span> <span class="operator">=</span> workList.poll();</span><br><span class="line">            <span class="type">CPFact</span> <span class="variable">in</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">CPFact</span>();</span><br><span class="line">            <span class="type">CPFact</span> <span class="variable">out</span> <span class="operator">=</span> (CPFact) result.getOutFact(node);</span><br><span class="line">            <span class="keyword">for</span>(ICFGEdge&lt;Node&gt; edge : icfg.getInEdgesOf(node))&#123;</span><br><span class="line">                analysis.meetInto(analysis.transferEdge(edge, result.getOutFact(edge.getSource())), (Fact) in);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(analysis.transferNode(node, (Fact) in, (Fact) out))&#123;</span><br><span class="line">                icfg.getSuccsOf(node).forEach(workList::offer);</span><br><span class="line">            &#125;</span><br><span class="line">            result.setInFact(node, (Fact) in);</span><br><span class="line">            result.setOutFact(node, (Fact) out);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="非上下文敏感指针分析">5. 非上下文敏感指针分析</h3>
+<h4 id="前情提要">前情提要</h4>
+<ol type="1">
+<li>CHA的不准确性<img
+src="https://s2.loli.net/2023/09/23/eR8If2mDTEp3bjB.png"
+alt="image-20230923142616586" /></li>
+<li>堆抽象</li>
+<li>创建点抽象</li>
+<li>何为<code>上下文敏感</code><img
+src="https://s2.loli.net/2023/09/23/53AIlBp4xF1SiRt.png"
+alt="image-20230923151950665" /></li>
+<li>何为<code>流敏感</code><img
+src="https://s2.loli.net/2023/09/23/b5NtTi2wOgaul4L.png"
+alt="image-20230923153142011" /></li>
+<li>指针分析处理的5种语句<img
+src="https://s2.loli.net/2023/09/23/zQy4w7bst8LhTc1.png"
+alt="image-20230923161613082" /></li>
+<li>符号<img src="https://s2.loli.net/2023/09/23/6CJo5SNaZ3nPTQ2.png"
+alt="image-20230923164447218" /></li>
+<li>核心算法<img
+src="https://s2.loli.net/2023/09/23/e9FOUXAdvQEPVSL.png"
+alt="image-20230923211746724" /></li>
+</ol>
+<h4 id="实现指针分析">实现指针分析</h4>
+<ol type="1">
+<li><p>处理两种指针（<code>局部变量</code>和<code>实例字段</code>），为了使该指针分析更实用，将额外处理另两种指针（<code>静态字段</code>和<code>数组索引</code>）以及<code>静态方法调用</code>。</p></li>
+<li><p>需要了解的<code>类</code></p>
+<ol type="1">
+<li><p><code>pascal.taie.ir.stmt.DefinitionStmt</code></p>
+<p>它表示程序中所有的定义语句，例如 <code>x = y</code> 和
+<code>x = m(…)</code>。在本lab中，所有影响指针的语句都是这个类的子类，</p></li>
+<li><p><code>pascal.taie.ir.exp.Var</code></p>
+<p>它表示 Tai-e IR 中的变量</p></li>
+<li><p><code>pascal.taie.language.classes.JField</code></p>
+<p>这个类表示程序中的各个字段。</p></li>
+<li><p>指针分析相关的类</p>
+<ol type="1">
+<li><p><code>pascal.taie.analysis.pta.core.heap.Obj</code></p>
+<p>表示指针分析中的抽象对象</p></li>
+<li><p><code>pascal.taie.analysis.pta.core.heap.HeapModel</code></p>
+<p>表示堆模型（即堆抽象），它用来对堆对象进行建模</p></li>
+<li><p><code>pascal.taie.analysis.pta.ci.PointsToSet</code></p>
+<p>指针集，即指针分析中的 <code>Obj</code> 集合</p></li>
+<li><p><code>pascal.taie.analysis.pta.ci.Pointer</code></p>
+<p>表示分析中的指针，即 PFG（指针流图，pointer flow
+grpah）中的节点</p></li>
+<li><p><code>pascal.taie.analysis.pta.ci.PointerFlowGraph</code></p>
+<p>表示程序的指针流图。它还维护着从变量、静态字段、实例字段、数组索引到相应指针（即
+PFG 节点）的映射，因此可以利用这个类的 API 获得各种指针</p></li>
+<li><p><code>pascal.taie.analysis.pta.ci.WorkList</code></p>
+<p>表示指针分析算法中的 worklist</p></li>
+<li><p><code>pascal.taie.analysis.pta.ci.Solver</code></p>
+<p>实现了一个上下文无关的指针分析求解器</p></li>
+</ol></li>
+</ol></li>
+<li><p><code>Tai-e-assignments-wp/A5/Solver.java</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">addReachable</span><span class="params">(JMethod method)</span> &#123;</span><br><span class="line">    <span class="comment">// TODO - check</span></span><br><span class="line">    <span class="keyword">if</span> (!callGraph.contains(method)) &#123;</span><br><span class="line">        callGraph.addReachableMethod(method);</span><br><span class="line">        method.getIR().getStmts().forEach(stmt -&gt; stmt.accept(stmtProcessor));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Processes statements in new reachable methods.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">class</span> <span class="title class_">StmtProcessor</span> <span class="keyword">implements</span> <span class="title class_">StmtVisitor</span>&lt;Void&gt; &#123;</span><br><span class="line">    <span class="comment">// TODO check</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Void <span class="title function_">visit</span><span class="params">(New stmt)</span> &#123;</span><br><span class="line">        workList.addEntry(pointerFlowGraph.getVarPtr(stmt.getLValue()),<span class="keyword">new</span> <span class="title class_">PointsToSet</span>(heapModel.getObj(stmt)) );</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"> </span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">addPFGEdge</span><span class="params">(Pointer source, Pointer target)</span> &#123;</span><br><span class="line">    <span class="comment">// TODO - check</span></span><br><span class="line">    <span class="keyword">if</span> (pointerFlowGraph.addEdge(source,target)) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!source.getPointsToSet().isEmpty()) &#123;</span><br><span class="line">            workList.addEntry(target, source.getPointsToSet());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Processes work-list entries until the work-list is empty.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">analyze</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">// TODO - check</span></span><br><span class="line">    <span class="keyword">while</span> (!workList.isEmpty()) &#123;</span><br><span class="line">        WorkList.<span class="type">Entry</span> <span class="variable">entry</span> <span class="operator">=</span> workList.pollEntry();</span><br><span class="line">        <span class="type">Pointer</span> <span class="variable">ptr</span> <span class="operator">=</span> entry.pointer();</span><br><span class="line">        <span class="type">PointsToSet</span> <span class="variable">delta</span> <span class="operator">=</span> propagate(ptr, entry.pointsToSet());</span><br><span class="line">   </span><br><span class="line">        <span class="keyword">if</span> (ptr <span class="keyword">instanceof</span> VarPtr varPtr) &#123;</span><br><span class="line">            <span class="type">Var</span> <span class="variable">x</span> <span class="operator">=</span> varPtr.getVar();</span><br><span class="line">   </span><br><span class="line">            <span class="keyword">for</span> (Obj obj : delta) &#123;</span><br><span class="line">                <span class="keyword">for</span> (StoreField storeField : x.getStoreFields()) &#123;</span><br><span class="line">                    addPFGEdge(pointerFlowGraph.getVarPtr(storeField.getRValue()),</span><br><span class="line">                            pointerFlowGraph.getInstanceField(obj,storeField.getFieldRef().resolve()));</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">for</span> (LoadField loadField : x.getLoadFields()) &#123;</span><br><span class="line">                    addPFGEdge(pointerFlowGraph.getInstanceField(obj,loadField.getFieldRef().resolve()),</span><br><span class="line">                            pointerFlowGraph.getVarPtr(loadField.getLValue()));</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">for</span> (StoreArray storeArray : x.getStoreArrays()) &#123;</span><br><span class="line">                    addPFGEdge(pointerFlowGraph.getVarPtr(storeArray.getRValue()),</span><br><span class="line">                            pointerFlowGraph.getArrayIndex(obj));</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">for</span> (LoadArray loadArray : x.getLoadArrays()) &#123;</span><br><span class="line">                    addPFGEdge(pointerFlowGraph.getArrayIndex(obj),</span><br><span class="line">                            pointerFlowGraph.getVarPtr(loadArray.getLValue()));</span><br><span class="line">                &#125;</span><br><span class="line">                processCall(x,obj);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Propagates pointsToSet to pt(pointer) and its PFG successors,</span></span><br><span class="line"><span class="comment"> * returns the difference set of pointsToSet and pt(pointer).</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> PointsToSet <span class="title function_">propagate</span><span class="params">(Pointer pointer, PointsToSet pointsToSet)</span> &#123;</span><br><span class="line">    <span class="comment">// TODO - check</span></span><br><span class="line">    <span class="type">PointsToSet</span> <span class="variable">delta</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">PointsToSet</span>();</span><br><span class="line">    <span class="type">PointsToSet</span> <span class="variable">has</span> <span class="operator">=</span> pointer.getPointsToSet();</span><br><span class="line">   </span><br><span class="line">    pointsToSet.objects().</span><br><span class="line">            filter(ptr -&gt; !has.contains(ptr)).</span><br><span class="line">            forEach(ptr -&gt; &#123;has.addObject(ptr);delta.addObject(ptr);&#125;);</span><br><span class="line">   </span><br><span class="line">    <span class="keyword">if</span> (!delta.isEmpty()) &#123;</span><br><span class="line">        pointerFlowGraph.getSuccsOf(pointer).forEach(succ -&gt; workList.addEntry(succ,delta));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> delta;</span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Processes instance calls when points-to set of the receiver variable changes.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> var the variable that holds receiver objects</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> recv a new discovered object pointed by the variable.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">processCall</span><span class="params">(Var <span class="keyword">var</span>, Obj recv)</span> &#123;</span><br><span class="line">    <span class="comment">// TODO - check</span></span><br><span class="line">    <span class="keyword">for</span> (Invoke callSite : <span class="keyword">var</span>.getInvokes()) &#123;</span><br><span class="line">        <span class="type">JMethod</span> <span class="variable">method</span> <span class="operator">=</span> resolveCallee(recv, callSite);</span><br><span class="line">        workList.addEntry(pointerFlowGraph.getVarPtr(method.getIR().getThis()),<span class="keyword">new</span> <span class="title class_">PointsToSet</span>(recv));</span><br><span class="line">        <span class="keyword">if</span> (callGraph.addEdge(<span class="keyword">new</span> <span class="title class_">Edge</span>&lt;&gt;(CallGraphs.getCallKind(callSite),callSite,method))) &#123;</span><br><span class="line">            addReachable(method);</span><br><span class="line">            pass(callSite,method);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="上下文敏感的指针分析">6. 上下文敏感的指针分析</h3>
+<h4 id="须知">须知</h4>
+<ol type="1">
+<li><p>在 Tai-e 上实现一个上下文敏感的 Java
+指针分析框架，其中程序调用图的构建是伴随着指针分析一同进行的。另外，还需要实现几种具体的上下文敏感策略。在实现正确的情况下，上下文敏感的指针分析构建的调用图将会比使用非上下文敏感的指针分析（CIPTA）构建的调用图更精确。此外，不同的上下文敏感策略会对精度产生不同的影响</p></li>
+<li><p>这一算法处理两类指针（即局部变量和实例字段（instance
+field））和实例方法的调用。为了实现一个更加实用的指针分析，需要额外处理两类指针（即静态字段（static
+field）和数组索引（array index））以及静态方法的调用。</p></li>
+<li><p>需要了解的<code>类</code></p>
+<ol type="1">
+<li><p><code>pascal.taie.analysis.pta.core.cs.context.Context</code></p>
+<p>表示上下文敏感的指针分析中的上下文</p></li>
+<li><p><code>pascal.taie.analysis.pta.core.cs.element.CSElement</code></p>
+<p>该类表示指针分析中需要用到上下文的元素，每个这样的元素都和一个上下文相关联。它有四个子类，分别表示四种需要用到上下文的元素：<img
+src="https://s2.loli.net/2023/09/23/Cm4YxSQHk2AhgDe.webp"
+alt="cselement-subclasses" /></p>
+<ul>
+<li><code>CSVar</code>：表示一个带上下文（<code>Context</code>）的变量（<code>Var</code>）。</li>
+<li><code>CSObj</code>：表示一个带上下文（<code>Context</code>）的抽象对象（<code>Obj</code>）。</li>
+<li><code>CSCallSite</code>：表示一个带上下文（<code>Context</code>）的调用点（<code>Invoke</code>）。</li>
+<li><code>CSMethod</code>：表示一个带上下文（<code>Context</code>）的方法（<code>JMethod</code>）。</li>
+</ul></li>
+<li><p><code>pascal.taie.analysis.pta.core.cs.element.Pointer</code></p>
+<p>该类表示上下文敏感指针分析中的指针，即 PFG（pointer flow
+graph）中的节点</p></li>
+<li><p><code>pascal.taie.analysis.pta.core.cs.element.CSManager</code></p>
+<p>该类管理所有需要用到上下文的元素和所有上下文敏感的指针。也就是说，<code>CSElement</code>
+或 <code>Pointer</code>
+的所有子类的实例（每当你需要用到时）都需要通过这个类的相关 API
+来取得。</p></li>
+<li><p><code>pascal.taie.analysis.pta.core.cs.selector.ContextSelector</code></p>
+<p>该类是上下文敏感指针分析框架和具体的上下文敏感策略（如调用点敏感、对象敏感等）之间的接口</p></li>
+<li><p><code>pascal.taie.analysis.pta.core.cs.CSCallGraph</code></p>
+<p>表示上下文敏感的调用图</p></li>
+<li><p><code>pascal.taie.analysis.pta.pts.PointsToSet</code></p>
+<p>表示指针集（points-to sets），即上下文敏感指针分析中
+<code>CSObj</code> 的集合</p></li>
+<li><p><code>pascal.taie.analysis.pta.pts.PointsToSetFactory</code></p>
+<p>该类提供创建 <code>PointsToSet</code> 的静态工厂方法</p></li>
+<li><p><code>pascal.taie.analysis.pta.cs.PointerFlowGraph</code></p>
+<p>表示程序的指针流图 PFG</p></li>
+<li><p><code>pascal.taie.analysis.pta.cs.WorkList</code></p>
+<p>表示指针分析算法中的 WorkList。</p></li>
+<li><p><code>pascal.taie.analysis.pta.cs.Solver</code></p>
+<p>实现了一个上下文敏感的指针分析求解器</p></li>
+</ol></li>
+<li><p><code>Tai-e-assignments-wp/A6/Solver.java</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">addReachable</span><span class="params">(CSMethod csMethod)</span> &#123;</span><br><span class="line">    <span class="comment">// TODO - check</span></span><br><span class="line">    <span class="keyword">if</span> (!callGraph.contains(csMethod)) &#123;</span><br><span class="line">        callGraph.addReachableMethod(csMethod);</span><br><span class="line">        csMethod.getMethod().getIR().getStmts().forEach(stmt -&gt; stmt.accept(<span class="keyword">new</span> <span class="title class_">StmtProcessor</span>(csMethod)));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> Void <span class="title function_">visit</span><span class="params">(New stmt)</span> &#123;</span><br><span class="line">    <span class="type">Obj</span> <span class="variable">obj</span> <span class="operator">=</span> heapModel.getObj(stmt       <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Void <span class="title function_">visit</span><span class="params">(New stmt)</span> &#123;</span><br><span class="line">        <span class="type">Obj</span> <span class="variable">obj</span> <span class="operator">=</span> heapModel.getObj(stmt);</span><br><span class="line">        <span class="type">CSObj</span> <span class="variable">csObj</span> <span class="operator">=</span> csManager.getCSObj(contextSelector.selectHeapContext(csMethod, obj), obj);</span><br><span class="line">        workList.addEntry(</span><br><span class="line">                csManager.getCSVar(context,stmt.getLValue()),</span><br><span class="line">                PointsToSetFactory.make(csObj)</span><br><span class="line">        );</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">   </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Void <span class="title function_">visit</span><span class="params">(Copy stmt)</span> &#123;</span><br><span class="line">        addPFGEdge(</span><br><span class="line">                csManager.getCSVar(context,stmt.getRValue()),</span><br><span class="line">                csManager.getCSVar(context,stmt.getLValue())</span><br><span class="line">        );</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">   </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Void <span class="title function_">visit</span><span class="params">(StoreField stmt)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (stmt.isStatic()) &#123;</span><br><span class="line">            <span class="type">JField</span> <span class="variable">field</span> <span class="operator">=</span> stmt.getFieldRef().resolve();</span><br><span class="line">            addPFGEdge(</span><br><span class="line">                    csManager.getCSVar(context,stmt.getRValue()),</span><br><span class="line">                    csManager.getStaticField(field)</span><br><span class="line">            );</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">   </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Void <span class="title function_">visit</span><span class="params">(LoadField stmt)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (stmt.isStatic()) &#123;</span><br><span class="line">            <span class="type">JField</span> <span class="variable">field</span> <span class="operator">=</span> stmt.getFieldRef().resolve();</span><br><span class="line">            addPFGEdge(</span><br><span class="line">                    csManager.getStaticField(field),</span><br><span class="line">                    csManager.getCSVar(context,stmt.getLValue())</span><br><span class="line">            );</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">   </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Void <span class="title function_">visit</span><span class="params">(Invoke stmt)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (stmt.isStatic()) &#123;</span><br><span class="line">            <span class="type">JMethod</span> <span class="variable">method</span> <span class="operator">=</span> resolveCallee(<span class="literal">null</span>, stmt);</span><br><span class="line">            <span class="type">Context</span> <span class="variable">context</span> <span class="operator">=</span> contextSelector.selectContext(csManager.getCSCallSite(<span class="built_in">this</span>.context, stmt), method);</span><br><span class="line">            <span class="type">CSMethod</span> <span class="variable">csMethod</span> <span class="operator">=</span> csManager.getCSMethod(context, method);</span><br><span class="line">   </span><br><span class="line">            callGraph.addEdge(</span><br><span class="line">                    <span class="keyword">new</span> <span class="title class_">Edge</span>&lt;&gt;(CallGraphs.getCallKind(stmt),</span><br><span class="line">                            csManager.getCSCallSite(<span class="built_in">this</span>.context,stmt),</span><br><span class="line">                            csMethod)</span><br><span class="line">            );</span><br><span class="line">            addReachable(csMethod);</span><br><span class="line">            pass(csManager.getCSCallSite(<span class="built_in">this</span>.context,stmt),csMethod);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line">    <span class="type">CSObj</span> <span class="variable">csObj</span> <span class="operator">=</span> csManager.getCSObj(contextSelector.selectHeapContext(csMethod, obj), obj);</span><br><span class="line">    workList.addEntry(</span><br><span class="line">            csManager.getCSVar(context,stmt.getLValue()),</span><br><span class="line">            PointsToSetFactory.make(csObj)</span><br><span class="line">    );</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">addPFGEdge</span><span class="params">(Pointer source, Pointer target)</span> &#123;</span><br><span class="line">    <span class="comment">// TODO - check</span></span><br><span class="line">    <span class="keyword">if</span> (pointerFlowGraph.addEdge(source,target)) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!source.getPointsToSet().isEmpty()) &#123;</span><br><span class="line">            workList.addEntry(target, source.getPointsToSet());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"> <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">analyze</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">// TODO - check</span></span><br><span class="line">    <span class="keyword">while</span> (!workList.isEmpty()) &#123;</span><br><span class="line">        WorkList.<span class="type">Entry</span> <span class="variable">entry</span> <span class="operator">=</span> workList.pollEntry();</span><br><span class="line">        <span class="type">Pointer</span> <span class="variable">ptr</span> <span class="operator">=</span> entry.pointer();</span><br><span class="line">        <span class="type">PointsToSet</span> <span class="variable">delta</span> <span class="operator">=</span> propagate(ptr, entry.pointsToSet());</span><br><span class="line">   </span><br><span class="line">        <span class="keyword">if</span> (ptr <span class="keyword">instanceof</span> CSVar varPtr) &#123;</span><br><span class="line">            <span class="type">Context</span> <span class="variable">context</span> <span class="operator">=</span> varPtr.getContext();</span><br><span class="line">            <span class="type">Var</span> <span class="variable">x</span> <span class="operator">=</span> varPtr.getVar();</span><br><span class="line">   </span><br><span class="line">            <span class="keyword">for</span> (CSObj obj : delta) &#123;</span><br><span class="line">                <span class="comment">// x.f = y</span></span><br><span class="line">                <span class="keyword">for</span> (StoreField storeField : x.getStoreFields()) &#123;</span><br><span class="line">                    addPFGEdge(</span><br><span class="line">                            csManager.getCSVar(context,storeField.getRValue()),</span><br><span class="line">                            csManager.getInstanceField(obj,storeField.getFieldRef().resolve())</span><br><span class="line">                    );</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// y = x.f</span></span><br><span class="line">                <span class="keyword">for</span> (LoadField loadField : x.getLoadFields()) &#123;</span><br><span class="line">                    addPFGEdge(</span><br><span class="line">                            csManager.getInstanceField(obj,loadField.getFieldRef().resolve()),</span><br><span class="line">                            csManager.getCSVar(context,loadField.getLValue())</span><br><span class="line">                    );</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// arr[*] = y</span></span><br><span class="line">                <span class="keyword">for</span> (StoreArray storeArray : x.getStoreArrays()) &#123;</span><br><span class="line">                    addPFGEdge(</span><br><span class="line">                            csManager.getCSVar(context,storeArray.getRValue()),</span><br><span class="line">                            csManager.getArrayIndex(obj)</span><br><span class="line">                    );</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// y = arr[*]</span></span><br><span class="line">                <span class="keyword">for</span> (LoadArray loadArray : x.getLoadArrays()) &#123;</span><br><span class="line">                    addPFGEdge(</span><br><span class="line">                            csManager.getArrayIndex(obj),</span><br><span class="line">                            csManager.getCSVar(context,loadArray.getLValue())</span><br><span class="line">                    );</span><br><span class="line">                &#125;</span><br><span class="line">                processCall(varPtr,obj);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Propagates pointsToSet to pt(pointer) and its PFG successors,</span></span><br><span class="line"><span class="comment"> * returns the difference set of pointsToSet and pt(pointer).</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> PointsToSet <span class="title function_">propagate</span><span class="params">(Pointer pointer, PointsToSet pointsToSet)</span> &#123;</span><br><span class="line">    <span class="comment">// TODO - check</span></span><br><span class="line">    <span class="type">PointsToSet</span> <span class="variable">delta</span> <span class="operator">=</span> PointsToSetFactory.make();</span><br><span class="line">    <span class="type">PointsToSet</span> <span class="variable">has</span> <span class="operator">=</span> pointer.getPointsToSet();</span><br><span class="line">   </span><br><span class="line">    pointsToSet.objects().</span><br><span class="line">            filter(ptr -&gt; !has.contains(ptr)).</span><br><span class="line">            forEach(ptr -&gt; &#123;has.addObject(ptr);delta.addObject(ptr);&#125;);</span><br><span class="line">   </span><br><span class="line">    <span class="keyword">if</span> (!delta.isEmpty()) &#123;</span><br><span class="line">        pointerFlowGraph.getSuccsOf(pointer).forEach(succ -&gt; workList.addEntry(succ,delta));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> delta;</span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Processes instance calls when points-to set of the receiver variable changes.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> recv    the receiver variable</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> recvObj set of new discovered objects pointed by the variable.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">processCall</span><span class="params">(CSVar recv, CSObj recvObj)</span> &#123;</span><br><span class="line">    <span class="comment">// TODO - check</span></span><br><span class="line">    <span class="type">Context</span> <span class="variable">c</span> <span class="operator">=</span> recv.getContext();</span><br><span class="line">    <span class="type">Var</span> <span class="variable">var</span> <span class="operator">=</span> recv.getVar();</span><br><span class="line">   </span><br><span class="line">    <span class="keyword">for</span> (Invoke callSite : <span class="keyword">var</span>.getInvokes()) &#123;</span><br><span class="line">        <span class="type">JMethod</span> <span class="variable">callee</span> <span class="operator">=</span> resolveCallee(recvObj, callSite);</span><br><span class="line">        <span class="type">CSCallSite</span> <span class="variable">csCallSite</span> <span class="operator">=</span> csManager.getCSCallSite(c, callSite);</span><br><span class="line">   </span><br><span class="line">        <span class="type">Context</span> <span class="variable">ct</span> <span class="operator">=</span> contextSelector.selectContext(csCallSite, recvObj, callee);</span><br><span class="line">        workList.addEntry(csManager.getCSVar(ct,callee.getIR().getThis()),PointsToSetFactory.make(recvObj));</span><br><span class="line">   </span><br><span class="line">        <span class="type">CSMethod</span> <span class="variable">csCallee</span> <span class="operator">=</span> csManager.getCSMethod(ct, callee);</span><br><span class="line">        <span class="keyword">if</span> (callGraph.addEdge(<span class="keyword">new</span> <span class="title class_">Edge</span>&lt;&gt;(CallGraphs.getCallKind(callSite),csCallSite,csCallee))) &#123;</span><br><span class="line">            addReachable(csCallee);</span><br><span class="line">            pass(csCallSite,csCallee);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><code>Tai-e-assignments-wp/A6/_1CallSelector.java</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Context <span class="title function_">selectContext</span><span class="params">(CSCallSite callSite, JMethod callee)</span> &#123;</span><br><span class="line">     <span class="comment">// TODO - check</span></span><br><span class="line">     <span class="keyword">return</span> ListContext.make(callSite.getCallSite());</span><br><span class="line"> &#125;</span><br><span class="line">   </span><br><span class="line"> <span class="meta">@Override</span></span><br><span class="line"> <span class="keyword">public</span> Context <span class="title function_">selectContext</span><span class="params">(CSCallSite callSite, CSObj recv, JMethod callee)</span> &#123;</span><br><span class="line">     <span class="comment">// TODO - check</span></span><br><span class="line">     <span class="keyword">return</span> ListContext.make(callSite.getCallSite());</span><br><span class="line"> &#125;</span><br><span class="line">   </span><br><span class="line"> <span class="meta">@Override</span></span><br><span class="line"> <span class="keyword">public</span> Context <span class="title function_">selectHeapContext</span><span class="params">(CSMethod method, Obj obj)</span> &#123;</span><br><span class="line">     <span class="comment">// TODO - check</span></span><br><span class="line">     <span class="keyword">return</span> getEmptyContext();</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><code>Tai-e-assignments-wp/A6/_1ObjSelector.java</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Context <span class="title function_">selectContext</span><span class="params">(CSCallSite callSite, JMethod callee)</span> &#123;</span><br><span class="line">    <span class="comment">// TODO - check</span></span><br><span class="line">    <span class="keyword">return</span> getEmptyContext();</span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> Context <span class="title function_">selectContext</span><span class="params">(CSCallSite callSite, CSObj recv, JMethod callee)</span> &#123;</span><br><span class="line">    <span class="comment">// TODO - check</span></span><br><span class="line">    <span class="keyword">return</span> ListContext.make(recv.getObject());</span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> Context <span class="title function_">selectHeapContext</span><span class="params">(CSMethod method, Obj obj)</span> &#123;</span><br><span class="line">    <span class="comment">// TODO - check</span></span><br><span class="line">    <span class="keyword">return</span> getEmptyContext();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><code>Tai-e-assignments-wp/A6/_1TypeSelector.java</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Context <span class="title function_">selectContext</span><span class="params">(CSCallSite callSite, JMethod callee)</span> &#123;</span><br><span class="line">    <span class="comment">// TODO - check</span></span><br><span class="line">    <span class="keyword">return</span> callSite.getContext();</span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> Context <span class="title function_">selectContext</span><span class="params">(CSCallSite callSite, CSObj recv, JMethod callee)</span> &#123;</span><br><span class="line">    <span class="comment">// TODO - check</span></span><br><span class="line">    <span class="keyword">return</span> ListContext.make(recv.getObject().getContainerType());</span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> Context <span class="title function_">selectHeapContext</span><span class="params">(CSMethod method, Obj obj)</span> &#123;</span><br><span class="line">    <span class="comment">// TODO - check</span></span><br><span class="line">    <span class="keyword">return</span> getEmptyContext();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><code>Tai-e-assignments-wp/A6/_2CallSelector.java</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Context <span class="title function_">selectContext</span><span class="params">(CSCallSite callSite, JMethod callee)</span> &#123;</span><br><span class="line">     <span class="comment">// TODO - check</span></span><br><span class="line">     <span class="type">Context</span> <span class="variable">oldContext</span> <span class="operator">=</span> callSite.getContext();</span><br><span class="line">     <span class="keyword">if</span> (oldContext.getLength() &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">         <span class="keyword">return</span> ListContext.make(oldContext.getElementAt(oldContext.getLength() - <span class="number">1</span>),callSite.getCallSite());</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">return</span> ListContext.make(callSite.getCallSite());</span><br><span class="line"> &#125;</span><br><span class="line">   </span><br><span class="line"> <span class="meta">@Override</span></span><br><span class="line"> <span class="keyword">public</span> Context <span class="title function_">selectContext</span><span class="params">(CSCallSite callSite, CSObj recv, JMethod callee)</span> &#123;</span><br><span class="line">     <span class="comment">// TODO - check</span></span><br><span class="line">     <span class="keyword">return</span> selectContext(callSite,callee);</span><br><span class="line"> &#125;</span><br><span class="line">   </span><br><span class="line"> <span class="meta">@Override</span></span><br><span class="line"> <span class="keyword">public</span> Context <span class="title function_">selectHeapContext</span><span class="params">(CSMethod method, Obj obj)</span> &#123;</span><br><span class="line">     <span class="comment">// TODO - check</span></span><br><span class="line">     <span class="type">Context</span> <span class="variable">oldContext</span> <span class="operator">=</span> method.getContext();</span><br><span class="line">     <span class="keyword">if</span> (oldContext.getLength() &gt;= <span class="number">2</span>) &#123;</span><br><span class="line">         <span class="keyword">return</span> ListContext.make(oldContext.getElementAt(oldContext.getLength() - <span class="number">1</span>));</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">return</span> oldContext;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><code>Tai-e-assignments-wp/A6/_2ObjSelector.java</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Context <span class="title function_">selectContext</span><span class="params">(CSCallSite callSite, JMethod callee)</span> &#123;</span><br><span class="line">    <span class="comment">// TODO - check</span></span><br><span class="line">    <span class="keyword">return</span> callSite.getContext();</span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> Context <span class="title function_">selectContext</span><span class="params">(CSCallSite callSite, CSObj recv, JMethod callee)</span> &#123;</span><br><span class="line">    <span class="comment">// TODO - check</span></span><br><span class="line">    <span class="type">Context</span> <span class="variable">oldContext</span> <span class="operator">=</span> recv.getContext();</span><br><span class="line">    <span class="keyword">if</span> (oldContext.getLength() &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> ListContext.make(oldContext.getElementAt(oldContext.getLength()-<span class="number">1</span>),recv.getObject());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ListContext.make(recv.getObject());</span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> Context <span class="title function_">selectHeapContext</span><span class="params">(CSMethod method, Obj obj)</span> &#123;</span><br><span class="line">    <span class="comment">// TODO - check</span></span><br><span class="line">    <span class="type">Context</span> <span class="variable">oldContext</span> <span class="operator">=</span> method.getContext();</span><br><span class="line">    <span class="keyword">if</span> (oldContext.getLength() &gt;= <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> ListContext.make(oldContext.getElementAt(oldContext.getLength()-<span class="number">1</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> oldContext;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><code>Tai-e-assignments-wp/A6/_2TypeSelector.java</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Context <span class="title function_">selectContext</span><span class="params">(CSCallSite callSite, CSObj recv, JMethod callee)</span> &#123;</span><br><span class="line">    <span class="comment">// TODO - check</span></span><br><span class="line">    <span class="type">Context</span> <span class="variable">oldContext</span> <span class="operator">=</span> recv.getContext();</span><br><span class="line">    <span class="keyword">if</span> (oldContext.getLength() &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> ListContext.make(oldContext.getElementAt(oldContext.getLength()-<span class="number">1</span>),recv.getObject().getContainerType());</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> ListContext.make(recv.getObject().getContainerType());</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> Context <span class="title function_">selectHeapContext</span><span class="params">(CSMethod method, Obj obj)</span> &#123;</span><br><span class="line">    <span class="comment">// TODO - check</span></span><br><span class="line">    <span class="type">Context</span> <span class="variable">oldContext</span> <span class="operator">=</span> method.getContext();</span><br><span class="line">    <span class="keyword">if</span> (oldContext.getLength() &gt;= <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> ListContext.make(oldContext.getElementAt(oldContext.getLength() - <span class="number">1</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> oldContext;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Jf71o0x1o1l</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://Jf710001011.github.io/2023/12/09/lab-static-analysis/">https://Jf710001011.github.io/2023/12/09/lab-static-analysis/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint polocy. If reproduced, please indicate source
+                    <a href="/about" target="_blank">Jf71o0x1o1l</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
+                                </a>
+                            
+                                <a href="/tags/Static-Analysis/">
+                                    <span class="chip bg-color">Static-Analysis</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'U2qj9LBn7UhJFyVyb1bYDa9w-gzGzoHsz',
+        appKey: 'Tg6wRvRlIfODtULeHu4P96zh',
+        notify: 'true' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'false' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'en',
+        placeholder: 'just go go'
+    });
+</script>
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2023/12/09/msi-afeterburner/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="MSI-afterburner">
+                        
+                        <span class="card-title">MSI-afterburner</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            电脑硬件情况实时显示
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-12-09
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Tools/" class="post-category">
+                                    Tools
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Windows/">
+                        <span class="chip bg-color">Windows</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/12/09/java/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Java">
+                        
+                        <span class="card-title">Java</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Java Programming
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-09
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Programming/" class="post-category">
+                                    Programming
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h3, h4, h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h3, h4, h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+                            <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2023</span>
+            
+            <span id="year">2023</span>
+            <a href="/about" target="_blank">Jf71o0x1o1l</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">235.3k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2023";
+                    var startMonth = "2";
+                    var startDate = "16";
+                    var startHour = "24";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+            <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                <a href="/null" target="_blank">津ICP备Jf710001011号</a>
+            </span>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Jf710001011" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:lhhyp2333@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+                                <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+                                    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+                                        <script
+                                            src="/libs/materialize/materialize.min.js"></script>
+                                        <script
+                                            src="/libs/masonry/masonry.pkgd.min.js"></script>
+                                        <script
+                                            src="/libs/aos/aos.js"></script>
+                                        <script
+                                            src="/libs/scrollprogress/scrollProgress.min.js"></script>
+                                        <script
+                                            src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+                                        <script
+                                            src="/js/matery.js"></script>
+
+                                        <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+                                            <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+                                                
+                                                    <script
+                                                        src="/libs/others/clicklove.js"
+                                                        async="async"></script>
+                                                    
+                                                        
+                                                            <script async
+                                                                src="/libs/others/busuanzi.pure.mini.js"></script>
+                                                            
+
+                                                                
+
+                                                                        
+
+                                                                                
+                                                                                        
+                                                                                            <script
+                                                                                                type="text/javascript"
+                                                                                                color="0,0,255"
+                                                                                                pointColor="0,0,255"
+                                                                                                opacity='0.7'
+                                                                                                zIndex="-1"
+                                                                                                count="99"
+                                                                                                src="/libs/background/canvas-nest.js"></script>
+                                                                                            
+
+                                                                                                
+
+                                                                                                            
+                                                                                                                <script
+                                                                                                                    type="text/javascript"
+                                                                                                                    src="/libs/background/ribbon-dynamic.js"
+                                                                                                                    async="async"></script>
+                                                                                                                
+
+                                                                                                                    
+                                                                                                                        <script
+                                                                                                                            src="/libs/instantpage/instantpage.js"
+                                                                                                                            type="module"></script>
+                                                                                                                        
+                                                                                                                            <script
+                                                                                                                                type="text/javascript">
+                                                                                                                                    //只在桌面版网页启用特效
+                                                                                                                                    var windowWidth = $(window).width();
+                                                                                                                                    if (windowWidth > 768) {
+                                                                                                                                        document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>');
+                                                                                                                                    }
+                                                                                                                                </script>
+                </body>
+
+</html>

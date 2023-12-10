@@ -577,8 +577,7 @@ target="_blank" rel="noopener" href="https://unix.stackexchange.com/questions/25
 <ul>
 <li>alarm函数</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ps</span> aux <span class="kw">|</span> <span class="fu">grep</span> 1630</span></code></pre></div>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ps</span> aux <span class="token operator">|</span> <span class="token function">grep</span> <span class="token number">1630</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p>实现<code>ls|wc -l</code></p>
 </blockquote>
@@ -586,11 +585,11 @@ class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="
 <ul>
 <li>段错误：非法访问内存</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>sigset_t set<span class="op">;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>sigempty<span class="op">(&amp;</span>set<span class="op">);</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>sigaddset<span class="op">(&amp;</span>set<span class="op">,</span>SIGINT<span class="op">);</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>sigprocmask<span class="op">(</span>SIG_BLOCK<span class="op">,&amp;</span>set<span class="op">,&amp;</span>oldset<span class="op">);</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>sigpending<span class="op">(&amp;</span>myset<span class="op">);</span></span></code></pre></div>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token class-name">sigset_t</span> set<span class="token punctuation">;</span>
+<span class="token function">sigempty</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>set<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">sigaddset</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>set<span class="token punctuation">,</span>SIGINT<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">sigprocmask</span><span class="token punctuation">(</span>SIG_BLOCK<span class="token punctuation">,</span><span class="token operator">&amp;</span>set<span class="token punctuation">,</span><span class="token operator">&amp;</span>oldset<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">sigpending</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>myset<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li><p>signal()</p></li>
 <li><p>sigaction()</p></li>
@@ -1242,7 +1241,7 @@ class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">235.4k</span>&nbsp;字
+                class="white-color">230.3k</span>&nbsp;字
             
             
             

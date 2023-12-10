@@ -484,7 +484,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1k
+                    1.1k
                 </div>
                 
 
@@ -630,10 +630,9 @@ alt="image-20220708154451888" />
 <ol start="2" type="1">
 <li>虚拟机没网（前提：已经使用<code>Nat</code>模式</li>
 </ol>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">systemctl</span> start NetworkManager</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">nmcli</span> networking off</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">nmcli</span> networking on</span></code></pre></div>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">systemctl start NetworkManager
+nmcli networking off
+nmcli networking on<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h3 id="xshell">Xshell</h3>
 <ul>
 <li>注意这一步（一般是刚下载）<img
@@ -732,8 +731,7 @@ alt="image-20221202160859222" />
 <li>域名解析托管cloudflare</li>
 <li>安装trojan</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> <span class="at">-N</span> <span class="at">--no-check-certificate</span> <span class="at">-q</span> <span class="at">-O</span> trojan_install.sh <span class="st">&quot;https://raw.githubusercontent.com/V2RaySSR/Trojan/master/trojan_install.sh&quot;</span> <span class="kw">&amp;&amp;</span> <span class="fu">chmod</span> +x trojan_install.sh <span class="kw">&amp;&amp;</span> <span class="fu">bash</span> trojan_install.sh</span></code></pre></div>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> <span class="token parameter variable">-N</span> --no-check-certificate <span class="token parameter variable">-q</span> <span class="token parameter variable">-O</span> trojan_install.sh <span class="token string">"https://raw.githubusercontent.com/V2RaySSR/Trojan/master/trojan_install.sh"</span> <span class="token operator">&amp;&amp;</span> <span class="token function">chmod</span> +x trojan_install.sh <span class="token operator">&amp;&amp;</span> <span class="token function">bash</span> trojan_install.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li>申请证书报错</li>
 </ul>
@@ -748,22 +746,20 @@ alt="image-20220823104153133" />
 <ul>
 <li>查看配置</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> /usr/src/trojan-macos/trojan/config.json</span></code></pre></div>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">cat</span> /usr/src/trojan-macos/trojan/config.json<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li>安装bbrplus 加速（重要）</li>
 </ul>
 <h3 id="shadowsocksrtlswebcdn">ShadowsocksR+TLS+Web+CDN</h3>
 <ul>
 <li><p><strong>证书问题</strong></p>
-<div class="sourceCode" id="cb4"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">1.</span> iptables <span class="at">-F</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">2.</span> acme.sh <span class="at">--set-default-ca</span> <span class="at">--server</span> letsencrypt</span></code></pre></div></li>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token number">1</span>. iptables <span class="token parameter variable">-F</span>
+<span class="token number">2</span>. acme.sh --set-default-ca <span class="token parameter variable">--server</span> letsencrypt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
 </ul>
 <p>​ <a
 target="_blank" rel="noopener" href="https://iyideng.net/black-technology/cgfw/shadowsocksr-ssr-server-building-and-using-tutorial.html">参考博客</a></p>
-<div class="sourceCode" id="cb5"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> <span class="at">-c</span> <span class="st">&quot;</span><span class="va">$(</span><span class="ex">curl</span> <span class="at">-fsSL</span> https://raw.githubusercontent.com/JeannieStudio/all_install/master/SixForOne_install.sh<span class="va">)</span><span class="st">&quot;</span></span></code></pre></div>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">bash</span> <span class="token parameter variable">-c</span> <span class="token string">"<span class="token variable"><span class="token variable">$(</span><span class="token function">curl</span> <span class="token parameter variable">-fsSL</span> https://raw.githubusercontent.com/JeannieStudio/all_install/master/SixForOne_install.sh<span class="token variable">)</span></span>"</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <figure>
 <img
 src="https://cdn.jsdelivr.net/gh/5had0wKv/pictureBed/img/202208241912152.png"
@@ -773,9 +769,9 @@ alt="image-20220824191243048" />
 <ul>
 <li>bbr 加速</li>
 </ul>
-<pre><code>&quot;https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</code></pre>
-<pre><code>/etc/all_mgr.sh
-</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">&quot;https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;chiakge&#x2F;Linux-NetSpeed&#x2F;master&#x2F;tcp.sh&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; .&#x2F;tcp.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;etc&#x2F;all_mgr.sh
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><a
 target="_blank" rel="noopener" href="https://iyideng.net/black-technology/cgfw/shadowsocksr-ssr-server-building-and-using-tutorial.html">参考教程</a></p>
 <h3 id="git">git</h3>
@@ -1400,7 +1396,7 @@ target="_blank" rel="noopener" href="https://iyideng.net/black-technology/cgfw/s
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">235.4k</span>&nbsp;字
+                class="white-color">230.3k</span>&nbsp;字
             
             
             

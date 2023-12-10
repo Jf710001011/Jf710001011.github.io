@@ -484,7 +484,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    968
+                    925
                 </div>
                 
 
@@ -596,66 +596,65 @@ alt="image-20230117222224070" />
 <ul>
 <li>PDO扩展</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode php"><code class="sourceCode php"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a> <span class="co">// Get input</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="va">$message</span> <span class="op">=</span> <span class="fu">trim</span>( <span class="va">$_POST</span>[ <span class="st">&#39;mtxMessage&#39;</span> ] )<span class="ot">;</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="va">$name</span>    <span class="op">=</span> <span class="fu">trim</span>( <span class="va">$_POST</span>[ <span class="st">&#39;txtName&#39;</span> ] )<span class="ot">;</span> 解释</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>这段代码是在使用 <span class="cn">PHP</span> 语言从一个 <span class="cn">HTML</span> 表单中收集用户输入。其中，<span class="va">$_POST</span> 数组用于收集表单中通过 <span class="cn">HTTP</span> <span class="cn">POST</span> 方法提交的数据。</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;mtxMessage&#39;</span> 和 <span class="st">&#39;txtName&#39;</span> 是表单中的元素名称。<span class="va">$message</span> 变量存储的是用户在表单中输入的信息，<span class="va">$name</span> 变量存储的是用户在表单中输入的名字。</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">trim</span>() 是 <span class="cn">PHP</span> 中的一个函数，用于去除字符串两端的空格。这里使用 <span class="fu">trim</span>() 函数是为了去除用户输入中可能含有的首尾空格。</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="cn">J</span>iangFeng <span class="dv">7</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Sanitize message input</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="va">$message</span> <span class="op">=</span> <span class="fu">stripslashes</span>( <span class="va">$message</span> )<span class="ot">;</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="va">$message</span> <span class="op">=</span> ((<span class="kw">isset</span>(<span class="va">$GLOBALS</span>[<span class="st">&quot;___mysqli_ston&quot;</span>]) <span class="op">&amp;&amp;</span> <span class="fu">is_object</span>(<span class="va">$GLOBALS</span>[<span class="st">&quot;___mysqli_ston&quot;</span>])) <span class="ot">?</span> <span class="fu">mysqli_real_escape_string</span>(<span class="va">$GLOBALS</span>[<span class="st">&quot;___mysqli_ston&quot;</span>]<span class="ot">,</span>  <span class="va">$message</span> ) <span class="ot">:</span> ((<span class="fu">trigger_error</span>(<span class="st">&quot;[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.&quot;</span><span class="ot">,</span> <span class="cn">E_USER_ERROR</span>)) <span class="ot">?</span> <span class="st">&quot;&quot;</span> <span class="ot">:</span> <span class="st">&quot;&quot;</span>))<span class="ot">;</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="va">$message</span> <span class="op">=</span> <span class="fu">htmlspecialchars</span>( <span class="va">$message</span> )<span class="ot">;</span> 解释</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>这段代码是在对用户输入的信息进行过滤和处理，以防止 <span class="cn">SQL</span> 注入和 <span class="cn">XSS</span> 攻击。</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">stripslashes</span>() 是 <span class="cn">PHP</span> 中的一个函数，用于去除字符串中的反斜杠（\）。这里使用 <span class="fu">stripslashes</span>() 函数是为了去除用户输入中可能含有的反斜杠。</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">mysqli_real_escape_string</span> 是 <span class="cn">PHP</span> 中用于防止 <span class="cn">SQL</span> 注入的函数。该函数会对字符串中的特殊字符进行转义，以防止它们在 <span class="cn">SQL</span> 查询中被误解释。</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu">htmlspecialchars</span>() 是 <span class="cn">PHP</span> 中的一个函数，用于把一些预定义的字符转换为 <span class="cn">HTML</span> 实体。这里使用 <span class="fu">htmlspecialchars</span>() 函数是为了防止 <span class="cn">XSS</span> 攻击。</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="cn">J</span>iangFeng <span class="dv">7</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Sanitize name input</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="va">$name</span> <span class="op">=</span> <span class="fu">stripslashes</span>( <span class="va">$name</span> )<span class="ot">;</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="va">$name</span> <span class="op">=</span> ((<span class="kw">isset</span>(<span class="va">$GLOBALS</span>[<span class="st">&quot;___mysqli_ston&quot;</span>]) <span class="op">&amp;&amp;</span> <span class="fu">is_object</span>(<span class="va">$GLOBALS</span>[<span class="st">&quot;___mysqli_ston&quot;</span>])) <span class="ot">?</span> <span class="fu">mysqli_real_escape_string</span>(<span class="va">$GLOBALS</span>[<span class="st">&quot;___mysqli_ston&quot;</span>]<span class="ot">,</span>  <span class="va">$name</span> ) <span class="ot">:</span> ((<span class="fu">trigger_error</span>(<span class="st">&quot;[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.&quot;</span><span class="ot">,</span> <span class="cn">E_USER_ERROR</span>)) <span class="ot">?</span> <span class="st">&quot;&quot;</span> <span class="ot">:</span> <span class="st">&quot;&quot;</span>))<span class="ot">;</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    <span class="va">$name</span> <span class="op">=</span> <span class="fu">htmlspecialchars</span>( <span class="va">$name</span> )<span class="ot">;</span>解释</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>这段代码是在对用户输入的名字进行过滤和处理，以防止 <span class="cn">SQL</span> 注入和 <span class="cn">XSS</span> 攻击。</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="fu">stripslashes</span>() 是 <span class="cn">PHP</span> 中的一个函数，用于去除字符串中的反斜杠（\）。这里使用 <span class="fu">stripslashes</span>() 函数是为了去除用户输入中可能含有的反斜杠。</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="fu">mysqli_real_escape_string</span> 是 <span class="cn">PHP</span> 中用于防止 <span class="cn">SQL</span> 注入的函数。该函数会对字符串中的特殊字符进行转义，以防止它们在 <span class="cn">SQL</span> 查询中被误解释。</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="fu">htmlspecialchars</span>() 是 <span class="cn">PHP</span> 中的一个函数，用于把一些预定义的字符转换为 <span class="cn">HTML</span> 实体。这里使用 <span class="fu">htmlspecialchars</span>() 函数是为了防止 <span class="cn">XSS</span> 攻击。</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>这里 <span class="va">$name</span> 和 <span class="va">$message</span> 变量都被处理过了<span class="ot">,</span>防止了SQL注入和XSS攻击</span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="cn">J</span>iangFeng <span class="dv">7</span></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Update database</span></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>    <span class="va">$data</span> <span class="op">=</span> <span class="va">$db</span>-&gt;prepare( <span class="st">&#39;INSERT INTO guestbook ( comment, name ) VALUES ( :message, :name );&#39;</span> )<span class="ot">;</span></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>    <span class="va">$data</span>-&gt;bindParam( <span class="st">&#39;:message&#39;</span><span class="ot">,</span> <span class="va">$message</span><span class="ot">,</span> <span class="bu">PDO</span>::<span class="cn">PARAM_STR</span> )<span class="ot">;</span></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>    <span class="va">$data</span>-&gt;bindParam( <span class="st">&#39;:name&#39;</span><span class="ot">,</span> <span class="va">$name</span><span class="ot">,</span> <span class="bu">PDO</span>::<span class="cn">PARAM_STR</span> )<span class="ot">;</span></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>    <span class="va">$data</span>-&gt;execute()<span class="ot">;</span> 解释</span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>这段代码是在使用 <span class="cn">PHP</span> 的 <span class="bu">PDO</span> 扩展将用户输入的信息和名字写入数据库。</span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>首先，使用 <span class="va">$db</span>-&gt;prepare() 方法创建了一个 <span class="bu">PDOStatement</span> 对象，该对象用于执行预处理的 <span class="cn">SQL</span> 查询。在这里，预处理的 <span class="cn">SQL</span> 查询是一个 <span class="cn">INSERT</span> <span class="cn">INTO</span> 语句，用于向 guestbook 数据表中插入一条记录。</span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>bindParam() 方法用于绑定参数到预处理语句。这里将 <span class="va">$message</span> 变量绑定到 <span class="ot">:</span>message 参数，将 <span class="va">$name</span> 变量绑定到 <span class="ot">:</span>name 参数。第三个参数 <span class="bu">PDO</span>::<span class="cn">PARAM_STR</span> 表示参数的类型是字符串。</span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>最后，使用 execute() 方法执行预处理语句。这样就将用户输入的信息和名字写入了数据库。</span></code></pre></div></li>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"> <span class="token comment">// Get input</span>
+    <span class="token variable">$message</span> <span class="token operator">=</span> <span class="token function">trim</span><span class="token punctuation">(</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span> <span class="token string single-quoted-string">'mtxMessage'</span> <span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$name</span>    <span class="token operator">=</span> <span class="token function">trim</span><span class="token punctuation">(</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span> <span class="token string single-quoted-string">'txtName'</span> <span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> 解释
+这段代码是在使用 <span class="token constant">PHP</span> 语言从一个 <span class="token constant">HTML</span> 表单中收集用户输入。其中，<span class="token variable">$_POST</span> 数组用于收集表单中通过 <span class="token constant">HTTP</span> <span class="token constant">POST</span> 方法提交的数据。
+
+<span class="token string single-quoted-string">'mtxMessage'</span> 和 <span class="token string single-quoted-string">'txtName'</span> 是表单中的元素名称。<span class="token variable">$message</span> 变量存储的是用户在表单中输入的信息，<span class="token variable">$name</span> 变量存储的是用户在表单中输入的名字。
+
+<span class="token function">trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 是 <span class="token constant">PHP</span> 中的一个函数，用于去除字符串两端的空格。这里使用 <span class="token function">trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 函数是为了去除用户输入中可能含有的首尾空格。
+
+
+
+
+JiangFeng <span class="token number">7</span>
+    <span class="token comment">// Sanitize message input</span>
+    <span class="token variable">$message</span> <span class="token operator">=</span> <span class="token function">stripslashes</span><span class="token punctuation">(</span> <span class="token variable">$message</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$message</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string double-quoted-string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">is_object</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string double-quoted-string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token function">mysqli_real_escape_string</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string double-quoted-string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token variable">$message</span> <span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">trigger_error</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work."</span><span class="token punctuation">,</span> <span class="token constant">E_USER_ERROR</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token string double-quoted-string">""</span> <span class="token punctuation">:</span> <span class="token string double-quoted-string">""</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$message</span> <span class="token operator">=</span> <span class="token function">htmlspecialchars</span><span class="token punctuation">(</span> <span class="token variable">$message</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> 解释
+这段代码是在对用户输入的信息进行过滤和处理，以防止 <span class="token constant">SQL</span> 注入和 <span class="token constant">XSS</span> 攻击。
+
+<span class="token function">stripslashes</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 是 <span class="token constant">PHP</span> 中的一个函数，用于去除字符串中的反斜杠（\）。这里使用 <span class="token function">stripslashes</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 函数是为了去除用户输入中可能含有的反斜杠。
+
+mysqli_real_escape_string 是 <span class="token constant">PHP</span> 中用于防止 <span class="token constant">SQL</span> 注入的函数。该函数会对字符串中的特殊字符进行转义，以防止它们在 <span class="token constant">SQL</span> 查询中被误解释。
+
+<span class="token function">htmlspecialchars</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 是 <span class="token constant">PHP</span> 中的一个函数，用于把一些预定义的字符转换为 <span class="token constant">HTML</span> 实体。这里使用 <span class="token function">htmlspecialchars</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 函数是为了防止 <span class="token constant">XSS</span> 攻击。
+
+
+
+
+JiangFeng <span class="token number">7</span>
+    <span class="token comment">// Sanitize name input</span>
+    <span class="token variable">$name</span> <span class="token operator">=</span> <span class="token function">stripslashes</span><span class="token punctuation">(</span> <span class="token variable">$name</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$name</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string double-quoted-string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">is_object</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string double-quoted-string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token function">mysqli_real_escape_string</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string double-quoted-string">"___mysqli_ston"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token variable">$name</span> <span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">trigger_error</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work."</span><span class="token punctuation">,</span> <span class="token constant">E_USER_ERROR</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token string double-quoted-string">""</span> <span class="token punctuation">:</span> <span class="token string double-quoted-string">""</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$name</span> <span class="token operator">=</span> <span class="token function">htmlspecialchars</span><span class="token punctuation">(</span> <span class="token variable">$name</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>解释
+这段代码是在对用户输入的名字进行过滤和处理，以防止 <span class="token constant">SQL</span> 注入和 <span class="token constant">XSS</span> 攻击。
+
+<span class="token function">stripslashes</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 是 <span class="token constant">PHP</span> 中的一个函数，用于去除字符串中的反斜杠（\）。这里使用 <span class="token function">stripslashes</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 函数是为了去除用户输入中可能含有的反斜杠。
+
+mysqli_real_escape_string 是 <span class="token constant">PHP</span> 中用于防止 <span class="token constant">SQL</span> 注入的函数。该函数会对字符串中的特殊字符进行转义，以防止它们在 <span class="token constant">SQL</span> 查询中被误解释。
+
+<span class="token function">htmlspecialchars</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 是 <span class="token constant">PHP</span> 中的一个函数，用于把一些预定义的字符转换为 <span class="token constant">HTML</span> 实体。这里使用 <span class="token function">htmlspecialchars</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 函数是为了防止 <span class="token constant">XSS</span> 攻击。
+
+这里 <span class="token variable">$name</span> 和 <span class="token variable">$message</span> 变量都被处理过了<span class="token punctuation">,</span>防止了<span class="token constant">SQL</span>注入和<span class="token constant">XSS</span>攻击
+
+
+
+
+JiangFeng <span class="token number">7</span>
+    <span class="token comment">// Update database</span>
+    <span class="token variable">$data</span> <span class="token operator">=</span> <span class="token variable">$db</span><span class="token operator">-></span><span class="token function">prepare</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'INSERT INTO guestbook ( comment, name ) VALUES ( :message, :name );'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$data</span><span class="token operator">-></span><span class="token function">bindParam</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">':message'</span><span class="token punctuation">,</span> <span class="token variable">$message</span><span class="token punctuation">,</span> <span class="token class-name static-context">PDO</span><span class="token operator">::</span><span class="token constant">PARAM_STR</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$data</span><span class="token operator">-></span><span class="token function">bindParam</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">':name'</span><span class="token punctuation">,</span> <span class="token variable">$name</span><span class="token punctuation">,</span> <span class="token class-name static-context">PDO</span><span class="token operator">::</span><span class="token constant">PARAM_STR</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$data</span><span class="token operator">-></span><span class="token function">execute</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 解释
+这段代码是在使用 <span class="token constant">PHP</span> 的 <span class="token constant">PDO</span> 扩展将用户输入的信息和名字写入数据库。
+
+首先，使用 <span class="token variable">$db</span><span class="token operator">-></span><span class="token function">prepare</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 方法创建了一个 PDOStatement 对象，该对象用于执行预处理的 <span class="token constant">SQL</span> 查询。在这里，预处理的 <span class="token constant">SQL</span> 查询是一个 <span class="token constant">INSERT</span> <span class="token constant">INTO</span> 语句，用于向 guestbook 数据表中插入一条记录。
+
+<span class="token function">bindParam</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 方法用于绑定参数到预处理语句。这里将 <span class="token variable">$message</span> 变量绑定到 <span class="token punctuation">:</span>message 参数，将 <span class="token variable">$name</span> 变量绑定到 <span class="token punctuation">:</span>name 参数。第三个参数 <span class="token class-name static-context">PDO</span><span class="token operator">::</span><span class="token constant">PARAM_STR</span> 表示参数的类型是字符串。
+
+最后，使用 <span class="token function">execute</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 方法执行预处理语句。这样就将用户输入的信息和名字写入了数据库。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 
                 
@@ -1274,7 +1273,7 @@ class="sourceCode php"><code class="sourceCode php"><span id="cb1-1"><a href="#c
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">235.4k</span>&nbsp;字
+                class="white-color">230.3k</span>&nbsp;字
             
             
             

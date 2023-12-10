@@ -484,7 +484,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.7k
+                    1.6k
                 </div>
                 
 
@@ -511,9 +511,8 @@
 <li><p>装anaconda，就不需要单独装python了</p></li>
 <li><p>安装最新的ANACONDA3,并更新所有的库(否则会出现很多报错</p></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>conda list <span class="op">--</span>all</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>conda upgrade <span class="op">-</span>all</span></code></pre></div>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">conda list <span class="token operator">--</span>all
+conda upgrade <span class="token operator">-</span>all<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <ul>
 <li><p><del>对于一些报错需要在<strong>终端退出jupyter
 notebook</strong>然后重新进入</del>,修正：原因是所有代码要按顺序执行，否则会出现如下报错（这个问题困扰了好久
@@ -558,76 +557,75 @@ alt="image-20230210165204665" /></li>
 </ul></li>
 <li>完整代码</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">&#39;./deeplearning.mplstyle&#39;</span>)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># x_train is the input variable (size in 1000 square feet)</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># y_train is the target (price in 1000s of dollars)</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>x_train <span class="op">=</span> np.array([<span class="fl">1.0</span>, <span class="fl">2.0</span>])</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>y_train <span class="op">=</span> np.array([<span class="fl">300.0</span>, <span class="fl">500.0</span>])</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;x_train = </span><span class="sc">&#123;</span>x_train<span class="sc">&#125;</span><span class="ss">&quot;</span>)</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># m is the number of training examples</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;x_train.shape: </span><span class="sc">&#123;</span>x_train<span class="sc">.</span>shape<span class="sc">&#125;</span><span class="ss">&quot;</span>)</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> x_train.shape[<span class="dv">0</span>]</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Number of training examples is: </span><span class="sc">&#123;</span>m<span class="sc">&#125;</span><span class="ss">&quot;</span>)</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">0</span> <span class="co"># Change this to 1 to see (x^1, y^1)</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>x_i <span class="op">=</span> x_train[i]</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>y_i <span class="op">=</span> y_train[i]</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;(x^(</span><span class="sc">&#123;</span>i<span class="sc">&#125;</span><span class="ss">), y^(</span><span class="sc">&#123;</span>i<span class="sc">&#125;</span><span class="ss">)) = (</span><span class="sc">&#123;</span>x_i<span class="sc">&#125;</span><span class="ss">, </span><span class="sc">&#123;</span>y_i<span class="sc">&#125;</span><span class="ss">)&quot;</span>)</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the data points</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>plt.scatter(x_train, y_train, marker<span class="op">=</span><span class="st">&#39;x&#39;</span>, c<span class="op">=</span><span class="st">&#39;r&#39;</span>)</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the title</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">&quot;Housing Prices&quot;</span>)</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the y-axis label</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">&#39;Price (in 1000s of dollars)&#39;</span>)</span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the x-axis label</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">&#39;Size (1000 sqft)&#39;</span>)</span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>w <span class="op">=</span> <span class="dv">100</span></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">100</span></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;w: </span><span class="sc">&#123;</span>w<span class="sc">&#125;</span><span class="ss">&quot;</span>)</span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;b: </span><span class="sc">&#123;</span>b<span class="sc">&#125;</span><span class="ss">&quot;</span>)</span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> compute_model_output(x, w, b):</span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;</span></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="co">    Computes the prediction of a linear model</span></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="co">    Args:</span></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="co">      x (ndarray (m,)): Data, m examples </span></span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="co">      w,b (scalar)    : model parameters  </span></span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns</span></span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="co">      y (ndarray (m,)): target values</span></span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a><span class="co">    &quot;&quot;&quot;</span></span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>    m <span class="op">=</span> x.shape[<span class="dv">0</span>]</span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>    f_wb <span class="op">=</span> np.zeros(m)  <span class="co"># 创建了一个全零的 NumPy 数组 f_wb。</span></span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(m):</span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>        f_wb[i] <span class="op">=</span> w <span class="op">*</span> x[i] <span class="op">+</span> b</span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> f_wb</span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>tmp_f_wb <span class="op">=</span> compute_model_output(x_train, w, b,)</span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot our model prediction</span></span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>plt.plot(x_train, tmp_f_wb, c<span class="op">=</span><span class="st">&#39;b&#39;</span>,label<span class="op">=</span><span class="st">&#39;Our Prediction&#39;</span>) <span class="co"># 线性</span></span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the data points</span></span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>plt.scatter(x_train, y_train, marker<span class="op">=</span><span class="st">&#39;x&#39;</span>, c<span class="op">=</span><span class="st">&#39;r&#39;</span>,label<span class="op">=</span><span class="st">&#39;Actual Values&#39;</span>) <span class="co"># 散点图</span></span>
-<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the title</span></span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">&quot;Housing Prices&quot;</span>)</span>
-<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the y-axis label</span></span>
-<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">&#39;Price (in 1000s of dollars)&#39;</span>)</span>
-<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the x-axis label</span></span>
-<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">&#39;Size (1000 sqft)&#39;</span>)</span>
-<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>plt.legend() <span class="co"># 创建一个图例，该图例显示图表中各种数据集的标签，以便识别不同的数据集。</span></span>
-<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
+plt<span class="token punctuation">.</span>style<span class="token punctuation">.</span>use<span class="token punctuation">(</span><span class="token string">'./deeplearning.mplstyle'</span><span class="token punctuation">)</span>
+
+<span class="token comment"># x_train is the input variable (size in 1000 square feet)</span>
+<span class="token comment"># y_train is the target (price in 1000s of dollars)</span>
+x_train <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token number">2.0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+y_train <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">300.0</span><span class="token punctuation">,</span> <span class="token number">500.0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"x_train = </span><span class="token interpolation"><span class="token punctuation">&#123;</span>x_train<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+
+<span class="token comment"># m is the number of training examples</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"x_train.shape: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>x_train<span class="token punctuation">.</span>shape<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+m <span class="token operator">=</span> x_train<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Number of training examples is: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>m<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+
+i <span class="token operator">=</span> <span class="token number">0</span> <span class="token comment"># Change this to 1 to see (x^1, y^1)</span>
+
+x_i <span class="token operator">=</span> x_train<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+y_i <span class="token operator">=</span> y_train<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"(x^(</span><span class="token interpolation"><span class="token punctuation">&#123;</span>i<span class="token punctuation">&#125;</span></span><span class="token string">), y^(</span><span class="token interpolation"><span class="token punctuation">&#123;</span>i<span class="token punctuation">&#125;</span></span><span class="token string">)) = (</span><span class="token interpolation"><span class="token punctuation">&#123;</span>x_i<span class="token punctuation">&#125;</span></span><span class="token string">, </span><span class="token interpolation"><span class="token punctuation">&#123;</span>y_i<span class="token punctuation">&#125;</span></span><span class="token string">)"</span></span><span class="token punctuation">)</span>
+
+<span class="token comment"># Plot the data points</span>
+plt<span class="token punctuation">.</span>scatter<span class="token punctuation">(</span>x_train<span class="token punctuation">,</span> y_train<span class="token punctuation">,</span> marker<span class="token operator">=</span><span class="token string">'x'</span><span class="token punctuation">,</span> c<span class="token operator">=</span><span class="token string">'r'</span><span class="token punctuation">)</span>
+<span class="token comment"># Set the title</span>
+plt<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token string">"Housing Prices"</span><span class="token punctuation">)</span>
+<span class="token comment"># Set the y-axis label</span>
+plt<span class="token punctuation">.</span>ylabel<span class="token punctuation">(</span><span class="token string">'Price (in 1000s of dollars)'</span><span class="token punctuation">)</span>
+<span class="token comment"># Set the x-axis label</span>
+plt<span class="token punctuation">.</span>xlabel<span class="token punctuation">(</span><span class="token string">'Size (1000 sqft)'</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+w <span class="token operator">=</span> <span class="token number">100</span>
+b <span class="token operator">=</span> <span class="token number">100</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"w: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>w<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"b: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>b<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">compute_model_output</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> w<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    Computes the prediction of a linear model
+    Args:
+      x (ndarray (m,)): Data, m examples 
+      w,b (scalar)    : model parameters  
+    Returns
+      y (ndarray (m,)): target values
+    """</span>
+    m <span class="token operator">=</span> x<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+    f_wb <span class="token operator">=</span> np<span class="token punctuation">.</span>zeros<span class="token punctuation">(</span>m<span class="token punctuation">)</span>	<span class="token comment"># 创建了一个全零的 NumPy 数组 f_wb。</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        f_wb<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> w <span class="token operator">*</span> x<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span> b
+        
+    <span class="token keyword">return</span> f_wb
+
+tmp_f_wb <span class="token operator">=</span> compute_model_output<span class="token punctuation">(</span>x_train<span class="token punctuation">,</span> w<span class="token punctuation">,</span> b<span class="token punctuation">,</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Plot our model prediction</span>
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>x_train<span class="token punctuation">,</span> tmp_f_wb<span class="token punctuation">,</span> c<span class="token operator">=</span><span class="token string">'b'</span><span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">'Our Prediction'</span><span class="token punctuation">)</span> <span class="token comment"># 线性</span>
+
+<span class="token comment"># Plot the data points</span>
+plt<span class="token punctuation">.</span>scatter<span class="token punctuation">(</span>x_train<span class="token punctuation">,</span> y_train<span class="token punctuation">,</span> marker<span class="token operator">=</span><span class="token string">'x'</span><span class="token punctuation">,</span> c<span class="token operator">=</span><span class="token string">'r'</span><span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">'Actual Values'</span><span class="token punctuation">)</span> <span class="token comment"># 散点图</span>
+
+<span class="token comment"># Set the title</span>
+plt<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token string">"Housing Prices"</span><span class="token punctuation">)</span>
+<span class="token comment"># Set the y-axis label</span>
+plt<span class="token punctuation">.</span>ylabel<span class="token punctuation">(</span><span class="token string">'Price (in 1000s of dollars)'</span><span class="token punctuation">)</span>
+<span class="token comment"># Set the x-axis label</span>
+plt<span class="token punctuation">.</span>xlabel<span class="token punctuation">(</span><span class="token string">'Size (1000 sqft)'</span><span class="token punctuation">)</span>
+
+plt<span class="token punctuation">.</span>legend<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># 创建一个图例，该图例显示图表中各种数据集的标签，以便识别不同的数据集。</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <figure>
 <img src="https://s2.loli.net/2023/02/10/9otHVn5A8eXUlOE.png"
 alt="image-20230210203145072" />
@@ -637,52 +635,50 @@ alt="image-20230210203145072" />
 id="c1_w1_lab03_cost_function_soln">C1_W1_Lab03_Cost_function_Soln</h3>
 <ul>
 <li><p>安装库(管理员权限)</p>
-<div class="sourceCode" id="cb3"><pre
-class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>conda install <span class="op">-</span>c conda<span class="op">-</span>forge ipympl</span></code></pre></div></li>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">conda install <span class="token operator">-</span>c conda-forge ipympl<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>code</p>
-<div class="sourceCode" id="cb4"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib widget <span class="co"># 使用 %matplotlib widget 命令与 Jupyter Notebook 交互，使得可以在 Jupyter Notebook 中直接使用 matplotlib 库的图形界面；</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> lab_utils_uni <span class="im">import</span> plt_intuition, plt_stationary, plt_update_onclick, soup_bowl</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">&#39;./deeplearning.mplstyle&#39;</span>)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>x_train <span class="op">=</span> np.array([<span class="fl">1.0</span>, <span class="fl">2.0</span>])           <span class="co">#(size in 1000 square feet)</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>y_train <span class="op">=</span> np.array([<span class="fl">300.0</span>, <span class="fl">500.0</span>])           <span class="co">#(price in 1000s of dollars)</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> compute_cost(x, y, w, b): </span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co">    Computes the cost function for linear regression.</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co">    Args:</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co">      x (ndarray (m,)): Data, m examples </span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co">      y (ndarray (m,)): target values</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co">      w,b (scalar)    : model parameters  </span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co">        total_cost (float): The cost of using w,b as the parameters for linear regression</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="co">               to fit the data points in x and y</span></span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="co">    &quot;&quot;&quot;</span></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># number of training examples</span></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    m <span class="op">=</span> x.shape[<span class="dv">0</span>] </span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    cost_sum <span class="op">=</span> <span class="dv">0</span> </span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(m): </span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>        f_wb <span class="op">=</span> w <span class="op">*</span> x[i] <span class="op">+</span> b   </span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>        cost <span class="op">=</span> (f_wb <span class="op">-</span> y[i]) <span class="op">**</span> <span class="dv">2</span>  </span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>        cost_sum <span class="op">=</span> cost_sum <span class="op">+</span> cost  </span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    total_cost <span class="op">=</span> (<span class="dv">1</span> <span class="op">/</span> (<span class="dv">2</span> <span class="op">*</span> m)) <span class="op">*</span> cost_sum  </span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> total_cost</span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>plt_intuition(x_train,y_train)  <span class="co"># 该函数的目的是创建一个散点图，用于展示训练数据的分布情况。该图形将训练数据的 x_train 值作为 x 轴，y_train 值作为 y 轴，并在散点图上显示出每一个数据点的位置。</span></span>
-<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>x_train <span class="op">=</span> np.array([<span class="fl">1.0</span>, <span class="fl">1.7</span>, <span class="fl">2.0</span>, <span class="fl">2.5</span>, <span class="fl">3.0</span>, <span class="fl">3.2</span>])</span>
-<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>y_train <span class="op">=</span> np.array([<span class="dv">250</span>, <span class="dv">300</span>, <span class="dv">480</span>,  <span class="dv">430</span>,   <span class="dv">630</span>, <span class="dv">730</span>,])</span>
-<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>plt.close(<span class="st">&#39;all&#39;</span>) </span>
-<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>fig, ax, dyn_items <span class="op">=</span> plt_stationary(x_train, y_train)</span>
-<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>updater <span class="op">=</span> plt_update_onclick(fig, ax, x_train, y_train, dyn_items)</span></code></pre></div></li>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token operator">%</span>matplotlib widget <span class="token comment"># 使用 %matplotlib widget 命令与 Jupyter Notebook 交互，使得可以在 Jupyter Notebook 中直接使用 matplotlib 库的图形界面；</span>
+<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
+<span class="token keyword">from</span> lab_utils_uni <span class="token keyword">import</span> plt_intuition<span class="token punctuation">,</span> plt_stationary<span class="token punctuation">,</span> plt_update_onclick<span class="token punctuation">,</span> soup_bowl
+plt<span class="token punctuation">.</span>style<span class="token punctuation">.</span>use<span class="token punctuation">(</span><span class="token string">'./deeplearning.mplstyle'</span><span class="token punctuation">)</span>
+
+x_train <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token number">2.0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>           <span class="token comment">#(size in 1000 square feet)</span>
+y_train <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">300.0</span><span class="token punctuation">,</span> <span class="token number">500.0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>           <span class="token comment">#(price in 1000s of dollars)</span>
+
+<span class="token keyword">def</span> <span class="token function">compute_cost</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> w<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">:</span> 
+    <span class="token triple-quoted-string string">"""
+    Computes the cost function for linear regression.
+    
+    Args:
+      x (ndarray (m,)): Data, m examples 
+      y (ndarray (m,)): target values
+      w,b (scalar)    : model parameters  
+    
+    Returns
+        total_cost (float): The cost of using w,b as the parameters for linear regression
+               to fit the data points in x and y
+    """</span>
+    <span class="token comment"># number of training examples</span>
+    m <span class="token operator">=</span> x<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> 
+    
+    cost_sum <span class="token operator">=</span> <span class="token number">0</span> 
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">:</span> 
+        f_wb <span class="token operator">=</span> w <span class="token operator">*</span> x<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span> b   
+        cost <span class="token operator">=</span> <span class="token punctuation">(</span>f_wb <span class="token operator">-</span> y<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">**</span> <span class="token number">2</span>  
+        cost_sum <span class="token operator">=</span> cost_sum <span class="token operator">+</span> cost  
+    total_cost <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">/</span> <span class="token punctuation">(</span><span class="token number">2</span> <span class="token operator">*</span> m<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">*</span> cost_sum  
+
+    <span class="token keyword">return</span> total_cost
+
+plt_intuition<span class="token punctuation">(</span>x_train<span class="token punctuation">,</span>y_train<span class="token punctuation">)</span>  <span class="token comment"># 该函数的目的是创建一个散点图，用于展示训练数据的分布情况。该图形将训练数据的 x_train 值作为 x 轴，y_train 值作为 y 轴，并在散点图上显示出每一个数据点的位置。</span>
+
+x_train <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token number">1.7</span><span class="token punctuation">,</span> <span class="token number">2.0</span><span class="token punctuation">,</span> <span class="token number">2.5</span><span class="token punctuation">,</span> <span class="token number">3.0</span><span class="token punctuation">,</span> <span class="token number">3.2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+y_train <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">250</span><span class="token punctuation">,</span> <span class="token number">300</span><span class="token punctuation">,</span> <span class="token number">480</span><span class="token punctuation">,</span>  <span class="token number">430</span><span class="token punctuation">,</span>   <span class="token number">630</span><span class="token punctuation">,</span> <span class="token number">730</span><span class="token punctuation">,</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+plt<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token string">'all'</span><span class="token punctuation">)</span> 
+fig<span class="token punctuation">,</span> ax<span class="token punctuation">,</span> dyn_items <span class="token operator">=</span> plt_stationary<span class="token punctuation">(</span>x_train<span class="token punctuation">,</span> y_train<span class="token punctuation">)</span>
+updater <span class="token operator">=</span> plt_update_onclick<span class="token punctuation">(</span>fig<span class="token punctuation">,</span> ax<span class="token punctuation">,</span> x_train<span class="token punctuation">,</span> y_train<span class="token punctuation">,</span> dyn_items<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>解释<img src="https://s2.loli.net/2023/02/10/csGQAyEhCqnLDfP.png"
 alt="image-20230210233315478" /></p></li>
 </ul>
@@ -690,152 +686,151 @@ alt="image-20230210233315478" /></p></li>
 id="c1_w1_lab04_gradient_descent_soln">C1_W1_Lab04_Gradient_Descent_Soln</h3>
 <ul>
 <li><p>code</p>
-<div class="sourceCode" id="cb5"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math, copy</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">&#39;./deeplearning.mplstyle&#39;</span>)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> lab_utils_uni <span class="im">import</span> plt_house_x, plt_contour_wgrad, plt_divergence, plt_gradients</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Load our data set</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>x_train <span class="op">=</span> np.array([<span class="fl">1.0</span>, <span class="fl">2.0</span>])   <span class="co">#features</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>y_train <span class="op">=</span> np.array([<span class="fl">300.0</span>, <span class="fl">500.0</span>])   <span class="co">#target value</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">#Function to calculate the cost</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> compute_cost(x, y, w, b):</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    m <span class="op">=</span> x.shape[<span class="dv">0</span>] </span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    cost <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(m):</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>        f_wb <span class="op">=</span> w <span class="op">*</span> x[i] <span class="op">+</span> b</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>        cost <span class="op">=</span> cost <span class="op">+</span> (f_wb <span class="op">-</span> y[i])<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    total_cost <span class="op">=</span> <span class="dv">1</span> <span class="op">/</span> (<span class="dv">2</span> <span class="op">*</span> m) <span class="op">*</span> cost</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> total_cost</span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> compute_gradient(x, y, w, b): </span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;</span></span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="co">    Computes the gradient for linear regression </span></span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="co">    Args:</span></span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="co">      x (ndarray (m,)): Data, m examples </span></span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="co">      y (ndarray (m,)): target values</span></span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="co">      w,b (scalar)    : model parameters  </span></span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns</span></span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="co">      dj_dw (scalar): The gradient of the cost w.r.t. the parameters w</span></span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="co">      dj_db (scalar): The gradient of the cost w.r.t. the parameter b     </span></span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="co">     &quot;&quot;&quot;</span></span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Number of training examples</span></span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>    m <span class="op">=</span> x.shape[<span class="dv">0</span>]    </span>
-<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>    dj_dw <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>    dj_db <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(m):  </span>
-<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>        f_wb <span class="op">=</span> w <span class="op">*</span> x[i] <span class="op">+</span> b </span>
-<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>        dj_dw_i <span class="op">=</span> (f_wb <span class="op">-</span> y[i]) <span class="op">*</span> x[i] </span>
-<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>        dj_db_i <span class="op">=</span> f_wb <span class="op">-</span> y[i] </span>
-<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>        dj_db <span class="op">+=</span> dj_db_i</span>
-<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>        dj_dw <span class="op">+=</span> dj_dw_i </span>
-<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>    dj_dw <span class="op">=</span> dj_dw <span class="op">/</span> m </span>
-<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>    dj_db <span class="op">=</span> dj_db <span class="op">/</span> m </span>
-<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> dj_dw, dj_db</span>
-<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>plt_gradients(x_train,y_train, compute_cost, compute_gradient)</span>
-<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> gradient_descent(x, y, w_in, b_in, alpha, num_iters, cost_function, gradient_function): </span>
-<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;</span></span>
-<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a><span class="co">    Performs gradient descent to fit w,b. Updates w,b by taking </span></span>
-<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a><span class="co">    num_iters gradient steps with learning rate alpha</span></span>
-<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a><span class="co">    Args:</span></span>
-<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a><span class="co">      x (ndarray (m,))  : Data, m examples </span></span>
-<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a><span class="co">      y (ndarray (m,))  : target values</span></span>
-<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a><span class="co">      w_in,b_in (scalar): initial values of model parameters  </span></span>
-<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a><span class="co">      alpha (float):     Learning rate</span></span>
-<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a><span class="co">      num_iters (int):   number of iterations to run gradient descent</span></span>
-<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a><span class="co">      cost_function:     function to call to produce cost</span></span>
-<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a><span class="co">      gradient_function: function to call to produce gradient</span></span>
-<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
-<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a><span class="co">      w (scalar): Updated value of parameter after running gradient descent</span></span>
-<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a><span class="co">      b (scalar): Updated value of parameter after running gradient descent</span></span>
-<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a><span class="co">      J_history (List): History of cost values</span></span>
-<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a><span class="co">      p_history (list): History of parameters [w,b] </span></span>
-<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a><span class="co">      &quot;&quot;&quot;</span></span>
-<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a>    w <span class="op">=</span> copy.deepcopy(w_in) <span class="co"># avoid modifying global w_in</span></span>
-<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a>    <span class="co"># An array to store cost J and w&#39;s at each iteration primarily for graphing later</span></span>
-<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a>    J_history <span class="op">=</span> []</span>
-<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a>    p_history <span class="op">=</span> []</span>
-<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a>    b <span class="op">=</span> b_in</span>
-<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a>    w <span class="op">=</span> w_in</span>
-<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(num_iters):</span>
-<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Calculate the gradient and update the parameters using gradient_function</span></span>
-<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a>        dj_dw, dj_db <span class="op">=</span> gradient_function(x, y, w , b)     </span>
-<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Update Parameters using equation (3) above</span></span>
-<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a>        b <span class="op">=</span> b <span class="op">-</span> alpha <span class="op">*</span> dj_db                            </span>
-<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a>        w <span class="op">=</span> w <span class="op">-</span> alpha <span class="op">*</span> dj_dw                            </span>
-<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Save cost J at each iteration</span></span>
-<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> i<span class="op">&lt;</span><span class="dv">100000</span>:      <span class="co"># prevent resource exhaustion </span></span>
-<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a>            J_history.append( cost_function(x, y, w , b))</span>
-<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a>            p_history.append([w,b])</span>
-<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Print cost every at intervals 10 times or as many iterations if &lt; 10</span></span>
-<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> i<span class="op">%</span> math.ceil(num_iters<span class="op">/</span><span class="dv">10</span>) <span class="op">==</span> <span class="dv">0</span>:       <span class="co"># 迭代次数划分为10份</span></span>
-<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f&quot;Iteration </span><span class="sc">&#123;</span>i<span class="sc">:4&#125;</span><span class="ss">: Cost </span><span class="sc">&#123;</span>J_history[<span class="op">-</span><span class="dv">1</span>]<span class="sc">:0.2e&#125;</span><span class="ss"> &quot;</span>,</span>
-<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a>                  <span class="ss">f&quot;dj_dw: </span><span class="sc">&#123;</span>dj_dw<span class="sc">: 0.3e&#125;</span><span class="ss">, dj_db: </span><span class="sc">&#123;</span>dj_db<span class="sc">: 0.3e&#125;</span><span class="ss">  &quot;</span>,</span>
-<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a>                  <span class="ss">f&quot;w: </span><span class="sc">&#123;</span>w<span class="sc">: 0.3e&#125;</span><span class="ss">, b:</span><span class="sc">&#123;</span>b<span class="sc">: 0.5e&#125;</span><span class="ss">&quot;</span>)</span>
-<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> w, b, J_history, p_history <span class="co">#return w and J,w history for graphing</span></span>
-<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a><span class="co"># initialize parameters</span></span>
-<span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a>w_init <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb5-105"><a href="#cb5-105" aria-hidden="true" tabindex="-1"></a>b_init <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a><span class="co"># some gradient descent settings</span></span>
-<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a>iterations <span class="op">=</span> <span class="dv">10000</span></span>
-<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a>tmp_alpha <span class="op">=</span> <span class="fl">1.0e-2</span></span>
-<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a><span class="co"># run gradient descent</span></span>
-<span id="cb5-110"><a href="#cb5-110" aria-hidden="true" tabindex="-1"></a>w_final, b_final, J_hist, p_hist <span class="op">=</span> gradient_descent(x_train ,y_train, w_init, b_init, tmp_alpha, </span>
-<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a>                                                    iterations, compute_cost, compute_gradient)</span>
-<span id="cb5-112"><a href="#cb5-112" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;(w,b) found by gradient descent: (</span><span class="sc">&#123;</span>w_final<span class="sc">:8.4f&#125;</span><span class="ss">,</span><span class="sc">&#123;</span>b_final<span class="sc">:8.4f&#125;</span><span class="ss">)&quot;</span>)</span>
-<span id="cb5-113"><a href="#cb5-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-114"><a href="#cb5-114" aria-hidden="true" tabindex="-1"></a><span class="co"># plot cost versus iteration  </span></span>
-<span id="cb5-115"><a href="#cb5-115" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, constrained_layout<span class="op">=</span><span class="va">True</span>, figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">4</span>))</span>
-<span id="cb5-116"><a href="#cb5-116" aria-hidden="true" tabindex="-1"></a>ax1.plot(J_hist[:<span class="dv">100</span>])</span>
-<span id="cb5-117"><a href="#cb5-117" aria-hidden="true" tabindex="-1"></a>ax2.plot(<span class="dv">1000</span> <span class="op">+</span> np.arange(<span class="bu">len</span>(J_hist[<span class="dv">1000</span>:])), J_hist[<span class="dv">1000</span>:])</span>
-<span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">&quot;Cost vs. iteration(start)&quot;</span>)<span class="op">;</span>  ax2.set_title(<span class="st">&quot;Cost vs. iteration (end)&quot;</span>)</span>
-<span id="cb5-119"><a href="#cb5-119" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">&#39;Cost&#39;</span>)            <span class="op">;</span>  ax2.set_ylabel(<span class="st">&#39;Cost&#39;</span>) </span>
-<span id="cb5-120"><a href="#cb5-120" aria-hidden="true" tabindex="-1"></a>ax1.set_xlabel(<span class="st">&#39;iteration step&#39;</span>)  <span class="op">;</span>  ax2.set_xlabel(<span class="st">&#39;iteration step&#39;</span>) </span>
-<span id="cb5-121"><a href="#cb5-121" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb5-122"><a href="#cb5-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-123"><a href="#cb5-123" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;1000 sqft house prediction </span><span class="sc">&#123;</span>w_final<span class="op">*</span><span class="fl">1.0</span> <span class="op">+</span> b_final<span class="sc">:0.1f&#125;</span><span class="ss"> Thousand dollars&quot;</span>)</span>
-<span id="cb5-124"><a href="#cb5-124" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;1200 sqft house prediction </span><span class="sc">&#123;</span>w_final<span class="op">*</span><span class="fl">1.2</span> <span class="op">+</span> b_final<span class="sc">:0.1f&#125;</span><span class="ss"> Thousand dollars&quot;</span>)</span>
-<span id="cb5-125"><a href="#cb5-125" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;2000 sqft house prediction </span><span class="sc">&#123;</span>w_final<span class="op">*</span><span class="fl">2.0</span> <span class="op">+</span> b_final<span class="sc">:0.1f&#125;</span><span class="ss"> Thousand dollars&quot;</span>)</span>
-<span id="cb5-126"><a href="#cb5-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-127"><a href="#cb5-127" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
-<span id="cb5-128"><a href="#cb5-128" aria-hidden="true" tabindex="-1"></a>plt_contour_wgrad(x_train, y_train, p_hist, ax)</span>
-<span id="cb5-129"><a href="#cb5-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-130"><a href="#cb5-130" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">4</span>))</span>
-<span id="cb5-131"><a href="#cb5-131" aria-hidden="true" tabindex="-1"></a>plt_contour_wgrad(x_train, y_train, p_hist, ax, w_range<span class="op">=</span>[<span class="dv">180</span>, <span class="dv">220</span>, <span class="fl">0.5</span>], b_range<span class="op">=</span>[<span class="dv">80</span>, <span class="dv">120</span>, <span class="fl">0.5</span>],</span>
-<span id="cb5-132"><a href="#cb5-132" aria-hidden="true" tabindex="-1"></a>            contours<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">10</span>,<span class="dv">20</span>],resolution<span class="op">=</span><span class="fl">0.5</span>)</span>
-<span id="cb5-133"><a href="#cb5-133" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-134"><a href="#cb5-134" aria-hidden="true" tabindex="-1"></a><span class="co"># initialize parameters</span></span>
-<span id="cb5-135"><a href="#cb5-135" aria-hidden="true" tabindex="-1"></a>w_init <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb5-136"><a href="#cb5-136" aria-hidden="true" tabindex="-1"></a>b_init <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb5-137"><a href="#cb5-137" aria-hidden="true" tabindex="-1"></a><span class="co"># set alpha to a large value</span></span>
-<span id="cb5-138"><a href="#cb5-138" aria-hidden="true" tabindex="-1"></a>iterations <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb5-139"><a href="#cb5-139" aria-hidden="true" tabindex="-1"></a>tmp_alpha <span class="op">=</span> <span class="fl">8.0e-1</span></span>
-<span id="cb5-140"><a href="#cb5-140" aria-hidden="true" tabindex="-1"></a><span class="co"># run gradient descent</span></span>
-<span id="cb5-141"><a href="#cb5-141" aria-hidden="true" tabindex="-1"></a>w_final, b_final, J_hist, p_hist <span class="op">=</span> gradient_descent(x_train ,y_train, w_init, b_init, tmp_alpha, </span>
-<span id="cb5-142"><a href="#cb5-142" aria-hidden="true" tabindex="-1"></a>                                                    iterations, compute_cost, compute_gradient)</span>
-<span id="cb5-143"><a href="#cb5-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-144"><a href="#cb5-144" aria-hidden="true" tabindex="-1"></a>plt_divergence(p_hist, J_hist,x_train, y_train) <span class="co"># 具体内容与 plt_contour_wgrad 函数类似，只不过它是绘制参数空间与代价空间的散度图（Divergence Plot）</span></span>
-<span id="cb5-145"><a href="#cb5-145" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div></li>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> math<span class="token punctuation">,</span> copy
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
+plt<span class="token punctuation">.</span>style<span class="token punctuation">.</span>use<span class="token punctuation">(</span><span class="token string">'./deeplearning.mplstyle'</span><span class="token punctuation">)</span>
+<span class="token keyword">from</span> lab_utils_uni <span class="token keyword">import</span> plt_house_x<span class="token punctuation">,</span> plt_contour_wgrad<span class="token punctuation">,</span> plt_divergence<span class="token punctuation">,</span> plt_gradients
+
+<span class="token comment"># Load our data set</span>
+x_train <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token number">2.0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>   <span class="token comment">#features</span>
+y_train <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">300.0</span><span class="token punctuation">,</span> <span class="token number">500.0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>   <span class="token comment">#target value</span>
+
+<span class="token comment">#Function to calculate the cost</span>
+<span class="token keyword">def</span> <span class="token function">compute_cost</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> w<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">:</span>
+   
+    m <span class="token operator">=</span> x<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> 
+    cost <span class="token operator">=</span> <span class="token number">0</span>
+    
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        f_wb <span class="token operator">=</span> w <span class="token operator">*</span> x<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span> b
+        cost <span class="token operator">=</span> cost <span class="token operator">+</span> <span class="token punctuation">(</span>f_wb <span class="token operator">-</span> y<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">**</span><span class="token number">2</span>
+    total_cost <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">/</span> <span class="token punctuation">(</span><span class="token number">2</span> <span class="token operator">*</span> m<span class="token punctuation">)</span> <span class="token operator">*</span> cost
+
+    <span class="token keyword">return</span> total_cost
+
+<span class="token keyword">def</span> <span class="token function">compute_gradient</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> w<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">:</span> 
+    <span class="token triple-quoted-string string">"""
+    Computes the gradient for linear regression 
+    Args:
+      x (ndarray (m,)): Data, m examples 
+      y (ndarray (m,)): target values
+      w,b (scalar)    : model parameters  
+    Returns
+      dj_dw (scalar): The gradient of the cost w.r.t. the parameters w
+      dj_db (scalar): The gradient of the cost w.r.t. the parameter b     
+     """</span>
+    
+    <span class="token comment"># Number of training examples</span>
+    m <span class="token operator">=</span> x<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>    
+    dj_dw <span class="token operator">=</span> <span class="token number">0</span>
+    dj_db <span class="token operator">=</span> <span class="token number">0</span>
+    
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">:</span>  
+        f_wb <span class="token operator">=</span> w <span class="token operator">*</span> x<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span> b 
+        dj_dw_i <span class="token operator">=</span> <span class="token punctuation">(</span>f_wb <span class="token operator">-</span> y<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">*</span> x<span class="token punctuation">[</span>i<span class="token punctuation">]</span> 
+        dj_db_i <span class="token operator">=</span> f_wb <span class="token operator">-</span> y<span class="token punctuation">[</span>i<span class="token punctuation">]</span> 
+        dj_db <span class="token operator">+=</span> dj_db_i
+        dj_dw <span class="token operator">+=</span> dj_dw_i 
+    dj_dw <span class="token operator">=</span> dj_dw <span class="token operator">/</span> m 
+    dj_db <span class="token operator">=</span> dj_db <span class="token operator">/</span> m 
+        
+    <span class="token keyword">return</span> dj_dw<span class="token punctuation">,</span> dj_db
+
+plt_gradients<span class="token punctuation">(</span>x_train<span class="token punctuation">,</span>y_train<span class="token punctuation">,</span> compute_cost<span class="token punctuation">,</span> compute_gradient<span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">gradient_descent</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> w_in<span class="token punctuation">,</span> b_in<span class="token punctuation">,</span> alpha<span class="token punctuation">,</span> num_iters<span class="token punctuation">,</span> cost_function<span class="token punctuation">,</span> gradient_function<span class="token punctuation">)</span><span class="token punctuation">:</span> 
+    <span class="token triple-quoted-string string">"""
+    Performs gradient descent to fit w,b. Updates w,b by taking 
+    num_iters gradient steps with learning rate alpha
+    
+    Args:
+      x (ndarray (m,))  : Data, m examples 
+      y (ndarray (m,))  : target values
+      w_in,b_in (scalar): initial values of model parameters  
+      alpha (float):     Learning rate
+      num_iters (int):   number of iterations to run gradient descent
+      cost_function:     function to call to produce cost
+      gradient_function: function to call to produce gradient
+      
+    Returns:
+      w (scalar): Updated value of parameter after running gradient descent
+      b (scalar): Updated value of parameter after running gradient descent
+      J_history (List): History of cost values
+      p_history (list): History of parameters [w,b] 
+      """</span>
+    
+    w <span class="token operator">=</span> copy<span class="token punctuation">.</span>deepcopy<span class="token punctuation">(</span>w_in<span class="token punctuation">)</span> <span class="token comment"># avoid modifying global w_in</span>
+    <span class="token comment"># An array to store cost J and w's at each iteration primarily for graphing later</span>
+    J_history <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    p_history <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    b <span class="token operator">=</span> b_in
+    w <span class="token operator">=</span> w_in
+    
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>num_iters<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment"># Calculate the gradient and update the parameters using gradient_function</span>
+        dj_dw<span class="token punctuation">,</span> dj_db <span class="token operator">=</span> gradient_function<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> w <span class="token punctuation">,</span> b<span class="token punctuation">)</span>     
+
+        <span class="token comment"># Update Parameters using equation (3) above</span>
+        b <span class="token operator">=</span> b <span class="token operator">-</span> alpha <span class="token operator">*</span> dj_db                            
+        w <span class="token operator">=</span> w <span class="token operator">-</span> alpha <span class="token operator">*</span> dj_dw                            
+
+        <span class="token comment"># Save cost J at each iteration</span>
+        <span class="token keyword">if</span> i<span class="token operator">&lt;</span><span class="token number">100000</span><span class="token punctuation">:</span>      <span class="token comment"># prevent resource exhaustion </span>
+            J_history<span class="token punctuation">.</span>append<span class="token punctuation">(</span> cost_function<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> w <span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            p_history<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">[</span>w<span class="token punctuation">,</span>b<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token comment"># Print cost every at intervals 10 times or as many iterations if &lt; 10</span>
+        <span class="token keyword">if</span> i<span class="token operator">%</span> math<span class="token punctuation">.</span>ceil<span class="token punctuation">(</span>num_iters<span class="token operator">/</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>		<span class="token comment"># 迭代次数划分为10份</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Iteration </span><span class="token interpolation"><span class="token punctuation">&#123;</span>i<span class="token punctuation">:</span><span class="token format-spec">4</span><span class="token punctuation">&#125;</span></span><span class="token string">: Cost </span><span class="token interpolation"><span class="token punctuation">&#123;</span>J_history<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span><span class="token format-spec">0.2e</span><span class="token punctuation">&#125;</span></span><span class="token string"> "</span></span><span class="token punctuation">,</span>
+                  <span class="token string-interpolation"><span class="token string">f"dj_dw: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>dj_dw<span class="token punctuation">:</span><span class="token format-spec"> 0.3e</span><span class="token punctuation">&#125;</span></span><span class="token string">, dj_db: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>dj_db<span class="token punctuation">:</span><span class="token format-spec"> 0.3e</span><span class="token punctuation">&#125;</span></span><span class="token string">  "</span></span><span class="token punctuation">,</span>
+                  <span class="token string-interpolation"><span class="token string">f"w: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>w<span class="token punctuation">:</span><span class="token format-spec"> 0.3e</span><span class="token punctuation">&#125;</span></span><span class="token string">, b:</span><span class="token interpolation"><span class="token punctuation">&#123;</span>b<span class="token punctuation">:</span><span class="token format-spec"> 0.5e</span><span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+ 
+    <span class="token keyword">return</span> w<span class="token punctuation">,</span> b<span class="token punctuation">,</span> J_history<span class="token punctuation">,</span> p_history <span class="token comment">#return w and J,w history for graphing</span>
+
+<span class="token comment"># initialize parameters</span>
+w_init <span class="token operator">=</span> <span class="token number">0</span>
+b_init <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token comment"># some gradient descent settings</span>
+iterations <span class="token operator">=</span> <span class="token number">10000</span>
+tmp_alpha <span class="token operator">=</span> <span class="token number">1.0e-2</span>
+<span class="token comment"># run gradient descent</span>
+w_final<span class="token punctuation">,</span> b_final<span class="token punctuation">,</span> J_hist<span class="token punctuation">,</span> p_hist <span class="token operator">=</span> gradient_descent<span class="token punctuation">(</span>x_train <span class="token punctuation">,</span>y_train<span class="token punctuation">,</span> w_init<span class="token punctuation">,</span> b_init<span class="token punctuation">,</span> tmp_alpha<span class="token punctuation">,</span> 
+                                                    iterations<span class="token punctuation">,</span> compute_cost<span class="token punctuation">,</span> compute_gradient<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"(w,b) found by gradient descent: (</span><span class="token interpolation"><span class="token punctuation">&#123;</span>w_final<span class="token punctuation">:</span><span class="token format-spec">8.4f</span><span class="token punctuation">&#125;</span></span><span class="token string">,</span><span class="token interpolation"><span class="token punctuation">&#123;</span>b_final<span class="token punctuation">:</span><span class="token format-spec">8.4f</span><span class="token punctuation">&#125;</span></span><span class="token string">)"</span></span><span class="token punctuation">)</span>
+
+<span class="token comment"># plot cost versus iteration  </span>
+fig<span class="token punctuation">,</span> <span class="token punctuation">(</span>ax1<span class="token punctuation">,</span> ax2<span class="token punctuation">)</span> <span class="token operator">=</span> plt<span class="token punctuation">.</span>subplots<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> constrained_layout<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+ax1<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>J_hist<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">100</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+ax2<span class="token punctuation">.</span>plot<span class="token punctuation">(</span><span class="token number">1000</span> <span class="token operator">+</span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>J_hist<span class="token punctuation">[</span><span class="token number">1000</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> J_hist<span class="token punctuation">[</span><span class="token number">1000</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+ax1<span class="token punctuation">.</span>set_title<span class="token punctuation">(</span><span class="token string">"Cost vs. iteration(start)"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  ax2<span class="token punctuation">.</span>set_title<span class="token punctuation">(</span><span class="token string">"Cost vs. iteration (end)"</span><span class="token punctuation">)</span>
+ax1<span class="token punctuation">.</span>set_ylabel<span class="token punctuation">(</span><span class="token string">'Cost'</span><span class="token punctuation">)</span>            <span class="token punctuation">;</span>  ax2<span class="token punctuation">.</span>set_ylabel<span class="token punctuation">(</span><span class="token string">'Cost'</span><span class="token punctuation">)</span> 
+ax1<span class="token punctuation">.</span>set_xlabel<span class="token punctuation">(</span><span class="token string">'iteration step'</span><span class="token punctuation">)</span>  <span class="token punctuation">;</span>  ax2<span class="token punctuation">.</span>set_xlabel<span class="token punctuation">(</span><span class="token string">'iteration step'</span><span class="token punctuation">)</span> 
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"1000 sqft house prediction </span><span class="token interpolation"><span class="token punctuation">&#123;</span>w_final<span class="token operator">*</span><span class="token number">1.0</span> <span class="token operator">+</span> b_final<span class="token punctuation">:</span><span class="token format-spec">0.1f</span><span class="token punctuation">&#125;</span></span><span class="token string"> Thousand dollars"</span></span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"1200 sqft house prediction </span><span class="token interpolation"><span class="token punctuation">&#123;</span>w_final<span class="token operator">*</span><span class="token number">1.2</span> <span class="token operator">+</span> b_final<span class="token punctuation">:</span><span class="token format-spec">0.1f</span><span class="token punctuation">&#125;</span></span><span class="token string"> Thousand dollars"</span></span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"2000 sqft house prediction </span><span class="token interpolation"><span class="token punctuation">&#123;</span>w_final<span class="token operator">*</span><span class="token number">2.0</span> <span class="token operator">+</span> b_final<span class="token punctuation">:</span><span class="token format-spec">0.1f</span><span class="token punctuation">&#125;</span></span><span class="token string"> Thousand dollars"</span></span><span class="token punctuation">)</span>
+
+fig<span class="token punctuation">,</span> ax <span class="token operator">=</span> plt<span class="token punctuation">.</span>subplots<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span> figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+plt_contour_wgrad<span class="token punctuation">(</span>x_train<span class="token punctuation">,</span> y_train<span class="token punctuation">,</span> p_hist<span class="token punctuation">,</span> ax<span class="token punctuation">)</span>
+
+fig<span class="token punctuation">,</span> ax <span class="token operator">=</span> plt<span class="token punctuation">.</span>subplots<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span> figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+plt_contour_wgrad<span class="token punctuation">(</span>x_train<span class="token punctuation">,</span> y_train<span class="token punctuation">,</span> p_hist<span class="token punctuation">,</span> ax<span class="token punctuation">,</span> w_range<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">180</span><span class="token punctuation">,</span> <span class="token number">220</span><span class="token punctuation">,</span> <span class="token number">0.5</span><span class="token punctuation">]</span><span class="token punctuation">,</span> b_range<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">80</span><span class="token punctuation">,</span> <span class="token number">120</span><span class="token punctuation">,</span> <span class="token number">0.5</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            contours<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">]</span><span class="token punctuation">,</span>resolution<span class="token operator">=</span><span class="token number">0.5</span><span class="token punctuation">)</span>
+
+<span class="token comment"># initialize parameters</span>
+w_init <span class="token operator">=</span> <span class="token number">0</span>
+b_init <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token comment"># set alpha to a large value</span>
+iterations <span class="token operator">=</span> <span class="token number">10</span>
+tmp_alpha <span class="token operator">=</span> <span class="token number">8.0e-1</span>
+<span class="token comment"># run gradient descent</span>
+w_final<span class="token punctuation">,</span> b_final<span class="token punctuation">,</span> J_hist<span class="token punctuation">,</span> p_hist <span class="token operator">=</span> gradient_descent<span class="token punctuation">(</span>x_train <span class="token punctuation">,</span>y_train<span class="token punctuation">,</span> w_init<span class="token punctuation">,</span> b_init<span class="token punctuation">,</span> tmp_alpha<span class="token punctuation">,</span> 
+                                                    iterations<span class="token punctuation">,</span> compute_cost<span class="token punctuation">,</span> compute_gradient<span class="token punctuation">)</span>
+
+plt_divergence<span class="token punctuation">(</span>p_hist<span class="token punctuation">,</span> J_hist<span class="token punctuation">,</span>x_train<span class="token punctuation">,</span> y_train<span class="token punctuation">)</span> <span class="token comment"># 具体内容与 plt_contour_wgrad 函数类似，只不过它是绘制参数空间与代价空间的散度图（Divergence Plot）</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>输出</p>
 <ul>
 <li><figure>
@@ -1246,6 +1241,55 @@ alt="img" /></p></li>
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
+                <a href="/2023/02/18/ml06/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="P28-多元线性回归的梯度下降">
+                        
+                        <span class="card-title">P28-多元线性回归的梯度下降</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            梯度下降
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-02-18
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Machine-Learning/" class="post-category">
+                                    Machine Learning
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Academic/">
+                        <span class="chip bg-color">Academic</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
                 <a href="/2023/02/11/ml05/">
                     <div class="card-image">
                         
@@ -1262,9 +1306,9 @@ alt="img" /></p></li>
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-02-11
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-11
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1276,55 +1320,6 @@ alt="img" /></p></li>
                             
                         </span>
                     </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2023/02/11/python/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Python">
-                        
-                        <span class="card-title">Python</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            python start
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-11
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Programming-Design/" class="post-category">
-                                    Programming Design
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Python/">
-                        <span class="chip bg-color">Python</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -1471,7 +1466,7 @@ alt="img" /></p></li>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">235.4k</span>&nbsp;字
+                class="white-color">230.3k</span>&nbsp;字
             
             
             

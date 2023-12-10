@@ -511,17 +511,16 @@
 <li><p>kali python版本切换</p>
 <ol type="1">
 <li><p>command</p>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> update-alternatives <span class="at">--install</span> /usr/bin/python python /usr/bin/python2 100  <span class="co">#1</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> update-alternatives <span class="at">--install</span> /usr/bin/python python /usr/bin/python3 150  <span class="co">#2</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">supdate-alternatives</span> <span class="at">--config</span> python       <span class="co">#3</span></span></code></pre></div>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> update-alternatives <span class="token parameter variable">--install</span> /usr/bin/python python /usr/bin/python2 <span class="token number">100</span>  <span class="token comment">#1</span>
+<span class="token function">sudo</span> update-alternatives <span class="token parameter variable">--install</span> /usr/bin/python python /usr/bin/python3 <span class="token number">150</span>  <span class="token comment">#2</span>
+supdate-alternatives <span class="token parameter variable">--config</span> python		<span class="token comment">#3</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><strong>如下</strong>：<img
 src="https://s2.loli.net/2023/05/24/JYuV6L3UAwH7mR1.png"
 alt="最终如下" /></p></li>
 </ol></li>
 <li><p><strong>指定版本下安装库</strong></p>
-<div class="sourceCode" id="cb2"><pre
-class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>pip3<span class="op">.</span><span class="fu">11</span> install requests</span></code></pre></div>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">pip3<span class="token punctuation">.</span>11 install requests<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <figure>
 <img src="https://s2.loli.net/2023/02/27/uy5mipCaBU9Te6c.png"
 alt="image-20230227142616765" />
@@ -531,11 +530,10 @@ alt="image-20230227142616765" />
 <h3 id="图形编辑器">图形编辑器</h3>
 <ul>
 <li><p><strong>import</strong></p>
-<div class="sourceCode" id="cb3"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tkinter <span class="im">import</span> <span class="op">*</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tkinter <span class="im">as</span> tk</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tkinter <span class="im">import</span> filedialog</span></code></pre></div>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> json
+<span class="token keyword">from</span> tkinter <span class="token keyword">import</span> <span class="token operator">*</span>
+<span class="token keyword">import</span> tkinter <span class="token keyword">as</span> tk
+<span class="token keyword">from</span> tkinter <span class="token keyword">import</span> filedialog<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>This code imports several modules from the tkinter library:
 <code>Tk</code>, <code>Frame</code>, <code>Button</code>,
@@ -553,8 +551,7 @@ fields, <code>Scrollbar</code> is used to create scrollbars, and
 <li><code>filedialog</code> is a module that provides a file dialog
 window to allow the user to select a file or directory.</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="va">self</span>.root <span class="op">=</span> Tk()</span></code></pre></div>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">self<span class="token punctuation">.</span>root <span class="token operator">=</span> Tk<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li>创建主窗口</li>
 </ul></li>
@@ -589,9 +586,8 @@ Toplevel 窗口，但是没有在该窗口中使用 <code>wait_window</code> 或
 <li><p><code>dialog.grab_release()</code>
 取消对话框的模态设置，即恢复其他窗口的响应和焦点。</p></li>
 <li><p><strong>Ans:</strong></p>
-<div class="sourceCode" id="cb5"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>dialog.wait_window()</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>dialog.grab_release()</span></code></pre></div></li>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">dialog<span class="token punctuation">.</span>wait_window<span class="token punctuation">(</span><span class="token punctuation">)</span>
+dialog<span class="token punctuation">.</span>grab_release<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
 </ul></li>
 <li><p>创建界面需要以下方法：</p>
 <ol type="1">
@@ -611,14 +607,13 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a hr
 <h3 id="语法">语法</h3>
 <ul>
 <li><p>多函数执行</p>
-<div class="sourceCode" id="cb6"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  db(url)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  table(url)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&#39;__main__&#39;</span>:</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  main()</span></code></pre></div></li>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+  db<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+  table<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+
+  main<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>四种集合类型</p>
 <ul>
 <li>List[]：有序可更改</li>
@@ -631,10 +626,10 @@ src="https://s2.loli.net/2023/02/11/Q4GZh8SHzpkmOUr.png"
 alt="image-20230211005557567" /></p></li>
 </ul>
 <ol type="1">
-<li><div class="sourceCode" id="cb7"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>   my_tuple <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>   result <span class="op">=</span> my_tuple[<span class="dv">1</span>:<span class="dv">4</span>:<span class="dv">2</span>]</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>   <span class="bu">print</span>(result)</span></code></pre></div>
+<li><div class="sourceCode" id="cb1"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>   my_tuple <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>   result <span class="op">=</span> my_tuple[<span class="dv">1</span>:<span class="dv">4</span>:<span class="dv">2</span>]</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>   <span class="bu">print</span>(result)</span></code></pre></div>
 <p>解析：这段代码定义了一个元组my_tuple,然后使用切片操作获取一个切片赋值给result,最后打印result。</p>
 <p>my_tuple = (1, 2, 3, 4, 5) 定义一个包含5个元素的元组</p>
 <p>result = my_tuple[1:4:2]
@@ -1026,13 +1021,13 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a hr
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2023/02/11/ml04/">
+                <a href="/2023/02/11/ml05/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="ML-Lab">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="多类特征">
                         
-                        <span class="card-title">ML-Lab</span>
+                        <span class="card-title">多类特征</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1056,14 +1051,6 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a hr
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Lab/">
-                        <span class="chip bg-color">Lab</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -1259,7 +1246,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a hr
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">235.4k</span>&nbsp;字
+                class="white-color">230.3k</span>&nbsp;字
             
             
             

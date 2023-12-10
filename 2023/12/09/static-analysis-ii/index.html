@@ -488,7 +488,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    563
+                    711
                 </div>
                 
 
@@ -550,12 +550,11 @@ A和 <em>P</em> 关于 Q* 的真相集合 T 之间满足 T<em>⊆</em>A
 ，这种分析策略也称作
 <strong>欠近似（Under-approximation）</strong></p></li>
 <li><p>下面我们再看一个 <code>Sound</code> 的静态分析的例子：</p>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> input then</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>output x<span class="op">;</span></span></code></pre></div>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">if</span> input then
+    x <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">else</span>
+    x <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+output x<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>我们可以有两种 <code>Sound</code> 的静态分析：</p>
 <ul>
 <li>当 <code>input</code> 为 <code>true</code> ，<code>x</code> 为
@@ -570,6 +569,22 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#c
 <strong>解析（Evaluate）</strong> 表达式</li>
 <li>⊤表示 <strong>未确定（Unknown）</strong> 值， ⊥表示
 <strong>未定义（Undefined）</strong>值</li>
+</ol>
+<h3 id="数据流分析及其应用">数据流分析及其应用</h3>
+<h4 id="数据流分析初步">数据流分析初步</h4>
+<ol type="1">
+<li>我们将采用过近似策略，输出所有可能为真的信息的数据流分析称为
+<strong>可能性分析（May Analysis）</strong>
+，将采用欠近似策略，输出信息必然为真的数据流分析称为
+<strong>必然性分析（Must Analysis</strong></li>
+<li>不同的数据流分析应用应当有
+<ol type="1">
+<li>不同的数据抽象（Data Abstraction）;</li>
+<li>不同的流安全近似策略——过近似或者欠近似；</li>
+<li>不同的转移函数（Transfer
+Function，见定义1.8）和控制流处理方法（Control-Flow Handlings）</li>
+</ol></li>
+<li></li>
 </ol>
 
                 
@@ -1188,7 +1203,7 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#c
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">235.4k</span>&nbsp;字
+                class="white-color">230.3k</span>&nbsp;字
             
             
             

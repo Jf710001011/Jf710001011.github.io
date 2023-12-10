@@ -484,7 +484,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    803
+                    800
                 </div>
                 
 
@@ -588,11 +588,10 @@ class="uri">http://xuesql.cn/lesson/select_queries_with_aggregates</a>
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode sql"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> BUILDING,<span class="fu">COUNT</span>(<span class="op">*</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> employees</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> BUILDING <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> BUILDIN</span></code></pre></div>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> BUILDING<span class="token punctuation">,</span><span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span>
+<span class="token keyword">FROM</span> employees
+<span class="token keyword">WHERE</span> BUILDING <span class="token operator">IS</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span>
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> BUILDIN<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="笔记">笔记</h2>
 <blockquote>
 <ol type="1">
@@ -716,14 +715,12 @@ class="uri">http://xuesql.cn/lesson/select_queries_with_aggregates_pt_2</a></p>
 </tbody>
 </table>
 <blockquote>
-<p>Answer:</p>
+<p>Answer: <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> ROLE<span class="token punctuation">,</span><span class="token keyword">CASE</span> <span class="token keyword">WHEN</span> BUILDING <span class="token operator">IS</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span>
+<span class="token keyword">THEN</span> <span class="token string">'1'</span> <span class="token keyword">ELSE</span> <span class="token string">'0'</span> <span class="token keyword">END</span>
+<span class="token keyword">AS</span> HAVE<span class="token punctuation">,</span><span class="token function">COUNT</span><span class="token punctuation">(</span>NAME<span class="token punctuation">)</span>
+<span class="token keyword">FROM</span> EMPLOYEES
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> ROLE<span class="token punctuation">,</span>HAVE<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
 </blockquote>
-<div class="sourceCode" id="cb2"><pre
-class="sourceCode sql"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">ROLE</span>,<span class="cf">CASE</span> <span class="cf">WHEN</span> BUILDING <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">THEN</span> <span class="st">&#39;1&#39;</span> <span class="cf">ELSE</span> <span class="st">&#39;0&#39;</span> <span class="cf">END</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">AS</span> HAVE,<span class="fu">COUNT</span>(NAME)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> EMPLOYEES</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> <span class="kw">ROLE</span>,HAVE</span></code></pre></div>
 <blockquote>
 <p>分析 :
 题意中分组会产生两种情况：有无办公室。这时候<code>case when end</code>便派上用场了。</p>
@@ -942,25 +939,23 @@ class="sourceCode sql"><code class="sourceCode sql"><span id="cb2-1"><a href="#c
 </tbody>
 </table>
 <blockquote>
-<p>ANSWER:</p>
+<p>ANSWER: <pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">SELECT DIRECTOR,SUM(DOMESTIC_SALES+INTERNATIONAL_SALES),COUNT(ID),AVG(DOMESTIC_SALES+INTERNATIONAL_SALES) AS AVERAGE
+FROM movies
+JOIN Boxoffice
+ON ID &#x3D; MOVIE_ID
+GROUP BY DIRECTOR
+HAVING COUNT(ID)&gt;1
+ORDER BY AVERAGE DESC
+LIMIT 1;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
 </blockquote>
-<div class="sourceCode" id="cb3"><pre
-class="sourceCode sql"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> DIRECTOR,<span class="fu">SUM</span>(DOMESTIC_SALES<span class="op">+</span>INTERNATIONAL_SALES),<span class="fu">COUNT</span>(<span class="kw">ID</span>),<span class="fu">AVG</span>(DOMESTIC_SALES<span class="op">+</span>INTERNATIONAL_SALES) <span class="kw">AS</span> AVERAGE</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> movies</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> Boxoffice</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">ON</span> <span class="kw">ID</span> <span class="op">=</span> MOVIE_ID</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> DIRECTOR</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="kw">HAVING</span> <span class="fu">COUNT</span>(<span class="kw">ID</span>)<span class="op">&gt;</span><span class="dv">1</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> AVERAGE <span class="kw">DESC</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span> <span class="dv">1</span>;</span></code></pre></div>
 <blockquote>
 <p>【变态难】找出每部电影和单部电影销售冠军之间的销售差，列出电影名，销售额差额</p>
 </blockquote>
-<div class="sourceCode" id="cb4"><pre
-class="sourceCode sql"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> TITLE,(<span class="kw">SELECT</span> <span class="fu">MAX</span>(DOMESTIC_SALES<span class="op">+</span>INTERNATIONAL_SALES)<span class="kw">FROM</span> BOXOFFICE)<span class="op">-</span>(DOMESTIC_SALES<span class="op">+</span>INTERNATIONAL_SALES)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">From</span> MOVIES</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> Boxoffice</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="kw">ON</span> <span class="kw">ID</span> <span class="op">=</span> MOVIE_ID</span></code></pre></div>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> TITLE<span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token function">MAX</span><span class="token punctuation">(</span>DOMESTIC_SALES<span class="token operator">+</span>INTERNATIONAL_SALES<span class="token punctuation">)</span><span class="token keyword">FROM</span> BOXOFFICE<span class="token punctuation">)</span><span class="token operator">-</span><span class="token punctuation">(</span>DOMESTIC_SALES<span class="token operator">+</span>INTERNATIONAL_SALES<span class="token punctuation">)</span>
+<span class="token keyword">From</span> MOVIES
+<span class="token keyword">JOIN</span> Boxoffice
+<span class="token keyword">ON</span> ID <span class="token operator">=</span> MOVIE_ID
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>内部嵌入一个select</p>
 </blockquote>
@@ -1582,7 +1577,7 @@ LastName&gt;'Adams' AND LastName&lt;'Carter' FROM Persons
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">235.4k</span>&nbsp;字
+                class="white-color">230.3k</span>&nbsp;字
             
             
             

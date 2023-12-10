@@ -501,9 +501,6 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.css">
-        
 
         
 
@@ -514,13 +511,13 @@
 <li><p>kali python版本切换</p>
 <ol type="1">
 <li><p>command</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 100  <span class="comment">#1</span></span><br><span class="line">sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 150  <span class="comment">#2</span></span><br><span class="line">supdate-alternatives --config python		<span class="comment">#3</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 100  <span class="comment">#1</span></span><br><span class="line">sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 150  <span class="comment">#2</span></span><br><span class="line">supdate-alternatives --config python		<span class="comment">#3</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p><strong>如下</strong>：<img
 src="https://s2.loli.net/2023/05/24/JYuV6L3UAwH7mR1.png"
 alt="最终如下" /></p></li>
 </ol></li>
 <li><p><strong>指定版本下安装库</strong></p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">pip3.<span class="number">11</span> install requests</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3.<span class="number">11</span> install requests</span><br></pre></td></tr></table></figure>
 <figure>
 <img src="https://s2.loli.net/2023/02/27/uy5mipCaBU9Te6c.png"
 alt="image-20230227142616765" />
@@ -530,7 +527,7 @@ alt="image-20230227142616765" />
 <h3 id="图形编辑器">图形编辑器</h3>
 <ul>
 <li><p><strong>import</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">from</span> tkinter <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> tkinter <span class="keyword">as</span> tk</span><br><span class="line"><span class="keyword">from</span> tkinter <span class="keyword">import</span> filedialog</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">from</span> tkinter <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> tkinter <span class="keyword">as</span> tk</span><br><span class="line"><span class="keyword">from</span> tkinter <span class="keyword">import</span> filedialog</span><br></pre></td></tr></table></figure>
 <ul>
 <li>This code imports several modules from the tkinter library:
 <code>Tk</code>, <code>Frame</code>, <code>Button</code>,
@@ -548,7 +545,7 @@ fields, <code>Scrollbar</code> is used to create scrollbars, and
 <li><code>filedialog</code> is a module that provides a file dialog
 window to allow the user to select a file or directory.</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">self.root = Tk()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">self.root = Tk()</span><br></pre></td></tr></table></figure>
 <ul>
 <li>创建主窗口</li>
 </ul></li>
@@ -583,7 +580,7 @@ Toplevel 窗口，但是没有在该窗口中使用 <code>wait_window</code> 或
 <li><p><code>dialog.grab_release()</code>
 取消对话框的模态设置，即恢复其他窗口的响应和焦点。</p></li>
 <li><p><strong>Ans:</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">dialog.wait_window()</span><br><span class="line">dialog.grab_release()</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dialog.wait_window()</span><br><span class="line">dialog.grab_release()</span><br></pre></td></tr></table></figure></li>
 </ul></li>
 <li><p>创建界面需要以下方法：</p>
 <ol type="1">
@@ -603,7 +600,7 @@ Toplevel 窗口，但是没有在该窗口中使用 <code>wait_window</code> 或
 <h3 id="语法">语法</h3>
 <ul>
 <li><p>多函数执行</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">  db(url)</span><br><span class="line">  table(url)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line"></span><br><span class="line">  main()</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">  db(url)</span><br><span class="line">  table(url)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line"></span><br><span class="line">  main()</span><br></pre></td></tr></table></figure></li>
 <li><p>四种集合类型</p>
 <ul>
 <li>List[]：有序可更改</li>
@@ -1236,7 +1233,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a hr
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">235.5k</span>&nbsp;字
+                class="white-color">236k</span>&nbsp;字
             
             
             

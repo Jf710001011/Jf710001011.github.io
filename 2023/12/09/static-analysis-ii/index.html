@@ -488,7 +488,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1k
+                    1.2k
                 </div>
                 
 
@@ -504,9 +504,6 @@
         </div>
         <hr class="clearfix">
 
-        
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.css">
         
 
         
@@ -553,7 +550,7 @@ A和 <em>P</em> 关于 Q* 的真相集合 T 之间满足 T<em>⊆</em>A
 ，这种分析策略也称作
 <strong>欠近似（Under-approximation）</strong></p></li>
 <li><p>下面我们再看一个 <code>Sound</code> 的静态分析的例子：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> input then</span><br><span class="line">    x = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    x = <span class="number">0</span>;</span><br><span class="line">output x;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> input then</span><br><span class="line">    x = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    x = <span class="number">0</span>;</span><br><span class="line">output x;</span><br></pre></td></tr></table></figure>
 <p>我们可以有两种 <code>Sound</code> 的静态分析：</p>
 <ul>
 <li>当 <code>input</code> 为 <code>true</code> ，<code>x</code> 为
@@ -599,6 +596,21 @@ DFG 的入口处为每个变量 v
 v 的程序点 p ，且 v 的伪定义能够到达程序点 p，那么我们就可以分析出变量
 v可能在定义之前被使用，也就是可能程序存在变量未定义的错误</li>
 <li>在DFG中，虽然存在着<strong>多条</strong>控制流，但是，实际程序执行的时候，只有唯一的一条控制流会被<strong>真实的执行</strong>，而这条控制流并不一定刚好是我们<strong>用于</strong>得到定义可达结论的那一条。</li>
+</ol>
+<h4 id="活跃变量分析">活跃变量分析</h4>
+<ol type="1">
+<li>在程序点 p 处，某个变量 v 的变量值（Variable
+Value）可能在之后的某条控制流中<strong>被用到</strong>，我们就称变量 v
+是程序点 p 处的 <code>活变量（Live Variable）</code>
+，否则，我们就称变量 v 为程序点 p 处的 死变量（Dead Variable）
+。分析在各个程序点处所有的变量是死是活的分析，称为
+<code>活跃变量分析（Live Variable Analysis）</code>
+<ol type="1">
+<li>程序点 p 处的变量 v 是活变量，当且仅当在 CFG 中存在某条从 p
+开始的路径，在这条路径上变量 v 被使用了，并且在 v 被使用之前， v
+未被重定义<img src="https://s2.loli.net/2023/12/10/2gGBFmVhEyCvTuz.png"
+alt="lv.22a3dea9" /></li>
+</ol></li>
 </ol>
 
                 
@@ -1217,7 +1229,7 @@ v可能在定义之前被使用，也就是可能程序存在变量未定义的�
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">235.5k</span>&nbsp;字
+                class="white-color">236k</span>&nbsp;字
             
             
             

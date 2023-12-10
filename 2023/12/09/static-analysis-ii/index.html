@@ -488,7 +488,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.2k
+                    1.5k
                 </div>
                 
 
@@ -613,7 +613,54 @@ alt="lv.22a3dea9" /></li>
 <li>我们判断活跃变量的标准不是这个变量之后有没有可能用到，而是
 这个变量当前所<strong>储存的值</strong>在之后有没有可能被用到</li>
 </ol></li>
+<li>逆序分析</li>
 </ol>
+<h4 id="可用表达式分析">可用表达式分析</h4>
+<ol type="1">
+<li><p>一个表达式（Expression）<code>x op y</code>在程序点 p 处是
+<strong>可用的（Avaliable）</strong> ，如果：</p>
+<ul>
+<li><strong>所有</strong> 的从程序入口到程序点 p的路径都
+<strong>必须</strong> 经过 <code>x op y</code>
+表达式的评估（Evaluation），并且</li>
+<li>在最后一次 <code>x op y</code> 的评估之后，没有 x或者
+y的重定义（Redefinition）。</li>
+</ul>
+<p>对于程序中每个程序点处的可用表达式的分析，我们称之为
+<strong>可用表达式分析（Avaliable Expression Analysis）</strong>
+。</p></li>
+</ol>
+<h4 id="总结">总结</h4>
+<ol type="1">
+<li>数据流分析的基本过程
+<ol type="1">
+<li>问题描述：
+<ul>
+<li>定义要研究的问题，从而确定分析顺序（正向还是逆向）和估计方式（过近似还是欠近似）；</li>
+</ul></li>
+<li>数据抽象：
+<ul>
+<li>确定抽象数据状态集（也就是数据流值集），从而确定定义域；</li>
+</ul></li>
+<li>约束分析：
+<ul>
+<li>考虑语意约束，确定状态转移方程；</li>
+<li>考虑控制流约束，确定交汇操作符的含义；</li>
+</ul></li>
+<li>算法设计：
+<ul>
+<li>根据上述分析设计算法，我们目前只学了迭代算法，还可以有其他的算法设计；</li>
+</ul></li>
+<li>算法分析：
+<ul>
+<li>分析算法的正确性和复杂度</li>
+</ul></li>
+</ol></li>
+<li>三种数据流分析应用对比<img
+src="https://s2.loli.net/2023/12/10/b7hPQ3EUtCmnZFk.png"
+alt="image-20231210151847727" /></li>
+</ol>
+<p>​</p>
 
                 
             </div>
@@ -1231,7 +1278,7 @@ alt="lv.22a3dea9" /></li>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">236k</span>&nbsp;字
+                class="white-color">236.3k</span>&nbsp;字
             
             
             

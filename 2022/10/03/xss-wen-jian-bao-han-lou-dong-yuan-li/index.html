@@ -43,7 +43,7 @@
     <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 7.0.0"><link rel="alternate" href="/atom.xml" title="Jf71o0x1o1l" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
     
@@ -488,7 +488,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    104
+                    117
                 </div>
                 
 
@@ -505,17 +505,20 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h3 id="本地文件包含">本地文件包含</h3>
-<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
-<span class="token variable">$fileName</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'fileName'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token keyword">include</span> <span class="token variable">$fileName</span><span class="token punctuation">;</span>
+<pre class="language-php" data-language="php"><code class="language-php">&lt;?php
+$fileName &#x3D; $_GET[&#39;fileName&#39;];
+include $fileName;
 
-<span class="token keyword">echo</span> <span class="token string double-quoted-string">"欢迎来到php的世界"</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+echo &quot;欢迎来到php的世界&quot;;</code></pre>
 <h3 id="远程文件包含">远程文件包含</h3>
 <ul>
 <li>/opt/lampp/etc/php.ini,更改配置</li>
@@ -530,7 +533,7 @@ alt="image-20221002170334041" />
 <li>在远程主机还是本地主机执行远程文件</li>
 </ul>
 <h3 id="php伪协议利用">php伪协议利用</h3>
-<pre class="line-numbers language-uri" data-language="uri"><code class="language-uri"><span class="token scheme">http<span class="token scheme-delimiter">:</span></span><span class="token authority"><span class="token authority-delimiter">//</span><span class="token host"><span class="token ipv4-address">192.168.104.130</span></span></span><span class="token authority"><span class="token authority-delimiter">//</span><span class="token host">security</span></span><span class="token path"><span class="token path-separator">/</span>fileInc</span><span class="token query"><span class="token query-delimiter">?</span><span class="token pair"><span class="token key">fileName</span>=<span class="token value">php://filter</span></span></span> <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="language-uri" data-language="uri"><code class="language-uri">http:&#x2F;&#x2F;192.168.104.130&#x2F;&#x2F;security&#x2F;fileInc?fileName&#x3D;php:&#x2F;&#x2F;filter </code></pre>
 <ul>
 <li>php://filter</li>
 <li>php://input</li>
@@ -1152,7 +1155,7 @@ alt="image-20221002170334041" />
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">230.3k</span>&nbsp;字
+                class="white-color">238.7k</span>&nbsp;字
             
             
             

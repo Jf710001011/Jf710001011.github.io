@@ -43,7 +43,7 @@
     <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 7.0.0"><link rel="alternate" href="/atom.xml" title="Jf71o0x1o1l" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
     
@@ -488,7 +488,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.2k
+                    1.3k
                 </div>
                 
 
@@ -505,6 +505,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -513,7 +516,7 @@
                 <h2 id="模板泛型编程">模板：泛型编程</h2>
 <blockquote>
 <p>函数模板 和 类模板 - 函数模板：返回值类型 和 参数类型
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">template</span><span class="token operator">&lt;</span><span class="token keyword">typename</span> <span class="token class-name">T</span><span class="token operator">></span>   <span class="token comment">// 或class</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp">template&lt;typename T&gt;   &#x2F;&#x2F; 或class</code></pre></p>
 </blockquote>
 <pre><code>&gt; 推导出的T 数据类型必须一致
 &gt; 模板必须要推出T的数据类型 
@@ -529,177 +532,177 @@
 
 &gt; 对于自定义类型，函数模板有局限性，无法正常运行。
 &gt; 解决方法：提供模板的重载：为特定的类型提供具体化的模板</code></pre>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">template</span><span class="token operator">&lt;</span><span class="token operator">></span>开头
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp">template&lt;&gt;开头
 
-<span class="token keyword">template</span><span class="token operator">&lt;</span><span class="token operator">></span> <span class="token keyword">bool</span> <span class="token function">myCompare</span><span class="token punctuation">(</span>Person <span class="token operator">&amp;</span>p1<span class="token punctuation">,</span> Person <span class="token operator">&amp;</span>p2<span class="token punctuation">)</span>
-<span class="token punctuation">&#123;</span>
-	<span class="token keyword">if</span> <span class="token punctuation">(</span> p1<span class="token punctuation">.</span>m_Name  <span class="token operator">==</span> p2<span class="token punctuation">.</span>m_Name <span class="token operator">&amp;&amp;</span> p1<span class="token punctuation">.</span>m_Age <span class="token operator">==</span> p2<span class="token punctuation">.</span>m_Age<span class="token punctuation">)</span>
-	<span class="token punctuation">&#123;</span>
-		<span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-	<span class="token punctuation">&#125;</span>
-	<span class="token keyword">else</span>
-	<span class="token punctuation">&#123;</span>
-		<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-	<span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+template&lt;&gt; bool myCompare(Person &amp;p1, Person &amp;p2)
+&#123;
+	if ( p1.m_Name  &#x3D;&#x3D; p2.m_Name &amp;&amp; p1.m_Age &#x3D;&#x3D; p2.m_Age)
+	&#123;
+		return true;
+	&#125;
+	else
+	&#123;
+		return false;
+	&#125;
+&#125;</code></pre>
 <ul>
-<li><p>类模板 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// 类模板</span>
-<span class="token keyword">template</span><span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token class-name">nametype</span><span class="token punctuation">,</span><span class="token keyword">class</span> <span class="token class-name">ageType</span><span class="token operator">></span>
-<span class="token keyword">class</span> <span class="token class-name">Person</span> <span class="token punctuation">&#123;</span>
-<span class="token keyword">public</span><span class="token operator">:</span>
-	nametype m_name<span class="token punctuation">;</span>
-	ageType m_age<span class="token punctuation">;</span>
+<li><p>类模板 <pre class="language-cpp" data-language="cpp"><code class="language-cpp">&#x2F;&#x2F; 类模板
+template&lt;class nametype,class ageType&gt;
+class Person &#123;
+public:
+	nametype m_name;
+	ageType m_age;
 
-	<span class="token function">Person</span><span class="token punctuation">(</span>nametype name<span class="token punctuation">,</span> ageType age<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-		<span class="token keyword">this</span><span class="token operator">-></span>m_name <span class="token operator">=</span> name<span class="token punctuation">;</span>
-		<span class="token keyword">this</span><span class="token operator">-></span>m_age <span class="token operator">=</span> age<span class="token punctuation">;</span>
-	<span class="token punctuation">&#125;</span>
-	<span class="token keyword">void</span> <span class="token function">showPerson</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-		cout <span class="token operator">&lt;&lt;</span> <span class="token string">"name: "</span> <span class="token operator">&lt;&lt;</span> <span class="token keyword">this</span><span class="token operator">-></span>m_name <span class="token operator">&lt;&lt;</span> <span class="token string">" age: "</span> <span class="token operator">&lt;&lt;</span> <span class="token keyword">this</span><span class="token operator">-></span>m_age <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-	<span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+	Person(nametype name, ageType age) &#123;
+		this-&gt;m_name &#x3D; name;
+		this-&gt;m_age &#x3D; age;
+	&#125;
+	void showPerson() &#123;
+		cout &lt;&lt; &quot;name: &quot; &lt;&lt; this-&gt;m_name &lt;&lt; &quot; age: &quot; &lt;&lt; this-&gt;m_age &lt;&lt; endl;
+	&#125;
+&#125;;
 
-<span class="token keyword">void</span> <span class="token function">test02</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-	<span class="token comment">// 指定nameType为string类型，ageType为int类型</span>
-	Person<span class="token operator">&lt;</span>string<span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">></span><span class="token function">P1</span><span class="token punctuation">(</span><span class="token string">"孙悟空"</span><span class="token punctuation">,</span> <span class="token number">999</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	P1<span class="token punctuation">.</span><span class="token function">showPerson</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
+void test02() &#123;
+	&#x2F;&#x2F; 指定nameType为string类型，ageType为int类型
+	Person&lt;string, int&gt;P1(&quot;孙悟空&quot;, 999);
+	P1.showPerson();
+&#125;</code></pre></p>
 <blockquote>
-<p>类模板没有自动类型推导 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// Person p("孙悟空", 1000); // 错误 类模板使用时候，不可以用自动类型推导</span>
-	Person <span class="token operator">&lt;</span>string <span class="token punctuation">,</span><span class="token keyword">int</span><span class="token operator">></span><span class="token function">p</span><span class="token punctuation">(</span><span class="token string">"孙悟空"</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//必须使用显示指定类型的方式，使用类模板</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></p>
+<p>类模板没有自动类型推导 <pre class="language-cpp" data-language="cpp"><code class="language-cpp">&#x2F;&#x2F; Person p(&quot;孙悟空&quot;, 1000); &#x2F;&#x2F; 错误 类模板使用时候，不可以用自动类型推导
+	Person &lt;string ,int&gt;p(&quot;孙悟空&quot;, 1000); &#x2F;&#x2F;必须使用显示指定类型的方式，使用类模板</code></pre></p>
 </blockquote>
 <blockquote>
-<p>类模板可以使用默认参数 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">template</span><span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token class-name">NameType</span><span class="token punctuation">,</span> <span class="token keyword">class</span> <span class="token class-name">AgeType</span> <span class="token operator">=</span> <span class="token keyword">int</span><span class="token operator">></span> 
+<p>类模板可以使用默认参数 <pre class="language-cpp" data-language="cpp"><code class="language-cpp">template&lt;class NameType, class AgeType &#x3D; int&gt; 
 
-	Person <span class="token operator">&lt;</span>string<span class="token operator">></span> <span class="token function">p</span><span class="token punctuation">(</span><span class="token string">"猪八戒"</span><span class="token punctuation">,</span> <span class="token number">999</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//类模板中的模板参数列表 可以指定默认参数</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></p>
+	Person &lt;string&gt; p(&quot;猪八戒&quot;, 999); &#x2F;&#x2F;类模板中的模板参数列表 可以指定默认参数</code></pre></p>
 </blockquote></li>
 <li><p>创建时机 &gt; 普通类中的成员函数一开始就可以创建 &gt;
 类模板中的成员函数在调用时才创建<br />
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Person1</span>
-<span class="token punctuation">&#123;</span>
-<span class="token keyword">public</span><span class="token operator">:</span>
-	<span class="token keyword">void</span> <span class="token function">showPerson1</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-	<span class="token punctuation">&#123;</span>
-		cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Person1 show"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-	<span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp">class Person1
+&#123;
+public:
+	void showPerson1()
+	&#123;
+		cout &lt;&lt; &quot;Person1 show&quot; &lt;&lt; endl;
+	&#125;
+&#125;;
 
-<span class="token keyword">class</span> <span class="token class-name">Person2</span>
-<span class="token punctuation">&#123;</span>
-<span class="token keyword">public</span><span class="token operator">:</span>
-	<span class="token keyword">void</span> <span class="token function">showPerson2</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-	<span class="token punctuation">&#123;</span>
-		cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Person2 show"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-	<span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+class Person2
+&#123;
+public:
+	void showPerson2()
+	&#123;
+		cout &lt;&lt; &quot;Person2 show&quot; &lt;&lt; endl;
+	&#125;
+&#125;;
 
-<span class="token keyword">template</span><span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token class-name">T</span><span class="token operator">></span>
-<span class="token keyword">class</span> <span class="token class-name">MyClass</span>
-<span class="token punctuation">&#123;</span>
-<span class="token keyword">public</span><span class="token operator">:</span>
-	T obj<span class="token punctuation">;</span>
+template&lt;class T&gt;
+class MyClass
+&#123;
+public:
+	T obj;
 
-	<span class="token comment">//类模板中的成员函数，并不是一开始就创建的，而是在模板调用时再生成</span>
+	&#x2F;&#x2F;类模板中的成员函数，并不是一开始就创建的，而是在模板调用时再生成
 
-	<span class="token keyword">void</span> <span class="token function">fun1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> obj<span class="token punctuation">.</span><span class="token function">showPerson1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">&#125;</span>
-	<span class="token keyword">void</span> <span class="token function">fun2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> obj<span class="token punctuation">.</span><span class="token function">showPerson2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">&#125;</span>
+	void fun1() &#123; obj.showPerson1(); &#125;
+	void fun2() &#123; obj.showPerson2(); &#125;
 
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+&#125;;
 
-<span class="token keyword">void</span> <span class="token function">test01</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">&#123;</span>
-	MyClass<span class="token operator">&lt;</span>Person1<span class="token operator">></span> m<span class="token punctuation">;</span>
+void test01()
+&#123;
+	MyClass&lt;Person1&gt; m;
 	
-	m<span class="token punctuation">.</span><span class="token function">fun1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	m.fun1();
 
-	<span class="token comment">//m.fun2();//编译会出错，说明函数调用才会去创建成员函数</span>
-<span class="token punctuation">&#125;</span>
+	&#x2F;&#x2F;m.fun2();&#x2F;&#x2F;编译会出错，说明函数调用才会去创建成员函数
+&#125;
 
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+int main() &#123;
 
-	<span class="token function">test01</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	test01();
 
-	<span class="token function">system</span><span class="token punctuation">(</span><span class="token string">"pause"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	system(&quot;pause&quot;);
 
-	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p></li>
+	return 0;
+&#125;</code></pre></p></li>
 <li><p>类模板对象做参数 &gt; 1. 指定传入的类型 ---
 直接显示对象的数据类型 &gt; 2. 参数模板化 ---
 将对象中的参数变为模板进行传递 &gt; 3. 整个类模板化 --- 将这个对象类型
 模板化进行传递</p></li>
 </ul>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// 类模板</span>
-<span class="token keyword">template</span><span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token class-name">NameType</span><span class="token punctuation">,</span> <span class="token keyword">class</span> <span class="token class-name">AgeType</span> <span class="token operator">=</span> <span class="token keyword">int</span><span class="token operator">></span>
-<span class="token keyword">class</span> <span class="token class-name">Person</span><span class="token punctuation">&#123;</span>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp">&#x2F;&#x2F; 类模板
+template&lt;class NameType, class AgeType &#x3D; int&gt;
+class Person&#123;
 
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+&#125;;
 
-<span class="token comment">//1、指定传入的类型  最常用</span>
-<span class="token keyword">void</span> <span class="token function">printPerson1</span><span class="token punctuation">(</span>Person<span class="token operator">&lt;</span>string<span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">></span> <span class="token operator">&amp;</span>p<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+&#x2F;&#x2F;1、指定传入的类型  最常用
+void printPerson1(Person&lt;string, int&gt; &amp;p) &#123;
 
-<span class="token punctuation">&#125;</span>
+&#125;
 
-<span class="token keyword">template</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token class-name">T1</span><span class="token punctuation">,</span> <span class="token keyword">class</span> <span class="token class-name">T2</span><span class="token operator">></span>
-<span class="token keyword">void</span> <span class="token function">printPerson2</span><span class="token punctuation">(</span>Person<span class="token operator">&lt;</span>T1<span class="token punctuation">,</span> T2<span class="token operator">></span><span class="token operator">&amp;</span>p<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+template &lt;class T1, class T2&gt;
+void printPerson2(Person&lt;T1, T2&gt;&amp;p)&#123;
 
-<span class="token punctuation">&#125;</span>
+&#125;
 
 
- <span class="token comment">//3、整个类模板化</span>
-<span class="token keyword">template</span><span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token class-name">T</span><span class="token operator">></span>
-<span class="token keyword">void</span> <span class="token function">printPerson3</span><span class="token punctuation">(</span>T <span class="token operator">&amp;</span> p<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+ &#x2F;&#x2F;3、整个类模板化
+template&lt;class T&gt;
+void printPerson3(T &amp; p) &#123;
 
-<span class="token punctuation">&#125;</span>  
+&#125;  
 
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <ul>
 <li><p>类模板与继承 &gt;
 当子类继承的父类是一个类模板时，子类在声明的时候，要指定出父类中T的类型
 &gt; 如果不指定，编译器无法给子类分配内存 &gt;
-如果想灵活指定出父类中T的类型，子类也需变为类模板 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">
-<span class="token keyword">template</span><span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token class-name">T</span><span class="token operator">></span>
-<span class="token keyword">class</span> <span class="token class-name">Base</span>
-<span class="token punctuation">&#123;</span>
-	T m<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+如果想灵活指定出父类中T的类型，子类也需变为类模板 <pre class="language-cpp" data-language="cpp"><code class="language-cpp">
+template&lt;class T&gt;
+class Base
+&#123;
+	T m;
+&#125;;
 
-<span class="token comment">//class Son:public Base  //错误，c++编译需要给子类分配内存，必须知道父类中T的类型才可以向下继承</span>
-<span class="token keyword">class</span> <span class="token class-name">Son</span> <span class="token operator">:</span><span class="token base-clause"><span class="token keyword">public</span> <span class="token class-name">Base</span><span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token comment">//必须指定一个类型</span></span>
-<span class="token punctuation">&#123;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-<span class="token keyword">void</span> <span class="token function">test01</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">&#123;</span>
-	Son c<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
+&#x2F;&#x2F;class Son:public Base  &#x2F;&#x2F;错误，c++编译需要给子类分配内存，必须知道父类中T的类型才可以向下继承
+class Son :public Base&lt;int&gt; &#x2F;&#x2F;必须指定一个类型
+&#123;
+&#125;;
+void test01()
+&#123;
+	Son c;
+&#125;
 
-<span class="token comment">//类模板继承类模板 ,可以用T2指定父类中的T类型</span>
-<span class="token keyword">template</span><span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token class-name">T1</span><span class="token punctuation">,</span> <span class="token keyword">class</span> <span class="token class-name">T2</span><span class="token operator">></span>
-<span class="token keyword">class</span> <span class="token class-name">Son2</span> <span class="token operator">:</span><span class="token base-clause"><span class="token keyword">public</span> <span class="token class-name">Base</span><span class="token operator">&lt;</span><span class="token class-name">T2</span><span class="token operator">></span></span>
-<span class="token punctuation">&#123;</span>
-<span class="token keyword">public</span><span class="token operator">:</span>
-	<span class="token function">Son2</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-	<span class="token punctuation">&#123;</span>
-		cout <span class="token operator">&lt;&lt;</span> <span class="token keyword">typeid</span><span class="token punctuation">(</span>T1<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">name</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-		cout <span class="token operator">&lt;&lt;</span> <span class="token keyword">typeid</span><span class="token punctuation">(</span>T2<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">name</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-	<span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+&#x2F;&#x2F;类模板继承类模板 ,可以用T2指定父类中的T类型
+template&lt;class T1, class T2&gt;
+class Son2 :public Base&lt;T2&gt;
+&#123;
+public:
+	Son2()
+	&#123;
+		cout &lt;&lt; typeid(T1).name() &lt;&lt; endl;
+		cout &lt;&lt; typeid(T2).name() &lt;&lt; endl;
+	&#125;
+&#125;;
 
-Son2<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">char</span><span class="token operator">></span> child1<span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p></li>
+Son2&lt;int, char&gt; child1;
+</code></pre></p></li>
 <li><p>类模板成员函数类外实现</p></li>
 </ul>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">
-<span class="token comment">//构造函数 类外实现</span>
-<span class="token keyword">template</span><span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token class-name">T1</span><span class="token punctuation">,</span> <span class="token keyword">class</span> <span class="token class-name">T2</span><span class="token operator">></span>
-<span class="token class-name">Person</span><span class="token operator">&lt;</span>T1<span class="token punctuation">,</span> T2<span class="token operator">></span><span class="token double-colon punctuation">::</span><span class="token function">Person</span><span class="token punctuation">(</span>T1 name<span class="token punctuation">,</span> T2 age<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp">
+&#x2F;&#x2F;构造函数 类外实现
+template&lt;class T1, class T2&gt;
+Person&lt;T1, T2&gt;::Person(T1 name, T2 age) &#123;
 
-<span class="token punctuation">&#125;</span>
+&#125;
 
-<span class="token comment">//成员函数 类外实现</span>
-<span class="token keyword">template</span><span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token class-name">T1</span><span class="token punctuation">,</span> <span class="token keyword">class</span> <span class="token class-name">T2</span><span class="token operator">></span>
-<span class="token keyword">void</span> <span class="token class-name">Person</span><span class="token operator">&lt;</span>T1<span class="token punctuation">,</span> T2<span class="token operator">></span><span class="token double-colon punctuation">::</span><span class="token function">showPerson</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+&#x2F;&#x2F;成员函数 类外实现
+template&lt;class T1, class T2&gt;
+void Person&lt;T1, T2&gt;::showPerson() &#123;
 
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;</code></pre>
 <ul>
 <li><p>类模板分文件编写:类模板中成员函数创建时机是在调用阶段，导致分文件编写时链接不到</p>
 <blockquote>
@@ -1331,7 +1334,7 @@ Son2<span class="token operator">&lt;</span><span class="token keyword">int</spa
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">230.3k</span>&nbsp;字
+                class="white-color">238.7k</span>&nbsp;字
             
             
             

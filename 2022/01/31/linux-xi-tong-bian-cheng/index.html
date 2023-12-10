@@ -43,7 +43,7 @@
     <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 7.0.0"><link rel="alternate" href="/atom.xml" title="Jf71o0x1o1l" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
     
@@ -505,6 +505,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -577,7 +580,7 @@ target="_blank" rel="noopener" href="https://unix.stackexchange.com/questions/25
 <ul>
 <li>alarm函数</li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ps</span> aux <span class="token operator">|</span> <span class="token function">grep</span> <span class="token number">1630</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash">ps aux | grep 1630</code></pre>
 <blockquote>
 <p>实现<code>ls|wc -l</code></p>
 </blockquote>
@@ -585,11 +588,11 @@ target="_blank" rel="noopener" href="https://unix.stackexchange.com/questions/25
 <ul>
 <li>段错误：非法访问内存</li>
 </ul>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token class-name">sigset_t</span> set<span class="token punctuation">;</span>
-<span class="token function">sigempty</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>set<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token function">sigaddset</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>set<span class="token punctuation">,</span>SIGINT<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token function">sigprocmask</span><span class="token punctuation">(</span>SIG_BLOCK<span class="token punctuation">,</span><span class="token operator">&amp;</span>set<span class="token punctuation">,</span><span class="token operator">&amp;</span>oldset<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token function">sigpending</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>myset<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="language-c" data-language="c"><code class="language-c">sigset_t set;
+sigempty(&amp;set);
+sigaddset(&amp;set,SIGINT);
+sigprocmask(SIG_BLOCK,&amp;set,&amp;oldset);
+sigpending(&amp;myset);</code></pre>
 <ul>
 <li><p>signal()</p></li>
 <li><p>sigaction()</p></li>
@@ -1241,7 +1244,7 @@ target="_blank" rel="noopener" href="https://unix.stackexchange.com/questions/25
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">230.3k</span>&nbsp;字
+                class="white-color">238.7k</span>&nbsp;字
             
             
             

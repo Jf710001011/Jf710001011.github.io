@@ -43,7 +43,7 @@
     <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 7.0.0"><link rel="alternate" href="/atom.xml" title="Jf71o0x1o1l" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
     
@@ -488,7 +488,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    302
+                    396
                 </div>
                 
 
@@ -505,6 +505,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -517,49 +520,49 @@
 <li>不同类型的payload，使用不同的请求方式，检查payload的方式也不一样</li>
 </ol>
 <h3 id="代码">代码</h3>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requests
+<pre class="language-python" data-language="python"><code class="language-python">import requests
 
 
-<span class="token keyword">def</span> <span class="token function">str_html</span><span class="token punctuation">(</span>source<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    result <span class="token operator">=</span> <span class="token string">''</span>
-    <span class="token keyword">for</span> c <span class="token keyword">in</span> source<span class="token punctuation">:</span>
-        result <span class="token operator">+=</span> <span class="token string">'&amp;#x'</span> <span class="token operator">+</span> <span class="token builtin">hex</span><span class="token punctuation">(</span><span class="token builtin">ord</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span><span class="token string">';'</span>
-    <span class="token keyword">return</span> result<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'0x'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span>
+def str_html(source):
+    result &#x3D; &#39;&#39;
+    for c in source:
+        result +&#x3D; &#39;&amp;#x&#39; + hex(ord(c)) +&#39;;&#39;
+    return result.replace(&#39;0x&#39;, &#39;&#39;)
 
 
-<span class="token keyword">def</span> <span class="token function">check_resp</span><span class="token punctuation">(</span>response<span class="token punctuation">,</span> payload<span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    index <span class="token operator">=</span> response<span class="token punctuation">.</span>find<span class="token punctuation">(</span>payload<span class="token punctuation">)</span>
-    prefix <span class="token operator">=</span> response<span class="token punctuation">[</span>index<span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">:</span>index<span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">]</span>
-    <span class="token keyword">if</span> <span class="token builtin">type</span> <span class="token operator">==</span> <span class="token string">'Normal'</span> <span class="token keyword">and</span> prefix <span class="token operator">!=</span> <span class="token string">'='</span> <span class="token keyword">and</span> index <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> <span class="token boolean">True</span>
-    <span class="token keyword">elif</span> <span class="token builtin">type</span> <span class="token operator">==</span> <span class="token string">'Prop'</span> <span class="token keyword">and</span> prefix <span class="token operator">==</span> <span class="token string">'='</span> <span class="token keyword">and</span> index <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> <span class="token boolean">True</span>
-    <span class="token keyword">elif</span> index <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> <span class="token boolean">True</span>
-    <span class="token keyword">return</span> <span class="token boolean">False</span>
+def check_resp(response, payload, type):
+    index &#x3D; response.find(payload)
+    prefix &#x3D; response[index-2:index:1]
+    if type &#x3D;&#x3D; &#39;Normal&#39; and prefix !&#x3D; &#39;&#x3D;&#39; and index &gt;&#x3D; 0:
+        return True
+    elif type &#x3D;&#x3D; &#39;Prop&#39; and prefix &#x3D;&#x3D; &#39;&#x3D;&#39; and index &gt;&#x3D; 0:
+        return True
+    elif index &gt;&#x3D; 0:
+        return True
+    return False
 
 
-<span class="token keyword">def</span> <span class="token function">xss_scanFun</span><span class="token punctuation">(</span>location<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    url <span class="token operator">=</span> location<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'?'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
-    param <span class="token operator">=</span> location<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'?'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'='</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+def xss_scanFun(location):
+    url &#x3D; location.split(&#39;?&#39;)[0]
+    param &#x3D; location.split(&#39;?&#39;)[1].split(&#39;&#x3D;&#39;)[0]
 
-    <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'../dict/xss.txt'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token builtin">file</span><span class="token punctuation">:</span>
-        payload_list <span class="token operator">=</span> <span class="token builtin">file</span><span class="token punctuation">.</span>readlines<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    with open(&#39;..&#x2F;dict&#x2F;xss.txt&#39;) as file:
+        payload_list &#x3D; file.readlines()
 
-    <span class="token keyword">for</span> payload <span class="token keyword">in</span> payload_list<span class="token punctuation">:</span>
-        <span class="token builtin">type</span> <span class="token operator">=</span> payload<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">':'</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>  <span class="token comment"># strip()默认删除头尾空白符</span>
-        payload <span class="token operator">=</span> payload<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">':'</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
-        <span class="token keyword">if</span> <span class="token builtin">type</span> <span class="token operator">==</span> <span class="token string">'Refer'</span> <span class="token keyword">or</span> <span class="token builtin">type</span> <span class="token operator">==</span> <span class="token string">'User-Agent'</span> <span class="token keyword">or</span> <span class="token builtin">type</span> <span class="token operator">==</span> <span class="token string">'Cookie'</span><span class="token punctuation">:</span>
-            header <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token builtin">type</span><span class="token punctuation">:</span> payload<span class="token punctuation">&#125;</span>
-            resp <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">,</span> headers<span class="token operator">=</span>header<span class="token punctuation">)</span>
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            resp <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">,</span> params<span class="token operator">=</span><span class="token punctuation">&#123;</span>param<span class="token punctuation">:</span> payload<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-        <span class="token keyword">if</span> check_resp<span class="token punctuation">(</span>resp<span class="token punctuation">.</span>text<span class="token punctuation">,</span> payload<span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"此处存在xss漏洞：</span><span class="token interpolation"><span class="token punctuation">&#123;</span>payload<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+    for payload in payload_list:
+        type &#x3D; payload.strip().split(&#39;:&#39;, 1)[0]  # strip()默认删除头尾空白符
+        payload &#x3D; payload.strip().split(&#39;:&#39;, 1)[1]
+        if type &#x3D;&#x3D; &#39;Refer&#39; or type &#x3D;&#x3D; &#39;User-Agent&#39; or type &#x3D;&#x3D; &#39;Cookie&#39;:
+            header &#x3D; &#123;type: payload&#125;
+            resp &#x3D; requests.get(url&#x3D;url, headers&#x3D;header)
+        else:
+            resp &#x3D; requests.get(url&#x3D;url, params&#x3D;&#123;param: payload&#125;)
+        if check_resp(resp.text, payload, type):
+            print(f&quot;此处存在xss漏洞：&#123;payload&#125;&quot;)
 
 
-<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
-    xss_scanFun<span class="token punctuation">(</span><span class="token string">'http://192.168.104.130/xss-labs/level5.php?keyword=test'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+if __name__ &#x3D;&#x3D; &#39;__main__&#39;:
+    xss_scanFun(&#39;http:&#x2F;&#x2F;192.168.104.130&#x2F;xss-labs&#x2F;level5.php?keyword&#x3D;test&#39;)</code></pre>
 <figure>
 <img
 src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209260043246.png"
@@ -571,8 +574,8 @@ alt="image-20220926004331142" />
 <li>xsstrike</li>
 </ul>
 <p><a target="_blank" rel="noopener" href="https://github.com/s0md3v/XSStrike">开源工具</a></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">python3 xsstrike.py <span class="token parameter variable">-u</span> http://192.168.104.130/xss-labs/level2.php?keyword<span class="token operator">=</span>test
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash">python3 xsstrike.py -u http:&#x2F;&#x2F;192.168.104.130&#x2F;xss-labs&#x2F;level2.php?keyword&#x3D;test
+</code></pre>
 <figure>
 <img
 src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209261649281.png"
@@ -1241,7 +1244,7 @@ alt="image-20221002161431834" />
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">230.3k</span>&nbsp;字
+                class="white-color">238.7k</span>&nbsp;字
             
             
             

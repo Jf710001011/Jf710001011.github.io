@@ -43,7 +43,7 @@
     <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 7.0.0"><link rel="alternate" href="/atom.xml" title="Jf71o0x1o1l" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
     
@@ -488,7 +488,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    9.1k
+                    9.2k
                 </div>
                 
 
@@ -504,6 +504,9 @@
         </div>
         <hr class="clearfix">
 
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
         
 
         
@@ -557,9 +560,9 @@ attribute highlighted: class=editor-note</figcaption>
 </figure></li>
 <li><p>属性值加引号</p></li>
 <li><p>空元素</p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>images/firefox-icon.png<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>My test image<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>images/firefox-icon.png<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>My test image<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre></li>
 <li><p>文档解析</p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
@@ -568,7 +571,7 @@ attribute highlighted: class=editor-note</figcaption>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>images/firefox-icon.png<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>My test image<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span></code></pre>
 <ul>
 <li><code>&lt;!DOCTYPE html&gt;</code> — 文档类型。混沌初分，HTML
 尚在襁褓（大约是 1991/92 年）之时，<code>DOCTYPE</code> 用来链接一些
@@ -598,21 +601,21 @@ List）中项目的顺序很重要，就像烹调指南。用一个 <code>ol</co
 <li><p>Link:以<code>link</code>元素的形式添加进 <code>index.html</code>
 文档头<code>&lt;head&gt;</code> 和 <code>&lt;/head&gt;</code>
 之间的任意位置）</p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://www.mozilla.org/zh-CN/about/manifesto/<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Mozilla Manifesto<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://www.mozilla.org/zh-CN/about/manifesto/<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Mozilla Manifesto<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span></code></pre></li>
 <li><p>一切即盒子</p></li>
 </ul>
 <h4 id="css">CSS</h4>
 <ul>
 <li><p>将该 CSS 文件连接至 HTML 文档</p>
-<pre class="line-numbers language-css" data-language="css"><code class="language-css">&lt;link href=<span class="token string">"styles/style.css"</span> rel=<span class="token string">"stylesheet"</span>><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="language-css" data-language="css"><code class="language-css">&lt;link href=<span class="token string">"styles/style.css"</span> rel=<span class="token string">"stylesheet"</span>></code></pre></li>
 <li><p>Structure<img
 src="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics/css-declaration-small.png"
 alt="图解 CSS 声明" /></p>
 <ul>
 <li><p>多元素选择</p>
-<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">p, li, h1</span> <span class="token punctuation">&#123;</span>
+<pre class="language-css" data-language="css"><code class="language-css"><span class="token selector">p, li, h1</span> <span class="token punctuation">&#123;</span>
   <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<span class="token punctuation">&#125;</span></code></pre></li>
 </ul></li>
 <li><p>选择器</p></li>
 <li><p>为了使图像有外边距，我们必须使用 <code>display: block</code>
@@ -624,11 +627,11 @@ alt="图解 CSS 声明" /></p>
 是一门编程语言，可为网站添加交互功能（例如：游戏、动态样式、动画以及在按下按钮或收到表单数据时做出的响应等）</p></li>
 <li><p>在 <code>index.html</code> 文件<code>&lt;/body&gt;</code>
 标签前的新行添加以下代码。</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">"scripts/main.js"</span> defer<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">"scripts/main.js"</span> defer<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></code></pre></li>
 <li><p><strong>注</strong>：将 JavaScript 代码放在 HTML
 页面的底部附近通常是最好的策略。</p></li>
 <li><p>变量:关键字 <code>let</code> 或 <code>var</code></p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> myVariable<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> myVariable<span class="token punctuation">;</span></code></pre></li>
 <li><p><strong>赋值运算符：</strong></p>
 <table>
 <colgroup>
@@ -657,16 +660,16 @@ alt="图解 CSS 声明" /></p>
 </tbody>
 </table></li>
 <li><p><strong>事件</strong></p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">"html"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">"html"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"别戳我，我怕疼。"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p><strong>解析：</strong> 回调函数，匿名函数。</p>
 <p><strong>写法2</strong></p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'html'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'html'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'别戳我，我怕疼。'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p><strong>图片切换</strong>：</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> myImage <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'img'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> myImage <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'img'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 myImage<span class="token punctuation">.</span><span class="token function-variable function">onclick</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">let</span> mySrc <span class="token operator">=</span> myImage<span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string">'src'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -675,7 +678,7 @@ myImage<span class="token punctuation">.</span><span class="token function-varia
     <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
       myImage<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'src'</span><span class="token punctuation">,</span> <span class="token string">'images/firefox-icon.png'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token punctuation">&#125;</span></code></pre></li>
 </ul>
 <h4 id="发布网站">发布网站</h4>
 <ul>
@@ -719,7 +722,7 @@ HTML、JSON、图片等。</p>
 <li><p>元素</p></li>
 <li><p>块级元素和内联元素</p></li>
 <li><p>空元素</p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://roy-tian.github.io/learning-area/extras/getting-started-web/beginner-html-site/images/firefox-icon.png<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Firefox 图标<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://roy-tian.github.io/learning-area/extras/getting-started-web/beginner-html-site/images/firefox-icon.png<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Firefox 图标<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></code></pre></li>
 <li><p>属性<img
 src="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started/grumpy-cat-attribute-small.png"
 alt="含有‘class=&quot;editor-note&quot;’属性的段落标签" /></p>
@@ -729,7 +732,7 @@ alt="含有‘class=&quot;editor-note&quot;’属性的段落标签" /></p>
 <li><p><code>title</code></p></li>
 <li><p><code>target</code>: 是否在新标签中打开超链</p></li>
 <li><p>布尔属性</p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">disabled</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>disabled<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">disabled</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>disabled<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre></li>
 </ol></li>
 <li><p><strong>Html中的空白 </strong>： 无论你在 HTML
 元素的内容中使用多少空格（包括一个或多个空白字符或换行），当渲染这些代码的时候，HTML
@@ -743,16 +746,16 @@ HTML 字符实体引用列表</a></li>
 <li><p><strong>注释</strong> 用特殊的记号 <code>&lt;!--</code> 和
 <code>--&gt;</code> 包裹起来</p></li>
 <li><p><strong>SEO</strong></p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span>
   <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>description<span class="token punctuation">"</span></span>
   <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>The MDN Web Docs site
   provides information about Open Web technologies
   including HTML, CSS, and APIs for both Web sites and
-  progressive web apps.<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+  progressive web apps.<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre></li>
 <li><p>同时最好加上 <code>defer</code> 以告诉浏览器在解析完成 HTML
 后再加载 JavaScript。这样可以确保在加载脚本之前浏览器已经解析了所有的
 HTML 内容</p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>my-js-file.js<span class="token punctuation">"</span></span> <span class="token attr-name">defer</span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>my-js-file.js<span class="token punctuation">"</span></span> <span class="token attr-name">defer</span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre></li>
 <li><p><code>lang</code>属性</p></li>
 </ul>
 <h4 id="文本处理基础">文本处理基础</h4>
@@ -768,7 +771,7 @@ HTML 内容</p>
 这类页面</p></li>
 <li><p><code>download</code>属性</p></li>
 <li><p><strong>电子邮件链接</strong></p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>mailto:nowhere@mozilla.org<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>向 nowhere 发邮件<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>mailto:nowhere@mozilla.org<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>向 nowhere 发邮件<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span></code></pre></li>
 </ul>
 <h4 id="文本处理进阶">文本处理进阶</h4>
 <ul>
@@ -794,11 +797,11 @@ HTML 内容</p>
 <li><p>导航栏</p></li>
 <li><p>侧边栏</p></li>
 <li><p>页脚</p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>header</span><span class="token punctuation">></span></span>：页眉。
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>header</span><span class="token punctuation">></span></span>：页眉。
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>nav</span><span class="token punctuation">></span></span>：导航栏。
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>main</span><span class="token punctuation">></span></span>：主内容。主内容中还可以有各种子内容区段，可用<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>article</span><span class="token punctuation">></span></span>、<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span><span class="token punctuation">></span></span> 和 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span> 等元素表示。
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>aside</span><span class="token punctuation">></span></span>：侧边栏，经常嵌套在 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>main</span><span class="token punctuation">></span></span> 中。
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>footer</span><span class="token punctuation">></span></span>：页脚。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>footer</span><span class="token punctuation">></span></span>：页脚。</code></pre></li>
 <li><p><strong>无语义元素</strong></p>
 <ul>
 <li>块级<code>&lt;div&gt;</code></li>
@@ -817,20 +820,20 @@ HTML 内容</p>
 <li><p><code>&lt;video&gt;</code></p></li>
 <li><p><code>controls</code> :页面控制</p></li>
 <li><p><code>&lt;source&gt;</code></p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>video</span> <span class="token attr-name">controls</span><span class="token punctuation">></span></span>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>video</span> <span class="token attr-name">controls</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>source</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>rabbit320.mp4<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>video/mp4<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>source</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>rabbit320.webm<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>video/webm<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>你的浏览器不支持 HTML5 视频。可点击<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>rabbit320.mp4<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>此链接<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>观看<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>video</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>video</span><span class="token punctuation">></span></span></code></pre></li>
 </ul>
 <h4 id="显示音轨文本">显示音轨文本</h4>
 <ul>
 <li><p><code>WebVTT</code></p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>video</span> <span class="token attr-name">controls</span><span class="token punctuation">></span></span>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>video</span> <span class="token attr-name">controls</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>source</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>example.mp4<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>video/mp4<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>source</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>example.webm<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>video/webm<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>track</span> <span class="token attr-name">kind</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>subtitles<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>subtitles_en.vtt<span class="token punctuation">"</span></span> <span class="token attr-name">srclang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>video</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>video</span><span class="token punctuation">></span></span></code></pre>
 <p><code>&lt;track&gt;</code> 元素用于在 HTML
 视频播放器中添加字幕或标题轨道。它是用于添加音频或视频媒体的外部文本资源，以提供字幕、翻译或其他附加内容。</p>
 <p>在给定的示例中，<code>&lt;track&gt;</code> 元素有以下属性：</p>
@@ -855,13 +858,13 @@ HTML 内容</p>
 <h4 id="嵌入技术">嵌入技术</h4>
 <ul>
 <li><p><code>iframe</code></p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>iframe</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://developer.mozilla.org/zh-CN/docs/Glossary<span class="token punctuation">"</span></span>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>iframe</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://developer.mozilla.org/zh-CN/docs/Glossary<span class="token punctuation">"</span></span>
         <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>100%<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>500<span class="token punctuation">"</span></span> <span class="token attr-name">frameborder</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span>
         <span class="token attr-name">allowfullscreen</span> <span class="token attr-name">sandbox</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://developer.mozilla.org/zh-CN/docs/Glossary<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     Fallback link for browsers that don't support iframes
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>iframe</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>iframe</span><span class="token punctuation">></span></span></code></pre>
 <p>在给定的示例中，<code>&lt;iframe&gt;</code>
 元素用于嵌入一个网页或文档作为子文档。以下是各个属性的解释：</p>
 <ul>
@@ -898,13 +901,13 @@ link）。这是为了在不支持 <code>&lt;iframe&gt;</code>
 <ul>
 <li><p>矢量图</p></li>
 <li><p><code>SVG</code> :描述矢量图形的<code>XML</code>语言</p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">version</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>1.1<span class="token punctuation">"</span></span>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">version</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>1.1<span class="token punctuation">"</span></span>
      <span class="token attr-name">baseProfile</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>full<span class="token punctuation">"</span></span>
      <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>300<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>200<span class="token punctuation">"</span></span>
      <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rect</span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>100%<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>100%<span class="token punctuation">"</span></span> <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>black<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>circle</span> <span class="token attr-name">cx</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>150<span class="token punctuation">"</span></span> <span class="token attr-name">cy</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>100<span class="token punctuation">"</span></span> <span class="token attr-name">r</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>90<span class="token punctuation">"</span></span> <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>blue<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span></code></pre>
 <ol type="1">
 <li>通过 <code>image</code>嵌入<code>SVG</code></li>
 <li>内联<code>SVG</code></li>
@@ -928,7 +931,7 @@ link）。这是为了在不支持 <code>&lt;iframe&gt;</code>
 <h4 id="笑话生成器">笑话生成器</h4>
 <ol type="1">
 <li><p><code>index.html</code></p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
@@ -957,9 +960,9 @@ link）。这是为了在不支持 <code>&lt;iframe&gt;</code>
     <span class="token comment">&lt;!-- 鸣谢：Willy Aguirre 提供的测试代码 --></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>story<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span></code></pre></li>
 <li><p><code>main.js</code></p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> customName <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'customname'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> customName <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'customname'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> randomize <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'.randomize'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> story <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'.story'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -1001,12 +1004,12 @@ randomize<span class="token punctuation">.</span><span class="token function">ad
     
     story<span class="token punctuation">.</span>textContent <span class="token operator">=</span> newStory<span class="token punctuation">;</span>
     story<span class="token punctuation">.</span>style<span class="token punctuation">.</span>visibility <span class="token operator">=</span> <span class="token string">'visible'</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>   <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+    <span class="token punctuation">&#125;</span>   </code></pre></li>
 </ol>
 <h4 id="弹球demo">弹球demo</h4>
 <ol type="1">
 <li><p><code>index.html</code></p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
@@ -1022,9 +1025,9 @@ randomize<span class="token punctuation">.</span><span class="token function">ad
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>canvas</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>canvas</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
 
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span></code></pre></li>
 <li><p><code>main.js</code></p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 定义弹球计数变量</span>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 定义弹球计数变量</span>
 
 <span class="token keyword">const</span> para <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'p'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
@@ -1262,9 +1265,9 @@ evil<span class="token punctuation">.</span><span class="token function">setCont
 <span class="token punctuation">&#125;</span>
 
 <span class="token function">loop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</code></pre></li>
 <li><p><code>style.css</code></p>
-<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">html, body</span> <span class="token punctuation">&#123;</span>
+<pre class="language-css" data-language="css"><code class="language-css"><span class="token selector">html, body</span> <span class="token punctuation">&#123;</span>
   <span class="token property">margin</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
 
@@ -1296,7 +1299,7 @@ evil<span class="token punctuation">.</span><span class="token function">setCont
   <span class="token property">top</span><span class="token punctuation">:</span> 35px<span class="token punctuation">;</span>
   <span class="token property">right</span><span class="token punctuation">:</span> 5px<span class="token punctuation">;</span>
   <span class="token property">color</span><span class="token punctuation">:</span> #aaa<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token punctuation">&#125;</span></code></pre></li>
 </ol>
 <h3 id="javascript">JavaScript</h3>
 <h4 id="什么是js">什么是Js</h4>
@@ -1316,9 +1319,9 @@ JavaScript
 <li><p>内部Js和外部Js</p></li>
 <li><p>若 JavaScript 加载于欲操作的 HTML 元素之前，则代码将出错</p></li>
 <li><p><strong>内部</strong>示例</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">document<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"DOMContentLoaded"</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">document<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"DOMContentLoaded"</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token punctuation">.</span> <span class="token punctuation">.</span> <span class="token punctuation">.</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>这是一个事件监听器，它监听浏览器的 "<code>DOMContentLoaded</code>"
 事件，即 HTML 文档体加载、解释完毕事件。事件触发时将调用 "
 <code>. . .</code>"
@@ -1327,7 +1330,7 @@ JavaScript
 的一项现代技术（<code>async</code>
 “异步”属性）来解决这一问题，它告知浏览器在遇到
 <code>&lt;script&gt;</code> 元素时不要中断后续 HTML 内容的加载。</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">"script.js"</span> async<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">"script.js"</span> async<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></code></pre>
 <ul>
 <li>如果脚本无需等待页面解析，且无依赖独立运行，那么应使用
 <code>async</code>。</li>
@@ -1339,7 +1342,7 @@ JavaScript
 <ul>
 <li><p>事件监听器、事件处理器</p></li>
 <li><p>Code</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">guessSubmit<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> checkGuess<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">guessSubmit<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> checkGuess<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>这里为 <code>guessSubmit</code>
 按钮添加了一个事件监听器。<code>addEventListener()</code>
 方法包含两个可输入值（称为“<em>参数</em>”（argument）），监听事件的类型（本例中为
@@ -1361,7 +1364,7 @@ JavaScript
 <h4 id="有用的字符串方法">有用的字符串方法</h4>
 <ul>
 <li><p>Code</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 1. </span>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 1. </span>
 browserType<span class="token punctuation">[</span>browserType<span class="token punctuation">.</span>length<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
 <span class="token comment">// 2. </span>
@@ -1384,15 +1387,15 @@ radData<span class="token punctuation">.</span><span class="token function">toLo
 radData<span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// 7. 要被替换下的字符串和要被替换上的字符串</span>
-browserType<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">'moz'</span><span class="token punctuation">,</span><span class="token string">'van'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+browserType<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">'moz'</span><span class="token punctuation">,</span><span class="token string">'van'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></li>
 </ul>
 <h4 id="数组">数组</h4>
 <ul>
 <li><p>Code</p>
-<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F; 1. 混合和匹配项目类型 - 它们并不都是数字，字符串等
-let random &#x3D; [&#39;tree&#39;, 795, [0, 1, 2]];<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<pre class="language-none"><code class="language-none">&#x2F;&#x2F; 1. 混合和匹配项目类型 - 它们并不都是数字，字符串等
+let random &#x3D; [&#39;tree&#39;, 795, [0, 1, 2]];</code></pre></li>
 <li><p>字符串和数组之间的转换</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> myData <span class="token operator">=</span> <span class="token string">'Manchester,London,Liverpool,Birmingham,Leeds,Carlisle'</span><span class="token punctuation">;</span>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> myData <span class="token operator">=</span> <span class="token string">'Manchester,London,Liverpool,Birmingham,Leeds,Carlisle'</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> myArray <span class="token operator">=</span> myData<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">','</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 myArray<span class="token punctuation">;</span>
 myArray<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
@@ -1404,7 +1407,7 @@ myArray<span class="token punctuation">[</span>myArray<span class="token punctua
 myNewString<span class="token punctuation">;</span>
 <span class="token comment">// 2</span>
 <span class="token keyword">let</span> dogNames <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"Rocket"</span><span class="token punctuation">,</span><span class="token string">"Flash"</span><span class="token punctuation">,</span><span class="token string">"Bella"</span><span class="token punctuation">,</span><span class="token string">"Slugger"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-dogNames<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//Rocket,Flash,Bella,Slugger</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+dogNames<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//Rocket,Flash,Bella,Slugger</span></code></pre></li>
 <li><p>数组元素的添加和减少</p>
 <p>要在数组末尾添加或删除一个项目，我们可以使用 <code>push()</code> 和
 <code>pop()</code>。</p>
@@ -1414,7 +1417,7 @@ pop() 完全相同，只是它们分别作用于数组的开始，而不是结�
 <h4 id="js基础要件">Js基础要件</h4>
 <ul>
 <li><p><strong>函数</strong></p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 1.匿名函数</span>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 1.匿名函数</span>
 <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'hello'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
@@ -1433,7 +1436,7 @@ html<span class="token punctuation">.</span><span class="token function">appendC
 <span class="token keyword">const</span> btn <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'button'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 btn<span class="token punctuation">.</span>onclick <span class="token operator">=</span> displayMessage<span class="token punctuation">;</span> <span class="token comment">// 没括号</span>
 
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <ul>
 <li>不管你是先定义后调用还是<strong>先调用后定义</strong>都行，但是别忘了定义</li>
 </ul></li>
@@ -1444,19 +1447,19 @@ btn<span class="token punctuation">.</span>onclick <span class="token operator">
 <li><p><code>事件处理器（事件监听器）</code></p></li>
 <li><p><code>addEventListener（）</code></p></li>
 <li><p>Code</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 1. 同一个监听器注册多个处理器</span>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 1. 同一个监听器注册多个处理器</span>
 	<span class="token comment">// 错误</span>
 myElement<span class="token punctuation">.</span>onclick <span class="token operator">=</span> functionA<span class="token punctuation">;</span>
 myElement<span class="token punctuation">.</span>onclick <span class="token operator">=</span> functionB<span class="token punctuation">;</span>
 	<span class="token comment">// 正确</span>
 myElement<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> functionA<span class="token punctuation">)</span><span class="token punctuation">;</span>
-myElement<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> functionB<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+myElement<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> functionB<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></li>
 <li><p><code>事件对象</code></p></li>
 </ul>
 <h4 id="js对象基础">Js对象基础</h4>
 <ul>
 <li><p>code</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> person <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> person <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
   <span class="token literal-property property">name</span> <span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'Bob'</span><span class="token punctuation">,</span> <span class="token string">'Smith'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
   <span class="token literal-property property">age</span> <span class="token operator">:</span> <span class="token number">32</span><span class="token punctuation">,</span>
   <span class="token literal-property property">gender</span> <span class="token operator">:</span> <span class="token string">'male'</span><span class="token punctuation">,</span>
@@ -1467,14 +1470,14 @@ myElement<span class="token punctuation">.</span><span class="token function">ad
   <span class="token function-variable function">greeting</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'Hi! I\'m '</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">'.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span></code></pre></li>
 <li><p>设置成员并不意味着你只能更新已经存在的属性的值，你完全可以创建新的成员，尝试以下代码：</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">person<span class="token punctuation">[</span><span class="token string">'eyes'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'hazel'</span>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">person<span class="token punctuation">[</span><span class="token string">'eyes'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'hazel'</span>
 person<span class="token punctuation">.</span><span class="token function-variable function">farewell</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"Bye everybody!"</span><span class="token punctuation">)</span> <span class="token punctuation">&#125;</span>
 
 <span class="token comment">// 现在你可以测试你新创建的成员</span>
 person<span class="token punctuation">[</span><span class="token string">'eyes'</span><span class="token punctuation">]</span>
-person<span class="token punctuation">.</span><span class="token function">farewell</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+person<span class="token punctuation">.</span><span class="token function">farewell</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre></li>
 <li><p>JavaScript 中所有的对象都有一个内置属性，称为它的
 <strong>prototype</strong>（原型）。它本身是一个对象，故原型对象也会有它自己的原型，逐渐构成了<strong>原型链</strong>。原型链终止于拥有
 <code>null</code> 作为其原型的对象上</p>
@@ -1490,7 +1493,7 @@ target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/We
 的原型是 <code>null</code>，所以它位于原型链的终点</p></li>
 <li><p>属性的“遮蔽”</p></li>
 <li><p>设置原型</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 1</span>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 1</span>
 <span class="token keyword">const</span> personPrototype <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
   <span class="token function">greet</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"hello!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1500,7 +1503,7 @@ target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/We
 <span class="token keyword">const</span> carl <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>personPrototype<span class="token punctuation">)</span><span class="token punctuation">;</span>
 carl<span class="token punctuation">.</span><span class="token function">greet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// hello!</span>
 <span class="token comment">// 2</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</code></pre></li>
 <li><p>我们经常看到这种模式，即<strong>方法</strong>是在原型上定义的，但<strong>数据属性</strong>是在构造函数中定义的。这是因为方法通常对我们创建的每个对象都是一样的，而我们通常希望每个对象的数据属性都有自己的值（就像这里每个人都有不同的名字）。</p></li>
 <li><p>JavaScript
 可以在没有<strong>特定的类定义</strong>的情况下创建对象</p></li>
@@ -1510,50 +1513,50 @@ carl<span class="token punctuation">.</span><span class="token function">greet</
 <h4 id="json">Json</h4>
 <ul>
 <li><p>Code</p>
-<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
-  <span class="token property">"squadName"</span> <span class="token operator">:</span> <span class="token string">"Super hero squad"</span><span class="token punctuation">,</span>
-  <span class="token property">"homeTown"</span> <span class="token operator">:</span> <span class="token string">"Metro City"</span><span class="token punctuation">,</span>
-  <span class="token property">"formed"</span> <span class="token operator">:</span> <span class="token number">2016</span><span class="token punctuation">,</span>
-  <span class="token property">"secretBase"</span> <span class="token operator">:</span> <span class="token string">"Super tower"</span><span class="token punctuation">,</span>
-  <span class="token property">"active"</span> <span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-  <span class="token property">"members"</span> <span class="token operator">:</span> <span class="token punctuation">[</span>
-    <span class="token punctuation">&#123;</span>
-      <span class="token property">"name"</span> <span class="token operator">:</span> <span class="token string">"Molecule Man"</span><span class="token punctuation">,</span>
-      <span class="token property">"age"</span> <span class="token operator">:</span> <span class="token number">29</span><span class="token punctuation">,</span>
-      <span class="token property">"secretIdentity"</span> <span class="token operator">:</span> <span class="token string">"Dan Jukes"</span><span class="token punctuation">,</span>
-      <span class="token property">"powers"</span> <span class="token operator">:</span> <span class="token punctuation">[</span>
-        <span class="token string">"Radiation resistance"</span><span class="token punctuation">,</span>
-        <span class="token string">"Turning tiny"</span><span class="token punctuation">,</span>
-        <span class="token string">"Radiation blast"</span>
-      <span class="token punctuation">]</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-    <span class="token punctuation">&#123;</span>
-      <span class="token property">"name"</span> <span class="token operator">:</span> <span class="token string">"Madame Uppercut"</span><span class="token punctuation">,</span>
-      <span class="token property">"age"</span> <span class="token operator">:</span> <span class="token number">39</span><span class="token punctuation">,</span>
-      <span class="token property">"secretIdentity"</span> <span class="token operator">:</span> <span class="token string">"Jane Wilson"</span><span class="token punctuation">,</span>
-      <span class="token property">"powers"</span> <span class="token operator">:</span> <span class="token punctuation">[</span>
-        <span class="token string">"Million tonne punch"</span><span class="token punctuation">,</span>
-        <span class="token string">"Damage resistance"</span><span class="token punctuation">,</span>
-        <span class="token string">"Superhuman reflexes"</span>
-      <span class="token punctuation">]</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-    <span class="token punctuation">&#123;</span>
-      <span class="token property">"name"</span> <span class="token operator">:</span> <span class="token string">"Eternal Flame"</span><span class="token punctuation">,</span>
-      <span class="token property">"age"</span> <span class="token operator">:</span> <span class="token number">1000000</span><span class="token punctuation">,</span>
-      <span class="token property">"secretIdentity"</span> <span class="token operator">:</span> <span class="token string">"Unknown"</span><span class="token punctuation">,</span>
-      <span class="token property">"powers"</span> <span class="token operator">:</span> <span class="token punctuation">[</span>
-        <span class="token string">"Immortality"</span><span class="token punctuation">,</span>
-        <span class="token string">"Heat Immunity"</span><span class="token punctuation">,</span>
-        <span class="token string">"Inferno"</span><span class="token punctuation">,</span>
-        <span class="token string">"Teleportation"</span><span class="token punctuation">,</span>
-        <span class="token string">"Interdimensional travel"</span>
-      <span class="token punctuation">]</span>
-    <span class="token punctuation">&#125;</span>
-  <span class="token punctuation">]</span>
-<span class="token punctuation">&#125;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="language-json" data-language="json"><code class="language-json">&#123;
+  &quot;squadName&quot; : &quot;Super hero squad&quot;,
+  &quot;homeTown&quot; : &quot;Metro City&quot;,
+  &quot;formed&quot; : 2016,
+  &quot;secretBase&quot; : &quot;Super tower&quot;,
+  &quot;active&quot; : true,
+  &quot;members&quot; : [
+    &#123;
+      &quot;name&quot; : &quot;Molecule Man&quot;,
+      &quot;age&quot; : 29,
+      &quot;secretIdentity&quot; : &quot;Dan Jukes&quot;,
+      &quot;powers&quot; : [
+        &quot;Radiation resistance&quot;,
+        &quot;Turning tiny&quot;,
+        &quot;Radiation blast&quot;
+      ]
+    &#125;,
+    &#123;
+      &quot;name&quot; : &quot;Madame Uppercut&quot;,
+      &quot;age&quot; : 39,
+      &quot;secretIdentity&quot; : &quot;Jane Wilson&quot;,
+      &quot;powers&quot; : [
+        &quot;Million tonne punch&quot;,
+        &quot;Damage resistance&quot;,
+        &quot;Superhuman reflexes&quot;
+      ]
+    &#125;,
+    &#123;
+      &quot;name&quot; : &quot;Eternal Flame&quot;,
+      &quot;age&quot; : 1000000,
+      &quot;secretIdentity&quot; : &quot;Unknown&quot;,
+      &quot;powers&quot; : [
+        &quot;Immortality&quot;,
+        &quot;Heat Immunity&quot;,
+        &quot;Inferno&quot;,
+        &quot;Teleportation&quot;,
+        &quot;Interdimensional travel&quot;
+      ]
+    &#125;
+  ]
+&#125;
+</code></pre>
 <p><strong>Json 数组</strong></p>
-<pre class="line-numbers language-Json" data-language="Json"><code class="language-Json">[
+<pre class="language-Json" data-language="Json"><code class="language-Json">[
   &#123;
     &quot;name&quot; : &quot;Molecule Man&quot;,
     &quot;age&quot; : 29,
@@ -1575,7 +1578,7 @@ carl<span class="token punctuation">.</span><span class="token function">greet</
     ]
   &#125;
 ]
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</code></pre></li>
 <li><p>JSON
 要求在字符串和属性名称周围使用<strong>双引号</strong>。单引号无效</p></li>
 <li><p><a target="_blank" rel="noopener" href="https://jsonlint.com/">jsonlint</a></p></li>
@@ -1594,10 +1597,10 @@ target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/We
 <li><code>&lt;method&gt;</code></li>
 </ul></li>
 <li><p>Code</p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">//必须使用value属性
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>by default this element is filled with this text<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<pre class="language-markup" data-language="markup"><code class="language-markup">//必须使用value属性
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>by default this element is filled with this text<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></code></pre></li>
 <li><p>Code</p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>password<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>password<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>user_password<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>password<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>password<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>user_password<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre>
 <p><code>type="password"</code>
 指定了输入框的类型为密码，这意味着用户输入的内容将被隐藏，以保护敏感信息。</p>
 <p><code>id="password"</code>
@@ -1627,19 +1630,19 @@ URL 的大小。此外，许多服务器限制它们接受的 URL 的长度</li>
 <p>这个例子展示了如何使用 Python 完成同样的事情——在 web
 页面上显示提交的数据。 这将使用Flask
 framework来呈现模板、处理表单数据提交等</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> flask <span class="token keyword">import</span> Flask<span class="token punctuation">,</span> render_template<span class="token punctuation">,</span> request
-app <span class="token operator">=</span> Flask<span class="token punctuation">(</span>__name__<span class="token punctuation">)</span>
+<pre class="language-python" data-language="python"><code class="language-python">from flask import Flask, render_template, request
+app &#x3D; Flask(__name__)
 
-<span class="token decorator annotation punctuation">@app<span class="token punctuation">.</span>route</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span> methods<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'GET'</span><span class="token punctuation">,</span> <span class="token string">'POST'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token keyword">def</span> <span class="token function">form</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">return</span> render_template<span class="token punctuation">(</span><span class="token string">'form.html'</span><span class="token punctuation">)</span>
+@app.route(&#39;&#x2F;&#39;, methods&#x3D;[&#39;GET&#39;, &#39;POST&#39;])
+def form():
+    return render_template(&#39;form.html&#39;)
 
-<span class="token decorator annotation punctuation">@app<span class="token punctuation">.</span>route</span><span class="token punctuation">(</span><span class="token string">'/hello'</span><span class="token punctuation">,</span> methods<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'GET'</span><span class="token punctuation">,</span> <span class="token string">'POST'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token keyword">def</span> <span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">return</span> render_template<span class="token punctuation">(</span><span class="token string">'greeting.html'</span><span class="token punctuation">,</span> say<span class="token operator">=</span>request<span class="token punctuation">.</span>form<span class="token punctuation">[</span><span class="token string">'say'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> to<span class="token operator">=</span>request<span class="token punctuation">.</span>form<span class="token punctuation">[</span><span class="token string">'to'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+@app.route(&#39;&#x2F;hello&#39;, methods&#x3D;[&#39;GET&#39;, &#39;POST&#39;])
+def hello():
+    return render_template(&#39;greeting.html&#39;, say&#x3D;request.form[&#39;say&#39;], to&#x3D;request.form[&#39;to&#39;])
 
-<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
-    app<span class="token punctuation">.</span>run<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+if __name__ &#x3D;&#x3D; &quot;__main__&quot;:
+    app.run()</code></pre>
 <p><strong>解析：</strong></p>
 <p>装饰器是一种在函数或类定义之前进行修饰或扩展的语法。在 Python
 中，装饰器是以 <code>@</code> 符号开头，紧跟在函数或类的定义之前。</p>
@@ -1653,9 +1656,9 @@ Flask 在接收到特定 URL 请求时应该执行哪个函数。装饰器函数
 <p>在 Flask 中，使用 <code>@app.route</code>
 装饰器来定义路由。它接受一个 URL
 路径作为参数，并可选地指定支持的请求方法。例如：</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token decorator annotation punctuation">@app<span class="token punctuation">.</span>route</span><span class="token punctuation">(</span><span class="token string">'/hello'</span><span class="token punctuation">,</span> methods<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'GET'</span><span class="token punctuation">,</span> <span class="token string">'POST'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token keyword">def</span> <span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">return</span> <span class="token string">'Hello, World!'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="language-python" data-language="python"><code class="language-python">@app.route(&#39;&#x2F;hello&#39;, methods&#x3D;[&#39;GET&#39;, &#39;POST&#39;])
+def hello():
+    return &#39;Hello, World!&#39;</code></pre>
 <p>上述代码定义了一个路由，将 URL 路径 <code>'/hello'</code> 与名为
 <code>hello</code> 的视图函数关联起来。当客户端发起对
 <code>'/hello'</code> 的 GET 或 POST 请求时，Flask 会调用
@@ -2371,7 +2374,7 @@ Unavailable：服务器暂时无法处理请求，通常是由于过载或维护
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">230.3k</span>&nbsp;字
+                class="white-color">238.7k</span>&nbsp;字
             
             
             

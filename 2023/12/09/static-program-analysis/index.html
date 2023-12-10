@@ -43,7 +43,7 @@
     <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 7.0.0"><link rel="alternate" href="/atom.xml" title="Jf71o0x1o1l" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
     
@@ -484,7 +484,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    9k
+                    9.1k
                 </div>
                 
 
@@ -500,6 +500,9 @@
         </div>
         <hr class="clearfix">
 
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
         
 
         
@@ -570,12 +573,7 @@ Rules）：定义了非终结符如何被替换为终结符和/或非终结符�
 <li>起始符号（Start
 Symbol）：表示语法推导开始的符号，通常是一个非终结符。</li>
 </ol>
-<p>上下文无关文法的一个例子如下： <pre class="line-numbers language-rust" data-language="rust"><code class="language-rust"><span class="token class-name">S</span> <span class="token punctuation">-></span> <span class="token constant">NP</span> <span class="token constant">VP</span>
-<span class="token constant">NP</span> <span class="token punctuation">-></span> <span class="token class-name">Det</span> <span class="token class-name">N</span>
-<span class="token constant">VP</span> <span class="token punctuation">-></span> <span class="token class-name">V</span> <span class="token constant">NP</span>
-<span class="token class-name">Det</span> <span class="token punctuation">-></span> <span class="token string">"the"</span> <span class="token operator">|</span> <span class="token string">"a"</span>
-<span class="token class-name">N</span> <span class="token punctuation">-></span> <span class="token string">"cat"</span> <span class="token operator">|</span> <span class="token string">"dog"</span>
-<span class="token class-name">V</span> <span class="token punctuation">-></span> <span class="token string">"chased"</span> <span class="token operator">|</span> <span class="token string">"ate"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre> 在这个例子中，S
+<p>上下文无关文法的一个例子如下： <figure class="highlight rust"><table><tr><td class="code"><pre><span class="line">S <span class="punctuation">-&gt;</span> NP VP</span><br><span class="line">NP <span class="punctuation">-&gt;</span> Det N</span><br><span class="line">VP <span class="punctuation">-&gt;</span> V NP</span><br><span class="line">Det <span class="punctuation">-&gt;</span> <span class="string">&quot;the&quot;</span> | <span class="string">&quot;a&quot;</span></span><br><span class="line">N <span class="punctuation">-&gt;</span> <span class="string">&quot;cat&quot;</span> | <span class="string">&quot;dog&quot;</span></span><br><span class="line">V <span class="punctuation">-&gt;</span> <span class="string">&quot;chased&quot;</span> | <span class="string">&quot;ate&quot;</span></span><br></pre></td></tr></table></figure> 在这个例子中，S
 是起始符号，NP、VP、Det、N 和 V
 是非终结符，"the"、"a"、"cat"、"dog"、"chased" 和 "ate"
 是终结符。产生式规则定义了如何将非终结符替换为其他符号序列，从而生成语言的句子。</p>
@@ -594,10 +592,7 @@ Rules）：定义了非终结符如何被替换为终结符和/或非终结符�
 <li>起始符号（Start
 Symbol）：表示语法推导开始的符号，通常是一个非终结符。</li>
 </ol>
-<p>上下文敏感文法的一个简单示例如下： <pre class="line-numbers language-rust" data-language="rust"><code class="language-rust"><span class="token class-name">S</span> <span class="token punctuation">-></span> aBc
-<span class="token class-name">Ba</span> <span class="token punctuation">-></span> <span class="token class-name">Bb</span>
-<span class="token class-name">Bc</span> <span class="token punctuation">-></span> <span class="token class-name">Bd</span>
-<span class="token class-name">Bd</span> <span class="token punctuation">-></span> d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre> 在这个例子中，S
+<p>上下文敏感文法的一个简单示例如下： <figure class="highlight rust"><table><tr><td class="code"><pre><span class="line">S <span class="punctuation">-&gt;</span> aBc</span><br><span class="line">Ba <span class="punctuation">-&gt;</span> Bb</span><br><span class="line">Bc <span class="punctuation">-&gt;</span> Bd</span><br><span class="line">Bd <span class="punctuation">-&gt;</span> d</span><br></pre></td></tr></table></figure> 在这个例子中，S
 是起始符号，a、b、c 和 d 是终结符，B
 是非终结符。产生式规则中的右侧序列中的符号可以根据上下文中的其他符号进行替换，<strong>例如产生式规则
 <code>Ba -&gt; Bb</code> 只在 B 后面是 a 时才会被应用</strong>。</p>
@@ -664,7 +659,7 @@ alt="image-20230625000210369" /></p></li>
 <p>需要注意的是，Soot框架是一个功能强大的工具，可以在字节码级别对Java程序进行操作，但在使用时需要仔细阅读相关文档和了解具体的使用方法，以确保正确地处理方法调用和其他字节码指令。</p></li>
 <li><p>方法签名（Method
 Signature）是用来唯一标识一个方法的字符串表示。它包含了方法的名称、参数类型以及返回类型等信息，用于在一个类中唯一确定一个方法的特征。</p>
-<p>方法签名的一般格式为： <pre class="line-numbers language-none"><code class="language-none">methodName(parameterType1, parameterType2, ..., returnType)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre> 其中：</p>
+<p>方法签名的一般格式为： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">methodName(parameterType1, parameterType2, ..., returnType)</span><br></pre></td></tr></table></figure> 其中：</p>
 <ul>
 <li><code>methodName</code> 是方法的名称。</li>
 <li><code>parameterType1, parameterType2, ...</code>
@@ -686,29 +681,20 @@ Signature）是用来唯一标识一个方法的字符串表示。它包含了�
 <p>以下是一些StringBuilder类常用的方法和操作：</p>
 <ol type="1">
 <li><p>构造方法：可以使用不同的构造方法来创建一个StringBuilder对象，例如：
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">StringBuilder</span> sb <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 创建一个空的StringBuilder对象</span>
-<span class="token class-name">StringBuilder</span> sb <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span><span class="token string">"Hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 创建一个带有初始内容的StringBuilder对象</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></p></li>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">StringBuilder</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>(); <span class="comment">// 创建一个空的StringBuilder对象</span></span><br><span class="line"><span class="type">StringBuilder</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>(<span class="string">&quot;Hello&quot;</span>); <span class="comment">// 创建一个带有初始内容的StringBuilder对象</span></span><br></pre></td></tr></table></figure></p></li>
 <li><p>append()：用于将字符串、字符、整数等添加到StringBuilder对象的末尾。
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">StringBuilder</span> sb <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-sb<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">"Hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-sb<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">" "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-sb<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">"World"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></p></li>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">StringBuilder</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">sb.append(<span class="string">&quot;Hello&quot;</span>);</span><br><span class="line">sb.append(<span class="string">&quot; &quot;</span>);</span><br><span class="line">sb.append(<span class="string">&quot;World&quot;</span>);</span><br></pre></td></tr></table></figure></p></li>
 <li><p>insert()：用于在指定位置插入字符串、字符、整数等。
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">StringBuilder</span> sb <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span><span class="token string">"Hello World"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-sb<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token string">","</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 在位置5插入逗号</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></p></li>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">StringBuilder</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>(<span class="string">&quot;Hello World&quot;</span>);</span><br><span class="line">sb.insert(<span class="number">5</span>, <span class="string">&quot;,&quot;</span>); <span class="comment">// 在位置5插入逗号</span></span><br></pre></td></tr></table></figure></p></li>
 <li><p>delete()：用于删除指定位置的字符或一段字符。
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">StringBuilder</span> sb <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span><span class="token string">"Hello World"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-sb<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 删除位置5到11之间的字符</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></p></li>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">StringBuilder</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>(<span class="string">&quot;Hello World&quot;</span>);</span><br><span class="line">sb.delete(<span class="number">5</span>, <span class="number">11</span>); <span class="comment">// 删除位置5到11之间的字符</span></span><br></pre></td></tr></table></figure></p></li>
 <li><p>replace()：用于替换指定位置的字符或一段字符。
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">StringBuilder</span> sb <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span><span class="token string">"Hello World"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-sb<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> <span class="token string">"Java"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 替换位置6到11之间的字符为"Java"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></p></li>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">StringBuilder</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>(<span class="string">&quot;Hello World&quot;</span>);</span><br><span class="line">sb.replace(<span class="number">6</span>, <span class="number">11</span>, <span class="string">&quot;Java&quot;</span>); <span class="comment">// 替换位置6到11之间的字符为&quot;Java&quot;</span></span><br></pre></td></tr></table></figure></p></li>
 <li><p>toString()：将StringBuilder对象转换为String对象。
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">StringBuilder</span> sb <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span><span class="token string">"Hello World"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token class-name">String</span> str <span class="token operator">=</span> sb<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></p></li>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">StringBuilder</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>(<span class="string">&quot;Hello World&quot;</span>);</span><br><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> sb.toString();</span><br></pre></td></tr></table></figure></p></li>
 </ol>
 <p>StringBuilder的方法具有链式调用的特点，可以连续对字符串进行操作，例如：
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">StringBuilder</span> sb <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-sb<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">"Hello"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">" "</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">"World"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">StringBuilder</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">sb.append(<span class="string">&quot;Hello&quot;</span>).append(<span class="string">&quot; &quot;</span>).append(<span class="string">&quot;World&quot;</span>);</span><br></pre></td></tr></table></figure></p>
 <p>由于StringBuilder是可变的，因此在对大量字符串进行拼接或修改时，使用StringBuilder通常比直接使用String效率更高。</p>
 <p>需要注意的是，由于StringBuilder是非线程安全的，如果在多线程环境中使用，应考虑使用线程安全的替代类StringBuffer。</p></li>
 <li><p>方法调用的IR</p>
@@ -735,20 +721,7 @@ method），它用于执行类的静态初始化代码块。<code>&lt;clinit&gt;
 <p>静态初始化在类加载过程中是自动进行的，无需手动调用或干预。它用于执行一些静态变量的初始化操作，初始化静态代码块中的内容，并确保在类的首次访问之前完成必要的准备工作。</p>
 <p>需要注意的是，<code>&lt;clinit&gt;</code>方法只用于执行静态初始化操作，与实例初始化（构造函数）无关。实例初始化是在创建对象时执行的，而静态初始化是在类加载时执行的。</p>
 <p>示例代码如下所示，演示了静态初始化代码块和<code>&lt;clinit&gt;</code>方法的使用：
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyClass</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">int</span> count<span class="token punctuation">;</span>
-    
-    <span class="token keyword">static</span> <span class="token punctuation">&#123;</span>
-        <span class="token comment">// 静态初始化代码块</span>
-        count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Static initialization block"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token comment">// 主方法</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Main method"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyClass</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">int</span> count;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        <span class="comment">// 静态初始化代码块</span></span><br><span class="line">        count = <span class="number">0</span>;</span><br><span class="line">        System.out.println(<span class="string">&quot;Static initialization block&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// 主方法</span></span><br><span class="line">        System.out.println(<span class="string">&quot;Main method&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 在上述代码中，静态初始化代码块在类加载时执行，<code>&lt;clinit&gt;</code>方法会在首次访问该类或调用其静态方法之前执行。当运行程序时，会首先输出"Static
 initialization block"，然后输出"Main method"。<img
 src="https://s2.loli.net/2023/06/25/HoQuWkiAc1ONeRY.png"
@@ -830,8 +803,7 @@ alt="image-20230701233924839" /></li>
 <h4 id="live-variables-analysis">Live Variables Analysis</h4>
 <ul>
 <li><p>变量的定义</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int x; &#x2F;&#x2F; 变量声明
-x &#x3D; 10; &#x2F;&#x2F; 变量定义，为变量x分配内存并赋值为10<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> x; <span class="comment">// 变量声明</span></span><br><span class="line">x = <span class="number">10</span>; <span class="comment">// 变量定义，为变量x分配内存并赋值为10</span></span><br></pre></td></tr></table></figure></li>
 <li><p><strong>Live variables analysis</strong> tells whether the value
 of variable v at program point p could be used along some path in CFG
 starting at p.If so, v is live at p; otherwise, v is dead at p</p></li>
@@ -980,10 +952,7 @@ View</h4>
 <li><p>reaching
 definition(可达定义)是程序分析中的一个重要概念,它描述了在程序的一个点处,哪些变量的定义可以达到或者说影响到该处。</p>
 <p>举个例子:</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token number">1.</span> <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-<span class="token number">2.</span> <span class="token keyword">int</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span> 
-<span class="token number">3.</span> a <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
-<span class="token number">4.</span> b <span class="token operator">=</span> a<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span> <span class="type">int</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="number">2.</span> <span class="type">int</span> b = <span class="number">2</span>; </span><br><span class="line"><span class="number">3.</span> a = <span class="number">3</span>;</span><br><span class="line"><span class="number">4.</span> b = a;</span><br></pre></td></tr></table></figure>
 <p>在第4行,变量b的reaching
 definition就是第2行对b的定义和第3行对a的定义,因为这两个定义可以影响到b在第4行的取值。</p>
 <p>换句话说,reaching
@@ -1031,20 +1000,7 @@ alt="image-20230715142310553" /></p></li>
 <h4 id="worklist-algorithm">Worklist Algorithm</h4>
 <ul>
 <li><p>code</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">OUT[entry] &#x3D; ∅;
-for (each basic block B\entry)
-	OUT[B] &#x3D; ∅;
-Worklist ← all basic blocks
-while (Worklist is not empty)
-    Pick a basic block B from Worklist
-    old_OUT &#x3D; OUT[B]
-    if (old_OUT ≠ OUT[B])
-    IN[B] &#x3D;⊔P a predecessor of BOUT[P];
-    OUT[B] &#x3D; genBU (IN[B] - killB);
-    if (old_OUT ≠ OUT[B])
-    	Add all successors of B to Worklist
-&#x2F;&#x2F; Forward Analysis
-&#x2F;&#x2F;  OUT will not change if IN does not change<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">OUT[entry] = ∅;</span><br><span class="line"><span class="keyword">for</span> (each basic block B\entry)</span><br><span class="line">	OUT[B] = ∅;</span><br><span class="line">Worklist ← <span class="function">all basic blocks</span></span><br><span class="line"><span class="function"><span class="title">while</span> <span class="params">(Worklist is <span class="keyword">not</span> empty)</span></span></span><br><span class="line"><span class="function">    Pick a basic block B from Worklist</span></span><br><span class="line"><span class="function">    old_OUT </span>= OUT[B]</span><br><span class="line">    <span class="keyword">if</span> (old_OUT ≠ OUT[B])</span><br><span class="line">    IN[B] =⊔P a predecessor of BOUT[P];</span><br><span class="line">    OUT[B] = <span class="built_in">genBU</span> (IN[B] - killB);</span><br><span class="line">    <span class="keyword">if</span> (old_OUT ≠ OUT[B])</span><br><span class="line">    	Add all successors of B to Worklist</span><br><span class="line"><span class="comment">// Forward Analysis</span></span><br><span class="line"><span class="comment">//  OUT will not change if IN does not change</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="interprocedural-analysis">Interprocedural Analysis</h3>
 <h4 id="motivation">Motivation</h4>
@@ -1102,19 +1058,7 @@ on</p>
 Function)调用中,<code>调用点方法签名</code>(Call Site Method
 Signature)指的是调用虚函数的语句所在位置的方法的签名信息。</p>
 <p>例如:</p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Base</span> <span class="token punctuation">&#123;</span>
-<span class="token keyword">public</span><span class="token operator">:</span>
-  <span class="token keyword">virtual</span> <span class="token keyword">void</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-
-<span class="token keyword">class</span> <span class="token class-name">Derived</span> <span class="token operator">:</span> <span class="token base-clause"><span class="token keyword">public</span> <span class="token class-name">Base</span></span> <span class="token punctuation">&#123;</span>
-<span class="token keyword">public</span><span class="token operator">:</span>
-  <span class="token keyword">virtual</span> <span class="token keyword">void</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token keyword">double</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span> 
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-
-<span class="token keyword">void</span> <span class="token function">foo</span><span class="token punctuation">(</span>Base<span class="token operator">*</span> b<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-  b<span class="token operator">-></span><span class="token function">func</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 调用点</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">func</span><span class="params">(<span class="type">int</span> x)</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Derived</span> : <span class="keyword">public</span> Base &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">func</span><span class="params">(<span class="type">double</span> x)</span></span>; </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">foo</span><span class="params">(Base* b)</span> </span>&#123;</span><br><span class="line">  b-&gt;<span class="built_in">func</span>(<span class="number">10</span>); <span class="comment">// 调用点</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这里foo()方法是调用点,它的签名是:</p>
 <p>void foo(Base* b)</p>
 <p>这个调用点签名与Base::func(int x)匹配。</p>
@@ -1131,18 +1075,7 @@ src="https://s2.loli.net/2023/07/15/nE5lBakYMXsOuqQ.png"
 alt="image-20230715164234761" /></p></li>
 <li><p>CHA</p></li>
 <li><p><strong>Call Graph Construction: Algorithm</strong></p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token function">BuildCallGraph</span><span class="token punctuation">(</span>𝑚𝑚𝑒𝑒𝑒𝑒𝑒𝑒𝑒𝑒𝑒𝑒<span class="token punctuation">)</span>
-WL <span class="token operator">=</span> <span class="token punctuation">[</span>𝑚𝑚𝑒𝑒𝑒𝑒𝑒𝑒𝑒𝑒𝑒𝑒<span class="token punctuation">]</span><span class="token punctuation">,</span> CG <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> RM <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
-    <span class="token keyword">while</span> WL is <span class="token operator">not</span> empty <span class="token keyword">do</span>
-        remove 𝑚𝑚 from WL
-        <span class="token keyword">if</span> 𝑚𝑚 ∉ RM then
-            add 𝑚𝑚 to RM
-            foreach call site 𝑐𝑐𝑐𝑐 in 𝑚𝑚 <span class="token keyword">do</span>
-                T <span class="token operator">=</span> <span class="token function">Resolve</span><span class="token punctuation">(</span>𝑐𝑐𝑐𝑐<span class="token punctuation">)</span>
-                foreach target method 𝑚𝑚푚 in T <span class="token keyword">do</span>
-                    add 𝑐𝑐𝑐𝑐 → 𝑚𝑚′to CG
-                    add 𝑚𝑚′to WL
-    <span class="token keyword">return</span> CG<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">BuildCallGraph</span>(𝑚𝑚𝑒𝑒𝑒𝑒𝑒𝑒𝑒𝑒𝑒𝑒)</span><br><span class="line">WL = [𝑚𝑚𝑒𝑒𝑒𝑒𝑒𝑒𝑒𝑒𝑒𝑒], CG = &#123;&#125;, RM = &#123;&#125;</span><br><span class="line">    <span class="keyword">while</span> WL is <span class="keyword">not</span> empty <span class="keyword">do</span></span><br><span class="line">        remove 𝑚𝑚 from WL</span><br><span class="line">        <span class="keyword">if</span> 𝑚𝑚 ∉ RM then</span><br><span class="line">            add 𝑚𝑚 to RM</span><br><span class="line">            foreach call site 𝑐𝑐𝑐𝑐 in 𝑚𝑚 <span class="keyword">do</span></span><br><span class="line">                T = <span class="built_in">Resolve</span>(𝑐𝑐𝑐𝑐)</span><br><span class="line">                foreach target method 𝑚𝑚푚 in T <span class="keyword">do</span></span><br><span class="line">                    add 𝑐𝑐𝑐𝑐 → 𝑚𝑚′to CG</span><br><span class="line">                    add 𝑚𝑚′to WL</span><br><span class="line">    <span class="keyword">return</span> CG</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h4 id="interprocedural-control-flow-graph">Interprocedural Control-Flow
 Graph</h4>
@@ -1154,10 +1087,7 @@ program, plus two kinds of additional edges:</p>
 <li>return edges</li>
 </ul></li>
 <li><p>example</p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token function">bar</span><span class="token punctuation">(</span>…<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// call site</span>
-    <span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span> <span class="token comment">// return site</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">foo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">bar</span>(…);    <span class="comment">// call site</span></span><br><span class="line">    <span class="type">int</span> n = <span class="number">3</span>; <span class="comment">// return site</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>ICFG: An Example<img
 src="https://s2.loli.net/2023/07/19/MUgSRYcAkNtnosb.png"
 alt="image-20230719165736885" /></p></li>
@@ -1472,7 +1402,7 @@ analysis</h3>
 <ul>
 <li>Declarative: what to do (~specification)</li>
 </ul>
-<p><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> Persons <span class="token keyword">WHERE</span> Age <span class="token operator">>=</span> <span class="token number">18</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<p><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> Persons <span class="keyword">WHERE</span> Age <span class="operator">&gt;=</span> <span class="number">18</span>;</span><br></pre></td></tr></table></figure></p>
 <h4 id="introduction-to-datalog">Introduction to Datalog</h4>
 <ul>
 <li><p><strong>Datalog</strong></p>
@@ -1503,7 +1433,7 @@ the form</li>
 contains the tuple described by X1,X2,…,Xn</li>
 </ul></li>
 <li><p>Interpretation of Datalog Rules</p>
-<pre class="line-numbers language-none"><code class="language-none">H(X1,X2) &lt;- B1(X1,X3),B2(X2,X4),…,Bn(Xm).<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">H(X1,X2) &lt;- B1(X1,X3),B2(X2,X4),…,Bn(Xm).</span><br></pre></td></tr></table></figure>
 <p>• Consider all possible combinations of values of the variables in
 the subgoals • If a combination makes all subgoals true, then the head
 atom (with corresponding values) is also true • The head predicate
@@ -1523,16 +1453,14 @@ relations</li>
 <li>• H can only be IDB • Bi can be EDB or IDB</li>
 </ol></li>
 <li><p>Rule Safety</p>
-<pre class="line-numbers language-none"><code class="language-none">A(x) &lt;- B(y), x &gt; y.
-
-A(x) &lt;- B(y), !C(x,y).<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">A(x) &lt;- B(y), x &gt; y.</span><br><span class="line"></span><br><span class="line">A(x) &lt;- B(y), !C(x,y).</span><br></pre></td></tr></table></figure>
 <p>• A rule is safe if every variable appears in at least one
 non-negated relational atom • Above two rules are unsafe • In Datalog,
 only safe rules are allowed</p></li>
 <li><p>In Datalog, recursion and negation of an atom must be separated.
 Otherwise, the rules may contain contradiction and the inference fails
 to converge.</p>
-<pre class="line-numbers language-none"><code class="language-none">A(x) &lt;- B(x), !A(x).<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">A(x) &lt;- B(x), !A(x).</span><br></pre></td></tr></table></figure></li>
 <li><p>Execution of Datalog Programs</p>
 <p>• Monotonicity: Datalog is monotone as facts cannot be deleted •
 Termination: A Datalog program always terminates as</p>
@@ -2391,7 +2319,7 @@ alt="image-20230803024830163" /></li>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">230.3k</span>&nbsp;字
+                class="white-color">238.7k</span>&nbsp;字
             
             
             

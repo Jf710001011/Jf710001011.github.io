@@ -43,7 +43,7 @@
     <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 7.0.0"><link rel="alternate" href="/atom.xml" title="Jf71o0x1o1l" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
     
@@ -488,7 +488,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    4.6k
+                    5.3k
                 </div>
                 
 
@@ -504,6 +504,9 @@
         </div>
         <hr class="clearfix">
 
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
         
 
         
@@ -571,193 +574,193 @@ Web 应用程序进行远程查看。</p>
 <h3 id="作业9">作业9</h3>
 <ul>
 <li><p><strong>Epoll</strong></p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sys/epoll.h></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;unistd.h></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;fcntl.h></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;arpa/inet.h></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cstring></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;vector></span></span>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp">#include &lt;sys&#x2F;epoll.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;fcntl.h&gt;
+#include &lt;arpa&#x2F;inet.h&gt;
+#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+#include &lt;vector&gt;
 
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">MAX_EVENTS</span> <span class="token expression"><span class="token number">1024</span></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">BUF_SIZE</span> <span class="token expression"><span class="token number">1024</span></span></span>
+#define MAX_EVENTS 1024
+#define BUF_SIZE 1024
 
-<span class="token keyword">int</span> <span class="token function">set_nonblocking</span><span class="token punctuation">(</span><span class="token keyword">int</span> fd<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">int</span> old_option <span class="token operator">=</span> <span class="token function">fcntl</span><span class="token punctuation">(</span>fd<span class="token punctuation">,</span> F_GETFL<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">int</span> new_option <span class="token operator">=</span> old_option <span class="token operator">|</span> O_NONBLOCK<span class="token punctuation">;</span>
-    <span class="token function">fcntl</span><span class="token punctuation">(</span>fd<span class="token punctuation">,</span> F_SETFL<span class="token punctuation">,</span> new_option<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> old_option<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
+int set_nonblocking(int fd) &#123;
+    int old_option &#x3D; fcntl(fd, F_GETFL);
+    int new_option &#x3D; old_option | O_NONBLOCK;
+    fcntl(fd, F_SETFL, new_option);
+    return old_option;
+&#125;
 
-<span class="token keyword">void</span> <span class="token function">add_fd</span><span class="token punctuation">(</span><span class="token keyword">int</span> epoll_fd<span class="token punctuation">,</span> <span class="token keyword">int</span> fd<span class="token punctuation">,</span> <span class="token keyword">bool</span> enable_et<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    epoll_event event<span class="token punctuation">;</span>
-    event<span class="token punctuation">.</span>data<span class="token punctuation">.</span>fd <span class="token operator">=</span> fd<span class="token punctuation">;</span>
-    event<span class="token punctuation">.</span>events <span class="token operator">=</span> EPOLLIN<span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>enable_et<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        event<span class="token punctuation">.</span>events <span class="token operator">|=</span> EPOLLET<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token function">epoll_ctl</span><span class="token punctuation">(</span>epoll_fd<span class="token punctuation">,</span> EPOLL_CTL_ADD<span class="token punctuation">,</span> fd<span class="token punctuation">,</span> <span class="token operator">&amp;</span>event<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">set_nonblocking</span><span class="token punctuation">(</span>fd<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
+void add_fd(int epoll_fd, int fd, bool enable_et) &#123;
+    epoll_event event;
+    event.data.fd &#x3D; fd;
+    event.events &#x3D; EPOLLIN;
+    if (enable_et) &#123;
+        event.events |&#x3D; EPOLLET;
+    &#125;
+    epoll_ctl(epoll_fd, EPOLL_CTL_ADD, fd, &amp;event);
+    set_nonblocking(fd);
+&#125;
 
-<span class="token keyword">void</span> <span class="token function">lt</span><span class="token punctuation">(</span>epoll_event<span class="token operator">*</span> events<span class="token punctuation">,</span> <span class="token keyword">int</span> number<span class="token punctuation">,</span> <span class="token keyword">int</span> epoll_fd<span class="token punctuation">,</span> <span class="token keyword">int</span> listen_fd<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">char</span> buf<span class="token punctuation">[</span>BUF_SIZE<span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> number<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">int</span> sockfd <span class="token operator">=</span> events<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>data<span class="token punctuation">.</span>fd<span class="token punctuation">;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>sockfd <span class="token operator">==</span> listen_fd<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            <span class="token keyword">struct</span> <span class="token class-name">sockaddr_in</span> client_address<span class="token punctuation">;</span>
-            socklen_t client_addrlength <span class="token operator">=</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>client_address<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">int</span> connfd <span class="token operator">=</span> <span class="token function">accept</span><span class="token punctuation">(</span>listen_fd<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">sockaddr</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>client_address<span class="token punctuation">,</span> <span class="token operator">&amp;</span>client_addrlength<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token function">add_fd</span><span class="token punctuation">(</span>epoll_fd<span class="token punctuation">,</span> connfd<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>events<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>events <span class="token operator">&amp;</span> EPOLLIN<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"event trigger once\n"</span><span class="token punctuation">;</span>
-            <span class="token function">memset</span><span class="token punctuation">(</span>buf<span class="token punctuation">,</span> <span class="token char">'\0'</span><span class="token punctuation">,</span> BUF_SIZE<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">int</span> ret <span class="token operator">=</span> <span class="token function">recv</span><span class="token punctuation">(</span>sockfd<span class="token punctuation">,</span> buf<span class="token punctuation">,</span> BUF_SIZE <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>ret <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                <span class="token function">close</span><span class="token punctuation">(</span>sockfd<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token keyword">continue</span><span class="token punctuation">;</span>
-            <span class="token punctuation">&#125;</span>
-            std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"get "</span> <span class="token operator">&lt;&lt;</span> ret <span class="token operator">&lt;&lt;</span> <span class="token string">" bytes of content: "</span> <span class="token operator">&lt;&lt;</span> buf <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl<span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-            std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"something else happened\n"</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span>
+void lt(epoll_event* events, int number, int epoll_fd, int listen_fd) &#123;
+    char buf[BUF_SIZE];
+    for (int i &#x3D; 0; i &lt; number; i++) &#123;
+        int sockfd &#x3D; events[i].data.fd;
+        if (sockfd &#x3D;&#x3D; listen_fd) &#123;
+            struct sockaddr_in client_address;
+            socklen_t client_addrlength &#x3D; sizeof(client_address);
+            int connfd &#x3D; accept(listen_fd, (struct sockaddr*)&amp;client_address, &amp;client_addrlength);
+            add_fd(epoll_fd, connfd, false);
+        &#125; else if (events[i].events &amp; EPOLLIN) &#123;
+            std::cout &lt;&lt; &quot;event trigger once\n&quot;;
+            memset(buf, &#39;\0&#39;, BUF_SIZE);
+            int ret &#x3D; recv(sockfd, buf, BUF_SIZE - 1, 0);
+            if (ret &lt;&#x3D; 0) &#123;
+                close(sockfd);
+                continue;
+            &#125;
+            std::cout &lt;&lt; &quot;get &quot; &lt;&lt; ret &lt;&lt; &quot; bytes of content: &quot; &lt;&lt; buf &lt;&lt; std::endl;
+        &#125; else &#123;
+            std::cout &lt;&lt; &quot;something else happened\n&quot;;
+        &#125;
+    &#125;
+&#125;
 
-<span class="token keyword">void</span> <span class="token function">et</span><span class="token punctuation">(</span>epoll_event<span class="token operator">*</span> events<span class="token punctuation">,</span> <span class="token keyword">int</span> number<span class="token punctuation">,</span> <span class="token keyword">int</span> epoll_fd<span class="token punctuation">,</span> <span class="token keyword">int</span> listen_fd<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">char</span> buf<span class="token punctuation">[</span>BUF_SIZE<span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> number<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">int</span> sockfd <span class="token operator">=</span> events<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>data<span class="token punctuation">.</span>fd<span class="token punctuation">;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>sockfd <span class="token operator">==</span> listen_fd<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            <span class="token keyword">struct</span> <span class="token class-name">sockaddr_in</span> client_address<span class="token punctuation">;</span>
-            socklen_t client_addrlength <span class="token operator">=</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>client_address<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">int</span> connfd <span class="token operator">=</span> <span class="token function">accept</span><span class="token punctuation">(</span>listen_fd<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">sockaddr</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>client_address<span class="token punctuation">,</span> <span class="token operator">&amp;</span>client_addrlength<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token function">add_fd</span><span class="token punctuation">(</span>epoll_fd<span class="token punctuation">,</span> connfd<span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>events<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>events <span class="token operator">&amp;</span> EPOLLIN<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"event trigger once\n"</span><span class="token punctuation">;</span>
-            <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                <span class="token function">memset</span><span class="token punctuation">(</span>buf<span class="token punctuation">,</span> <span class="token char">'\0'</span><span class="token punctuation">,</span> BUF_SIZE<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token keyword">int</span> ret <span class="token operator">=</span> <span class="token function">recv</span><span class="token punctuation">(</span>sockfd<span class="token punctuation">,</span> buf<span class="token punctuation">,</span> BUF_SIZE <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token keyword">if</span> <span class="token punctuation">(</span>ret <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>errno <span class="token operator">==</span> EAGAIN<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token punctuation">(</span>errno <span class="token operator">==</span> EWOULDBLOCK<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                        std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"read later\n"</span><span class="token punctuation">;</span>
-                        <span class="token keyword">break</span><span class="token punctuation">;</span>
-                    <span class="token punctuation">&#125;</span>
-                    <span class="token function">close</span><span class="token punctuation">(</span>sockfd<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token keyword">break</span><span class="token punctuation">;</span>
-                <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>ret <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                    <span class="token function">close</span><span class="token punctuation">(</span>sockfd<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-                    std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"get "</span> <span class="token operator">&lt;&lt;</span> ret <span class="token operator">&lt;&lt;</span> <span class="token string">" bytes of content: "</span> <span class="token operator">&lt;&lt;</span> buf <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl<span class="token punctuation">;</span>
-                <span class="token punctuation">&#125;</span>
-            <span class="token punctuation">&#125;</span>
-        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-            std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"something else happened\n"</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span>
+void et(epoll_event* events, int number, int epoll_fd, int listen_fd) &#123;
+    char buf[BUF_SIZE];
+    for (int i &#x3D; 0; i &lt; number; i++) &#123;
+        int sockfd &#x3D; events[i].data.fd;
+        if (sockfd &#x3D;&#x3D; listen_fd) &#123;
+            struct sockaddr_in client_address;
+            socklen_t client_addrlength &#x3D; sizeof(client_address);
+            int connfd &#x3D; accept(listen_fd, (struct sockaddr*)&amp;client_address, &amp;client_addrlength);
+            add_fd(epoll_fd, connfd, true);
+        &#125; else if (events[i].events &amp; EPOLLIN) &#123;
+            std::cout &lt;&lt; &quot;event trigger once\n&quot;;
+            while (1) &#123;
+                memset(buf, &#39;\0&#39;, BUF_SIZE);
+                int ret &#x3D; recv(sockfd, buf, BUF_SIZE - 1, 0);
+                if (ret &lt; 0) &#123;
+                    if ((errno &#x3D;&#x3D; EAGAIN) || (errno &#x3D;&#x3D; EWOULDBLOCK)) &#123;
+                        std::cout &lt;&lt; &quot;read later\n&quot;;
+                        break;
+                    &#125;
+                    close(sockfd);
+                    break;
+                &#125; else if (ret &#x3D;&#x3D; 0) &#123;
+                    close(sockfd);
+                &#125; else &#123;
+                    std::cout &lt;&lt; &quot;get &quot; &lt;&lt; ret &lt;&lt; &quot; bytes of content: &quot; &lt;&lt; buf &lt;&lt; std::endl;
+                &#125;
+            &#125;
+        &#125; else &#123;
+            std::cout &lt;&lt; &quot;something else happened\n&quot;;
+        &#125;
+    &#125;
+&#125;
 
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span><span class="token operator">*</span> argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>argc <span class="token operator">&lt;=</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"usage: "</span> <span class="token operator">&lt;&lt;</span> argv<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> <span class="token string">" ip_address port_number"</span> <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl<span class="token punctuation">;</span>
-        <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token keyword">const</span> <span class="token keyword">char</span><span class="token operator">*</span> ip <span class="token operator">=</span> argv<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token keyword">int</span> port <span class="token operator">=</span> <span class="token function">atoi</span><span class="token punctuation">(</span>argv<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+int main(int argc, char* argv[]) &#123;
+    if (argc &lt;&#x3D; 2) &#123;
+        std::cout &lt;&lt; &quot;usage: &quot; &lt;&lt; argv[0] &lt;&lt; &quot; ip_address port_number&quot; &lt;&lt; std::endl;
+        return 1;
+    &#125;
+    const char* ip &#x3D; argv[1];
+    int port &#x3D; atoi(argv[2]);
 
-    <span class="token keyword">int</span> ret <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token keyword">struct</span> <span class="token class-name">sockaddr_in</span> address<span class="token punctuation">;</span>
-    <span class="token function">bzero</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>address<span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>address<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    address<span class="token punctuation">.</span>sin_family <span class="token operator">=</span> AF_INET<span class="token punctuation">;</span>
-    <span class="token function">inet_pton</span><span class="token punctuation">(</span>AF_INET<span class="token punctuation">,</span> ip<span class="token punctuation">,</span> <span class="token operator">&amp;</span>address<span class="token punctuation">.</span>sin_addr<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    address<span class="token punctuation">.</span>sin_port <span class="token operator">=</span> <span class="token function">htons</span><span class="token punctuation">(</span>port<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    int ret &#x3D; 0;
+    struct sockaddr_in address;
+    bzero(&amp;address, sizeof(address));
+    address.sin_family &#x3D; AF_INET;
+    inet_pton(AF_INET, ip, &amp;address.sin_addr);
+    address.sin_port &#x3D; htons(port);
 
-    <span class="token keyword">int</span> listen_fd <span class="token operator">=</span> <span class="token function">socket</span><span class="token punctuation">(</span>AF_INET<span class="token punctuation">,</span> SOCK_STREAM<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    ret <span class="token operator">=</span> <span class="token function">bind</span><span class="token punctuation">(</span>listen_fd<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">sockaddr</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>address<span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>address<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    ret <span class="token operator">=</span> <span class="token function">listen</span><span class="token punctuation">(</span>listen_fd<span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    int listen_fd &#x3D; socket(AF_INET, SOCK_STREAM, 0);
+    ret &#x3D; bind(listen_fd, (struct sockaddr*)&amp;address, sizeof(address));
+    ret &#x3D; listen(listen_fd, 5);
 
-    epoll_event events<span class="token punctuation">[</span>MAX_EVENTS<span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token keyword">int</span> epoll_fd <span class="token operator">=</span> <span class="token function">epoll_create</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">add_fd</span><span class="token punctuation">(</span>epoll_fd<span class="token punctuation">,</span> listen_fd<span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    epoll_event events[MAX_EVENTS];
+    int epoll_fd &#x3D; epoll_create(5);
+    add_fd(epoll_fd, listen_fd, true);
 
-    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">int</span> ret <span class="token operator">=</span> <span class="token function">epoll_wait</span><span class="token punctuation">(</span>epoll_fd<span class="token punctuation">,</span> events<span class="token punctuation">,</span> MAX_EVENTS<span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>ret <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"epoll failure\n"</span><span class="token punctuation">;</span>
-            <span class="token keyword">break</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-        <span class="token comment">// lt(events, ret, epoll_fd, listen_fd);</span>
-        <span class="token function">et</span><span class="token punctuation">(</span>events<span class="token punctuation">,</span> ret<span class="token punctuation">,</span> epoll_fd<span class="token punctuation">,</span> listen_fd<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token function">close</span><span class="token punctuation">(</span>listen_fd<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+    while (1) &#123;
+        int ret &#x3D; epoll_wait(epoll_fd, events, MAX_EVENTS, -1);
+        if (ret &lt; 0) &#123;
+            std::cout &lt;&lt; &quot;epoll failure\n&quot;;
+            break;
+        &#125;
+        &#x2F;&#x2F; lt(events, ret, epoll_fd, listen_fd);
+        et(events, ret, epoll_fd, listen_fd);
+    &#125;
+    close(listen_fd);
+    return 0;
+&#125;
+</code></pre></li>
 </ul>
 <h3 id="作业8">作业8</h3>
 <ul>
 <li><p><strong>线程池</strong></p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;condition_variable></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;functional></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;mutex></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;queue></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;thread></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;vector></span></span>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp">#include &lt;condition_variable&gt;
+#include &lt;functional&gt;
+#include &lt;mutex&gt;
+#include &lt;queue&gt;
+#include &lt;thread&gt;
+#include &lt;vector&gt;
 
-<span class="token keyword">class</span> <span class="token class-name">ThreadPool</span> <span class="token punctuation">&#123;</span>
-   <span class="token keyword">public</span><span class="token operator">:</span>
-        <span class="token function">ThreadPool</span><span class="token punctuation">(</span>size_t num_threads<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">stopped</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            <span class="token keyword">for</span> <span class="token punctuation">(</span>size_t i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> num_threads<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span>
-                threads<span class="token punctuation">.</span><span class="token function">emplace_back</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token keyword">this</span><span class="token punctuation">]</span> <span class="token punctuation">&#123;</span>
-                    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                        std<span class="token double-colon punctuation">::</span>function<span class="token operator">&lt;</span><span class="token keyword">void</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">></span> task<span class="token punctuation">;</span>
-                        <span class="token punctuation">&#123;</span>
-                            std<span class="token double-colon punctuation">::</span>unique_lock<span class="token operator">&lt;</span>std<span class="token double-colon punctuation">::</span>mutex<span class="token operator">></span> <span class="token function">lock</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                            condition<span class="token punctuation">.</span><span class="token function">wait</span><span class="token punctuation">(</span>
-                                lock<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token keyword">this</span><span class="token punctuation">]</span> <span class="token punctuation">&#123;</span> <span class="token keyword">return</span> stopped <span class="token operator">||</span> <span class="token operator">!</span>tasks<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                            <span class="token keyword">if</span> <span class="token punctuation">(</span>stopped <span class="token operator">&amp;&amp;</span> tasks<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-                                <span class="token keyword">return</span><span class="token punctuation">;</span>
-                            task <span class="token operator">=</span> std<span class="token double-colon punctuation">::</span><span class="token function">move</span><span class="token punctuation">(</span>tasks<span class="token punctuation">.</span><span class="token function">front</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                            tasks<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                        <span class="token punctuation">&#125;</span>
-                        <span class="token function">task</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token punctuation">&#125;</span>
-                <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
+class ThreadPool &#123;
+   public:
+        ThreadPool(size_t num_threads) : stopped(false) &#123;
+            for (size_t i &#x3D; 0; i &lt; num_threads; ++i)
+                threads.emplace_back([this] &#123;
+                    while (true) &#123;
+                        std::function&lt;void()&gt; task;
+                        &#123;
+                            std::unique_lock&lt;std::mutex&gt; lock(m);
+                            condition.wait(
+                                lock, [this] &#123; return stopped || !tasks.empty(); &#125;);
+                            if (stopped &amp;&amp; tasks.empty())
+                                return;
+                            task &#x3D; std::move(tasks.front());
+                            tasks.pop();
+                        &#125;
+                        task();
+                    &#125;
+                &#125;);
+        &#125;
 
-    <span class="token operator">~</span><span class="token function">ThreadPool</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token punctuation">&#123;</span>
-            std<span class="token double-colon punctuation">::</span>unique_lock<span class="token operator">&lt;</span>std<span class="token double-colon punctuation">::</span>mutex<span class="token operator">></span> <span class="token function">lock</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            stopped <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-        condition<span class="token punctuation">.</span><span class="token function">notify_all</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span>std<span class="token double-colon punctuation">::</span>thread<span class="token operator">&amp;</span> thread <span class="token operator">:</span> threads<span class="token punctuation">)</span>
-            thread<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
+    ~ThreadPool() &#123;
+        &#123;
+            std::unique_lock&lt;std::mutex&gt; lock(m);
+            stopped &#x3D; true;
+        &#125;
+        condition.notify_all();
+        for (std::thread&amp; thread : threads)
+            thread.join();
+    &#125;
 
-    <span class="token keyword">template</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token class-name">F</span><span class="token punctuation">,</span> <span class="token keyword">class</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> Args<span class="token operator">></span>
-    <span class="token keyword">void</span> <span class="token function">enqueue</span><span class="token punctuation">(</span>F<span class="token operator">&amp;&amp;</span> f<span class="token punctuation">,</span> Args<span class="token operator">&amp;&amp;</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token punctuation">&#123;</span>
-            std<span class="token double-colon punctuation">::</span>unique_lock<span class="token operator">&lt;</span>std<span class="token double-colon punctuation">::</span>mutex<span class="token operator">></span> <span class="token function">lock</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            tasks<span class="token punctuation">.</span><span class="token function">emplace</span><span class="token punctuation">(</span>
-                <span class="token punctuation">[</span><span class="token operator">=</span><span class="token punctuation">]</span> <span class="token punctuation">&#123;</span> std<span class="token double-colon punctuation">::</span><span class="token generic-function"><span class="token function">forward</span><span class="token generic class-name"><span class="token operator">&lt;</span>F<span class="token operator">></span></span></span><span class="token punctuation">(</span>f<span class="token punctuation">)</span><span class="token punctuation">(</span>std<span class="token double-colon punctuation">::</span><span class="token generic-function"><span class="token function">forward</span><span class="token generic class-name"><span class="token operator">&lt;</span>Args<span class="token operator">></span></span></span><span class="token punctuation">(</span>args<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-        condition<span class="token punctuation">.</span><span class="token function">notify_one</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
+    template &lt;class F, class... Args&gt;
+    void enqueue(F&amp;&amp; f, Args&amp;&amp;... args) &#123;
+        &#123;
+            std::unique_lock&lt;std::mutex&gt; lock(m);
+            tasks.emplace(
+                [&#x3D;] &#123; std::forward&lt;F&gt;(f)(std::forward&lt;Args&gt;(args)...); &#125;);
+        &#125;
+        condition.notify_one();
+    &#125;
 
-   <span class="token keyword">private</span><span class="token operator">:</span>
-    std<span class="token double-colon punctuation">::</span>vector<span class="token operator">&lt;</span>std<span class="token double-colon punctuation">::</span>thread<span class="token operator">></span> threads<span class="token punctuation">;</span>
-    std<span class="token double-colon punctuation">::</span>queue<span class="token operator">&lt;</span>std<span class="token double-colon punctuation">::</span>function<span class="token operator">&lt;</span><span class="token keyword">void</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">>></span> tasks<span class="token punctuation">;</span>
-    std<span class="token double-colon punctuation">::</span>mutex m<span class="token punctuation">;</span>
-    std<span class="token double-colon punctuation">::</span>condition_variable condition<span class="token punctuation">;</span>
-    <span class="token keyword">bool</span> stopped<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+   private:
+    std::vector&lt;std::thread&gt; threads;
+    std::queue&lt;std::function&lt;void()&gt;&gt; tasks;
+    std::mutex m;
+    std::condition_variable condition;
+    bool stopped;
+&#125;;</code></pre></li>
 </ul>
 <h3 id="作业7">作业7</h3>
 <ul>
 <li><p><strong>守护进程</strong>：
 创建子进程执行各种任务，而守候进程在后台保证系统稳定运行</p>
-<pre class="line-numbers language-Cpp" data-language="Cpp"><code class="language-Cpp">#include &lt;unistd.h&gt;
+<pre class="language-Cpp" data-language="Cpp"><code class="language-Cpp">#include &lt;unistd.h&gt;
 #include &lt;sys&#x2F;stat.h&gt;
 #include &lt;sys&#x2F;types.h&gt;
 #include &lt;stdlib.h&gt;
@@ -815,7 +818,7 @@ int main() &#123;
     daemonize();
     return 0;
 &#125;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</code></pre></li>
 </ul>
 <h3 id="作业6">作业6</h3>
 <ul>
@@ -834,171 +837,171 @@ int main() &#123;
 <li><p><strong>代码</strong></p>
 <ul>
 <li><p>服务端</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> threading
-<span class="token keyword">import</span> tkinter <span class="token keyword">as</span> tk
-<span class="token keyword">import</span> socket
+<pre class="language-python" data-language="python"><code class="language-python">import threading
+import tkinter as tk
+import socket
 
 
-<span class="token keyword">class</span> <span class="token class-name">ServerUI</span><span class="token punctuation">:</span>
-    HOST <span class="token operator">=</span> <span class="token string">"127.0.0.1"</span>
-    PORT <span class="token operator">=</span> <span class="token number">8080</span>
+class ServerUI:
+    HOST &#x3D; &quot;127.0.0.1&quot;
+    PORT &#x3D; 8080
 
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> root<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token comment"># Start server</span>
-        self<span class="token punctuation">.</span>server_socket <span class="token operator">=</span> socket<span class="token punctuation">.</span>socket<span class="token punctuation">(</span>socket<span class="token punctuation">.</span>AF_INET<span class="token punctuation">,</span> socket<span class="token punctuation">.</span>SOCK_STREAM<span class="token punctuation">)</span>
-        self<span class="token punctuation">.</span>server_socket<span class="token punctuation">.</span>bind<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">'localhost'</span><span class="token punctuation">,</span> <span class="token number">8080</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        self<span class="token punctuation">.</span>server_socket<span class="token punctuation">.</span>listen<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Server started. Waiting for client to connect..."</span><span class="token punctuation">)</span>
+    def __init__(self, root):
+        # Start server
+        self.server_socket &#x3D; socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.server_socket.bind((&#39;localhost&#39;, 8080))
+        self.server_socket.listen(1)
+        print(&quot;Server started. Waiting for client to connect...&quot;)
 
-        <span class="token comment"># Accept client connection</span>
-        self<span class="token punctuation">.</span>client_socket<span class="token punctuation">,</span> self<span class="token punctuation">.</span>client_address <span class="token operator">=</span> self<span class="token punctuation">.</span>server_socket<span class="token punctuation">.</span>accept<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Client connected from </span><span class="token interpolation"><span class="token punctuation">&#123;</span>self<span class="token punctuation">.</span>client_address<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
-        self<span class="token punctuation">.</span>root <span class="token operator">=</span> root
-        self<span class="token punctuation">.</span>root<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token string">"Chat Oline"</span><span class="token punctuation">)</span>
+        # Accept client connection
+        self.client_socket, self.client_address &#x3D; self.server_socket.accept()
+        print(f&quot;Client connected from &#123;self.client_address&#125;&quot;)
+        self.root &#x3D; root
+        self.root.title(&quot;Chat Oline&quot;)
 
-        <span class="token comment"># Create text box for displaying messages</span>
-        self<span class="token punctuation">.</span>text_box <span class="token operator">=</span> tk<span class="token punctuation">.</span>Text<span class="token punctuation">(</span>root<span class="token punctuation">)</span>
-        self<span class="token punctuation">.</span>text_box<span class="token punctuation">.</span>pack<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        # Create text box for displaying messages
+        self.text_box &#x3D; tk.Text(root)
+        self.text_box.pack()
 
-        <span class="token comment"># Create entry box for sending messages</span>
-        self<span class="token punctuation">.</span>entry_box <span class="token operator">=</span> tk<span class="token punctuation">.</span>Entry<span class="token punctuation">(</span>root<span class="token punctuation">)</span>
-        self<span class="token punctuation">.</span>entry_box<span class="token punctuation">.</span>configure<span class="token punctuation">(</span>bg<span class="token operator">=</span><span class="token string">"white"</span><span class="token punctuation">)</span>
-        self<span class="token punctuation">.</span>entry_box<span class="token punctuation">.</span>bind<span class="token punctuation">(</span><span class="token string">"&lt;Return>"</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>send_message<span class="token punctuation">)</span>
-        self<span class="token punctuation">.</span>entry_box<span class="token punctuation">.</span>pack<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        # Create entry box for sending messages
+        self.entry_box &#x3D; tk.Entry(root)
+        self.entry_box.configure(bg&#x3D;&quot;white&quot;)
+        self.entry_box.bind(&quot;&lt;Return&gt;&quot;, self.send_message)
+        self.entry_box.pack()
 
-        <span class="token comment"># Create send button</span>
-        self<span class="token punctuation">.</span>send_button <span class="token operator">=</span> tk<span class="token punctuation">.</span>Button<span class="token punctuation">(</span>
-            root<span class="token punctuation">,</span> text<span class="token operator">=</span><span class="token string">"Send"</span><span class="token punctuation">,</span> command<span class="token operator">=</span>self<span class="token punctuation">.</span>send_message<span class="token punctuation">)</span>
-        self<span class="token punctuation">.</span>send_button<span class="token punctuation">.</span>pack<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        # Create send button
+        self.send_button &#x3D; tk.Button(
+            root, text&#x3D;&quot;Send&quot;, command&#x3D;self.send_message)
+        self.send_button.pack()
 
-        <span class="token comment"># Start handling incoming messages</span>
-        self<span class="token punctuation">.</span>receive_thread <span class="token operator">=</span> threading<span class="token punctuation">.</span>Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>self<span class="token punctuation">.</span>schedule_receive<span class="token punctuation">)</span>
-        self<span class="token punctuation">.</span>receive_thread<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        # Start handling incoming messages
+        self.receive_thread &#x3D; threading.Thread(target&#x3D;self.schedule_receive)
+        self.receive_thread.start()
 
-    <span class="token keyword">def</span> <span class="token function">schedule_receive</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
-            <span class="token comment"># Schedule the receive function to be called in 100 milliseconds</span>
-            self<span class="token punctuation">.</span>root<span class="token punctuation">.</span>after<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>receive<span class="token punctuation">)</span>
-            <span class="token comment"># Wait for receive function to finish</span>
-            self<span class="token punctuation">.</span>receive_thread<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    def schedule_receive(self):
+        while True:
+            # Schedule the receive function to be called in 100 milliseconds
+            self.root.after(100, self.receive)
+            # Wait for receive function to finish
+            self.receive_thread.join()
 
-    <span class="token keyword">def</span> <span class="token function">receive</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">try</span><span class="token punctuation">:</span>
-            <span class="token comment"># Receive message from client</span>
-            msg <span class="token operator">=</span> self<span class="token punctuation">.</span>client_socket<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">"utf8"</span><span class="token punctuation">)</span>
-            <span class="token keyword">if</span> msg <span class="token operator">==</span> <span class="token string">"Bye"</span><span class="token punctuation">:</span>
-                <span class="token comment"># Client has disconnected, so close the client socket</span>
-                self<span class="token punctuation">.</span>client_socket<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
-                self<span class="token punctuation">.</span>server_socket<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
-                <span class="token keyword">return</span>
-            <span class="token comment"># Display message in text box</span>
-            self<span class="token punctuation">.</span>text_box<span class="token punctuation">.</span>insert<span class="token punctuation">(</span>tk<span class="token punctuation">.</span>END<span class="token punctuation">,</span> <span class="token string-interpolation"><span class="token string">f"Client : </span><span class="token interpolation"><span class="token punctuation">&#123;</span>msg<span class="token punctuation">&#125;</span></span><span class="token string">\n"</span></span><span class="token punctuation">)</span>
-        <span class="token keyword">except</span> OSError<span class="token punctuation">:</span>
-            <span class="token comment"># Client has disconnected, so close the client socket</span>
-            self<span class="token punctuation">.</span>client_socket<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
-            self<span class="token punctuation">.</span>server_socket<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
-            <span class="token keyword">return</span>
+    def receive(self):
+        try:
+            # Receive message from client
+            msg &#x3D; self.client_socket.recv(1024).decode(&quot;utf8&quot;)
+            if msg &#x3D;&#x3D; &quot;Bye&quot;:
+                # Client has disconnected, so close the client socket
+                self.client_socket.close()
+                self.server_socket.close()
+                return
+            # Display message in text box
+            self.text_box.insert(tk.END, f&quot;Client : &#123;msg&#125;\n&quot;)
+        except OSError:
+            # Client has disconnected, so close the client socket
+            self.client_socket.close()
+            self.server_socket.close()
+            return
 
-    <span class="token keyword">def</span> <span class="token function">send_message</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>event<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token comment"># Get message from entry box</span>
-        msg <span class="token operator">=</span> self<span class="token punctuation">.</span>entry_box<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token comment"># Send message to client</span>
-        self<span class="token punctuation">.</span>client_socket<span class="token punctuation">.</span>send<span class="token punctuation">(</span>msg<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token comment"># Display message in text box</span>
-        self<span class="token punctuation">.</span>text_box<span class="token punctuation">.</span>insert<span class="token punctuation">(</span>tk<span class="token punctuation">.</span>END<span class="token punctuation">,</span> <span class="token string-interpolation"><span class="token string">f"You: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>msg<span class="token punctuation">&#125;</span></span><span class="token string">\n"</span></span><span class="token punctuation">)</span>
+    def send_message(self,event&#x3D;None):
+        # Get message from entry box
+        msg &#x3D; self.entry_box.get()
+        # Send message to client
+        self.client_socket.send(msg.encode(&#39;utf-8&#39;))
+        # Display message in text box
+        self.text_box.insert(tk.END, f&quot;You: &#123;msg&#125;\n&quot;)
 
-        <span class="token comment"># Clear entry box</span>
-        self<span class="token punctuation">.</span>entry_box<span class="token punctuation">.</span>delete<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> tk<span class="token punctuation">.</span>END<span class="token punctuation">)</span>
+        # Clear entry box
+        self.entry_box.delete(0, tk.END)
 
 
-<span class="token comment"># Create server UI</span>
-root <span class="token operator">=</span> tk<span class="token punctuation">.</span>Tk<span class="token punctuation">(</span><span class="token punctuation">)</span>
-server_ui <span class="token operator">=</span> ServerUI<span class="token punctuation">(</span>root<span class="token punctuation">)</span>
-root<span class="token punctuation">.</span>mainloop<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+# Create server UI
+root &#x3D; tk.Tk()
+server_ui &#x3D; ServerUI(root)
+root.mainloop()
+</code></pre></li>
 <li><p>另一端</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> threading
-<span class="token keyword">import</span> tkinter <span class="token keyword">as</span> tk
-<span class="token keyword">import</span> socket
+<pre class="language-python" data-language="python"><code class="language-python">import threading
+import tkinter as tk
+import socket
 
 
-<span class="token keyword">class</span> <span class="token class-name">ServerUI</span><span class="token punctuation">:</span>
-    HOST <span class="token operator">=</span> <span class="token string">"127.0.0.1"</span>
-    PORT <span class="token operator">=</span> <span class="token number">8080</span>
+class ServerUI:
+    HOST &#x3D; &quot;127.0.0.1&quot;
+    PORT &#x3D; 8080
 
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> root<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token comment"># Start server</span>
-        self<span class="token punctuation">.</span>server_socket <span class="token operator">=</span> socket<span class="token punctuation">.</span>socket<span class="token punctuation">(</span>socket<span class="token punctuation">.</span>AF_INET<span class="token punctuation">,</span> socket<span class="token punctuation">.</span>SOCK_STREAM<span class="token punctuation">)</span>
-        self<span class="token punctuation">.</span>server_socket<span class="token punctuation">.</span>bind<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">'localhost'</span><span class="token punctuation">,</span> <span class="token number">8080</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        self<span class="token punctuation">.</span>server_socket<span class="token punctuation">.</span>listen<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Server started. Waiting for client to connect..."</span><span class="token punctuation">)</span>
+    def __init__(self, root):
+        # Start server
+        self.server_socket &#x3D; socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.server_socket.bind((&#39;localhost&#39;, 8080))
+        self.server_socket.listen(1)
+        print(&quot;Server started. Waiting for client to connect...&quot;)
 
-        <span class="token comment"># Accept client connection</span>
-        self<span class="token punctuation">.</span>client_socket<span class="token punctuation">,</span> self<span class="token punctuation">.</span>client_address <span class="token operator">=</span> self<span class="token punctuation">.</span>server_socket<span class="token punctuation">.</span>accept<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Client connected from </span><span class="token interpolation"><span class="token punctuation">&#123;</span>self<span class="token punctuation">.</span>client_address<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
-        self<span class="token punctuation">.</span>root <span class="token operator">=</span> root
-        self<span class="token punctuation">.</span>root<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token string">"Chat Oline"</span><span class="token punctuation">)</span>
+        # Accept client connection
+        self.client_socket, self.client_address &#x3D; self.server_socket.accept()
+        print(f&quot;Client connected from &#123;self.client_address&#125;&quot;)
+        self.root &#x3D; root
+        self.root.title(&quot;Chat Oline&quot;)
 
-        <span class="token comment"># Create text box for displaying messages</span>
-        self<span class="token punctuation">.</span>text_box <span class="token operator">=</span> tk<span class="token punctuation">.</span>Text<span class="token punctuation">(</span>root<span class="token punctuation">)</span>
-        self<span class="token punctuation">.</span>text_box<span class="token punctuation">.</span>pack<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        # Create text box for displaying messages
+        self.text_box &#x3D; tk.Text(root)
+        self.text_box.pack()
 
-        <span class="token comment"># Create entry box for sending messages</span>
-        self<span class="token punctuation">.</span>entry_box <span class="token operator">=</span> tk<span class="token punctuation">.</span>Entry<span class="token punctuation">(</span>root<span class="token punctuation">)</span>
-        self<span class="token punctuation">.</span>entry_box<span class="token punctuation">.</span>configure<span class="token punctuation">(</span>bg<span class="token operator">=</span><span class="token string">"white"</span><span class="token punctuation">)</span>
-        self<span class="token punctuation">.</span>entry_box<span class="token punctuation">.</span>bind<span class="token punctuation">(</span><span class="token string">"&lt;Return>"</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>send_message<span class="token punctuation">)</span>
-        self<span class="token punctuation">.</span>entry_box<span class="token punctuation">.</span>pack<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        # Create entry box for sending messages
+        self.entry_box &#x3D; tk.Entry(root)
+        self.entry_box.configure(bg&#x3D;&quot;white&quot;)
+        self.entry_box.bind(&quot;&lt;Return&gt;&quot;, self.send_message)
+        self.entry_box.pack()
 
-        <span class="token comment"># Create send button</span>
-        self<span class="token punctuation">.</span>send_button <span class="token operator">=</span> tk<span class="token punctuation">.</span>Button<span class="token punctuation">(</span>
-            root<span class="token punctuation">,</span> text<span class="token operator">=</span><span class="token string">"Send"</span><span class="token punctuation">,</span> command<span class="token operator">=</span>self<span class="token punctuation">.</span>send_message<span class="token punctuation">)</span>
-        self<span class="token punctuation">.</span>send_button<span class="token punctuation">.</span>pack<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        # Create send button
+        self.send_button &#x3D; tk.Button(
+            root, text&#x3D;&quot;Send&quot;, command&#x3D;self.send_message)
+        self.send_button.pack()
 
-        <span class="token comment"># Start handling incoming messages</span>
-        self<span class="token punctuation">.</span>receive_thread <span class="token operator">=</span> threading<span class="token punctuation">.</span>Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>self<span class="token punctuation">.</span>schedule_receive<span class="token punctuation">)</span>
-        self<span class="token punctuation">.</span>receive_thread<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        # Start handling incoming messages
+        self.receive_thread &#x3D; threading.Thread(target&#x3D;self.schedule_receive)
+        self.receive_thread.start()
 
-    <span class="token keyword">def</span> <span class="token function">schedule_receive</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
-            <span class="token comment"># Schedule the receive function to be called in 100 milliseconds</span>
-            self<span class="token punctuation">.</span>root<span class="token punctuation">.</span>after<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>receive<span class="token punctuation">)</span>
-            <span class="token comment"># Wait for receive function to finish</span>
-            self<span class="token punctuation">.</span>receive_thread<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    def schedule_receive(self):
+        while True:
+            # Schedule the receive function to be called in 100 milliseconds
+            self.root.after(100, self.receive)
+            # Wait for receive function to finish
+            self.receive_thread.join()
 
-    <span class="token keyword">def</span> <span class="token function">receive</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">try</span><span class="token punctuation">:</span>
-            <span class="token comment"># Receive message from client</span>
-            msg <span class="token operator">=</span> self<span class="token punctuation">.</span>client_socket<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">"utf8"</span><span class="token punctuation">)</span>
-            <span class="token keyword">if</span> msg <span class="token operator">==</span> <span class="token string">"Bye"</span><span class="token punctuation">:</span>
-                <span class="token comment"># Client has disconnected, so close the client socket</span>
-                self<span class="token punctuation">.</span>client_socket<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
-                self<span class="token punctuation">.</span>server_socket<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
-                <span class="token keyword">return</span>
-            <span class="token comment"># Display message in text box</span>
-            self<span class="token punctuation">.</span>text_box<span class="token punctuation">.</span>insert<span class="token punctuation">(</span>tk<span class="token punctuation">.</span>END<span class="token punctuation">,</span> <span class="token string-interpolation"><span class="token string">f"Client : </span><span class="token interpolation"><span class="token punctuation">&#123;</span>msg<span class="token punctuation">&#125;</span></span><span class="token string">\n"</span></span><span class="token punctuation">)</span>
-        <span class="token keyword">except</span> OSError<span class="token punctuation">:</span>
-            <span class="token comment"># Client has disconnected, so close the client socket</span>
-            self<span class="token punctuation">.</span>client_socket<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
-            self<span class="token punctuation">.</span>server_socket<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
-            <span class="token keyword">return</span>
+    def receive(self):
+        try:
+            # Receive message from client
+            msg &#x3D; self.client_socket.recv(1024).decode(&quot;utf8&quot;)
+            if msg &#x3D;&#x3D; &quot;Bye&quot;:
+                # Client has disconnected, so close the client socket
+                self.client_socket.close()
+                self.server_socket.close()
+                return
+            # Display message in text box
+            self.text_box.insert(tk.END, f&quot;Client : &#123;msg&#125;\n&quot;)
+        except OSError:
+            # Client has disconnected, so close the client socket
+            self.client_socket.close()
+            self.server_socket.close()
+            return
 
-    <span class="token keyword">def</span> <span class="token function">send_message</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>event<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token comment"># Get message from entry box</span>
-        msg <span class="token operator">=</span> self<span class="token punctuation">.</span>entry_box<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token comment"># Send message to client</span>
-        self<span class="token punctuation">.</span>client_socket<span class="token punctuation">.</span>send<span class="token punctuation">(</span>msg<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token comment"># Display message in text box</span>
-        self<span class="token punctuation">.</span>text_box<span class="token punctuation">.</span>insert<span class="token punctuation">(</span>tk<span class="token punctuation">.</span>END<span class="token punctuation">,</span> <span class="token string-interpolation"><span class="token string">f"You: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>msg<span class="token punctuation">&#125;</span></span><span class="token string">\n"</span></span><span class="token punctuation">)</span>
+    def send_message(self,event&#x3D;None):
+        # Get message from entry box
+        msg &#x3D; self.entry_box.get()
+        # Send message to client
+        self.client_socket.send(msg.encode(&#39;utf-8&#39;))
+        # Display message in text box
+        self.text_box.insert(tk.END, f&quot;You: &#123;msg&#125;\n&quot;)
 
-        <span class="token comment"># Clear entry box</span>
-        self<span class="token punctuation">.</span>entry_box<span class="token punctuation">.</span>delete<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> tk<span class="token punctuation">.</span>END<span class="token punctuation">)</span>
+        # Clear entry box
+        self.entry_box.delete(0, tk.END)
 
 
-<span class="token comment"># Create server UI</span>
-root <span class="token operator">=</span> tk<span class="token punctuation">.</span>Tk<span class="token punctuation">(</span><span class="token punctuation">)</span>
-server_ui <span class="token operator">=</span> ServerUI<span class="token punctuation">(</span>root<span class="token punctuation">)</span>
-root<span class="token punctuation">.</span>mainloop<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+# Create server UI
+root &#x3D; tk.Tk()
+server_ui &#x3D; ServerUI(root)
+root.mainloop()
+</code></pre></li>
 </ul></li>
 </ul>
 <h3 id="作业4">作业4</h3>
@@ -1020,62 +1023,62 @@ root<span class="token punctuation">.</span>mainloop<span class="token punctuati
 src="https://cdn.jsdelivr.net/gh/Jf710001011/pictureBed@main/img/202303160016081.png"
 alt="comment" /></p></li>
 <li><p>代码</p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;fstream></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;string></span></span>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp">#include &lt;fstream&gt;
+#include &lt;iostream&gt;
+#include &lt;string&gt;
 
-<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+using namespace std;
 
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    string file_name<span class="token punctuation">;</span>
-    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"输入你要注释的文件："</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+int main() &#123;
+    string file_name;
+    cout &lt;&lt; &quot;输入你要注释的文件：&quot; &lt;&lt; endl;
 
-    ifstream <span class="token function">input_file</span><span class="token punctuation">(</span>file_name<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>input_file<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        cerr <span class="token operator">&lt;&lt;</span> <span class="token string">"错误，不能打开输入文件。"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
+    ifstream input_file(file_name);
+    if (!input_file) &#123;
+        cerr &lt;&lt; &quot;错误，不能打开输入文件。&quot; &lt;&lt; endl;
+    &#125;
 
-    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"输入保存结果的文件："</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-    cin <span class="token operator">>></span> file_name<span class="token punctuation">;</span>
-    ofstream <span class="token function">ouput_file</span><span class="token punctuation">(</span>file_name<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>ouput_file<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        cerr <span class="token operator">&lt;&lt;</span> <span class="token string">"错误，不能打开输出文件。"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
+    cout &lt;&lt; &quot;输入保存结果的文件：&quot; &lt;&lt; endl;
+    cin &gt;&gt; file_name;
+    ofstream ouput_file(file_name);
+    if (!ouput_file) &#123;
+        cerr &lt;&lt; &quot;错误，不能打开输出文件。&quot; &lt;&lt; endl;
+    &#125;
 
-    <span class="token keyword">bool</span> in_string <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>      <span class="token comment">// 在字符串中</span>
-    <span class="token keyword">bool</span> in_single_com <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>  <span class="token comment">// 一个单行注释</span>
-    <span class="token keyword">bool</span> in_mult_com <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>    <span class="token comment">// 多行注释</span>
-    <span class="token keyword">char</span> pre_ch <span class="token operator">=</span> <span class="token char">'\0'</span><span class="token punctuation">;</span>          <span class="token comment">// 上一个字符</span>
+    bool in_string &#x3D; false;      &#x2F;&#x2F; 在字符串中
+    bool in_single_com &#x3D; false;  &#x2F;&#x2F; 一个单行注释
+    bool in_mult_com &#x3D; false;    &#x2F;&#x2F; 多行注释
+    char pre_ch &#x3D; &#39;\0&#39;;          &#x2F;&#x2F; 上一个字符
 
-    <span class="token keyword">char</span> cur_ch<span class="token punctuation">;</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>input_file<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>cur_ch<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>in_string<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>cur_ch <span class="token operator">==</span> <span class="token char">'\"'</span> <span class="token operator">&amp;&amp;</span> pre_ch <span class="token operator">!=</span> <span class="token char">'\\'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                in_string <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-            <span class="token punctuation">&#125;</span>
-            ouput_file <span class="token operator">&lt;&lt;</span> cur_ch<span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>in_single_com <span class="token operator">&amp;&amp;</span> cur_ch <span class="token operator">==</span> <span class="token char">'\n'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            in_single_com <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>cur_ch <span class="token operator">==</span> <span class="token char">'/'</span> <span class="token operator">&amp;&amp;</span> pre_ch <span class="token operator">==</span> <span class="token char">'*'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            in_mult_com <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>cur_ch <span class="token operator">==</span> <span class="token char">'"'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                in_string <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-                ouput_file <span class="token operator">&lt;&lt;</span> cur_ch<span class="token punctuation">;</span>
-            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-                <span class="token keyword">if</span> <span class="token punctuation">(</span>pre_ch <span class="token operator">==</span> <span class="token char">'/'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                    in_single_com <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-                <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>pre_ch <span class="token operator">==</span> <span class="token char">'*'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                    in_mult_com <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-                <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-                    ouput_file <span class="token operator">&lt;&lt;</span> cur_ch<span class="token punctuation">;</span>
-                <span class="token punctuation">&#125;</span>
-            <span class="token punctuation">&#125;</span>
-        <span class="token punctuation">&#125;</span>
-        pre_ch <span class="token operator">=</span> cur_ch<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+    char cur_ch;
+    while (input_file.get(cur_ch)) &#123;
+        if (in_string) &#123;
+            if (cur_ch &#x3D;&#x3D; &#39;\&quot;&#39; &amp;&amp; pre_ch !&#x3D; &#39;\\&#39;) &#123;
+                in_string &#x3D; false;
+            &#125;
+            ouput_file &lt;&lt; cur_ch;
+        &#125; else if (in_single_com &amp;&amp; cur_ch &#x3D;&#x3D; &#39;\n&#39;) &#123;
+            in_single_com &#x3D; false;
+        &#125; else if (cur_ch &#x3D;&#x3D; &#39;&#x2F;&#39; &amp;&amp; pre_ch &#x3D;&#x3D; &#39;*&#39;) &#123;
+            in_mult_com &#x3D; false;
+        &#125; else &#123;
+            if (cur_ch &#x3D;&#x3D; &#39;&quot;&#39;) &#123;
+                in_string &#x3D; true;
+                ouput_file &lt;&lt; cur_ch;
+            &#125; else &#123;
+                if (pre_ch &#x3D;&#x3D; &#39;&#x2F;&#39;) &#123;
+                    in_single_com &#x3D; true;
+                &#125; else if (pre_ch &#x3D;&#x3D; &#39;*&#39;) &#123;
+                    in_mult_com &#x3D; true;
+                &#125; else &#123;
+                    ouput_file &lt;&lt; cur_ch;
+                &#125;
+            &#125;
+        &#125;
+        pre_ch &#x3D; cur_ch;
+    &#125;
+    return 0;
+&#125;</code></pre></li>
 </ul>
 <h3 id="作业3">作业3</h3>
 <ul>
@@ -1094,228 +1097,228 @@ alt="comment" /></p></li>
 <li>首次出牌与跟牌两种模式</li>
 </ul></li>
 <li><p>代码</p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;algorithm></span>  <span class="token comment">// 包含shuffle函数</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;chrono></span>  <span class="token comment">// 包含获取时间的函数，用于产生随机数种子</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;map></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;random></span>  <span class="token comment">// 包含随机数引擎类</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;string></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;vector></span></span>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp">#include &lt;algorithm&gt;  &#x2F;&#x2F; 包含shuffle函数
+#include &lt;chrono&gt;  &#x2F;&#x2F; 包含获取时间的函数，用于产生随机数种子
+#include &lt;iostream&gt;
+#include &lt;map&gt;
+#include &lt;random&gt;  &#x2F;&#x2F; 包含随机数引擎类
+#include &lt;string&gt;
+#include &lt;vector&gt;
 
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">TOTAL</span> <span class="token expression"><span class="token number">54</span></span></span>
+#define TOTAL 54
 
-<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+using namespace std;
 
-<span class="token comment">// 生成一副扑克牌</span>
-vector<span class="token operator">&lt;</span>string<span class="token operator">></span> <span class="token function">generate_poker</span><span class="token punctuation">(</span>map<span class="token operator">&lt;</span>string<span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">></span><span class="token operator">&amp;</span> rank_map<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    vector<span class="token operator">&lt;</span>string<span class="token operator">></span> cards<span class="token punctuation">;</span>
-    <span class="token comment">// 花色</span>
-    vector<span class="token operator">&lt;</span>string<span class="token operator">></span> colors<span class="token punctuation">&#123;</span><span class="token string">"Hearts"</span><span class="token punctuation">,</span> <span class="token string">"Diamonds"</span><span class="token punctuation">,</span> <span class="token string">"Clubs"</span><span class="token punctuation">,</span> <span class="token string">"Spades"</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-    <span class="token comment">// 牌</span>
-    vector<span class="token operator">&lt;</span>string<span class="token operator">></span> nums <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">"2"</span><span class="token punctuation">,</span> <span class="token string">"3"</span><span class="token punctuation">,</span>  <span class="token string">"4"</span><span class="token punctuation">,</span> <span class="token string">"5"</span><span class="token punctuation">,</span> <span class="token string">"6"</span><span class="token punctuation">,</span> <span class="token string">"7"</span><span class="token punctuation">,</span> <span class="token string">"8"</span><span class="token punctuation">,</span>
-                           <span class="token string">"9"</span><span class="token punctuation">,</span> <span class="token string">"10"</span><span class="token punctuation">,</span> <span class="token string">"J"</span><span class="token punctuation">,</span> <span class="token string">"Q"</span><span class="token punctuation">,</span> <span class="token string">"K"</span><span class="token punctuation">,</span> <span class="token string">"A"</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+&#x2F;&#x2F; 生成一副扑克牌
+vector&lt;string&gt; generate_poker(map&lt;string, int&gt;&amp; rank_map) &#123;
+    vector&lt;string&gt; cards;
+    &#x2F;&#x2F; 花色
+    vector&lt;string&gt; colors&#123;&quot;Hearts&quot;, &quot;Diamonds&quot;, &quot;Clubs&quot;, &quot;Spades&quot;&#125;;
+    &#x2F;&#x2F; 牌
+    vector&lt;string&gt; nums &#x3D; &#123;&quot;2&quot;, &quot;3&quot;,  &quot;4&quot;, &quot;5&quot;, &quot;6&quot;, &quot;7&quot;, &quot;8&quot;,
+                           &quot;9&quot;, &quot;10&quot;, &quot;J&quot;, &quot;Q&quot;, &quot;K&quot;, &quot;A&quot;&#125;;
 
-    vector<span class="token operator">&lt;</span>string<span class="token operator">></span> ranks <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">"2"</span><span class="token punctuation">,</span> <span class="token string">"3"</span><span class="token punctuation">,</span> <span class="token string">"4"</span><span class="token punctuation">,</span> <span class="token string">"5"</span><span class="token punctuation">,</span>         <span class="token string">"6"</span><span class="token punctuation">,</span>
-                            <span class="token string">"7"</span><span class="token punctuation">,</span> <span class="token string">"8"</span><span class="token punctuation">,</span> <span class="token string">"9"</span><span class="token punctuation">,</span> <span class="token string">"10"</span><span class="token punctuation">,</span>        <span class="token string">"J"</span><span class="token punctuation">,</span>
-                            <span class="token string">"Q"</span><span class="token punctuation">,</span> <span class="token string">"K"</span><span class="token punctuation">,</span> <span class="token string">"A"</span><span class="token punctuation">,</span> <span class="token string">"red joker"</span><span class="token punctuation">,</span> <span class="token string">"black joker"</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+    vector&lt;string&gt; ranks &#x3D; &#123;&quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;,         &quot;6&quot;,
+                            &quot;7&quot;, &quot;8&quot;, &quot;9&quot;, &quot;10&quot;,        &quot;J&quot;,
+                            &quot;Q&quot;, &quot;K&quot;, &quot;A&quot;, &quot;red joker&quot;, &quot;black joker&quot;&#125;;
 
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> colors<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            string tmp <span class="token operator">=</span> nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">"-"</span> <span class="token operator">+</span> colors<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
-            cards<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>tmp<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
-    cards<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token string">"red joker"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    cards<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token string">"black joker"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment">// 规定大小规则=</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> ranks<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        rank_map<span class="token punctuation">[</span>ranks<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> i<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token keyword">return</span> cards<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
+    for (int i &#x3D; 0; i &lt; colors.size(); i++) &#123;
+        for (int j &#x3D; 0; j &lt; nums.size(); j++) &#123;
+            string tmp &#x3D; nums[j] + &quot;-&quot; + colors[i];
+            cards.push_back(tmp);
+        &#125;
+    &#125;
+    cards.push_back(&quot;red joker&quot;);
+    cards.push_back(&quot;black joker&quot;);
+    &#x2F;&#x2F; 规定大小规则&#x3D;
+    for (int i &#x3D; 0; i &lt; ranks.size(); i++) &#123;
+        rank_map[ranks[i]] &#x3D; i;
+    &#125;
+    return cards;
+&#125;
 
-<span class="token comment">// 洗牌</span>
-<span class="token keyword">void</span> <span class="token function">randCards</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span>string<span class="token operator">></span><span class="token operator">&amp;</span> cards<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">unsigned</span> seed <span class="token operator">=</span> chrono<span class="token double-colon punctuation">::</span>system_clock<span class="token double-colon punctuation">::</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">time_since_epoch</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">shuffle</span><span class="token punctuation">(</span>cards<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> cards<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">default_random_engine</span><span class="token punctuation">(</span>seed<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
+&#x2F;&#x2F; 洗牌
+void randCards(vector&lt;string&gt;&amp; cards) &#123;
+    unsigned seed &#x3D; chrono::system_clock::now().time_since_epoch().count();
+    shuffle(cards.begin(), cards.end(), default_random_engine(seed));
+&#125;
 
-<span class="token comment">// 牌的排序规则</span>
-<span class="token keyword">bool</span> <span class="token function">compare</span><span class="token punctuation">(</span>string a<span class="token punctuation">,</span> string b<span class="token punctuation">,</span> map<span class="token operator">&lt;</span>string<span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">></span> rank_map<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">return</span> <span class="token punctuation">(</span>rank_map<span class="token punctuation">[</span>a<span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> a<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token char">'-'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span>
-            rank_map<span class="token punctuation">[</span>b<span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> b<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token char">'-'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
+&#x2F;&#x2F; 牌的排序规则
+bool compare(string a, string b, map&lt;string, int&gt; rank_map) &#123;
+    return (rank_map[a.substr(0, a.find(&#39;-&#39;))] &lt;
+            rank_map[b.substr(0, b.find(&#39;-&#39;))]);
+&#125;
 
-<span class="token comment">// 发牌器发牌</span>
-<span class="token keyword">void</span> <span class="token function">disTributi</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span>string<span class="token operator">></span><span class="token operator">&amp;</span> cards<span class="token punctuation">,</span>
-                vector<span class="token operator">&lt;</span>string<span class="token operator">></span><span class="token operator">&amp;</span> player<span class="token punctuation">,</span>
-                vector<span class="token operator">&lt;</span>string<span class="token operator">></span><span class="token operator">&amp;</span> computer<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">int</span> n <span class="token operator">=</span> cards<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            player<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>cards<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-            computer<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>cards<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span>
+&#x2F;&#x2F; 发牌器发牌
+void disTributi(vector&lt;string&gt;&amp; cards,
+                vector&lt;string&gt;&amp; player,
+                vector&lt;string&gt;&amp; computer) &#123;
+    int n &#x3D; cards.size();
+    for (int i &#x3D; 0; i &lt; n; i++) &#123;
+        if (i % 2 &#x3D;&#x3D; 0) &#123;
+            player.push_back(cards[i]);
+        &#125; else &#123;
+            computer.push_back(cards[i]);
+        &#125;
+    &#125;
+&#125;
 
-<span class="token comment">// 比牌</span>
-<span class="token keyword">int</span> <span class="token function">CompareCards</span><span class="token punctuation">(</span>map<span class="token operator">&lt;</span>string<span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">></span> rank_map<span class="token punctuation">,</span>
-                 <span class="token keyword">const</span> string<span class="token operator">&amp;</span> computer_c<span class="token punctuation">,</span>
-                 <span class="token keyword">const</span> string<span class="token operator">&amp;</span> player_c<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>rank_map<span class="token punctuation">[</span>computer_c<span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> computer_c<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token char">'-'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">></span>
-        rank_map<span class="token punctuation">[</span>player_c<span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> player_c<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token char">'-'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>rank_map<span class="token punctuation">[</span>computer_c<span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> computer_c<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token char">'-'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span>
-               rank_map<span class="token punctuation">[</span>player_c<span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> player_c<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token char">'-'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
+&#x2F;&#x2F; 比牌
+int CompareCards(map&lt;string, int&gt; rank_map,
+                 const string&amp; computer_c,
+                 const string&amp; player_c) &#123;
+    if (rank_map[computer_c.substr(0, computer_c.find(&#39;-&#39;))] &gt;
+        rank_map[player_c.substr(0, player_c.find(&#39;-&#39;))]) &#123;
+        return 1;
+    &#125; else if (rank_map[computer_c.substr(0, computer_c.find(&#39;-&#39;))] &lt;
+               rank_map[player_c.substr(0, player_c.find(&#39;-&#39;))]) &#123;
+        return -1;
+    &#125; else &#123;
+        return 0;
+    &#125;
+    return 0;
+&#125;
 
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    vector<span class="token operator">&lt;</span>string<span class="token operator">></span> cards<span class="token punctuation">;</span>     <span class="token comment">// 发牌器</span>
-    vector<span class="token operator">&lt;</span>string<span class="token operator">></span> player<span class="token punctuation">;</span>    <span class="token comment">// 玩家</span>
-    vector<span class="token operator">&lt;</span>string<span class="token operator">></span> table<span class="token punctuation">;</span>     <span class="token comment">// 桌子</span>
-    vector<span class="token operator">&lt;</span>string<span class="token operator">></span> computer<span class="token punctuation">;</span>  <span class="token comment">// 电脑</span>
-    map<span class="token operator">&lt;</span>string<span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">></span> rank_map<span class="token punctuation">;</span>
+int main() &#123;
+    vector&lt;string&gt; cards;     &#x2F;&#x2F; 发牌器
+    vector&lt;string&gt; player;    &#x2F;&#x2F; 玩家
+    vector&lt;string&gt; table;     &#x2F;&#x2F; 桌子
+    vector&lt;string&gt; computer;  &#x2F;&#x2F; 电脑
+    map&lt;string, int&gt; rank_map;
 
-    <span class="token keyword">int</span> order <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>  <span class="token comment">// 电脑出牌</span>
-    <span class="token keyword">int</span> mode <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>   <span class="token comment">// 出牌模式为首次出牌</span>
-    <span class="token function">srand</span><span class="token punctuation">(</span><span class="token function">time</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    int order &#x3D; 0;  &#x2F;&#x2F; 电脑出牌
+    int mode &#x3D; 0;   &#x2F;&#x2F; 出牌模式为首次出牌
+    srand(time(0));
 
-    <span class="token comment">// 生成扑克牌</span>
-    cards <span class="token operator">=</span> <span class="token function">generate_poker</span><span class="token punctuation">(</span>rank_map<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    &#x2F;&#x2F; 生成扑克牌
+    cards &#x3D; generate_poker(rank_map);
 
-    <span class="token comment">// 洗牌</span>
-    <span class="token function">randCards</span><span class="token punctuation">(</span>cards<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    &#x2F;&#x2F; 洗牌
+    randCards(cards);
 
-    <span class="token comment">// 发牌器发牌</span>
-    <span class="token function">disTributi</span><span class="token punctuation">(</span>cards<span class="token punctuation">,</span> player<span class="token punctuation">,</span> computer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    &#x2F;&#x2F; 发牌器发牌
+    disTributi(cards, player, computer);
 
-    <span class="token comment">// 将手上的牌进行排序</span>
-    <span class="token function">sort</span><span class="token punctuation">(</span>player<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> player<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-         <span class="token punctuation">[</span>rank_map<span class="token punctuation">]</span><span class="token punctuation">(</span>string a<span class="token punctuation">,</span> string b<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token keyword">return</span> <span class="token function">compare</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> rank_map<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    &#x2F;&#x2F; 将手上的牌进行排序
+    sort(player.begin(), player.end(),
+         [rank_map](string a, string b) &#123; return compare(a, b, rank_map); &#125;);
 
-    <span class="token function">sort</span><span class="token punctuation">(</span>computer<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> computer<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-         <span class="token punctuation">[</span>rank_map<span class="token punctuation">]</span><span class="token punctuation">(</span>string a<span class="token punctuation">,</span> string b<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token keyword">return</span> <span class="token function">compare</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> rank_map<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    sort(computer.begin(), computer.end(),
+         [rank_map](string a, string b) &#123; return compare(a, b, rank_map); &#125;);
 
-    <span class="token comment">// 出牌顺序</span>
-    order <span class="token operator">=</span> <span class="token function">rand</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">2</span><span class="token punctuation">;</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token comment">// 判胜负</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>computer<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token operator">!</span>player<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>computer<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                cout <span class="token operator">&lt;&lt;</span> <span class="token string">"失败！"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-                cout <span class="token operator">&lt;&lt;</span> <span class="token string">"胜利！"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-            <span class="token punctuation">&#125;</span>
+    &#x2F;&#x2F; 出牌顺序
+    order &#x3D; rand() % 2;
+    while (true) &#123;
+        &#x2F;&#x2F; 判胜负
+        if (!computer.size() || !player.size()) &#123;
+            if (!computer.size()) &#123;
+                cout &lt;&lt; &quot;失败！&quot; &lt;&lt; endl;
+            &#125; else &#123;
+                cout &lt;&lt; &quot;胜利！&quot; &lt;&lt; endl;
+            &#125;
 
-            cout <span class="token operator">&lt;&lt;</span> <span class="token string">"再来一局：y/n "</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-            <span class="token keyword">char</span> again<span class="token punctuation">;</span>
-            cin <span class="token operator">>></span> again<span class="token punctuation">;</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>again <span class="token operator">==</span> <span class="token char">'y'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                mode <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-                order <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-                <span class="token keyword">continue</span><span class="token punctuation">;</span>
-            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-                <span class="token keyword">break</span><span class="token punctuation">;</span>
-            <span class="token punctuation">&#125;</span>
-        <span class="token punctuation">&#125;</span>
+            cout &lt;&lt; &quot;再来一局：y&#x2F;n &quot; &lt;&lt; endl;
+            char again;
+            cin &gt;&gt; again;
+            if (again &#x3D;&#x3D; &#39;y&#39;) &#123;
+                mode &#x3D; 0;
+                order &#x3D; 0;
+                continue;
+            &#125; else &#123;
+                break;
+            &#125;
+        &#125;
 
-        <span class="token comment">// 显示桌面上的牌</span>
-        cout <span class="token operator">&lt;&lt;</span> <span class="token string">"桌面上的牌："</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> table<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            cout <span class="token operator">&lt;&lt;</span> table<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> <span class="token string">","</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-        cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+        &#x2F;&#x2F; 显示桌面上的牌
+        cout &lt;&lt; &quot;桌面上的牌：&quot; &lt;&lt; endl;
+        for (int i &#x3D; 0; i &lt; table.size(); i++) &#123;
+            cout &lt;&lt; table[i] &lt;&lt; &quot;,&quot;;
+        &#125;
+        cout &lt;&lt; endl;
 
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>mode <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token punctuation">(</span>order <span class="token operator">%</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>  <span class="token comment">// 首次出牌且电脑出牌</span>
-            cout <span class="token operator">&lt;&lt;</span> <span class="token string">"这一轮电脑首次出牌："</span> <span class="token operator">&lt;&lt;</span> computer<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-            table<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>computer<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        if (!mode &amp;&amp; !(order % 2)) &#123;  &#x2F;&#x2F; 首次出牌且电脑出牌
+            cout &lt;&lt; &quot;这一轮电脑首次出牌：&quot; &lt;&lt; computer[0];
+            table.push_back(computer[0]);
 
-            <span class="token comment">// 电脑弹出第一张牌</span>
-            computer<span class="token punctuation">.</span><span class="token function">erase</span><span class="token punctuation">(</span>computer<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            &#x2F;&#x2F; 电脑弹出第一张牌
+            computer.erase(computer.begin());
 
-            mode <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-            order<span class="token operator">++</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>mode <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>order <span class="token operator">%</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>  <span class="token comment">// 首次出牌且玩家出牌</span>
-            <span class="token comment">// 玩家出牌</span>
-            cout <span class="token operator">&lt;&lt;</span> <span class="token string">"这一轮是你首次出牌： "</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-            cout <span class="token operator">&lt;&lt;</span> <span class="token string">"我手中的牌： "</span><span class="token punctuation">;</span>
-            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">auto</span> i <span class="token operator">:</span> player<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                cout <span class="token operator">&lt;&lt;</span> i <span class="token operator">&lt;&lt;</span> <span class="token string">" "</span><span class="token punctuation">;</span>
-            <span class="token punctuation">&#125;</span>
-            cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+            mode &#x3D; 1;
+            order++;
+        &#125; else if (!mode &amp;&amp; (order % 2)) &#123;  &#x2F;&#x2F; 首次出牌且玩家出牌
+            &#x2F;&#x2F; 玩家出牌
+            cout &lt;&lt; &quot;这一轮是你首次出牌： &quot; &lt;&lt; endl;
+            cout &lt;&lt; &quot;我手中的牌： &quot;;
+            for (auto i : player) &#123;
+                cout &lt;&lt; i &lt;&lt; &quot; &quot;;
+            &#125;
+            cout &lt;&lt; endl;
 
-            cout <span class="token operator">&lt;&lt;</span> <span class="token string">"玩家出牌： "</span><span class="token punctuation">;</span>
-            string current_card<span class="token punctuation">;</span>
-            cin <span class="token operator">>></span> current_card<span class="token punctuation">;</span>
-            cout <span class="token operator">&lt;&lt;</span> current_card <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-            table<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>current_card<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            cout &lt;&lt; &quot;玩家出牌： &quot;;
+            string current_card;
+            cin &gt;&gt; current_card;
+            cout &lt;&lt; current_card &lt;&lt; endl;
+            table.push_back(current_card);
 
-            <span class="token comment">// 玩家弹出出去的牌</span>
-            <span class="token keyword">auto</span> pop <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>player<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> player<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> current_card<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            player<span class="token punctuation">.</span><span class="token function">erase</span><span class="token punctuation">(</span>pop<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            &#x2F;&#x2F; 玩家弹出出去的牌
+            auto pop &#x3D; find(player.begin(), player.end(), current_card);
+            player.erase(pop);
 
-            mode <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-            order<span class="token operator">++</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>mode <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token punctuation">(</span>order <span class="token operator">%</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>  <span class="token comment">// 电脑跟牌</span>
-            <span class="token comment">// 找出第一张大于玩家的牌</span>
-            string cur <span class="token operator">=</span> table<span class="token punctuation">.</span><span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">int</span> i<span class="token punctuation">;</span>
-            <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> computer<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">CompareCards</span><span class="token punctuation">(</span>rank_map<span class="token punctuation">,</span> computer<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> cur<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"电脑跟牌："</span> <span class="token operator">&lt;&lt;</span> computer<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
-                    table<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>computer<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    computer<span class="token punctuation">.</span><span class="token function">erase</span><span class="token punctuation">(</span>computer<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token keyword">break</span><span class="token punctuation">;</span>
-                <span class="token punctuation">&#125;</span>
-            <span class="token punctuation">&#125;</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> computer<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>  <span class="token comment">// 电脑没有大于玩家的牌</span>
-                mode <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-            <span class="token punctuation">&#125;</span>
-            order<span class="token operator">++</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>  <span class="token comment">// 玩家跟牌</span>
-            cout <span class="token operator">&lt;&lt;</span> <span class="token string">"我手中的牌： "</span><span class="token punctuation">;</span>
-            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">auto</span> i <span class="token operator">:</span> player<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                cout <span class="token operator">&lt;&lt;</span> i <span class="token operator">&lt;&lt;</span> <span class="token string">" "</span><span class="token punctuation">;</span>
-            <span class="token punctuation">&#125;</span>
-            cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-            cout <span class="token operator">&lt;&lt;</span> <span class="token string">"玩家跟牌： "</span><span class="token punctuation">;</span>
-            string current_card<span class="token punctuation">;</span>
-            cin <span class="token operator">>></span> current_card<span class="token punctuation">;</span>
+            mode &#x3D; 1;
+            order++;
+        &#125; else if (mode &amp;&amp; !(order % 2)) &#123;  &#x2F;&#x2F; 电脑跟牌
+            &#x2F;&#x2F; 找出第一张大于玩家的牌
+            string cur &#x3D; table.back();
+            int i;
+            for (i &#x3D; 0; i &lt; computer.size(); i++) &#123;
+                if (CompareCards(rank_map, computer[i], cur) &#x3D;&#x3D; 1) &#123;
+                    cout &lt;&lt; &quot;电脑跟牌：&quot; &lt;&lt; computer[i];
+                    table.push_back(computer[i]);
+                    computer.erase(computer.begin() + i);
+                    break;
+                &#125;
+            &#125;
+            if (i &#x3D;&#x3D; computer.size()) &#123;  &#x2F;&#x2F; 电脑没有大于玩家的牌
+                mode &#x3D; 0;
+            &#125;
+            order++;
+        &#125; else &#123;  &#x2F;&#x2F; 玩家跟牌
+            cout &lt;&lt; &quot;我手中的牌： &quot;;
+            for (auto i : player) &#123;
+                cout &lt;&lt; i &lt;&lt; &quot; &quot;;
+            &#125;
+            cout &lt;&lt; endl;
+            cout &lt;&lt; &quot;玩家跟牌： &quot;;
+            string current_card;
+            cin &gt;&gt; current_card;
 
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>current_card <span class="token operator">==</span> <span class="token string">"pass"</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                cout <span class="token operator">&lt;&lt;</span> <span class="token string">"我要不起"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-                order<span class="token operator">++</span><span class="token punctuation">;</span>
-                mode <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-                <span class="token keyword">continue</span><span class="token punctuation">;</span>
-            <span class="token punctuation">&#125;</span>
+            if (current_card &#x3D;&#x3D; &quot;pass&quot;) &#123;
+                cout &lt;&lt; &quot;我要不起&quot; &lt;&lt; endl;
+                order++;
+                mode &#x3D; 0;
+                continue;
+            &#125;
 
-            <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">CompareCards</span><span class="token punctuation">(</span>rank_map<span class="token punctuation">,</span> current_card<span class="token punctuation">,</span> table<span class="token punctuation">.</span><span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                    cout <span class="token operator">&lt;&lt;</span> current_card<span class="token punctuation">;</span>
-                    table<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>current_card<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            while (true) &#123;
+                if (CompareCards(rank_map, current_card, table.back()) &#x3D;&#x3D; 1) &#123;
+                    cout &lt;&lt; current_card;
+                    table.push_back(current_card);
 
-                    <span class="token comment">// 玩家弹出出去的牌</span>
-                    <span class="token keyword">auto</span> pop <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>player<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> player<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> current_card<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    player<span class="token punctuation">.</span><span class="token function">erase</span><span class="token punctuation">(</span>pop<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token keyword">break</span><span class="token punctuation">;</span>
-                <span class="token punctuation">&#125;</span>
-                cout <span class="token operator">&lt;&lt;</span> <span class="token string">"无效，重新选择你的出牌："</span><span class="token punctuation">;</span>
-                cin <span class="token operator">>></span> current_card<span class="token punctuation">;</span>
-            <span class="token punctuation">&#125;</span>
+                    &#x2F;&#x2F; 玩家弹出出去的牌
+                    auto pop &#x3D; find(player.begin(), player.end(), current_card);
+                    player.erase(pop);
+                    break;
+                &#125;
+                cout &lt;&lt; &quot;无效，重新选择你的出牌：&quot;;
+                cin &gt;&gt; current_card;
+            &#125;
 
-            order<span class="token operator">++</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-        cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+            order++;
+        &#125;
+        cout &lt;&lt; endl;
+    &#125;
+    return 0;
+&#125;</code></pre></li>
 <li><p>流程图<img
 src="https://s2.loli.net/2023/03/06/N1WFa7f9w8OUQAX.png"
 alt="未命名绘图 (1)" /></p></li>
@@ -1324,91 +1327,91 @@ alt="未命名绘图 (1)" /></p></li>
 <ul>
 <li><p>要求：人机对话，多级菜单执行操作，菜单的修改不需要对代码修改</p></li>
 <li><p>答案</p>
-<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
-    <span class="token property">"menu"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-        <span class="token punctuation">&#123;</span>
-            <span class="token property">"key"</span><span class="token operator">:</span> <span class="token string">"1"</span><span class="token punctuation">,</span>
-            <span class="token property">"text"</span><span class="token operator">:</span> <span class="token string">"打开文件"</span><span class="token punctuation">,</span>
-            <span class="token property">"func"</span><span class="token operator">:</span> <span class="token string">"open_file"</span><span class="token punctuation">,</span>
-            <span class="token property">"subMenu"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-                <span class="token punctuation">&#123;</span>
-                    <span class="token property">"key"</span><span class="token operator">:</span> <span class="token string">"1.1"</span><span class="token punctuation">,</span>
-                    <span class="token property">"text"</span><span class="token operator">:</span> <span class="token string">"增加内容"</span><span class="token punctuation">,</span>
-                    <span class="token property">"func"</span><span class="token operator">:</span> <span class="token string">"add_content"</span>
-                <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-                <span class="token punctuation">&#123;</span>
-                    <span class="token property">"key"</span><span class="token operator">:</span> <span class="token string">"1.2"</span><span class="token punctuation">,</span>
-                    <span class="token property">"text"</span><span class="token operator">:</span> <span class="token string">"删除内容"</span><span class="token punctuation">,</span>
-                    <span class="token property">"func"</span><span class="token operator">:</span> <span class="token string">"delete_content"</span>
-                <span class="token punctuation">&#125;</span>
-            <span class="token punctuation">]</span>
-        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-        <span class="token punctuation">&#123;</span>
-            <span class="token property">"key"</span><span class="token operator">:</span> <span class="token string">"2"</span><span class="token punctuation">,</span>
-            <span class="token property">"text"</span><span class="token operator">:</span> <span class="token string">"复制"</span><span class="token punctuation">,</span>
-            <span class="token property">"func"</span><span class="token operator">:</span> <span class="token string">"copy"</span>
-        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-        <span class="token punctuation">&#123;</span>
-            <span class="token property">"key"</span><span class="token operator">:</span> <span class="token string">"3"</span><span class="token punctuation">,</span>
-            <span class="token property">"text"</span><span class="token operator">:</span> <span class="token string">"关闭文件"</span><span class="token punctuation">,</span>
-            <span class="token property">"func"</span><span class="token operator">:</span> <span class="token string">"close_file"</span>
-        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-        <span class="token punctuation">&#123;</span>
-            <span class="token property">"key"</span><span class="token operator">:</span> <span class="token string">"4"</span><span class="token punctuation">,</span>
-            <span class="token property">"level"</span><span class="token operator">:</span> <span class="token string">"0"</span><span class="token punctuation">,</span>
-            <span class="token property">"text"</span><span class="token operator">:</span> <span class="token string">"退出程序"</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">]</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> json
+<pre class="language-json" data-language="json"><code class="language-json">&#123;
+    &quot;menu&quot;: [
+        &#123;
+            &quot;key&quot;: &quot;1&quot;,
+            &quot;text&quot;: &quot;打开文件&quot;,
+            &quot;func&quot;: &quot;open_file&quot;,
+            &quot;subMenu&quot;: [
+                &#123;
+                    &quot;key&quot;: &quot;1.1&quot;,
+                    &quot;text&quot;: &quot;增加内容&quot;,
+                    &quot;func&quot;: &quot;add_content&quot;
+                &#125;,
+                &#123;
+                    &quot;key&quot;: &quot;1.2&quot;,
+                    &quot;text&quot;: &quot;删除内容&quot;,
+                    &quot;func&quot;: &quot;delete_content&quot;
+                &#125;
+            ]
+        &#125;,
+        &#123;
+            &quot;key&quot;: &quot;2&quot;,
+            &quot;text&quot;: &quot;复制&quot;,
+            &quot;func&quot;: &quot;copy&quot;
+        &#125;,
+        &#123;
+            &quot;key&quot;: &quot;3&quot;,
+            &quot;text&quot;: &quot;关闭文件&quot;,
+            &quot;func&quot;: &quot;close_file&quot;
+        &#125;,
+        &#123;
+            &quot;key&quot;: &quot;4&quot;,
+            &quot;level&quot;: &quot;0&quot;,
+            &quot;text&quot;: &quot;退出程序&quot;
+        &#125;
+    ]
+&#125;</code></pre>
+<pre class="language-python" data-language="python"><code class="language-python">import json
 
 
-<span class="token keyword">def</span> <span class="token function">load_json</span><span class="token punctuation">(</span>file_path<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'file_path'</span><span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
-        menu_json <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+def load_json(file_path):
+    with open(&#39;file_path&#39;, &#39;r&#39;) as f:
+        menu_json &#x3D; f.read()
 
-    menu_dict <span class="token operator">=</span> json<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>menu_json<span class="token punctuation">)</span>
-    menu_items <span class="token operator">=</span> menu_dict<span class="token punctuation">[</span><span class="token string">'menu'</span><span class="token punctuation">]</span>
-    <span class="token keyword">return</span> menu_items
-
-
-<span class="token keyword">def</span> <span class="token function">show_menu</span><span class="token punctuation">(</span>menu_items<span class="token punctuation">,</span> level<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">for</span> menu_item <span class="token keyword">in</span> menu_items<span class="token punctuation">:</span>
-        prefix <span class="token operator">=</span> <span class="token string">"  "</span><span class="token operator">*</span>level<span class="token punctuation">,</span>
-        <span class="token keyword">if</span> <span class="token string">'subMenu1'</span> <span class="token keyword">in</span> menu_item<span class="token punctuation">:</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token interpolation"><span class="token punctuation">&#123;</span>menu_item<span class="token punctuation">[</span><span class="token string">'key'</span><span class="token punctuation">]</span><span class="token punctuation">&#125;</span></span><span class="token string">-</span><span class="token interpolation"><span class="token punctuation">&#123;</span>menu_item<span class="token punctuation">[</span><span class="token string">'text'</span><span class="token punctuation">]</span><span class="token punctuation">&#125;</span></span><span class="token string">: "</span></span><span class="token punctuation">)</span>
-            show_menu<span class="token punctuation">(</span><span class="token punctuation">[</span>menu_item<span class="token punctuation">[</span><span class="token string">'subMenu1'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> menu_item<span class="token punctuation">[</span><span class="token string">'subMenu2'</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> level<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"</span><span class="token interpolation"><span class="token punctuation">&#123;</span>prefix<span class="token punctuation">&#125;</span></span><span class="token interpolation"><span class="token punctuation">&#123;</span>menu_item<span class="token punctuation">[</span><span class="token string">'key'</span><span class="token punctuation">]</span><span class="token punctuation">&#125;</span></span><span class="token string">:</span><span class="token interpolation"><span class="token punctuation">&#123;</span>menu_item<span class="token punctuation">[</span><span class="token string">'text'</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token string">' '</span><span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
-
-<span class="token keyword">def</span> <span class="token function">add_content</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"增加了一万字"</span><span class="token punctuation">)</span>
+    menu_dict &#x3D; json.loads(menu_json)
+    menu_items &#x3D; menu_dict[&#39;menu&#39;]
+    return menu_items
 
 
-<span class="token keyword">def</span> <span class="token function">delete_content</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"删除了一万字"</span><span class="token punctuation">)</span>
+def show_menu(menu_items, level&#x3D;0):
+    for menu_item in menu_items:
+        prefix &#x3D; &quot;  &quot;*level,
+        if &#39;subMenu1&#39; in menu_item:
+            print(f&quot;&#123;prefix&#125;&#123;menu_item[&#39;key&#39;]&#125;-&#123;menu_item[&#39;text&#39;]&#125;: &quot;)
+            show_menu([menu_item[&#39;subMenu1&#39;], menu_item[&#39;subMenu2&#39;]], level+1)
+        else:
+            print(f&quot;&#123;prefix&#125;&#123;menu_item[&#39;key&#39;]&#125;:&#123;menu_item[&#39;text&#39;]+&#39; &#39;&#125;&quot;)
+
+def add_content():
+    print(&quot;增加了一万字&quot;)
 
 
-<span class="token keyword">def</span> <span class="token function">open_file</span><span class="token punctuation">(</span>filePath<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>filePath<span class="token punctuation">,</span><span class="token string">'r'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
-        file_content <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>file_content<span class="token punctuation">)</span>
-
-<span class="token keyword">def</span> <span class="token function">main_loop</span><span class="token punctuation">(</span>menu<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
-        show_menu<span class="token punctuation">(</span>menu<span class="token punctuation">)</span>
-        choice <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请选择菜单项："</span><span class="token punctuation">)</span>
-        found <span class="token operator">=</span> <span class="token boolean">False</span>
-        <span class="token keyword">for</span> item <span class="token keyword">in</span> menu<span class="token punctuation">[</span><span class="token string">'menu'</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-            <span class="token keyword">if</span> item<span class="token punctuation">[</span><span class="token string">'key'</span><span class="token punctuation">]</span> <span class="token operator">==</span> choice<span class="token punctuation">:</span>
-                found <span class="token operator">=</span> <span class="token boolean">True</span>
-            <span class="token keyword">if</span> <span class="token string">'subMenu'</span> <span class="token keyword">in</span> item<span class="token punctuation">:</span>
-                sub_choice <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请选择子菜单项："</span><span class="token punctuation">)</span>
-
-            <span class="token keyword">for</span> sub_item <span class="token keyword">in</span> 
+def delete_content():
+    print(&quot;删除了一万字&quot;)
 
 
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+def open_file(filePath):
+    with open(filePath,&#39;r&#39;) as f:
+        file_content &#x3D; f.read()
+        print(file_content)
+
+def main_loop(menu):
+    while True:
+        show_menu(menu)
+        choice &#x3D; input(&quot;请选择菜单项：&quot;)
+        found &#x3D; False
+        for item in menu[&#39;menu&#39;]:
+            if item[&#39;key&#39;] &#x3D;&#x3D; choice:
+                found &#x3D; True
+            if &#39;subMenu&#39; in item:
+                sub_choice &#x3D; input(&quot;请选择子菜单项：&quot;)
+
+            for sub_item in 
+
+
+</code></pre></li>
 </ul>
 <h3 id="课后作业1">课后作业1</h3>
 <ul>
@@ -1431,46 +1434,46 @@ alt="程序流程图如何画？绘图软件有哪些" /></li>
 alt="流程图png" /></li>
 <li>代码</li>
 </ul>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
-<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
 
-<span class="token comment">/// @brief</span>
-<span class="token comment">/// @return</span>
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">&#123;</span>
-    <span class="token function">srand</span><span class="token punctuation">(</span><span class="token function">time</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">int</span> player_choice<span class="token punctuation">;</span>
-    <span class="token keyword">int</span> scissor <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token keyword">int</span> rock <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
-    <span class="token keyword">int</span> cloth <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+&#x2F;&#x2F;&#x2F; @brief
+&#x2F;&#x2F;&#x2F; @return
+int main()
+&#123;
+    srand(time(0));
+    int player_choice;
+    int scissor &#x3D; 1;
+    int rock &#x3D; 2;
+    int cloth &#x3D; 3;
 
-    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Enter player choice: "</span><span class="token punctuation">;</span>
-    cin <span class="token operator">>></span> player_choice<span class="token punctuation">;</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>player_choice<span class="token punctuation">)</span>
-    <span class="token punctuation">&#123;</span>
-        <span class="token keyword">int</span> computer_choice <span class="token operator">=</span> <span class="token function">rand</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">3</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    cout &lt;&lt; &quot;Enter player choice: &quot;;
+    cin &gt;&gt; player_choice;
+    while (player_choice)
+    &#123;
+        int computer_choice &#x3D; rand() % 3 + 1;
 
-        cout <span class="token operator">&lt;&lt;</span> <span class="token string">"player_choice: "</span> <span class="token operator">&lt;&lt;</span> player_choice <span class="token operator">&lt;&lt;</span> <span class="token string">" computer_choice: "</span> <span class="token operator">&lt;&lt;</span> computer_choice <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+        cout &lt;&lt; &quot;player_choice: &quot; &lt;&lt; player_choice &lt;&lt; &quot; computer_choice: &quot; &lt;&lt; computer_choice &lt;&lt; endl;
 
-        <span class="token comment">// determine the winner</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>player_choice <span class="token operator">==</span> computer_choice<span class="token punctuation">)</span>
-        <span class="token punctuation">&#123;</span>
-            cout <span class="token operator">&lt;&lt;</span> <span class="token string">"a draw!"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-        <span class="token comment">// this sentence is very important</span>
-        <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>player_choice <span class="token operator">-</span> computer_choice <span class="token operator">==</span> <span class="token number">2</span> <span class="token operator">||</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>player_choice <span class="token operator">-</span> computer_choice <span class="token operator">!=</span> <span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> player_choice <span class="token operator">&lt;</span> computer_choice<span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token punctuation">&#123;</span>
-            cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Computer wins!"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-        <span class="token keyword">else</span>
-        <span class="token punctuation">&#123;</span>
-            cout <span class="token operator">&lt;&lt;</span> <span class="token string">"player wins!"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
+        &#x2F;&#x2F; determine the winner
+        if (player_choice &#x3D;&#x3D; computer_choice)
+        &#123;
+            cout &lt;&lt; &quot;a draw!&quot; &lt;&lt; endl;
+        &#125;
+        &#x2F;&#x2F; this sentence is very important
+        else if (player_choice - computer_choice &#x3D;&#x3D; 2 || ((player_choice - computer_choice !&#x3D; -2) &amp;&amp; player_choice &lt; computer_choice))
+        &#123;
+            cout &lt;&lt; &quot;Computer wins!&quot; &lt;&lt; endl;
+        &#125;
+        else
+        &#123;
+            cout &lt;&lt; &quot;player wins!&quot; &lt;&lt; endl;
+        &#125;
 
-        cin <span class="token operator">>></span> player_choice<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-            <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        cin &gt;&gt; player_choice;
+    &#125;
+            return 0;
+&#125;</code></pre>
 <ul>
 <li>测试<img src="https://s2.loli.net/2023/02/22/fkcHyeih2wqJZgn.png"
 alt="image-20230222044310576" /></li>
@@ -2089,7 +2092,7 @@ alt="image-20230222044310576" /></li>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">230.3k</span>&nbsp;字
+                class="white-color">238.7k</span>&nbsp;字
             
             
             

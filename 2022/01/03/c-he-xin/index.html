@@ -43,7 +43,7 @@
     <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 7.0.0"><link rel="alternate" href="/atom.xml" title="Jf71o0x1o1l" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
     
@@ -488,7 +488,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    2k
+                    2.1k
                 </div>
                 
 
@@ -504,6 +504,9 @@
         </div>
         <hr class="clearfix">
 
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
         
 
         
@@ -552,9 +555,9 @@
 <li><p>默认参数 &gt; 从这个默认值往后都必须有默认值 &gt;
 或者声明有默认参数，或者实现有默认参数，不可同时有</p></li>
 <li><p>函数占位参数:可以有默认参数，调用时参数必须填补
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">fuction</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"this is function "</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></p></li>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp">void fuction(int a, int)&#123;
+    cout &lt;&lt; &quot;this is function &quot; &lt;&lt; endl;
+&#125;</code></pre></p></li>
 <li><p>函数重载: 函数名可以相同 &gt; 同一个作用域下 &gt; 函数名称相同
 &gt; 函数类型不同 或 参数个数不同 或 参数顺序不同 &gt;
 返回值不能作为重载的条件 &gt; int a =
@@ -601,21 +604,21 @@ struct默认公有访问权限，class默认私有访问权限 &gt;
 只能利用全局函数重载<code>&lt;&lt;</code>：<code>ostream&amp; operator &lt;&lt;(ostream&amp; out,Person&amp; p)</code>
 &gt;
 区分重置前置++与后置++：使用占位参数。后置递增返回值而不是引用：返回的临时变量不用引用返回
-&gt; - 函数调用运算符重载：仿函数 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Myadd</span><span class="token punctuation">&#123;</span>
-<span class="token keyword">public</span><span class="token operator">:</span>   
-<span class="token keyword">int</span> <span class="token keyword">operator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">int</span> num1<span class="token punctuation">,</span><span class="token keyword">int</span> num2<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-    rerturn num1 <span class="token operator">+</span> num2<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+&gt; - 函数调用运算符重载：仿函数 <pre class="language-cpp" data-language="cpp"><code class="language-cpp">class Myadd&#123;
+public:   
+int operator()(int num1,int num2)&#123;
+    rerturn num1 + num2;
+&#125;
+&#125;;
 
-<span class="token keyword">void</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-    Myadd myadd<span class="token punctuation">;</span>
-    <span class="token keyword">int</span> ret <span class="token operator">=</span> <span class="token function">myadd</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
-    cout <span class="token operator">&lt;&lt;</span> ret <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
+void test()&#123;
+    Myadd myadd;
+    int ret &#x3D; myadd(10,10); 
+    cout &lt;&lt; ret &lt;&lt; endl;
+&#125;
 
-<span class="token comment">// 匿名函数对象 ：类型（）</span>
-cout <span class="token operator">&lt;&lt;</span> <span class="token function">Myadd</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p></li>
+&#x2F;&#x2F; 匿名函数对象 ：类型（）
+cout &lt;&lt; Myadd()(10,10);</code></pre></p></li>
 </ul>
 <h2 id="三大特性">三大特性</h2>
 <ul>
@@ -656,121 +659,121 @@ alt="继承方式" /> &gt; 父类中所有非静态成员属性都会被继承 &
 <li><p>写文件 &gt; - 创建流对象<code>ofstream ofs;</code> &gt; -
 打开文件<code>ofs.open("文件路径"，打开方式)</code> &gt; -
 <code>ofs &lt;&lt; "写入的数据"</code> &gt; - 关闭文件
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">/*
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp">&#x2F;*
 ios::in
 ios::out
 ios::ate       初始位置：文件尾
 ios::app       追加方式写文件
 ios::trunc     如果文件存在先删除，在创建 
 ios::binary    二进制方式
-*/</span>
+*&#x2F;
 
-<span class="token comment">// 文件打开方式可以配合使用，利用|操作符</span>
+&#x2F;&#x2F; 文件打开方式可以配合使用，利用|操作符
 
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;fstream></span></span>
-<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+#include&lt;iostream&gt;
+#include&lt;fstream&gt;
+using namespace std;
 
-<span class="token keyword">void</span> <span class="token function">test01</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-	ofstream ofs<span class="token punctuation">;</span>
-	ofs<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token string">"test.txt"</span><span class="token punctuation">,</span> ios<span class="token double-colon punctuation">::</span>out<span class="token punctuation">)</span><span class="token punctuation">;</span>
+void test01() &#123;
+	ofstream ofs;
+	ofs.open(&quot;test.txt&quot;, ios::out);
 
-	ofs <span class="token operator">&lt;&lt;</span> <span class="token string">"姓名：张三"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-	ofs <span class="token operator">&lt;&lt;</span> <span class="token string">"性别：男"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-	ofs <span class="token operator">&lt;&lt;</span> <span class="token string">"年龄：18"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+	ofs &lt;&lt; &quot;姓名：张三&quot; &lt;&lt; endl;
+	ofs &lt;&lt; &quot;性别：男&quot; &lt;&lt; endl;
+	ofs &lt;&lt; &quot;年龄：18&quot; &lt;&lt; endl;
 
-	ofs<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
+	ofs.close();
+&#125;
 
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-	<span class="token function">test01</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+int main() &#123;
+	test01();
 
-	<span class="token function">system</span><span class="token punctuation">(</span><span class="token string">"pause"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	system(&quot;pause&quot;);
 
-	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p></li>
+	return 0;
+&#125;
+</code></pre></p></li>
 <li><p>读文件</p></li>
 </ul>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;fstream></span></span>
-<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp">#include&lt;iostream&gt;
+#include&lt;fstream&gt;
+using namespace std;
 
-<span class="token keyword">void</span> <span class="token function">test02</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-	ifstream ifs<span class="token punctuation">;</span>
-	ifs<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token string">"test.txt"</span><span class="token punctuation">,</span> ios<span class="token double-colon punctuation">::</span>in<span class="token punctuation">)</span><span class="token punctuation">;</span>
+void test02() &#123;
+	ifstream ifs;
+	ifs.open(&quot;test.txt&quot;, ios::in);
 
-	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>ifs<span class="token punctuation">.</span><span class="token function">is_open</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-		cout <span class="token operator">&lt;&lt;</span> <span class="token string">"文件打开失败"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-		<span class="token keyword">return</span><span class="token punctuation">;</span>
-	<span class="token punctuation">&#125;</span>
+	if (!ifs.is_open()) &#123;
+		cout &lt;&lt; &quot;文件打开失败&quot; &lt;&lt; endl;
+		return;
+	&#125;
 
-	<span class="token comment">// 第一种方式</span>
-	<span class="token comment">//char buf[] = &#123;0&#125;;</span>
-	<span class="token comment">//while (ifs >> buf) &#123;</span>
-	<span class="token comment">// cout &lt;&lt; buf &lt;&lt; endl;</span>
-	<span class="token comment">//&#125;</span>
+	&#x2F;&#x2F; 第一种方式
+	&#x2F;&#x2F;char buf[] &#x3D; &#123;0&#125;;
+	&#x2F;&#x2F;while (ifs &gt;&gt; buf) &#123;
+	&#x2F;&#x2F; cout &lt;&lt; buf &lt;&lt; endl;
+	&#x2F;&#x2F;&#125;
 
-    <span class="token comment">// 第二种</span>
-	<span class="token comment">//char buf[1024] = &#123; 0 &#125;;</span>
-	<span class="token comment">//while (ifs.getline(buf,sizeof(buf)))</span>
-	<span class="token comment">//&#123;</span>
-	<span class="token comment">//	cout &lt;&lt; buf &lt;&lt; endl;</span>
-	<span class="token comment">//&#125;</span>
-	<span class="token comment">//ifs.close();</span>
+    &#x2F;&#x2F; 第二种
+	&#x2F;&#x2F;char buf[1024] &#x3D; &#123; 0 &#125;;
+	&#x2F;&#x2F;while (ifs.getline(buf,sizeof(buf)))
+	&#x2F;&#x2F;&#123;
+	&#x2F;&#x2F;	cout &lt;&lt; buf &lt;&lt; endl;
+	&#x2F;&#x2F;&#125;
+	&#x2F;&#x2F;ifs.close();
 
-	<span class="token keyword">char</span> c <span class="token punctuation">;</span>
-	<span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>c <span class="token operator">=</span> ifs<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token constant">EOF</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-		cout <span class="token operator">&lt;&lt;</span> c<span class="token punctuation">;</span>
-	<span class="token punctuation">&#125;</span>
-	ifs<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
+	char c ;
+	while ((c &#x3D; ifs.get()) !&#x3D; EOF) &#123;
+		cout &lt;&lt; c;
+	&#125;
+	ifs.close();
+&#125;
 
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-	<span class="token function">test02</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+int main() &#123;
+	test02();
 
-	<span class="token function">system</span><span class="token punctuation">(</span><span class="token string">"pause"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	system(&quot;pause&quot;);
 
-	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+	return 0;
+&#125;</code></pre>
 <ul>
 <li>二进制写</li>
 </ul>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;fstream></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;string></span></span>
-<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp">#include&lt;fstream&gt;
+#include&lt;string&gt;
+using namespace std;
 
-<span class="token keyword">class</span> <span class="token class-name">Person</span> <span class="token punctuation">&#123;</span>
-<span class="token keyword">public</span><span class="token operator">:</span>
-	<span class="token keyword">char</span> m_name<span class="token punctuation">[</span><span class="token number">64</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-	<span class="token keyword">int</span> m_age<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+class Person &#123;
+public:
+	char m_name[64];
+	int m_age;
+&#125;;
 
-<span class="token comment">// 二进制文件 写文件</span>
-<span class="token keyword">void</span> <span class="token function">test03</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-	<span class="token comment">// 1. 包含头文件</span>
+&#x2F;&#x2F; 二进制文件 写文件
+void test03() &#123;
+	&#x2F;&#x2F; 1. 包含头文件
 
-	<span class="token comment">// 2. 创建输出流对象</span>
-	ofstream <span class="token function">ofs</span><span class="token punctuation">(</span><span class="token string">"person.txt"</span><span class="token punctuation">,</span> ios<span class="token double-colon punctuation">::</span>out <span class="token operator">|</span> ios<span class="token double-colon punctuation">::</span>binary<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	&#x2F;&#x2F; 2. 创建输出流对象
+	ofstream ofs(&quot;person.txt&quot;, ios::out | ios::binary);
 
-	<span class="token comment">// 3.打开文件</span>
+	&#x2F;&#x2F; 3.打开文件
 	
-	Person p <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token string">"张三"</span><span class="token punctuation">,</span><span class="token number">18</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+	Person p &#x3D; &#123; &quot;张三&quot;,18 &#125;;
 
-    <span class="token comment">// 写文件</span>
-	ofs<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>p<span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    &#x2F;&#x2F; 写文件
+	ofs.write((const char*)&amp;p, sizeof(p));
 
-	<span class="token comment">// 关闭文件</span>
-	ofs<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
+	&#x2F;&#x2F; 关闭文件
+	ofs.close();
+&#125;
 
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-	<span class="token function">test03</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token function">system</span><span class="token punctuation">(</span><span class="token string">"pause"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+int main() &#123;
+	test03();
+	system(&quot;pause&quot;);
+	return 0;
+&#125;</code></pre>
 <ul>
-<li><p>二进制读 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">istream<span class="token operator">&amp;</span> <span class="token function">read</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span>buffer<span class="token punctuation">,</span><span class="token keyword">int</span> len<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p></li>
+<li><p>二进制读 <pre class="language-cpp" data-language="cpp"><code class="language-cpp">istream&amp; read(char *buffer,int len);</code></pre></p></li>
 <li><p>职工管理系统 &gt; case 语句里：代码过长需要用“{}”括起来。 &gt;
 <code>ios::trunk</code>:删除文件后重新创建</p></li>
 </ul>
@@ -1395,7 +1398,7 @@ ios::binary    二进制方式
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">230.3k</span>&nbsp;字
+                class="white-color">238.7k</span>&nbsp;字
             
             
             

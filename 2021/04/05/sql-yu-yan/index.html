@@ -43,7 +43,7 @@
     <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 7.0.0"><link rel="alternate" href="/atom.xml" title="Jf71o0x1o1l" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
     
@@ -484,7 +484,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    800
+                    789
                 </div>
                 
 
@@ -500,6 +500,9 @@
         </div>
         <hr class="clearfix">
 
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
         
 
         
@@ -588,10 +591,7 @@ class="uri">http://xuesql.cn/lesson/select_queries_with_aggregates</a>
 </tr>
 </tbody>
 </table>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> BUILDING<span class="token punctuation">,</span><span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span>
-<span class="token keyword">FROM</span> employees
-<span class="token keyword">WHERE</span> BUILDING <span class="token operator">IS</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span>
-<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> BUILDIN<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> BUILDING,<span class="built_in">COUNT</span>(<span class="operator">*</span>)</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> BUILDING <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> BUILDIN</span><br></pre></td></tr></table></figure>
 <h2 id="笔记">笔记</h2>
 <blockquote>
 <ol type="1">
@@ -715,11 +715,7 @@ class="uri">http://xuesql.cn/lesson/select_queries_with_aggregates_pt_2</a></p>
 </tbody>
 </table>
 <blockquote>
-<p>Answer: <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> ROLE<span class="token punctuation">,</span><span class="token keyword">CASE</span> <span class="token keyword">WHEN</span> BUILDING <span class="token operator">IS</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span>
-<span class="token keyword">THEN</span> <span class="token string">'1'</span> <span class="token keyword">ELSE</span> <span class="token string">'0'</span> <span class="token keyword">END</span>
-<span class="token keyword">AS</span> HAVE<span class="token punctuation">,</span><span class="token function">COUNT</span><span class="token punctuation">(</span>NAME<span class="token punctuation">)</span>
-<span class="token keyword">FROM</span> EMPLOYEES
-<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> ROLE<span class="token punctuation">,</span>HAVE<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
+<p>Answer: <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ROLE,<span class="keyword">CASE</span> <span class="keyword">WHEN</span> BUILDING <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span></span><br><span class="line"><span class="keyword">THEN</span> <span class="string">&#x27;1&#x27;</span> <span class="keyword">ELSE</span> <span class="string">&#x27;0&#x27;</span> <span class="keyword">END</span></span><br><span class="line"><span class="keyword">AS</span> HAVE,<span class="built_in">COUNT</span>(NAME)</span><br><span class="line"><span class="keyword">FROM</span> EMPLOYEES</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> ROLE,HAVE</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <blockquote>
 <p>分析 :
@@ -939,23 +935,12 @@ class="uri">http://xuesql.cn/lesson/select_queries_with_aggregates_pt_2</a></p>
 </tbody>
 </table>
 <blockquote>
-<p>ANSWER: <pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">SELECT DIRECTOR,SUM(DOMESTIC_SALES+INTERNATIONAL_SALES),COUNT(ID),AVG(DOMESTIC_SALES+INTERNATIONAL_SALES) AS AVERAGE
-FROM movies
-JOIN Boxoffice
-ON ID &#x3D; MOVIE_ID
-GROUP BY DIRECTOR
-HAVING COUNT(ID)&gt;1
-ORDER BY AVERAGE DESC
-LIMIT 1;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
+<p>ANSWER: <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DIRECTOR,<span class="built_in">SUM</span>(DOMESTIC_SALES<span class="operator">+</span>INTERNATIONAL_SALES),<span class="built_in">COUNT</span>(ID),<span class="built_in">AVG</span>(DOMESTIC_SALES<span class="operator">+</span>INTERNATIONAL_SALES) <span class="keyword">AS</span> AVERAGE</span><br><span class="line"><span class="keyword">FROM</span> movies</span><br><span class="line"><span class="keyword">JOIN</span> Boxoffice</span><br><span class="line"><span class="keyword">ON</span> ID <span class="operator">=</span> MOVIE_ID</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> DIRECTOR</span><br><span class="line"><span class="keyword">HAVING</span> <span class="built_in">COUNT</span>(ID)<span class="operator">&gt;</span><span class="number">1</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> AVERAGE <span class="keyword">DESC</span></span><br><span class="line">LIMIT <span class="number">1</span>;</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <blockquote>
 <p>【变态难】找出每部电影和单部电影销售冠军之间的销售差，列出电影名，销售额差额</p>
 </blockquote>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> TITLE<span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token function">MAX</span><span class="token punctuation">(</span>DOMESTIC_SALES<span class="token operator">+</span>INTERNATIONAL_SALES<span class="token punctuation">)</span><span class="token keyword">FROM</span> BOXOFFICE<span class="token punctuation">)</span><span class="token operator">-</span><span class="token punctuation">(</span>DOMESTIC_SALES<span class="token operator">+</span>INTERNATIONAL_SALES<span class="token punctuation">)</span>
-<span class="token keyword">From</span> MOVIES
-<span class="token keyword">JOIN</span> Boxoffice
-<span class="token keyword">ON</span> ID <span class="token operator">=</span> MOVIE_ID
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> TITLE,(<span class="keyword">SELECT</span> <span class="built_in">MAX</span>(DOMESTIC_SALES<span class="operator">+</span>INTERNATIONAL_SALES)<span class="keyword">FROM</span> BOXOFFICE)<span class="operator">-</span>(DOMESTIC_SALES<span class="operator">+</span>INTERNATIONAL_SALES)</span><br><span class="line"><span class="keyword">From</span> MOVIES</span><br><span class="line"><span class="keyword">JOIN</span> Boxoffice</span><br><span class="line"><span class="keyword">ON</span> ID <span class="operator">=</span> MOVIE_ID</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>内部嵌入一个select</p>
 </blockquote>
@@ -1577,7 +1562,7 @@ LastName&gt;'Adams' AND LastName&lt;'Carter' FROM Persons
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">230.3k</span>&nbsp;字
+                class="white-color">238.7k</span>&nbsp;字
             
             
             

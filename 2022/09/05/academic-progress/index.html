@@ -43,7 +43,7 @@
     <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 7.0.0"><link rel="alternate" href="/atom.xml" title="Jf71o0x1o1l" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
     
@@ -484,7 +484,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    53.8k
+                    54k
                 </div>
                 
 
@@ -500,6 +500,9 @@
         </div>
         <hr class="clearfix">
 
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
         
 
         
@@ -1164,21 +1167,21 @@ Engineer, Netflix）</li>
 <li><p>符号执行技术指的是通过程序分析的方法，确定哪些输入向量会对应导致程序的执行结果为某个向量的方法</p></li>
 <li><p><strong>分析程序的执行路径</strong></p></li>
 <li><p>例如</p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> m<span class="token operator">=</span>M<span class="token punctuation">,</span> n<span class="token operator">=</span>N<span class="token punctuation">,</span> q<span class="token operator">=</span>Q<span class="token punctuation">;</span> 
-<span class="token keyword">int</span> x1<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>x2<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>x3<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token keyword">if</span><span class="token punctuation">(</span>m<span class="token operator">!=</span><span class="token number">0</span><span class="token punctuation">)</span>
-<span class="token punctuation">&#123;</span>
-    x1<span class="token operator">=</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-<span class="token keyword">if</span><span class="token punctuation">(</span>n<span class="token operator">&lt;</span><span class="token number">12</span><span class="token punctuation">)</span>
-<span class="token punctuation">&#123;</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>m <span class="token operator">&amp;&amp;</span> q<span class="token punctuation">)</span>
-    <span class="token punctuation">&#123;</span>
-        x2<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    x3<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-<span class="token function">assert</span><span class="token punctuation">(</span>x1<span class="token operator">+</span>x2<span class="token operator">+</span>x3<span class="token operator">!=</span><span class="token number">3</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp">int m&#x3D;M, n&#x3D;N, q&#x3D;Q; 
+int x1&#x3D;0,x2&#x3D;0,x3&#x3D;0;
+if(m!&#x3D;0)
+&#123;
+    x1&#x3D;-2;
+&#125;
+if(n&lt;12)
+&#123;
+    if(!m &amp;&amp; q)
+    &#123;
+        x2&#x3D;1;
+    &#125;
+    x3&#x3D;2;
+&#125;
+assert(x1+x2+x3!&#x3D;3)</code></pre>
 <ol type="1">
 <li>它有以下执行路径<img
 src="https://s2.loli.net/2023/08/19/w4bsB1xDZroVMKh.png"
@@ -1251,39 +1254,39 @@ exploitable injection objects for fuzzing.</p></li>
 gadget执行<code>恶意命令</code></p></li>
 <li><p>Property-Oriented Programming (POP)</p></li>
 <li><p>示例分析:</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token number">1</span>  <span class="token comment">/*javax.naming.ldap.Rdn$RdnEntry.class*/</span>
-<span class="token number">2</span>  <span class="token keyword">private</span> <span class="token class-name">Oject</span> value<span class="token punctuation">;</span>
-<span class="token number">3</span>  <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">compareTo</span><span class="token punctuation">(</span><span class="token class-name">RdnEntry</span> that<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">/*Source or Magic Method*/</span>
-<span class="token number">4</span>    <span class="token keyword">if</span> <span class="token punctuation">(</span>value<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>that<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">&#125;</span>
+<pre class="language-java" data-language="java"><code class="language-java">1  &#x2F;*javax.naming.ldap.Rdn$RdnEntry.class*&#x2F;
+2  private Oject value;
+3  public int compareTo(RdnEntry that) &#123; &#x2F;*Source or Magic Method*&#x2F;
+4    if (value.equals(that.value)) &#123;...&#125;
   
-<span class="token number">5</span>  <span class="token comment">/*com.sun.org.apache.xpath.internal.objects.XString.class*/</span>
-<span class="token number">6</span>  <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">equals</span><span class="token punctuation">(</span><span class="token class-name">Object</span> obj2<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">/*2nd gadget*/</span>
-<span class="token number">7</span>    <span class="token keyword">return</span> <span class="token function">str</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>obj2<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">&#125;</span>
-<span class="token number">8</span>  <span class="token comment">/*javax.swing.MultiUIDefaults.class*/</span>
-<span class="token number">9</span>  <span class="token keyword">public</span> <span class="token keyword">synchronized</span> <span class="token class-name">String</span> <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">/*3rd gadget*/</span>
-<span class="token number">10</span>   <span class="token class-name">Enumeration</span> keys <span class="token operator">=</span> <span class="token function">keys</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token number">11</span>   <span class="token keyword">while</span> <span class="token punctuation">(</span>keys<span class="token punctuation">.</span><span class="token function">hasMoreElements</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-<span class="token number">12</span>     <span class="token class-name">Object</span> key <span class="token operator">=</span> keys<span class="token punctuation">.</span><span class="token function">nextElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token number">13</span>     buf<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>key <span class="token operator">+</span> <span class="token string">"="</span> <span class="token operator">+</span> <span class="token function">get</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">","</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">&#125;</span>
-<span class="token number">14</span> <span class="token keyword">public</span> <span class="token class-name">Object</span> <span class="token function">get</span><span class="token punctuation">(</span><span class="token class-name">Object</span> key<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">/*4th gadget*/</span>
-<span class="token number">15</span>    <span class="token class-name">Object</span> value <span class="token operator">=</span> <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">&#125;</span>
+5  &#x2F;*com.sun.org.apache.xpath.internal.objects.XString.class*&#x2F;
+6  public boolean equals(Object obj2) &#123; &#x2F;*2nd gadget*&#x2F;
+7    return str().equals(obj2.toString()); &#125;
+8  &#x2F;*javax.swing.MultiUIDefaults.class*&#x2F;
+9  public synchronized String toString() &#123; &#x2F;*3rd gadget*&#x2F;
+10   Enumeration keys &#x3D; keys();
+11   while (keys.hasMoreElements()) &#123;
+12     Object key &#x3D; keys.nextElement();
+13     buf.append(key + &quot;&#x3D;&quot; + get(key) + &quot;,&quot;); ...&#125;
+14 public Object get(Object key) &#123; &#x2F;*4th gadget*&#x2F;
+15    Object value &#x3D; super.get(key); ...&#125;
  
-<span class="token number">16</span> <span class="token comment">/*javax.swing.UIDefaults.class*/</span>
-<span class="token number">17</span> <span class="token keyword">public</span> <span class="token class-name">Object</span> <span class="token function">get</span><span class="token punctuation">(</span><span class="token class-name">Object</span> key<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">/*5th gadget*/</span>
-<span class="token number">18</span>   <span class="token class-name">Object</span> value <span class="token operator">=</span> <span class="token function">getFromHashtable</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">&#125;</span>
-<span class="token number">19</span> <span class="token keyword">private</span> <span class="token class-name">Object</span> <span class="token function">getFromHashtable</span><span class="token punctuation">(</span><span class="token keyword">final</span> <span class="token class-name">Object</span> key<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">/*6th gadget*/</span>
-<span class="token number">20</span>  <span class="token keyword">if</span> <span class="token punctuation">(</span>value <span class="token keyword">instanceof</span> <span class="token class-name">LazyValue</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-<span class="token number">21</span>    <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
-<span class="token number">22</span>      value <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">LazyValue</span><span class="token punctuation">)</span>value<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">createValue</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span>
-<span class="token number">23</span> <span class="token comment">/*sun.swing.SwingLazyValue.class*/</span>
-<span class="token number">24</span> <span class="token keyword">public</span> <span class="token class-name">Object</span> <span class="token function">createValue</span><span class="token punctuation">(</span><span class="token keyword">final</span> <span class="token class-name">UIDefaults</span> table<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">/*7th gadget*/</span>
-<span class="token number">25</span>   <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
-<span class="token number">26</span>     <span class="token class-name">Class</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span><span class="token punctuation">></span></span> c <span class="token operator">=</span> <span class="token keyword">class</span><span class="token punctuation">.</span><span class="token function">forName</span><span class="token punctuation">(</span>className<span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token number">27</span>     <span class="token keyword">if</span> <span class="token punctuation">(</span>methodName <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-<span class="token number">28</span>       <span class="token class-name">Class</span><span class="token punctuation">[</span><span class="token punctuation">]</span> types <span class="token operator">=</span> <span class="token function">getClassArray</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token number">29</span>       <span class="token class-name">Method</span> m <span class="token operator">=</span> c<span class="token punctuation">.</span><span class="token function">getMethod</span><span class="token punctuation">(</span>methodName<span class="token punctuation">,</span> types<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token number">30</span>       <span class="token function">makeAccessible</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token number">31</span>       <span class="token keyword">return</span> m<span class="token punctuation">.</span><span class="token function">invoke</span><span class="token punctuation">(</span>c<span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">/*Sink or Security-Sensitive Call Site*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+16 &#x2F;*javax.swing.UIDefaults.class*&#x2F;
+17 public Object get(Object key) &#123; &#x2F;*5th gadget*&#x2F;
+18   Object value &#x3D; getFromHashtable(key); ...&#125;
+19 private Object getFromHashtable(final Object key) &#123; &#x2F;*6th gadget*&#x2F;
+20  if (value instanceof LazyValue) &#123;
+21    try &#123;
+22      value &#x3D; ((LazyValue)value).createValue(this); ...&#125;&#125;
+23 &#x2F;*sun.swing.SwingLazyValue.class*&#x2F;
+24 public Object createValue(final UIDefaults table) &#123; &#x2F;*7th gadget*&#x2F;
+25   try &#123;
+26     Class&lt;?&gt; c &#x3D; class.forName(className, true, null);
+27     if (methodName !&#x3D; null) &#123;
+28       Class[] types &#x3D; getClassArray(args);
+29       Method m &#x3D; c.getMethod(methodName, types);
+30       makeAccessible(m);
+31       return m.invoke(c, args); &#x2F;*Sink or Security-Sensitive Call Site*&#x2F;</code></pre>
 <p>这段代码展示了一个Java反序列化漏洞的利用链:</p>
 <ol type="1">
 <li><p>RdnEntry的compareTo方法作为<strong>入口</strong>点被触发。</p></li>
@@ -1342,11 +1345,11 @@ alt="image-20230812045150441" /></p></li>
 [39], to design <code>query scripts</code> for suspicious gadget chain
 identification.</p></li>
 <li><p>A simple query <code>script</code> example.</p>
-<pre class="line-numbers language-cypher" data-language="cypher"><code class="language-cypher"><span class="token number">1</span>  <span class="token keyword">match</span> <span class="token punctuation">(</span>source<span class="token operator">:</span> <span class="token class-name">Method</span> <span class="token punctuation">&#123;</span>NAME<span class="token operator">:</span><span class="token string">"readObject"</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-<span class="token number">2</span>  <span class="token keyword">match</span> <span class="token punctuation">(</span>sink<span class="token operator">:</span> <span class="token class-name">Method</span> <span class="token punctuation">&#123;</span>NAME<span class="token operator">:</span><span class="token string">"invoke"</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-<span class="token number">3</span>  <span class="token keyword">call</span> apoc<span class="token punctuation">.</span>algo<span class="token punctuation">.</span><span class="token function">allSimplePaths</span><span class="token punctuation">(</span>sink<span class="token punctuation">,</span> source<span class="token punctuation">,</span> <span class="token string">"&lt;Call|Overriding>"</span><span class="token punctuation">)</span>
-   <span class="token keyword">yield</span> path
-<span class="token number">4</span>  <span class="token keyword">return</span> path<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<pre class="language-cypher" data-language="cypher"><code class="language-cypher">1  match (source: Method &#123;NAME:&quot;readObject&quot;&#125;)
+2  match (sink: Method &#123;NAME:&quot;invoke&quot;&#125;)
+3  call apoc.algo.allSimplePaths(sink, source, &quot;&lt;Call|Overriding&gt;&quot;)
+   yield path
+4  return path</code></pre></li>
 <li><p>然后，为了使生成的注入对象能够遵循目标gadget链的执行流程，GCMiner通过<code>动态绑定</code>的方式<strong>修改</strong>注入对象的属性值</p></li>
 <li><p>对于属性选择，我们通过<code>Java反射</code>动态获取注入对象的每个属性类型[40]-[42]，这允许软件系统在<code>运行时</code>检查和更改其类、接口、方法和字段的行为</p></li>
 <li><p>当属性类型是<code>类对象</code>时，该属性将被列为值赋值的候选属性。</p></li>
@@ -1686,7 +1689,7 @@ Taint-style Vulnerability</a>: <strong>CCF-A</strong>会议：IEEE S&amp;P
 <li>评估结果显示，FAST在减少误报的方面显著优于最先进的漏洞检测工具。</li>
 </ul></li>
 <li><p>代码分析</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token number">1</span> <span class="token comment">// util.js</span>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token number">1</span> <span class="token comment">// util.js</span>
 <span class="token number">2</span> <span class="token keyword">const</span> childProcess <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"child_process"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token number">3</span> <span class="token keyword">const</span> logger <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"./logger"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token number">4</span> <span class="token keyword">function</span> <span class="token function">promisify</span><span class="token punctuation">(</span><span class="token parameter">fn</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -1738,7 +1741,7 @@ Taint-style Vulnerability</a>: <strong>CCF-A</strong>会议：IEEE S&amp;P
 <span class="token number">49</span> <span class="token comment">// exploit code, under attacker control</span>
 <span class="token number">50</span> <span class="token keyword">const</span> Util <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span>’util<span class="token punctuation">.</span>js’<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token number">51</span> <span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Util</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">compress</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">’alg’</span><span class="token operator">:</span> ’xz’<span class="token punctuation">,</span> <span class="token literal-property property">’path’</span><span class="token operator">:</span> ’<span class="token punctuation">;</span> touch
-<span class="token punctuation">,</span>→exploit #’ <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">,</span>→exploit #’ <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p><strong>漏洞原理：</strong></p>
 <ol type="1">
 <li><p>在第51行，通过<code>const Util = require('util.js');</code>导入了<code>util.js</code>模块，并创建了一个<code>Util</code>的实例。</p></li>
@@ -1871,7 +1874,7 @@ and privacy”和“Software and its engineering”。</p>
 <p>Object Lookup Analysis,</p>
 <p>JavaScript</p></li>
 <li><p>Js<strong>动态重定义</strong>内置函数</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 定义一个自定义的log函数</span>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 定义一个自定义的log函数</span>
 <span class="token keyword">function</span> <span class="token function">log</span><span class="token punctuation">(</span><span class="token parameter">message</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Custom log: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>message<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
@@ -1881,7 +1884,7 @@ console<span class="token punctuation">.</span>log <span class="token operator">
 
 <span class="token comment">// 测试一下，现在调用console.log实际上是调用我们定义的log函数了</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Hello, world!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</code></pre></li>
 <li><p>JavaScript 中，对象可以通过一个内部的属性 <code>__proto__</code>
 来指向另一个对象，这个对象被称为原型对象。如果一个对象试图访问一个不存在的属性，JavaScript
 引擎会在该对象的原型对象上继续查找这个属性，如果在原型对象上也找不到，就会在原型对象的原型对象上查找，直到找到该属性或者到达<strong>原型链的末尾</strong>（即
@@ -1898,7 +1901,7 @@ JSON
 <li><p><code>污点分析</code>是一种静态或动态代码分析技术，用于检测和防范安全漏洞，特别是与输入验证和数据处理相关的漏洞。其核心思想是标记数据流中可能被污染（即潜在攻击数据）的变量或参数，并<strong>跟踪</strong>这些污点在程序中的流动，以检测可能的漏洞点。如果一个污点最终到达了一个<strong>敏感函数</strong>（如系统调用、SQL查询、文件操作等），就会被判定为漏洞，并触发警报或其他防御措施。污点分析可以通过<strong>数据流分析、控制流分析、符号执行</strong>等技术实现。它已经成为软件安全分析的重要工具之一，在漏洞挖掘、漏洞修复、软件测试等方面都有广泛应用。</p></li>
 <li><p><code>符号执行</code>的基本思想是：将程序中的每个变量符号化，然后从程序的入口点开始执行程序，为每个条件语句创建一个分支，将每个分支上的每个符号变量的所有可能取值表示为约束条件，并对这些约束条件求解，以确定程序路径的所有可能走向。通过对程序的每个路径进行符号执行，可以查找程序中的漏洞或错误，并生成相应的测试用例，以验证程序的正确性。</p></li>
 <li><p><strong>代码分析</strong></p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// (a) Vulnerable code:</span>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// (a) Vulnerable code:</span>
 <span class="token keyword">function</span> <span class="token function">merge</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> p <span class="token keyword">in</span> b<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
@@ -1927,7 +1930,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 <span class="token keyword">var</span> PayPal <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'paypal -adaptive '</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">var</span> p <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">PayPal</span><span class="token punctuation">(</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>
     <span class="token string">'&#123;" __proto__ ": &#123;" toString ": "polluted"&#125;, "userId ":"foo", "password ": "bar", "signature ": "abcd","appId ": "1234", "sandbox ": "1234"&#125; '</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span>toString<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span>toString<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <ol type="a">
 <li><p>这段代码定义了一个 <code>merge</code>
 函数，用于合并两个对象。它的输入是两个对象 <code>a</code> 和
@@ -2030,7 +2033,7 @@ One Million Real-world Websites</a>(<strong>CCF-A</strong>会议：NDSS
 <li><p>讨论了原型污染的后果，除了污染原型对象本身之外，原型污染还可能导致<strong>其他安全问题</strong>。</p>
 <p><strong>举例</strong>：<code>如果另一段JavaScript代码与原型污染漏洞位于同一位置，并循环遍历对象下的所有具有常量值的属性以生成HTML代码，则该原型污染将允许攻击者注入任意JavaScript代码，从而导致跨站脚本攻击（XSS）的发生</code></p>
 <p>假设存在以下JavaScript代码段：</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 此处省略了获取input的代码</span>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 此处省略了获取input的代码</span>
 <span class="token keyword">var</span> input <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
   <span class="token literal-property property">a</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
   <span class="token literal-property property">b</span><span class="token operator">:</span> <span class="token number">2</span>
@@ -2040,15 +2043,15 @@ One Million Real-world Websites</a>(<strong>CCF-A</strong>会议：NDSS
   <span class="token keyword">if</span> <span class="token punctuation">(</span>input<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     document<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>key <span class="token operator">+</span> <span class="token string">" = "</span> <span class="token operator">+</span> input<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">"&lt;br>"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span></code></pre>
 <p>该代码段遍历了一个名为input的对象的所有属性，并生成相应的HTML代码。
 如果input对象被受到原型污染漏洞的影响，攻击者可以注入任意JavaScript代码，并因此导致跨站脚本攻击。</p>
 <p>例如，攻击者可以将<code>Object.prototype</code>修改为：</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token class-name">Object</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">someEvilFunction</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token class-name">Object</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">someEvilFunction</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'gotcha'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span></code></pre>
 <p>在这种情况下，JavaScript代码段将被修改为：</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> input <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> input <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
   <span class="token literal-property property">a</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
   <span class="token literal-property property">b</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
   <span class="token function-variable function">someEvilFunction</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -2060,7 +2063,7 @@ One Million Real-world Websites</a>(<strong>CCF-A</strong>会议：NDSS
   <span class="token keyword">if</span> <span class="token punctuation">(</span>input<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     document<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>key <span class="token operator">+</span> <span class="token string">" = "</span> <span class="token operator">+</span> input<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">"&lt;br>"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span></code></pre>
 <p>在运行这段代码时，会执行被注入的<code>someEvilFunction</code>函数，导致一个弹窗出现，从而执行了跨站脚本攻击。</p>
 <p><code>Object.prototype</code> 是所有 JavaScript 对象的原型对象。它是
 JavaScript
@@ -2078,13 +2081,13 @@ PROBETHEPROTO
 innerHTML）。</p>
 <p>假设有一个网站使用了一个第三方 JavaScript
 库，其中存在一个漏洞导致原型污染。攻击者可以利用此漏洞在该网站上执行任意代码。攻击者可以将恶意代码注入到网站上，以窃取用户的登录凭据或将用户重定向到其他恶意网站上。攻击者使用以下代码来执行原型污染攻击：</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token class-name">Object</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>__proto__<span class="token punctuation">.</span>polluted <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token class-name">Object</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>__proto__<span class="token punctuation">.</span>polluted <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span></code></pre>
 <p>这段代码将污染 Object 类型的原型，因此所有基于 Object 的 JavaScript
 对象都将受到影响。例如，攻击者可以在以下位置注入恶意代码：</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> user_input <span class="token operator">=</span> document<span class="token punctuation">.</span>location<span class="token punctuation">.</span>hash<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> user_input <span class="token operator">=</span> document<span class="token punctuation">.</span>location<span class="token punctuation">.</span>hash<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">var</span> div <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 div<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> user_input<span class="token punctuation">;</span>
-document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>div<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>div<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>在这个例子中，攻击者可以通过 user_input 参数注入一个包含恶意脚本的
 URL，该脚本会被注入到 div 元素的 innerHTML 属性中。由于 innerHTML
 属性具有副作用，攻击者的恶意代码将被执行，导致进一步的攻击。</p>
@@ -2098,14 +2101,14 @@ PROBETHEPROTO
 PROBETHEPROTO
 将在后续运行中包括这些缺失属性，以达到与后续影响相关的最终接收器。</p>
 <p>举个例子，假设有一个网站上的代码如下：</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token keyword">var</span> prop <span class="token operator">=</span> <span class="token string">"userInput"</span><span class="token punctuation">;</span>
 obj<span class="token punctuation">[</span>prop<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"safe value"</span><span class="token punctuation">;</span>
 <span class="token keyword">var</span> inputValue <span class="token operator">=</span> <span class="token function">getQueryStringValue</span><span class="token punctuation">(</span><span class="token string">"input"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">if</span><span class="token punctuation">(</span>inputValue<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
   obj<span class="token punctuation">[</span>inputValue<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"evil value"</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
-document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"output"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> obj<span class="token punctuation">.</span>userInput<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"output"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> obj<span class="token punctuation">.</span>userInput<span class="token punctuation">;</span></code></pre>
 <p>在这个例子中，如果攻击者控制了输入值
 <code>inputValue</code>，并将其设置为 <code>__proto__</code>，则可以在
 <code>obj</code> 对象的原型链上污染 <code>userInput</code>
@@ -2122,7 +2125,7 @@ XSS 攻击。</p>
 函数作为最终接收器，以检测任何潜在的后续影响。</p></li>
 </ol></li>
 <li><p><strong>漏洞原理</strong></p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">/* Exploit: https://www.boulderboats.com/default.asp?
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">/* Exploit: https://www.boulderboats.com/default.asp?
 __proto__[k]=&lt;script>alert(1)&lt;/script>&amp;
 page=xAllInventory&amp;make=chaparral */</span>
 <span class="token comment">// Step 1: polluting the prototype</span>
@@ -2169,7 +2172,7 @@ page=xAllInventory&amp;make=chaparral */</span>
     $unitSpecs<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">"&lt;li>&lt;span class=’"</span> <span class="token operator">+</span> field <span class="token operator">+</span> <span class="token string">"’>"</span> <span class="token operator">+</span>
         data<span class="token punctuation">[</span>field<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">"&lt;/span>&lt;/li>"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token comment">// data["k"]="&lt;script>alert(1)&lt;/script>"</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span></code></pre>
 <p>假设传入的参数为：Q =
 "<strong>proto</strong>[k]=<code>&lt;script&gt;alert(1)&lt;/script&gt;</code>&amp;page=xAllInventory&amp;make=chaparral"</p>
 <p><strong>Step 1:</strong></p>
@@ -2332,9 +2335,9 @@ JavaScript 回调函数，进而改变变量的类型。这就是 CVE-2018-4233
 <p><strong>原理</strong>：可以举一个简单的<strong>例子</strong>来说明这个漏洞的原理。</p>
 <p>假设有一个 JavaScript 程序，其中有一个函数 <code>sum</code>
 用于计算两个数的和，如下所示：</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">sum</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">sum</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">return</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span></code></pre>
 <p>这个函数很简单，但在 JIT
 编译时，由于使用频率较高，可能会被进行优化。在优化时，JIT
 编译器可能会根据使用情况猜测输入参数的类型，并针对这些类型进行优化。比如，如果
@@ -2617,40 +2620,40 @@ alt="image-20230407204812757" /></p>
 <li>AST: 例如程序
 <code>const team = '大转转FE'</code>的AST如下：是一个JSON对象</li>
 </ul>
-<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
-    <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"Program"</span><span class="token punctuation">,</span>
-    <span class="token property">"start"</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
-    <span class="token property">"end"</span><span class="token operator">:</span> <span class="token number">18</span><span class="token punctuation">,</span>
-    <span class="token property">"body"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-      <span class="token punctuation">&#123;</span>
-        <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"VariableDeclaration"</span><span class="token punctuation">,</span>
-        <span class="token property">"start"</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
-        <span class="token property">"end"</span><span class="token operator">:</span> <span class="token number">18</span><span class="token punctuation">,</span>
-        <span class="token property">"declarations"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-          <span class="token punctuation">&#123;</span>
-            <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"VariableDeclarator"</span><span class="token punctuation">,</span>
-            <span class="token property">"start"</span><span class="token operator">:</span> <span class="token number">6</span><span class="token punctuation">,</span>
-            <span class="token property">"end"</span><span class="token operator">:</span> <span class="token number">18</span><span class="token punctuation">,</span>
-            <span class="token property">"id"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-              <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"Identifier"</span><span class="token punctuation">,</span>
-              <span class="token property">"start"</span><span class="token operator">:</span> <span class="token number">6</span><span class="token punctuation">,</span>
-              <span class="token property">"end"</span><span class="token operator">:</span> <span class="token number">8</span><span class="token punctuation">,</span>
-              <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"team"</span>
-            <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-            <span class="token property">"init"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-              <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"Literal"</span><span class="token punctuation">,</span>
-              <span class="token property">"start"</span><span class="token operator">:</span> <span class="token number">11</span><span class="token punctuation">,</span>
-              <span class="token property">"end"</span><span class="token operator">:</span> <span class="token number">18</span><span class="token punctuation">,</span>
-              <span class="token property">"value"</span><span class="token operator">:</span> <span class="token string">"大转转FE"</span><span class="token punctuation">,</span>
-              <span class="token property">"raw"</span><span class="token operator">:</span> <span class="token string">"'大转转FE'"</span>
-            <span class="token punctuation">&#125;</span>
-          <span class="token punctuation">&#125;</span>
-        <span class="token punctuation">]</span><span class="token punctuation">,</span>
-        <span class="token property">"kind"</span><span class="token operator">:</span> <span class="token string">"const"</span>
-      <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">]</span><span class="token punctuation">,</span>
-    <span class="token property">"sourceType"</span><span class="token operator">:</span> <span class="token string">"module"</span>
-  <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="language-json" data-language="json"><code class="language-json">&#123;
+    &quot;type&quot;: &quot;Program&quot;,
+    &quot;start&quot;: 0,
+    &quot;end&quot;: 18,
+    &quot;body&quot;: [
+      &#123;
+        &quot;type&quot;: &quot;VariableDeclaration&quot;,
+        &quot;start&quot;: 0,
+        &quot;end&quot;: 18,
+        &quot;declarations&quot;: [
+          &#123;
+            &quot;type&quot;: &quot;VariableDeclarator&quot;,
+            &quot;start&quot;: 6,
+            &quot;end&quot;: 18,
+            &quot;id&quot;: &#123;
+              &quot;type&quot;: &quot;Identifier&quot;,
+              &quot;start&quot;: 6,
+              &quot;end&quot;: 8,
+              &quot;name&quot;: &quot;team&quot;
+            &#125;,
+            &quot;init&quot;: &#123;
+              &quot;type&quot;: &quot;Literal&quot;,
+              &quot;start&quot;: 11,
+              &quot;end&quot;: 18,
+              &quot;value&quot;: &quot;大转转FE&quot;,
+              &quot;raw&quot;: &quot;&#39;大转转FE&#39;&quot;
+            &#125;
+          &#125;
+        ],
+        &quot;kind&quot;: &quot;const&quot;
+      &#125;
+    ],
+    &quot;sourceType&quot;: &quot;module&quot;
+  &#125;</code></pre>
 <ul>
 <li><p><strong>Node.js</strong></p>
 <p>是一个基于Chrome V8
@@ -2688,12 +2691,12 @@ Query</a>(<strong>CCF-A</strong>:31st USENIX Security Symposium
 <li><p><strong>Node.js 常见漏洞：</strong></p>
 <p>命令注入、原型污染、路径穿越和内部属性篡改</p></li>
 <li><p><strong>for example</strong></p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">Func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">Func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token class-name">Func</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>x <span class="token operator">=</span> <span class="token string">"ab"</span><span class="token punctuation">;</span>
 myFunc <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Func</span><span class="token punctuation">;</span>
 <span class="token keyword">if</span> <span class="token punctuation">(</span>source1<span class="token punctuation">)</span>
     myFunc<span class="token punctuation">[</span>source2<span class="token punctuation">]</span> <span class="token operator">=</span> myFunc<span class="token punctuation">.</span>x <span class="token operator">+</span> source1<span class="token punctuation">;</span> <span class="token comment">// internal property tampering</span>
-<span class="token function">sink</span><span class="token punctuation">(</span>myFunc<span class="token punctuation">.</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// taint -style vulnerability like command injection</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token function">sink</span><span class="token punctuation">(</span>myFunc<span class="token punctuation">.</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// taint -style vulnerability like command injection</span></code></pre>
 <ul>
 <li><p><code>Func()</code>
 这个函数有一个原型对象<code>Func.prototype</code>，<strong>myFunc</strong>
@@ -5692,7 +5695,7 @@ id="网络流量分析高性能网络报文处理数据分析">网络流量分�
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">230.3k</span>&nbsp;字
+                class="white-color">238.7k</span>&nbsp;字
             
             
             

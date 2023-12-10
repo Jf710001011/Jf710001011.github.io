@@ -43,7 +43,7 @@
     <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 7.0.0"><link rel="alternate" href="/atom.xml" title="Jf71o0x1o1l" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+</head>
 
 
     
@@ -484,7 +484,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.1k
+                    1k
                 </div>
                 
 
@@ -633,9 +633,7 @@ alt="image-20220708154451888" />
 <ol start="2" type="1">
 <li>虚拟机没网（前提：已经使用<code>Nat</code>模式</li>
 </ol>
-<pre class="language-bash" data-language="bash"><code class="language-bash">systemctl start NetworkManager
-nmcli networking off
-nmcli networking on</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl start NetworkManager</span><br><span class="line">nmcli networking off</span><br><span class="line">nmcli networking on</span><br></pre></td></tr></table></figure>
 <h3 id="xshell">Xshell</h3>
 <ul>
 <li>注意这一步（一般是刚下载）<img
@@ -734,7 +732,7 @@ alt="image-20221202160859222" />
 <li>域名解析托管cloudflare</li>
 <li>安装trojan</li>
 </ul>
-<pre class="language-bash" data-language="bash"><code class="language-bash">wget -N --no-check-certificate -q -O trojan_install.sh &quot;https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;V2RaySSR&#x2F;Trojan&#x2F;master&#x2F;trojan_install.sh&quot; &amp;&amp; chmod +x trojan_install.sh &amp;&amp; bash trojan_install.sh</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -N --no-check-certificate -q -O trojan_install.sh <span class="string">&quot;https://raw.githubusercontent.com/V2RaySSR/Trojan/master/trojan_install.sh&quot;</span> &amp;&amp; <span class="built_in">chmod</span> +x trojan_install.sh &amp;&amp; bash trojan_install.sh</span><br></pre></td></tr></table></figure>
 <ul>
 <li>申请证书报错</li>
 </ul>
@@ -749,20 +747,18 @@ alt="image-20220823104153133" />
 <ul>
 <li>查看配置</li>
 </ul>
-<pre class="language-bash" data-language="bash"><code class="language-bash">cat &#x2F;usr&#x2F;src&#x2F;trojan-macos&#x2F;trojan&#x2F;config.json</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> /usr/src/trojan-macos/trojan/config.json</span><br></pre></td></tr></table></figure>
 <ul>
 <li>安装bbrplus 加速（重要）</li>
 </ul>
 <h3 id="shadowsocksrtlswebcdn">ShadowsocksR+TLS+Web+CDN</h3>
 <ul>
 <li><p><strong>证书问题</strong></p>
-<pre class="language-bash" data-language="bash"><code class="language-bash">1. iptables -F
-2. acme.sh --set-default-ca --server letsencrypt</code></pre></li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1. iptables -F</span><br><span class="line">2. acme.sh --set-default-ca --server letsencrypt</span><br></pre></td></tr></table></figure></li>
 </ul>
 <p>​ <a
 target="_blank" rel="noopener" href="https://iyideng.net/black-technology/cgfw/shadowsocksr-ssr-server-building-and-using-tutorial.html">参考博客</a></p>
-<pre class="language-bash" data-language="bash"><code class="language-bash">bash -c &quot;$(curl -fsSL https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;JeannieStudio&#x2F;all_install&#x2F;master&#x2F;SixForOne_install.sh)&quot;
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bash -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/JeannieStudio/all_install/master/SixForOne_install.sh)</span>&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <figure>
 <img
 src="https://cdn.jsdelivr.net/gh/5had0wKv/pictureBed/img/202208241912152.png"
@@ -772,9 +768,8 @@ alt="image-20220824191243048" />
 <ul>
 <li>bbr 加速</li>
 </ul>
-<pre class="language-none"><code class="language-none">&quot;https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;chiakge&#x2F;Linux-NetSpeed&#x2F;master&#x2F;tcp.sh&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; .&#x2F;tcp.sh</code></pre>
-<pre class="language-none"><code class="language-none">&#x2F;etc&#x2F;all_mgr.sh
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/etc/all_mgr.sh</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p><a
 target="_blank" rel="noopener" href="https://iyideng.net/black-technology/cgfw/shadowsocksr-ssr-server-building-and-using-tutorial.html">参考教程</a></p>
 <h3 id="git">git</h3>
@@ -1399,7 +1394,7 @@ target="_blank" rel="noopener" href="https://iyideng.net/black-technology/cgfw/s
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">238.7k</span>&nbsp;字
+                class="white-color">235.6k</span>&nbsp;字
             
             
             

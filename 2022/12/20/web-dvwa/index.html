@@ -43,7 +43,7 @@
     <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 7.0.0"><link rel="alternate" href="/atom.xml" title="Jf71o0x1o1l" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+</head>
 
 
     
@@ -484,7 +484,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    985
+                    968
                 </div>
                 
 
@@ -599,65 +599,7 @@ alt="image-20230117222224070" />
 <ul>
 <li>PDO扩展</li>
 </ul>
-<pre class="language-php" data-language="php"><code class="language-php"> &#x2F;&#x2F; Get input
-    $message &#x3D; trim( $_POST[ &#39;mtxMessage&#39; ] );
-    $name    &#x3D; trim( $_POST[ &#39;txtName&#39; ] ); 解释
-这段代码是在使用 PHP 语言从一个 HTML 表单中收集用户输入。其中，$_POST 数组用于收集表单中通过 HTTP POST 方法提交的数据。
-
-&#39;mtxMessage&#39; 和 &#39;txtName&#39; 是表单中的元素名称。$message 变量存储的是用户在表单中输入的信息，$name 变量存储的是用户在表单中输入的名字。
-
-trim() 是 PHP 中的一个函数，用于去除字符串两端的空格。这里使用 trim() 函数是为了去除用户输入中可能含有的首尾空格。
-
-
-
-
-JiangFeng 7
-    &#x2F;&#x2F; Sanitize message input
-    $message &#x3D; stripslashes( $message );
-    $message &#x3D; ((isset($GLOBALS[&quot;___mysqli_ston&quot;]) &amp;&amp; is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ? mysqli_real_escape_string($GLOBALS[&quot;___mysqli_ston&quot;],  $message ) : ((trigger_error(&quot;[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.&quot;, E_USER_ERROR)) ? &quot;&quot; : &quot;&quot;));
-    $message &#x3D; htmlspecialchars( $message ); 解释
-这段代码是在对用户输入的信息进行过滤和处理，以防止 SQL 注入和 XSS 攻击。
-
-stripslashes() 是 PHP 中的一个函数，用于去除字符串中的反斜杠（\）。这里使用 stripslashes() 函数是为了去除用户输入中可能含有的反斜杠。
-
-mysqli_real_escape_string 是 PHP 中用于防止 SQL 注入的函数。该函数会对字符串中的特殊字符进行转义，以防止它们在 SQL 查询中被误解释。
-
-htmlspecialchars() 是 PHP 中的一个函数，用于把一些预定义的字符转换为 HTML 实体。这里使用 htmlspecialchars() 函数是为了防止 XSS 攻击。
-
-
-
-
-JiangFeng 7
-    &#x2F;&#x2F; Sanitize name input
-    $name &#x3D; stripslashes( $name );
-    $name &#x3D; ((isset($GLOBALS[&quot;___mysqli_ston&quot;]) &amp;&amp; is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ? mysqli_real_escape_string($GLOBALS[&quot;___mysqli_ston&quot;],  $name ) : ((trigger_error(&quot;[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.&quot;, E_USER_ERROR)) ? &quot;&quot; : &quot;&quot;));
-    $name &#x3D; htmlspecialchars( $name );解释
-这段代码是在对用户输入的名字进行过滤和处理，以防止 SQL 注入和 XSS 攻击。
-
-stripslashes() 是 PHP 中的一个函数，用于去除字符串中的反斜杠（\）。这里使用 stripslashes() 函数是为了去除用户输入中可能含有的反斜杠。
-
-mysqli_real_escape_string 是 PHP 中用于防止 SQL 注入的函数。该函数会对字符串中的特殊字符进行转义，以防止它们在 SQL 查询中被误解释。
-
-htmlspecialchars() 是 PHP 中的一个函数，用于把一些预定义的字符转换为 HTML 实体。这里使用 htmlspecialchars() 函数是为了防止 XSS 攻击。
-
-这里 $name 和 $message 变量都被处理过了,防止了SQL注入和XSS攻击
-
-
-
-
-JiangFeng 7
-    &#x2F;&#x2F; Update database
-    $data &#x3D; $db-&gt;prepare( &#39;INSERT INTO guestbook ( comment, name ) VALUES ( :message, :name );&#39; );
-    $data-&gt;bindParam( &#39;:message&#39;, $message, PDO::PARAM_STR );
-    $data-&gt;bindParam( &#39;:name&#39;, $name, PDO::PARAM_STR );
-    $data-&gt;execute(); 解释
-这段代码是在使用 PHP 的 PDO 扩展将用户输入的信息和名字写入数据库。
-
-首先，使用 $db-&gt;prepare() 方法创建了一个 PDOStatement 对象，该对象用于执行预处理的 SQL 查询。在这里，预处理的 SQL 查询是一个 INSERT INTO 语句，用于向 guestbook 数据表中插入一条记录。
-
-bindParam() 方法用于绑定参数到预处理语句。这里将 $message 变量绑定到 :message 参数，将 $name 变量绑定到 :name 参数。第三个参数 PDO::PARAM_STR 表示参数的类型是字符串。
-
-最后，使用 execute() 方法执行预处理语句。这样就将用户输入的信息和名字写入了数据库。</code></pre></li>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// Get input</span></span><br><span class="line">    <span class="variable">$message</span> = <span class="title function_ invoke__">trim</span>( <span class="variable">$_POST</span>[ <span class="string">&#x27;mtxMessage&#x27;</span> ] );</span><br><span class="line">    <span class="variable">$name</span>    = <span class="title function_ invoke__">trim</span>( <span class="variable">$_POST</span>[ <span class="string">&#x27;txtName&#x27;</span> ] ); 解释</span><br><span class="line">这段代码是在使用 PHP 语言从一个 HTML 表单中收集用户输入。其中，<span class="variable">$_POST</span> 数组用于收集表单中通过 HTTP POST 方法提交的数据。</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;mtxMessage&#x27;</span> 和 <span class="string">&#x27;txtName&#x27;</span> 是表单中的元素名称。<span class="variable">$message</span> 变量存储的是用户在表单中输入的信息，<span class="variable">$name</span> 变量存储的是用户在表单中输入的名字。</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">trim</span>() 是 PHP 中的一个函数，用于去除字符串两端的空格。这里使用 <span class="title function_ invoke__">trim</span>() 函数是为了去除用户输入中可能含有的首尾空格。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">JiangFeng <span class="number">7</span></span><br><span class="line">    <span class="comment">// Sanitize message input</span></span><br><span class="line">    <span class="variable">$message</span> = <span class="title function_ invoke__">stripslashes</span>( <span class="variable">$message</span> );</span><br><span class="line">    <span class="variable">$message</span> = ((<span class="keyword">isset</span>(<span class="variable">$GLOBALS</span>[<span class="string">&quot;___mysqli_ston&quot;</span>]) &amp;&amp; <span class="title function_ invoke__">is_object</span>(<span class="variable">$GLOBALS</span>[<span class="string">&quot;___mysqli_ston&quot;</span>])) ? <span class="title function_ invoke__">mysqli_real_escape_string</span>(<span class="variable">$GLOBALS</span>[<span class="string">&quot;___mysqli_ston&quot;</span>],  <span class="variable">$message</span> ) : ((<span class="title function_ invoke__">trigger_error</span>(<span class="string">&quot;[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.&quot;</span>, E_USER_ERROR)) ? <span class="string">&quot;&quot;</span> : <span class="string">&quot;&quot;</span>));</span><br><span class="line">    <span class="variable">$message</span> = <span class="title function_ invoke__">htmlspecialchars</span>( <span class="variable">$message</span> ); 解释</span><br><span class="line">这段代码是在对用户输入的信息进行过滤和处理，以防止 SQL 注入和 XSS 攻击。</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">stripslashes</span>() 是 PHP 中的一个函数，用于去除字符串中的反斜杠（\）。这里使用 <span class="title function_ invoke__">stripslashes</span>() 函数是为了去除用户输入中可能含有的反斜杠。</span><br><span class="line"></span><br><span class="line">mysqli_real_escape_string 是 PHP 中用于防止 SQL 注入的函数。该函数会对字符串中的特殊字符进行转义，以防止它们在 SQL 查询中被误解释。</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">htmlspecialchars</span>() 是 PHP 中的一个函数，用于把一些预定义的字符转换为 HTML 实体。这里使用 <span class="title function_ invoke__">htmlspecialchars</span>() 函数是为了防止 XSS 攻击。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">JiangFeng <span class="number">7</span></span><br><span class="line">    <span class="comment">// Sanitize name input</span></span><br><span class="line">    <span class="variable">$name</span> = <span class="title function_ invoke__">stripslashes</span>( <span class="variable">$name</span> );</span><br><span class="line">    <span class="variable">$name</span> = ((<span class="keyword">isset</span>(<span class="variable">$GLOBALS</span>[<span class="string">&quot;___mysqli_ston&quot;</span>]) &amp;&amp; <span class="title function_ invoke__">is_object</span>(<span class="variable">$GLOBALS</span>[<span class="string">&quot;___mysqli_ston&quot;</span>])) ? <span class="title function_ invoke__">mysqli_real_escape_string</span>(<span class="variable">$GLOBALS</span>[<span class="string">&quot;___mysqli_ston&quot;</span>],  <span class="variable">$name</span> ) : ((<span class="title function_ invoke__">trigger_error</span>(<span class="string">&quot;[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.&quot;</span>, E_USER_ERROR)) ? <span class="string">&quot;&quot;</span> : <span class="string">&quot;&quot;</span>));</span><br><span class="line">    <span class="variable">$name</span> = <span class="title function_ invoke__">htmlspecialchars</span>( <span class="variable">$name</span> );解释</span><br><span class="line">这段代码是在对用户输入的名字进行过滤和处理，以防止 SQL 注入和 XSS 攻击。</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">stripslashes</span>() 是 PHP 中的一个函数，用于去除字符串中的反斜杠（\）。这里使用 <span class="title function_ invoke__">stripslashes</span>() 函数是为了去除用户输入中可能含有的反斜杠。</span><br><span class="line"></span><br><span class="line">mysqli_real_escape_string 是 PHP 中用于防止 SQL 注入的函数。该函数会对字符串中的特殊字符进行转义，以防止它们在 SQL 查询中被误解释。</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">htmlspecialchars</span>() 是 PHP 中的一个函数，用于把一些预定义的字符转换为 HTML 实体。这里使用 <span class="title function_ invoke__">htmlspecialchars</span>() 函数是为了防止 XSS 攻击。</span><br><span class="line"></span><br><span class="line">这里 <span class="variable">$name</span> 和 <span class="variable">$message</span> 变量都被处理过了,防止了SQL注入和XSS攻击</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">JiangFeng <span class="number">7</span></span><br><span class="line">    <span class="comment">// Update database</span></span><br><span class="line">    <span class="variable">$data</span> = <span class="variable">$db</span>-&gt;<span class="title function_ invoke__">prepare</span>( <span class="string">&#x27;INSERT INTO guestbook ( comment, name ) VALUES ( :message, :name );&#x27;</span> );</span><br><span class="line">    <span class="variable">$data</span>-&gt;<span class="title function_ invoke__">bindParam</span>( <span class="string">&#x27;:message&#x27;</span>, <span class="variable">$message</span>, PDO::<span class="variable constant_">PARAM_STR</span> );</span><br><span class="line">    <span class="variable">$data</span>-&gt;<span class="title function_ invoke__">bindParam</span>( <span class="string">&#x27;:name&#x27;</span>, <span class="variable">$name</span>, PDO::<span class="variable constant_">PARAM_STR</span> );</span><br><span class="line">    <span class="variable">$data</span>-&gt;<span class="title function_ invoke__">execute</span>(); 解释</span><br><span class="line">这段代码是在使用 PHP 的 PDO 扩展将用户输入的信息和名字写入数据库。</span><br><span class="line"></span><br><span class="line">首先，使用 <span class="variable">$db</span>-&gt;<span class="title function_ invoke__">prepare</span>() 方法创建了一个 PDOStatement 对象，该对象用于执行预处理的 SQL 查询。在这里，预处理的 SQL 查询是一个 INSERT INTO 语句，用于向 guestbook 数据表中插入一条记录。</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">bindParam</span>() 方法用于绑定参数到预处理语句。这里将 <span class="variable">$message</span> 变量绑定到 :message 参数，将 <span class="variable">$name</span> 变量绑定到 :name 参数。第三个参数 PDO::<span class="variable constant_">PARAM_STR</span> 表示参数的类型是字符串。</span><br><span class="line"></span><br><span class="line">最后，使用 <span class="title function_ invoke__">execute</span>() 方法执行预处理语句。这样就将用户输入的信息和名字写入了数据库。</span><br></pre></td></tr></table></figure></li>
 </ul>
 
                 
@@ -1276,7 +1218,7 @@ bindParam() 方法用于绑定参数到预处理语句。这里将 $message 变�
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">238.7k</span>&nbsp;字
+                class="white-color">235.6k</span>&nbsp;字
             
             
             

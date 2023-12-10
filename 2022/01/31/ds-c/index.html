@@ -43,7 +43,7 @@
     <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 7.0.0"><link rel="alternate" href="/atom.xml" title="Jf71o0x1o1l" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+</head>
 
 
     
@@ -522,59 +522,15 @@
 <h3 id="c语法">C++语法</h3>
 <ul>
 <li><p>洗牌函数</p>
-<pre class="language-cpp" data-language="cpp"><code class="language-cpp">#include &lt;iostream&gt;
-#include &lt;vector&gt;
-#include &lt;algorithm&gt;
-#include &lt;random&gt;
-
-using namespace std;
-
-int main() &#123;
-    vector&lt;int&gt; nums &#x3D; &#123;1, 2, 3, 4, 5, 6, 7, 8, 9, 10&#125;;
-    unsigned seed &#x3D; std::chrono::system_clock::now().time_since_epoch().count();
-    shuffle(nums.begin(), nums.end(), default_random_engine(seed));
-    for (int num : nums) &#123;
-        cout &lt;&lt; num &lt;&lt; &quot; &quot;;
-    &#125;
-    cout &lt;&lt; endl;
-    return 0;
-&#125;</code></pre></li>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;random&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; nums = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>&#125;;</span><br><span class="line">    <span class="type">unsigned</span> seed = std::chrono::system_clock::<span class="built_in">now</span>().<span class="built_in">time_since_epoch</span>().<span class="built_in">count</span>();</span><br><span class="line">    <span class="built_in">shuffle</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>(), <span class="built_in">default_random_engine</span>(seed));</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> num : nums) &#123;</span><br><span class="line">        cout &lt;&lt; num &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>sort()</p>
-<pre class="language-cpp" data-language="cpp"><code class="language-cpp">#include &lt;iostream&gt;
-#include &lt;vector&gt;
-#include &lt;algorithm&gt;
-
-bool compare(int a, int b) &#123;
-    return a &gt; b;
-&#125;
-
-int main() &#123;
-    std::vector&lt;int&gt; vec&#123;3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5&#125;;
-
-    std::sort(vec.begin(), vec.end(), compare);
-
-    for (auto i : vec) &#123;
-        std::cout &lt;&lt; i &lt;&lt; &quot; &quot;;
-    &#125;
-
-    return 0;
-&#125;</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">compare</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a &gt; b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    std::vector&lt;<span class="type">int</span>&gt; vec&#123;<span class="number">3</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">9</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">5</span>&#125;;</span><br><span class="line"></span><br><span class="line">    std::<span class="built_in">sort</span>(vec.<span class="built_in">begin</span>(), vec.<span class="built_in">end</span>(), compare);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> i : vec) &#123;</span><br><span class="line">        std::cout &lt;&lt; i &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>三个参数</li>
 </ul></li>
 <li><p>lambda</p>
-<pre class="language-cpp" data-language="cpp"><code class="language-cpp">bool compare(string a, string b, map&lt;string, int&gt;&amp; rank_map) &#123;
-    return rank_map[a] &lt; rank_map[b];
-&#125;
-
-&#x2F;&#x2F; 正确
-sort(cards.begin(), cards.end(), [&amp;rank_map](string a, string b) &#123;
-        return compare(a, b, rank_map);
-    &#125;);
-
-&#x2F;&#x2F; 为什么这么写是错误的
-sort(cards.begin(), cards.end(), compare);</code></pre>
-<pre class="language-none"><code class="language-none">  </code></pre></li>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">compare</span><span class="params">(string a, string b, map&lt;string, <span class="type">int</span>&gt;&amp; rank_map)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> rank_map[a] &lt; rank_map[b];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 正确</span></span><br><span class="line"><span class="built_in">sort</span>(cards.<span class="built_in">begin</span>(), cards.<span class="built_in">end</span>(), [&amp;rank_map](string a, string b) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">compare</span>(a, b, rank_map);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 为什么这么写是错误的</span></span><br><span class="line"><span class="built_in">sort</span>(cards.<span class="built_in">begin</span>(), cards.<span class="built_in">end</span>(), compare);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">  </span><br></pre></td></tr></table></figure></li>
 <li><p>一个报错（如上）</p></li>
 <li><p>break</p>
 <ul>
@@ -593,37 +549,13 @@ s.find(',')); // sub 的值为 "Hello"</p>
 <p>string s = "Hello, world!"; string sub = s.substr(s.find_last_of(' ')
 + 1); // sub 的值为 "world</p>
 <p>string s = "Hello, world!"; string sub = s.substr(0, s.find_last_of('
-')); // sub 的值为 "Hello," <pre class="language-none"><code class="language-none">
-    
-
-- vector-erase
-
-  - 示例 
-
-    &#96;&#96;&#96;cpp
-    &#x2F;&#x2F; 多个相同值只删除一个
-    auto it &#x3D; std::find(vec.begin(), vec.end(), val);
-    if (it !&#x3D; vec.end()) &#123;
-        vec.erase(it);
-    &#125;
-    
-    &#x2F;&#x2F; -----------------------------------
-    #include &lt;algorithm&gt;
-    #include &lt;vector&gt;
-    
-    int main() &#123;
-        std::vector&lt;int&gt; vec&#123;1, 2, 3, 4, 5, 6&#125;;
-        int val &#x3D; 3;
-        vec.erase(std::remove(vec.begin(), vec.end(), val), vec.end());
-        &#x2F;&#x2F; 此时 vec 中的元素为 &#123;1, 2, 4, 5, 6&#125;
-    &#125;</code></pre></p></li>
+')); // sub 的值为 "Hello," <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">- vector-erase</span><br><span class="line"></span><br><span class="line">  - 示例 </span><br><span class="line"></span><br><span class="line">    ```cpp</span><br><span class="line">    // 多个相同值只删除一个</span><br><span class="line">    auto it = std::find(vec.begin(), vec.end(), val);</span><br><span class="line">    if (it != vec.end()) &#123;</span><br><span class="line">        vec.erase(it);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    // -----------------------------------</span><br><span class="line">    #include &lt;algorithm&gt;</span><br><span class="line">    #include &lt;vector&gt;</span><br><span class="line">    </span><br><span class="line">    int main() &#123;</span><br><span class="line">        std::vector&lt;int&gt; vec&#123;1, 2, 3, 4, 5, 6&#125;;</span><br><span class="line">        int val = 3;</span><br><span class="line">        vec.erase(std::remove(vec.begin(), vec.end(), val), vec.end());</span><br><span class="line">        // 此时 vec 中的元素为 &#123;1, 2, 4, 5, 6&#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p></li>
 </ul></li>
 <li><p>vector :end()</p></li>
 <li><p>2 维vector</p>
 <ul>
 <li><p>code</p>
-<pre class="language-cpp" data-language="cpp"><code class="language-cpp">vector&lt;vector&lt;int&gt;&gt; v&#123;&#123;1, 2, 3&#125;, &#123;4, 5, 6&#125;&#125;;
-cout &lt;&lt; v.size() &lt;&lt; endl; &#x2F;&#x2F; </code></pre></li>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; v&#123;&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;, &#123;<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;&#125;;</span><br><span class="line">cout &lt;&lt; v.<span class="built_in">size</span>() &lt;&lt; endl; <span class="comment">// </span></span><br></pre></td></tr></table></figure></li>
 </ul></li>
 </ul>
 <ol type="1">
@@ -658,8 +590,7 @@ target="_blank" rel="noopener" href="https://chen-tianyi.com/archives/oj%E5%9C%A
 <li><code>stringstream()</code>：字符串转换为整型</li>
 </ul>
 </blockquote>
-<pre class="language-cpp" data-language="cpp"><code class="language-cpp">string s &#x3D; &quot;12345&quot;;
-stringstream geek(s);  </code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string s = <span class="string">&quot;12345&quot;</span>;</span><br><span class="line"><span class="function">stringstream <span class="title">geek</span><span class="params">(s)</span></span>;  </span><br></pre></td></tr></table></figure>
 <ul>
 <li><code>vector</code>初始化</li>
 <li><code>vector&lt;int&gt;(26,0)</code></li>
@@ -667,13 +598,7 @@ stringstream geek(s);  </code></pre>
 <li><code>string</code>加法</li>
 </ul></li>
 <li><p><code>lambda</code>表达式</p>
-<pre class="language-cpp" data-language="cpp"><code class="language-cpp">      &#x2F;&#x2F; 字符串常量默认类型char*
-auto isVowel &#x3D; [vowels &#x3D; &quot;aeiouAEIOU&quot;s](char ch) &#123;	&#x2F;&#x2F; string literals
-      find函数在找不到指定值得情况下会返回string::npos
-          return vowels.find(ch) !&#x3D; string::npos;	
-      &#125;
-&#x2F;&#x2F; 用法
-      while (i &lt; n &amp;&amp; !isVowel(s[i]))&#123;.....&#125;</code></pre></li>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">      <span class="comment">// 字符串常量默认类型char*</span></span><br><span class="line"><span class="keyword">auto</span> isVowel = [vowels = <span class="string">&quot;aeiouAEIOU&quot;</span>s](<span class="type">char</span> ch) &#123;	<span class="comment">// string literals</span></span><br><span class="line">      find函数在找不到指定值得情况下会返回string::npos</span><br><span class="line">          <span class="keyword">return</span> vowels.<span class="built_in">find</span>(ch) != string::npos;	</span><br><span class="line">      &#125;</span><br><span class="line"><span class="comment">// 用法</span></span><br><span class="line">      <span class="keyword">while</span> (i &lt; n &amp;&amp; !<span class="built_in">isVowel</span>(s[i]))&#123;.....&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p><code>abs()</code></p></li>
 <li><p><code>cur = (cur &lt;&lt; 1) + root-&gt;val</code>：必须加括号</p></li>
 <li><p>条件非还是不非</p></li>
@@ -690,37 +615,11 @@ auto isVowel &#x3D; [vowels &#x3D; &quot;aeiouAEIOU&quot;s](char ch) &#123;	&#x2
 <ol type="1">
 <li>字符串</li>
 </ol>
-<pre class="language-cpp" data-language="cpp"><code class="language-cpp">class Solution &#123;
-   public:
-    bool isAnagram(string s, string t) &#123;
-        &#x2F;&#x2F; 哈希表  键与值
-        &#x2F;&#x2F; 一次insert,一次对比
-        
-        if(s.size() !&#x3D; t.size()) &#123;
-            return false;
-        &#125;
-        
-        vector&lt;int&gt; v(26, 0);
-
-        for (char c : s) &#123;
-            v[c - &#39;a&#39;]++;
-        &#125;
-
-        for (char c : t) &#123;
-            v[c - &#39;a&#39;]--;
-            if (v[c - &#39;a&#39;] &lt; 0) &#123;
-                return false;
-            &#125;
-        &#125;
-
-        return true;
-    &#125;
-&#125;;</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">   <span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isAnagram</span><span class="params">(string s, string t)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 哈希表  键与值</span></span><br><span class="line">        <span class="comment">// 一次insert,一次对比</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(s.<span class="built_in">size</span>() != t.<span class="built_in">size</span>()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">v</span><span class="params">(<span class="number">26</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c : s) &#123;</span><br><span class="line">            v[c - <span class="string">&#x27;a&#x27;</span>]++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c : t) &#123;</span><br><span class="line">            v[c - <span class="string">&#x27;a&#x27;</span>]--;</span><br><span class="line">            <span class="keyword">if</span> (v[c - <span class="string">&#x27;a&#x27;</span>] &lt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <ol start="2" type="1">
 <li></li>
 </ol>
-<pre class="language-cpp" data-language="cpp"><code class="language-cpp">char c &#x3D; &#39;2&#39;;
-cout &lt;&lt; &quot;c - &#39;0&#39; &#x3D; &quot; &lt;&lt; c - &#39;0&#39; &lt;&lt; endl;			&#x2F;&#x2F; 结果：int值2</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> c = <span class="string">&#x27;2&#x27;</span>;</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;c - &#x27;0&#x27; = &quot;</span> &lt;&lt; c - <span class="string">&#x27;0&#x27;</span> &lt;&lt; endl;			<span class="comment">// 结果：int值2</span></span><br></pre></td></tr></table></figure>
 <h4 id="位运算技巧">位运算技巧</h4>
 <ol type="1">
 <li>移位运算更快</li>
@@ -767,9 +666,7 @@ target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/contains-d
 </ul>
 </blockquote>
 <h4 id="随机数">随机数</h4>
-<pre class="language-cpp" data-language="cpp"><code class="language-cpp">#include &lt;ctime&gt; 
-int pos &#x3D; rand() % (right - left + 1) + left;   &#x2F;&#x2F; [left,right]
-srand((unsigned int)(time(NULL))	&#x2F;&#x2F; 使用当前时钟作为随机数种子 </code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;ctime&gt;</span> </span></span><br><span class="line"><span class="type">int</span> pos = <span class="built_in">rand</span>() % (right - left + <span class="number">1</span>) + left;   <span class="comment">// [left,right]</span></span><br><span class="line"><span class="built_in">srand</span>((<span class="type">unsigned</span> <span class="type">int</span>)(<span class="built_in">time</span>(<span class="literal">NULL</span>))	<span class="comment">// 使用当前时钟作为随机数种子 </span></span><br></pre></td></tr></table></figure>
 <h4 id="kmp算法暂留">KMP算法（暂留）</h4>
 <h4 id="if-else条件选择">if-else条件选择</h4>
 <ul>
@@ -816,21 +713,7 @@ srand((unsigned int)(time(NULL))	&#x2F;&#x2F; 使用当前时钟作为随机数�
 </ol>
 <h4 id="细节小计算">细节，小计算</h4>
 <h4 id="冒泡排序的优化">冒泡排序的优化</h4>
-<pre class="language-cpp" data-language="cpp"><code class="language-cpp">&#x2F;&#x2F;  价格逆序（稳定性）:冒泡排序
-void priceSort(vector&lt;book&gt;&amp; v) &#123;
-    for (int i &#x3D; 0; i &lt; v.size() - 1; i++) &#123;
-        int flag &#x3D; 0;
-        for (int j &#x3D; 0; j &lt; v.size() - i - 1; j++) &#123;
-            if (v[j].price &lt; v[j + 1].price) &#123;
-                swap(v[j], v[j + 1]);
-                flag &#x3D; 1;
-            &#125;
-        &#125;
-        if(!flag) &#123;
-            return;
-        &#125;
-    &#125;
-&#125;</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  价格逆序（稳定性）:冒泡排序</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">priceSort</span><span class="params">(vector&lt;book&gt;&amp; v)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; v.<span class="built_in">size</span>() - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="type">int</span> flag = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; v.<span class="built_in">size</span>() - i - <span class="number">1</span>; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (v[j].price &lt; v[j + <span class="number">1</span>].price) &#123;</span><br><span class="line">                <span class="built_in">swap</span>(v[j], v[j + <span class="number">1</span>]);</span><br><span class="line">                flag = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(!flag) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="红黑树">红黑树</h4>
 
                 
@@ -1453,7 +1336,7 @@ void priceSort(vector&lt;book&gt;&amp; v) &#123;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">238.7k</span>&nbsp;字
+                class="white-color">235.6k</span>&nbsp;字
             
             
             

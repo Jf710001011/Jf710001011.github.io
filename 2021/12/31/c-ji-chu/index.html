@@ -43,7 +43,7 @@
     <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 7.0.0"><link rel="alternate" href="/atom.xml" title="Jf71o0x1o1l" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+</head>
 
 
     
@@ -488,7 +488,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    985
+                    966
                 </div>
                 
 
@@ -517,13 +517,13 @@
 <blockquote>
 <ul>
 <li>#define 定义常量：<code>#define 常量名 常量值</code>，<br />
-<pre class="language-cpp" data-language="cpp"><code class="language-cpp">#define day 7  </code></pre></li>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> day 7  </span></span><br></pre></td></tr></table></figure></li>
 </ul>
 </blockquote>
 <blockquote>
 <ul>
 <li><code>const 数据类型 常量名 = 常量值</code>,<br />
-<pre class="language-cpp" data-language="cpp"><code class="language-cpp">const int month &#x3D; 30</code></pre></li>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> month = <span class="number">30</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 </blockquote>
 <h2 id="数据类型存在的意义">数据类型存在的意义</h2>
@@ -552,13 +552,10 @@
 <ul>
 <li>switch 结构清晰，执行效率高，判断整型或字符型，不可是一个区间</li>
 <li>随机数种子，利用当前系统时间生成随机数，防止每次随机数都一样
-<pre class="language-cpp" data-language="cpp"><code class="language-cpp">#include&lt;ctime&gt;
-srand((unsigned int)time(NULL));
-int num &#x3D; rand()%100+1;</code></pre></li>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="built_in">srand</span>((<span class="type">unsigned</span> <span class="type">int</span>)<span class="built_in">time</span>(<span class="literal">NULL</span>));</span><br><span class="line"><span class="type">int</span> num = <span class="built_in">rand</span>()%<span class="number">100</span>+<span class="number">1</span>;</span><br></pre></td></tr></table></figure></li>
 <li>cotinue 退出<strong>本次</strong>循环</li>
 <li>goto<br />
-<pre class="language-cpp" data-language="cpp"><code class="language-cpp">goto FLAG;
-FLAG:</code></pre></li>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">goto</span> FLAG;</span><br><span class="line">FLAG:</span><br></pre></td></tr></table></figure></li>
 </ul>
 </blockquote>
 <h2 id="函数">函数</h2>
@@ -582,7 +579,7 @@ FLAG:</code></pre></li>
 <li>给指针变量进行初始化</li>
 <li>空指针指向的内存不可访问（0-255之间的内存编号系统占用）</li>
 </ul></li>
-<li>野指针，指向非法的内存空间 <pre class="language-cpp" data-language="cpp"><code class="language-cpp">int *p &#x3D; (int*)ox1100;</code></pre>
+<li>野指针，指向非法的内存空间 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> *p = (<span class="type">int</span>*)ox1100;</span><br></pre></td></tr></table></figure>
 空指针和野指针都不是我们申请的空间，因此不要访问。</li>
 <li>const与指针
 <ul>
@@ -638,13 +635,9 @@ FLAG:</code></pre></li>
 <li>添加联系人功能</li>
 <li><code>#define MAX 1000</code>报错，根据提示更改为<code>constexpr auto MAX = 1000;</code>后提示正确</li>
 </ul>
-<pre class="language-cpp" data-language="cpp"><code class="language-cpp">default:
-break;</code></pre>
-<pre class="language-cpp" data-language="cpp"><code class="language-cpp">system(&quot;cls&quot;);</code></pre>
-<pre class="language-cpp" data-language="cpp"><code class="language-cpp">while(true)&#123;
-  .....
-  break;
-&#125;</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">default</span>:</span><br><span class="line"><span class="keyword">break</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">system</span>(<span class="string">&quot;cls&quot;</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">  .....</span><br><span class="line">  <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </blockquote>
 <h2 id="main函数理解">main函数理解</h2>
 <ul>
@@ -655,22 +648,8 @@ break;</code></pre>
 <li><p><code>printf("%s",p)</code>: %s,<del>s%</del></p></li>
 <li><p>(int*)(74):74号地址</p></li>
 </ul>
-<pre class="language-c" data-language="c"><code class="language-c">int* test() &#123;
-	return (int*) (74);				&#x2F;&#x2F; 将整型强制转化为地址
-&#125;
-int main() &#123;
-	
-	int* p &#x3D; test();
-	printf(&quot;%d\n&quot;, p);                              &#x2F;&#x2F; 十进制输出 74
-	cout &lt;&lt; &quot;返回值是：&quot; &lt;&lt; p &lt;&lt; endl;				&#x2F;&#x2F; 0000004A   
-	cout &lt;&lt; &quot;返回值是：&quot; &lt;&lt; &amp;p &lt;&lt; endl;			    &#x2F;&#x2F; 005EF780
-	cout &lt;&lt; &quot;返回值是：&quot; &lt;&lt; (int)p &lt;&lt; endl;		    &#x2F;&#x2F; 74
-	system(&quot;pause&quot;);
-	return 0;
-&#125;</code></pre>
-<pre class="language-c" data-language="c"><code class="language-c">int* a &#x3D; 5;
-int* p &#x3D; (int*)a;         &#x2F;&#x2F; 将5强转为地址
-int* q &#x3D; (int*)&a;        &#x2F;&#x2F; 将a的地址强转为指针</code></pre>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>* <span class="title function_">test</span><span class="params">()</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> (<span class="type">int</span>*) (<span class="number">74</span>);				<span class="comment">// 将整型强制转化为地址</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">	</span><br><span class="line">	<span class="type">int</span>* p = test();</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, p);                              <span class="comment">// 十进制输出 74</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;返回值是：&quot;</span> &lt;&lt; p &lt;&lt; <span class="built_in">endl</span>;				<span class="comment">// 0000004A   </span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;返回值是：&quot;</span> &lt;&lt; &amp;p &lt;&lt; <span class="built_in">endl</span>;			    <span class="comment">// 005EF780</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;返回值是：&quot;</span> &lt;&lt; (<span class="type">int</span>)p &lt;&lt; <span class="built_in">endl</span>;		    <span class="comment">// 74</span></span><br><span class="line">	system(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>* a = <span class="number">5</span>;</span><br><span class="line"><span class="type">int</span>* p = (<span class="type">int</span>*)a;         <span class="comment">// 将5强转为地址</span></span><br><span class="line"><span class="type">int</span>* q = (<span class="type">int</span>*)&amp;a;        <span class="comment">// 将a的地址强转为指针</span></span><br></pre></td></tr></table></figure>
 
                 
             </div>
@@ -1288,7 +1267,7 @@ int* q &#x3D; (int*)&a;        &#x2F;&#x2F; 将a的地址强转为指针</code><
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">238.7k</span>&nbsp;字
+                class="white-color">235.6k</span>&nbsp;字
             
             
             

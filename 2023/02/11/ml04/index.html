@@ -43,7 +43,7 @@
     <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 7.0.0"><link rel="alternate" href="/atom.xml" title="Jf71o0x1o1l" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+</head>
 
 
     
@@ -484,7 +484,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.8k
+                    1.7k
                 </div>
                 
 
@@ -514,8 +514,7 @@
 <li><p>装anaconda，就不需要单独装python了</p></li>
 <li><p>安装最新的ANACONDA3,并更新所有的库(否则会出现很多报错</p></li>
 </ul>
-<pre class="language-powershell" data-language="powershell"><code class="language-powershell">conda list --all
-conda upgrade -all</code></pre>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda list <span class="literal">--all</span></span><br><span class="line">conda upgrade <span class="literal">-all</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li><p><del>对于一些报错需要在<strong>终端退出jupyter
 notebook</strong>然后重新进入</del>,修正：原因是所有代码要按顺序执行，否则会出现如下报错（这个问题困扰了好久
@@ -560,75 +559,7 @@ alt="image-20230210165204665" /></li>
 </ul></li>
 <li>完整代码</li>
 </ul>
-<pre class="language-python" data-language="python"><code class="language-python">import numpy as np
-import matplotlib.pyplot as plt
-plt.style.use(&#39;.&#x2F;deeplearning.mplstyle&#39;)
-
-# x_train is the input variable (size in 1000 square feet)
-# y_train is the target (price in 1000s of dollars)
-x_train &#x3D; np.array([1.0, 2.0])
-y_train &#x3D; np.array([300.0, 500.0])
-print(f&quot;x_train &#x3D; &#123;x_train&#125;&quot;)
-
-# m is the number of training examples
-print(f&quot;x_train.shape: &#123;x_train.shape&#125;&quot;)
-m &#x3D; x_train.shape[0]
-print(f&quot;Number of training examples is: &#123;m&#125;&quot;)
-
-i &#x3D; 0 # Change this to 1 to see (x^1, y^1)
-
-x_i &#x3D; x_train[i]
-y_i &#x3D; y_train[i]
-print(f&quot;(x^(&#123;i&#125;), y^(&#123;i&#125;)) &#x3D; (&#123;x_i&#125;, &#123;y_i&#125;)&quot;)
-
-# Plot the data points
-plt.scatter(x_train, y_train, marker&#x3D;&#39;x&#39;, c&#x3D;&#39;r&#39;)
-# Set the title
-plt.title(&quot;Housing Prices&quot;)
-# Set the y-axis label
-plt.ylabel(&#39;Price (in 1000s of dollars)&#39;)
-# Set the x-axis label
-plt.xlabel(&#39;Size (1000 sqft)&#39;)
-plt.show()
-
-w &#x3D; 100
-b &#x3D; 100
-print(f&quot;w: &#123;w&#125;&quot;)
-print(f&quot;b: &#123;b&#125;&quot;)
-
-def compute_model_output(x, w, b):
-    &quot;&quot;&quot;
-    Computes the prediction of a linear model
-    Args:
-      x (ndarray (m,)): Data, m examples 
-      w,b (scalar)    : model parameters  
-    Returns
-      y (ndarray (m,)): target values
-    &quot;&quot;&quot;
-    m &#x3D; x.shape[0]
-    f_wb &#x3D; np.zeros(m)	# 创建了一个全零的 NumPy 数组 f_wb。
-    for i in range(m):
-        f_wb[i] &#x3D; w * x[i] + b
-        
-    return f_wb
-
-tmp_f_wb &#x3D; compute_model_output(x_train, w, b,)
-
-# Plot our model prediction
-plt.plot(x_train, tmp_f_wb, c&#x3D;&#39;b&#39;,label&#x3D;&#39;Our Prediction&#39;) # 线性
-
-# Plot the data points
-plt.scatter(x_train, y_train, marker&#x3D;&#39;x&#39;, c&#x3D;&#39;r&#39;,label&#x3D;&#39;Actual Values&#39;) # 散点图
-
-# Set the title
-plt.title(&quot;Housing Prices&quot;)
-# Set the y-axis label
-plt.ylabel(&#39;Price (in 1000s of dollars)&#39;)
-# Set the x-axis label
-plt.xlabel(&#39;Size (1000 sqft)&#39;)
-
-plt.legend() # 创建一个图例，该图例显示图表中各种数据集的标签，以便识别不同的数据集。
-plt.show()</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">plt.style.use(<span class="string">&#x27;./deeplearning.mplstyle&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># x_train is the input variable (size in 1000 square feet)</span></span><br><span class="line"><span class="comment"># y_train is the target (price in 1000s of dollars)</span></span><br><span class="line">x_train = np.array([<span class="number">1.0</span>, <span class="number">2.0</span>])</span><br><span class="line">y_train = np.array([<span class="number">300.0</span>, <span class="number">500.0</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;x_train = <span class="subst">&#123;x_train&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># m is the number of training examples</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;x_train.shape: <span class="subst">&#123;x_train.shape&#125;</span>&quot;</span>)</span><br><span class="line">m = x_train.shape[<span class="number">0</span>]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;Number of training examples is: <span class="subst">&#123;m&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">i = <span class="number">0</span> <span class="comment"># Change this to 1 to see (x^1, y^1)</span></span><br><span class="line"></span><br><span class="line">x_i = x_train[i]</span><br><span class="line">y_i = y_train[i]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;(x^(<span class="subst">&#123;i&#125;</span>), y^(<span class="subst">&#123;i&#125;</span>)) = (<span class="subst">&#123;x_i&#125;</span>, <span class="subst">&#123;y_i&#125;</span>)&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Plot the data points</span></span><br><span class="line">plt.scatter(x_train, y_train, marker=<span class="string">&#x27;x&#x27;</span>, c=<span class="string">&#x27;r&#x27;</span>)</span><br><span class="line"><span class="comment"># Set the title</span></span><br><span class="line">plt.title(<span class="string">&quot;Housing Prices&quot;</span>)</span><br><span class="line"><span class="comment"># Set the y-axis label</span></span><br><span class="line">plt.ylabel(<span class="string">&#x27;Price (in 1000s of dollars)&#x27;</span>)</span><br><span class="line"><span class="comment"># Set the x-axis label</span></span><br><span class="line">plt.xlabel(<span class="string">&#x27;Size (1000 sqft)&#x27;</span>)</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line">w = <span class="number">100</span></span><br><span class="line">b = <span class="number">100</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;w: <span class="subst">&#123;w&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;b: <span class="subst">&#123;b&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">compute_model_output</span>(<span class="params">x, w, b</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    Computes the prediction of a linear model</span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">      x (ndarray (m,)): Data, m examples </span></span><br><span class="line"><span class="string">      w,b (scalar)    : model parameters  </span></span><br><span class="line"><span class="string">    Returns</span></span><br><span class="line"><span class="string">      y (ndarray (m,)): target values</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    m = x.shape[<span class="number">0</span>]</span><br><span class="line">    f_wb = np.zeros(m)	<span class="comment"># 创建了一个全零的 NumPy 数组 f_wb。</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">        f_wb[i] = w * x[i] + b</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">return</span> f_wb</span><br><span class="line"></span><br><span class="line">tmp_f_wb = compute_model_output(x_train, w, b,)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Plot our model prediction</span></span><br><span class="line">plt.plot(x_train, tmp_f_wb, c=<span class="string">&#x27;b&#x27;</span>,label=<span class="string">&#x27;Our Prediction&#x27;</span>) <span class="comment"># 线性</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Plot the data points</span></span><br><span class="line">plt.scatter(x_train, y_train, marker=<span class="string">&#x27;x&#x27;</span>, c=<span class="string">&#x27;r&#x27;</span>,label=<span class="string">&#x27;Actual Values&#x27;</span>) <span class="comment"># 散点图</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Set the title</span></span><br><span class="line">plt.title(<span class="string">&quot;Housing Prices&quot;</span>)</span><br><span class="line"><span class="comment"># Set the y-axis label</span></span><br><span class="line">plt.ylabel(<span class="string">&#x27;Price (in 1000s of dollars)&#x27;</span>)</span><br><span class="line"><span class="comment"># Set the x-axis label</span></span><br><span class="line">plt.xlabel(<span class="string">&#x27;Size (1000 sqft)&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.legend() <span class="comment"># 创建一个图例，该图例显示图表中各种数据集的标签，以便识别不同的数据集。</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 <figure>
 <img src="https://s2.loli.net/2023/02/10/9otHVn5A8eXUlOE.png"
 alt="image-20230210203145072" />
@@ -638,50 +569,9 @@ alt="image-20230210203145072" />
 id="c1_w1_lab03_cost_function_soln">C1_W1_Lab03_Cost_function_Soln</h3>
 <ul>
 <li><p>安装库(管理员权限)</p>
-<pre class="language-powershell" data-language="powershell"><code class="language-powershell">conda install -c conda-forge ipympl</code></pre></li>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install <span class="literal">-c</span> conda<span class="literal">-forge</span> ipympl</span><br></pre></td></tr></table></figure></li>
 <li><p>code</p>
-<pre class="language-python" data-language="python"><code class="language-python">import numpy as np
-%matplotlib widget # 使用 %matplotlib widget 命令与 Jupyter Notebook 交互，使得可以在 Jupyter Notebook 中直接使用 matplotlib 库的图形界面；
-import matplotlib.pyplot as plt
-from lab_utils_uni import plt_intuition, plt_stationary, plt_update_onclick, soup_bowl
-plt.style.use(&#39;.&#x2F;deeplearning.mplstyle&#39;)
-
-x_train &#x3D; np.array([1.0, 2.0])           #(size in 1000 square feet)
-y_train &#x3D; np.array([300.0, 500.0])           #(price in 1000s of dollars)
-
-def compute_cost(x, y, w, b): 
-    &quot;&quot;&quot;
-    Computes the cost function for linear regression.
-    
-    Args:
-      x (ndarray (m,)): Data, m examples 
-      y (ndarray (m,)): target values
-      w,b (scalar)    : model parameters  
-    
-    Returns
-        total_cost (float): The cost of using w,b as the parameters for linear regression
-               to fit the data points in x and y
-    &quot;&quot;&quot;
-    # number of training examples
-    m &#x3D; x.shape[0] 
-    
-    cost_sum &#x3D; 0 
-    for i in range(m): 
-        f_wb &#x3D; w * x[i] + b   
-        cost &#x3D; (f_wb - y[i]) ** 2  
-        cost_sum &#x3D; cost_sum + cost  
-    total_cost &#x3D; (1 &#x2F; (2 * m)) * cost_sum  
-
-    return total_cost
-
-plt_intuition(x_train,y_train)  # 该函数的目的是创建一个散点图，用于展示训练数据的分布情况。该图形将训练数据的 x_train 值作为 x 轴，y_train 值作为 y 轴，并在散点图上显示出每一个数据点的位置。
-
-x_train &#x3D; np.array([1.0, 1.7, 2.0, 2.5, 3.0, 3.2])
-y_train &#x3D; np.array([250, 300, 480,  430,   630, 730,])
-
-plt.close(&#39;all&#39;) 
-fig, ax, dyn_items &#x3D; plt_stationary(x_train, y_train)
-updater &#x3D; plt_update_onclick(fig, ax, x_train, y_train, dyn_items)</code></pre></li>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">%matplotlib widget <span class="comment"># 使用 %matplotlib widget 命令与 Jupyter Notebook 交互，使得可以在 Jupyter Notebook 中直接使用 matplotlib 库的图形界面；</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> lab_utils_uni <span class="keyword">import</span> plt_intuition, plt_stationary, plt_update_onclick, soup_bowl</span><br><span class="line">plt.style.use(<span class="string">&#x27;./deeplearning.mplstyle&#x27;</span>)</span><br><span class="line"></span><br><span class="line">x_train = np.array([<span class="number">1.0</span>, <span class="number">2.0</span>])           <span class="comment">#(size in 1000 square feet)</span></span><br><span class="line">y_train = np.array([<span class="number">300.0</span>, <span class="number">500.0</span>])           <span class="comment">#(price in 1000s of dollars)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">compute_cost</span>(<span class="params">x, y, w, b</span>): </span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    Computes the cost function for linear regression.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">      x (ndarray (m,)): Data, m examples </span></span><br><span class="line"><span class="string">      y (ndarray (m,)): target values</span></span><br><span class="line"><span class="string">      w,b (scalar)    : model parameters  </span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Returns</span></span><br><span class="line"><span class="string">        total_cost (float): The cost of using w,b as the parameters for linear regression</span></span><br><span class="line"><span class="string">               to fit the data points in x and y</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># number of training examples</span></span><br><span class="line">    m = x.shape[<span class="number">0</span>] </span><br><span class="line">    </span><br><span class="line">    cost_sum = <span class="number">0</span> </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m): </span><br><span class="line">        f_wb = w * x[i] + b   </span><br><span class="line">        cost = (f_wb - y[i]) ** <span class="number">2</span>  </span><br><span class="line">        cost_sum = cost_sum + cost  </span><br><span class="line">    total_cost = (<span class="number">1</span> / (<span class="number">2</span> * m)) * cost_sum  </span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> total_cost</span><br><span class="line"></span><br><span class="line">plt_intuition(x_train,y_train)  <span class="comment"># 该函数的目的是创建一个散点图，用于展示训练数据的分布情况。该图形将训练数据的 x_train 值作为 x 轴，y_train 值作为 y 轴，并在散点图上显示出每一个数据点的位置。</span></span><br><span class="line"></span><br><span class="line">x_train = np.array([<span class="number">1.0</span>, <span class="number">1.7</span>, <span class="number">2.0</span>, <span class="number">2.5</span>, <span class="number">3.0</span>, <span class="number">3.2</span>])</span><br><span class="line">y_train = np.array([<span class="number">250</span>, <span class="number">300</span>, <span class="number">480</span>,  <span class="number">430</span>,   <span class="number">630</span>, <span class="number">730</span>,])</span><br><span class="line"></span><br><span class="line">plt.close(<span class="string">&#x27;all&#x27;</span>) </span><br><span class="line">fig, ax, dyn_items = plt_stationary(x_train, y_train)</span><br><span class="line">updater = plt_update_onclick(fig, ax, x_train, y_train, dyn_items)</span><br></pre></td></tr></table></figure></li>
 <li><p>解释<img src="https://s2.loli.net/2023/02/10/csGQAyEhCqnLDfP.png"
 alt="image-20230210233315478" /></p></li>
 </ul>
@@ -689,151 +579,7 @@ alt="image-20230210233315478" /></p></li>
 id="c1_w1_lab04_gradient_descent_soln">C1_W1_Lab04_Gradient_Descent_Soln</h3>
 <ul>
 <li><p>code</p>
-<pre class="language-python" data-language="python"><code class="language-python">import math, copy
-import numpy as np
-import matplotlib.pyplot as plt
-plt.style.use(&#39;.&#x2F;deeplearning.mplstyle&#39;)
-from lab_utils_uni import plt_house_x, plt_contour_wgrad, plt_divergence, plt_gradients
-
-# Load our data set
-x_train &#x3D; np.array([1.0, 2.0])   #features
-y_train &#x3D; np.array([300.0, 500.0])   #target value
-
-#Function to calculate the cost
-def compute_cost(x, y, w, b):
-   
-    m &#x3D; x.shape[0] 
-    cost &#x3D; 0
-    
-    for i in range(m):
-        f_wb &#x3D; w * x[i] + b
-        cost &#x3D; cost + (f_wb - y[i])**2
-    total_cost &#x3D; 1 &#x2F; (2 * m) * cost
-
-    return total_cost
-
-def compute_gradient(x, y, w, b): 
-    &quot;&quot;&quot;
-    Computes the gradient for linear regression 
-    Args:
-      x (ndarray (m,)): Data, m examples 
-      y (ndarray (m,)): target values
-      w,b (scalar)    : model parameters  
-    Returns
-      dj_dw (scalar): The gradient of the cost w.r.t. the parameters w
-      dj_db (scalar): The gradient of the cost w.r.t. the parameter b     
-     &quot;&quot;&quot;
-    
-    # Number of training examples
-    m &#x3D; x.shape[0]    
-    dj_dw &#x3D; 0
-    dj_db &#x3D; 0
-    
-    for i in range(m):  
-        f_wb &#x3D; w * x[i] + b 
-        dj_dw_i &#x3D; (f_wb - y[i]) * x[i] 
-        dj_db_i &#x3D; f_wb - y[i] 
-        dj_db +&#x3D; dj_db_i
-        dj_dw +&#x3D; dj_dw_i 
-    dj_dw &#x3D; dj_dw &#x2F; m 
-    dj_db &#x3D; dj_db &#x2F; m 
-        
-    return dj_dw, dj_db
-
-plt_gradients(x_train,y_train, compute_cost, compute_gradient)
-plt.show()
-
-def gradient_descent(x, y, w_in, b_in, alpha, num_iters, cost_function, gradient_function): 
-    &quot;&quot;&quot;
-    Performs gradient descent to fit w,b. Updates w,b by taking 
-    num_iters gradient steps with learning rate alpha
-    
-    Args:
-      x (ndarray (m,))  : Data, m examples 
-      y (ndarray (m,))  : target values
-      w_in,b_in (scalar): initial values of model parameters  
-      alpha (float):     Learning rate
-      num_iters (int):   number of iterations to run gradient descent
-      cost_function:     function to call to produce cost
-      gradient_function: function to call to produce gradient
-      
-    Returns:
-      w (scalar): Updated value of parameter after running gradient descent
-      b (scalar): Updated value of parameter after running gradient descent
-      J_history (List): History of cost values
-      p_history (list): History of parameters [w,b] 
-      &quot;&quot;&quot;
-    
-    w &#x3D; copy.deepcopy(w_in) # avoid modifying global w_in
-    # An array to store cost J and w&#39;s at each iteration primarily for graphing later
-    J_history &#x3D; []
-    p_history &#x3D; []
-    b &#x3D; b_in
-    w &#x3D; w_in
-    
-    for i in range(num_iters):
-        # Calculate the gradient and update the parameters using gradient_function
-        dj_dw, dj_db &#x3D; gradient_function(x, y, w , b)     
-
-        # Update Parameters using equation (3) above
-        b &#x3D; b - alpha * dj_db                            
-        w &#x3D; w - alpha * dj_dw                            
-
-        # Save cost J at each iteration
-        if i&lt;100000:      # prevent resource exhaustion 
-            J_history.append( cost_function(x, y, w , b))
-            p_history.append([w,b])
-        # Print cost every at intervals 10 times or as many iterations if &lt; 10
-        if i% math.ceil(num_iters&#x2F;10) &#x3D;&#x3D; 0:		# 迭代次数划分为10份
-            print(f&quot;Iteration &#123;i:4&#125;: Cost &#123;J_history[-1]:0.2e&#125; &quot;,
-                  f&quot;dj_dw: &#123;dj_dw: 0.3e&#125;, dj_db: &#123;dj_db: 0.3e&#125;  &quot;,
-                  f&quot;w: &#123;w: 0.3e&#125;, b:&#123;b: 0.5e&#125;&quot;)
- 
-    return w, b, J_history, p_history #return w and J,w history for graphing
-
-# initialize parameters
-w_init &#x3D; 0
-b_init &#x3D; 0
-# some gradient descent settings
-iterations &#x3D; 10000
-tmp_alpha &#x3D; 1.0e-2
-# run gradient descent
-w_final, b_final, J_hist, p_hist &#x3D; gradient_descent(x_train ,y_train, w_init, b_init, tmp_alpha, 
-                                                    iterations, compute_cost, compute_gradient)
-print(f&quot;(w,b) found by gradient descent: (&#123;w_final:8.4f&#125;,&#123;b_final:8.4f&#125;)&quot;)
-
-# plot cost versus iteration  
-fig, (ax1, ax2) &#x3D; plt.subplots(1, 2, constrained_layout&#x3D;True, figsize&#x3D;(12,4))
-ax1.plot(J_hist[:100])
-ax2.plot(1000 + np.arange(len(J_hist[1000:])), J_hist[1000:])
-ax1.set_title(&quot;Cost vs. iteration(start)&quot;);  ax2.set_title(&quot;Cost vs. iteration (end)&quot;)
-ax1.set_ylabel(&#39;Cost&#39;)            ;  ax2.set_ylabel(&#39;Cost&#39;) 
-ax1.set_xlabel(&#39;iteration step&#39;)  ;  ax2.set_xlabel(&#39;iteration step&#39;) 
-plt.show()
-
-print(f&quot;1000 sqft house prediction &#123;w_final*1.0 + b_final:0.1f&#125; Thousand dollars&quot;)
-print(f&quot;1200 sqft house prediction &#123;w_final*1.2 + b_final:0.1f&#125; Thousand dollars&quot;)
-print(f&quot;2000 sqft house prediction &#123;w_final*2.0 + b_final:0.1f&#125; Thousand dollars&quot;)
-
-fig, ax &#x3D; plt.subplots(1,1, figsize&#x3D;(12, 6))
-plt_contour_wgrad(x_train, y_train, p_hist, ax)
-
-fig, ax &#x3D; plt.subplots(1,1, figsize&#x3D;(12, 4))
-plt_contour_wgrad(x_train, y_train, p_hist, ax, w_range&#x3D;[180, 220, 0.5], b_range&#x3D;[80, 120, 0.5],
-            contours&#x3D;[1,5,10,20],resolution&#x3D;0.5)
-
-# initialize parameters
-w_init &#x3D; 0
-b_init &#x3D; 0
-# set alpha to a large value
-iterations &#x3D; 10
-tmp_alpha &#x3D; 8.0e-1
-# run gradient descent
-w_final, b_final, J_hist, p_hist &#x3D; gradient_descent(x_train ,y_train, w_init, b_init, tmp_alpha, 
-                                                    iterations, compute_cost, compute_gradient)
-
-plt_divergence(p_hist, J_hist,x_train, y_train) # 具体内容与 plt_contour_wgrad 函数类似，只不过它是绘制参数空间与代价空间的散度图（Divergence Plot）
-plt.show()</code></pre></li>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math, copy</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">plt.style.use(<span class="string">&#x27;./deeplearning.mplstyle&#x27;</span>)</span><br><span class="line"><span class="keyword">from</span> lab_utils_uni <span class="keyword">import</span> plt_house_x, plt_contour_wgrad, plt_divergence, plt_gradients</span><br><span class="line"></span><br><span class="line"><span class="comment"># Load our data set</span></span><br><span class="line">x_train = np.array([<span class="number">1.0</span>, <span class="number">2.0</span>])   <span class="comment">#features</span></span><br><span class="line">y_train = np.array([<span class="number">300.0</span>, <span class="number">500.0</span>])   <span class="comment">#target value</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Function to calculate the cost</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">compute_cost</span>(<span class="params">x, y, w, b</span>):</span><br><span class="line">   </span><br><span class="line">    m = x.shape[<span class="number">0</span>] </span><br><span class="line">    cost = <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">        f_wb = w * x[i] + b</span><br><span class="line">        cost = cost + (f_wb - y[i])**<span class="number">2</span></span><br><span class="line">    total_cost = <span class="number">1</span> / (<span class="number">2</span> * m) * cost</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> total_cost</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">compute_gradient</span>(<span class="params">x, y, w, b</span>): </span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    Computes the gradient for linear regression </span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">      x (ndarray (m,)): Data, m examples </span></span><br><span class="line"><span class="string">      y (ndarray (m,)): target values</span></span><br><span class="line"><span class="string">      w,b (scalar)    : model parameters  </span></span><br><span class="line"><span class="string">    Returns</span></span><br><span class="line"><span class="string">      dj_dw (scalar): The gradient of the cost w.r.t. the parameters w</span></span><br><span class="line"><span class="string">      dj_db (scalar): The gradient of the cost w.r.t. the parameter b     </span></span><br><span class="line"><span class="string">     &quot;&quot;&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Number of training examples</span></span><br><span class="line">    m = x.shape[<span class="number">0</span>]    </span><br><span class="line">    dj_dw = <span class="number">0</span></span><br><span class="line">    dj_db = <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m):  </span><br><span class="line">        f_wb = w * x[i] + b </span><br><span class="line">        dj_dw_i = (f_wb - y[i]) * x[i] </span><br><span class="line">        dj_db_i = f_wb - y[i] </span><br><span class="line">        dj_db += dj_db_i</span><br><span class="line">        dj_dw += dj_dw_i </span><br><span class="line">    dj_dw = dj_dw / m </span><br><span class="line">    dj_db = dj_db / m </span><br><span class="line">        </span><br><span class="line">    <span class="keyword">return</span> dj_dw, dj_db</span><br><span class="line"></span><br><span class="line">plt_gradients(x_train,y_train, compute_cost, compute_gradient)</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">gradient_descent</span>(<span class="params">x, y, w_in, b_in, alpha, num_iters, cost_function, gradient_function</span>): </span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    Performs gradient descent to fit w,b. Updates w,b by taking </span></span><br><span class="line"><span class="string">    num_iters gradient steps with learning rate alpha</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">      x (ndarray (m,))  : Data, m examples </span></span><br><span class="line"><span class="string">      y (ndarray (m,))  : target values</span></span><br><span class="line"><span class="string">      w_in,b_in (scalar): initial values of model parameters  </span></span><br><span class="line"><span class="string">      alpha (float):     Learning rate</span></span><br><span class="line"><span class="string">      num_iters (int):   number of iterations to run gradient descent</span></span><br><span class="line"><span class="string">      cost_function:     function to call to produce cost</span></span><br><span class="line"><span class="string">      gradient_function: function to call to produce gradient</span></span><br><span class="line"><span class="string">      </span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">      w (scalar): Updated value of parameter after running gradient descent</span></span><br><span class="line"><span class="string">      b (scalar): Updated value of parameter after running gradient descent</span></span><br><span class="line"><span class="string">      J_history (List): History of cost values</span></span><br><span class="line"><span class="string">      p_history (list): History of parameters [w,b] </span></span><br><span class="line"><span class="string">      &quot;&quot;&quot;</span></span><br><span class="line">    </span><br><span class="line">    w = copy.deepcopy(w_in) <span class="comment"># avoid modifying global w_in</span></span><br><span class="line">    <span class="comment"># An array to store cost J and w&#x27;s at each iteration primarily for graphing later</span></span><br><span class="line">    J_history = []</span><br><span class="line">    p_history = []</span><br><span class="line">    b = b_in</span><br><span class="line">    w = w_in</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(num_iters):</span><br><span class="line">        <span class="comment"># Calculate the gradient and update the parameters using gradient_function</span></span><br><span class="line">        dj_dw, dj_db = gradient_function(x, y, w , b)     </span><br><span class="line"></span><br><span class="line">        <span class="comment"># Update Parameters using equation (3) above</span></span><br><span class="line">        b = b - alpha * dj_db                            </span><br><span class="line">        w = w - alpha * dj_dw                            </span><br><span class="line"></span><br><span class="line">        <span class="comment"># Save cost J at each iteration</span></span><br><span class="line">        <span class="keyword">if</span> i&lt;<span class="number">100000</span>:      <span class="comment"># prevent resource exhaustion </span></span><br><span class="line">            J_history.append( cost_function(x, y, w , b))</span><br><span class="line">            p_history.append([w,b])</span><br><span class="line">        <span class="comment"># Print cost every at intervals 10 times or as many iterations if &lt; 10</span></span><br><span class="line">        <span class="keyword">if</span> i% math.ceil(num_iters/<span class="number">10</span>) == <span class="number">0</span>:		<span class="comment"># 迭代次数划分为10份</span></span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;Iteration <span class="subst">&#123;i:<span class="number">4</span>&#125;</span>: Cost <span class="subst">&#123;J_history[-<span class="number">1</span>]:<span class="number">0.2</span>e&#125;</span> &quot;</span>,</span><br><span class="line">                  <span class="string">f&quot;dj_dw: <span class="subst">&#123;dj_dw: <span class="number">0.3</span>e&#125;</span>, dj_db: <span class="subst">&#123;dj_db: <span class="number">0.3</span>e&#125;</span>  &quot;</span>,</span><br><span class="line">                  <span class="string">f&quot;w: <span class="subst">&#123;w: <span class="number">0.3</span>e&#125;</span>, b:<span class="subst">&#123;b: <span class="number">0.5</span>e&#125;</span>&quot;</span>)</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> w, b, J_history, p_history <span class="comment">#return w and J,w history for graphing</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># initialize parameters</span></span><br><span class="line">w_init = <span class="number">0</span></span><br><span class="line">b_init = <span class="number">0</span></span><br><span class="line"><span class="comment"># some gradient descent settings</span></span><br><span class="line">iterations = <span class="number">10000</span></span><br><span class="line">tmp_alpha = <span class="number">1.0e-2</span></span><br><span class="line"><span class="comment"># run gradient descent</span></span><br><span class="line">w_final, b_final, J_hist, p_hist = gradient_descent(x_train ,y_train, w_init, b_init, tmp_alpha, </span><br><span class="line">                                                    iterations, compute_cost, compute_gradient)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;(w,b) found by gradient descent: (<span class="subst">&#123;w_final:<span class="number">8.4</span>f&#125;</span>,<span class="subst">&#123;b_final:<span class="number">8.4</span>f&#125;</span>)&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># plot cost versus iteration  </span></span><br><span class="line">fig, (ax1, ax2) = plt.subplots(<span class="number">1</span>, <span class="number">2</span>, constrained_layout=<span class="literal">True</span>, figsize=(<span class="number">12</span>,<span class="number">4</span>))</span><br><span class="line">ax1.plot(J_hist[:<span class="number">100</span>])</span><br><span class="line">ax2.plot(<span class="number">1000</span> + np.arange(<span class="built_in">len</span>(J_hist[<span class="number">1000</span>:])), J_hist[<span class="number">1000</span>:])</span><br><span class="line">ax1.set_title(<span class="string">&quot;Cost vs. iteration(start)&quot;</span>);  ax2.set_title(<span class="string">&quot;Cost vs. iteration (end)&quot;</span>)</span><br><span class="line">ax1.set_ylabel(<span class="string">&#x27;Cost&#x27;</span>)            ;  ax2.set_ylabel(<span class="string">&#x27;Cost&#x27;</span>) </span><br><span class="line">ax1.set_xlabel(<span class="string">&#x27;iteration step&#x27;</span>)  ;  ax2.set_xlabel(<span class="string">&#x27;iteration step&#x27;</span>) </span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;1000 sqft house prediction <span class="subst">&#123;w_final*<span class="number">1.0</span> + b_final:<span class="number">0.1</span>f&#125;</span> Thousand dollars&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;1200 sqft house prediction <span class="subst">&#123;w_final*<span class="number">1.2</span> + b_final:<span class="number">0.1</span>f&#125;</span> Thousand dollars&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;2000 sqft house prediction <span class="subst">&#123;w_final*<span class="number">2.0</span> + b_final:<span class="number">0.1</span>f&#125;</span> Thousand dollars&quot;</span>)</span><br><span class="line"></span><br><span class="line">fig, ax = plt.subplots(<span class="number">1</span>,<span class="number">1</span>, figsize=(<span class="number">12</span>, <span class="number">6</span>))</span><br><span class="line">plt_contour_wgrad(x_train, y_train, p_hist, ax)</span><br><span class="line"></span><br><span class="line">fig, ax = plt.subplots(<span class="number">1</span>,<span class="number">1</span>, figsize=(<span class="number">12</span>, <span class="number">4</span>))</span><br><span class="line">plt_contour_wgrad(x_train, y_train, p_hist, ax, w_range=[<span class="number">180</span>, <span class="number">220</span>, <span class="number">0.5</span>], b_range=[<span class="number">80</span>, <span class="number">120</span>, <span class="number">0.5</span>],</span><br><span class="line">            contours=[<span class="number">1</span>,<span class="number">5</span>,<span class="number">10</span>,<span class="number">20</span>],resolution=<span class="number">0.5</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># initialize parameters</span></span><br><span class="line">w_init = <span class="number">0</span></span><br><span class="line">b_init = <span class="number">0</span></span><br><span class="line"><span class="comment"># set alpha to a large value</span></span><br><span class="line">iterations = <span class="number">10</span></span><br><span class="line">tmp_alpha = <span class="number">8.0e-1</span></span><br><span class="line"><span class="comment"># run gradient descent</span></span><br><span class="line">w_final, b_final, J_hist, p_hist = gradient_descent(x_train ,y_train, w_init, b_init, tmp_alpha, </span><br><span class="line">                                                    iterations, compute_cost, compute_gradient)</span><br><span class="line"></span><br><span class="line">plt_divergence(p_hist, J_hist,x_train, y_train) <span class="comment"># 具体内容与 plt_contour_wgrad 函数类似，只不过它是绘制参数空间与代价空间的散度图（Divergence Plot）</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></li>
 <li><p>输出</p>
 <ul>
 <li><figure>
@@ -1244,55 +990,6 @@ alt="img" /></p></li>
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2023/02/18/ml06/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="P28-多元线性回归的梯度下降">
-                        
-                        <span class="card-title">P28-多元线性回归的梯度下降</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            梯度下降
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-02-18
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Machine-Learning/" class="post-category">
-                                    Machine Learning
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Academic/">
-                        <span class="chip bg-color">Academic</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
                 <a href="/2023/02/11/ml05/">
                     <div class="card-image">
                         
@@ -1309,9 +1006,9 @@ alt="img" /></p></li>
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-11
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-02-11
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1323,6 +1020,55 @@ alt="img" /></p></li>
                             
                         </span>
                     </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/02/11/python/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Python">
+                        
+                        <span class="card-title">Python</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            python start
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Programming-Design/" class="post-category">
+                                    Programming Design
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -1469,7 +1215,7 @@ alt="img" /></p></li>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">238.7k</span>&nbsp;字
+                class="white-color">235.6k</span>&nbsp;字
             
             
             

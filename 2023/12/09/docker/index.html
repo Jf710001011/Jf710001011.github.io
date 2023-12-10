@@ -43,7 +43,7 @@
     <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 7.0.0"><link rel="alternate" href="/atom.xml" title="Jf71o0x1o1l" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+</head>
 
 
     
@@ -484,7 +484,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    537
+                    535
                 </div>
                 
 
@@ -500,6 +500,9 @@
         </div>
         <hr class="clearfix">
 
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
         
 
         
@@ -523,17 +526,17 @@
 <h3 id="containerize-an-application">Containerize an application</h3>
 <ul>
 <li><p><strong>Get the app</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/docker/getting-started.git</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/docker/getting-started.git</span><br></pre></td></tr></table></figure></li>
 <li><p><strong>Containerize an application | Docker
 Documentation</strong></p>
 <ol type="1">
 <li><p>使用CMD</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>.  <span class="built_in">cd</span> getting startted\</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>.  <span class="built_in">type</span> nul &gt; Dockerfile</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span>.  <span class="built_in">cd</span> getting startted\</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>.  <span class="built_in">type</span> nul &gt; Dockerfile</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
 <li><p>在Dockerfile中添加</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># syntax=docker/dockerfile:1</span></span><br><span class="line">   </span><br><span class="line"><span class="keyword">FROM</span> node:<span class="number">18</span>-alpine</span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /app</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> . .</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> yarn install --production</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> [<span class="string">&quot;node&quot;</span>, <span class="string">&quot;src/index.js&quot;</span>]</span></span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">3000</span></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="comment"># syntax=docker/dockerfile:1</span></span><br><span class="line">   </span><br><span class="line"><span class="keyword">FROM</span> node:<span class="number">18</span>-alpine</span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /app</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> . .</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> yarn install --production</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> [<span class="string">&quot;node&quot;</span>, <span class="string">&quot;src/index.js&quot;</span>]</span></span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">3000</span></span><br></pre></td></tr></table></figure></li>
 <li><p>启动<strong>Docker desktop</strong>:运行守护进程</p></li>
 <li><p><strong>build image</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. <span class="built_in">cd</span> app\</span><br><span class="line"></span><br><span class="line">2. docker build -t getting-started .</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1. <span class="built_in">cd</span> app\</span><br><span class="line"></span><br><span class="line">2. docker build -t getting-started .</span><br></pre></td></tr></table></figure>
 <figure>
 <img src="https://s2.loli.net/2023/05/15/3Ho7zAJShXPbFiy.png"
 alt="image-20230515121707909" />
@@ -544,7 +547,7 @@ alt="image-20230515121707909" />
 <h3 id="start-an-app-container">Start an app container</h3>
 <ul>
 <li><p>运行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -dp 3000:3000 getting-started</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -dp 3000:3000 getting-started</span><br></pre></td></tr></table></figure>
 <p><code>docker run -dp 3000:3000 getting-started</code>
 ，用于在容器中运行指定的 Docker 镜像。其中，<code>-d</code>
 参数表示以“分离模式”运行容器，也就是将容器作为后台进程运行；<code>-p</code>
@@ -562,7 +565,7 @@ alt="image-20230515121921138" /></p></li>
 <li><p>拉取镜像</p></li>
 <li><p><code>ifconfig</code> 需要安装 <code>net-tools</code></p></li>
 <li><p>安装<strong>全家桶</strong>报错：<code>Unable to locate package</code>:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#启动 并交互</span></span><br><span class="line">docker run --<span class="built_in">tty</span> --interactive kalilinux/kali-rolling</span><br><span class="line"></span><br><span class="line"><span class="comment">#更换源		</span></span><br><span class="line">deb http://http.kali.org/kali kali-rolling main non-free contrib</span><br><span class="line">deb http://http.kali.org/kali kali-last-snapshot main non-free contrib</span><br><span class="line">deb http://http.kali.org/kali kali-experimental main non-free contrib</span><br><span class="line">deb-src http://http.kali.org/kali kali-rolling main non-free contrib</span><br><span class="line"></span><br><span class="line"><span class="comment">#安装全家桶</span></span><br><span class="line"><span class="comment">#时间真的久</span></span><br><span class="line">apt-get install -y kali-linux-everything</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#启动 并交互</span></span><br><span class="line">docker run --<span class="built_in">tty</span> --interactive kalilinux/kali-rolling</span><br><span class="line"></span><br><span class="line"><span class="comment">#更换源		</span></span><br><span class="line">deb http://http.kali.org/kali kali-rolling main non-free contrib</span><br><span class="line">deb http://http.kali.org/kali kali-last-snapshot main non-free contrib</span><br><span class="line">deb http://http.kali.org/kali kali-experimental main non-free contrib</span><br><span class="line">deb-src http://http.kali.org/kali kali-rolling main non-free contrib</span><br><span class="line"></span><br><span class="line"><span class="comment">#安装全家桶</span></span><br><span class="line"><span class="comment">#时间真的久</span></span><br><span class="line">apt-get install -y kali-linux-everything</span><br></pre></td></tr></table></figure></li>
 </ol>
 
                 
@@ -1173,7 +1176,7 @@ alt="image-20230515121921138" /></p></li>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">236.3k</span>&nbsp;字
+                class="white-color">236k</span>&nbsp;字
             
             
             

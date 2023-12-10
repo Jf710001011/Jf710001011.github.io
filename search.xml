@@ -8,7 +8,7 @@
       <link href="/2023/12/10/matrix-theory/"/>
       <url>/2023/12/10/matrix-theory/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h3 id="一-线性空间与线性变换">一 线性空间与线性变换</h3><ol type="1"><li><strong>数域</strong>：如果一个数集包含非零的数，并且任意两个数(可以重复)的和、差、积、商(除数不为零)<strong>仍在该数集</strong>中，则称该数集为一个数域</li><li>四则运算封闭</li><li>包含<strong>非零</strong>的数，且对<strong>四则运算封闭</strong>的数集称为数域</li></ol>]]></content>
       
       
       <categories>

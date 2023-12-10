@@ -808,6 +808,25 @@
     
     
     <entry>
+      <title>多类特征</title>
+      <link href="/2023/02/11/ml05/"/>
+      <url>/2023/02/11/ml05/</url>
+      
+        <content type="html"><![CDATA[<h3 id="多类特征">多类特征</h3><ul><li><span class="math display">\[x^{(2)}是一个特征向量：表示第二个训练集上的所有特征集合\\x^{(2)}_3：表示第二个训练集的第三个特征\]</span></li></ul><p>​ <img src="https://s2.loli.net/2023/02/11/mCLsy7UfhX8n6eg.png"alt="image-20230210235940441" /></p><ul><li><span class="math display">\[多元线性回归：f_{\vec w,b}(\vec x)= \vec w * \vec x + b\]</span></li></ul><h3 id="向量化">向量化</h3><ul><li><p>python 实现向量的点积运算 <span class="math display">\[f_{\vec w,b}(\vec x)=( \sum _{j=1}^nw_jx_j)+b\]</span></p><div class="sourceCode" id="cb1"><preclass="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> np.dot(w,x) <span class="op">+</span> b   <span class="op">//</span> 使用并行硬件的能力</span></code></pre></div><ul><li>此外它只需要一行代码</li></ul></li><li><p>向量化在计算机上的实现</p><ul><li>多核并行处理</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Machine Learning </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>ML-Lab</title>
       <link href="/2023/02/11/ml04/"/>
       <url>/2023/02/11/ml04/</url>
@@ -827,25 +846,6 @@
             <tag> Lab </tag>
             
         </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>多类特征</title>
-      <link href="/2023/02/11/ml05/"/>
-      <url>/2023/02/11/ml05/</url>
-      
-        <content type="html"><![CDATA[<h3 id="多类特征">多类特征</h3><ul><li><span class="math display">\[x^{(2)}是一个特征向量：表示第二个训练集上的所有特征集合\\x^{(2)}_3：表示第二个训练集的第三个特征\]</span></li></ul><p>​ <img src="https://s2.loli.net/2023/02/11/mCLsy7UfhX8n6eg.png"alt="image-20230210235940441" /></p><ul><li><span class="math display">\[多元线性回归：f_{\vec w,b}(\vec x)= \vec w * \vec x + b\]</span></li></ul><h3 id="向量化">向量化</h3><ul><li><p>python 实现向量的点积运算 <span class="math display">\[f_{\vec w,b}(\vec x)=( \sum _{j=1}^nw_jx_j)+b\]</span></p><div class="sourceCode" id="cb1"><preclass="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> np.dot(w,x) <span class="op">+</span> b   <span class="op">//</span> 使用并行硬件的能力</span></code></pre></div><ul><li>此外它只需要一行代码</li></ul></li><li><p>向量化在计算机上的实现</p><ul><li>多核并行处理</li></ul></li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> Machine Learning </category>
-          
-      </categories>
-      
       
     </entry>
     

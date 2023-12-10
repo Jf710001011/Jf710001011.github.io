@@ -488,7 +488,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    109
+                    108
                 </div>
                 
 
@@ -511,7 +511,12 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h3 id="本地文件包含">本地文件包含</h3>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$fileName</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;fileName&#x27;</span>];</span><br><span class="line"><span class="keyword">include</span> <span class="variable">$fileName</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;欢迎来到php的世界&quot;</span>;</span><br></pre></td></tr></table></figure>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode php"><code class="sourceCode php"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;?php</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="va">$fileName</span> <span class="op">=</span> <span class="va">$_GET</span>[<span class="st">&#39;fileName&#39;</span>]<span class="ot">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">include</span> <span class="va">$fileName</span><span class="ot">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">echo</span> <span class="st">&quot;欢迎来到php的世界&quot;</span><span class="ot">;</span></span></code></pre></div>
 <h3 id="远程文件包含">远程文件包含</h3>
 <ul>
 <li>/opt/lampp/etc/php.ini,更改配置</li>
@@ -526,7 +531,7 @@ alt="image-20221002170334041" />
 <li>在远程主机还是本地主机执行远程文件</li>
 </ul>
 <h3 id="php伪协议利用">php伪协议利用</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://192.168.104.130//security/fileInc?fileName=php://filter </span><br></pre></td></tr></table></figure>
+<pre class="url"><code>http://192.168.104.130//security/fileInc?fileName=php://filter </code></pre>
 <ul>
 <li>php://filter</li>
 <li>php://input</li>

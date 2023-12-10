@@ -547,7 +547,20 @@ protocol="tcp" port="8080" accept'</li>
 alt="image-20220814160343357" />
 <figcaption aria-hidden="true">image-20220814160343357</figcaption>
 </figure>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;login.php&quot;</span> <span class="attr">method</span>=<span class="string">&quot;POST&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;text-align:center;vertical-align:middel;&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> <span class="attr">id</span>=<span class="string">&quot;username&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">placeholder</span>=<span class="string">&quot;用户名&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;text-align:center;vertical-align:middel;&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span> <span class="attr">id</span>=<span class="string">&quot;password&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">placeholder</span>=<span class="string">&quot;密码&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;text-align:center;vertical-align:middel;&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;vcode&quot;</span> <span class="attr">id</span>=<span class="string">&quot;vcode&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">placeholder</span>=<span class="string">&quot;验证码&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;bu&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span>&gt;</span>登录<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">form</span><span class="ot"> action</span><span class="op">=</span><span class="st">&quot;login.php&quot;</span><span class="ot"> method</span><span class="op">=</span><span class="st">&quot;POST&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">&quot;text-align:center;vertical-align:middel;&quot;</span><span class="dt">&gt;&lt;</span><span class="kw">input</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;text&quot;</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;username&quot;</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;username&quot;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ot">                placeholder</span><span class="op">=</span><span class="st">&quot;用户名&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">&quot;text-align:center;vertical-align:middel;&quot;</span><span class="dt">&gt;&lt;</span><span class="kw">input</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;text&quot;</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;password&quot;</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;password&quot;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ot">                placeholder</span><span class="op">=</span><span class="st">&quot;密码&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">&quot;text-align:center;vertical-align:middel;&quot;</span><span class="dt">&gt;&lt;</span><span class="kw">input</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;text&quot;</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;vcode&quot;</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;vcode&quot;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ot">                placeholder</span><span class="op">=</span><span class="st">&quot;验证码&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;bu&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;submit&quot;</span><span class="dt">&gt;</span>登录<span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">form</span><span class="dt">&gt;</span></span></code></pre></div>
 <figure>
 <img src="https://s2.loli.net/2022/08/14/z3VGkRNDHm5qFK7.png"
 alt="image-20220814160734536" />
@@ -559,11 +572,210 @@ alt="image-20220814160734536" />
 alt="image-20220816201142904" />
 <figcaption aria-hidden="true">image-20220816201142904</figcaption>
 </figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"># reg.html</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;注册&lt;/title&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot; src=&quot;jquery-3.6.0.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        function doReg() &#123;</span><br><span class="line">            var username = $(&quot;#username&quot;).val();</span><br><span class="line">            var password = $(&quot;#password&quot;).val();</span><br><span class="line">            var param = &quot;username=&quot; + username + &quot;&amp;password=&quot; + password;</span><br><span class="line">            $.post(&#x27;reg.php&#x27;, param, function (data) &#123;</span><br><span class="line">                if (data == &#x27;reg-pass&#x27;) &#123;</span><br><span class="line">                    window.alert(&quot;注册成功&quot;)</span><br><span class="line">                    location.href = &quot;login.html&quot;;</span><br><span class="line">                &#125; else if (data == &#x27;user-exists&#x27;) &#123;</span><br><span class="line">                    window.alert(&quot;用户名已注册&quot;);</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    window.alert(&quot;注册失败&quot;);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        table &#123;</span><br><span class="line">            width: 600px;</span><br><span class="line">            margin: auto;</span><br><span class="line">            border-spacing: 0;</span><br><span class="line">            border: solid 1px green;</span><br><span class="line">            margin-top: 200px;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        td &#123;</span><br><span class="line">            height: 50px;</span><br><span class="line">            text-align: center;</span><br><span class="line">            border: solid 1px gray;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        button &#123;</span><br><span class="line">            width: 200px;</span><br><span class="line">            height: 35px;</span><br><span class="line">            background-color: dodgerblue;</span><br><span class="line">            color: whitesmoke;</span><br><span class="line">            border-radius: 5px;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;table&gt;</span><br><span class="line">        &lt;form action=&quot;reg.php&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;</span><br><span class="line">            &lt;tr&gt;</span><br><span class="line">                &lt;td width=&quot;40%&quot;&gt;用户名：&lt;/td&gt;</span><br><span class="line">                &lt;td width=&quot;60%&quot;&gt;&lt;input type=&quot;text&quot; id=&quot;username&quot; /&gt;&lt;/td&gt;</span><br><span class="line">            &lt;/tr&gt;</span><br><span class="line">            &lt;tr&gt;</span><br><span class="line">                &lt;td&gt;密码：&lt;/td&gt;</span><br><span class="line">                &lt;td&gt;&lt;input type=&quot;text&quot; id=&quot;password&quot; /&gt;&lt;/td&gt;</span><br><span class="line">            &lt;/tr&gt;</span><br><span class="line">            &lt;tr&gt;</span><br><span class="line">                &lt;td&gt;头像&lt;/td&gt;</span><br><span class="line">                &lt;td&gt;&lt;input type=&quot;file&quot; name=&quot;myfile&quot;&gt;&lt;/td&gt;</span><br><span class="line">            &lt;/tr&gt;</span><br><span class="line">            &lt;tr&gt;</span><br><span class="line">                &lt;td colspan=&quot;2&quot;&gt;&lt;button onclick=&quot;doReg()&quot;&gt;注册&lt;/button&gt;&lt;/td&gt;</span><br><span class="line">            &lt;/tr&gt;</span><br><span class="line">        &lt;/form&gt;</span><br><span class="line">    &lt;/table&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"># reg.php</span><br><span class="line"></span><br><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">$conn = mysqli_connect(&#x27;127.0.0.1&#x27;,&#x27;root&#x27;, &#x27;123456&#x27;, &#x27;learn&#x27;);</span><br><span class="line"></span><br><span class="line">$username = $_POST[&#x27;username&#x27;];</span><br><span class="line">$password = $_POST[&#x27;password&#x27;];</span><br><span class="line"></span><br><span class="line">$sql = &quot;select * from login where username = &#x27;jf&#x27;&quot;;</span><br><span class="line">$result = mysqli_query($conn, $sql);</span><br><span class="line">$count = mysqli_num_rows($result);</span><br><span class="line">if($count &gt;= 1) &#123;</span><br><span class="line">    die(&#x27;user-exists&#x27;); </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$sql = &quot;insert into login (username, password) values(&#x27;$username&#x27;, &#x27;$password&#x27;)&quot;;</span><br><span class="line">mysqli_query($conn, $sql) or die(&quot;reg-fail&quot;);</span><br><span class="line"></span><br><span class="line">echo &quot;reg-pass&quot;;</span><br><span class="line">mysqli_close($conn);</span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># welcome.php</span><br><span class="line"></span><br><span class="line">&lt;?php</span><br><span class="line">include &quot;common.php&quot;;</span><br><span class="line">    // 修复漏洞</span><br><span class="line">    if(!isset($_SESSION[&#x27;islogin&#x27;]) or $_SESSION[&#x27;islogin&#x27;] != &#x27;true&#x27;) &#123;</span><br><span class="line">        die(&quot;你还没有登录，无法访问本页面&lt;/br&gt;&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    echo &#x27;欢迎来到我的网站&lt;br&gt;&#x27;;</span><br><span class="line">    ?&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"># list.php</span><br><span class="line"></span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;title&gt;文章列表&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        table &#123;</span><br><span class="line">            width: 800px;</span><br><span class="line">            margin: auto;</span><br><span class="line">            border: solid 1px green;</span><br><span class="line">            border-spacing: 0px;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        table td &#123;</span><br><span class="line">            border: solid 2px gray;</span><br><span class="line">            height: 40px;</span><br><span class="line">            text-align: center;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot; src=&quot;jquery-3.6.0.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        function doDelete(articleid) &#123;</span><br><span class="line">            $.post(&#x27;delete.php&#x27;, &#x27;articleid=&#x27; + articleid, function(data) &#123;</span><br><span class="line">                if (data == &#x27;delete-ok&#x27;) &#123;</span><br><span class="line">                    location.reload();</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    window.alert(&#x27;删除失败&#x27;);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;table&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;td&gt;编号&lt;/td&gt;</span><br><span class="line">            &lt;td&gt;作者&lt;/td&gt;</span><br><span class="line">            &lt;td&gt;标题&lt;/td&gt;</span><br><span class="line">            &lt;td&gt;查看次数&lt;/td&gt;</span><br><span class="line">            &lt;td&gt;创建时间&lt;/td&gt;</span><br><span class="line">            &lt;td&gt;操作&lt;/td&gt;</span><br><span class="line">        &lt;/tr&gt;</span><br><span class="line">        &lt;?php</span><br><span class="line">        echo &#x27;&lt;tr&gt;&#x27;;</span><br><span class="line">        $conn = mysqli_connect(&#x27;127.0.0.1&#x27;, &#x27;root&#x27;, &#x27;123456&#x27;, &#x27;learn&#x27;) or die(&#x27;数据库连接不成功&#x27;);</span><br><span class="line">        mysqli_query($conn, &#x27;set names utf8&#x27;);</span><br><span class="line"></span><br><span class="line">        $sql = &#x27;select articleid, author, headline,viewcount, createtime from article where articleid &lt; 4&#x27;;</span><br><span class="line">        $result = mysqli_query($conn, $sql);</span><br><span class="line">        $rows = mysqli_fetch_all($result);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        foreach ($rows as $row) &#123;</span><br><span class="line">            echo &#x27;&lt;tr&gt;&#x27;;</span><br><span class="line">            echo &#x27;&lt;td&gt;&#x27; . $row[0] . &#x27;&lt;/td&gt;&#x27;;</span><br><span class="line">            echo &#x27;&lt;td&gt;&#x27; . $row[1] . &#x27;&lt;/td&gt;&#x27;;</span><br><span class="line">            echo &#x27;&lt;td&gt;&lt;a href = read.php?id=&#x27; . $row[0] . &#x27;&gt;&#x27; . $row[2] . &#x27;&lt;/a&gt;&lt;/td&gt;&#x27;;</span><br><span class="line">            echo &#x27;&lt;td&gt;&#x27; . $row[3] . &#x27;&lt;/td&gt;&#x27;;</span><br><span class="line">            echo &#x27;&lt;td&gt;&#x27; . $row[4] . &#x27;&lt;/td&gt;&#x27;;</span><br><span class="line">            echo &#x27;&lt;td&gt;&lt;button onclick=&quot;doDelete(&#x27; . $row[0] . &#x27;)&quot;&gt; 删除&lt;/button&gt;&lt;/td&gt;&#x27;;</span><br><span class="line">            echo &#x27;&lt;/td&gt;&#x27;;</span><br><span class="line">        &#125;</span><br><span class="line">        echo &#x27;&lt;/table&gt;&#x27;;</span><br><span class="line">        mysqli_close($conn);</span><br><span class="line">        ?&gt;</span><br><span class="line">    &lt;/table&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># read.php</span><br><span class="line"></span><br><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">$id = $_GET[&#x27;id&#x27;];</span><br><span class="line"></span><br><span class="line">$conn = mysqli_connect(&#x27;127.0.0.1&#x27;, &#x27;root&#x27;, &#x27;123456&#x27;, &#x27;learn&#x27;);</span><br><span class="line">mysqli_query($conn, &quot;set names utf8&quot;);</span><br><span class="line"></span><br><span class="line">$sql = &quot;select * from article where articleid = &#x27;$id&#x27;&quot;;</span><br><span class="line">$result = mysqli_query($conn, $sql);</span><br><span class="line"></span><br><span class="line">$article = mysqli_fetch_assoc($result);</span><br><span class="line"></span><br><span class="line">echo $article[&#x27;headline&#x27;].&quot;&lt;br/&gt;&quot;;</span><br><span class="line">echo &quot;&lt;hr/&gt;&quot;;</span><br><span class="line">echo $article[&#x27;content&#x27;];</span><br></pre></td></tr></table></figure>
+<pre class="php+html"><code># reg.html
+
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;注册&lt;/title&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;jquery-3.6.0.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+        function doReg() &#123;
+            var username = $(&quot;#username&quot;).val();
+            var password = $(&quot;#password&quot;).val();
+            var param = &quot;username=&quot; + username + &quot;&amp;password=&quot; + password;
+            $.post(&#39;reg.php&#39;, param, function (data) &#123;
+                if (data == &#39;reg-pass&#39;) &#123;
+                    window.alert(&quot;注册成功&quot;)
+                    location.href = &quot;login.html&quot;;
+                &#125; else if (data == &#39;user-exists&#39;) &#123;
+                    window.alert(&quot;用户名已注册&quot;);
+                &#125; else &#123;
+                    window.alert(&quot;注册失败&quot;);
+                &#125;
+            &#125;)
+        &#125;
+    &lt;/script&gt;
+    &lt;style&gt;
+        table &#123;
+            width: 600px;
+            margin: auto;
+            border-spacing: 0;
+            border: solid 1px green;
+            margin-top: 200px;
+        &#125;
+
+        td &#123;
+            height: 50px;
+            text-align: center;
+            border: solid 1px gray;
+        &#125;
+
+        button &#123;
+            width: 200px;
+            height: 35px;
+            background-color: dodgerblue;
+            color: whitesmoke;
+            border-radius: 5px;
+        &#125;
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;table&gt;
+        &lt;form action=&quot;reg.php&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;
+            &lt;tr&gt;
+                &lt;td width=&quot;40%&quot;&gt;用户名：&lt;/td&gt;
+                &lt;td width=&quot;60%&quot;&gt;&lt;input type=&quot;text&quot; id=&quot;username&quot; /&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;密码：&lt;/td&gt;
+                &lt;td&gt;&lt;input type=&quot;text&quot; id=&quot;password&quot; /&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;头像&lt;/td&gt;
+                &lt;td&gt;&lt;input type=&quot;file&quot; name=&quot;myfile&quot;&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td colspan=&quot;2&quot;&gt;&lt;button onclick=&quot;doReg()&quot;&gt;注册&lt;/button&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/form&gt;
+    &lt;/table&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+<pre class="php+html"><code># reg.php
+
+&lt;?php
+
+$conn = mysqli_connect(&#39;127.0.0.1&#39;,&#39;root&#39;, &#39;123456&#39;, &#39;learn&#39;);
+
+$username = $_POST[&#39;username&#39;];
+$password = $_POST[&#39;password&#39;];
+
+$sql = &quot;select * from login where username = &#39;jf&#39;&quot;;
+$result = mysqli_query($conn, $sql);
+$count = mysqli_num_rows($result);
+if($count &gt;= 1) &#123;
+    die(&#39;user-exists&#39;); 
+&#125;
+
+$sql = &quot;insert into login (username, password) values(&#39;$username&#39;, &#39;$password&#39;)&quot;;
+mysqli_query($conn, $sql) or die(&quot;reg-fail&quot;);
+
+echo &quot;reg-pass&quot;;
+mysqli_close($conn);
+
+?&gt;</code></pre>
+<pre class="php+html"><code># welcome.php
+
+&lt;?php
+include &quot;common.php&quot;;
+    // 修复漏洞
+    if(!isset($_SESSION[&#39;islogin&#39;]) or $_SESSION[&#39;islogin&#39;] != &#39;true&#39;) &#123;
+        die(&quot;你还没有登录，无法访问本页面&lt;/br&gt;&quot;);
+    &#125;
+    echo &#39;欢迎来到我的网站&lt;br&gt;&#39;;
+    ?&gt;</code></pre>
+<pre class="php+html"><code># list.php
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+
+    &lt;title&gt;文章列表&lt;/title&gt;
+    &lt;style&gt;
+        table &#123;
+            width: 800px;
+            margin: auto;
+            border: solid 1px green;
+            border-spacing: 0px;
+        &#125;
+
+        table td &#123;
+            border: solid 2px gray;
+            height: 40px;
+            text-align: center;
+        &#125;
+    &lt;/style&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;jquery-3.6.0.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+        function doDelete(articleid) &#123;
+            $.post(&#39;delete.php&#39;, &#39;articleid=&#39; + articleid, function(data) &#123;
+                if (data == &#39;delete-ok&#39;) &#123;
+                    location.reload();
+                &#125; else &#123;
+                    window.alert(&#39;删除失败&#39;);
+                &#125;
+            &#125;)
+        &#125;
+    &lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;table&gt;
+        &lt;tr&gt;
+            &lt;td&gt;编号&lt;/td&gt;
+            &lt;td&gt;作者&lt;/td&gt;
+            &lt;td&gt;标题&lt;/td&gt;
+            &lt;td&gt;查看次数&lt;/td&gt;
+            &lt;td&gt;创建时间&lt;/td&gt;
+            &lt;td&gt;操作&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;?php
+        echo &#39;&lt;tr&gt;&#39;;
+        $conn = mysqli_connect(&#39;127.0.0.1&#39;, &#39;root&#39;, &#39;123456&#39;, &#39;learn&#39;) or die(&#39;数据库连接不成功&#39;);
+        mysqli_query($conn, &#39;set names utf8&#39;);
+
+        $sql = &#39;select articleid, author, headline,viewcount, createtime from article where articleid &lt; 4&#39;;
+        $result = mysqli_query($conn, $sql);
+        $rows = mysqli_fetch_all($result);
+
+
+
+        foreach ($rows as $row) &#123;
+            echo &#39;&lt;tr&gt;&#39;;
+            echo &#39;&lt;td&gt;&#39; . $row[0] . &#39;&lt;/td&gt;&#39;;
+            echo &#39;&lt;td&gt;&#39; . $row[1] . &#39;&lt;/td&gt;&#39;;
+            echo &#39;&lt;td&gt;&lt;a href = read.php?id=&#39; . $row[0] . &#39;&gt;&#39; . $row[2] . &#39;&lt;/a&gt;&lt;/td&gt;&#39;;
+            echo &#39;&lt;td&gt;&#39; . $row[3] . &#39;&lt;/td&gt;&#39;;
+            echo &#39;&lt;td&gt;&#39; . $row[4] . &#39;&lt;/td&gt;&#39;;
+            echo &#39;&lt;td&gt;&lt;button onclick=&quot;doDelete(&#39; . $row[0] . &#39;)&quot;&gt; 删除&lt;/button&gt;&lt;/td&gt;&#39;;
+            echo &#39;&lt;/td&gt;&#39;;
+        &#125;
+        echo &#39;&lt;/table&gt;&#39;;
+        mysqli_close($conn);
+        ?&gt;
+    &lt;/table&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+<pre class="php+html"><code># read.php
+
+&lt;?php
+
+$id = $_GET[&#39;id&#39;];
+
+$conn = mysqli_connect(&#39;127.0.0.1&#39;, &#39;root&#39;, &#39;123456&#39;, &#39;learn&#39;);
+mysqli_query($conn, &quot;set names utf8&quot;);
+
+$sql = &quot;select * from article where articleid = &#39;$id&#39;&quot;;
+$result = mysqli_query($conn, $sql);
+
+$article = mysqli_fetch_assoc($result);
+
+echo $article[&#39;headline&#39;].&quot;&lt;br/&gt;&quot;;
+echo &quot;&lt;hr/&gt;&quot;;
+echo $article[&#39;content&#39;];</code></pre>
 <p><a href="">代码在github</a></p>
 
                 

@@ -484,7 +484,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    875
+                    895
                 </div>
                 
 
@@ -523,18 +523,61 @@ Ubuntu 18.04.6 LTS系统环境中</h3>
 <li>将以下源复制到文件中</li>
 </ol>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#中科大源</span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get upgrade</span><br><span class="line">sudo apt-get install build-essential</span><br></pre></td></tr></table></figure>
+<pre><code>
+#中科大源
+deb https://mirrors.ustc.edu.cn/ubuntu/ bionic main restricted universe multiverse
+deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic main restricted universe multiverse
+deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse
+deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse
+deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse
+deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse
+deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-security main restricted universe multiverse
+deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-security main restricted universe multiverse
+deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse
+deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse
+</code></pre>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get update</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get upgrade</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install build-essential</span></code></pre></div>
 <h2 id="共享文件夹">共享文件夹</h2>
 <blockquote>
 <p>文件夹下为空？solution below</p>
 </blockquote>
 <ul>
-<li><p>手动挂载 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mount -t fuse.vmhgfs-fuse .host:/ /mnt/hgfs -o allow_other</span><br></pre></td></tr></table></figure></p></li>
-<li><p>自动挂载 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">sudo su</span><br><span class="line"></span><br><span class="line">vi /etc/fstab</span><br><span class="line"></span><br><span class="line">// 注意前面加 **点**</span><br><span class="line">.host:/ /mnt/hgfs fuse.vmhgfs-fuse allow_other,defaults 0 0</span><br></pre></td></tr></table></figure> ## vim</p></li>
-<li><p>最新版本vim8.2安装</p></li>
+<li>手动挂载</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install git</span><br><span class="line"></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/vim/vim.git</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> vim./configure</span><br><span class="line"></span><br><span class="line">sudo apt install ncurses-dev</span><br><span class="line"></span><br><span class="line">sudo yum install ncurses-devel</span><br><span class="line"></span><br><span class="line">make</span><br><span class="line"></span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> mount <span class="at">-t</span> fuse.vmhgfs-fuse .host:/ /mnt/hgfs <span class="at">-o</span> allow_other</span></code></pre></div>
+<ul>
+<li>自动挂载</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> su</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">vi</span> /etc/fstab</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> 注意前面加 <span class="pp">**</span>点<span class="pp">**</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="ex">.host:/</span> /mnt/hgfs fuse.vmhgfs-fuse allow_other,defaults 0 0</span></code></pre></div>
+<h2 id="vim">vim</h2>
+<ul>
+<li>最新版本vim8.2安装</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install git</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/vim/vim.git</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> vim./configure</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install ncurses-dev</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> yum install ncurses-devel</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> make install</span></code></pre></div>
 <ul>
 <li><p>命令：<code>vimtutor</code>,进入教程</p></li>
 <li><p>vimrc： 美化vim &gt; 全局vimrc 与 个人vimrc</p></li>
@@ -567,7 +610,8 @@ class="uri">https://www.lanqiao.cn/courses/68/learning/?id=393</a></p>
 <ul>
 <li>下载net-tools</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get net-tools</span><br></pre></td></tr></table></figure>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get net-tools</span></code></pre></div>
 <blockquote>
 <ol start="2" type="1">
 <li>输入i<strong>f</strong>config</li>
@@ -619,10 +663,40 @@ alt="image-20220708173152075" />
 连接超时</em>问题,这个问题均与代理相关 &gt; <strong>设置代理</strong>：
 以 <strong>git-bash</strong>为例：</p></li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">// 查看是否使用代理</span><br><span class="line"><span class="built_in">env</span>|grep -I proxy</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//http</span><br><span class="line">git config --global http.proxy http://127.0.0.1:12333</span><br><span class="line">git config --global http.proxy socks5://127.0.0.1:1080</span><br><span class="line"></span><br><span class="line">//https</span><br><span class="line">git config --global https.proxy https://127.0.0.1:12333</span><br><span class="line">git config --global https.proxy socks5://127.0.0.1:1080</span><br><span class="line"></span><br><span class="line">// 取消代理</span><br><span class="line">git config --global --<span class="built_in">unset</span> http.proxy</span><br><span class="line"></span><br><span class="line">// ubuntu terminal  </span><br><span class="line"><span class="built_in">export</span> http_proxy=<span class="string">&quot;socks5://127.0.0.1:1080&quot;</span></span><br><span class="line"><span class="built_in">export</span> https_proxy=<span class="string">&quot;socks5://127.0.0.1:1080&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> http_proxy=<span class="string">&quot;http://127.0.0.1:12333&quot;</span></span><br><span class="line"><span class="built_in">export</span> https_proxy=<span class="string">&quot;http://127.0.0.1:12333&quot;</span></span><br><span class="line"></span><br><span class="line">curl -x --proxy 127.0.0.1:12333 -l http://aiezu.com/test.php</span><br><span class="line">curl -x --socks5 127.0.0.0.1:1080 -l http://aiezu.com/test.php</span><br></pre></td></tr></table></figure>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> 查看是否使用代理</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">env</span><span class="kw">|</span><span class="fu">grep</span> <span class="at">-I</span> proxy</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="ex">//http</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> http.proxy http://127.0.0.1:12333</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> http.proxy socks5://127.0.0.1:1080</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="ex">//https</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> https.proxy https://127.0.0.1:12333</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> https.proxy socks5://127.0.0.1:1080</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> 取消代理</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> <span class="at">--unset</span> http.proxy</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> ubuntu terminal  </span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">http_proxy</span><span class="op">=</span><span class="st">&quot;socks5://127.0.0.1:1080&quot;</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">https_proxy</span><span class="op">=</span><span class="st">&quot;socks5://127.0.0.1:1080&quot;</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">http_proxy</span><span class="op">=</span><span class="st">&quot;http://127.0.0.1:12333&quot;</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">https_proxy</span><span class="op">=</span><span class="st">&quot;http://127.0.0.1:12333&quot;</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-x</span> <span class="at">--proxy</span> 127.0.0.1:12333 <span class="at">-l</span> http://aiezu.com/test.php</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-x</span> <span class="at">--socks5</span> 127.0.0.0.1:1080 <span class="at">-l</span> http://aiezu.com/test.php</span></code></pre></div>
 <blockquote>
-<p>也可以直接修改用户主目录下的 .gitconfig 文件 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[http]</span><br><span class="line">        proxy = socks5://127.0.0.1:1080</span><br><span class="line">[https]</span><br><span class="line">        proxy = socks5://127.0.0.1:1080</span><br></pre></td></tr></table></figure></p>
+<p>也可以直接修改用户主目录下的 .gitconfig 文件</p>
 </blockquote>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[http]</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>        <span class="ex">proxy</span> = socks5://127.0.0.1:1080</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="ex">[https]</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>        <span class="ex">proxy</span> = socks5://127.0.0.1:1080</span></code></pre></div>
 <blockquote>
 <p>一个工具（可选）：proxychains</p>
 </blockquote>

@@ -484,7 +484,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    537
+                    541
                 </div>
                 
 
@@ -523,17 +523,32 @@
 <h3 id="containerize-an-application">Containerize an application</h3>
 <ul>
 <li><p><strong>Get the app</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/docker/getting-started.git</span><br></pre></td></tr></table></figure></li>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/docker/getting-started.git</span></code></pre></div></li>
 <li><p><strong>Containerize an application | Docker
 Documentation</strong></p>
 <ol type="1">
 <li><p>使用CMD</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>.  <span class="built_in">cd</span> getting startted\</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>.  <span class="built_in">type</span> nul &gt; Dockerfile</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>1<span class="op">.</span>  <span class="fu">cd</span> getting startted\</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>2<span class="op">.</span>  <span class="fu">type</span> nul <span class="op">&gt;</span> Dockerfile</span></code></pre></div></li>
 <li><p>在Dockerfile中添加</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># syntax=docker/dockerfile:1</span></span><br><span class="line">   </span><br><span class="line"><span class="keyword">FROM</span> node:<span class="number">18</span>-alpine</span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /app</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> . .</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> yarn install --production</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> [<span class="string">&quot;node&quot;</span>, <span class="string">&quot;src/index.js&quot;</span>]</span></span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">3000</span></span><br></pre></td></tr></table></figure></li>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode dockerfile"><code class="sourceCode dockerfile"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="cv">syntax=docker/dockerfile:1</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> node:18-alpine</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">WORKDIR</span> /app</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="kw">COPY</span> . .</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="kw">RUN</span> <span class="ex">yarn</span> install <span class="at">--production</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="kw">CMD</span> [<span class="st">&quot;node&quot;</span>, <span class="st">&quot;src/index.js&quot;</span>]</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="kw">EXPOSE</span> 3000</span></code></pre></div></li>
 <li><p>启动<strong>Docker desktop</strong>:运行守护进程</p></li>
 <li><p><strong>build image</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. <span class="built_in">cd</span> app\</span><br><span class="line"></span><br><span class="line">2. docker build -t getting-started .</span><br></pre></td></tr></table></figure>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">1.</span> cd app<span class="dt">\</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">2.</span> docker build <span class="at">-t</span> getting-started .</span></code></pre></div>
 <figure>
 <img src="https://s2.loli.net/2023/05/15/3Ho7zAJShXPbFiy.png"
 alt="image-20230515121707909" />
@@ -544,7 +559,8 @@ alt="image-20230515121707909" />
 <h3 id="start-an-app-container">Start an app container</h3>
 <ul>
 <li><p>运行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -dp 3000:3000 getting-started</span><br></pre></td></tr></table></figure>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-dp</span> 3000:3000 getting-started</span></code></pre></div>
 <p><code>docker run -dp 3000:3000 getting-started</code>
 ，用于在容器中运行指定的 Docker 镜像。其中，<code>-d</code>
 参数表示以“分离模式”运行容器，也就是将容器作为后台进程运行；<code>-p</code>
@@ -562,7 +578,19 @@ alt="image-20230515121921138" /></p></li>
 <li><p>拉取镜像</p></li>
 <li><p><code>ifconfig</code> 需要安装 <code>net-tools</code></p></li>
 <li><p>安装<strong>全家桶</strong>报错：<code>Unable to locate package</code>:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#启动 并交互</span></span><br><span class="line">docker run --<span class="built_in">tty</span> --interactive kalilinux/kali-rolling</span><br><span class="line"></span><br><span class="line"><span class="comment">#更换源		</span></span><br><span class="line">deb http://http.kali.org/kali kali-rolling main non-free contrib</span><br><span class="line">deb http://http.kali.org/kali kali-last-snapshot main non-free contrib</span><br><span class="line">deb http://http.kali.org/kali kali-experimental main non-free contrib</span><br><span class="line">deb-src http://http.kali.org/kali kali-rolling main non-free contrib</span><br><span class="line"></span><br><span class="line"><span class="comment">#安装全家桶</span></span><br><span class="line"><span class="comment">#时间真的久</span></span><br><span class="line">apt-get install -y kali-linux-everything</span><br></pre></td></tr></table></figure></li>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#启动 并交互</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">--tty</span> <span class="at">--interactive</span> kalilinux/kali-rolling</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#更换源     </span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="ex">deb</span> http://http.kali.org/kali kali-rolling main non-free contrib</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="ex">deb</span> http://http.kali.org/kali kali-last-snapshot main non-free contrib</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="ex">deb</span> http://http.kali.org/kali kali-experimental main non-free contrib</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="ex">deb-src</span> http://http.kali.org/kali kali-rolling main non-free contrib</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">#安装全家桶</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">#时间真的久</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="ex">apt-get</span> install <span class="at">-y</span> kali-linux-everything</span></code></pre></div></li>
 </ol>
 
                 

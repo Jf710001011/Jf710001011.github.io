@@ -557,7 +557,14 @@ a46683b0-d3ec-4c16-8e3c-198d25a7fb52 Ultimate:
 </ul></li>
 <li><code>SQL99</code> 完整结构</li>
 </ol>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SELECT.......(存在聚合函数)</span><br><span class="line"><span class="keyword">FROM</span> ......JOIN........OM 多表的连接条件</span><br><span class="line"><span class="keyword">WHERE</span> 不包含聚合函数的过滤条件</span><br><span class="line"><span class="keyword">GROUP</span> BY.........</span><br><span class="line"><span class="keyword">HAVING</span> 包含聚合函数的过滤条件</span><br><span class="line"><span class="keyword">ORDER</span> BY.......(<span class="keyword">ASC</span><span class="operator">/</span><span class="keyword">DESC</span>)</span><br><span class="line">LIMIT......</span><br></pre></td></tr></table></figure>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode sql"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span><span class="op">......</span>.(存在聚合函数)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="op">......</span><span class="kw">JOIN</span><span class="op">........</span>OM 多表的连接条件</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> 不包含聚合函数的过滤条件</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span><span class="op">........</span>.</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">HAVING</span> 包含聚合函数的过滤条件</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span><span class="op">......</span>.(<span class="kw">ASC</span><span class="op">/</span><span class="kw">DESC</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span><span class="op">......</span></span></code></pre></div>
 <ul>
 <li>SQL语句的执行过程</li>
 </ul>

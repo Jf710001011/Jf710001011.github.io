@@ -548,7 +548,25 @@
 <li><code>struct sockaddr_in</code></li>
 </ol>
 </blockquote>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">sockaddr_in</span> &#123;</span><br><span class="line">　　<span class="type">short</span> <span class="type">int</span> sin_family; <span class="comment">/* 指代协议族，在socket编程中只能是AF_INET */</span></span><br><span class="line">　　<span class="type">unsigned</span> <span class="type">short</span> <span class="type">int</span> sin_port; <span class="comment">/* 存储端口号（使用网络字节顺序） */</span></span><br><span class="line">　　<span class="keyword">struct</span> <span class="title class_">in_addr</span> sin_addr; <span class="comment">/* 存储IP地址，使用in_addr这个数据结构 */</span></span><br><span class="line">　　<span class="type">unsigned</span> <span class="type">char</span> sin_zero[<span class="number">8</span>]; <span class="comment">/* 是为了让sockaddr与sockaddr_in两个数据结构保持大小相同而保留的空字节 */</span></span><br><span class="line">　　&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">in_addr</span> &#123;</span><br><span class="line">　　<span class="keyword">union</span> &#123;</span><br><span class="line">　　<span class="keyword">struct</span>&#123; <span class="type">unsigned</span> <span class="type">char</span> s_b1,s_b2, s_b3,s_b4;&#125; S_un_b; <span class="comment">//第一种用四个字节来表示IP地址的四个数字；</span></span><br><span class="line">　　<span class="keyword">struct</span>&#123; <span class="type">unsigned</span> <span class="type">short</span> s_w1, s_w2;&#125; S_un_w;	<span class="comment">// 用两个双字节来表示IP地址</span></span><br><span class="line">　　<span class="type">unsigned</span> <span class="type">long</span> S_addr;		<span class="comment">// 用一个长整型来表示IP地址</span></span><br><span class="line">　　&#125; S_un;</span><br><span class="line">　　&#125; IN_ADDR;</span><br><span class="line">	</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">in_addr</span></span><br><span class="line">  &#123;</span><br><span class="line">    <span class="type">in_addr_t</span> s_addr;</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">struct</span> <span class="token class-name">sockaddr_in</span> <span class="token punctuation">&#123;</span>
+　　<span class="token keyword">short</span> <span class="token keyword">int</span> sin_family<span class="token punctuation">;</span> <span class="token comment">/* 指代协议族，在socket编程中只能是AF_INET */</span>
+　　<span class="token keyword">unsigned</span> <span class="token keyword">short</span> <span class="token keyword">int</span> sin_port<span class="token punctuation">;</span> <span class="token comment">/* 存储端口号（使用网络字节顺序） */</span>
+　　<span class="token keyword">struct</span> <span class="token class-name">in_addr</span> sin_addr<span class="token punctuation">;</span> <span class="token comment">/* 存储IP地址，使用in_addr这个数据结构 */</span>
+　　<span class="token keyword">unsigned</span> <span class="token keyword">char</span> sin_zero<span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">/* 是为了让sockaddr与sockaddr_in两个数据结构保持大小相同而保留的空字节 */</span>
+　　<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token class-name">in_addr</span> <span class="token punctuation">&#123;</span>
+　　<span class="token keyword">union</span> <span class="token punctuation">&#123;</span>
+　　<span class="token keyword">struct</span><span class="token punctuation">&#123;</span> <span class="token keyword">unsigned</span> <span class="token keyword">char</span> s_b1<span class="token punctuation">,</span>s_b2<span class="token punctuation">,</span> s_b3<span class="token punctuation">,</span>s_b4<span class="token punctuation">;</span><span class="token punctuation">&#125;</span> S_un_b<span class="token punctuation">;</span> <span class="token comment">//第一种用四个字节来表示IP地址的四个数字；</span>
+　　<span class="token keyword">struct</span><span class="token punctuation">&#123;</span> <span class="token keyword">unsigned</span> <span class="token keyword">short</span> s_w1<span class="token punctuation">,</span> s_w2<span class="token punctuation">;</span><span class="token punctuation">&#125;</span> S_un_w<span class="token punctuation">;</span>	<span class="token comment">// 用两个双字节来表示IP地址</span>
+　　<span class="token keyword">unsigned</span> <span class="token keyword">long</span> S_addr<span class="token punctuation">;</span>		<span class="token comment">// 用一个长整型来表示IP地址</span>
+　　<span class="token punctuation">&#125;</span> S_un<span class="token punctuation">;</span>
+　　<span class="token punctuation">&#125;</span> IN_ADDR<span class="token punctuation">;</span>
+	
+<span class="token keyword">struct</span> <span class="token class-name">in_addr</span>
+  <span class="token punctuation">&#123;</span>
+    in_addr_t s_addr<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span></code></pre>
 <blockquote>
 <ol start="5" type="1">
 <li><code>bezero()</code> : 将整块地址清0</li>
@@ -1185,7 +1203,7 @@ target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/64138532">我�
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">236k</span>&nbsp;字
+                class="white-color">231.1k</span>&nbsp;字
             
             
             

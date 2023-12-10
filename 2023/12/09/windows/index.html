@@ -484,7 +484,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    411
+                    421
                 </div>
                 
 
@@ -516,7 +516,7 @@
 <h3 id="winget-scoop">Winget &amp; Scoop</h3>
 <ul>
 <li><p><strong>Scoop Installation</strong></p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">iwr</span> <span class="literal">-useb</span> get.scoop.sh | <span class="built_in">iex</span></span><br></pre></td></tr></table></figure>
+<pre class="language-powershell" data-language="powershell"><code class="language-powershell"><span class="token function">iwr</span> <span class="token operator">-</span>useb get<span class="token punctuation">.</span>scoop<span class="token punctuation">.</span>sh <span class="token punctuation">|</span> <span class="token function">iex</span></code></pre>
 <p><strong>报错</strong><img
 src="https://s2.loli.net/2023/05/16/mcYHSXnhGCrKE8W.png"
 alt="image-20230516172519670" /></p></li>
@@ -525,7 +525,11 @@ src="https://s2.loli.net/2023/05/16/e4rWJpRqlsZuU72.png"
 alt="image-20230516172604874" /></p></li>
 </ul>
 <h3 id="win10专业版">win10专业版</h3>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span>. win+<span class="built_in">r</span></span><br><span class="line"><span class="number">2</span>. cmd</span><br><span class="line"><span class="number">3</span>. slmgr /ipk W269N<span class="literal">-WFGWX-YVC9B-4J6C9-T83GX</span></span><br><span class="line"><span class="number">4</span>. slmgr /skms kms.<span class="number">03</span>k.org</span><br><span class="line"><span class="number">5</span>. slmgr /ato</span><br></pre></td></tr></table></figure>
+<pre class="language-powershell" data-language="powershell"><code class="language-powershell">1<span class="token punctuation">.</span> win+r
+2<span class="token punctuation">.</span> cmd
+3<span class="token punctuation">.</span> slmgr <span class="token operator">/</span>ipk W269N-WFGWX-YVC9B-4J6C9-T83GX
+4<span class="token punctuation">.</span> slmgr <span class="token operator">/</span>skms kms<span class="token punctuation">.</span>03k<span class="token punctuation">.</span>org
+5<span class="token punctuation">.</span> slmgr <span class="token operator">/</span>ato</code></pre>
 <h3 id="win11-pro-workstation">Win11 Pro WorkStation</h3>
 <ul>
 <li>win11 企业版升级失败，导致重装系统</li>
@@ -546,7 +550,7 @@ target="_blank" rel="noopener" href="https://www.cnblogs.com/CnKker/p/15579766.h
 <li><p>官网地址：https://chocolatey.org</p></li>
 <li><p>Chocolatey是一款专为Windows系统开发的、基于NuGet的包管理器工具，类似于Node.js的npm，MacOS的brew，Ubuntu的apt-get，它简称为choco。Chocolatey的设计目标是成为一个去中心化的框架，便于开发者按需快速安装应用程序和工具</p></li>
 <li><p>install chocolatey</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> Bypass <span class="literal">-Scope</span> <span class="keyword">Process</span> <span class="literal">-Force</span>; [<span class="type">System.Net.ServicePointManager</span>]::SecurityProtocol = [<span class="type">System.Net.ServicePointManager</span>]::SecurityProtocol <span class="operator">-bor</span> <span class="number">3072</span>; <span class="built_in">iex</span> ((<span class="built_in">New-Object</span> System.Net.WebClient).DownloadString(<span class="string">&#x27;https://community.chocolatey.org/install.ps1&#x27;</span>))</span><br></pre></td></tr></table></figure></li>
+<pre class="language-powershell" data-language="powershell"><code class="language-powershell"><span class="token function">Set-ExecutionPolicy</span> Bypass <span class="token operator">-</span>Scope <span class="token keyword">Process</span> <span class="token operator">-</span>Force<span class="token punctuation">;</span> <span class="token namespace">[System.Net.ServicePointManager]</span>::SecurityProtocol = <span class="token namespace">[System.Net.ServicePointManager]</span>::SecurityProtocol <span class="token operator">-bor</span> 3072<span class="token punctuation">;</span> <span class="token function">iex</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">New-Object</span> System<span class="token punctuation">.</span>Net<span class="token punctuation">.</span>WebClient<span class="token punctuation">)</span><span class="token punctuation">.</span>DownloadString<span class="token punctuation">(</span><span class="token string">'https://community.chocolatey.org/install.ps1'</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre></li>
 <li><p>https://community.chocolatey.org/packages</p></li>
 </ol>
 <h3 id="wsl2-使用代理-clash-for-windows">WSL2
@@ -555,7 +559,9 @@ target="_blank" rel="noopener" href="https://www.cnblogs.com/CnKker/p/15579766.h
 <li><p><a
 target="_blank" rel="noopener" href="https://solidspoon.xyz/2021/02/17/%E9%85%8D%E7%BD%AEWSL2%E4%BD%BF%E7%94%A8Windows%E4%BB%A3%E7%90%86%E4%B8%8A%E7%BD%91/">参考</a></p></li>
 <li><p>在 <code>~/.zshrc</code>添加如下配置</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> hostip=$(<span class="built_in">cat</span> /etc/resolv.conf |grep -oP <span class="string">&#x27;(?&lt;=nameserver\ ).*&#x27;</span>)</span><br><span class="line"><span class="built_in">alias</span> setss=<span class="string">&#x27;export all_proxy=&quot;socks5://$&#123;hostip&#125;:7890&quot;;&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> unsetss=<span class="string">&#x27;unset all_proxy&#x27;</span></span><br></pre></td></tr></table></figure>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">export</span> <span class="token assign-left variable">hostip</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">cat</span> /etc/resolv.conf <span class="token operator">|</span><span class="token function">grep</span> <span class="token parameter variable">-oP</span> <span class="token string">'(?&lt;=nameserver\ ).*'</span><span class="token variable">)</span></span>
+<span class="token builtin class-name">alias</span> <span class="token assign-left variable">setss</span><span class="token operator">=</span><span class="token string">'export all_proxy="socks5://$&#123;hostip&#125;:7890";'</span>
+<span class="token builtin class-name">alias</span> <span class="token assign-left variable">unsetss</span><span class="token operator">=</span><span class="token string">'unset all_proxy'</span></code></pre>
 <ol type="1">
 <li><code>setss</code><img
 src="https://s2.loli.net/2023/10/03/Jol4WzdpLiuDCVK.png"
@@ -566,16 +572,22 @@ alt="image-20231003005902340" /></li>
 <ol type="1">
 <li><p>```bash ## 获取主机 IP ## 主机 IP 保存在 /etc/resolv.conf 中
 export hostip=$(cat /etc/resolv.conf |grep -oP '(?&lt;=nameserver ).*')
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">2. ```bash</span><br><span class="line">   export https_proxy=&quot;http://$&#123;hostip&#125;:7890&quot;;</span><br><span class="line">   export http_proxy=&quot;http://$&#123;hostip&#125;:7890&quot;;</span><br></pre></td></tr></table></figure></p></li>
+<pre class="language-none"><code class="language-none">
+2. &#96;&#96;&#96;bash
+   export https_proxy&#x3D;&quot;http:&#x2F;&#x2F;$&#123;hostip&#125;:7890&quot;;
+   export http_proxy&#x3D;&quot;http:&#x2F;&#x2F;$&#123;hostip&#125;:7890&quot;;</code></pre></p></li>
 <li><p>```bash export http_proxy="socks5://<span
 class="math inline">\({hostip}:7890&quot; export
 https_proxy=&quot;socks5://\)</span>{hostip}:7890"
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">4. ```bash</span><br><span class="line">   export http_proxy=&quot;socks5://$&#123;hostip&#125;:7890&quot;</span><br><span class="line">   export https_proxy=&quot;socks5://$&#123;hostip&#125;:7890&quot;</span><br></pre></td></tr></table></figure></p></li>
+<pre class="language-none"><code class="language-none">
+4. &#96;&#96;&#96;bash
+   export http_proxy&#x3D;&quot;socks5:&#x2F;&#x2F;$&#123;hostip&#125;:7890&quot;
+   export https_proxy&#x3D;&quot;socks5:&#x2F;&#x2F;$&#123;hostip&#125;:7890&quot;</code></pre></p></li>
 <li><p>如果端口一样就可以合并成一句话，http 的同理</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> all_proxy=<span class="string">&quot;socks5://<span class="variable">$&#123;hostip&#125;</span>:7890&quot;</span></span><br></pre></td></tr></table></figure></li>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">export</span> <span class="token assign-left variable">all_proxy</span><span class="token operator">=</span><span class="token string">"socks5://<span class="token variable">$&#123;hostip&#125;</span>:7890"</span></code></pre></li>
 <li><p>使用 zsh 应该保存到 <code>~/.zshrc</code></p></li>
 <li><p>更新配置</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure></li>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">source</span> ~/.zshrc</code></pre></li>
 </ol>
 
                 
@@ -1190,7 +1202,7 @@ https_proxy=&quot;socks5://\)</span>{hostip}:7890"
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">236k</span>&nbsp;字
+                class="white-color">231.1k</span>&nbsp;字
             
             
             

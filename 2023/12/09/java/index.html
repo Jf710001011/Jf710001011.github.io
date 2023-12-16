@@ -477,14 +477,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2023-12-07
+                    2023-12-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    17.2k
+                    18k
                 </div>
                 
 
@@ -2243,6 +2243,133 @@ PrintWriter）需要释放的话，可以直接在 <code>()</code> 中添加</p>
     e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></code></pre></li>
 </ol>
+<h3 id="常用工具类">常用工具类</h3>
+<h4 id="java-scanner">Java Scanner</h4>
+<ol type="1">
+<li><p><code>Scanner</code></p></li>
+<li><h4 id="nextline"><code>nextLine()</code></h4></li>
+<li><h4 id="nextint"><code>nextInt</code></h4></li>
+<li><p>查找匹配项</p></li>
+<li><p>useDelimiter()</p></li>
+</ol>
+<h4 id="arrays">Arrays</h4>
+<ol type="1">
+<li><p><code>java.util.Arrays</code></p></li>
+<li><p>创建数组</p>
+<ol type="1">
+<li><p>copyOf</p></li>
+<li><p>copyOfRange()</p></li>
+<li><p>fill()</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> stutter <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span>stutter<span class="token punctuation">,</span> <span class="token string">"沉默王二"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span>stutter<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></li>
+</ol></li>
+<li><p>比较数组</p>
+<ol type="1">
+<li>equals()</li>
+<li>Arrays.hashCode()</li>
+</ol></li>
+<li><p>数组排序，sort()</p></li>
+<li><p>数组检索，数组排序后用binarySearch()</p></li>
+<li><p>数组转流</p></li>
+<li><p>数组转 List</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> rets <span class="token operator">=</span> <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">asList</span><span class="token punctuation">(</span>intro<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></li>
+<li><p>函数式编程：setAll()</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> array <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">setAll</span><span class="token punctuation">(</span>array<span class="token punctuation">,</span> i <span class="token operator">-></span> i <span class="token operator">*</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]</span></code></pre></li>
+<li><p>parallelPrefix</p></li>
+</ol>
+<h4 id="apache-stringutils">Apache StringUtils</h4>
+<ol type="1">
+<li>判空</li>
+<li>分割字符串</li>
+<li>判断是否是纯数字</li>
+<li>将集合拼接成字符串</li>
+</ol>
+<h4 id="objects">Objects</h4>
+<ol type="1">
+<li>Objects
+类的主要目的是降低代码中的<code>空指针异常 (NullPointerException)</code>
+风险，同时提供一些非常实用的方法供我们使用</li>
+<li>`<code>isNull()</code></li>
+<li><code>requireNonNull()</code></li>
+<li><code>equals()</code></li>
+<li><code>hashCode()</code></li>
+<li><code>compare()</code></li>
+<li>deepEquals()
+用于比较两个<code>数组类型</code>的对象，当对象是非数组的话，行为和
+equals() 一致。</li>
+</ol>
+<h4 id="java-collections">Java Collections</h4>
+<ol type="1">
+<li><p>排序</p>
+<ol type="1">
+<li>reverse(List list)</li>
+<li>shuffle(List list)</li>
+<li>sort(List list)</li>
+<li>sort(List list, Comparator c)</li>
+<li>swap(List list, int i, int j)</li>
+</ol></li>
+<li><p>查找</p>
+<ol type="1">
+<li><code>binarySearch(List list, Object key)</code>：二分查找法，前提是
+List 已经排序过了</li>
+<li><code>max(Collection coll)</code>：返回最大元素</li>
+<li><code>max(Collection coll, Comparator comp)</code>：根据自定义比较器，返回最大元素</li>
+<li><code>min(Collection coll)</code>：返回最小元素</li>
+<li><code>min(Collection coll, Comparator comp)</code>：根据自定义比较器，返回最小元素</li>
+<li><code>fill(List list, Object obj)</code>：使用指定对象填充</li>
+<li><code>frequency(Collection c, Object o)</code>：返回指定对象出现的次</li>
+</ol></li>
+<li><p>HashMap 是<code>线程不安全</code>的，这个我们前面讲到了。那其实
+ArrayList 也是线程不安全的，没法在多线程环境下使用，那 Collections
+工具类中提供了多个 <code>synchronizedXxx</code>
+方法，这些方法会返回一个同步的对象，从而解决多线程中访问集合时的安全问题</p></li>
+<li><p>不可变集合</p>
+<ol type="1">
+<li><code>emptyXxx()</code>：制造一个空的不可变集合</li>
+<li><code>singletonXxx()</code>：制造一个只有一个元素的不可变集合</li>
+<li><code>unmodifiableXxx()</code>：为指定集合制作一个不可变集合</li>
+</ol></li>
+<li><p>其他</p>
+<ol type="1">
+<li><code>addAll(Collection&lt;? super T&gt; c, T... elements)</code>，往集合中添加元素</li>
+<li><code>disjoint(Collection&lt;?&gt; c1, Collection&lt;?&gt; c2)</code>，判断两个集合是否没有交集</li>
+</ol></li>
+<li><p>对集合操作，除了前面说的 JDK 原生 <code>Collections</code>
+工具类，<code>CollectionUtils</code>工具类也很常用。</p>
+<p>目前比较主流的是<code>Spring</code>的<code>org.springframework.util</code>包下的
+CollectionUtils
+工具类。和<code>Apache</code>的<code>org.apache.commons.collections</code>包下的
+CollectionUtils 工具类</p></li>
+</ol>
+<h4 id="hutool">Hutool</h4>
+<ol type="1">
+<li><p>Hutool 的设计思想是尽量减少重复的定义，让项目中的 util
+包尽量少</p></li>
+<li><p>Convert 类</p></li>
+</ol>
+<p><pre class="language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> param <span class="token operator">=</span> <span class="token string">"10"</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> paramInt <span class="token operator">=</span> <span class="token class-name">Convert</span><span class="token punctuation">.</span><span class="token function">toInt</span><span class="token punctuation">(</span>param<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> paramIntDefault <span class="token operator">=</span> <span class="token class-name">Convert</span><span class="token punctuation">.</span><span class="token function">toInt</span><span class="token punctuation">(</span>param<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></p>
+<ol start="3" type="1">
+<li>日期时间</li>
+</ol>
+<h4 id="guava">Guava</h4>
+<ol type="1">
+<li>Google开源的Java工具库，太强大了</li>
+<li>为什么需要<code>不可变集合</code>。
+<ul>
+<li>保证线程安全。在并发程序中，使用不可变集合既保证线程的安全性，也大大地增强了并发时的效率（跟并发锁方式相比）。</li>
+<li>如果一个对象不需要支持修改操作，不可变的集合将会节省空间和时间的开销。</li>
+<li>可以当作一个常量来对待，并且集合中的对象在以后也不会被改变。</li>
+</ul></li>
+</ol>
+<h4 id="其他">其他</h4>
+<ol type="1">
+<li>IpUtil：获取本机 Ip</li>
+</ol>
 <h3 id="反序列化中的反射1">反序列化中的反射(1)</h3>
 <ol type="1">
 <li><p>Java的<code>反射（reflection）机制</code>是指在程序的运行状态中，可以构造任意一个类的对象，可以了解任意一个对象所属的类，可以了解任意一个类的成员变量和方法，可以调用任意一个对象的属性和方法。这种动态获取程序信息以及动态调用对象的功能称为Java语言的反射机制。反射被视为<code>动态语言</code>的关键</p></li>
@@ -3135,7 +3262,7 @@ id="java反序列化漏洞之利用链分析集合4">Java反序列化漏洞之�
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">232k</span>&nbsp;字
+                class="white-color">232.8k</span>&nbsp;字
             
             
             

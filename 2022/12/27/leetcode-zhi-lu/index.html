@@ -481,14 +481,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2023-12-05
+                    2023-12-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    10.7k
+                    11k
                 </div>
                 
 
@@ -534,14 +534,60 @@ alt="image-20230113002007660" />
 <figcaption aria-hidden="true">image-20230113002007660</figcaption>
 </figure>
 <hr />
+<h3 id="寻找重复数">2023-12-16 <a
+target="_blank" rel="noopener" href="https://leetcode.cn/problems/find-the-duplicate-number/description/">287.寻找重复数</a></h3>
+<h4 id="我思">我思</h4>
+<ol type="1">
+<li>联想：异或</li>
+<li>排序？不符合要求</li>
+</ol>
+<h4 id="实现">实现</h4>
+<ol type="1">
+<li><p>规律，cnt[i]表示nums中小于i的元素个数，主要重心在于以target(重复元素值)的cnt值为中轴，观察两端cnt值规律<img
+src="https://raw.githubusercontent.com/Jf710001011/pictureBed/main/img/image-20231216213530039.png"
+alt="image-20231216213530039" /></p></li>
+<li><p>Code</p>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+   <span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">int</span> <span class="token function">findDuplicate</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token operator">&amp;</span> nums<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// 考虑三种重复情况，实际上只要考虑两种</span>
+        <span class="token keyword">int</span> left <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> right <span class="token operator">=</span> nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> ans<span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>left <span class="token operator">&lt;=</span> right<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token comment">// 二分查找(下标有序，含义为&lt;=i的元素个数)</span>
+            <span class="token keyword">int</span> mid <span class="token operator">=</span> <span class="token punctuation">(</span>left <span class="token operator">+</span> right<span class="token punctuation">)</span> <span class="token operator">>></span> <span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token keyword">int</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>  <span class="token comment">// &lt;=mid的元素个数</span>
+
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;=</span> mid<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                    count<span class="token operator">++</span><span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+            <span class="token punctuation">&#125;</span>
+
+            <span class="token comment">// ans 只能通过mid确定</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>count <span class="token operator">&lt;=</span> mid<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>  <span class="token comment">// 得在mid 右边查找</span>
+                <span class="token comment">// 此时的mid 一定不是ans</span>
+                left <span class="token operator">=</span> mid <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+                <span class="token comment">// 此时的mid有可能是ans,但是还要继续使用left和right缩小范围</span>
+                <span class="token comment">// 因此ans 只能在此处赋值</span>
+                right <span class="token operator">=</span> mid <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+                ans <span class="token operator">=</span> mid<span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span></code></pre></li>
+</ol>
 <h3 id="完全平方数">2023-12-05 <a
 target="_blank" rel="noopener" href="https://leetcode.cn/problems/perfect-squares/description/">279.
 完全平方数</a></h3>
-<h4 id="我思">我思</h4>
+<h4 id="我思-1">我思</h4>
 <ol type="1">
 <li>找到与该数字x轴左侧最接近的平方数，从大到小试探，保证最数字数量最少</li>
 </ol>
-<h4 id="实现">实现</h4>
+<h4 id="实现-1">实现</h4>
 <ol type="1">
 <li><p>dp</p>
 <ol type="1">
@@ -579,11 +625,11 @@ alt="image-20231205113618306" /></p></li>
 <h3 id="搜索二维矩阵-ii">2023-11-30 <a
 target="_blank" rel="noopener" href="https://leetcode.cn/problems/search-a-2d-matrix-ii/description/">240.
 搜索二维矩阵 II</a></h3>
-<h4 id="我思-1">我思</h4>
+<h4 id="我思-2">我思</h4>
 <ol type="1">
 <li>想不到什么奇妙的方法</li>
 </ol>
-<h4 id="实现-1">实现</h4>
+<h4 id="实现-2">实现</h4>
 <ol type="1">
 <li><p>特点：</p>
 <ol type="1">
@@ -631,11 +677,11 @@ target="_blank" rel="noopener" href="https://leetcode.cn/problems/search-a-2d-ma
 <h3 id="除自身以外数组的乘积">2023-11-29 <a
 target="_blank" rel="noopener" href="https://leetcode.cn/problems/product-of-array-except-self/description/">238.
 除自身以外数组的乘积</a></h3>
-<h4 id="我思-2">我思</h4>
+<h4 id="我思-3">我思</h4>
 <ol type="1">
 <li>除法是最容易想到的，但是 <strong>0</strong>时失效</li>
 </ol>
-<h4 id="实现-2">实现</h4>
+<h4 id="实现-3">实现</h4>
 <ol type="1">
 <li><p>另一个角度是：该元素**左边所有的乘积*右边所有的乘积**</p></li>
 <li><p>时间的优化必然是牺牲空间，那会牺牲在哪里呢</p></li>
@@ -667,7 +713,7 @@ target="_blank" rel="noopener" href="https://leetcode.cn/problems/product-of-arr
 <h3 id="最大正方形">2023-11-28 <a
 target="_blank" rel="noopener" href="https://leetcode.cn/problems/maximal-square/description/">221.
 最大正方形</a></h3>
-<h4 id="我思-3">我思</h4>
+<h4 id="我思-4">我思</h4>
 <ol type="1">
 <li>记录当时图形的<strong>四个顶角坐标</strong></li>
 <li>为了保证<strong>正方形</strong>，我们需要王<strong>四个方向</strong>
@@ -677,7 +723,7 @@ target="_blank" rel="noopener" href="https://leetcode.cn/problems/maximal-square
 </ol></li>
 <li></li>
 </ol>
-<h4 id="实现-3">实现</h4>
+<h4 id="实现-4">实现</h4>
 <ol type="1">
 <li><p>法1：暴力</p></li>
 <li><p>法2：dp</p>
@@ -733,7 +779,7 @@ alt="image-20231128041105749" />
 <h3 id="数组中的第k个最大元素">2023-11-21 <a
 target="_blank" rel="noopener" href="https://leetcode.cn/problems/kth-largest-element-in-an-array/description/">215.
 数组中的第K个最大元素</a></h3>
-<h4 id="我思-4">我思</h4>
+<h4 id="我思-5">我思</h4>
 <ol type="1">
 <li>要保证<code>O(n)</code>时间复杂度，肯定不能排序</li>
 <li>思路：
@@ -742,7 +788,7 @@ target="_blank" rel="noopener" href="https://leetcode.cn/problems/kth-largest-el
 <li>再次遍历到 存在元素的第<code>k</code>个位置</li>
 </ol></li>
 </ol>
-<h4 id="实现-4">实现</h4>
+<h4 id="实现-5">实现</h4>
 <ol type="1">
 <li><p>复习一下<code>快排</code></p>
 <pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
@@ -1008,7 +1054,7 @@ alt="image-20231121091543725" /></p></li>
 </ol>
 <h3 id="岛屿数量">2023-11-15 <a
 target="_blank" rel="noopener" href="https://leetcode.cn/problems/number-of-islands/description/">200.岛屿数量</a></h3>
-<h4 id="我思-5">我思</h4>
+<h4 id="我思-6">我思</h4>
 <ol type="1">
 <li>理解1座岛屿的<strong>概念</strong>：
 <ol type="1">
@@ -1027,7 +1073,7 @@ alt="image-20231115024938652" /></li>
 <li>如果为<code>0</code>，那么就是岛屿的一处边界</li>
 </ol></li>
 </ol>
-<h4 id="实现-5">实现</h4>
+<h4 id="实现-6">实现</h4>
 <ol type="1">
 <li><p>Code</p>
 <pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
@@ -1074,11 +1120,11 @@ alt="image-20231115024938652" /></li>
 <h3 id="课程表">2023-11-19: <a
 target="_blank" rel="noopener" href="https://leetcode.cn/problems/course-schedule/description/">207.
 课程表</a></h3>
-<h4 id="我思-6">我思</h4>
+<h4 id="我思-7">我思</h4>
 <ol type="1">
 <li>示例是不是不够，应该还有很多情况没有列出来吧（但感觉也不太可能）</li>
 </ol>
-<h4 id="实现-6">实现</h4>
+<h4 id="实现-7">实现</h4>
 <ol type="1">
 <li><p>每个课程表示为图中的一个顶点及其每门课程之间的关系构成了一个图</p></li>
 <li><p>给定一个有向无环图，<code>拓扑排序</code>是将图中的顶点按顺序排列，使得对于图中任意一条有向边，其起点顶点在其终点顶点之前。</p></li>
@@ -1140,7 +1186,7 @@ target="_blank" rel="noopener" href="https://leetcode.cn/problems/course-schedul
 </ol>
 <h3 id="编辑距离">2023-11-09：<a
 target="_blank" rel="noopener" href="https://leetcode.cn/problems/edit-distance/description/">72.编辑距离</a></h3>
-<h4 id="我思-7">我思</h4>
+<h4 id="我思-8">我思</h4>
 <ol type="1">
 <li>充分利用相似的部分
 <ol type="1">
@@ -1152,7 +1198,7 @@ target="_blank" rel="noopener" href="https://leetcode.cn/problems/edit-distance/
 <li>操作的方式有3种，怎么确定这是最少的操作方式</li>
 </ol></li>
 </ol>
-<h4 id="实现-7">实现</h4>
+<h4 id="实现-8">实现</h4>
 <ol type="1">
 <li><p>定义dp是一个难点</p></li>
 <li><p>状态转移关系同样是个难点</p></li>
@@ -1203,13 +1249,13 @@ target="_blank" rel="noopener" href="https://leetcode.cn/problems/edit-distance/
 </ol>
 <h3 id="乘积最大子数组">2023-10-29-<a
 target="_blank" rel="noopener" href="https://leetcode.cn/problems/maximum-product-subarray/description/">乘积最大子数组</a></h3>
-<h4 id="我思-8">我思</h4>
+<h4 id="我思-9">我思</h4>
 <ol type="1">
 <li>正数越多越好</li>
 <li>有负数，偶数个负数</li>
 <li>确定子序列起点；确定子序列长度</li>
 </ol>
-<h4 id="实现-8">实现</h4>
+<h4 id="实现-9">实现</h4>
 <ol type="1">
 <li><p>由于正负性：当前位置的最优解未必是由前一个位置的最优解转移得到的。</p>
 <ol type="1">
@@ -1237,11 +1283,11 @@ target="_blank" rel="noopener" href="https://leetcode.cn/problems/maximum-produc
 <h3 id="lru-缓存">2023-10-25 <a
 target="_blank" rel="noopener" href="https://leetcode.cn/problems/lru-cache/description/">146.LRU
 缓存</a></h3>
-<h4 id="我思-9">我思</h4>
+<h4 id="我思-10">我思</h4>
 <ol type="1">
 <li>关键是：对下一个被替换的键值对标记，方便随时替换</li>
 </ol>
-<h4 id="实现-9">实现</h4>
+<h4 id="实现-10">实现</h4>
 <ol type="1">
 <li><p>从函数功能出发,更多的是数据结构的考量：</p>
 <ol type="1">
@@ -1346,11 +1392,11 @@ target="_blank" rel="noopener" href="https://leetcode.cn/problems/lru-cache/desc
 <h3 id="环形链表-ii">2023-10-24 <a
 target="_blank" rel="noopener" href="https://leetcode.cn/problems/linked-list-cycle-ii/description/">142.环形链表
 II</a></h3>
-<h4 id="我思-10">我思</h4>
+<h4 id="我思-11">我思</h4>
 <ol type="1">
 <li>快慢指针法</li>
 </ol>
-<h4 id="实现-10">实现</h4>
+<h4 id="实现-11">实现</h4>
 <ol type="1">
 <li><p><strong>法1</strong>：哈希表法，找到同一节点即为环的入口</p></li>
 <li><p><strong>法2</strong>：快慢指针法</p>
@@ -1401,12 +1447,12 @@ II</a></h3>
 </ol>
 <h3 id="单词拆分">2023-10-11 <a
 target="_blank" rel="noopener" href="https://leetcode.cn/problems/word-break/description/">139.单词拆分</a></h3>
-<h4 id="我思-11">我思</h4>
+<h4 id="我思-12">我思</h4>
 <ol type="1">
 <li>首字母一样</li>
 <li>对每个单词进行字符匹配</li>
 </ol>
-<h4 id="实现-11">实现</h4>
+<h4 id="实现-12">实现</h4>
 <ol type="1">
 <li><p>一个字符串切分单词的点：j</p></li>
 <li><p>确定这是否是个字符串：哈希表</p></li>
@@ -1437,12 +1483,12 @@ target="_blank" rel="noopener" href="https://leetcode.cn/problems/word-break/des
 </ol>
 <h3 id="最长连续序列">2023-10-10 <a
 target="_blank" rel="noopener" href="https://leetcode.cn/problems/longest-consecutive-sequence/description/">128.最长连续序列</a></h3>
-<h4 id="我思-12">我思</h4>
+<h4 id="我思-13">我思</h4>
 <ol type="1">
 <li>排序，但不满足O(n)</li>
 <li>放在一个数组里，例如：100就放在a[100]，再次遍历找到最长连续序列</li>
 </ol>
-<h4 id="实现-12">实现</h4>
+<h4 id="实现-13">实现</h4>
 <ol type="1">
 <li><p>Code</p>
 <pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
@@ -1474,13 +1520,13 @@ target="_blank" rel="noopener" href="https://leetcode.cn/problems/longest-consec
 </ol>
 <h3 id="二叉树展开为链表">2023-10-03 <a
 target="_blank" rel="noopener" href="https://leetcode.cn/problems/flatten-binary-tree-to-linked-list/description/">114.二叉树展开为链表</a></h3>
-<h4 id="我思-13">我思</h4>
+<h4 id="我思-14">我思</h4>
 <ol type="1">
 <li>递归</li>
 <li>构建链表</li>
 <li>判断是否为空</li>
 </ol>
-<h4 id="实现-13">实现</h4>
+<h4 id="实现-14">实现</h4>
 <ol type="1">
 <li><p>法1：前序遍历，存入vector，创建链表</p></li>
 <li><p>法2：<code>空间复杂度</code>O(1)。Code</p>
@@ -1509,7 +1555,7 @@ target="_blank" rel="noopener" href="https://leetcode.cn/problems/flatten-binary
 </ol>
 <h3 id="验证二叉搜索树">2023-10-02 <a
 target="_blank" rel="noopener" href="https://leetcode.cn/problems/validate-binary-search-tree/description/">98.验证二叉搜索树</a></h3>
-<h4 id="我思-14">我思</h4>
+<h4 id="我思-15">我思</h4>
 <ol type="1">
 <li>递归判断
 <ol type="1">
@@ -1520,7 +1566,7 @@ target="_blank" rel="noopener" href="https://leetcode.cn/problems/validate-binar
 </ol></li>
 </ol></li>
 </ol>
-<h4 id="实现-14">实现</h4>
+<h4 id="实现-15">实现</h4>
 <ol type="1">
 <li><p>每一层的递归该实现什么</p>
 <ol type="1">
@@ -1546,7 +1592,7 @@ target="_blank" rel="noopener" href="https://leetcode.cn/problems/validate-binar
 </ol>
 <h3 id="不同的二叉搜索树">2023-09-28 <a
 target="_blank" rel="noopener" href="https://leetcode.cn/problems/unique-binary-search-trees/description/">96.不同的二叉搜索树</a></h3>
-<h4 id="我思-15">我思</h4>
+<h4 id="我思-16">我思</h4>
 <ol type="1">
 <li>根节点确定，接下来的每个节点位置选择多样
 <ol type="1">
@@ -1555,7 +1601,7 @@ target="_blank" rel="noopener" href="https://leetcode.cn/problems/unique-binary-
 <li>左子树还是右子树</li>
 </ol></li>
 </ol>
-<h4 id="实现-15">实现</h4>
+<h4 id="实现-16">实现</h4>
 <ol type="1">
 <li><p>code</p>
 <pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
@@ -1577,13 +1623,13 @@ target="_blank" rel="noopener" href="https://leetcode.cn/problems/unique-binary-
 </ol>
 <h4 id="单词搜索">2023-09-21：<a
 target="_blank" rel="noopener" href="https://leetcode.cn/problems/word-search/description/">79.单词搜索</a></h4>
-<h4 id="我思-16">我思</h4>
+<h4 id="我思-17">我思</h4>
 <ol type="1">
 <li>首先是得定位到相应的首字母，然后相同的首字母可能有多个</li>
 <li>其次是从该首字母出发，满足相邻条件的路径很多</li>
 <li>感觉挺困难</li>
 </ol>
-<h4 id="实现-16">实现</h4>
+<h4 id="实现-17">实现</h4>
 <ol type="1">
 <li><p>Code</p>
 <pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
@@ -1630,12 +1676,12 @@ target="_blank" rel="noopener" href="https://leetcode.cn/problems/word-search/de
 <h3 id="颜色分类">2023-09-20：<a
 target="_blank" rel="noopener" href="https://leetcode.cn/problems/sort-colors/description/">75.
 颜色分类</a></h3>
-<h4 id="我思-17">我思</h4>
+<h4 id="我思-18">我思</h4>
 <ol type="1">
 <li>双指针法，但我觉得这题得三指针法</li>
 <li>确定两种元素的位置，剩下一种也就确认了</li>
 </ol>
-<h4 id="实现-17">实现</h4>
+<h4 id="实现-18">实现</h4>
 <ol type="1">
 <li><p>Code:确定一头一尾</p>
 <pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
@@ -1656,11 +1702,11 @@ target="_blank" rel="noopener" href="https://leetcode.cn/problems/sort-colors/de
 </ol>
 <h3 id="最小路径和">2023-09-19：<a
 target="_blank" rel="noopener" href="https://leetcode.cn/problems/minimum-path-sum/description/">64.最小路径和</a></h3>
-<h4 id="我思-18">我思</h4>
+<h4 id="我思-19">我思</h4>
 <ol type="1">
 <li>dp 或者回溯，（回溯太久没接触，忘了）</li>
 </ol>
-<h4 id="实现-18">实现</h4>
+<h4 id="实现-19">实现</h4>
 <ol type="1">
 <li><p>两层for循环都不会写了</p>
 <pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
@@ -1693,12 +1739,12 @@ target="_blank" rel="noopener" href="https://leetcode.cn/problems/minimum-path-s
 <h3 id="不同路径">2023-09-14： <a
 target="_blank" rel="noopener" href="https://leetcode.cn/problems/unique-paths/description/">62.
 不同路径</a></h3>
-<h4 id="我思-19">我思</h4>
+<h4 id="我思-20">我思</h4>
 <ol type="1">
 <li>一个变量记录符合的路径数</li>
 <li>需要保存前面走过的路径，而在每一步，接下来都有多个走法，一步步试探？</li>
 </ol>
-<h4 id="实现-19">实现</h4>
+<h4 id="实现-20">实现</h4>
 <ol type="1">
 <li>认识和抓住问题</li>
 <li>识破问题本质</li>
@@ -1754,7 +1800,7 @@ target="_blank" rel="noopener" href="https://leetcode.cn/problems/unique-paths/d
 <h3 id="合并区间">2023-09-13： <a
 target="_blank" rel="noopener" href="https://leetcode.cn/problems/merge-intervals/description/">56.
 合并区间</a></h3>
-<h3 id="我思-20">我思</h3>
+<h3 id="我思-21">我思</h3>
 <ol type="1">
 <li><p>排序：依据左端点值</p></li>
 <li><p>合并重合区间：数轴画图直观表示 <span class="math display">\[
@@ -1763,7 +1809,7 @@ target="_blank" rel="noopener" href="https://leetcode.cn/problems/merge-interval
 2.\ 如果a_l&lt;=a_k,那么两区间必定能合并
 \]</span></p></li>
 </ol>
-<h4 id="实现-20">实现</h4>
+<h4 id="实现-21">实现</h4>
 <ol type="1">
 <li><p>主要是合并的判断</p>
 <pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
@@ -1801,11 +1847,11 @@ target="_blank" rel="noopener" href="https://leetcode.cn/problems/merge-interval
 <h3 id="跳跃游戏">2023-09-12：<a
 target="_blank" rel="noopener" href="https://leetcode.cn/problems/jump-game/description/">55.
 跳跃游戏</a></h3>
-<h4 id="我思-21">我思</h4>
+<h4 id="我思-22">我思</h4>
 <ol type="1">
 <li>每走一步，都能够确定目前的活动范围，所以范围之内，在其他的下标处，需要确定新的活动范围，但是都需要计算，但是<code>O(n)</code>已经不错了</li>
 </ol>
-<h4 id="实现-21">实现</h4>
+<h4 id="实现-22">实现</h4>
 <ol type="1">
 <li><p>其实代码还是蛮简单</p>
 <pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
@@ -3116,7 +3162,7 @@ alt="image-20221226235202663" />
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">231.4k</span>&nbsp;字
+                class="white-color">232k</span>&nbsp;字
             
             
             

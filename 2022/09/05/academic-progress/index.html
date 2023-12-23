@@ -477,14 +477,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2023-12-21
+                    2023-12-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    54.8k
+                    53.9k
                 </div>
                 
 
@@ -646,176 +646,24 @@ Precision of Detecting Deserialization Vulnerabilities with Bytecode
 Analysis</a>（计算机网络<strong>CCF-B</strong>:31st IWQoS 2023）</li>
 </ol>
 <h3 id="section">2023-12-23</h3>
-<h4 id="论文二看">论文二看</h4>
 <ol type="1">
-<li><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/10202660">Tabby:
-Automated Gadget Chain Detection for Java Deserialization
-Vulnerabilities</a>（<strong>CCF-B</strong>会议：DSN2023）</li>
-</ol>
-<h4 id="正文">正文</h4>
+<li><a
+href="https://jf710001011.github.io/2023/12/09/java/#toc-heading-52">新特性</a>
 <ol type="1">
-<li><p>Java反序列化的优缺点</p></li>
-<li><p><code>Java Naming and Directory Interface (JNDI).</code> provides
-a unified way to access various naming and directory services like LDAP,
-DNS, and RMI</p>
-<ol type="1">
-<li><strong>Here's how it <code>works</code>:</strong>
-<ol type="1">
-<li><strong>Vulnerable Input:</strong> An application accepts user input
-(e.g., a search query) that can be crafted to contain specially
-formatted URLs or references to external resources.</li>
-<li><strong>JNDI Lookup:</strong> The application utilizes JNDI to
-perform a lookup or access data based on the provided input.</li>
-<li><strong>Malicious Resource:</strong> If the attacker's crafted input
-triggers a JNDI lookup to a malicious resource (e.g., a remote server
-hosting malicious code), the application unknowingly retrieves and
-executes the attacker's code.</li>
-<li><strong>Compromised Application:</strong> This execution can grant
-the attacker various privileges within the application, ranging from
-data exfiltration to complete system takeover.</li>
+<li><a
+href="https://jf710001011.github.io/2023/12/09/java/#toc-heading-53">Java8
+Stream 流</a></li>
+<li><a
+href="https://jf710001011.github.io/2023/12/09/java/#toc-heading-54">Optional最佳指南</a></li>
+<li><a
+href="https://jf710001011.github.io/2023/12/09/java/#toc-heading-55">lambda
+表达式</a></li>
+<li><a
+href="https://jf710001011.github.io/2023/12/09/java/#toc-heading-56">Java14
+新特性</a></li>
 </ol></li>
-<li><code>LDAP</code>, or Lightweight Directory Access Protocol, is an
-open, vendor-neutral protocol used for accessing and maintaining
-information in a directory service. It's essentially like a
-<strong>phone book</strong> for your computer network, storing essential
-details about users, groups, devices, and other resources.</li>
-<li>A <code>directory server</code> is essentially a centralized
-<strong>repository</strong> of information about resources on a network.
-This information can include user accounts, groups, devices, printers,
-applications, and more. Think of it as a giant phone book for your
-network, storing all the essential details needed to locate and access
-these resources.</li>
-</ol></li>
-<li><p><code>Apache Log4j</code> is a popular open-source logging
-library for Java applications.</p>
-<ol type="1">
-<li>The vulnerability allowed attackers to inject
-<code>arbitrary code</code> into applications using Log4j</li>
-</ol></li>
-<li><p>the <code>readObject()</code> method is a crucial part of the
-serialization process, used to restore an object's state previously
-saved using the <code>writeObject()</code> method. Here's a breakdown of
-its functionality:</p></li>
-<li><p>Why finding JDVs is <strong>difficult</strong></p>
-<ol type="1">
-<li><p>for deserialization vulnerabilities, we cannot rely solely on
-input analysis. Instead, we need to focus on the <code>data flow</code>
-after the input data is passed into the <code>source method</code>.</p>
-<blockquote>
-<p>Because many classes contain source or sink methods, it is
-<strong>difficult to determine</strong> the control flow that can
-execute from the source method to a sink method unless the class objects
-are constructed.</p>
-</blockquote>
-<ol type="1">
-<li>source method:<code>object.readObject()</code> and
-<code>object.readExternal()</code></li>
-<li>sink methods: <code>Runtime.exec()</code></li>
-</ol></li>
-<li><p>The method-call stack from the source method to the sink method
-is known as a gadget chain, which requires <strong>clever
-combinations</strong> of many class objects.</p>
-<ol type="1">
-<li>polymorphic nature</li>
-<li><code>CodeQL</code> [9]) can only detect JDVs at the source code
-level and lack the ability to analyze libraries (dependency jar files,
-which are typically numerous and widespread in actual projects</li>
-</ol></li>
-</ol></li>
-<li><p>Our solution to this challenge is to construct an
-<code>intermediate data structure</code> using code property
-graph.</p></li>
-<li><p>Java applications can share data
-<code>across devices and platforms</code> through serialization and
-deserialization mechanisms. This mechanism is often used in Remote
-Procedure Call (RPC) and data passing during the interaction of various
-Web applications.</p>
-<ol type="1">
-<li>A <code>Remote Procedure Call (RPC)</code> is a powerful software
-mechanism that allows programs to execute procedures on remote computers
-as if they were running locally. Imagine it as a long-distance phone
-call for software, where you send a request to a distant application and
-receive a response, without needing to directly interact with that
-computer's resources.</li>
-</ol></li>
-<li><p><strong>innovative point</strong></p>
-<ol type="1">
-<li>The emergence of graph databases provides a new option for the
-<strong>storage of static program analysis</strong>.
-<ol type="1">
-<li>semantic information extraction</li>
-<li>specific vulnerability pattern identification.</li>
-</ol></li>
-<li>to address the main challenge of finding gadget chains in libraries
-(as discussed in § I), we developed a
-<code>controllability analysis algorithm</code> to help construct the
-CPG</li>
-</ol></li>
-<li><p>Tabby in <strong>three technical aspects</strong>:</p>
-<ol type="1">
-<li>CPG Construction,</li>
-<li>Controllability Analysis,
-<ol type="1">
-<li>prunes the method call graph into a <code>precise call graph</code>,
-aiding in the construction of the CPG in the first aspect.</li>
-<li>This algorithm also calculates a property that can <strong>speed
-up</strong> the static analysis process.</li>
-</ol></li>
-<li>and Gadget Chain Identification.
-<ol type="1">
-<li>propose a <code>Depth-First algorithm</code> to identify gadget
-chains on the CPG.</li>
-</ol></li>
-</ol></li>
-<li><p>To construct the <code>Code Property Graph</code>, several graphs
-are merged together, including :</p>
-<ol type="1">
-<li>the Object Relationship Graph (ORG),</li>
-<li>Method Call Graphs (MCG),</li>
-<li>Method Alias Graphs (MAG)</li>
-</ol></li>
-<li><p>used the <code>semantic information extracted</code> by Tabby to
-construct these three graphs.</p>
-<ol type="1">
-<li>Semantic Information Extraction</li>
-<li>Code Property Graph Construction</li>
-<li>Object Relationship Graph Extraction</li>
-<li>Precise Call Graph Extraction.</li>
-<li>Method Alias Graph Extraction:Polymorphism
-<ol type="1">
-<li>However,sincethe method of the Alias edge <strong>may not</strong>
-ultimately invoke the sink method (such as EnumMap.hashcode() →
-EnumMap.entryHashCode()), by searching upwards from the sink method</li>
-</ol></li>
-</ol></li>
-<li><p>example: The <code>URLDNS gadget chain</code> is triggered by the
-method-call stack:
-<code>HashMap.reobject()→HashMap.hash()→URL.has hCode()→URLStreamHandler.hashCode()→URLSt reamHandler.getHostAddress()→inertAddress.getByName().</code></p></li>
-<li><p>Once the MCG is constructed,Tabby applies a
-<code>controllability analysis algorithm</code> (see §III-C) to prune it
-down to a</p>
-<p>more precise representation.</p></li>
-<li><p>use a control flow analysis algorithm to precisely prune the
-Method Call Graph (MCG) into a Precise Call Graph (PCG) by
-<strong>removing the edges corresponding to uncontrollable
-variables</strong></p></li>
-<li><p>controllability algorithm employs a field-sensitive points-to
-analysis algorithm [19], [20] to <strong>identify</strong>
-<strong>uncontrollable method calls</strong></p></li>
-<li><p>path explosion problem</p></li>
-<li><p><code>Trigger Condition</code>: An array property of the sink
-method represents which parameters must be controllable to achieve the
-attack effect.</p></li>
-<li><p>The gadget chains finding is based on the CALL and ALIAS
-relationship edges in the CPG and is divided into
-<code>Expander</code>and <code>Evaluator.</code></p>
-<ol type="1">
-<li><p>The Expander determines whether the PP of the relationship edge
-<strong>meets the requirements of TC</strong>,</p></li>
-<li><p>the Evaluator determines whether the <strong>search
-depth</strong> exceeds the setting or the target node is
-reached.</p></li>
-</ol></li>
+<li><a
+href="https://jf710001011.github.io/2023/12/09/static-analysis-ii/#toc-heading-10">格理论下的数据流分析基础</a></li>
 </ol>
 <h3 id="section-1">2023-12-16</h3>
 <ol type="1">
@@ -916,7 +764,7 @@ href="https://jf710001011.github.io/2023/10/28/tabby-fen-xi/#toc-heading-6">笔�
 <li><a
 target="_blank" rel="noopener" href="https://www.infocomm-journal.com/cjnis/CN/10.11959/j.issn.2096-109x.2022009">基于混合分析的Java反序列化利用链挖掘方法</a></li>
 </ol>
-<h5 id="正文-1">正文</h5>
+<h5 id="正文">正文</h5>
 <ol type="1">
 <li>反序列化漏洞三要素：
 <ol type="1">
@@ -978,7 +826,7 @@ alt="image-20231021225016323" />
 <li><code>A Composite Discover Method for Gadget Chains in Java Deserialization Vulnerability</code>（10th
 QuASoQ / 6th SEED@APSEC 2022: Virtual）</li>
 </ol>
-<h5 id="正文-2">正文</h5>
+<h5 id="正文-1">正文</h5>
 <ol type="1">
 <li><p>对基于指纹检测的Java反序列化漏洞检测方法</p>
 <p>Java反序列化过程可能存在安全漏洞,通过构造恶意序列化数据可以实施远程代码执行等攻击。为了检测这种漏洞,可以使用基于指纹的方法。</p>
@@ -1002,7 +850,7 @@ Suite集成。该插件利用Ysoserial生成有效负载，用于对反序列化
 <li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wPbW6zQ52w8">Automated
 Discovery of Deserialization Gadget Chains</a></li>
 </ol>
-<h5 id="正文-3">正文</h5>
+<h5 id="正文-2">正文</h5>
 <ol type="1">
 <li><p><code>ysoserial</code> project and
 <code>Marshalsec</code>:<code>is a similar project which supports a wider breadth of              12 deserialization libraries, but is again a tool which largely includes known gadget chains.</code></p></li>
@@ -1114,7 +962,7 @@ Analysis</a>（计算机网络<strong>CCF-B</strong>:31st IWQoS 2023）</p>
 <p>Java.</p></li>
 </ol></li>
 </ol>
-<h5 id="正文-4">正文</h5>
+<h5 id="正文-3">正文</h5>
 <ol type="1">
 <li><p><code>JNDI（Java Naming and Directory Interface）</code>注入是一种安全漏洞，通常出现在Java应用程序中，特别是那些使用JNDI来连接和管理命名和目录服务的应用程序中。JNDI是Java中用于访问命名和目录服务的API，允许应用程序查找和访问各种资源，如数据库连接、消息队列等。</p>
 <p>JNDI注入<code>发生在</code>攻击者能够控制或影响JNDI查找的输入时。攻击者可以通过恶意构造的JNDI名称或URL，迫使应用程序加载和执行不安全的类或代码。这可能导致严重的安全问题，包括远程代码执行、信息泄露或拒绝服务攻击。</p>
@@ -1196,7 +1044,7 @@ Vulnerabilities</a>（<strong>CCF-B</strong>会议：DSN2023）<img
 src="https://s2.loli.net/2023/09/30/7pMQi4mDtWCb5P8.png"
 alt="image-20230930164833918" /></li>
 </ol>
-<h4 id="正文-5">正文</h4>
+<h4 id="正文-4">正文</h4>
 <h5 id="background">background</h5>
 <ol type="1">
 <li><p>Existing state-of-the-art analysis tools (e.g.,
@@ -1335,7 +1183,7 @@ Discovery of Deserialization Gadget Chains</a>
 Engineer, Netflix）</li>
 </ol>
 <hr />
-<h4 id="正文-6">正文</h4>
+<h4 id="正文-5">正文</h4>
 <ol type="1">
 <li>即使在从“<code>readObject()</code>”方法返回之前，反序列化库也会自动调用<code>魔术方法</code>。</li>
 <li><code>ysoserial</code> 工具不能发现新的利用链</li>
@@ -1816,7 +1664,7 @@ target="_blank" rel="noopener" href="https://www.usenix.org/conference/14th-usen
 Security Vulnerabilities in Java Applications with Static Analysis</a>
 <strong>CCF-A:</strong>USENIX Security Symposium 2005</li>
 </ul>
-<h4 id="正文-7">正文</h4>
+<h4 id="正文-6">正文</h4>
 <ul>
 <li><p>字节码（Bytecode）是一种中间代码形式，它是在程序源代码经过编译但尚未被执行时生成的。字节码通常与特定的虚拟机（如Java虚拟机）相关联，它们是一种可被虚拟机解释或即时编译执行的指令集。字节码的好处之一是它具有跨平台的特性，因为不同的虚拟机可以解释执行相同的字节码。</p>
 <p>在Java中，源代码首先经过编译器编译成字节码文件（以.class为扩展名），然后由Java虚拟机加载和执行这些字节码文件。字节码是一种中间形式，它包含了程序的指令、常量池、字段、方法等信息。通过解释或即时编译，Java虚拟机将字节码转换为机器码，并执行相应的操作。</p></li>
@@ -1842,7 +1690,7 @@ Taint-style Vulnerability</a>: <strong>CCF-A</strong>会议：IEEE S&amp;P
 2023</p></li>
 <li><p><strong>keywords</strong></p></li>
 </ul>
-<h5 id="正文-8">正文</h5>
+<h5 id="正文-7">正文</h5>
 <ul>
 <li><p>源点和汇点是软件程序中与数据流相关的概念。</p>
 <p><code>源点</code>（source）是指程序中产生数据流的起点或来源。它可以是用户输入、传感器数据、文件读取等。源点提供了数据流的初始值或输入，它是数据流的生成者。</p>
@@ -2037,7 +1885,7 @@ Node.js prototype pollution vulnerabilities via object lookup
 analysis</a>(<strong>CCF-A</strong>:ESEC/SIGSOFT FSE 2021)</li>
 <li><strong>Author</strong>:Song Li</li>
 </ul>
-<h4 id="正文-9">正文</h4>
+<h4 id="正文-8">正文</h4>
 <ul>
 <li><p>源对象和汇对象是在数据流分析中常用的两个术语。</p>
 <p><strong>源对象</strong>是数据流分析中的输入，也就是程序中已经存在的数据，可以被使用或传递到其他地方。例如，一个函数的参数或者全局变量。</p>
@@ -2205,7 +2053,7 @@ One Million Real-world Websites</a>(<strong>CCF-A</strong>会议：NDSS
 <p>Joint Taint Flow Analysis</p>
 <p>Dynamic Taint Analysis</p></li>
 </ul>
-<h4 id="正文-10">正文</h4>
+<h4 id="正文-9">正文</h4>
 <ul>
 <li><p>从<strong>title</strong>上看注意到，作者这次研究的客户端上的<code>JS</code></p></li>
 <li><p><strong>原型污染</strong>的出处：文献[6]</p></li>
@@ -2446,7 +2294,7 @@ Vulnerabilities</a>(<strong>CCF-A</strong>会议：NDSS 2023)</p></li>
 <p>Vulnerbility Dection</p>
 <p>Fuzzing</p></li>
 </ul>
-<h4 id="正文-11">正文</h4>
+<h4 id="正文-10">正文</h4>
 <ul>
 <li><p><strong>之前的研究存在的问题</strong>：<code>Previous work on discovering software faults in JavaScript engines found many vulnerabilities, often using fuzz testing. Unfortunately, these fuzzing approaches are not designed to generate source code that actually triggers JIT semantics.</code></p></li>
 <li><p><strong>chrome浏览器沙箱逃逸</strong></p>
@@ -5874,7 +5722,7 @@ id="网络流量分析高性能网络报文处理数据分析">网络流量分�
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">235.5k</span>&nbsp;字
+                class="white-color">234.6k</span>&nbsp;字
             
             
             

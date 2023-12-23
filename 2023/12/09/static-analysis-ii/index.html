@@ -481,14 +481,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2023-12-10
+                    2023-12-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.5k
+                    1.8k
                 </div>
                 
 
@@ -667,7 +667,36 @@ y的重定义（Redefinition）。</li>
 src="https://s2.loli.net/2023/12/10/b7hPQ3EUtCmnZFk.png"
 alt="image-20231210151847727" /></li>
 </ol>
-<p>​</p>
+<h4 id="数据流分析基础">数据流分析基础</h4>
+<ol type="1">
+<li><p>迭代算法：<strong>可能性（May Analysis）正向（Forward
+Analysis）数据流分析的迭代（Iterative）算法</strong><img
+src="https://s2.loli.net/2023/12/23/r8iP9cGNY2zMWwa.png"
+alt="image-20231223232625278" /></p></li>
+<li><p>偏序<img src="https://s2.loli.net/2023/12/23/Oyxne6G2sDQdU15.png"
+alt="image-20231223232707662" /></p></li>
+<li><p>格<img src="https://s2.loli.net/2023/12/23/WGRkrBvhI2ZuCFa.png"
+alt="image-20231223232731268" /></p></li>
+<li><p>全格<img src="https://s2.loli.net/2023/12/23/JbSCRW1UTm3l7jq.png"
+alt="image-20231223232940418" /></p></li>
+<li><p>不动点<img
+src="https://s2.loli.net/2023/12/23/TBQyvGfSub7L8Mm.png"
+alt="image-20231223233019021" /></p>
+<ol type="1">
+<li>称 <em>x</em> 是一个函数 <em>f</em> 的 <strong>不动点（Fixed
+Point）</strong> ，如果 f<em>(</em>x<em>)=</em>x 。</li>
+</ol></li>
+<li><p>工作表算法：<strong>可能性（May Analysis）正向（Forward
+Analysis）数据流分析的工作表（Worklist）算法</strong><img
+src="https://s2.loli.net/2023/12/23/Jg7Cp2ZLR8FyaAN.png"
+alt="image-20231223233303179" /></p>
+<ol type="1">
+<li>工作表算法是对迭代算法的优化，用一个集合储存下一次遍历会发生变化的基块，这样，已经达到不动点的基块就可以不用重复遍历了。这里需要提一下的是
+worklist 最好采用去重的集合实现，不然的话， worklist
+中可能有重复的基块</li>
+<li>算法的最后一行只将输出状态发生变化的基块的后继，也就是在下一轮当中<strong>输入状态会发生变化</strong>的基块加入工作表，这是由于只有当输入状态发生变化时，输出状态才会发生辩护</li>
+</ol></li>
+</ol>
 
                 
             </div>
@@ -1285,7 +1314,7 @@ alt="image-20231210151847727" /></li>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">235.3k</span>&nbsp;字
+                class="white-color">235.5k</span>&nbsp;字
             
             
             

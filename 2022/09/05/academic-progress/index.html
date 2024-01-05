@@ -477,14 +477,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2023-12-31
+                    2024-01-06
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    53.9k
+                    55k
                 </div>
                 
 
@@ -644,8 +644,161 @@ Vulnerabilities</a>（<strong>CCF-B</strong>会议：DSN2023）</li>
 <li><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/10188756">Improving
 Precision of Detecting Deserialization Vulnerabilities with Bytecode
 Analysis</a>（计算机网络<strong>CCF-B</strong>:31st IWQoS 2023）</li>
+<li><a
+target="_blank" rel="noopener" href="https://secsys.fudan.edu.cn/ce/78/c26976a642680/page.htm">Efficient
+Detection of Java Deserialization Gadget Chains via Bottom-up Gadget
+Search and Dataflow-aided Payload
+Construction</a>（<strong>CCF-A</strong>: IEEE S&amp;P）</li>
 </ol>
-<h3 id="section">2023-12-30</h3>
+<h3 id="section">2021-01-06</h3>
+<h4 id="论文">论文</h4>
+<ol type="1">
+<li><a
+target="_blank" rel="noopener" href="https://secsys.fudan.edu.cn/ce/78/c26976a642680/page.htm">Efficient
+Detection of Java Deserialization Gadget Chains via Bottom-up Gadget
+Search and Dataflow-aided Payload
+Construction</a>（<strong>CCF-A</strong>: IEEE S&amp;P）</li>
+</ol>
+<h4 id="正文">正文</h4>
+<ol type="1">
+<li>序列化和反序列化的意义：Java serialization and deserialization
+greatly facilitate the cooperation and collaboration of different Java
+systems (e.g., server and client), allowing different Java programs to
+conveniently <strong>exchange and share data and code</strong></li>
+<li><code>Java Object Injection (JOI).</code></li>
+<li>反序列化漏洞的危害：
+<ol type="1">
+<li>remote code execution (RCE)</li>
+<li>denial of service (DoS)</li>
+</ol></li>
+<li>现状：<code>ODDFuzz</code> statically searches for possible gadgets
+via a Depth First Search (DFS) strategy, and then dynamically fuzzes the
+target program as a greybox for verifying gadget chains</li>
+<li>top-down static approach:path explosion</li>
+<li>两个指标：effectiveness and efficiency</li>
+<li>ODDFuzz additionally introduced <code>dynamic fuzzing</code> for
+reducing false positives</li>
+<li>现存问题
+<ol type="1">
+<li>path explosion</li>
+<li>In particular, the finegrained data flows between
+<code>different object fields</code> in each gadget, leading to the
+imprecision of object structure and thus an incorrect payload.</li>
+</ol></li>
+<li>JDD (Java Deserialization Vulnerability Detector)的特点
+<ol type="1">
+<li>JDD first searches for possible <code>gadget fragments</code> and
+then chains fragments together from sinks to sources.
+<ol type="1">
+<li>观察1： a <code>top-down search</code> repeats the analysis of the
+same low-level gadget fragment when a top-level gadget changes, leading
+to a huge redundancy and a waste of analysis time</li>
+<li>解决：bottom-up search <code>reuse existing gadget fragments</code>
+discovered in previous vulnerabilities, which further speeds up the
+search process.</li>
+</ol></li>
+<li>object <code>field relations</code> via a novel data structure,
+called Injection Object Construction Diagram (IOCD)</li>
+</ol></li>
+<li>summarize the contributions
+<ol type="1">
+<li>JDD solves the <code>path explosion problem</code> of static search
+for chained gadgets via a <code>bottom-up approach</code> that discovers
+intermediate gadget fragments and then chains them together from sinks
+to sources</li>
+<li>Injection Object Construction Diagram (IOCD)</li>
+<li>Java Naming and Directory Interface (<code>JNDI</code>) injection is
+a commonly used technique in JOI attacks</li>
+</ol></li>
+<li>JDD的两个目标
+<ol type="1">
+<li>Uses static analysis to find potential gadget chains in the victim
+server</li>
+<li>Dynamically generates exploitable injection objects to verify the
+exploitability of gadget chains</li>
+</ol></li>
+<li>Challenge I: Static Path
+Explosion：？我能理解DFS重复分析fragment，也能理解自上而下的分析方式可以解决这个问题;<strong>但是bottom-up的实际路径计算方式不能理解</strong>
+<ol type="1">
+<li>top-down(DFS):<img
+src="https://s2.loli.net/2024/01/06/VNc3ZrjFJ4S8YPi.png"
+alt="image-20240106025500862" /></li>
+<li>bottom-up<img
+src="https://s2.loli.net/2024/01/06/8AWJjNcE3lnTeBU.png"
+alt="image-20240106025608557" /></li>
+</ol></li>
+<li>Challenge II:
+注入对象涉及变量的层次关系：不能仅仅认为是继承的级别关系，涉及的两个变量也可能是平行并列的关系
+<ol type="1">
+<li>作者为此而实现了：<code>Dataflow-aided Construction of Injection Object Construction Diagram (IOCD)</code>.</li>
+</ol></li>
+<li>Identifying Deserialization Entry Points
+<ol type="1">
+<li>deserialization methods provided by Java language,e.g.,
+readObjectNoData(), readExternal() and readObject()</li>
+<li>interfaces provided by popular Java deserialization protocols, e.g.,
+Map.put() for Hessian protocol.</li>
+</ol></li>
+<li>Related work
+<ol type="1">
+<li>GadgetInspector</li>
+<li>Tabby</li>
+<li>SerHybrid [4] proposed to automate the verification of exploitable
+gadget chains through the construction of <code>heap abstractions</code>
+for generating injection objects.</li>
+<li><code>GCMiner</code> [1] incorporated an overriding-guided object
+generation strategy to automate verification during fuzzing.</li>
+<li>ODDFuzz</li>
+<li>black-box scanning tools
+<ol type="1">
+<li>Marshalsec [32]</li>
+<li>Java Deserialization Scanner</li>
+</ol></li>
+</ol></li>
+</ol>
+<h3 id="总结">总结</h3>
+<ol type="1">
+<li>总的来说，这类研究与纯静态分析是有很大不同的。看完这篇论文，能想到与之最像的那必定是文中多次提到的<code>ODDFUZZ</code>
+<ol type="1">
+<li>JDD与ODDFUZZ都是采用了混合分析（静态分析+动态分析）的方式去检测反序列化漏洞，手法非常类似
+<ol type="1">
+<li>静态分析：
+<ol type="1">
+<li>建立图</li>
+<li>污点分析寻找利用链</li>
+</ol></li>
+<li>动态分析（<strong>并没有系统学习过</strong>）：
+<ol type="1">
+<li>可能需要借助一定的数据结构（例如本文IOCD）</li>
+<li>生成注入对象，触发利用链验证利用链的有效性，减少假阴性</li>
+</ol></li>
+</ol></li>
+</ol></li>
+<li>我着重阅读了<strong>静态分析</strong>部分
+<ol type="1">
+<li><strong>疑惑1</strong>：类层次结构（嵌入型还是并列型）研究的意义：我猜测就是类似指针分析的效果，提升分析的精度</li>
+<li>创新之处是：
+<ol type="1">
+<li>自底向上的分析方法，解决DFS产生的路径爆炸问题</li>
+<li>提出了Gadget chain
+fragment的概念（非常有想法），并最终将fragment组合成一条完整的gadget
+chain</li>
+</ol></li>
+</ol></li>
+<li>一图总结本文<img
+src="https://s2.loli.net/2024/01/06/lH61cKJqYy5GX9R.png"
+alt="image-20240106061533385" />
+<ol type="1">
+<li>从目标程序寻找fragment（未分析过）+从已经分析出的fragment（重复使用分析结果）得出fragment
+collection</li>
+<li>将fragment 组合成利用链</li>
+<li>收集约束：存在一定<strong>疑惑</strong>，暂时的理解是自底向上分析时，要触发当前方法因该满足的<strong>条件</strong></li>
+<li>生成注入对象（暂时不清楚原理）</li>
+<li>利用IOCD数据结构辅助验证利用链的有效性</li>
+</ol></li>
+<li>动态分析（也称模糊测试<code>fuzzing</code>），在漏洞检测中确实扮演着非常关键的角色，对于静态分析研究者而言，是一种拓宽思路的技术。但我的研究仍暂以静态分析为重点</li>
+</ol>
+<h3 id="section-1">2023-12-30</h3>
 <h4 id="自动化检测框架学习">自动化检测框架学习</h4>
 <ol type="1">
 <li><a
@@ -662,7 +815,7 @@ href="https://jf710001011.github.io/2023/12/09/java/#toc-heading-60">Socket实�
 <li><a
 href="https://jf710001011.github.io/2023/12/09/tabby-fen-xi/#toc-heading-9">tabby/core/data/TabbySt0atus.java</a></li>
 </ol>
-<h3 id="section-1">2023-12-23</h3>
+<h3 id="section-2">2023-12-23</h3>
 <ol type="1">
 <li><a
 href="https://jf710001011.github.io/2023/12/09/java/#toc-heading-52">新特性</a>
@@ -682,14 +835,14 @@ href="https://jf710001011.github.io/2023/12/09/java/#toc-heading-56">Java14
 <li><a
 href="https://jf710001011.github.io/2023/12/09/static-analysis-ii/#toc-heading-10">格理论下的数据流分析基础</a></li>
 </ol>
-<h3 id="section-2">2023-12-16</h3>
+<h3 id="section-3">2023-12-16</h3>
 <ol type="1">
 <li>学习：<a
 href="https://jf710001011.github.io/2023/12/09/java/#toc-heading-43">常用工具类</a></li>
 <li>学习：<a
 href="https://jf710001011.github.io/2023/12/09/static-analysis-ii/#toc-heading-4">数据流分析及其应用</a></li>
 </ol>
-<h3 id="section-3">2023-12-09</h3>
+<h3 id="section-4">2023-12-09</h3>
 <ol type="1">
 <li><a
 href="https://jf710001011.github.io/2023/12/09/java/#toc-heading-40">Java异常机制</a><img
@@ -700,7 +853,7 @@ href="https://jf710001011.github.io/2023/12/09/static-analysis-ii/">静态分析
 src="https://raw.githubusercontent.com/Jf710001011/pictureBed/main/img/image-20231209225337843.png"
 alt="image-20231209225337843" /></li>
 </ol>
-<h3 id="section-4">2023-12-02</h3>
+<h3 id="section-5">2023-12-02</h3>
 <ol type="1">
 <li><a
 href="https://jf710001011.github.io/2023/08/26/java/#toc-heading-36">Java
@@ -713,7 +866,7 @@ href="https://jf710001011.github.io/2023/10/28/tabby-fen-xi/#toc-heading-7">tabb
 href="https://jf710001011.github.io/2023/10/28/tabby-fen-xi/#toc-heading-8">tabby/core/data/TabbyRule.java</a></li>
 </ol></li>
 </ol>
-<h3 id="section-5">2023-11-19</h3>
+<h3 id="section-6">2023-11-19</h3>
 <ol type="1">
 <li><a
 href="https://jf710001011.github.io/2023/10/28/tabby-fen-xi/#toc-heading-9">tabby分析</a>
@@ -729,19 +882,19 @@ href="https://jf710001011.github.io/2023/10/28/tabby-fen-xi/#toc-heading-5">tabb
 src="https://s2.loli.net/2023/11/18/w4cLOvbhnT8qfPR.png"
 alt="image-20231118230811392" /></li>
 </ol>
-<h3 id="section-6">2023-11-11</h3>
+<h3 id="section-7">2023-11-11</h3>
 <ol type="1">
 <li><a
 href="https://jf710001011.github.io/2022/09/05/academic-progress/">Tabby/core/container分析</a><img
 src="https://s2.loli.net/2023/11/12/bZ4omvGEiWakn1s.png"
 alt="image-20231112124458950" /></li>
 </ol>
-<h4 id="总结">总结</h4>
+<h4 id="总结-1">总结</h4>
 <ol type="1">
 <li>首先是对数据（类、方法和类之间的关系）的存储，其次是对数据的使用，内存中查找不到，则从Neo4j图数据库中读取</li>
 <li>对规则的存储和读取，包括类规则和方法规则</li>
 </ol>
-<h3 id="section-7">2023-11-04</h3>
+<h3 id="section-8">2023-11-04</h3>
 <h4 id="tabby项目分析">Tabby项目分析</h4>
 <ol type="1">
 <li>本周主要分析的是：项目的<strong>核心模块：</strong>负责收集待分析的文件或依赖库，解析
@@ -758,7 +911,7 @@ Java 代码，生成 Soot 模型，进行污点分析，发现可能存在的漏
 <li><a
 href="https://jf710001011.github.io/2023/10/28/tabby-fen-xi/#toc-heading-6">笔记记录</a></li>
 </ol>
-<h4 id="总结-1">总结</h4>
+<h4 id="总结-2">总结</h4>
 <ol type="1">
 <li><code>Tabby</code> 的设计思路主要有以下几点：
 <ul>
@@ -775,13 +928,13 @@ href="https://jf710001011.github.io/2023/10/28/tabby-fen-xi/#toc-heading-6">笔�
 </ul></li>
 <li>写出这样的项目真的挺难啊：有思路和方法，但是实现出来不容易。</li>
 </ol>
-<h3 id="section-8">2023-10-28</h3>
+<h3 id="section-9">2023-10-28</h3>
 <h4 id="论文1">论文1</h4>
 <ol type="1">
 <li><a
 target="_blank" rel="noopener" href="https://www.infocomm-journal.com/cjnis/CN/10.11959/j.issn.2096-109x.2022009">基于混合分析的Java反序列化利用链挖掘方法</a></li>
 </ol>
-<h5 id="正文">正文</h5>
+<h5 id="正文-1">正文</h5>
 <ol type="1">
 <li>反序列化漏洞三要素：
 <ol type="1">
@@ -805,7 +958,7 @@ Vulnerabilities</a>（<strong>CCF-B</strong>会议：DSN2023）</li>
 <li><a
 href="https://jf710001011.github.io/2023/10/28/tabby-fen-xi/#toc-heading-1">Tabby分析-记录</a></li>
 </ol>
-<h4 id="总结-2">总结</h4>
+<h4 id="总结-3">总结</h4>
 <ol type="1">
 <li>本周主要是开启对唯一一篇CCF-B中的<strong>项目源码进行分析</strong>
 <ol type="1">
@@ -814,7 +967,7 @@ href="https://jf710001011.github.io/2023/10/28/tabby-fen-xi/#toc-heading-1">Tabb
 </ol></li>
 <li>下周结束这个项目分析</li>
 </ol>
-<h3 id="section-9">2023-10-21</h3>
+<h3 id="section-10">2023-10-21</h3>
 <ol type="1">
 <li><a
 href="https://jf710001011.github.io/2023/08/26/java/#toc-heading-30">Java反序列化漏洞底层探究
@@ -828,7 +981,7 @@ alt="image-20231021225016323" />
 <li>经典利用链分析</li>
 </ol></li>
 </ol>
-<h4 id="总结-3">总结</h4>
+<h4 id="总结-4">总结</h4>
 <ol type="1">
 <li>探究底层原理发现了更多漏洞检测的细节问题，主要是针对这些问题去改进</li>
 <li>我的一个<strong>新想法</strong>：一条完整的利用链包括<code>source()-&gt;中间函数--&gt;sink()</code>
@@ -837,13 +990,13 @@ alt="image-20231021225016323" />
 <li>正如1中所述，主要需要考虑从<code>sink向上标记到第几层</code>，总的来说<code>前向和后向分析</code>可以同时进行提高效率</li>
 </ol></li>
 </ol>
-<h3 id="section-10">2023-10-14</h3>
+<h3 id="section-11">2023-10-14</h3>
 <h4 id="论文1-1">论文1</h4>
 <ol type="1">
 <li><code>A Composite Discover Method for Gadget Chains in Java Deserialization Vulnerability</code>（10th
 QuASoQ / 6th SEED@APSEC 2022: Virtual）</li>
 </ol>
-<h5 id="正文-1">正文</h5>
+<h5 id="正文-2">正文</h5>
 <ol type="1">
 <li><p>对基于指纹检测的Java反序列化漏洞检测方法</p>
 <p>Java反序列化过程可能存在安全漏洞,通过构造恶意序列化数据可以实施远程代码执行等攻击。为了检测这种漏洞,可以使用基于指纹的方法。</p>
@@ -867,7 +1020,7 @@ Suite集成。该插件利用Ysoserial生成有效负载，用于对反序列化
 <li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wPbW6zQ52w8">Automated
 Discovery of Deserialization Gadget Chains</a></li>
 </ol>
-<h5 id="正文-2">正文</h5>
+<h5 id="正文-3">正文</h5>
 <ol type="1">
 <li><p><code>ysoserial</code> project and
 <code>Marshalsec</code>:<code>is a similar project which supports a wider breadth of              12 deserialization libraries, but is again a tool which largely includes known gadget chains.</code></p></li>
@@ -922,7 +1075,7 @@ instrumentation.</p></li>
 <li>Class and Method Hierarchy Enumeration</li>
 </ol></li>
 </ol>
-<h4 id="总结-4">总结</h4>
+<h4 id="总结-5">总结</h4>
 <ol type="1">
 <li><p>在查询语言上进行优化使用<code>Codeql</code>:</p>
 <p>CodeQL查询语言是CodeQL用于编写代码分析查询规则的语言,具有以下主要特点:</p>
@@ -956,7 +1109,7 @@ gadget 链的限制，以便更好地检测漏洞。</li>
 <li>重点在设计方法调用图和数据流图上</li>
 </ol></li>
 </ol>
-<h3 id="section-11">2023-10-07</h3>
+<h3 id="section-12">2023-10-07</h3>
 <h4 id="java反射">Java反射</h4>
 <ol type="1">
 <li><a
@@ -979,7 +1132,7 @@ Analysis</a>（计算机网络<strong>CCF-B</strong>:31st IWQoS 2023）</p>
 <p>Java.</p></li>
 </ol></li>
 </ol>
-<h5 id="正文-3">正文</h5>
+<h5 id="正文-4">正文</h5>
 <ol type="1">
 <li><p><code>JNDI（Java Naming and Directory Interface）</code>注入是一种安全漏洞，通常出现在Java应用程序中，特别是那些使用JNDI来连接和管理命名和目录服务的应用程序中。JNDI是Java中用于访问命名和目录服务的API，允许应用程序查找和访问各种资源，如数据库连接、消息队列等。</p>
 <p>JNDI注入<code>发生在</code>攻击者能够控制或影响JNDI查找的输入时。攻击者可以通过恶意构造的JNDI名称或URL，迫使应用程序加载和执行不安全的类或代码。这可能导致严重的安全问题，包括远程代码执行、信息泄露或拒绝服务攻击。</p>
@@ -1032,7 +1185,7 @@ Analysis</a>（计算机网络<strong>CCF-B</strong>:31st IWQoS 2023）</p>
 <li><p><code>JRE7u21</code> deserialization vulnerability.</p></li>
 <li><p>那些不会推断本地变量和参数类型的常规静态分析工具会错误地将这样具有不正确参数的反射视为可控制的反射，从而产生许多错误结果</p></li>
 </ol>
-<h4 id="总结-5">总结</h4>
+<h4 id="总结-6">总结</h4>
 <ol type="1">
 <li><p><code>JAVA反射</code>
 拓宽了我的思路，能够发现更多的安全问题和提供了更多改进优化的思路</p></li>
@@ -1052,7 +1205,7 @@ sources）和一个成员数据流表格。这个表格用于保存在执行过�
 </ol></li>
 <li><p>另一方面在研究一些静态分析工具的<code>源码</code></p></li>
 </ol>
-<h3 id="section-12">2023-09-30</h3>
+<h3 id="section-13">2023-09-30</h3>
 <h4 id="论文信息">论文信息</h4>
 <ol type="1">
 <li><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/10202660">Tabby:
@@ -1061,7 +1214,7 @@ Vulnerabilities</a>（<strong>CCF-B</strong>会议：DSN2023）<img
 src="https://s2.loli.net/2023/09/30/7pMQi4mDtWCb5P8.png"
 alt="image-20230930164833918" /></li>
 </ol>
-<h4 id="正文-4">正文</h4>
+<h4 id="正文-5">正文</h4>
 <h5 id="background">background</h5>
 <ol type="1">
 <li><p>Existing state-of-the-art analysis tools (e.g.,
@@ -1105,7 +1258,7 @@ code into graph nodes and edges and storing the results in Neo4j.</li>
 <li>we developed a <code>controllability analysis algorithm</code>
 (detailed in §III-C) to help construct the CPG.</li>
 </ol>
-<h4 id="总结-6">总结</h4>
+<h4 id="总结-7">总结</h4>
 <ol type="1">
 <li><p>一图总结Tabby工作流程<img
 src="https://s2.loli.net/2023/10/01/WroAZShb8iF9R5X.png"
@@ -1128,7 +1281,7 @@ alt="image-20231001151759302" /></p></li>
 <li><p>在soot（一个非常知名的开源静态分析工具）的基础上，使用三个算法结合实现了java反序列化的<code>利用链</code>查询</p></li>
 </ol></li>
 </ol>
-<h3 id="section-13">2023-09-23</h3>
+<h3 id="section-14">2023-09-23</h3>
 <h4 id="记录">记录</h4>
 <ol type="1">
 <li><a
@@ -1140,7 +1293,7 @@ alt="image-20230923215625766" />
 <li>非上下文敏感</li>
 </ol></li>
 </ol>
-<h3 id="section-14">2023-09-16</h3>
+<h3 id="section-15">2023-09-16</h3>
 <h4 id="笔记记录">笔记记录</h4>
 <ol type="1">
 <li><a
@@ -1154,14 +1307,14 @@ href="https://jf710001011.github.io/2023/08/26/java/#toc-heading-28">Java
 src="https://s2.loli.net/2023/09/16/Bgz5Al1CnUH6XWe.png"
 alt="image-20230916204511941" /></li>
 </ol>
-<h4 id="总结-7">总结</h4>
+<h4 id="总结-8">总结</h4>
 <ol type="1">
 <li>lab实现了三个算法<img
 src="https://s2.loli.net/2023/09/16/UN7dHkaKs3tLgwp.png"
 alt="image-20230916204617878" /></li>
 <li>Java语法巩固</li>
 </ol>
-<h3 id="section-15">2023-09-09</h3>
+<h3 id="section-16">2023-09-09</h3>
 <ol type="1">
 <li><a
 href="https://jf710001011.github.io/2023/08/26/java/#toc-heading-26">Java
@@ -1172,7 +1325,7 @@ alt="image-20230909175945385" /></li>
 href="https://jf710001011.github.io/2023/08/26/lab-static-analysis/#toc-heading-8">lab-死代码检测</a><img
 src="https://s2.loli.net/2023/09/09/wrn9tUIgCNHJxSP.png" /></li>
 </ol>
-<h3 id="section-16">2023-09-02</h3>
+<h3 id="section-17">2023-09-02</h3>
 <ol type="1">
 <li>Java<a
 href="https://jf710001011.github.io/2023/08/26/java/#toc-heading-5">关键字学习</a></li>
@@ -1180,17 +1333,17 @@ href="https://jf710001011.github.io/2023/08/26/java/#toc-heading-5">关键字学
 href="https://jf710001011.github.io/2023/08/26/lab-static-analysis/#toc-heading-5">lab-常量传播和
 Worklist 求解器</a></li>
 </ol>
-<h3 id="section-17">2023-08-26</h3>
+<h3 id="section-18">2023-08-26</h3>
 <ol type="1">
 <li><a
 href="https://jf710001011.github.io/2023/08/26/lab-static-analysis/">实验过程简单记录</a></li>
 </ol>
-<h4 id="总结-8">总结</h4>
+<h4 id="总结-9">总结</h4>
 <ol type="1">
 <li>进行这些实验，一方面是回顾以往的分析方法，将这些分析技术串联起来；另一方面，静态分析的难点之一也是算法的实现，最终的研究结果都需要用代码实现</li>
 <li>两周内结束这些实验后，尝试应用于分析反序列化漏洞</li>
 </ol>
-<h3 id="section-18">2023-08-19</h3>
+<h3 id="section-19">2023-08-19</h3>
 <h4 id="论文1-3">论文1</h4>
 <ol type="1">
 <li><a
@@ -1200,7 +1353,7 @@ Discovery of Deserialization Gadget Chains</a>
 Engineer, Netflix）</li>
 </ol>
 <hr />
-<h4 id="正文-5">正文</h4>
+<h4 id="正文-6">正文</h4>
 <ol type="1">
 <li>即使在从“<code>readObject()</code>”方法返回之前，反序列化库也会自动调用<code>魔术方法</code>。</li>
 <li><code>ysoserial</code> 工具不能发现新的利用链</li>
@@ -1236,7 +1389,7 @@ src="https://s2.loli.net/2023/08/19/vO7x2QLpFA3yih1.png"
 alt="image-20230819212728240" /></li>
 </ol></li>
 </ol>
-<h4 id="总结-9">总结</h4>
+<h4 id="总结-10">总结</h4>
 <ol type="1">
 <li>通过黑帽大会那篇论文了解了现存工具是如何就检测gadget
 chain的，但目前大部分工具都是只能检测已经发现的工具利用链</li>
@@ -1245,7 +1398,7 @@ chain的，但目前大部分工具都是只能检测已经发现的工具利用
 src="https://s2.loli.net/2023/08/19/GRIq68XMKLveDgw.png"
 alt="image-20230819212534334" /></li>
 </ol>
-<h3 id="section-19">2023-08-12</h3>
+<h3 id="section-20">2023-08-12</h3>
 <h4 id="论文1-4">论文1</h4>
 <ol type="1">
 <li><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/10172888">Improving
@@ -1456,7 +1609,7 @@ core-&gt;sink.</li>
 <li>使用小工具检查器的<code>符号执行</code>来获得每个方法的调用关系。这些调用关系组成了调用关系图，这个调用关系图被存储为
 &lt; <code>call，callee array &gt;</code> 的集合</li>
 </ol>
-<h4 id="总结-10">总结</h4>
+<h4 id="总结-11">总结</h4>
 <ol type="1">
 <li><strong>论文1总结</strong>：
 <ol type="1">
@@ -1484,8 +1637,8 @@ chain的有效性</li>
 <li>没有足够多的论文品读，换个思路可以从<strong>工具源码</strong>、<strong>博客文章</strong>入手</li>
 <li>作者在结论中提到:java反序列化漏洞在工业届造成了严重危害，但是学术界关注不多：<code>Java deserialization vulnerability receives little attention in the academic community despite its severe impact in practice.</code></li>
 </ol>
-<h3 id="section-20">2023-08-15</h3>
-<h4 id="论文">论文</h4>
+<h3 id="section-21">2023-08-15</h3>
+<h4 id="论文-1">论文</h4>
 <ol type="1">
 <li><a target="_blank" rel="noopener" href="https://dl.acm.org/doi/10.1145/3554732">An In-depth Study
 of <strong>Java Deserialization Remote-Code Execution</strong> Exploits
@@ -1534,7 +1687,7 @@ CVE，这些CVE涉及Java应用程序中的反序列化漏洞，并得出结论�
 <li><p>基于<code>CodeQL</code>等框架的自动化安全分析技术</p></li>
 <li></li>
 </ol>
-<h4 id="总结-11">总结</h4>
+<h4 id="总结-12">总结</h4>
 <ol type="1">
 <li>需要阅读两方面的论文，也可以说是研究的思路：
 <ol type="1">
@@ -1542,7 +1695,7 @@ CVE，这些CVE涉及Java应用程序中的反序列化漏洞，并得出结论�
 <li>研究反序列化，深入了解反序列化漏洞的特点，针对该特点，去设计相应的检测框架（一种新的检测方法）</li>
 </ol></li>
 </ol>
-<h3 id="section-21">2023-07-29</h3>
+<h3 id="section-22">2023-07-29</h3>
 <h4 id="学习内容">学习内容</h4>
 <ul>
 <li><a
@@ -1553,7 +1706,7 @@ oracle漏洞原理</a></li>
 <li><a
 href="https://jf710001011.github.io/2023/03/06/portswigger/#toc-heading-37">认证漏洞原理</a></li>
 </ul>
-<h4 id="总结-12">总结</h4>
+<h4 id="总结-13">总结</h4>
 <h5 id="静态分析">静态分析：</h5>
 <ul>
 <li><p>学习了<strong>数据流分析</strong></p>
@@ -1603,7 +1756,7 @@ href="https://jf710001011.github.io/2023/03/06/portswigger/#toc-heading-37">认�
 <li>构建相关的对象图、方法调用图、污点分析适合检测此种类型漏洞</li>
 </ul></li>
 </ul>
-<h3 id="section-22">2023-07-22</h3>
+<h3 id="section-23">2023-07-22</h3>
 <ul>
 <li><a
 href="https://jf710001011.github.io/2023/06/08/static-program-analysis/#toc-heading-38">静态分析：课程08（Pointer
@@ -1615,7 +1768,7 @@ scripting(XSS)</a></li>
 src="https://s2.loli.net/2023/07/22/PUSbpEzxl1sy8MN.png"
 alt="image-20230722173813445" /></li>
 </ul>
-<h3 id="section-23">2023-07-15</h3>
+<h3 id="section-24">2023-07-15</h3>
 <ul>
 <li><a
 href="https://jf710001011.github.io/2023/06/08/static-program-analysis/#toc-heading-33">静态分析：foundation2
@@ -1624,7 +1777,7 @@ href="https://jf710001011.github.io/2023/06/08/static-program-analysis/#toc-head
 href="https://jf710001011.github.io/2023/03/06/portswigger/#toc-heading-2">漏洞：sql
 injection</a></li>
 </ul>
-<h3 id="section-24">2023-07-08</h3>
+<h3 id="section-25">2023-07-08</h3>
 <ul>
 <li><a
 href="https://jf710001011.github.io/2023/06/08/static-program-analysis/#toc-heading-21">静态分析-Data
@@ -1632,7 +1785,7 @@ Flow Analysis - Foundations I</a></li>
 <li><a
 href="https://jf710001011.github.io/2023/03/06/portswigger/#toc-heading-33">漏洞分析-结束Java反序列化漏洞</a></li>
 </ul>
-<h5 id="总结-13">总结</h5>
+<h5 id="总结-14">总结</h5>
 <ul>
 <li>这周的静态分析<strong>理论性</strong>很强，很多新概念，找到我在读论文时候的那个感觉了，论文正是以这种形式对漏洞检测建模</li>
 <li><strong>反序列化漏洞</strong>由于本身的漏洞特性，非常符合我研究的静态分析技术特点，即需要分析源码。
@@ -1648,27 +1801,27 @@ alt="image-20230708203433921" /></li>
 </ul></li>
 <li><strong>下周</strong>：检索静态分析反序列化漏洞相关论文。</li>
 </ul>
-<h3 id="section-25">2023-07-01</h3>
+<h3 id="section-26">2023-07-01</h3>
 <ul>
 <li><a
 href="https://jf710001011.github.io/2023/06/08/static-program-analysis/#toc-heading-15">学习了静态分析-数据流分析</a></li>
 </ul>
-<h4 id="总结-14">总结</h4>
+<h4 id="总结-15">总结</h4>
 <ul>
 <li>数据流分析主要涉及程序的变量和表达式</li>
 </ul>
-<h3 id="section-26">2023-06-24</h3>
+<h3 id="section-27">2023-06-24</h3>
 <ul>
 <li><a
 href="https://jf710001011.github.io/2023/06/08/static-program-analysis/#toc-heading-5">学习了静态分析-中间表示</a></li>
 <li><a
 href="https://jf710001011.github.io/2023/03/06/portswigger/#toc-heading-27">学习了反序列化漏洞</a></li>
 </ul>
-<h4 id="总结-15">总结</h4>
+<h4 id="总结-16">总结</h4>
 <ul>
 <li>静态分析以及前沿漏洞的学习将持续一段时间，争取一个月内结束</li>
 </ul>
-<h3 id="section-27">2023-06-09</h3>
+<h3 id="section-28">2023-06-09</h3>
 <ul>
 <li><a
 target="_blank" rel="noopener" href="https://dblp.uni-trier.de/search?q=Static%20Analysis%20%20Vulnerabilities">静态分析&amp;漏洞
@@ -1681,7 +1834,7 @@ target="_blank" rel="noopener" href="https://www.usenix.org/conference/14th-usen
 Security Vulnerabilities in Java Applications with Static Analysis</a>
 <strong>CCF-A:</strong>USENIX Security Symposium 2005</li>
 </ul>
-<h4 id="正文-6">正文</h4>
+<h4 id="正文-7">正文</h4>
 <ul>
 <li><p>字节码（Bytecode）是一种中间代码形式，它是在程序源代码经过编译但尚未被执行时生成的。字节码通常与特定的虚拟机（如Java虚拟机）相关联，它们是一种可被虚拟机解释或即时编译执行的指令集。字节码的好处之一是它具有跨平台的特性，因为不同的虚拟机可以解释执行相同的字节码。</p>
 <p>在Java中，源代码首先经过编译器编译成字节码文件（以.class为扩展名），然后由Java虚拟机加载和执行这些字节码文件。字节码是一种中间形式，它包含了程序的指令、常量池、字段、方法等信息。通过解释或即时编译，Java虚拟机将字节码转换为机器码，并执行相应的操作。</p></li>
@@ -1690,13 +1843,13 @@ Security Vulnerabilities in Java Applications with Static Analysis</a>
 <li><p>静态安全违规检测：论文提出了使用PQL（Program Query
 Language）来描述安全漏洞模式的方法。PQL是一种程序查询语言，通过声明变量、定义匹配模式和指定返回结果，可以方便地表达与程序执行相关的动态事件序列。</p></li>
 </ul>
-<h4 id="总结-16">总结</h4>
+<h4 id="总结-17">总结</h4>
 <h5 id="论文总结">论文总结</h5>
 <p>作者的方法基于可扩展且精确的指针分析。指针分析是一种确定从给定对象可以访问到的对象集合的技术。这些信息可以用于发现安全漏洞，如SQL注入和跨站脚本攻击。</p>
 <p>作者的方法使用上下文敏感的指针分析。这意味着分析考虑了变量的使用上下文。例如，如果一个变量在已知包含用户输入的上下文中使用，那么分析将考虑从该变量可以访问到的所有对象，即使这些对象不是直接从该变量可达的。</p>
 <p>作者还使用了一种称为改进对象命名的技术。这种技术通过给对象赋予更有意义的名称来减少误报数量。例如，如果一个对象用于存储用户输入，那么该对象将被赋予反映这一事实的名称。这有助于分析区分可能包含用户输入的对象和不包含用户输入的对象</p>
-<h3 id="section-28">2023-06-02</h3>
-<h4 id="论文-1">论文</h4>
+<h3 id="section-29">2023-06-02</h3>
+<h4 id="论文-2">论文</h4>
 <h5 id="开篇">开篇</h5>
 <ul>
 <li><p><strong>论文信息</strong></p>
@@ -1707,7 +1860,7 @@ Taint-style Vulnerability</a>: <strong>CCF-A</strong>会议：IEEE S&amp;P
 2023</p></li>
 <li><p><strong>keywords</strong></p></li>
 </ul>
-<h5 id="正文-7">正文</h5>
+<h5 id="正文-8">正文</h5>
 <ul>
 <li><p>源点和汇点是软件程序中与数据流相关的概念。</p>
 <p><code>源点</code>（source）是指程序中产生数据流的起点或来源。它可以是用户输入、传感器数据、文件读取等。源点提供了数据流的初始值或输入，它是数据流的生成者。</p>
@@ -1829,7 +1982,7 @@ touch exploit
 <li><p><strong>可扩展性</strong>是指系统能够有效地处理大规模代码和复杂性的能力。在软件漏洞检测中，可扩展性是一项重要的挑战，因为现实世界中的代码规模庞大且复杂</p></li>
 <li><p>提取控制流和数据流约束以供<code>约束求解器</code>使用</p></li>
 </ul>
-<h4 id="总结-17">总结</h4>
+<h4 id="总结-18">总结</h4>
 <ul>
 <li><p><strong>论文总结</strong>：</p>
 <p>本文是一篇关于使用<strong>FAST</strong>（一种用于检测和利用Node.js污点风格漏洞的两阶段抽象解释方法）的论文。文章介绍了FAST的<strong>两个阶段</strong>：bottom-up
@@ -1842,7 +1995,7 @@ interpretation，并详细描述了它们如何优化抽象解释过程以提高
 <ul>
 <li>太难，留着以后回看</li>
 </ul>
-<h3 id="section-29">2023-05-19</h3>
+<h3 id="section-30">2023-05-19</h3>
 <h4 id="学习笔记和漏洞研究记录">学习笔记和漏洞研究记录</h4>
 <ul>
 <li><p><a
@@ -1881,12 +2034,12 @@ href="https://jf710001011.github.io/2023/03/06/portswigger/">漏洞研究</a></s
 </ul></li>
 </ul></li>
 </ul>
-<h4 id="总结-18">总结</h4>
+<h4 id="总结-19">总结</h4>
 <ul>
 <li>最近都是以实验、实践的形式在研究发现漏洞的手法：主要是使用<strong>国外安全团队的Lab研究博客</strong>作为学习资料</li>
 <li>学习过程中对其中的<strong>关键应用程序代码</strong>和<strong>注入的恶意代码</strong>进行了细致学习，学习了漏洞原理和发掘漏洞的思路。</li>
 </ul>
-<h3 id="section-30">2023-05-12</h3>
+<h3 id="section-31">2023-05-12</h3>
 <h4 id="我的学习笔记">我的学习笔记</h4>
 <ul>
 <li><a
@@ -1894,7 +2047,7 @@ href="https://jf710001011.github.io/2023/05/02/javascript/">Web开发与JavaScri
 <li><a
 href="https://jf710001011.github.io/2023/03/06/portswigger/">漏洞的学习</a></li>
 </ul>
-<h3 id="section-31">2023-05-05</h3>
+<h3 id="section-32">2023-05-05</h3>
 <h4 id="paper">paper</h4>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://dl.acm.org/doi/10.1145/3468264.3468542">Detecting
@@ -1902,7 +2055,7 @@ Node.js prototype pollution vulnerabilities via object lookup
 analysis</a>(<strong>CCF-A</strong>:ESEC/SIGSOFT FSE 2021)</li>
 <li><strong>Author</strong>:Song Li</li>
 </ul>
-<h4 id="正文-8">正文</h4>
+<h4 id="正文-9">正文</h4>
 <ul>
 <li><p>源对象和汇对象是在数据流分析中常用的两个术语。</p>
 <p><strong>源对象</strong>是数据流分析中的输入，也就是程序中已经存在的数据，可以被使用或传递到其他地方。例如，一个函数的参数或者全局变量。</p>
@@ -2024,7 +2177,7 @@ v12.16.2、v10.19.0和v8.17.0版本中，Node.js官方已发布安全更新，�
 </ol>
 <p>以上特性也是使得JS<strong>出现各种漏洞的原因</strong></p></li>
 </ul>
-<h4 id="总结-19">总结</h4>
+<h4 id="总结-20">总结</h4>
 <ul>
 <li><p><strong>文献总结</strong></p>
 <ul>
@@ -2057,7 +2210,7 @@ Li前两篇文献整体框架如出一辙，但是我是<strong>逆着</strong>�
 <p>三篇文献的<strong>框架</strong>都类似：提出一种数据结构（分析程序的方法），做出基于此方法的自动化工具（系统框架）。评估标准也是类似。</p>
 <p>我感觉第二篇是最难读懂的，这一篇也还是有挺多疑问的地方</p></li>
 </ul>
-<h3 id="section-32">2023-04-28</h3>
+<h3 id="section-33">2023-04-28</h3>
 <h4 id="paper信息">paper信息</h4>
 <ul>
 <li><p><a
@@ -2070,7 +2223,7 @@ One Million Real-world Websites</a>(<strong>CCF-A</strong>会议：NDSS
 <p>Joint Taint Flow Analysis</p>
 <p>Dynamic Taint Analysis</p></li>
 </ul>
-<h4 id="正文-9">正文</h4>
+<h4 id="正文-10">正文</h4>
 <ul>
 <li><p>从<strong>title</strong>上看注意到，作者这次研究的客户端上的<code>JS</code></p></li>
 <li><p><strong>原型污染</strong>的出处：文献[6]</p></li>
@@ -2281,7 +2434,7 @@ function）是指在程序中，可以接收并处理来自外部输入的数据
 <li>在信息安全领域，<strong>源和汇</strong>（source和sink）是两个重要的概念。源是指可以产生潜在危害的安全威胁的输入数据，而汇是指在程序执行过程中可以被攻击者利用的漏洞点，攻击者可以将恶意数据输入到汇中来触发漏洞。通常情况下，源和汇之间存在一条或多条数据流路径，攻击者可以通过控制源的数据流来达到攻击汇的目的。</li>
 <li>PROBETHEPROTO系统通过<strong>两种方式生成属性输入</strong>：sink-based和lookup-based</li>
 </ul>
-<h4 id="总结-20">总结：</h4>
+<h4 id="总结-21">总结：</h4>
 <ul>
 <li><p><strong>文献总结</strong></p>
 <p>本文的研究背景是<strong>客户端原型污染漏洞</strong>。这是一种相对较新的JavaScript漏洞类型，可能导致跨站脚本攻击（XSS）和cookie篡改等安全问题。在过去的几年中，已经有一些研究关注这个问题，但大多数都是基于手动分析或小规模实验室测试。</p></li>
@@ -2298,7 +2451,7 @@ li</strong></p>
 <li>本文的创新点基于的<strong>背景</strong>很简单：就是没有前人客户端原型污染上进行大规模的实证研究,因此该研究开创了这一领域的先河；而node.js那篇是基于前人的漏洞检测模型检测漏洞单一、且误报率较高的背景下</li>
 </ol></li>
 </ul>
-<h3 id="section-33">2023-04-21</h3>
+<h3 id="section-34">2023-04-21</h3>
 <h4 id="paper-1">Paper</h4>
 <ul>
 <li><p><strong>Paper信息</strong></p>
@@ -2311,7 +2464,7 @@ Vulnerabilities</a>(<strong>CCF-A</strong>会议：NDSS 2023)</p></li>
 <p>Vulnerbility Dection</p>
 <p>Fuzzing</p></li>
 </ul>
-<h4 id="正文-10">正文</h4>
+<h4 id="正文-11">正文</h4>
 <ul>
 <li><p><strong>之前的研究存在的问题</strong>：<code>Previous work on discovering software faults in JavaScript engines found many vulnerabilities, often using fuzz testing. Unfortunately, these fuzzing approaches are not designed to generate source code that actually triggers JIT semantics.</code></p></li>
 <li><p><strong>chrome浏览器沙箱逃逸</strong></p>
@@ -2439,7 +2592,7 @@ API，而这就为攻击者制造了可乘之机。通过在代码中加入断�
 <li></li>
 </ol></li>
 </ul>
-<h3 id="section-34">2023-04-14</h3>
+<h3 id="section-35">2023-04-14</h3>
 <h4 id="paper1">Paper1</h4>
 <ul>
 <li><p><strong>paper信息：</strong></p>
@@ -2504,7 +2657,7 @@ words）或向量。在自然语言处理任务中，标记化是非常关键的
 <p>选择何种粒度级别取决于具体的应用场景和目标，不同的级别有其优缺点。例如，行级检测可以找到最细粒度的漏洞，但可能会产生较高的误报率；文件级检测可以提供更全面的检测结果，但可能会忽略一些局部漏洞；包级检测可以快速检测大量代码，但可能会产生较多的漏洞遗漏。因此，在实际应用中需要根据具体情况进行选择和权衡。</p></li>
 </ul></li>
 </ul>
-<h4 id="总结-21">总结</h4>
+<h4 id="总结-22">总结</h4>
 <ul>
 <li><p><strong>一图总结全文</strong><img
 src="https://s2.loli.net/2023/04/15/5C4tyFpMDhT1PqO.png"
@@ -2521,7 +2674,7 @@ alt="image-20230415015912950" /></p>
 </ol></li>
 <li><p>总的来说：给我的感觉恰恰是没有引入任何神经网络模型的paper更加难以阅读。</p></li>
 </ul>
-<h3 id="section-35">2023-04-07</h3>
+<h3 id="section-36">2023-04-07</h3>
 <h4 id="paper1-1">Paper1</h4>
 <p><a
 target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S0167404822004072?via%3Dihub">MFXSS:
@@ -2637,7 +2790,7 @@ CBOW）和跳跃式模型（Skip-gram）。CBOW
 <p>在机器学习中，readout是指从神经网络的隐藏状态中提取输出的过程。在图神经网络中，readout通常是一个将所有节点或边的隐藏状态聚合成一个图级别表示的函数。例如，可以使用加和或平均值来获得整个图的表示。readout是图神经网络中的一个重要组件，它通常用于将节点和边的表示组合成整个图的表示，以便进行图级别的分类或回归任务。</p></li>
 </ul></li>
 </ul>
-<h4 id="总结-22">总结</h4>
+<h4 id="总结-23">总结</h4>
 <ul>
 <li><p>本文与上周阅读paper有较多联系：同样研究的是JavaScript代码的漏洞</p>
 <p><strong>区别在于：</strong></p>
@@ -2658,7 +2811,7 @@ alt="image-20230407204812757" /></p>
 <li><p>本文所做的研究工作，引入了神经网络以及NLP技术，正是我之前计划研究的一部分内容，非常贴近我的研究工作。</p></li>
 </ul></li>
 </ul>
-<h3 id="section-36">2023-03-31</h3>
+<h3 id="section-37">2023-03-31</h3>
 <h4 id="程序设计">程序设计</h4>
 <ul>
 <li>AST: 例如程序
@@ -2798,7 +2951,7 @@ SQL
 <code>mysql</code> 模块的 <code>mysql.escape()</code> 函数来转义 SQL
 查询中的特殊字符。</p></li>
 </ul>
-<h4 id="总结-23">总结</h4>
+<h4 id="总结-24">总结</h4>
 <ul>
 <li>关于<strong>代码分析方法设计的图结构</strong>总结
 <ul>
@@ -2818,7 +2971,7 @@ SQL
 <li>我对本文的理解就是：在前人做出的基于图的代码分析方法基础上，针对JavaScript这种语言的特性（主要是原型链），提出了对对象（面向对象编程中的一种数据类型，在这种语言中，函数也是对象）建模的一种方法并将前几种图结构结合，作者定义为ODG。</li>
 </ol></li>
 </ul>
-<h3 id="section-37">2023-03-24</h3>
+<h3 id="section-38">2023-03-24</h3>
 <h4 id="期刊">期刊</h4>
 <blockquote>
 <ul>
@@ -2961,7 +3114,7 @@ alt="image-20230325005007803" />
 ：现已被推广到恶意代码的检测和安全应用，但是在漏洞检测上还很少</li>
 </ul></li>
 </ul>
-<h4 id="总结-24">总结</h4>
+<h4 id="总结-25">总结</h4>
 <ul>
 <li><p><strong>阅读论文后的总结：</strong></p>
 <p>对于文中涉及的<strong>重要概念与技术方法</strong>都查阅了资料进行学习和理解，以上是记录的全过程，以下是其中的一些收获：</p>
@@ -2983,7 +3136,7 @@ alt="image-20230325005007803" />
 ：上周学习了两篇论文，其中一篇是<strong>二进制程序</strong>的漏洞挖掘，另一篇是<strong>web应用</strong>的漏洞挖掘</p>
 <p>通过检索发现现在的主要研究集中在二进制程序上，因此我打算<strong>另辟蹊径</strong>，更多地探索在web应用上的漏洞挖掘</p></li>
 </ul>
-<h3 id="section-38">2023-03-17</h3>
+<h3 id="section-39">2023-03-17</h3>
 <h4 id="关于一些期刊的了解">关于一些期刊的了解</h4>
 <blockquote>
 <ul>
@@ -3210,7 +3363,7 @@ Plan）：指攻击者的攻击执行计划，包括攻击的目标、方法和�
 </ul></li>
 </ul>
 <h4 id="总结见本地文档">总结：见本地文档</h4>
-<h3 id="section-39">2023-03-10</h3>
+<h3 id="section-40">2023-03-10</h3>
 <h4 id="论文学习">论文学习</h4>
 <h5 id="论文1-9">论文1</h5>
 <blockquote>
@@ -3547,7 +3700,7 @@ alt="image-20230311015415990" /></p>
 </ul></li>
 </ul></li>
 </ul>
-<h4 id="总结-25">总结</h4>
+<h4 id="总结-26">总结</h4>
 <ul>
 <li><p>发现<a
 target="_blank" rel="noopener" href="https://dblp.uni-trier.de/">dblp</a>这个数据库挺好用的（感觉几乎都是计算机领域的文章）</p>
@@ -3657,13 +3810,13 @@ alt="Malware&amp;Adversary" /></p></li>
 <li>我感觉，只要熟悉了整个流程，并且有了一定的知识储备，就能提出很多问题。</li>
 </ul></li>
 </ul>
-<h3 id="section-40">2023-03-03</h3>
+<h3 id="section-41">2023-03-03</h3>
 <h4 id="machine-learning-学习">Machine learning 学习</h4>
 <ul>
 <li><a
 href="https://jf710001011.github.io/2023/03/04/ml07/">学习记录</a></li>
 </ul>
-<h4 id="总结-26">总结</h4>
+<h4 id="总结-27">总结</h4>
 <ul>
 <li><p>问题：</p>
 <ul>
@@ -3691,7 +3844,7 @@ alt="image-20230304025037998" /></p></li>
 </ul></li>
 <li><p>另一方面自己确实想在人工智能、安全的前沿领域有更多的了解，应该会对自己<strong>以后的职业</strong>（从事web应用和软件的恶意代码）有更多影响。</p></li>
 </ul>
-<h3 id="section-41">2023-02-17</h3>
+<h3 id="section-42">2023-02-17</h3>
 <h4 id="机器学习">机器学习</h4>
 <ul>
 <li><a
@@ -3728,13 +3881,13 @@ example of the selected out- put class</li>
 系统下的恶意软件，因此对于二进制文件的操作需要很了解。因此说基于的背景也是关键的一环。</p></li>
 </ul></li>
 </ul>
-<h4 id="总结-27">总结</h4>
+<h4 id="总结-28">总结</h4>
 <ul>
 <li>本周仍然是学习了机器学习，主要学习了特征缩放和特征工程，以及新的模型：逻辑回归</li>
 <li>在阅读论文上，经过一些沉淀，对论文的理解是更深刻，所以逐渐的会去想摸清作者的思路，去做这些步骤的原因</li>
 <li>但是还是基于专业知识不够，无法对文中的内容提出问题或者自己的见解。</li>
 </ul>
-<h3 id="section-42">2023-02-10</h3>
+<h3 id="section-43">2023-02-10</h3>
 <h4 id="机器学习-1">机器学习</h4>
 <ul>
 <li><a
@@ -3747,7 +3900,7 @@ target="_blank" rel="noopener" href="https://liuhaihuaaacc.gitee.io/2023/02/11/m
 <li><a
 target="_blank" rel="noopener" href="https://liuhaihuaaacc.gitee.io/2023/02/09/the-pentester-blueprint/">学习记录</a></li>
 </ul>
-<h4 id="总结-28">总结</h4>
+<h4 id="总结-29">总结</h4>
 <ul>
 <li>问题：因为本周还想再完成一些内容，因此迟发了一点汇报</li>
 <li>收获：
@@ -3768,7 +3921,7 @@ notebook环境使用不熟，在执行代码的时候出现很多报错，折腾
 </ul></li>
 </ul></li>
 </ul>
-<h3 id="section-43">2023-02-03</h3>
+<h3 id="section-44">2023-02-03</h3>
 <h4 id="maching-learning的学习">maching learning的学习</h4>
 <ul>
 <li><a
@@ -3779,7 +3932,7 @@ target="_blank" rel="noopener" href="https://liuhaihuaaacc.gitee.io/2022/12/03/m
 <li><a
 target="_blank" rel="noopener" href="https://liuhaihuaaacc.gitee.io/2022/12/20/web-dvwa/">笔记记录</a></li>
 </ul>
-<h4 id="总结-29">总结</h4>
+<h4 id="总结-30">总结</h4>
 <ul>
 <li><p>收获：</p>
 <ul>
@@ -3807,7 +3960,7 @@ alt="image-20230203192945805" />
 learning学习，<strong>开始学习多特征的模型</strong></li>
 </ul></li>
 </ul>
-<h3 id="section-44">2023-01-19</h3>
+<h3 id="section-45">2023-01-19</h3>
 <p><a
 target="_blank" rel="noopener" href="https://www.researchgate.net/publication/269935591_Explaining_and_Harnessing_Adversarial_Examples">Explaining
 and Harnessing Adversarial
@@ -3855,7 +4008,7 @@ WEIGHT</strong> 这一节有点难读懂：涉及正则化知识</li>
 <li>因此，线性因素在对抗样本的泛化中占主要因素</li>
 </ul></li>
 </ul>
-<h4 id="总结-30">总结</h4>
+<h4 id="总结-31">总结</h4>
 <ul>
 <li>本周，在学习深度学习知识的基础上，分析了实验与相应实验结论的对应。
 <ul>
@@ -3867,7 +4020,7 @@ target="_blank" rel="noopener" href="https://blog.csdn.net/WangHY_XCJ/article/de
 </ul></li>
 </ul></li>
 </ul>
-<h3 id="section-45">2023-01-13</h3>
+<h3 id="section-46">2023-01-13</h3>
 <h4 id="论文学习-2">论文学习</h4>
 <p><a
 target="_blank" rel="noopener" href="https://www.researchgate.net/publication/269935591_Explaining_and_Harnessing_Adversarial_Examples">Explaining
@@ -3943,7 +4096,7 @@ softmax 回归用于多分类</p></li>
 <li>作者基于对抗样本对模型的影响是由于模型线性，发现了一种对抗样本更为快速的生成方式</li>
 </ul></li>
 </ul>
-<h4 id="总结-31">总结</h4>
+<h4 id="总结-32">总结</h4>
 <ul>
 <li>本周继续阅读上周的论文，主要的任务仍然是对文中所涉及的概念、算法进行学习。这些已经积累的差不多了。</li>
 <li>下周目标：要想清楚知道作者是如何论证他所提出的观点的、以及作者为何要做那些实验操作。还必须学习相关的概率统计知识。
@@ -3955,7 +4108,7 @@ softmax 回归用于多分类</p></li>
 </ul></li>
 <li>这篇论文的价值意义之一：突破机器学习的相关障碍，以便在以后论文阅读中能够把更多精力花在作者思路上。</li>
 </ul>
-<h3 id="section-46">2023-01-06</h3>
+<h3 id="section-47">2023-01-06</h3>
 <ul>
 <li>置信度
 <ul>
@@ -4002,7 +4155,7 @@ and Harnessing Adversarial Examples</a>（ICLR
 <li>RBF网络：RBF作为激活函数的神经网络</li>
 </ul></li>
 </ul>
-<h4 id="总结-32">总结</h4>
+<h4 id="总结-33">总结</h4>
 <ul>
 <li>这篇论文是上周学习论文的一篇背景论文，与之前论文一样都探讨了改进生成对抗样本的方法，但是这篇论文与之前的论文有很大<strong>不同</strong>。
 <ul>
@@ -4025,7 +4178,7 @@ and Harnessing Adversarial Examples</a>（ICLR
 <li>继续阅读本文，感觉熟悉这篇论文之后收获会很大。</li>
 </ul></li>
 </ul>
-<h3 id="section-47">2022-12-30</h3>
+<h3 id="section-48">2022-12-30</h3>
 <p><strong>相关记录</strong> ：2022-12-09、2022-10-28</p>
 <p><a
 target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S0167404822001572#bib0028">Adversarial
@@ -4125,7 +4278,7 @@ target="_blank" rel="noopener" href="https://liuhaihuaaacc.gitee.io/2022/12/17/w
 <li><a
 target="_blank" rel="noopener" href="https://liuhaihuaaacc.gitee.io/2022/12/20/web-upload-labs/">文件上传漏洞实验</a></li>
 </ul>
-<h4 id="总结-33">总结</h4>
+<h4 id="总结-34">总结</h4>
 <ul>
 <li><strong>收获</strong>
 <ul>
@@ -4157,7 +4310,7 @@ Confusions in Android Apps</a></li>
 </ul></li>
 </ul></li>
 </ul>
-<h3 id="section-48">2022-12-09</h3>
+<h3 id="section-49">2022-12-09</h3>
 <h4 id="论文再学习">论文再学习</h4>
 <p>​ <a
 target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S0167404822001572#bib0028">Adversarial
@@ -4206,7 +4359,7 @@ detector</a>（2）</p>
 <li>在多种情况下进行实验，并与前人的实验研究进行对比，以谋求改进</li>
 </ul></li>
 </ul>
-<h4 id="总结-34">总结</h4>
+<h4 id="总结-35">总结</h4>
 <ul>
 <li><strong>收获</strong>：
 <ul>
@@ -4220,7 +4373,7 @@ detector</a>（2）</p>
 <li>目前感觉收获还是不多。，需要继续对文献的细节深入，这一过程应该需要积累。</li>
 </ul></li>
 </ul>
-<h3 id="section-49">2022-12-02</h3>
+<h3 id="section-50">2022-12-02</h3>
 <h4 id="博文相关学习">博文相关学习</h4>
 <ul>
 <li><strong>网络安全博文</strong>
@@ -4246,7 +4399,7 @@ target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/column/
 <li><a
 target="_blank" rel="noopener" href="https://liuhaihuaaacc.gitee.io/2022/12/03/ml03/">传送门</a>（记录学习过程</li>
 </ul>
-<h4 id="总结-35">总结</h4>
+<h4 id="总结-36">总结</h4>
 <ul>
 <li>查了挺多资料、看了一些博文，然后自身针对论文中的许多细节，首先问题在于对于机器学习技术的掌握，因此接下来的学习都会以<strong>机器学习</strong>作为重点。</li>
 <li>在之前的阅读论文中，对于机器学习技术的了解，都是比较零碎的，系统学习这块知识是当务之急。</li>
@@ -4257,7 +4410,7 @@ target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/artic
 malware sample generation method based on the prototype of deep learning
 detector</a></li>
 </ul>
-<h3 id="section-50">2022-11-25</h3>
+<h3 id="section-51">2022-11-25</h3>
 <h4 id="论文学习-5">论文学习</h4>
 <p><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/9833659">Transcending
 TRANSCEND: Revisiting Malware Classification in the Presence of Concept
@@ -4291,7 +4444,7 @@ theory</strong>。</p></li>
 <li><p><em>conformal evaluator</em></p></li>
 <li><p>本文通过对TRANSDENCE</p></li>
 </ul>
-<h3 id="section-51">2022-11-18</h3>
+<h3 id="section-52">2022-11-18</h3>
 <h4 id="论文学习-6">论文学习</h4>
 <p><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/9484718">DL-FHMC: Deep
 Learning-Based Fine-Grained Hierarchical Learning Approach for Robust
@@ -4317,7 +4470,7 @@ Malware Classification</a>（TDSC-2022）</p>
 </ul></li>
 <li>DL-SSMC系统的设计与评估</li>
 </ul>
-<h4 id="总结-36">总结</h4>
+<h4 id="总结-37">总结</h4>
 <ul>
 <li><strong>收获:</strong>
 <ul>
@@ -4350,7 +4503,7 @@ works</strong>)</li>
 <li>感觉也需要适当看点中文的文献解乏。</li>
 </ul></li>
 </ul>
-<h3 id="section-52">2022-11-11</h3>
+<h3 id="section-53">2022-11-11</h3>
 <h4 id="论文学习-7">论文学习</h4>
 <p><a
 target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=malware%20malicious&amp;highlight=true&amp;returnFacets=ALL&amp;returnType=SEARCH&amp;matchPubs=true&amp;refinementName=Publication%20Title&amp;refinements=PublicationTitle:IEEE%20Transactions%20on%20Information%20Forensics%20and%20Security&amp;refinements=PublicationTitle:IEEE%20Transactions%20on%20Dependable%20and%20Secure%20Computing">在TIFS和TDSC上的恶意代码检测相关文章检索</a></p>
@@ -4436,7 +4589,7 @@ Detection</a>（TDSC-2022，作者来自浙大）</p>
 <li><strong>图形表示学习技术</strong>的利用</li>
 <li><strong>最后：</strong>本文所研究的是一个检测系统，提出了使用代码片段去取代整个代码来识别恶意软件、使用图表示学习技术。技术含量十足，吃力读完整篇后仍然有非常多的疑问，同时也学习到了更多先进前沿技术方法。</li>
 </ul>
-<h4 id="总结-37">总结</h4>
+<h4 id="总结-38">总结</h4>
 <ul>
 <li><strong>收获：</strong>
 <ul>
@@ -4455,7 +4608,7 @@ Detection</a>（TDSC-2022，作者来自浙大）</p>
 <li>针对以上问题：或许我觉得我需要更系统地学习研究方法、研究思路、实验方法。</li>
 </ul></li>
 </ul>
-<h3 id="section-53">2022-11-04</h3>
+<h3 id="section-54">2022-11-04</h3>
 <h4 id="论文学习-8">论文学习</h4>
 <p><a
 target="_blank" rel="noopener" href="https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CDFD&amp;dbname=CDFDLAST2022&amp;filename=1020405886.nh&amp;uniplatform=NZKPT&amp;v=xjiG-vadnpzkvu94KN5K6owyE63keKSbdc119t_5nEfUR2a8ZsLu8ytcab9C2gM2">对抗样本技术在恶意软件检测和自动驾驶应用中的研究</a>（湖大-博士论文）</p>
@@ -4490,7 +4643,7 @@ alt="image-20221104100213942" />
 </ul></li>
 <li>如何利用对抗样本技术来提高<strong>恶意软件的检测效率与检测精度</strong>，是目前该领域值得进一步研究的问题</li>
 </ul>
-<h4 id="总结-38">总结</h4>
+<h4 id="总结-39">总结</h4>
 <ul>
 <li><strong>问题和思考</strong>：
 <ul>
@@ -4513,7 +4666,7 @@ alt="image-20221104152820692" />
 <li>注意到<strong>对抗样本的生成</strong>也是一个值得研究的点</li>
 <li>关于该领域的研究可以从对对抗样本的<strong>攻击或防御</strong>方面继续深挖，结合上周已经总结出的近10种攻击或防御手段</li>
 </ul>
-<h3 id="section-54">2022-10-28</h3>
+<h3 id="section-55">2022-10-28</h3>
 <h4 id="论文学习-9">论文学习</h4>
 <p><a
 target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S0167404822001572">Adversarial
@@ -4602,7 +4755,7 @@ target="_blank" rel="noopener" href="https://baidinghub.github.io/2020/04/03/%E5
 <li>存在性</li>
 </ul></li>
 </ul>
-<h4 id="总结-39">总结</h4>
+<h4 id="总结-40">总结</h4>
 <p><strong>问题：</strong></p>
 <ul>
 <li>本周<strong>结课科目</strong>较多，需要完成多篇小论文，科研时间有限。</li>
@@ -4624,7 +4777,7 @@ target="_blank" rel="noopener" href="https://baidinghub.github.io/2020/04/03/%E5
 <li>关于对抗样本的研究还需要花更多时间</li>
 <li>关于<strong>对抗样本</strong>与<strong>恶意代码检测</strong>这两者如何结合的问题需要解决</li>
 </ul>
-<h3 id="section-55">2022-10-21</h3>
+<h3 id="section-56">2022-10-21</h3>
 <h4 id="关于研究背景的补充">关于研究背景的补充</h4>
 <p><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/8949524">A
 Comprehensive Review on Malware Detection Approaches</a>（IEEE
@@ -4770,7 +4923,7 @@ target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/86794447">一�
 <li><a
 target="_blank" rel="noopener" href="https://liuhaihuaaacc.gitee.io/2022/10/12/pma03-lab1/">恶意代码分析实验1传送门</a></li>
 </ul>
-<h4 id="总结-40">总结</h4>
+<h4 id="总结-41">总结</h4>
 <ul>
 <li><p><strong>问题</strong></p>
 <ul>
@@ -4792,7 +4945,7 @@ target="_blank" rel="noopener" href="https://liuhaihuaaacc.gitee.io/2022/10/12/p
 <li>其中，尤其是再深入了解<strong>对抗样本</strong>这块内容</li>
 </ul></li>
 </ul>
-<h3 id="section-56">2022-10-14</h3>
+<h3 id="section-57">2022-10-14</h3>
 <h4 id="研究背景调查">研究背景调查</h4>
 <ul>
 <li>随着互联网快速发展，恶意代码数量也呈爆发式增长。2020年瑞星“云安全”系统共截获病毒样本总量1.48亿，病毒感染次数3.52亿次，恶意代码已经成为网络安全的<strong>重要威胁</strong>之一。</li>
@@ -4806,7 +4959,7 @@ target="_blank" rel="noopener" href="https://liuhaihuaaacc.gitee.io/2022/10/12/p
 <li>在利用<strong>深度学习</strong>模型检测恶意代码方面，因为深度学习算法，无需像机器学习通过特征工程提取特征。深度学习算法网络，可以自动提取输入数据的特征。因此许多学者利用深度学习迷行对恶意代码进行检测，极大简化了训练过程，但是深度学习模型在对抗场景下其存在抗攻击能力较差问题</li>
 <li>但是学习模型本身存在安全性问题，模型的有效性，取决于训练数据和测试数据遵循相同的分布假设，这种假设很可能遭到攻击者的破坏，损坏模型的安全性。攻击者在输入样本上施加微小的扰动便能被迫使分类模型作出错误的预测，这种方式称为<strong>对抗样本攻击</strong>。在恶意代码领域，攻击者利用模型的不足，生成恶意代码样本，达到绕过恶意代码检测器的目的。</li>
 </ul>
-<h3 id="section-57">2022-10-07</h3>
+<h3 id="section-58">2022-10-07</h3>
 <h4 id="如何开展科研-1">如何开展科研</h4>
 <ul>
 <li><strong>本质：</strong>发现问题、分析问题、解决问题</li>
@@ -4880,11 +5033,11 @@ target="_blank" rel="noopener" href="https://liuhaihuaaacc.gitee.io/2022/10/08/p
 <li><a
 target="_blank" rel="noopener" href="https://liuhaihuaaacc.gitee.io/2022/10/08/ml02/">传送门</a></li>
 </ul>
-<h4 id="总结-41">总结</h4>
+<h4 id="总结-42">总结</h4>
 <ul>
 <li>积累，厚积才能薄发</li>
 </ul>
-<h3 id="section-58">2022-09-30</h3>
+<h3 id="section-59">2022-09-30</h3>
 <h4
 id="补充为什么选择恶意代码分析与检测这个方向">补充：为什么选择恶意代码分析与检测这个方向</h4>
 <ul>
@@ -4926,7 +5079,7 @@ target="_blank" rel="noopener" href="https://liuhaihuaaacc.gitee.io/2022/09/26/p
 <li><a
 target="_blank" rel="noopener" href="https://liuhaihuaaacc.gitee.io/2022/10/01/machine-learning00/">传送门</a></li>
 </ul>
-<h4 id="总结-42">总结</h4>
+<h4 id="总结-43">总结</h4>
 <ul>
 <li><p><strong>问题：</strong>这段时间，由于课堂上等各种大作业、ppt演讲的出现，以及刚入门这个较为未知的领域，因此研究方向上进展缓慢。</p></li>
 <li><p><strong>未来计划：</strong>继续以上三项的学习。</p></li>
@@ -4936,7 +5089,7 @@ target="_blank" rel="noopener" href="https://liuhaihuaaacc.gitee.io/2022/10/01/m
 <li>阅读英文顶级期刊的能力提升一个档次</li>
 </ul></li>
 </ul>
-<h3 id="section-59">2022-09-06</h3>
+<h3 id="section-60">2022-09-06</h3>
 <h4 id="ai-security">AI security</h4>
 <ul>
 <li><p>AI for Security</p></li>
@@ -5730,7 +5883,7 @@ id="网络流量分析高性能网络报文处理数据分析">网络流量分�
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2023</span>
+                <span id="year">2023-2024</span>
             
             <span id="year">2023</span>
             <a href="/about" target="_blank">Jf71o0x1o1l</a>
@@ -5739,7 +5892,7 @@ id="网络流量分析高性能网络报文处理数据分析">网络流量分�
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">235.9k</span>&nbsp;字
+                class="white-color">236.9k</span>&nbsp;字
             
             
             

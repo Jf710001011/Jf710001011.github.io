@@ -477,14 +477,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2023-05-07
+                    2024-01-10
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    927
+                    981
                 </div>
                 
 
@@ -509,7 +509,25 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><strong>NOTICE</strong>!</p>
+                <h3 id="additional-explanation">Additional explanation</h3>
+<h4 id="section">2024-01-10</h4>
+<ol type="1">
+<li>本篇博客从此以<code>Kali-Linux</code>为例介绍相关内容</li>
+</ol>
+<h3 id="subfinder">Subfinder</h3>
+<ol type="1">
+<li><p>install</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash">go <span class="token function">install</span> <span class="token parameter variable">-v</span> github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest</code></pre></li>
+<li><p>position<img
+src="https://raw.githubusercontent.com/Jf710001011/pictureBed/main/img/image-20240110071917112.png"
+alt="image-20240110071917112" /></p></li>
+<li><p>export environment varible</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">echo</span> <span class="token builtin class-name">export</span> <span class="token environment constant">$PATH</span><span class="token operator">=</span><span class="token environment constant">$PATH</span><span class="token builtin class-name">:</span><span class="token environment constant">$HOME</span>/go/bin <span class="token operator">>></span> <span class="token variable">$home</span>/.bashrc
+<span class="token builtin class-name">source</span> <span class="token variable">$home</span>/.bashrc</code></pre></li>
+<li><p><code>subfinder -h</code> is effective<img
+src="https://raw.githubusercontent.com/Jf710001011/pictureBed/main/img/image-20240110092739880.png"
+alt="image-20240110092739880" /></p></li>
+</ol>
 <h3
 id="环境基础vmware下的-ubuntu-18.04.6-lts系统环境中">环境基础：vmware下的
 Ubuntu 18.04.6 LTS系统环境中</h3>
@@ -542,7 +560,7 @@ deb-src https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;ubuntu&#x2F; bionic-proposed 
 <pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt-get</span> update
 <span class="token function">sudo</span> <span class="token function">apt-get</span> upgrade
 <span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> build-essential</code></pre>
-<h2 id="共享文件夹">共享文件夹</h2>
+<h3 id="共享文件夹">共享文件夹</h3>
 <blockquote>
 <p>文件夹下为空？solution below</p>
 </blockquote>
@@ -554,7 +572,7 @@ deb-src https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;ubuntu&#x2F; bionic-proposed 
 <span class="token function">vi</span> /etc/fstab
 
 // 注意前面加 **点**
-.host:/ /mnt/hgfs fuse.vmhgfs-fuse allow_other,defaults <span class="token number">0</span> <span class="token number">0</span></code></pre> ## vim</p></li>
+.host:/ /mnt/hgfs fuse.vmhgfs-fuse allow_other,defaults <span class="token number">0</span> <span class="token number">0</span></code></pre> ### vim</p></li>
 <li><p>最新版本vim8.2安装</p></li>
 </ul>
 <pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> <span class="token function">git</span>
@@ -584,7 +602,7 @@ deb-src https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;ubuntu&#x2F; bionic-proposed 
 <blockquote>
 <p><strong>指定范围替换</strong>：:`:6,18s/gcc/$(CC)/</p>
 </blockquote>
-<h2 id="linux命令">linux命令</h2>
+<h3 id="linux命令">linux命令</h3>
 <blockquote>
 <p>训练网站：<a
 target="_blank" rel="noopener" href="https://www.lanqiao.cn/courses/68/learning/?id=393"
@@ -614,11 +632,11 @@ class="uri">https://www.lanqiao.cn/courses/68/learning/?id=393</a></p>
 <blockquote>
 <p>行首：<strong>ctrl + a</strong> 行尾：<strong>ctrl + b</strong></p>
 </blockquote>
-<h2 id="xshell-远程连接虚拟机">xshell 远程连接虚拟机</h2>
+<h3 id="xshell-远程连接虚拟机">xshell 远程连接虚拟机</h3>
 <ul>
 <li>linux中要先有ssh服务</li>
 </ul>
-<h2 id="科学上网-终端设置代理">科学上网 终端设置代理</h2>
+<h3 id="科学上网-终端设置代理">科学上网 终端设置代理</h3>
 <ol type="1">
 <li><code>clash-for-windows</code>在kali中的使用</li>
 </ol>
@@ -709,7 +727,7 @@ src="https://cdn.jsdelivr.net/gh/liuhaihuaAACC/pictureBed/img/202208192135162.pn
 alt="image-20220819213501105" />
 <figcaption aria-hidden="true">image-20220819213501105</figcaption>
 </figure>
-<h2 id="vmware-ubuntu系统-相关">vmware &amp;&amp; ubuntu系统 相关</h2>
+<h3 id="vmware-ubuntu系统-相关">vmware &amp;&amp; ubuntu系统 相关</h3>
 <ul>
 <li>一次系统升级失败后的忏悔</li>
 </ul>
@@ -762,7 +780,7 @@ alt="image-20220819202900794" />
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">liuhaihuaAACC</a>
+                    <a href="/about" rel="external nofollow noreferrer">Jf71o0x1o1l</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -785,7 +803,7 @@ alt="image-20220819202900794" />
                     All articles in this blog are used except for special statements
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     reprint polocy. If reproduced, please indicate source
-                    <a href="/about" target="_blank">liuhaihuaAACC</a>
+                    <a href="/about" target="_blank">Jf71o0x1o1l</a>
                     !
                 </span>
             </div>
@@ -1351,7 +1369,7 @@ alt="image-20220819202900794" />
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">237.4k</span>&nbsp;字
+                class="white-color">237.5k</span>&nbsp;字
             
             
             

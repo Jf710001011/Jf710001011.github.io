@@ -6,7 +6,7 @@
   <link href="https://jf710001011.github.io/atom.xml" rel="self"/>
   
   <link href="https://jf710001011.github.io/"/>
-  <updated>2023-12-13T13:16:41.308Z</updated>
+  <updated>2024-01-11T00:11:24.433Z</updated>
   <id>https://jf710001011.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Kali-Linux</title>
+    <link href="https://jf710001011.github.io/2024/01/11/kali-linux/"/>
+    <id>https://jf710001011.github.io/2024/01/11/kali-linux/</id>
+    <published>2024-01-10T21:43:49.278Z</published>
+    <updated>2024-01-11T00:11:24.433Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;linux-command&quot;&gt;Linux command&lt;/h3&gt;
+&lt;ol type=&quot;1&quot;&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;find&lt;/code&gt;&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="OS" scheme="https://jf710001011.github.io/categories/OS/"/>
+    
+    
+    <category term="Tools" scheme="https://jf710001011.github.io/tags/Tools/"/>
+    
+  </entry>
   
   <entry>
     <title>Matrix Theory</title>
@@ -533,33 +561,6 @@ payloads, one by one, into one or</summary>
     
     
     <category term="Extension &amp; Script" scheme="https://jf710001011.github.io/tags/Extension-Script/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>101CTF</title>
-    <link href="https://jf710001011.github.io/2023/12/09/101-ctf/"/>
-    <id>https://jf710001011.github.io/2023/12/09/101-ctf/</id>
-    <published>2023-12-09T11:25:06.521Z</published>
-    <updated>2023-08-07T19:40:36.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;a-little-something-to-get-you-started&quot;&gt;A little something to get
-you started&lt;/h3&gt;
-&lt;ol</summary>
-        
-      
-    
-    
-    
-    <category term="Cybersecurity" scheme="https://jf710001011.github.io/categories/Cybersecurity/"/>
-    
-    
-    <category term="CTF" scheme="https://jf710001011.github.io/tags/CTF/"/>
     
   </entry>
   

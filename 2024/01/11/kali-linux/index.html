@@ -477,14 +477,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2024-01-11
+                    2024-01-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    720
+                    213
                 </div>
                 
 
@@ -556,34 +556,6 @@ time</strong>. The configuration file uses the YAML format.</li>
 src="https://raw.githubusercontent.com/Jf710001011/pictureBed/main/img/image-20240111055146274.png"
 alt="image-20240111055146274" /></li>
 </ol></li>
-<li><p>usage</p>
-<ol type="1">
-<li><p><strong>Pipe Results to Other Tools</strong></p>
-<p>The subdomains discovered can be piped to other tools. For example,
-you can pipe the discovered subdomains to httpx which will then find
-<strong>running HTTP servers on the host</strong>.</p>
-<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">echo</span> tinder.com<span class="token operator">|</span>subfinder -silent<span class="token operator">|</span>httpx <span class="token parameter variable">-silent</span>  
-
-<span class="token comment">#command explanaton:Silent mode suppresses most output and progress information, making it less noisy in the terminal.</span>
-
-<span class="token comment">#result</span>
-https://emoji.tinder.com
-https://matchmaker.tinder.com
-https://invite.tinder.com
-https://lite.tinder.com
-https://policies.tinder.com
-https://open.tinder.com
-https://tech.tinder.com
-https://swipenight.tinder.com
-https://www.help.tinder.com
-https://party.tinder.com
-https://www.tinder.com
-https://polls.tinder.com
-https://staging.tinder.com
-http://go.tinder.com
-https://www.swipenight.tinder.com</code></pre></li>
-<li></li>
-</ol></li>
 </ol>
 <h3 id="httpx">Httpx</h3>
 <ol type="1">
@@ -601,66 +573,7 @@ alt="image-20240111062539217" /></p>
 src="https://s2.loli.net/2024/01/11/SmoqGDJTg5HvKuM.png"
 alt="image-20240111062630911" /></li>
 </ol></li>
-<li><p>URL Probe: This will run the tool against all the hosts and
-subdomains in <code>hosts.txt</code> and returns URLs running HTTP
-webserver.</p>
-<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">cat</span> hosts.txt <span class="token operator">|</span> httpx </code></pre></li>
-<li><p>xx</p>
-<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">cat</span> live_subdomains.txt<span class="token operator">|</span>httpx <span class="token parameter variable">-title</span> -status-code                                                     
-
-    __    __  __       _  __
-   / /_  / /_/ /_____ <span class="token operator">|</span> <span class="token operator">|</span>/ /
-  / __ <span class="token punctuation">\</span>/ __/ __/ __ <span class="token punctuation">\</span><span class="token operator">|</span>   /
- / / / / /_/ /_/ /_/ /   <span class="token operator">|</span>
-/_/ /_/<span class="token punctuation">\</span>__/<span class="token punctuation">\</span>__/ .___/_/<span class="token operator">|</span>_<span class="token operator">|</span>
-             /_/
-
-                projectdiscovery.io
-
-https://blog.gotinder.com <span class="token punctuation">[</span><span class="token number">301</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-https://api.gotinder.com <span class="token punctuation">[</span><span class="token number">404</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-https://api.a.as1.gotinder.com <span class="token punctuation">[</span><span class="token number">503</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token number">503</span> Service Temporarily Unavailable<span class="token punctuation">]</span>
-https://keepalive.a.as1.gotinder.com <span class="token punctuation">[</span><span class="token number">503</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token number">503</span> Service Temporarily Unavailable<span class="token punctuation">]</span>
-https://keepalive.as1.gotinder.com <span class="token punctuation">[</span><span class="token number">503</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token number">503</span> Service Temporarily Unavailable<span class="token punctuation">]</span>
-https://keepalive.b.as1.gotinder.com <span class="token punctuation">[</span><span class="token number">503</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token number">503</span> Service Temporarily Unavailable<span class="token punctuation">]</span>
-https://pagp.gotinder.com <span class="token punctuation">[</span><span class="token number">200</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-https://data.gotinder.com <span class="token punctuation">[</span><span class="token number">404</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-https://assets-ssl.gotinder.com <span class="token punctuation">[</span><span class="token number">403</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-https://api-ue1az.gotinder.com <span class="token punctuation">[</span><span class="token number">404</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-https://api-traffic.as1.gotinder.com <span class="token punctuation">[</span><span class="token number">404</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-https://api.a.ue1az.gotinder.com <span class="token punctuation">[</span><span class="token number">404</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-https://gp.gotinder.com <span class="token punctuation">[</span><span class="token number">200</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-https://api-mr.as1.gotinder.com <span class="token punctuation">[</span><span class="token number">404</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-https://api-trafficsplit.as1.gotinder.com <span class="token punctuation">[</span><span class="token number">404</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-https://api.ue1az.gotinder.com <span class="token punctuation">[</span><span class="token number">404</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-https://imageupload-cloudfront.gotinder.com <span class="token punctuation">[</span><span class="token number">404</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-https://api-cloudfront.gotinder.com <span class="token punctuation">[</span><span class="token number">404</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-https://api-traffic.gotinder.com <span class="token punctuation">[</span><span class="token number">404</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-https://api.c.ue1az.gotinder.com <span class="token punctuation">[</span><span class="token number">404</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-https://marketing-images.gotinder.com <span class="token punctuation">[</span><span class="token number">403</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-https://api-geo.gotinder.com <span class="token punctuation">[</span><span class="token number">404</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-https://account.gotinder.com <span class="token punctuation">[</span><span class="token number">200</span><span class="token punctuation">]</span> <span class="token punctuation">[</span>Tinder Portal<span class="token punctuation">]</span>
-https://polls.a.ue1az.gotinder.com <span class="token punctuation">[</span><span class="token number">404</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-https://polls.c.ue1az.gotinder.com <span class="token punctuation">[</span><span class="token number">404</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-https://polls.b.ue1az.gotinder.com <span class="token punctuation">[</span><span class="token number">404</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-https://datarequests.gotinder.com <span class="token punctuation">[</span><span class="token number">200</span><span class="token punctuation">]</span> <span class="token punctuation">[</span>Tinder Portal<span class="token punctuation">]</span>
-https://images-ssl.gotinder.com <span class="token punctuation">[</span><span class="token number">403</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-http://api-cloudfront-failover.gotinder.com <span class="token punctuation">[</span><span class="token number">403</span><span class="token punctuation">]</span> <span class="token punctuation">[</span>ERROR: The request could not be satisfied<span class="token punctuation">]</span>
-http://preview-spain.gotinder.com <span class="token punctuation">[</span><span class="token number">403</span><span class="token punctuation">]</span> <span class="token punctuation">[</span>ERROR: The request could not be satisfied<span class="token punctuation">]</span>
-https://story-assets.gotinder.com <span class="token punctuation">[</span><span class="token number">403</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-https://tech.gotinder.com <span class="token punctuation">[</span><span class="token number">302</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-https://preview.gotinder.com <span class="token punctuation">[</span><span class="token number">403</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-https://rapidfireingestionpxy.svc.a.ue1az.gotinder.com <span class="token punctuation">[</span><span class="token number">404</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-https://rapidfireingestionpxy.svc.b.ue1az.gotinder.com <span class="token punctuation">[</span><span class="token number">404</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-https://rapidfireingestionpxy.ue1az.gotinder.com <span class="token punctuation">[</span><span class="token number">404</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-https://api.b.as1.gotinder.com <span class="token punctuation">[</span><span class="token number">503</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token number">503</span> Service Temporarily Unavailable<span class="token punctuation">]</span>
-https://keepalive.c.as1.gotinder.com <span class="token punctuation">[</span><span class="token number">503</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token number">503</span> Service Temporarily Unavailable<span class="token punctuation">]</span>
-https://reports.gotinder.com <span class="token punctuation">[</span><span class="token number">403</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token number">403</span> Forbidden<span class="token punctuation">]</span>
-https://summary.gotinder.com <span class="token punctuation">[</span><span class="token number">403</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token number">403</span> Forbidden<span class="token punctuation">]</span>
-https://tspdemo.gotinder.com <span class="token punctuation">[</span><span class="token number">404</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-https://sp.gotinder.com <span class="token punctuation">[</span><span class="token number">404</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-https://console.gotinder.com <span class="token punctuation">[</span><span class="token number">200</span><span class="token punctuation">]</span> <span class="token punctuation">[</span>Keeping the magic of human connection alive<span class="token punctuation">]</span>
-https://rapidfirepublishpxy.svc.b.ue1az.gotinder.com <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token number">500</span> Internal Server Error<span class="token punctuation">]</span></code></pre></li>
+<li></li>
 </ol>
 
                 
@@ -1265,7 +1178,7 @@ https://rapidfirepublishpxy.svc.b.ue1az.gotinder.com <span class="token punctuat
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">238.2k</span>&nbsp;字
+                class="white-color">237.6k</span>&nbsp;字
             
             
             

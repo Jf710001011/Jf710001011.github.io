@@ -6,7 +6,7 @@
   <link href="https://jf710001011.github.io/atom.xml" rel="self"/>
   
   <link href="https://jf710001011.github.io/"/>
-  <updated>2024-01-13T03:28:53.454Z</updated>
+  <updated>2024-01-13T14:49:39.717Z</updated>
   <id>https://jf710001011.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java:BlackHorse</title>
+    <link href="https://jf710001011.github.io/2024/01/13/java-blackhorse/"/>
+    <id>https://jf710001011.github.io/2024/01/13/java-blackhorse/</id>
+    <published>2024-01-13T12:40:48.724Z</published>
+    <updated>2024-01-13T14:49:39.717Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;hello-wordld&quot;&gt;Hello Wordld&lt;/h3&gt;
+&lt;ol type=&quot;1&quot;&gt;
+&lt;li&gt;&lt;p&gt;you use &lt;code&gt;javac&lt;/code&gt; from the command line to compile your
+Java</summary>
+        
+      
+    
+    
+    
+    <category term="Program design" scheme="https://jf710001011.github.io/categories/Program-design/"/>
+    
+    
+    <category term="Java" scheme="https://jf710001011.github.io/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>Kali-Linux</title>
@@ -399,11 +427,11 @@ of tools</summary>
   </entry>
   
   <entry>
-    <title>Java</title>
-    <link href="https://jf710001011.github.io/2023/12/09/java/"/>
-    <id>https://jf710001011.github.io/2023/12/09/java/</id>
+    <title>Java(erge）</title>
+    <link href="https://jf710001011.github.io/2023/12/09/java-erge/"/>
+    <id>https://jf710001011.github.io/2023/12/09/java-erge/</id>
     <published>2023-12-09T11:25:06.853Z</published>
-    <updated>2024-01-13T03:28:53.454Z</updated>
+    <updated>2024-01-13T12:40:36.124Z</updated>
     
     
       
@@ -536,31 +564,6 @@ payloads, one by one, into one or</summary>
     <category term="BurpSuite" scheme="https://jf710001011.github.io/tags/BurpSuite/"/>
     
     <category term="Web" scheme="https://jf710001011.github.io/tags/Web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Browser Extension&amp;Script</title>
-    <link href="https://jf710001011.github.io/2023/12/09/browser-extension-script/"/>
-    <id>https://jf710001011.github.io/2023/12/09/browser-extension-script/</id>
-    <published>2023-12-09T11:25:06.569Z</published>
-    <updated>2024-01-13T03:28:53.496Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;session-buddy&quot;&gt;Session</summary>
-        
-      
-    
-    
-    
-    <category term="Tools" scheme="https://jf710001011.github.io/categories/Tools/"/>
-    
-    
-    <category term="Extension &amp; Script" scheme="https://jf710001011.github.io/tags/Extension-Script/"/>
     
   </entry>
   

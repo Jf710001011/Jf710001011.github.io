@@ -29,6 +29,33 @@
     
     
     <entry>
+      <title>Java pratice exercise on Hyperskill</title>
+      <link href="/2024/01/13/hyperskill/"/>
+      <url>/2024/01/13/hyperskill/</url>
+      
+        <content type="html"><![CDATA[<h3 id="reading-users-input-with-scanner">Reading user's input withScanner</h3><ol type="1"><li><p><code>scanner.next()</code> read a single word</p></li><li><p>Code</p><pre class="language-java" data-language="java"><code class="language-java"><span class="token comment">// import</span><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Scanner</span></span><span class="token punctuation">;</span><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token punctuation">&#123;</span>    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>        <span class="token class-name">Scanner</span> input <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Scanner</span><span class="token punctuation">(</span><span class="token class-name">System</span><span class="token punctuation">.</span>in<span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Please, enter your name: "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment">// read</span>        <span class="token class-name">String</span> name <span class="token operator">=</span> input<span class="token punctuation">.</span><span class="token function">nextLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Hello, "</span> <span class="token operator">+</span> name <span class="token operator">+</span> <span class="token string">". Nice to meet you!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment">// close</span>        input<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span></code></pre></li><li><p><strong>Sample Input:</strong></p><pre class="language-no-highlight" data-language="no-highlight"><code class="language-no-highlight">HelloJavaFuture programmer</code></pre><p><strong>Sample Output:</strong></p><pre class="language-no-highlight" data-language="no-highlight"><code class="language-no-highlight">HelloJavaFutureprogrammer</code></pre><pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Scanner</span></span><span class="token punctuation">;</span><span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token punctuation">&#123;</span>    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>        <span class="token class-name">Scanner</span> scanner <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Scanner</span><span class="token punctuation">(</span><span class="token class-name">System</span><span class="token punctuation">.</span>in<span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment">// start coding here</span>        <span class="token keyword">while</span> <span class="token punctuation">(</span>scanner<span class="token punctuation">.</span><span class="token function">hasNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>scanner<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token punctuation">&#125;</span>    <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span></code></pre></li></ol><h3 id="data-types-and-their-sizes">Data types and their sizes</h3><ol type="1"><li><code>long</code>: 8 bytes</li><li></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Program design </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> Lab </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Kali-Linux</title>
       <link href="/2024/01/11/kali-linux/"/>
       <url>/2024/01/11/kali-linux/</url>

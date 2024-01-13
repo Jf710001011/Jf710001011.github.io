@@ -484,7 +484,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    13.1k
+                    14k
                 </div>
                 
 
@@ -545,6 +545,250 @@
 <li><strong>测试用例</strong>:
 <ul>
 <li>看AppTests的测试方法</li>
+</ul></li>
+</ol>
+<h3 id="项目结构">项目结构</h3>
+<ol type="1">
+<li><p>Project Tree</p>
+<p>```</p>
+<p>tabby-1.2.0-3</p>
+<p>├─ .github</p>
+<p>│ └─ workflows</p>
+<p>│ ├─ android.yml</p>
+<p>│ ├─ github-action-build-and-release.yml</p>
+<p>│ └─ gradle-publish.yml</p>
+<p>├─ .gitignore</p>
+<p>├─ .history</p>
+<p>│ └─ src</p>
+<p>│ └─ main</p>
+<p>│ └─ java</p>
+<p>│ └─ tabby</p>
+<p>│ └─ core</p>
+<p>│ └─ data</p>
+<p>│ ├─ TabbyValue_20230518020731.java</p>
+<p>│ ├─ TabbyValue_20240106234225.java</p>
+<p>│ ├─ TabbyValue_20240106234227.java</p>
+<p>│ ├─ TabbyValue_20240106234230.java</p>
+<p>│ ├─ TabbyValue_20240106234234.java</p>
+<p>│ ├─ TabbyValue_20240106234239.java</p>
+<p>│ ├─ TabbyValue_20240106234241.java</p>
+<p>│ ├─ TabbyValue_20240106234242.java</p>
+<p>│ ├─ TabbyValue_20240106234243.java</p>
+<p>│ ├─ TabbyValue_20240106234244.java</p>
+<p>│ ├─ TabbyValue_20240106234245.java</p>
+<p>│ ├─ TabbyValue_20240106234247.java</p>
+<p>│ ├─ TabbyValue_20240106234249.java</p>
+<p>│ ├─ TabbyValue_20240106234251.java</p>
+<p>│ ├─ TabbyValue_20240106234252.java</p>
+<p>│ ├─ TabbyValue_20240106234256.java</p>
+<p>│ ├─ TabbyValue_20240106234258.java</p>
+<p>│ ├─ TabbyValue_20240106234259.java</p>
+<p>│ ├─ TabbyValue_20240106234304.java</p>
+<p>│ ├─ TabbyValue_20240106234305.java</p>
+<p>│ ├─ TabbyValue_20240106234307.java</p>
+<p>│ ├─ TabbyValue_20240106234314.java</p>
+<p>│ ├─ TabbyValue_20240106234317.java</p>
+<p>│ ├─ TabbyValue_20240106234319.java</p>
+<p>│ ├─ TabbyValue_20240106234324.java</p>
+<p>│ ├─ TabbyValue_20240106234604.java</p>
+<p>│ ├─ TabbyValue_20240106234607.java</p>
+<p>│ ├─ TabbyValue_20240106234610.java</p>
+<p>│ ├─ TabbyValue_20240106234611.java</p>
+<p>│ ├─ TabbyValue_20240106234612.java</p>
+<p>│ ├─ TabbyValue_20240106234613.java</p>
+<p>│ ├─ TabbyValue_20240106234614.java</p>
+<p>│ ├─ TabbyValue_20240106234615.java</p>
+<p>│ ├─ TabbyValue_20240106234616.java</p>
+<p>│ ├─ TabbyValue_20240106234617.java</p>
+<p>│ ├─ TabbyValue_20240106234619.java</p>
+<p>│ ├─ TabbyValue_20240106234624.java</p>
+<p>│ └─ TabbyValue_20240106234625.java</p>
+<p>├─ config</p>
+<p>│ └─ settings.properties</p>
+<p>├─ doc</p>
+<p>│ ├─ assets</p>
+<p>│ │ ├─ Neo4j</p>
+<p>│ │ │ ├─ image-20230110233453437.jpeg</p>
+<p>│ │ │ ├─ image-20230110233530857.jpeg</p>
+<p>│ │ │ ├─ image-20230110233552632.jpeg</p>
+<p>│ │ │ ├─ image-20230110233659101.jpeg</p>
+<p>│ │ │ ├─ image-20230110233750744.png</p>
+<p>│ │ │ ├─ image-20230110233750745.png</p>
+<p>│ │ │ ├─ image-20230110234134821.png</p>
+<p>│ │ │ └─ image-20230110234810527.png</p>
+<p>│ │ ├─ Neo4j 环境配置</p>
+<p>│ │ │ ├─ image-20230110233453437.jpeg</p>
+<p>│ │ │ ├─ image-20230110233530857.jpeg</p>
+<p>│ │ │ ├─ image-20230110233552632.jpeg</p>
+<p>│ │ │ ├─ image-20230110233659101.jpeg</p>
+<p>│ │ │ └─ image-20230110233750744.png</p>
+<p>│ │ └─ Neo4j 环境配置 V5</p>
+<p>│ │ ├─ image-20230110234134821.png</p>
+<p>│ │ └─ image-20230110234810527.png</p>
+<p>│ ├─ Neo4j 环境配置 V5.md</p>
+<p>│ ├─ Neo4j 环境配置.md</p>
+<p>│ ├─ Tabby 配置文件介绍.md</p>
+<p>│ └─ Tabby 食用指北.md</p>
+<p>├─ env</p>
+<p>│ ├─ apoc-5.4.0-extended.jar</p>
+<p>│ ├─ apoc-5.4.1-core.jar</p>
+<p>│ ├─ conf</p>
+<p>│ │ ├─ apoc.conf</p>
+<p>│ │ └─ neo4j.conf</p>
+<p>│ ├─ docker-compose.yml</p>
+<p>│ ├─ Dockerfile</p>
+<p>│ └─ tabby-path-finder-1.0.jar</p>
+<p>├─ gradle</p>
+<p>│ └─ wrapper</p>
+<p>│ ├─ gradle-wrapper.jar</p>
+<p>│ └─ gradle-wrapper.properties</p>
+<p>├─ gradlew</p>
+<p>├─ gradlew.bat</p>
+<p>├─ LICENSE</p>
+<p>├─ README.md</p>
+<p>├─ README_EN.md</p>
+<p>├─ rules</p>
+<p>│ ├─ basicClasses.json</p>
+<p>│ ├─ commonJars.json</p>
+<p>│ ├─ sinks.json</p>
+<p>│ └─ system.json</p>
+<p>├─ run.sh</p>
+<p>├─ src</p>
+<p>│ ├─ main</p>
+<p>│ │ ├─ java</p>
+<p>│ │ │ └─ tabby</p>
+<p>│ │ │ ├─ App.java</p>
+<p>│ │ │ ├─ config</p>
+<p>│ │ │ │ ├─ AsyncConfiguration.java</p>
+<p>│ │ │ │ ├─ GlobalConfiguration.java</p>
+<p>│ │ │ │ ├─ Neo4jConfiguration.java</p>
+<p>│ │ │ │ └─ SootConfiguration.java</p>
+<p>│ │ │ ├─ core</p>
+<p>│ │ │ │ ├─ Analyser.java</p>
+<p>│ │ │ │ ├─ collector</p>
+<p>│ │ │ │ │ ├─ CallEdgeCollector.java</p>
+<p>│ │ │ │ │ ├─ CallGraphCollector.java</p>
+<p>│ │ │ │ │ ├─ ClassInfoCollector.java</p>
+<p>│ │ │ │ │ └─ FileCollector.java</p>
+<p>│ │ │ │ ├─ container</p>
+<p>│ │ │ │ │ ├─ DataContainer.java</p>
+<p>│ │ │ │ │ └─ RulesContainer.java</p>
+<p>│ │ │ │ ├─ data</p>
+<p>│ │ │ │ │ ├─ Context.java</p>
+<p>│ │ │ │ │ ├─ FileLocation.java</p>
+<p>│ │ │ │ │ ├─ TabbyRule.java</p>
+<p>│ │ │ │ │ ├─ TabbyStatus.java</p>
+<p>│ │ │ │ │ ├─ TabbyValue.java</p>
+<p>│ │ │ │ │ └─ TabbyVariable.java</p>
+<p>│ │ │ │ ├─ model</p>
+<p>│ │ │ │ │ └─ DefaultInvokeModel.java</p>
+<p>│ │ │ │ ├─ scanner</p>
+<p>│ │ │ │ │ ├─ CallGraphScanner.java</p>
+<p>│ │ │ │ │ └─ ClassInfoScanner.java</p>
+<p>│ │ │ │ ├─ switcher</p>
+<p>│ │ │ │ │ ├─ InvokeExprSwitcher.java</p>
+<p>│ │ │ │ │ ├─ stmt</p>
+<p>│ │ │ │ │ │ ├─ SimpleStmtSwitcher.java</p>
+<p>│ │ │ │ │ │ └─ StmtSwitcher.java</p>
+<p>│ │ │ │ │ ├─ Switcher.java</p>
+<p>│ │ │ │ │ └─ value</p>
+<p>│ │ │ │ │ ├─ SimpleLeftValueSwitcher.java</p>
+<p>│ │ │ │ │ ├─ SimpleRightValueSwitcher.java</p>
+<p>│ │ │ │ │ └─ ValueSwitcher.java</p>
+<p>│ │ │ │ └─ toolkit</p>
+<p>│ │ │ │ └─ PollutedVarsPointsToAnalysis.java</p>
+<p>│ │ │ ├─ dal</p>
+<p>│ │ │ │ ├─ caching</p>
+<p>│ │ │ │ │ ├─ bean</p>
+<p>│ │ │ │ │ │ ├─ edge</p>
+<p>│ │ │ │ │ │ │ ├─ Alias.java</p>
+<p>│ │ │ │ │ │ │ ├─ Call.java</p>
+<p>│ │ │ │ │ │ │ ├─ Extend.java</p>
+<p>│ │ │ │ │ │ │ ├─ Has.java</p>
+<p>│ │ │ │ │ │ │ └─ Interfaces.java</p>
+<p>│ │ │ │ │ │ └─ ref</p>
+<p>│ │ │ │ │ │ ├─ ClassReference.java</p>
+<p>│ │ │ │ │ │ └─ MethodReference.java</p>
+<p>│ │ │ │ │ ├─ converter</p>
+<p>│ │ │ │ │ │ ├─ ClassRef2StringConverter.java</p>
+<p>│ │ │ │ │ │ ├─ List2JsonStringConverter.java</p>
+<p>│ │ │ │ │ │ ├─ ListInteger2JsonStringConverter.java</p>
+<p>│ │ │ │ │ │ ├─ Map2JsonStringConverter.java</p>
+<p>│ │ │ │ │ │ ├─ MethodRef2StringConverter.java</p>
+<p>│ │ │ │ │ │ ├─ Set2JsonStringConverter.java</p>
+<p>│ │ │ │ │ │ └─ SetInteger2JsonStringConverter.java</p>
+<p>│ │ │ │ │ ├─ repository</p>
+<p>│ │ │ │ │ │ ├─ AliasEdgeRepository.java</p>
+<p>│ │ │ │ │ │ ├─ CallEdgeRepository.java</p>
+<p>│ │ │ │ │ │ ├─ ClassRepository.java</p>
+<p>│ │ │ │ │ │ ├─ ExtendEdgeRepository.java</p>
+<p>│ │ │ │ │ │ ├─ HasEdgeRepository.java</p>
+<p>│ │ │ │ │ │ ├─ InterfacesEdgeRepository.java</p>
+<p>│ │ │ │ │ │ └─ MethodRepository.java</p>
+<p>│ │ │ │ │ └─ service</p>
+<p>│ │ │ │ │ ├─ ClassRefService.java</p>
+<p>│ │ │ │ │ ├─ MethodRefService.java</p>
+<p>│ │ │ │ │ └─ RelationshipsService.java</p>
+<p>│ │ │ │ └─ neo4j</p>
+<p>│ │ │ │ ├─ entity</p>
+<p>│ │ │ │ │ ├─ ClassEntity.java</p>
+<p>│ │ │ │ │ └─ MethodEntity.java</p>
+<p>│ │ │ │ ├─ repository</p>
+<p>│ │ │ │ │ ├─ ClassRefRepository.java</p>
+<p>│ │ │ │ │ └─ MethodRefRepository.java</p>
+<p>│ │ │ │ └─ service</p>
+<p>│ │ │ │ ├─ ClassService.java</p>
+<p>│ │ │ │ └─ MethodService.java</p>
+<p>│ │ │ ├─ exception</p>
+<p>│ │ │ │ └─ JDKVersionErrorException.java</p>
+<p>│ │ │ └─ util</p>
+<p>│ │ │ ├─ ArgumentEnum.java</p>
+<p>│ │ │ ├─ ClassLoaderUtils.java</p>
+<p>│ │ │ ├─ ClassResourceEnumerator.java</p>
+<p>│ │ │ ├─ FileUtils.java</p>
+<p>│ │ │ ├─ JavaVersion.java</p>
+<p>│ │ │ ├─ JspUtils.java</p>
+<p>│ │ │ ├─ PositionHelper.java</p>
+<p>│ │ │ ├─ SemanticHelper.java</p>
+<p>│ │ │ └─ TickTock.java</p>
+<p>│ │ └─ resources</p>
+<p>│ │ ├─ application.properties</p>
+<p>│ │ └─ banner.txt</p>
+<p>│ └─ test</p>
+<p>│ └─ java</p>
+<p>│ └─ tabby</p>
+<p>│ └─ AppTests.java</p>
+<p>└─ VERSION</p>
+<p>```</p></li>
+<li><p><strong>App.java</strong>: Likely the entry point of the
+application.</p></li>
+<li><p><strong>config</strong> package:</p>
+<ul>
+<li><strong>AsyncConfiguration.java</strong>: Configuration for
+asynchronous operations.</li>
+<li><strong>GlobalConfiguration.java</strong>: Global settings for the
+application.</li>
+<li><strong>Neo4jConfiguration.java</strong>: Settings related to Neo4j,
+a graph database.</li>
+<li><strong>SootConfiguration.java</strong>: Configuration for the Soot
+framework, used for Java and Android program analysis.</li>
+</ul></li>
+<li><p><strong>core</strong> package:</p>
+<ul>
+<li><p><strong>Analyser.java</strong>: The core analysis component of
+the application.</p></li>
+<li><p>collector</p>
+<p>subpackage:</p>
+<ul>
+<li><strong>CallEdgeCollector.java</strong>: Collects call edges in a
+program.</li>
+<li><strong>CallGraphCollector.java</strong>: Gathers data for
+constructing a call graph.</li>
+<li><strong>ClassInfoCollector.java</strong>: Collects information about
+classes in the program.</li>
+<li><strong>FileCollector.java</strong>: Responsible for file-related
+data collection.</li>
+</ul></li>
 </ul></li>
 </ol>
 <h3 id="run.sh">run.sh</h3>
@@ -2397,6 +2641,92 @@ id="tabbycorecollectorclassinfocollector.java">tabby/core/collector/ClassInfoCol
 <h3
 id="tabbycorecollectorfilecollector.java">tabby/core/collector/FileCollector.java</h3>
 <ol type="1">
+<li>The provided Java code defines a class named
+<code>FileCollector</code> within the package
+<code>tabby.core.collector</code>. It's designed to collect file-related
+information, including dependencies, from specified paths. Let's break
+down its components and functionality:</li>
+</ol>
+<h4 id="class-structure-and-dependencies">Class Structure and
+Dependencies</h4>
+<ul>
+<li><strong>Package</strong>: <code>tabby.core.collector</code></li>
+<li><strong>Imports</strong>: Various utilities and configurations, like
+<code>FileUtils</code>, <code>GlobalConfiguration</code>, and
+<code>JavaVersion</code>.</li>
+<li><strong>Annotations</strong>: <code>@Service</code> - Indicates that
+this class is a Spring service component, making it a candidate for
+Spring's dependency injection to manage its lifecycle.</li>
+</ul>
+<h4 id="methods">Methods</h4>
+<p><code>collect(String targetPath)</code></p>
+<ul>
+<li><strong>Purpose</strong>: Collects files from a given target
+path.</li>
+<li><strong>Process</strong>:
+<ul>
+<li>Converts the target path to an absolute path.</li>
+<li>Checks if the path exists; if not, throws
+<code>IllegalArgumentException</code>.</li>
+<li>Uses <code>FileLocation</code> to resolve the path and gets a set of
+classpaths (<code>cps</code>).</li>
+<li>Iterates over <code>cps</code>, handling directories and files
+separately:
+<ul>
+<li>If it's a directory, it adds the path to
+<code>allTargets</code>.</li>
+<li>If it's a file, it calculates its MD5 checksum and adds it to
+<code>allTargets</code> or <code>GlobalConfiguration.libraries</code>
+based on certain conditions (like web mode and common jar list
+checks).</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><code>collectJdkDependencies()</code></p>
+<ul>
+<li><strong>Purpose</strong>: Collects JDK dependencies based on the
+Java version.</li>
+<li><strong>Process</strong>:
+<ul>
+<li>Fetches the <code>java.home</code> system property.</li>
+<li>Differentiates handling for JDK versions:
+<ul>
+<li>For JDK &gt;= 9: Collects all JDK dependencies from
+<code>jmods</code> directory or a specific module if not configured to
+include all.</li>
+<li>For JDK &lt;= 8: Collects dependencies from <code>lib</code>
+directories, including specific JAR files like <code>rt.jar</code> and
+<code>jce.jar</code>.</li>
+</ul></li>
+<li>In each case, it calculates the MD5 of the files and adds them to
+<code>allJdkDependencies</code>.</li>
+</ul></li>
+</ul>
+<h4 id="key-observations">Key Observations</h4>
+<ol type="1">
+<li><p><strong>Modularity</strong>: The class is well-structured,
+separating the collection of target path files and JDK dependencies into
+distinct methods.</p></li>
+<li><p><strong>Error Handling</strong>: Proper error handling with
+<code>IllegalArgumentException</code> for invalid paths.</p></li>
+<li><p><strong>Integration with Spring Framework</strong>: Usage of
+<code>@Service</code> annotation suggests integration with the Spring
+Framework, likely for dependency injection.</p></li>
+<li><p><strong>Compatibility with Different JDK Versions</strong>: The
+method <code>collectJdkDependencies</code> is designed to handle
+differences in file structure between JDK versions.</p></li>
+<li><p><strong>Use of MD5 Checksums</strong>: The application uses MD5
+checksums for file identification, which is a common practice for
+ensuring data integrity.</p></li>
+<li><p><strong>Global Configuration</strong>: Relies on
+<code>GlobalConfiguration</code> for application-wide settings, showing
+a centralized approach to managing configurations.</p></li>
+</ol>
+<p>Overall, <code>FileCollector</code> appears to be a robust component
+of the Tabby application, primarily focused on collecting and processing
+file data in a structured and efficient manner, while considering
+various operational environments and Java versions.</p>
+<ol type="1">
 <li><p>Code</p>
 <pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">tabby<span class="token punctuation">.</span>core<span class="token punctuation">.</span>collector</span><span class="token punctuation">;</span>
 
@@ -3695,7 +4025,7 @@ id="tabbycorecontainerrulescontainer.java">tabby/core/container/RulesContainer.j
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">238k</span>&nbsp;字
+                class="white-color">238.9k</span>&nbsp;字
             
             
             

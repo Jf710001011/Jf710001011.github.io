@@ -481,14 +481,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2024-01-13
+                    2024-01-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    116
+                    402
                 </div>
                 
 
@@ -556,7 +556,58 @@ programmer</code></pre>
 <h3 id="data-types-and-their-sizes">Data types and their sizes</h3>
 <ol type="1">
 <li><code>long</code>: 8 bytes</li>
-<li></li>
+</ol>
+<h3 id="type-casting">Type casting</h3>
+<ol type="1">
+<li><p><strong>Types of Type Casting:</strong></p>
+<p><strong>Widening Casting (Implicit):</strong></p>
+<ul>
+<li>Automatically done by the compiler when a smaller data type is
+assigned to a larger one.</li>
+<li>No data loss occurs as the larger type can accommodate the smaller
+one's values.</li>
+<li>Example: <code>int num = 10; long largeNum = num;</code> (int is
+implicitly cast to long</li>
+</ul>
+<p><strong>Narrowing Casting (Explicit):</strong></p>
+<ul>
+<li>Requires manual specification using the target data type in
+parentheses before the value.</li>
+<li>Potential for data loss or truncation if the source value exceeds
+the target type's range.</li>
+<li>Example:
+<code>double decimal = 3.14; int rounded = (int) decimal;</code> (double
+is explicitly cast to int)</li>
+</ul>
+<p><strong>Pratice</strong></p>
+<ol type="1">
+<li><p><code>int q = 'q';</code></p>
+<p>This line assigns a <code>char</code> literal to an <code>int</code>.
+In Java, <code>char</code> can be implicitly converted to
+<code>int</code>, so no explicit cast is required here.</p></li>
+<li><p><code>char ch2 = q;</code></p>
+<p>Here, an <code>int</code> value is being assigned to a
+<code>char</code>. Since <code>int</code> has a wider range than
+<code>char</code>, an explicit cast is required to assign an
+<code>int</code> to a <code>char</code>.</p></li>
+<li><p><code>short s = 1;</code></p>
+<p>Assigning a literal integer (<code>int</code>) value of
+<code>1</code> to a <code>short</code> variable. In this case,
+<code>1</code> is within the range of <code>short</code>, so an explicit
+cast is not required.</p></li>
+<li><p><code>char ch3 = s;</code></p>
+<p>Assigning a <code>short</code> to a <code>char</code>. Both
+<code>short</code> and <code>char</code> are 16-bit in Java, but
+<code>char</code> is unsigned while <code>short</code> is signed. An
+explicit cast is needed here.</p>
+<p>example： If s holds the value -1 (<strong>1111111111111111</strong>
+in binary as a short): Direct assignment would misinterpret this as
+<strong>65535</strong> (also 1111111111111111 in binary as a char). The
+cast preserves the binary representation but reinterprets it as an
+unsigned value, resulting in 65535 as intended.</p></li>
+</ol></li>
+<li><p>Java promotes smaller types to larger ones during mixed-type
+calculations to prevent data loss.</p></li>
 </ol>
 
                 
@@ -1171,7 +1222,7 @@ programmer</code></pre>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">239.3k</span>&nbsp;字
+                class="white-color">240.2k</span>&nbsp;字
             
             
             

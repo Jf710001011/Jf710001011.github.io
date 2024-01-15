@@ -477,14 +477,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2024-01-13
+                    2024-01-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.2k
+                    1.4k
                 </div>
                 
 
@@ -607,6 +607,43 @@ dialog<span class="token punctuation">.</span>grab_release<span class="token pun
 方法运行界面，使界面持续运行，响应用户事件。</li>
 </ol></li>
 </ul>
+<h3 id="cybersecurity">Cybersecurity</h3>
+<ol type="1">
+<li><p><strong>judge</strong>
+<code>md5（整数）.hex[:6]=='233333'</code></p>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> hashlib
+
+<span class="token keyword">def</span> <span class="token function">find_integer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    i <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+        <span class="token comment"># Compute MD5 hash of the string representation of i</span>
+
+        <span class="token comment">#  this line of code is converting the variable i to </span>
+        <span class="token comment"># a string, encoding that string into bytes, creating </span>
+        <span class="token comment"># an md5 hash of those bytes, and storing the </span>
+        <span class="token comment"># resulting hash object in the variable hash_object.</span>
+        hash_object <span class="token operator">=</span> hashlib<span class="token punctuation">.</span>md5<span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        hex_dig <span class="token operator">=</span> hash_object<span class="token punctuation">.</span>hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span>
+       
+        <span class="token comment"># Check if the first six characters of the hash match '233333'</span>
+        
+        <span class="token comment"># hex_dig[:6]: This is using Python's slice notation </span>
+        <span class="token comment"># to get a substring of hex_dig. The : character </span>
+        <span class="token comment"># separates the start and end indices. In this case, </span>
+        <span class="token comment"># there's no start index before the :, which means </span>
+        <span class="token comment"># the slice starts at the beginning of the string. </span>
+        <span class="token comment"># The 6 after the : is the end index, which means the </span>
+        <span class="token comment"># slice goes up to but does not include the 6th </span>
+        <span class="token comment"># index. So hex_dig[:6] gets the first six characters </span>
+        <span class="token comment"># of hex_dig.</span>
+        <span class="token keyword">if</span> hex_dig<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">6</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'233333'</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> i
+        i <span class="token operator">+=</span> <span class="token number">1</span>
+
+integer <span class="token operator">=</span> find_integer<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"The integer whose MD5 hash starts with '233333' is: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>integer<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+</code></pre></li>
+</ol>
 <h3 id="语法">语法</h3>
 <ul>
 <li><p>多函数执行</p>
@@ -1249,7 +1286,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a hr
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">240.3k</span>&nbsp;字
+                class="white-color">240.7k</span>&nbsp;字
             
             
             

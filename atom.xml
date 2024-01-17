@@ -6,7 +6,7 @@
   <link href="https://jf710001011.github.io/atom.xml" rel="self"/>
   
   <link href="https://jf710001011.github.io/"/>
-  <updated>2024-01-17T03:07:52.735Z</updated>
+  <updated>2024-01-17T03:15:16.156Z</updated>
   <id>https://jf710001011.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>English</title>
+    <link href="https://jf710001011.github.io/2024/01/16/learning-english/"/>
+    <id>https://jf710001011.github.io/2024/01/16/learning-english/</id>
+    <published>2024-01-15T16:56:15.310Z</published>
+    <updated>2024-01-17T03:15:16.156Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;yotuber&quot;&gt;Yotuber&lt;/h3&gt;
+&lt;h4 id=&quot;british-english-accent&quot;&gt;British English Accent&lt;/h4&gt;
+&lt;ol type=&quot;1&quot;&gt;
+&lt;li&gt;English with</summary>
+        
+      
+    
+    
+    
+    <category term="Foreign language" scheme="https://jf710001011.github.io/categories/Foreign-language/"/>
+    
+    
+    <category term="English" scheme="https://jf710001011.github.io/tags/English/"/>
+    
+  </entry>
   
   <entry>
     <title>Java:BlackHorse</title>
@@ -536,34 +564,6 @@ oracle 原理深度解析 &amp;amp; CBC 字节翻转攻击原理解析&lt;/h3&gt
     
     
     <category term="Crypto" scheme="https://jf710001011.github.io/tags/Crypto/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>My Color</title>
-    <link href="https://jf710001011.github.io/2023/12/09/color/"/>
-    <id>https://jf710001011.github.io/2023/12/09/color/</id>
-    <published>2023-12-09T11:25:06.681Z</published>
-    <updated>2024-01-13T03:28:53.454Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;as-the-following&quot;&gt;as the following&lt;/h3&gt;
-&lt;ol type=&quot;1&quot;&gt;
-&lt;li&gt;name:
-&lt;ol</summary>
-        
-      
-    
-    
-    
-    <category term="Tools" scheme="https://jf710001011.github.io/categories/Tools/"/>
-    
-    
-    <category term="Beautify" scheme="https://jf710001011.github.io/tags/Beautify/"/>
     
   </entry>
   

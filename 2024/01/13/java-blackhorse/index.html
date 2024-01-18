@@ -477,14 +477,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2024-01-17
+                    2024-01-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    2.2k
+                    2.4k
                 </div>
                 
 
@@ -1109,6 +1109,74 @@ in multi-threaded environments.</p></li>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span>
 </code></pre></li>
+<li><p><code>SwitchDemo</code></p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token class-name">String_Pratice</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SwitchDemo</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// Jdk12 </span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">changeLuoma</span><span class="token punctuation">(</span><span class="token keyword">char</span> c<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">String</span> x <span class="token operator">=</span> <span class="token keyword">switch</span> <span class="token punctuation">(</span>c<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">case</span> <span class="token char">'1'</span> <span class="token operator">-></span> <span class="token string">"I"</span><span class="token punctuation">;</span>
+            <span class="token keyword">default</span> <span class="token operator">-></span> <span class="token string">""</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+</code></pre></li>
+<li><p><code>char[] y =  x.toCharArray();</code></p></li>
+</ol>
+<h3 id="arraylist">ArrayList</h3>
+<ol type="1">
+<li><p>ArrayListDemo</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token class-name">String_Pratice<span class="token punctuation">.</span>ArrayList</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">ArrayList</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ArrayListDemo</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> list <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"Hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"World"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"original: "</span> <span class="token operator">+</span> list<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [Hello, World]</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"------"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"xxx"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"add xxx: "</span> <span class="token operator">+</span> list<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [Hello, xxx, World]</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"-----"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        list<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"remove index 1: "</span> <span class="token operator">+</span> list<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [Hello, xxx, World]</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"-----"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">"xxx"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"add xxx: "</span> <span class="token operator">+</span> list<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [Hello, xxx, World]</span>
+        list<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token string">"xxx"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"remove xxx: "</span> <span class="token operator">+</span> list<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [Hello, World]</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"-----"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"get 0: "</span> <span class="token operator">+</span> list<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Hello</span>
+
+        list<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"xxx"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"set 1: "</span> <span class="token operator">+</span> list<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [Hello, xxx]</span>
+
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"size: "</span> <span class="token operator">+</span> list<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 2</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"-----"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">boolean</span> isContain <span class="token operator">=</span> list<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span><span class="token string">"xxx"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"isContain: "</span> <span class="token operator">+</span> isContain<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"-----"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">boolean</span> isEmpty <span class="token operator">=</span> list<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"isEmpty: "</span> <span class="token operator">+</span> isEmpty<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// false</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"-----"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        list<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"clear: "</span> <span class="token operator">+</span> list<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+    <span class="token punctuation">&#125;</span>
+
+<span class="token punctuation">&#125;</span>
+</code></pre></li>
+<li><p>Wrapper classes for basic data types</p></li>
+<li><p>Collections' length is mutable</p></li>
 </ol>
 
                 
@@ -1730,7 +1798,7 @@ in multi-threaded environments.</p></li>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">241.5k</span>&nbsp;字
+                class="white-color">241.8k</span>&nbsp;字
             
             
             

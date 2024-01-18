@@ -477,14 +477,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2024-01-14
+                    2024-01-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    55k
+                    55.1k
                 </div>
                 
 
@@ -545,12 +545,11 @@ Learning-Based Fine-Grained Hierarchical Learning Approach for Robust
 Malware Classification</a>（<strong>CCF-A</strong>:TDSC-2022）</li>
 <li><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/9833659">Transcending
 TRANSCEND: Revisiting Malware Classification in the Presence of Concept
-Drift</a>（CCF-A会议:IEEE S&amp;P）<br />
-</li>
+Drift</a>（CCF-A会议:IEEE S&amp;P）</li>
 <li><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/9186721">Can We Trust
 Your Explanations? Sanity Checks for Interpreters in Android Malware
-Analysis</a><span
-style="background:##ffb86c;font-family:FiraCode;">（TIFS）</span></li>
+Analysis</a>
+<code>&lt;span style='background:##ffb86c;font-family:FiraCode;'&gt;</code>（TIFS）</li>
 <li><a
 target="_blank" rel="noopener" href="https://t.cnki.net/kcms/detail?v=7X1a-1n3lSlo7e8SD7MIrB4FNnqSB7t_ePAoPyb7UoHmdjy7X1BnKGJRTP-uE0xthwgZy7oAvyPeohpt27IF1AemI04TB997jyRzzpbNlx1tRRBs7PwTDS05-d4AuiQsZVkR1WkGtsg=&amp;uniplatform=NZKPT">深度学习赋能的恶意代码攻防研究进展</a>《计算机学报-方滨兴》</li>
 <li><a
@@ -652,7 +651,7 @@ Construction</a>（<strong>CCF-A</strong>: IEEE S&amp;P）</li>
 </ol>
 <h3 id="section">2024-01-13</h3>
 <ol type="1">
-<li>Java学习
+<li><p>Java学习</p>
 <ol type="1">
 <li><a
 href="https://jf710001011.github.io/2024/01/13/hyperskill/#toc-heading-1">Reading
@@ -668,12 +667,12 @@ href="https://jf710001011.github.io/2024/01/13/java-blackhorse/#toc-heading-2">�
 <li><a
 href="https://jf710001011.github.io/2024/01/13/java-blackhorse/#toc-heading-3">Jre和Jdk</a></li>
 </ol></li>
-<li>Tabby分析
+<li><p>Tabby分析</p>
 <ol type="1">
 <li>项目结构分析，项目树，<a
 href="https://jf710001011.github.io/2023/12/09/tabby-fen-xi/#toc-heading-2">项目结构</a></li>
 </ol></li>
-<li>总结
+<li><p>总结</p>
 <ol type="1">
 <li>找到一种更有效分析这个框架的工具和分析方法</li>
 </ol></li>
@@ -791,7 +790,8 @@ generation strategy to automate verification during fuzzing.</li>
 </ol>
 <h4 id="总结">总结</h4>
 <ol type="1">
-<li>总的来说，这类研究与纯静态分析是有很大不同的。看完这篇论文，能想到与之最像的那必定是文中多次提到的<code>ODDFUZZ</code>
+<li>总的来说，这类研究与纯静态分析是有很大不同的。看完这篇论文，能想到与之最像的那必定是文中多次提到的
+<code>ODDFUZZ</code>
 <ol type="1">
 <li>JDD与ODDFUZZ都是采用了混合分析（静态分析+动态分析）的方式去检测反序列化漏洞，手法非常类似
 <ol type="1">
@@ -829,7 +829,8 @@ collection</li>
 <li>生成注入对象（暂时不清楚原理）</li>
 <li>利用IOCD数据结构辅助验证利用链的有效性</li>
 </ol></li>
-<li>动态分析（也称模糊测试<code>fuzzing</code>），在漏洞检测中确实扮演着非常关键的角色，对于静态分析研究者而言，是一种拓宽思路的技术。但我的研究仍暂以静态分析为重点</li>
+<li>动态分析（也称模糊测试
+<code>fuzzing</code>），在漏洞检测中确实扮演着非常关键的角色，对于静态分析研究者而言，是一种拓宽思路的技术。但我的研究仍暂以静态分析为重点</li>
 </ol>
 <h3 id="section-2">2023-12-30</h3>
 <h4 id="自动化检测框架学习">自动化检测框架学习</h4>
@@ -1017,10 +1018,14 @@ alt="image-20231021225016323" />
 <h4 id="总结-4">总结</h4>
 <ol type="1">
 <li>探究底层原理发现了更多漏洞检测的细节问题，主要是针对这些问题去改进</li>
-<li>我的一个<strong>新想法</strong>：一条完整的利用链包括<code>source()-&gt;中间函数--&gt;sink()</code>
+<li>我的一个<strong>新想法</strong>：一条完整的利用链包括
+<code>source()-&gt;中间函数--&gt;sink()</code>
 <ol type="1">
-<li>一对<code>(source,sink)</code>,有非常多的路线，而我们只是找出有效的利用链。而从source()出发经过的各个中间方法我们无法确定能否到达source,<strong>反其道行之</strong>从sink()出发,逐步向source靠近，将这些可达sink的函数进行<strong>标记</strong>，就可以减少无效的利用链分析</li>
-<li>正如1中所述，主要需要考虑从<code>sink向上标记到第几层</code>，总的来说<code>前向和后向分析</code>可以同时进行提高效率</li>
+<li>一对
+<code>(source,sink)</code>,有非常多的路线，而我们只是找出有效的利用链。而从source()出发经过的各个中间方法我们无法确定能否到达source,<strong>反其道行之</strong>从sink()出发,逐步向source靠近，将这些可达sink的函数进行<strong>标记</strong>，就可以减少无效的利用链分析</li>
+<li>正如1中所述，主要需要考虑从
+<code>sink向上标记到第几层</code>，总的来说
+<code>前向和后向分析</code>可以同时进行提高效率</li>
 </ol></li>
 </ol>
 <h3 id="section-12">2023-10-14</h3>
@@ -1033,7 +1038,8 @@ QuASoQ / 6th SEED@APSEC 2022: Virtual）</li>
 <ol type="1">
 <li><p>对基于指纹检测的Java反序列化漏洞检测方法</p>
 <p>Java反序列化过程可能存在安全漏洞,通过构造恶意序列化数据可以实施远程代码执行等攻击。为了检测这种漏洞,可以使用基于指纹的方法。</p>
-<p>基本思路是收集已知的可利用的反序列化gadget代码特征,构建一个<code>指纹库</code>。在运行时监控应用的反序列化流量,用指纹库去匹配查看是否包含已知的危险gadget。<strong>匹配到</strong>则表明可能存在可利用的反序列化漏洞。</p>
+<p>基本思路是收集已知的可利用的反序列化gadget代码特征,构建一个
+<code>指纹库</code>。在运行时监控应用的反序列化流量,用指纹库去匹配查看是否包含已知的危险gadget。<strong>匹配到</strong>则表明可能存在可利用的反序列化漏洞。</p>
 <p>这种方法的优点是可以快速检测已知模式的漏洞利用,不需要复杂的代码审计。缺点是指纹库需要维护更新,对未知的0day攻击效果不佳。</p></li>
 <li><p>3个漏洞检测工具</p>
 <ol type="1">
@@ -1067,31 +1073,30 @@ to analyze and modify Java classes at the bytecode level. ASM provides a
 low-level, efficient, and flexible way to work with Java class files,
 making it an essential tool for various applications, including:</p>
 <ol type="1">
-<li><p><strong>Bytecode Generation:</strong> Developers can use ASM to
+<li><strong>Bytecode Generation:</strong> Developers can use ASM to
 generate Java class files programmatically. This is useful for code
-generation, code transformation, and dynamic class creation.</p></li>
-<li><p><strong>Code Analysis:</strong> ASM can be used to analyze
-existing Java class files. It allows you to inspect the structure of
-classes, methods, fields, and instructions, making it valuable for tools
-like code analyzers and documentation generators.</p></li>
-<li><p><strong>Code Transformation:</strong> ASM enables the
-modification of existing class files, allowing you to inject code, add
-or remove methods, and change class structures. This is often used in
-frameworks and libraries that need to instrument or modify classes
-during runtime.</p></li>
-<li><p><strong>Performance Enhancements:</strong> Some applications use
-ASM to optimize Java bytecode for better performance. This can include
+generation, code transformation, and dynamic class creation.</li>
+<li><strong>Code Analysis:</strong> ASM can be used to analyze existing
+Java class files. It allows you to inspect the structure of classes,
+methods, fields, and instructions, making it valuable for tools like
+code analyzers and documentation generators.</li>
+<li><strong>Code Transformation:</strong> ASM enables the modification
+of existing class files, allowing you to inject code, add or remove
+methods, and change class structures. This is often used in frameworks
+and libraries that need to instrument or modify classes during
+runtime.</li>
+<li><strong>Performance Enhancements:</strong> Some applications use ASM
+to optimize Java bytecode for better performance. This can include
 inlining, method call optimizations, and other bytecode-level
-improvements.</p></li>
-<li><p><strong>Java Agents:</strong> ASM is commonly used in Java
-agents, which are Java programs that can be dynamically attach to
-running Java applications to instrument and monitor them. Agents can be
-used for profiling, logging, and other runtime analysis.</p></li>
-<li><p><strong>Aspect-Oriented Programming (AOP):</strong> ASM is
-sometimes used in AOP frameworks to weave aspect code into classes at
-the bytecode level. This allows developers to separate cross-cutting
-concerns, such as logging or security, from the main application
-logic.</p></li>
+improvements.</li>
+<li><strong>Java Agents:</strong> ASM is commonly used in Java agents,
+which are Java programs that can be dynamically attach to running Java
+applications to instrument and monitor them. Agents can be used for
+profiling, logging, and other runtime analysis.</li>
+<li><strong>Aspect-Oriented Programming (AOP):</strong> ASM is sometimes
+used in AOP frameworks to weave aspect code into classes at the bytecode
+level. This allows developers to separate cross-cutting concerns, such
+as logging or security, from the main application logic.</li>
 </ol>
 <p>ASM is known for its small footprint, high performance, and the
 ability to work with different versions of Java class files. It offers
@@ -1110,7 +1115,7 @@ instrumentation.</p></li>
 </ol>
 <h4 id="总结-5">总结</h4>
 <ol type="1">
-<li><p>在查询语言上进行优化使用<code>Codeql</code>:</p>
+<li><p>在查询语言上进行优化使用 <code>Codeql</code>:</p>
 <p>CodeQL查询语言是CodeQL用于编写代码分析查询规则的语言,具有以下主要特点:</p>
 <ol type="1">
 <li>基于逻辑查询:查询以类似SQL的逻辑语句组织,例如选择、联接等。</li>
@@ -1168,53 +1173,62 @@ Analysis</a>（计算机网络<strong>CCF-B</strong>:31st IWQoS 2023）</p>
 <h5 id="正文-4">正文</h5>
 <ol type="1">
 <li><p><code>JNDI（Java Naming and Directory Interface）</code>注入是一种安全漏洞，通常出现在Java应用程序中，特别是那些使用JNDI来连接和管理命名和目录服务的应用程序中。JNDI是Java中用于访问命名和目录服务的API，允许应用程序查找和访问各种资源，如数据库连接、消息队列等。</p>
-<p>JNDI注入<code>发生在</code>攻击者能够控制或影响JNDI查找的输入时。攻击者可以通过恶意构造的JNDI名称或URL，迫使应用程序加载和执行不安全的类或代码。这可能导致严重的安全问题，包括远程代码执行、信息泄露或拒绝服务攻击。</p>
+<p>JNDI注入
+<code>发生在</code>攻击者能够控制或影响JNDI查找的输入时。攻击者可以通过恶意构造的JNDI名称或URL，迫使应用程序加载和执行不安全的类或代码。这可能导致严重的安全问题，包括远程代码执行、信息泄露或拒绝服务攻击。</p>
 <p>通常，JNDI注入漏洞的利用方式包括将恶意的JNDI名称传递给应用程序，然后应用程序试图查找这个名称，最终执行了攻击者控制的恶意代码。</p></li>
 <li><p><code>Static analysis based on bytecode analysis, such as GadgetInspector [1] and GadgetSearch [2], is the most popular measure to detect deserialization vulnerabilities</code></p></li>
 <li><p><code>Java反射（Reflection）</code>是一种高级编程技术，允许在运行时检查、获取和操作类、对象、方法、字段等程序元素的信息。反射提供了一种强大的机制，使开发人员能够在运行时获取类的信息、创建对象、调用方法和访问字段，而不需要在编译时知道这些信息。</p>
 <p>以下是Java反射的一些关键概念和用法：</p>
 <ol type="1">
-<li><p><strong>Class类：</strong>
-在Java中，每个类都有一个对应的<code>Class</code>对象，用于表示类的信息。你可以使用<code>Class</code>类的静态方法<code>forName</code>来获取一个类的<code>Class</code>对象。</p></li>
-<li><p><strong>获取类信息：</strong>
-通过<code>Class</code>对象，你可以获取类的名称、父类、接口、构造方法、方法、字段等信息。这使得你可以在运行时了解类的结构。</p></li>
-<li><p><strong>创建对象：</strong>
-反射允许你在运行时创建对象，即使你不知道类的名称，也可以使用<code>Class</code>对象的<code>newInstance</code>方法来实现。</p></li>
-<li><p><strong>调用方法：</strong>
-使用反射，你可以在运行时调用类的方法。<code>Method</code>类表示一个方法，你可以使用它来调用方法，传递参数，并获取方法的返回值。</p></li>
-<li><p><strong>访问字段：</strong>
-通过反射，你可以获取和修改对象的字段值。<code>Field</code>类表示一个字段，你可以使用它来读取和写入字段的值。</p></li>
-<li><p><strong>访问构造方法：</strong>
-使用反射，你可以获取类的构造方法并创建对象的实例。<code>Constructor</code>类表示一个构造方法，你可以使用它来实例化对象。</p></li>
-<li><p><strong>动态代理：</strong>
-反射还用于实现动态代理，允许你在运行时创建代理对象来控制对目标对象的访问。</p></li>
-<li><p><strong>注解处理：</strong>
-反射也常用于处理注解，你可以通过反射获取类、方法或字段上的注解，并根据注解的信息执行相应的逻辑。</p></li>
+<li><strong>Class类：</strong> 在Java中，每个类都有一个对应的
+<code>Class</code>对象，用于表示类的信息。你可以使用
+<code>Class</code>类的静态方法 <code>forName</code>来获取一个类的
+<code>Class</code>对象。</li>
+<li><strong>获取类信息：</strong> 通过
+<code>Class</code>对象，你可以获取类的名称、父类、接口、构造方法、方法、字段等信息。这使得你可以在运行时了解类的结构。</li>
+<li><strong>创建对象：</strong>
+反射允许你在运行时创建对象，即使你不知道类的名称，也可以使用
+<code>Class</code>对象的 <code>newInstance</code>方法来实现。</li>
+<li><strong>调用方法：</strong>
+使用反射，你可以在运行时调用类的方法。<code>Method</code>类表示一个方法，你可以使用它来调用方法，传递参数，并获取方法的返回值。</li>
+<li><strong>访问字段：</strong>
+通过反射，你可以获取和修改对象的字段值。<code>Field</code>类表示一个字段，你可以使用它来读取和写入字段的值。</li>
+<li><strong>访问构造方法：</strong>
+使用反射，你可以获取类的构造方法并创建对象的实例。<code>Constructor</code>类表示一个构造方法，你可以使用它来实例化对象。</li>
+<li><strong>动态代理：</strong>
+反射还用于实现动态代理，允许你在运行时创建代理对象来控制对目标对象的访问。</li>
+<li><strong>注解处理：</strong>
+反射也常用于处理注解，你可以通过反射获取类、方法或字段上的注解，并根据注解的信息执行相应的逻辑。</li>
 </ol>
 <p>反射通常在某些高级应用程序、框架和工具中使用，例如ORM（对象关系映射）、依赖注入、动态代码生成等。</p></li>
-<li><p><code>代理对象（Proxy Object）</code>是在软件设计中常用的一种模式，用于<code>控制</code>对其他对象的访问。代理对象充当了其他对象的接口，以控制对这些对象的访问，通常用于添加额外的功能或控制访问权限。代理对象可以在不改变原始对象的情况下对其进行增强或包装。</p>
+<li><p><code>代理对象（Proxy Object）</code>是在软件设计中常用的一种模式，用于
+<code>控制</code>对其他对象的访问。代理对象充当了其他对象的接口，以控制对这些对象的访问，通常用于添加额外的功能或控制访问权限。代理对象可以在不改变原始对象的情况下对其进行增强或包装。</p>
 <p>代理对象通常有以下几种类型：</p>
 <ol type="1">
-<li><p><strong>静态代理：</strong>
-在编译时创建的代理对象，开发人员需要手动编写代理类。静态代理通常用于实现特定功能，如日志记录或权限控制。</p></li>
-<li><p><strong>动态代理：</strong>
-在运行时创建的代理对象，无需手动编写代理类，可以根据需要动态生成。Java中的动态代理通常使用<code>java.lang.reflect.Proxy</code>类和<code>InvocationHandler</code>接口实现。</p></li>
-<li><p><strong>远程代理：</strong>
-用于在不同地址空间中控制对远程对象的访问。远程代理允许本地程序像访问本地对象一样访问远程对象。</p></li>
+<li><strong>静态代理：</strong>
+在编译时创建的代理对象，开发人员需要手动编写代理类。静态代理通常用于实现特定功能，如日志记录或权限控制。</li>
+<li><strong>动态代理：</strong>
+在运行时创建的代理对象，无需手动编写代理类，可以根据需要动态生成。Java中的动态代理通常使用
+<code>java.lang.reflect.Proxy</code>类和
+<code>InvocationHandler</code>接口实现。</li>
+<li><strong>远程代理：</strong>
+用于在不同地址空间中控制对远程对象的访问。远程代理允许本地程序像访问本地对象一样访问远程对象。</li>
 </ol>
 <p>代理对象的一些常见应用场景包括：</p>
 <ul>
-<li><p><strong>AOP（面向切面编程）：</strong>
-代理对象可以用于实现横切关注点，例如日志记录、性能监控、事务管理等，而不需要在每个方法中编写相同的代码。</p></li>
-<li><p><strong>延迟加载：</strong>
-代理对象可以用于延迟加载对象，只有在需要时才真正创建和初始化对象，以提高性能。</p></li>
-<li><p><strong>权限控制：</strong>
-代理对象可以用于控制对某些操作的访问权限，根据用户的角色或权限级别来限制操作。</p></li>
-<li><p><strong>远程调用：</strong>
-代理对象可用于在分布式系统中执行远程方法调用，以便在不同的计算机上执行操作。</p></li>
+<li><strong>AOP（面向切面编程）：</strong>
+代理对象可以用于实现横切关注点，例如日志记录、性能监控、事务管理等，而不需要在每个方法中编写相同的代码。</li>
+<li><strong>延迟加载：</strong>
+代理对象可以用于延迟加载对象，只有在需要时才真正创建和初始化对象，以提高性能。</li>
+<li><strong>权限控制：</strong>
+代理对象可以用于控制对某些操作的访问权限，根据用户的角色或权限级别来限制操作。</li>
+<li><strong>远程调用：</strong>
+代理对象可用于在分布式系统中执行远程方法调用，以便在不同的计算机上执行操作。</li>
 </ul>
 <p>代理对象的设计模式有助于提高代码的可维护性和可扩展性，因为它们将关注点分离并允许在不影响原始对象的情况下添加或修改功能。代理对象通常是面向对象编程中的重要概念，经常与其他设计模式如装饰器模式、适配器模式等一起使用。</p></li>
-<li><p><strong>问题</strong>：这个漏洞是因为在反序列化过程中，动态代理类<code>AnnotationInvocationHandler</code>中的<code>equalsImpl</code>()方法使用了反射，但成员"memberMethods"被标记为"<code>transient</code>"，反序列化无法控制它。这导致了一些静态分析工具认为这种反射是不受控制的，可能会导致潜在的安全问题。</p></li>
+<li><p><strong>问题</strong>：这个漏洞是因为在反序列化过程中，动态代理类
+<code>AnnotationInvocationHandler</code>中的
+<code>equalsImpl</code>()方法使用了反射，但成员"memberMethods"被标记为"<code>transient</code>"，反序列化无法控制它。这导致了一些静态分析工具认为这种反射是不受控制的，可能会导致潜在的安全问题。</p></li>
 <li><p><code>JRE7u21</code> deserialization vulnerability.</p></li>
 <li><p>那些不会推断本地变量和参数类型的常规静态分析工具会错误地将这样具有不正确参数的反射视为可控制的反射，从而产生许多错误结果</p></li>
 </ol>
@@ -1222,7 +1236,8 @@ Analysis</a>（计算机网络<strong>CCF-B</strong>:31st IWQoS 2023）</p>
 <ol type="1">
 <li><p><code>JAVA反射</code>
 拓宽了我的思路，能够发现更多的安全问题和提供了更多改进优化的思路</p></li>
-<li><p>本文注意到了<strong>三个问题</strong>并提出了三个<code>提高检测精度</code>的方法</p>
+<li><p>本文注意到了<strong>三个问题</strong>并提出了三个
+<code>提高检测精度</code>的方法</p>
 <ol type="1">
 <li><p><code>CROSS-FUNCTION MEMBERS DATA FLOW TRACKING</code></p>
 <p><strong>P</strong>:在JRE7u21反序列化漏洞中，成员"memberMethods"具有"transient"修饰符，这在反序列化中是不可控制的，因此常规的静态分析认为这个反射不可控制。</p>
@@ -1230,13 +1245,14 @@ Analysis</a>（计算机网络<strong>CCF-B</strong>:31st IWQoS 2023）</p>
 sources）和一个成员数据流表格。这个表格用于保存在执行过程中对象成员的变化以及谁改变了这些成员的信息</p></li>
 <li><p><code>LOCAL VARIABLES AND ARGUMENTS TYPES INFERENCE</code></p>
 <p>P:动态反射需要特定类型的参数数组来执行危险操作，而常规静态分析工具如果无法正确推断本地变量和参数的类型，可能会误判反射为可控制的</p>
-<p>S:在操作栈和表中的每个元素中保存<code>类型信息</code>,包括确切类型和可能类型</p></li>
+<p>S:在操作栈和表中的每个元素中保存
+<code>类型信息</code>,包括确切类型和可能类型</p></li>
 <li><p><code>CALL CHAIN SUBJECT INFERENCE BASED ON INHERITANCE RELATIONSHIPS</code></p>
 <p><strong>P</strong>:如果存在一个调用链，其中在子类A、超类和子类B之间存在"this"或"super"方法调用，而且类A和类B之间没有继承关系，那么这个调用链可以被认为是不可能存在的调用链。</p>
 <p><strong>S</strong>:
 在方法调用中确定继承关系，剔除无效的调用链</p></li>
 </ol></li>
-<li><p>另一方面在研究一些静态分析工具的<code>源码</code></p></li>
+<li><p>另一方面在研究一些静态分析工具的 <code>源码</code></p></li>
 </ol>
 <h3 id="section-14">2023-09-30</h3>
 <h4 id="论文信息">论文信息</h4>
@@ -1257,7 +1273,10 @@ alt="image-20230930164833918" /></li>
 <li><strong>控制流难以追踪</strong>：针对Java反序列化漏洞，其中一个根本原因是难以追踪控制流。与其他漏洞（如SQL注入或XSS）不同，无法仅仅依靠输入分析来检测漏洞。必须关注数据在输入后传递到源方法后的控制流，以确定是否会执行到危险的汇聚方法。这种控制流的复杂性增加了漏洞的发现和分析难度。</li>
 <li><strong>多样性和复杂性</strong>：另一个根本原因是Java反序列化漏洞的多样性和复杂性。利用这些漏洞需要构造复杂的“小工具链”（gadget
 chain），这些链由许多类对象的巧妙组合组成。由于Java的多态性和继承机制，存在大量潜在的小工具链。这增加了查找和利用这些漏洞的复杂性。同时，现有的分析工具通常无法有效地处理这些库中的漏洞，因为这些库通常非常广泛且数量众多。</li>
-<li>此外，研究人员通常在手动追踪小工具链或<code>自定义</code>现有工具方面面临困难，因为后者要么不提供对自定义分析的支持，要么要求对每个新的自定义都进行源代码的重复分析。此外，自定义分析通常需要精细的调整，当需要为每个自定义重新分析源代码时，这将变得<code>耗时且容易出错</code>。因此，一个重大的技术挑战在于创建中间<code>数据结构</code>，可以存储所有潜在数据并促进多次自定义重新分析。我们对这一挑战的解决方案是使用代码属性图构建一个中间数据结构。</li>
+<li>此外，研究人员通常在手动追踪小工具链或
+<code>自定义</code>现有工具方面面临困难，因为后者要么不提供对自定义分析的支持，要么要求对每个新的自定义都进行源代码的重复分析。此外，自定义分析通常需要精细的调整，当需要为每个自定义重新分析源代码时，这将变得
+<code>耗时且容易出错</code>。因此，一个重大的技术挑战在于创建中间
+<code>数据结构</code>，可以存储所有潜在数据并促进多次自定义重新分析。我们对这一挑战的解决方案是使用代码属性图构建一个中间数据结构。</li>
 </ol></li>
 <li><p><code>RPC(Remote Procedure Call)</code>即远程过程调用,是一种进程间通信方式,允许客户机程序调用服务端程序的函数或者过程,具有以下主要特征:</p>
 <ol type="1">
@@ -1298,20 +1317,30 @@ src="https://s2.loli.net/2023/10/01/WroAZShb8iF9R5X.png"
 alt="image-20231001151759302" /></p></li>
 <li><p>设计思路</p>
 <ol type="1">
-<li><p>首先构建<code>对象关系图（ORG）</code>、<code>方法调用图MCG、方法别名图（MAG）</code>,在此基础构建<code>代码属性图（CPG）</code></p></li>
-<li><p>在<code>方法调用图（MCG）</code>中，使用<code>可控性分析算法</code>,生成更精确的<code>Precise Call Graph (PCG)</code></p>
+<li><p>首先构建
+<code>对象关系图（ORG）</code>、<code>方法调用图MCG、方法别名图（MAG）</code>,在此基础构建
+<code>代码属性图（CPG）</code></p></li>
+<li><p>在 <code>方法调用图（MCG）</code>中，使用
+<code>可控性分析算法</code>,生成更精确的
+<code>Precise Call Graph (PCG)</code></p>
 <p>这个思路跟我之前想的一样：就是对数据结构进行合理化的调整，使得这个图提供更多我们需要的信息，移除不必要的信息</p></li>
-<li><p>非常创新的一点在于它的三个算法,提高了寻找漏洞的<code>精确性</code>：可控性算法，Expander算法，Evaluator算法</p>
+<li><p>非常创新的一点在于它的三个算法,提高了寻找漏洞的
+<code>精确性</code>：可控性算法，Expander算法，Evaluator算法</p>
 <ol type="1">
-<li><code>污染位置（Polluted Position）</code>：是CALL关系边的一个数组属性，用于表示方法调用者和方法参数的<code>可控性权重</code>。这个属性用于衡量方法调用的<code>污染程度</code>，即哪些部分可能受到不可信输入或变量污染的影响。在反序列化漏洞分析中，PP属性对于评估方法调用的风险和潜在漏洞非常重要。它帮助确定哪些参数或方法调用者需要受到额外的关注，以识别潜在的漏洞。</li>
-<li><code>触发条件（Trigger Condition）</code>：是<code>汇聚方法</code>的一个数组属性，<strong>表示必须可控的参数以达到攻击效果</strong>。触发条件属性定义了在攻击效果触发时，必须满足的参数条件。这些条件通常用于确定攻击是否能够成功执行，以及哪些参数的可控性对于攻击效果至关重要。触发条件属性在分析和查找漏洞时起到关键作用，帮助确定哪些参数需要特别关注和保护，以防止潜在的攻击。</li>
+<li><code>污染位置（Polluted Position）</code>：是CALL关系边的一个数组属性，用于表示方法调用者和方法参数的
+<code>可控性权重</code>。这个属性用于衡量方法调用的
+<code>污染程度</code>，即哪些部分可能受到不可信输入或变量污染的影响。在反序列化漏洞分析中，PP属性对于评估方法调用的风险和潜在漏洞非常重要。它帮助确定哪些参数或方法调用者需要受到额外的关注，以识别潜在的漏洞。</li>
+<li><code>触发条件（Trigger Condition）</code>：是
+<code>汇聚方法</code>的一个数组属性，<strong>表示必须可控的参数以达到攻击效果</strong>。触发条件属性定义了在攻击效果触发时，必须满足的参数条件。这些条件通常用于确定攻击是否能够成功执行，以及哪些参数的可控性对于攻击效果至关重要。触发条件属性在分析和查找漏洞时起到关键作用，帮助确定哪些参数需要特别关注和保护，以防止潜在的攻击。</li>
 <li>为了充分以上两个属性，设计了两个算法：
 <ol type="1">
 <li><code>Expander</code>用于确定关系边的PP是否满足TC的要求，</li>
-<li>而<code>Evaluator</code>用于确定搜索深度是否超过了设置的限制或是否达到了目标节点</li>
+<li>而
+<code>Evaluator</code>用于确定搜索深度是否超过了设置的限制或是否达到了目标节点</li>
 </ol></li>
 </ol></li>
-<li><p>在soot（一个非常知名的开源静态分析工具）的基础上，使用三个算法结合实现了java反序列化的<code>利用链</code>查询</p></li>
+<li><p>在soot（一个非常知名的开源静态分析工具）的基础上，使用三个算法结合实现了java反序列化的
+<code>利用链</code>查询</p></li>
 </ol></li>
 </ol>
 <h3 id="section-15">2023-09-23</h3>
@@ -1388,7 +1417,8 @@ Engineer, Netflix）</li>
 <hr />
 <h4 id="正文-6">正文</h4>
 <ol type="1">
-<li>即使在从“<code>readObject()</code>”方法返回之前，反序列化库也会自动调用<code>魔术方法</code>。</li>
+<li>即使在从“<code>readObject()</code>”方法返回之前，反序列化库也会自动调用
+<code>魔术方法</code>。</li>
 <li><code>ysoserial</code> 工具不能发现新的利用链</li>
 <li><code>Gadget Inspector</code> tool</li>
 </ol>
@@ -1441,9 +1471,9 @@ International Conference on Software Engineering (ICSE)）</li>
 </ol>
 <hr />
 <ol start="2" type="1">
-<li><p>关注<code>Gadget Inspector</code>工具：static taint
+<li><p>关注 <code>Gadget Inspector</code>工具：static taint
 analysis</p></li>
-<li><p>关注<code>SerHybrid</code> ：hybrid analysis solution</p></li>
+<li><p>关注 <code>SerHybrid</code> ：hybrid analysis solution</p></li>
 <li><p>SerHybrid has limited effectiveness due to <strong>two
 reasons</strong>：</p>
 <ol type="1">
@@ -1481,14 +1511,14 @@ exploitable injection objects for fuzzing.</p></li>
 <li>Serhybrid</li>
 </ol></li>
 <li><p><code>magic method</code>：执行payload触发反序列化；last
-gadget执行<code>恶意命令</code></p></li>
+gadget执行 <code>恶意命令</code></p></li>
 <li><p>Property-Oriented Programming (POP)</p></li>
 <li><p>示例分析:</p>
 <pre class="language-java" data-language="java"><code class="language-java"><span class="token number">1</span>  <span class="token comment">/*javax.naming.ldap.Rdn$RdnEntry.class*/</span>
 <span class="token number">2</span>  <span class="token keyword">private</span> <span class="token class-name">Oject</span> value<span class="token punctuation">;</span>
 <span class="token number">3</span>  <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">compareTo</span><span class="token punctuation">(</span><span class="token class-name">RdnEntry</span> that<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">/*Source or Magic Method*/</span>
 <span class="token number">4</span>    <span class="token keyword">if</span> <span class="token punctuation">(</span>value<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>that<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">&#125;</span>
-  
+
 <span class="token number">5</span>  <span class="token comment">/*com.sun.org.apache.xpath.internal.objects.XString.class*/</span>
 <span class="token number">6</span>  <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">equals</span><span class="token punctuation">(</span><span class="token class-name">Object</span> obj2<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">/*2nd gadget*/</span>
 <span class="token number">7</span>    <span class="token keyword">return</span> <span class="token function">str</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>obj2<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">&#125;</span>
@@ -1500,7 +1530,7 @@ gadget执行<code>恶意命令</code></p></li>
 <span class="token number">13</span>     buf<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>key <span class="token operator">+</span> <span class="token string">"="</span> <span class="token operator">+</span> <span class="token function">get</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">","</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">&#125;</span>
 <span class="token number">14</span> <span class="token keyword">public</span> <span class="token class-name">Object</span> <span class="token function">get</span><span class="token punctuation">(</span><span class="token class-name">Object</span> key<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">/*4th gadget*/</span>
 <span class="token number">15</span>    <span class="token class-name">Object</span> value <span class="token operator">=</span> <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">&#125;</span>
- 
+
 <span class="token number">16</span> <span class="token comment">/*javax.swing.UIDefaults.class*/</span>
 <span class="token number">17</span> <span class="token keyword">public</span> <span class="token class-name">Object</span> <span class="token function">get</span><span class="token punctuation">(</span><span class="token class-name">Object</span> key<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">/*5th gadget*/</span>
 <span class="token number">18</span>   <span class="token class-name">Object</span> value <span class="token operator">=</span> <span class="token function">getFromHashtable</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">&#125;</span>
@@ -1519,15 +1549,15 @@ gadget执行<code>恶意命令</code></p></li>
 <span class="token number">31</span>       <span class="token keyword">return</span> m<span class="token punctuation">.</span><span class="token function">invoke</span><span class="token punctuation">(</span>c<span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">/*Sink or Security-Sensitive Call Site*/</span></code></pre>
 <p>这段代码展示了一个Java反序列化漏洞的利用链:</p>
 <ol type="1">
-<li><p>RdnEntry的compareTo方法作为<strong>入口</strong>点被触发。</p></li>
-<li><p>调用了XString的equals方法。</p></li>
-<li><p>进而调用了MultiUIDefaults的toString方法。</p></li>
-<li><p>toString遍历键值对并调用get方法。</p></li>
-<li><p>get调用了父类UIDefaults的get。</p></li>
-<li><p>最终调用了getFromHashtable。</p></li>
-<li><p>在LazyValue的情况下会<strong>反射调用指定的方法</strong>。</p></li>
-<li><p>攻击者可以构造恶意LazyValue,并注入任意方法。</p></li>
-<li><p>这样就可以通过反序列化调用任意方法,实现RCE。</p></li>
+<li>RdnEntry的compareTo方法作为<strong>入口</strong>点被触发。</li>
+<li>调用了XString的equals方法。</li>
+<li>进而调用了MultiUIDefaults的toString方法。</li>
+<li>toString遍历键值对并调用get方法。</li>
+<li>get调用了父类UIDefaults的get。</li>
+<li>最终调用了getFromHashtable。</li>
+<li>在LazyValue的情况下会<strong>反射调用指定的方法</strong>。</li>
+<li>攻击者可以构造恶意LazyValue,并注入任意方法。</li>
+<li>这样就可以通过反序列化调用任意方法,实现RCE。</li>
 </ol>
 <p>分析:</p>
 <ul>
@@ -1580,9 +1610,13 @@ identification.</p></li>
 <span class="token number">3</span>  <span class="token keyword">call</span> apoc<span class="token punctuation">.</span>algo<span class="token punctuation">.</span><span class="token function">allSimplePaths</span><span class="token punctuation">(</span>sink<span class="token punctuation">,</span> source<span class="token punctuation">,</span> <span class="token string">"&lt;Call|Overriding>"</span><span class="token punctuation">)</span>
    <span class="token keyword">yield</span> path
 <span class="token number">4</span>  <span class="token keyword">return</span> path</code></pre></li>
-<li><p>然后，为了使生成的注入对象能够遵循目标gadget链的执行流程，GCMiner通过<code>动态绑定</code>的方式<strong>修改</strong>注入对象的属性值</p></li>
-<li><p>对于属性选择，我们通过<code>Java反射</code>动态获取注入对象的每个属性类型[40]-[42]，这允许软件系统在<code>运行时</code>检查和更改其类、接口、方法和字段的行为</p></li>
-<li><p>当属性类型是<code>类对象</code>时，该属性将被列为值赋值的候选属性。</p></li>
+<li><p>然后，为了使生成的注入对象能够遵循目标gadget链的执行流程，GCMiner通过
+<code>动态绑定</code>的方式<strong>修改</strong>注入对象的属性值</p></li>
+<li><p>对于属性选择，我们通过
+<code>Java反射</code>动态获取注入对象的每个属性类型[40]-[42]，这允许软件系统在
+<code>运行时</code>检查和更改其类、接口、方法和字段的行为</p></li>
+<li><p>当属性类型是
+<code>类对象</code>时，该属性将被列为值赋值的候选属性。</p></li>
 <li><p>GCMiner 利用 <code>JQF-Zest 算法</code> [44]
 来生成新的输入，通过在位级别改变有趣的种子来更深入地进入目标 gadget
 链。</p></li>
@@ -1624,22 +1658,26 @@ serialisation vulnerabilities,</li>
 </ol>
 <hr />
 <ol type="1">
-<li>该方法遵循Gadget
-Inspector的<code>静态分析</code>来获取待验证的gadget链。在这项工作中，仍然使用<code>符号执行</code>来生成调用图。</li>
-<li>这种BFS没有考虑到多个gadget链可能<code>共享节点</code>，这导致只会搜索经过同一节点的多个gadget链中的一个</li>
-<li>提出了一种基于<code>Java序列化协议</code>和<code>反射机制</code>的匹配动态验证机制。</li>
+<li>该方法遵循Gadget Inspector的
+<code>静态分析</code>来获取待验证的gadget链。在这项工作中，仍然使用
+<code>符号执行</code>来生成调用图。</li>
+<li>这种BFS没有考虑到多个gadget链可能
+<code>共享节点</code>，这导致只会搜索经过同一节点的多个gadget链中的一个</li>
+<li>提出了一种基于 <code>Java序列化协议</code>和
+<code>反射机制</code>的匹配动态验证机制。</li>
 <li><code>Java Deserialization Scanner</code>[16]可以证实该策略的有效性。它是著名渗透测试工具`<code>Burp Suite</code>的插件。</li>
 <li><code>基于指纹的检测</code>只能检测程序中已知的gadget链的存在，而不能检测程序中未知的gadget链的存在。</li>
 <li>A gadget chain can be abstracted as source-&gt;gadget
 core-&gt;sink.</li>
-<li>我们的<code>静态分析</code>分为以下几个步骤：
+<li>我们的 <code>静态分析</code>分为以下几个步骤：
 <ol type="1">
 <li>获取目标程序的类信息和方法信息。</li>
 <li>通过符号执行生成调用图。</li>
 <li>搜索所有边链。</li>
 </ol></li>
 <li><code>ASM库</code>[18]，一个优秀的Java字节流操作工具。</li>
-<li>使用小工具检查器的<code>符号执行</code>来获得每个方法的调用关系。这些调用关系组成了调用关系图，这个调用关系图被存储为
+<li>使用小工具检查器的
+<code>符号执行</code>来获得每个方法的调用关系。这些调用关系组成了调用关系图，这个调用关系图被存储为
 &lt; <code>call，callee array &gt;</code> 的集合</li>
 </ol>
 <h4 id="总结-11">总结</h4>
@@ -1649,7 +1687,8 @@ core-&gt;sink.</li>
 <li>这篇文献主要是针对Java反序列化漏洞：
 <ol type="1">
 <li>分析了：gadge chain 原理</li>
-<li>通过分析<strong>注入对象</strong>的有害数据从<code>source</code>传播到<code>sink</code>验证这条gadge
+<li>通过分析<strong>注入对象</strong>的有害数据从
+<code>source</code>传播到 <code>sink</code>验证这条gadge
 chain的有效性</li>
 <li>自动化生成注入对象进行fuzzing测试</li>
 </ol></li>
@@ -1698,7 +1737,7 @@ NET等几种主流编程语言中的反序列化漏洞，目前主要研究Java�
 </ol>
 <h5 id="示例">示例</h5>
 <ol type="1">
-<li>著名的<code>CommonsCollections1反序列化攻击</code></li>
+<li>著名的 <code>CommonsCollections1反序列化攻击</code></li>
 <li><code>ysoserial</code>工具可以生成针对于Java反序列化漏洞的恶意代码</li>
 </ol>
 <h5 id="本文conclusion">本文conclusion</h5>
@@ -1713,11 +1752,12 @@ CVE，这些CVE涉及Java应用程序中的反序列化漏洞，并得出结论�
 <li><p>PHP反序列化漏洞挖掘流程与Java反序列化漏洞挖掘相似，主要分为四步：</p>
 <ol type="1">
 <li>使用PHP-Parser工具将PHP源码解析为AST树，并将有用的字节码数据保存进字节码数据库中</li>
-<li>然后寻找可控动态函数调用，如所有函数对象和参数对象都可控的<code>a(b)</code>函数调用</li>
+<li>然后寻找可控动态函数调用，如所有函数对象和参数对象都可控的
+<code>a(b)</code>函数调用</li>
 <li>接着反向分析函数调用链，构造从危险函数到起点函数的反序列化漏洞链</li>
 <li>最后输出所有检出反序列化漏洞链。</li>
 </ol></li>
-<li><p>基于<code>CodeQL</code>等框架的自动化安全分析技术</p></li>
+<li><p>基于 <code>CodeQL</code>等框架的自动化安全分析技术</p></li>
 <li></li>
 </ol>
 <h4 id="总结-12">总结</h4>
@@ -1744,10 +1784,10 @@ href="https://jf710001011.github.io/2023/03/06/portswigger/#toc-heading-37">认�
 <ul>
 <li><p>学习了<strong>数据流分析</strong></p>
 <ul>
-<li><p>变量可达分析</p></li>
-<li><p>变量存活分析</p></li>
-<li><p>表达式可用分析</p></li>
-<li><p>常量传播</p></li>
+<li>变量可达分析</li>
+<li>变量存活分析</li>
+<li>表达式可用分析</li>
+<li>常量传播</li>
 </ul></li>
 <li><p>学习了程序<strong>理论</strong></p>
 <ul>
@@ -1974,19 +2014,31 @@ Taint-style Vulnerability</a>: <strong>CCF-A</strong>会议：IEEE S&amp;P
 <span class="token punctuation">,</span>→exploit #’ <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p><strong>漏洞原理：</strong></p>
 <ol type="1">
-<li><p>在第51行，通过<code>const Util = require('util.js');</code>导入了<code>util.js</code>模块，并创建了一个<code>Util</code>的实例。</p></li>
-<li><p>在第51行的代码<code>(new Util()).compress(&#123; 'alg': 'xz', 'path': '; touch exploit #' &#125;);</code>中，调用了<code>Util</code>实例的<code>compress</code>方法，并传入了一个包含选项的对象作为参数。其中，<code>alg</code>选项的值为'xz'，<code>path</code>选项的值为';
-touch exploit #'。</p></li>
-<li><p>在<code>compress</code>方法中，根据<code>options.alg</code>的值进行条件判断。</p></li>
-<li><p>当<code>options.alg</code>的值为'xz'时，执行37-44行的代码块。这段代码构建一个命令，并将其作为字符串拼接到<code>command</code>变量中。如果<code>options.path</code>为空，则拼接的命令为"xz
---stdout -k data"；否则，拼接的命令为"xz --stdout
--k"加上<code>options.path</code>的值。最后，通过调用<code>execProcess("exec")</code>方法，将命令作为参数传递给<code>childProcess.exec</code>函数进行执行。</p></li>
-<li><p>漏洞出现在拼接命令的过程中。由于未对<code>options.path</code>进行适当的输入验证或过滤，攻击者可以在<code>options.path</code>中注入恶意的操作系统命令。在这个例子中，注入的命令是";
-touch exploit
-#"，它会尝试在操作系统中执行<code>touch</code>命令创建一个名为"exploit"的文件。</p></li>
-<li><p>漏洞的利用代码出现在49-51行，攻击者通过传入恶意的<code>options.path</code>，即";
-touch exploit
-#"，来触发操作系统命令注入漏洞。当程序执行到这部分代码时，恶意命令将被执行，导致在操作系统中创建了一个名为"exploit"的文件。</p></li>
+<li>在第51行，通过 <code>const Util = require('util.js');</code>导入了
+<code>util.js</code>模块，并创建了一个 <code>Util</code>的实例。</li>
+<li>在第51行的代码
+<code>(new Util()).compress(&#123; 'alg': 'xz', 'path': '; touch exploit #' &#125;);</code>中，调用了
+<code>Util</code>实例的
+<code>compress</code>方法，并传入了一个包含选项的对象作为参数。其中，<code>alg</code>选项的值为'xz'，<code>path</code>选项的值为';
+touch exploit #'。</li>
+<li>在 <code>compress</code>方法中，根据
+<code>options.alg</code>的值进行条件判断。</li>
+<li>当
+<code>options.alg</code>的值为'xz'时，执行37-44行的代码块。这段代码构建一个命令，并将其作为字符串拼接到
+<code>command</code>变量中。如果
+<code>options.path</code>为空，则拼接的命令为"xz --stdout -k
+data"；否则，拼接的命令为"xz --stdout -k"加上
+<code>options.path</code>的值。最后，通过调用
+<code>execProcess("exec")</code>方法，将命令作为参数传递给
+<code>childProcess.exec</code>函数进行执行。</li>
+<li>漏洞出现在拼接命令的过程中。由于未对
+<code>options.path</code>进行适当的输入验证或过滤，攻击者可以在
+<code>options.path</code>中注入恶意的操作系统命令。在这个例子中，注入的命令是";
+touch exploit #"，它会尝试在操作系统中执行
+<code>touch</code>命令创建一个名为"exploit"的文件。</li>
+<li>漏洞的利用代码出现在49-51行，攻击者通过传入恶意的
+<code>options.path</code>，即"; touch exploit
+#"，来触发操作系统命令注入漏洞。当程序执行到这部分代码时，恶意命令将被执行，导致在操作系统中创建了一个名为"exploit"的文件。</li>
 </ol>
 <p>因此，这个操作系统命令注入漏洞使得攻击者能够在执行压缩操作时执行任意的操作系统命令，从而对系统造成潜在的安全风险。</p></li>
 <li><p><strong>Vulnerability Detection Challenges</strong></p>
@@ -2013,7 +2065,7 @@ touch exploit
 </ol></li>
 </ul></li>
 <li><p><strong>可扩展性</strong>是指系统能够有效地处理大规模代码和复杂性的能力。在软件漏洞检测中，可扩展性是一项重要的挑战，因为现实世界中的代码规模庞大且复杂</p></li>
-<li><p>提取控制流和数据流约束以供<code>约束求解器</code>使用</p></li>
+<li><p>提取控制流和数据流约束以供 <code>约束求解器</code>使用</p></li>
 </ul>
 <h4 id="总结-18">总结</h4>
 <ul>
@@ -2021,7 +2073,8 @@ touch exploit
 <p>本文是一篇关于使用<strong>FAST</strong>（一种用于检测和利用Node.js污点风格漏洞的两阶段抽象解释方法）的论文。文章介绍了FAST的<strong>两个阶段</strong>：bottom-up
 abstract interpretation和top-down abstract
 interpretation，并详细描述了它们如何优化抽象解释过程以提高分析效率。文章还讨论了现有方法在检测taint-style漏洞时存在的问题，以及JavaScript语言中静态分析<strong>可扩展性和准确性之间的固有权衡</strong>。最后，作者通过实验验证了FAST在检测Node.js应用程序中污点风格漏洞方面的有效性和可扩展性。</p></li>
-<li><p>本文还将作者之前提出的框架<code>ODGen</code>（见之前原型污染相关文章）进行了对比，可以说本文是对之前自己所做研究成果的进一步完善</p></li>
+<li><p>本文还将作者之前提出的框架
+<code>ODGen</code>（见之前原型污染相关文章）进行了对比，可以说本文是对之前自己所做研究成果的进一步完善</p></li>
 </ul>
 <hr />
 <h4 id="补充">补充：</h4>
@@ -2042,7 +2095,8 @@ js</a></p>
 </ul></li>
 <li><p><strong><a
 href="https://jf710001011.github.io/2023/03/06/portswigger/">漏洞研究</a></strong>：</p>
-<p>当涉及到<code>AngularJS</code>时，XSS漏洞可能会在没有HTML的情况下发生，这是PortSwigger研究团队在其文章《<code>XSS without HTML: Client-Side Template Injection with AngularJS</code>》中提到的主题。<strong>总结</strong>如下：</p>
+<p>当涉及到
+<code>AngularJS</code>时，XSS漏洞可能会在没有HTML的情况下发生，这是PortSwigger研究团队在其文章《<code>XSS without HTML: Client-Side Template Injection with AngularJS</code>》中提到的主题。<strong>总结</strong>如下：</p>
 <ul>
 <li>AngularJS是一种流行的JavaScript框架，用于创建单页应用程序。</li>
 <li>AngularJS模板用于在客户端渲染HTML内容。</li>
@@ -2125,7 +2179,8 @@ sink and source structures in prototype pollution detection using static
 analysis.</p>
 </blockquote></li>
 <li><p>在软件安全领域中，<code>sink（漏洞点）</code>通常指代那些潜在的漏洞利用点或攻击目标，例如对输入数据的不当处理或未正确验证可能导致的注入攻击、XSS（跨站脚本）漏洞、CSRF（跨站请求伪造）漏洞等。在上下文敏感分析中，sink通常是程序中的一个<strong>函数调用</strong>，它从潜在的漏洞源中接收输入并进行进一步处理，因此可能受到恶意输入的影响。在ObjLupAnsys中，sink指的是<strong>系统内置函数</strong>，例如Object.prototype.toString，该函数可能被重新定义以实现攻击效果。</p></li>
-<li><p>我们讲解的是原型污染漏洞中的<code>源（source）对象</code>。通常，传统漏洞（如命令注入漏洞）的源对象是一个简单类型的<strong>用户输入，</strong>比如字符串。因此，可以简单地将这些输入标记为污点数据。但是，在原型污染漏洞中，源对象通常是一个包含<strong>复杂结构</strong>的对象，例如从
+<li><p>我们讲解的是原型污染漏洞中的
+<code>源（source）对象</code>。通常，传统漏洞（如命令注入漏洞）的源对象是一个简单类型的<strong>用户输入，</strong>比如字符串。因此，可以简单地将这些输入标记为污点数据。但是，在原型污染漏洞中，源对象通常是一个包含<strong>复杂结构</strong>的对象，例如从
 JSON
 输入解析而来的对象。挑战在于，输入对象的结构通常是<strong>未知的、动态的</strong>，即由攻击者决定的。因此，简单地将对象标记为污点数据并不能反映其内部结构，以及该结构如何影响上述“sink”对象的查找。</p></li>
 <li><p><code>污点分析</code>是一种静态或动态代码分析技术，用于检测和防范安全漏洞，特别是与输入验证和数据处理相关的漏洞。其核心思想是标记数据流中可能被污染（即潜在攻击数据）的变量或参数，并<strong>跟踪</strong>这些污点在程序中的流动，以检测可能的漏洞点。如果一个污点最终到达了一个<strong>敏感函数</strong>（如系统调用、SQL查询、文件操作等），就会被判定为漏洞，并触发警报或其他防御措施。污点分析可以通过<strong>数据流分析、控制流分析、符号执行</strong>等技术实现。它已经成为软件安全分析的重要工具之一，在漏洞挖掘、漏洞修复、软件测试等方面都有广泛应用。</p></li>
@@ -2196,7 +2251,8 @@ Pollution漏洞类型。该漏洞的影响版本为Node.js
 <p>具体来说，在Node.js中，有一些<strong>内置模块</strong>（比如querystring模块），会将查询字符串解析为JavaScript对象。攻击者可以在查询字符串中携带特殊构造的__proto__属性，这会导致在解析过程中创建的JavaScript对象的原型链被污染。如果攻击者能够控制该对象的原型链，则可以在目标系统上执行任意JavaScript代码，从而导致严重的安全问题。</p>
 <p>该漏洞的修复包括在Node.js
 v12.16.2、v10.19.0和v8.17.0版本中，Node.js官方已发布安全更新，建议用户及时升级到最新版本来修复该漏洞。</p></li>
-<li><p><code>静态分析</code>可以找到所有的可能路径和条件，但可能会错过一些动态执行的情况。而<code>动态分析</code>可以发现动态执行的情况，但无法保证所有的路径和条件都能够被触发。因此，在某些情况下，需要同时使用静态和动态分析来发现漏洞</p></li>
+<li><p><code>静态分析</code>可以找到所有的可能路径和条件，但可能会错过一些动态执行的情况。而
+<code>动态分析</code>可以发现动态执行的情况，但无法保证所有的路径和条件都能够被触发。因此，在某些情况下，需要同时使用静态和动态分析来发现漏洞</p></li>
 <li><p>本文提出了<strong>三个细粒度污染流</strong>，即对象污染流、函数污染流和属性污染流</p></li>
 <li><p>JavaScript具有很强的<strong>动态特性</strong>，包括以下几个方面：</p>
 <ol type="1">
@@ -2214,12 +2270,12 @@ v12.16.2、v10.19.0和v8.17.0版本中，Node.js官方已发布安全更新，�
 <ul>
 <li><p><strong>文献总结</strong></p>
 <ul>
-<li><p><strong>研究背景</strong>：原型污染是一种常见的安全漏洞，它可以导致恶意攻击者在应用程序中执行任意代码或获取敏感信息。目前已经有一些针对原型污染漏洞的检测和预防技术，但它们通常只能检测到一些简单的漏洞，并且存在误报率较高的问题。因此，本文旨在提出一种更准确和有效的原型污染检测和预防技术。</p></li>
-<li><p><strong>创新之处</strong>：本文提出了一种基于对象查找分析（Object
+<li><strong>研究背景</strong>：原型污染是一种常见的安全漏洞，它可以导致恶意攻击者在应用程序中执行任意代码或获取敏感信息。目前已经有一些针对原型污染漏洞的检测和预防技术，但它们通常只能检测到一些简单的漏洞，并且存在误报率较高的问题。因此，本文旨在提出一种更准确和有效的原型污染检测和预防技术。</li>
+<li><strong>创新之处</strong>：本文提出了一种基于对象查找分析（Object
 Lookup
 Analysis）的方法，用于检测和预防JavaScript应用程序中的原型污染漏洞。该方法利用Object
 Property
-Graph（OPG）模型来捕获JavaScript对象之间的相互作用关系，并设计了一个名为ObjLupAnsys的框架来进行对象查找分析和漏洞检测。</p></li>
+Graph（OPG）模型来捕获JavaScript对象之间的相互作用关系，并设计了一个名为ObjLupAnsys的框架来进行对象查找分析和漏洞检测。</li>
 </ul></li>
 <li><p>Song Li <strong>三文对比</strong></p>
 <ol type="1">
@@ -2258,7 +2314,8 @@ One Million Real-world Websites</a>(<strong>CCF-A</strong>会议：NDSS
 </ul>
 <h4 id="正文-10">正文</h4>
 <ul>
-<li><p>从<strong>title</strong>上看注意到，作者这次研究的客户端上的<code>JS</code></p></li>
+<li><p>从<strong>title</strong>上看注意到，作者这次研究的客户端上的
+<code>JS</code></p></li>
 <li><p><strong>原型污染</strong>的出处：文献[6]</p></li>
 <li><p>讨论了原型污染的后果，除了污染原型对象本身之外，原型污染还可能导致<strong>其他安全问题</strong>。</p>
 <p><strong>举例</strong>：<code>如果另一段JavaScript代码与原型污染漏洞位于同一位置，并循环遍历对象下的所有具有常量值的属性以生成HTML代码，则该原型污染将允许攻击者注入任意JavaScript代码，从而导致跨站脚本攻击（XSS）的发生</code></p>
@@ -2276,7 +2333,7 @@ One Million Real-world Websites</a>(<strong>CCF-A</strong>会议：NDSS
 <span class="token punctuation">&#125;</span></code></pre>
 <p>该代码段遍历了一个名为input的对象的所有属性，并生成相应的HTML代码。
 如果input对象被受到原型污染漏洞的影响，攻击者可以注入任意JavaScript代码，并因此导致跨站脚本攻击。</p>
-<p>例如，攻击者可以将<code>Object.prototype</code>修改为：</p>
+<p>例如，攻击者可以将 <code>Object.prototype</code>修改为：</p>
 <pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token class-name">Object</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">someEvilFunction</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'gotcha'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></code></pre>
@@ -2294,14 +2351,16 @@ One Million Real-world Websites</a>(<strong>CCF-A</strong>会议：NDSS
     document<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>key <span class="token operator">+</span> <span class="token string">" = "</span> <span class="token operator">+</span> input<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">"&lt;br>"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span></code></pre>
-<p>在运行这段代码时，会执行被注入的<code>someEvilFunction</code>函数，导致一个弹窗出现，从而执行了跨站脚本攻击。</p>
+<p>在运行这段代码时，会执行被注入的
+<code>someEvilFunction</code>函数，导致一个弹窗出现，从而执行了跨站脚本攻击。</p>
 <p><code>Object.prototype</code> 是所有 JavaScript 对象的原型对象。它是
 JavaScript
 中最顶层的原型对象，所有的内置对象都继承自它，包括数组、函数、日期、正则表达式等。在
 JavaScript
 中，每个对象都有一个原型对象，它会自动继承原型对象的属性和方法。通过
 <code>Object.prototype</code>，我们可以为所有的对象添加共享的属性和方法。</p></li>
-<li><p>关于原型污染引起的<code>Xss</code>漏洞研究，可以关注的<strong>博客</strong>和<strong>github
+<li><p>关于原型污染引起的
+<code>Xss</code>漏洞研究，可以关注的<strong>博客</strong>和<strong>github
 repository</strong>：文献[9] [10] [6] [24] [29]</p></li>
 <li><p>在测量客户端原型污染和后续影响方面，有<strong>两个主要挑战</strong>：</p>
 <ol type="1">
@@ -2443,9 +2502,9 @@ ul 元素，并添加一个 class 为 "unitSpecs"。</li>
 data[field] 中。</li>
 <li>将 data["k"] 的值设置为
 <code>&lt;script&gt;alert(1)&lt;/script&gt;</code>。</li>
-<li>将 "<code>&lt;li&gt;</code><span class="k">" + data["k"] +
-"</span><code>&lt;/li&gt;</code>" 添加到 $unitSpecs 元素中。最终的
-$unitSpecs 元素为：&lt;ul
+<li>将 "<code>&lt;li&gt;&lt;span class='k'&gt;</code>" + data["k"] +
+"<code>&lt;/li&gt;</code>" 添加到 $unitSpecs 元素中。最终的 $unitSpecs
+元素为：&lt;ul
 <code>class="unitSpecs"&gt;&lt;li&gt;&lt;span class='k'&gt;&lt;script&gt;alert(1)&lt;/script&gt;&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;</code>。</li>
 </ol></li>
 <li><p><strong>作者的定义</strong>：对象污点和值污点</p></li>
@@ -2472,7 +2531,8 @@ function）是指在程序中，可以接收并处理来自外部输入的数据
 <li><p><strong>文献总结</strong></p>
 <p>本文的研究背景是<strong>客户端原型污染漏洞</strong>。这是一种相对较新的JavaScript漏洞类型，可能导致跨站脚本攻击（XSS）和cookie篡改等安全问题。在过去的几年中，已经有一些研究关注这个问题，但大多数都是基于手动分析或小规模实验室测试。</p></li>
 <li><p>本文的主要<strong>Contributions</strong></p>
-<p>提出了<code>PROBETHEPROTO</code>系统，这是第一个针对客户端原型污染漏洞进行大规模测量研究的系统。该系统使用动态污点分析和漏洞利用生成来跟踪联合污点流并自动化整个过程来检测客户端原型污染漏洞。此外，该研究还提供了一个全球范围内的网站列表，并对这些网站进行了测试，以揭示客户端原型污染漏洞的普遍性和潜在后果。这些创新点为网站开发人员和安全专业人员提供了有用的建议和指导，以帮助他们更好地保护网站免受客户端原型污染漏洞的攻击。</p></li>
+<p>提出了
+<code>PROBETHEPROTO</code>系统，这是第一个针对客户端原型污染漏洞进行大规模测量研究的系统。该系统使用动态污点分析和漏洞利用生成来跟踪联合污点流并自动化整个过程来检测客户端原型污染漏洞。此外，该研究还提供了一个全球范围内的网站列表，并对这些网站进行了测试，以揭示客户端原型污染漏洞的普遍性和潜在后果。这些创新点为网站开发人员和安全专业人员提供了有用的建议和指导，以帮助他们更好地保护网站免受客户端原型污染漏洞的攻击。</p></li>
 <li><p>阅读本文比较<strong>费时间</strong>：在看懂他方法的过程中，几乎没几个熟悉的概念。</p></li>
 <li><p>本文与一个月前的<strong>Node.js原型污染</strong>论文是同一作者<strong>song
 li</strong></p>
@@ -2545,8 +2605,10 @@ Fuzzing）是一种自动化软件测试技术，它通过创建模型和生成�
 <p><strong>引导式模糊测试</strong></p>
 <p><strong>结构感知模糊测试</strong></p>
 <p>以上类别都不好理解</p></li>
-<li><p>本文多次提到<code>中间表示</code>这个术语，这应该是本文的一个创新之处</p>
-<p>在之前看的多篇文献中几乎不出意外都是使用了<code>AST</code>这一中间表示</p>
+<li><p>本文多次提到
+<code>中间表示</code>这个术语，这应该是本文的一个创新之处</p>
+<p>在之前看的多篇文献中几乎不出意外都是使用了
+<code>AST</code>这一中间表示</p>
 <p>而本文创造了一个<strong>新的中间表示</strong></p></li>
 <li><p><strong>猜测优化</strong>
 "猜测优化"指的是在运行时推断代码的使用模式，从而对代码进行优化的一种技术。在
@@ -2621,9 +2683,7 @@ JIT
 编译器中，存在<strong>一种假设</strong>，即某个操作不会导致垃圾回收，但实际上这个操作确实会触发一些可能引起垃圾回收的
 API，而这就为攻击者制造了可乘之机。通过在代码中加入断言可以帮助及早发现此类漏洞。</p></li>
 <li><p>作者给出的<strong>建议</strong>：未来的fuzzing研究必须提供任何初始语料库以便进行复制，并且应该更加重视使用不同的、可能是新的语料库来重现以前的fuzzing结果，以估计fuzzer在不同语料库上的泛化能力。</p></li>
-<li><ol type="1">
 <li></li>
-</ol></li>
 </ul>
 <h3 id="section-36">2023-04-14</h3>
 <h4 id="paper1">Paper1</h4>
@@ -2716,17 +2776,11 @@ multi-feature model</a>(<strong>CCF-B</strong>:Computers &amp;
 Security)</p>
 <ul>
 <li><p><strong>Paper信息：</strong></p>
-<p>Article history:<br />
-Received 15 September 2022<br />
-Revised 1 November 2022<br />
-Accepted 14 November 2022<br />
-Available online 20 November 2022</p></li>
+<p>Article history:Received 15 September 2022Revised 1 November
+2022Accepted 14 November 2022Available online 20 November 2022</p></li>
 <li><p><strong>keywords:</strong></p>
-<p>Cross-site scripting<br />
-Multi-feature fusion<br />
-Graph convolutional network<br />
-Weighted aggregation<br />
-Vulnerability detection</p></li>
+<p>Cross-site scriptingMulti-feature fusionGraph convolutional
+networkWeighted aggregationVulnerability detection</p></li>
 <li><p><strong>前置知识</strong></p>
 <ul>
 <li><p><strong>加权聚合：</strong></p>
@@ -2905,10 +2959,10 @@ Pollution）是指攻击者能够修改JavaScript对象的原型（prototype）�
 Traversal）是指攻击者利用应用程序没有对用户输入数据进行正确处理的漏洞，访问应用程序之外的文件或目录。这种攻击方式可能导致攻击者能够读取、修改、删除或上传应用程序之外的文件，从而达到窃取敏感信息或者破坏系统的目的。</p>
 <p><strong>内部属性篡改</strong>（Internal Property
 Tampering）是指攻击者利用JavaScript的一些高级特性，如Object.defineProperty()方法等，对对象的内部属性进行篡改，从而导致应用程序出现安全漏洞。这种攻击方式可能导致应用程序中的数据被篡改、敏感信息泄露等安全问题。</p></li>
-<li><p><strong>原型对象</strong></p></li>
-</ul>
+<li><p><strong>原型对象</strong></p>
 <p>每个函数都有一个名为“prototype”的属性，它指向一个对象。这个对象被称为函数的原型对象（prototype
-object）。原型对象是一个普通对象，它具有自己的属性和方法。</p>
+object）。原型对象是一个普通对象，它具有自己的属性和方法。</p></li>
+</ul>
 <h4 id="论文正文">论文正文</h4>
 <h5 id="论文1-6">论文1</h5>
 <ul>
@@ -2928,13 +2982,14 @@ myFunc <span class="token operator">=</span> <span class="token keyword">new</sp
     myFunc<span class="token punctuation">[</span>source2<span class="token punctuation">]</span> <span class="token operator">=</span> myFunc<span class="token punctuation">.</span>x <span class="token operator">+</span> source1<span class="token punctuation">;</span> <span class="token comment">// internal property tampering</span>
 <span class="token function">sink</span><span class="token punctuation">(</span>myFunc<span class="token punctuation">.</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// taint -style vulnerability like command injection</span></code></pre>
 <ul>
-<li><p><code>Func()</code>
-这个函数有一个原型对象<code>Func.prototype</code>，<strong>myFunc</strong>
-这个函数将会继承<code>Func</code>的原型对象，所以<strong>myFunc.x</strong>操纵的是<code>Func.prototype.x</code></p></li>
+<li><p><code>Func()</code> 这个函数有一个原型对象
+<code>Func.prototype</code>，<strong>myFunc</strong> 这个函数将会继承
+<code>Func</code>的原型对象，所以<strong>myFunc.x</strong>操纵的是
+<code>Func.prototype.x</code></p></li>
 <li><p><strong>内部属性篡改</strong>：source2可由敌手控制</p>
 <ol type="1">
 <li>如设置为Func.prototype.x；</li>
-<li>设置为<code>__proto__</code> 将会更改原型Func.prototype</li>
+<li>设置为 <code>__proto__</code> 将会更改原型Func.prototype</li>
 </ol></li>
 <li><p><strong>污点式漏洞</strong></p>
 <ol type="1">
@@ -2954,8 +3009,7 @@ SQL 注入漏洞的特定模式可能包括输入的数据被直接拼接到 SQL
 </ul></li>
 <li><p><strong>Application-level Vulnerabilities</strong></p>
 <ul>
-<li>Adversary-controlled network request to a vulnerable server.<br />
-</li>
+<li>Adversary-controlled network request to a vulnerable server.</li>
 <li>Adversary-controlled network response to a vulnerable client</li>
 </ul></li>
 <li><p><strong>Package-level Vulnerabilities</strong></p>
@@ -3124,8 +3178,8 @@ Ast是程序代码的语法表示，是从程序代码中提取出的最基本�
 </ul></li>
 <li><p><strong>模型生成</strong>：</p>
 <ul>
-<li><p>图节点嵌入：指DDG</p></li>
-<li><p>高层特征的生成和分类:不同于初始特征</p></li>
+<li>图节点嵌入：指DDG</li>
+<li>高层特征的生成和分类:不同于初始特征</li>
 </ul></li>
 <li><p><strong>模型测试</strong>：模型的可解释性，制定评估标准，本文为DDG节点的注意力得分</p></li>
 </ul>
@@ -3199,11 +3253,11 @@ and Communication Networks 2020）</li>
 <li>基于代码相似性的漏洞检测方法：clone detection
 ，相似的程序代码具有相似的漏洞
 <ul>
-<li>Grammar-Based Clone Detection Methods.
+<li><p>Grammar-Based Clone Detection Methods.</p>
 <ul>
 <li>代码表征</li>
 </ul></li>
-<li>Semantic-Based Clone Detection Methods</li>
+<li><p>Semantic-Based Clone Detection Methods</p></li>
 </ul></li>
 <li>基于代码模式的漏洞检测方法：According to whether the program needs
 to be run
@@ -3245,11 +3299,11 @@ alt="image-20230316205203892" />
 <ul>
 <li>Patching Process
 <ul>
-<li><p>the software fault location phase,</p></li>
-<li><p>the patch generation phase,</p></li>
-<li><p>Te search-based patch generation method</p></li>
-<li><p>Te semantic-based patch generation method</p></li>
-<li><p>and the patch evaluation phase.</p></li>
+<li>the software fault location phase,</li>
+<li>the patch generation phase,</li>
+<li>Te search-based patch generation method</li>
+<li>Te semantic-based patch generation method</li>
+<li>and the patch evaluation phase.</li>
 </ul></li>
 <li>Grammar-Based Patching Technology
 <ul>
@@ -3512,13 +3566,13 @@ src="https://s2.loli.net/2023/03/09/K4fhE6TROkwceuj.png"
 alt="image-20230309214744642" /></p></li>
 <li><p>Dissusion（创新点）</p>
 <ul>
-<li><p><code>the integration of reinforcement learning with deep learning approaches and the application of these models on malware detection is considered as a future research direction</code></p></li>
-<li><p>静态特征与动态特征的结合还很少人做</p></li>
-<li><p>将不同的模型融合到一个模型是个不错的想法；其次，<code>Also, we observed that some machine learning types such as multi-task learning, multi-modal learning, and multiview learning were neglected, but they can be applied effectively in mobile malware detection problem.</code></p></li>
-<li><p><code>准确度和F-measure是广泛使用的评价参数，交叉验证是最受欢迎的验证方法</code>：
-不太理解这个问题。感觉是：使用什么参数去评估实验效果？</p></li>
-<li><p>寻找最优的算法，目前研究主要集中在DNN和CNN</p></li>
-<li><p>模型和和算法区分</p></li>
+<li><code>the integration of reinforcement learning with deep learning approaches and the application of these models on malware detection is considered as a future research direction</code></li>
+<li>静态特征与动态特征的结合还很少人做</li>
+<li>将不同的模型融合到一个模型是个不错的想法；其次，<code>Also, we observed that some machine learning types such as multi-task learning, multi-modal learning, and multiview learning were neglected, but they can be applied effectively in mobile malware detection problem.</code></li>
+<li><code>准确度和F-measure是广泛使用的评价参数，交叉验证是最受欢迎的验证方法</code>：
+不太理解这个问题。感觉是：使用什么参数去评估实验效果？</li>
+<li>寻找最优的算法，目前研究主要集中在DNN和CNN</li>
+<li>模型和和算法区分</li>
 </ul>
 <blockquote>
 <ul>
@@ -3582,7 +3636,7 @@ classification, adversarial examples, adversarial robustness.</p></li>
 src="https://s2.loli.net/2023/03/11/KHhlPGFpWxN9XBM.png"
 alt="image-20230311003702766" /></p>
 <ul>
-<li>Data Preprocessing,
+<li><p>Data Preprocessing,</p>
 <ul>
 <li><strong>Data augmentation</strong> and <strong>equalization
 techniques</strong> can be used in this phase to train stronger malware
@@ -3590,11 +3644,12 @@ classifiers</li>
 <li><strong>Unpacking techniques</strong> can also balance training
 data, which leads to more convincing experimental results.</li>
 </ul></li>
-<li>Feature Collection,</li>
-<li>静态特征： raw bytes, operation codes, function calls, etc.</li>
-<li>动态特征： Application Programming Interface (API) calls, network
-traffic, hardware-based features, etc.</li>
-<li>Feature Extraction,
+<li><p>Feature Collection,</p></li>
+<li><p>静态特征： raw bytes, operation codes, function calls,
+etc.</p></li>
+<li><p>动态特征： Application Programming Interface (API) calls, network
+traffic, hardware-based features, etc.</p></li>
+<li><p>Feature Extraction,</p>
 <ul>
 <li>High-level features are extracted to select <strong>important
 features</strong>, reduce feature size, and construct input features for
@@ -3603,7 +3658,7 @@ the classification model.</li>
 and word embedding) and some feature compression methods (such as
 malware images and feature selection) can be leveraged.</li>
 </ul></li>
-<li>Classification,
+<li><p>Classification,</p>
 <ul>
 <li>Classification: ML-based models are chosen as malware classifiers to
 make predictions on input features.Basic ML models can be used as
@@ -3612,8 +3667,8 @@ Regression (LR), Random Forest (RF), etc. Some DL models are also used,
 such as Deep Neural Network (DNN), Convolutional Neural Network (CNN),
 Recurrent Neural Network (RNN), etc.</li>
 </ul></li>
-<li>Decision Making</li>
-<li>分类的两种方式
+<li><p>Decision Making</p></li>
+<li><p>分类的两种方式</p>
 <ul>
 <li>Binary-Classification: A given software example is deter- mined as
 malicious or benign, which is also called malware detection in many
@@ -3623,13 +3678,13 @@ studies.</li>
 <li>Multi-Classification: A given malware example is classi- fied into
 one malware family.</li>
 </ol></li>
-<li>一些模型示例<img
+<li><p>一些模型示例<img
 src="https://s2.loli.net/2023/03/11/TfvanXKsJGAYb2u.png"
-alt="image-20230311002016915" /></li>
-<li>comparison<img
+alt="image-20230311002016915" /></p></li>
+<li><p>comparison<img
 src="https://s2.loli.net/2023/03/11/afCWghNbxU2Rm1S.png"
-alt="image-20230311002646769" /></li>
-<li>分类器 Challenges
+alt="image-20230311002646769" /></p></li>
+<li><p>分类器 Challenges</p>
 <ul>
 <li>Classifier Aging Problem</li>
 <li>Data Bias Problem：</li>
@@ -3638,21 +3693,21 @@ alt="image-20230311002646769" /></li>
 <li>解决：Parallel Adversarial Network (PAN)</li>
 </ul></li>
 </ul></li>
-<li>攻击<img src="https://s2.loli.net/2023/03/11/qUeps4tnJLkh8QS.png"
-alt="image-20230311012141298" />
+<li><p>攻击<img src="https://s2.loli.net/2023/03/11/qUeps4tnJLkh8QS.png"
+alt="image-20230311012141298" /></p>
 <ul>
 <li>White-box Attacks: Attackers have full knowledge of the victim
 model, including training data, model structure, parameters, gradient
 information, and predictions.</li>
 </ul></li>
-<li>two kinds of adversarial attack methods:
+<li><p>two kinds of adversarial attack methods:</p>
 <ul>
 <li>Targeted Attacks: Attackers mislead the victim model to produce a
 chosen classification result.</li>
 <li>Untargeted Attacks: Attackers mislead the victim model to produce a
 wrong classification result.</li>
 </ul></li>
-<li>基于机器学习的对抗攻击
+<li><p>基于机器学习的对抗攻击</p>
 <ul>
 <li>White-Box
 <ul>
@@ -3760,7 +3815,7 @@ src="https://s2.loli.net/2023/03/11/DdovuJ7WVq4scAz.png"
 alt="Malware&amp;Adversary" /></p></li>
 <li><p>对<strong>全局的分析</strong>：</p>
 <ul>
-<li>首先是研究内容由两部分组成：恶意代码分类器+对抗样本的生成
+<li><p>首先是研究内容由两部分组成：恶意代码分类器+对抗样本的生成</p>
 <ul>
 <li>恶意代码分类器：
 <ul>
@@ -3784,7 +3839,7 @@ alt="Malware&amp;Adversary" /></p></li>
 </ul></li>
 </ul></li>
 </ul></li>
-<li>这整个过程还存在很多的<strong>细节</strong>：
+<li><p>这整个过程还存在很多的<strong>细节</strong>：</p>
 <ul>
 <li>数据样本的选择应该尽可能覆盖的范围大</li>
 <li>对数据的处理方式</li>
@@ -3864,11 +3919,11 @@ href="https://jf710001011.github.io/2023/03/04/ml07/">学习记录</a></li>
 <li><p>机器学习还是得继续，找准跟我研究内容相关的部分</p></li>
 <li><p>时间点：</p>
 <ul>
-<li><p>04-01前找到那个点，确定自己需要<strong>解决的问题</strong>。</p></li>
-<li><p>06-01前：将<strong>机器学习</strong>学完（就跟着视频全部学完，感觉也不多吧），如下这三部分，大概150个短视频，同时积累<strong>恶意代码</strong>知识。<img
+<li>04-01前找到那个点，确定自己需要<strong>解决的问题</strong>。</li>
+<li>06-01前：将<strong>机器学习</strong>学完（就跟着视频全部学完，感觉也不多吧），如下这三部分，大概150个短视频，同时积累<strong>恶意代码</strong>知识。<img
 src="https://s2.loli.net/2023/03/04/8ZOLdhBt5IsR9me.png"
-alt="image-20230304025037998" /></p></li>
-<li><p>07-01前：寻找到<strong>问题的解决方案</strong>。</p></li>
+alt="image-20230304025037998" /></li>
+<li>07-01前：寻找到<strong>问题的解决方案</strong>。</li>
 </ul></li>
 </ul></li>
 <li><p>感觉自己还是很想能发出一篇不错的论文：</p>
@@ -4008,21 +4063,21 @@ Examples</a>（3）；相关记录：2023-01-13，2023-01-06</p>
 <p><a
 target="_blank" rel="noopener" href="https://www.cnblogs.com/horacle/p/13171057.html">梯度</a></p>
 <ul>
-<li>深度学习模型可以学习一些函数来抵抗对抗性攻击，而浅层模型则没有这种功能。
+<li><p>深度学习模型可以学习一些函数来抵抗对抗性攻击，而浅层模型则没有这种功能。</p>
 <ul>
 <li>针对在训练集上对抗样本没有达到0错误率，作者提出了两种方法去改进实验去下降对对抗样本分类的错误率。</li>
 </ul></li>
-<li>针对对抗训练这一点。作者的实验结果表明
+<li><p>针对对抗训练这一点。作者的实验结果表明</p>
 <ul>
 <li>用原来的模型生成的对抗样本作用在原来的模型上，错误率是89.4%，但是作用在使用对抗样本训练的模型上，错误率是17.9%。用对抗样本训练的模型去生成对抗样本，作用在原来的模型上，错误率是40.9%，作用在用对抗样本训练的模型上，错误率是19.6</li>
 </ul></li>
-<li>梯度：对各个自变量求偏导，得到的结果写成向量形式即为梯度。
+<li><p>梯度：对各个自变量求偏导，得到的结果写成向量形式即为梯度。</p>
 <ul>
 <li>所有下降方向中，梯度下降最多</li>
 <li>使用梯度寻找最优参数</li>
 </ul></li>
-<li>文中提出的：针对FGSM——快速生成对抗样本的方法，作者认为：生成对抗样本更应该关注的是扰动的方向而不是扰动的数目</li>
-<li>实验证明使用FGSM算法确实可以加快对抗样本的生成</li>
+<li><p>文中提出的：针对FGSM——快速生成对抗样本的方法，作者认为：生成对抗样本更应该关注的是扰动的方向而不是扰动的数目</p></li>
+<li><p>实验证明使用FGSM算法确实可以加快对抗样本的生成</p></li>
 </ul>
 <figure>
 <img src="https://s2.loli.net/2023/01/19/2IUpWdmPcQwC7zS.png"
@@ -4096,10 +4151,7 @@ target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/38200980">深�
 <img src="https://s2.loli.net/2023/01/13/73N2V1Im46GipSa.jpg"
 alt="img" />
 <figcaption aria-hidden="true">img</figcaption>
-</figure>
-<ul>
-<li></li>
-</ul></li>
+</figure></li>
 </ul></li>
 <li><p>优化问题： <a target="_blank" rel="noopener" href="https://hujichn.github.io/">[Ji Hu's
 Blog]</a></p>
@@ -4164,12 +4216,12 @@ and Harnessing Adversarial Examples</a>（ICLR
 </ul></li>
 <li><p>结论：</p>
 <ul>
-<li><p>对抗样本能够在不同模型<strong>泛化</strong>，是因为对抗样本的扰动与模型的权重向量高度对齐的结果。（暂时不理解</p></li>
-<li><p><code>The direction of perturbation, rather than the speciﬁc point in space, matters most. Space is not full of pockets of adversarial examples that ﬁnely tile the reals like the rational numbers</code>（如何理解</p></li>
-<li><p>对抗性训练可以导致<strong>正则化</strong></p></li>
-<li><p><strong>易于优化</strong>的模型容易受到干扰</p></li>
-<li><p><strong>线性模型</strong>缺乏抵抗对抗扰动的能力</p></li>
-<li><p><strong>RBF网络</strong>对对抗样本有抗干扰能力</p></li>
+<li>对抗样本能够在不同模型<strong>泛化</strong>，是因为对抗样本的扰动与模型的权重向量高度对齐的结果。（暂时不理解</li>
+<li><code>The direction of perturbation, rather than the speciﬁc point in space, matters most. Space is not full of pockets of adversarial examples that ﬁnely tile the reals like the rational numbers</code>（如何理解</li>
+<li>对抗性训练可以导致<strong>正则化</strong></li>
+<li><strong>易于优化</strong>的模型容易受到干扰</li>
+<li><strong>线性模型</strong>缺乏抵抗对抗扰动的能力</li>
+<li><strong>RBF网络</strong>对对抗样本有抗干扰能力</li>
 </ul></li>
 <li><p><strong>知识积累</strong></p>
 <ul>
@@ -4219,14 +4271,14 @@ malware sample generation method based on the prototype of deep learning
 detector</a>（3）</p>
 <h4 id="如何看懂一篇学术论文">如何看懂一篇学术论文</h4>
 <ul>
-<li><p><strong>为什么</strong>要进行这项研究，这项研究在解决什么问题</p></li>
-<li><p>在解决这个问题<strong>之前</strong>，这一领域做过什么努力？之前的工作有什么<strong>局限</strong>？在作者看来，<strong>下一步</strong>需要做什么？</p></li>
-<li><p>在研究中作者想回答什么问题</p></li>
-<li><p>解决手段：作者要<strong>怎么做</strong></p></li>
-<li><p>为每个实验画出一个图表，画出作者到底做了什么。里面包含你全面<strong>理解研究工作</strong>所需要的所有细节</p></li>
-<li><p>写下一段或几段话，<strong>总结</strong>每个实验、每幅图解和每张表格的结果</p></li>
-<li><p>你认为这些结果<strong>说明了什么问题</strong>？</p></li>
-<li><p>作者认为结果意味着什么？你<strong>同意作者的看法吗</strong>？你能不能想出<strong>其他的方式</strong>解读结果？作者有没有意识到他们的研究存在任何<strong>弱点</strong>？你有没有发现任何作者<strong>遗漏的问题</strong>？他们建议<strong>下一步</strong>怎么做？你同意吗？</p></li>
+<li><strong>为什么</strong>要进行这项研究，这项研究在解决什么问题</li>
+<li>在解决这个问题<strong>之前</strong>，这一领域做过什么努力？之前的工作有什么<strong>局限</strong>？在作者看来，<strong>下一步</strong>需要做什么？</li>
+<li>在研究中作者想回答什么问题</li>
+<li>解决手段：作者要<strong>怎么做</strong></li>
+<li>为每个实验画出一个图表，画出作者到底做了什么。里面包含你全面<strong>理解研究工作</strong>所需要的所有细节</li>
+<li>写下一段或几段话，<strong>总结</strong>每个实验、每幅图解和每张表格的结果</li>
+<li>你认为这些结果<strong>说明了什么问题</strong>？</li>
+<li>作者认为结果意味着什么？你<strong>同意作者的看法吗</strong>？你能不能想出<strong>其他的方式</strong>解读结果？作者有没有意识到他们的研究存在任何<strong>弱点</strong>？你有没有发现任何作者<strong>遗漏的问题</strong>？他们建议<strong>下一步</strong>怎么做？你同意吗？</li>
 </ul>
 <blockquote>
 <p><strong>尝试以上述方式去阅读论文</strong></p>
@@ -4242,8 +4294,8 @@ target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/585456510">对
 <li><p>松弛空间内插入扰动</p></li>
 <li><p>对抗样本问题在图像分类领域有很多的研究，但是跟本文针对的PE文件，有多不同，这些差异会造成对抗样本的<strong>效率和对模型的愚弄率</strong></p>
 <ul>
-<li><p>因此针对两者差异，本文<strong>解决了这些问题</strong>去生成质量高的对抗样本</p></li>
-<li><p>方式：将原型样本（具有代表性的正常样本）中的字节添加到恶意软件中去产生对抗样本</p></li>
+<li>因此针对两者差异，本文<strong>解决了这些问题</strong>去生成质量高的对抗样本</li>
+<li>方式：将原型样本（具有代表性的正常样本）中的字节添加到恶意软件中去产生对抗样本</li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -4345,10 +4397,7 @@ Confusions in Android Apps</a></li>
 </ul>
 <h3 id="section-50">2022-12-09</h3>
 <h4 id="论文再学习">论文再学习</h4>
-<p>​ <a
-target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S0167404822001572#bib0028">Adversarial
-malware sample generation method based on the prototype of deep learning
-detector</a>（2）</p>
+<pre><code>[Adversarial malware sample generation method based on the prototype of deep learning detector](https://www.sciencedirect.com/science/article/pii/S0167404822001572#bib0028)（2）</code></pre>
 <ul>
 <li><p>对抗样本问题是一种<strong>约束优化问题</strong></p></li>
 <li><p>生成对抗样本的<strong>方式</strong>（本文重要的一部分）：在二进制文件的特定位置嵌入一些字节</p>
@@ -4409,20 +4458,20 @@ detector</a>（2）</p>
 <h3 id="section-51">2022-12-02</h3>
 <h4 id="博文相关学习">博文相关学习</h4>
 <ul>
-<li><strong>网络安全博文</strong>
+<li><p><strong>网络安全博文</strong></p>
 <ul>
 <li><a
 target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/column/83592">绿盟科技研究通讯</a></li>
 </ul></li>
-<li>概念漂移：
+<li><p>概念漂移：</p>
 <ul>
 <li>随着时间推移，测试数据和训练数据不一致，导致测试数据分类错误（例如，恶意代码检测中，恶意代码出现变种的现象，此时模型不能再适用</li>
 </ul></li>
-<li>对抗样本：
+<li><p>对抗样本：</p>
 <ul>
 <li>通过对输入样本增加微小的扰动，使得学习模型输出错误的结果。</li>
 </ul></li>
-<li>针对上述两个概念：
+<li><p>针对上述两个概念：</p>
 <ul>
 <li>区别是否有人工干扰</li>
 </ul></li>
@@ -4451,8 +4500,8 @@ Drift</a>（CCF-A会议:IEEE S&amp;P）</p>
 <ul>
 <li><p>关键词</p>
 <ul>
-<li><p>malware</p></li>
-<li><p>machine learning</p></li>
+<li>malware</li>
+<li>machine learning</li>
 <li><h6
 id="concept-drift恶意软件会随着防御的增强而进化演变成偏离原本的训练分布一个全新的概念且本文于此展开">Concept
 Drift：恶意软件会随着防御的增强而进化演变成偏离原本的训练分布（一个全新的概念，且本文于此展开）</h6></li>
@@ -4647,7 +4696,10 @@ Detection</a>（TDSC-2022，作者来自浙大）</p>
 target="_blank" rel="noopener" href="https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CDFD&amp;dbname=CDFDLAST2022&amp;filename=1020405886.nh&amp;uniplatform=NZKPT&amp;v=xjiG-vadnpzkvu94KN5K6owyE63keKSbdc119t_5nEfUR2a8ZsLu8ytcab9C2gM2">对抗样本技术在恶意软件检测和自动驾驶应用中的研究</a>（湖大-博士论文）</p>
 <ul>
 <li>在<strong>cvpr2019</strong>
-会议（人工智能顶会）中，直接关于对抗样本的论文有<code>67</code>篇，与对抗样本间接相关的有<code>58</code>篇；同样在网络与信息安全领域，被网安顶刊收入的相关文章中被引用的就有<code>上百</code>篇</li>
+会议（人工智能顶会）中，直接关于对抗样本的论文有
+<code>67</code>篇，与对抗样本间接相关的有
+<code>58</code>篇；同样在网络与信息安全领域，被网安顶刊收入的相关文章中被引用的就有
+<code>上百</code>篇</li>
 <li>潜在威胁：不良分子利用人工智能技术窃取用户隐私，而<strong>对抗样本</strong>技术可以欺骗不法分子的智能分析系统，从而避免损失</li>
 </ul>
 <figure>
@@ -4753,24 +4805,24 @@ target="_blank" rel="noopener" href="https://baidinghub.github.io/2020/04/03/%E5
 <li><p>基准：评价标准</p></li>
 <li><p>对抗攻击方法(许多方法需要深度探索才能理解,需要很多<strong>数学知识</strong>解释)</p>
 <ul>
-<li><p>L-BFGS</p></li>
-<li><p>FGSM</p></li>
-<li><p>FGVM</p></li>
-<li><p>RAND-FGSM</p></li>
-<li><p>BIM</p></li>
-<li><p>ILLC</p></li>
-<li><p>JSMA</p></li>
-<li><p>DeepF00l</p></li>
-<li><p>CPPN EA FOOL</p></li>
-<li><p>C&amp;W's attack(攻击蒸馏防御网络)</p></li>
-<li><p>ZOO</p></li>
-<li><p>Universal Perturbation(普适性攻击方法)</p></li>
+<li>L-BFGS</li>
+<li>FGSM</li>
+<li>FGVM</li>
+<li>RAND-FGSM</li>
+<li>BIM</li>
+<li>ILLC</li>
+<li>JSMA</li>
+<li>DeepF00l</li>
+<li>CPPN EA FOOL</li>
+<li>C&amp;W's attack(攻击蒸馏防御网络)</li>
+<li>ZOO</li>
+<li>Universal Perturbation(普适性攻击方法)</li>
 <li><h6 id="one-pixel-attack">One Pixel Attack</h6></li>
-<li><p>Feature Adversary</p></li>
-<li><p>Hot/Cold</p></li>
-<li><p>Natural GAN</p></li>
-<li><p>Model-based Ensembling Attack</p></li>
-<li><p>Ground-Truth Attack</p></li>
+<li>Feature Adversary</li>
+<li>Hot/Cold</li>
+<li>Natural GAN</li>
+<li>Model-based Ensembling Attack</li>
+<li>Ground-Truth Attack</li>
 </ul></li>
 <li><p>对抗防御方法</p>
 <ul>
@@ -4816,9 +4868,9 @@ target="_blank" rel="noopener" href="https://baidinghub.github.io/2020/04/03/%E5
 Comprehensive Review on Malware Detection Approaches</a>（IEEE
 ACCESS）</p>
 <ul>
-<li><p>利用恶意代码进行网络犯罪，造成巨大经济损失</p></li>
-<li><p>基于特征的检测方法和基于启发式的检测方法对于检测已经发现的恶意代码家族有很好的效果，但是对于未知的恶意代码很不理想，尤其是前一种方法。</p></li>
-<li><p>其次现在的恶意代码已经能够以内核态运行造成更大的破坏，这种恶意代码被称之为（<code>next-generation</code>），它可以轻松绕过防火墙和杀毒软件。并且，这种恶意代码能同时呈现出多种特征。</p></li>
+<li>利用恶意代码进行网络犯罪，造成巨大经济损失</li>
+<li>基于特征的检测方法和基于启发式的检测方法对于检测已经发现的恶意代码家族有很好的效果，但是对于未知的恶意代码很不理想，尤其是前一种方法。</li>
+<li>其次现在的恶意代码已经能够以内核态运行造成更大的破坏，这种恶意代码被称之为（<code>next-generation</code>），它可以轻松绕过防火墙和杀毒软件。并且，这种恶意代码能同时呈现出多种特征。</li>
 </ul>
 <figure>
 <img src="https://s2.loli.net/2022/10/20/oy7NGkhxLuIfSFW.png"
@@ -4834,7 +4886,7 @@ alt="传统恶意代码和新一代代码对比" />
 <li>设计一种能检测所有malware的算法不存在</li>
 <li>恶意代码检测理论上是一个难题，并且恶意代码开发者使用混淆技术，使得检测更加困难
 <ul>
-<li>其中谈到的<code>P和NP问题</code>难以理解</li>
+<li>其中谈到的 <code>P和NP问题</code>难以理解</li>
 <li>混淆技术：
 <ul>
 <li>Encryption</li>
@@ -4966,10 +5018,10 @@ target="_blank" rel="noopener" href="https://liuhaihuaaacc.gitee.io/2022/10/12/p
 </ul></li>
 <li><p><strong>收获</strong></p>
 <ul>
-<li><p>各种技术、方法、模型眼花缭乱，需要不断积累这些专业知识。</p></li>
-<li><p>现阶段没有必要在一些<strong>细节</strong>上纠结：了解本文提出了什么问题，用什么研究方法解决了该问题，以及得出了什么结论即可，我想。</p></li>
-<li><p>如果不知道学什么，那就看论文吧。文献里会有答案</p></li>
-<li><p>之前并不知道综述和常规文献的区别，本周通过阅读了几篇<strong>综述（</strong>综述可以更加快速全面地了解到研究领域的现状），对自己的研究领域有了更加深入的了解（其中尤其是认识到了研究问题的<strong>难点</strong>、<strong>意义</strong>、<strong>挑战</strong>）</p></li>
+<li>各种技术、方法、模型眼花缭乱，需要不断积累这些专业知识。</li>
+<li>现阶段没有必要在一些<strong>细节</strong>上纠结：了解本文提出了什么问题，用什么研究方法解决了该问题，以及得出了什么结论即可，我想。</li>
+<li>如果不知道学什么，那就看论文吧。文献里会有答案</li>
+<li>之前并不知道综述和常规文献的区别，本周通过阅读了几篇<strong>综述（</strong>综述可以更加快速全面地了解到研究领域的现状），对自己的研究领域有了更加深入的了解（其中尤其是认识到了研究问题的<strong>难点</strong>、<strong>意义</strong>、<strong>挑战</strong>）</li>
 </ul></li>
 <li><p><strong>下周目标</strong></p>
 <ul>
@@ -5011,20 +5063,20 @@ target="_blank" rel="noopener" href="https://liuhaihuaaacc.gitee.io/2022/10/12/p
 </ul>
 <h4 id="他人博文学习-2">他人博文学习</h4>
 <ul>
-<li><p><a
-target="_blank" rel="noopener" href="https://developer.huawei.com/consumer/cn/forum/topic/0203811848092790259?fid=0101592429757310384">详解基于机器学习的恶意代码检测技术</a></p></li>
-<li><p><a
-target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/352004681">恶意代码检测的本质性思考</a></p></li>
-<li><p><a
-target="_blank" rel="noopener" href="https://github.com/rshipp/awesome-malware-analysis/blob/main/%E6%81%B6%E6%84%8F%E8%BD%AF%E4%BB%B6%E5%88%86%E6%9E%90%E5%A4%A7%E5%90%88%E9%9B%86.md">恶意软件分析大合集</a></p></li>
-<li><p><a
-target="_blank" rel="noopener" href="https://github.com/0e0w/Malware#0x01-%E6%81%B6%E6%84%8F%E4%BB%A3%E7%A0%81%E8%B5%84%E6%BA%90">深入理解恶意代码与病毒样本</a></p></li>
-<li><p><a
-target="_blank" rel="noopener" href="https://github.com/ByteHackr/Machine-Learning-For-Cyber-Security/blob/master/README_ch.md#-papers">网络安全中机器学习大合集</a></p></li>
-<li><p><a
-target="_blank" rel="noopener" href="https://bbs.pediy.com/thread-266139.htm">恶意代码分析方向的基础技能表</a></p></li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/hija/MalwareDataScience">Malware Data
-Science-Read Diary</a></p></li>
+<li><a
+target="_blank" rel="noopener" href="https://developer.huawei.com/consumer/cn/forum/topic/0203811848092790259?fid=0101592429757310384">详解基于机器学习的恶意代码检测技术</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/352004681">恶意代码检测的本质性思考</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/rshipp/awesome-malware-analysis/blob/main/%E6%81%B6%E6%84%8F%E8%BD%AF%E4%BB%B6%E5%88%86%E6%9E%90%E5%A4%A7%E5%90%88%E9%9B%86.md">恶意软件分析大合集</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/0e0w/Malware#0x01-%E6%81%B6%E6%84%8F%E4%BB%A3%E7%A0%81%E8%B5%84%E6%BA%90">深入理解恶意代码与病毒样本</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/ByteHackr/Machine-Learning-For-Cyber-Security/blob/master/README_ch.md#-papers">网络安全中机器学习大合集</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://bbs.pediy.com/thread-266139.htm">恶意代码分析方向的基础技能表</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/hija/MalwareDataScience">Malware Data
+Science-Read Diary</a></li>
 </ul>
 <h4 id="研究切入点">研究切入点</h4>
 <ul>
@@ -5128,12 +5180,12 @@ target="_blank" rel="noopener" href="https://liuhaihuaaacc.gitee.io/2022/10/01/m
 <li><p>AI for Security</p></li>
 <li><p>Security of AI</p>
 <ul>
-<li>Model Security
+<li><p>Model Security</p>
 <ul>
 <li>inference Security</li>
 <li>training Security</li>
 </ul></li>
-<li>data security</li>
+<li><p>data security</p></li>
 </ul></li>
 </ul>
 <h4 id="网安方向分类">网安方向分类</h4>
@@ -5148,9 +5200,9 @@ aria-hidden="true">v2-d7e84da65c80ef6580e22380cbf1918f_720w</figcaption>
 </ul>
 <h4 id="恶意代码分析检测">恶意代码分析检测</h4>
 <ul>
-<li><p>恶意代码分析是一种解剖恶意代码的艺术，了解恶意代码是如何工作的、如何识别他，以及如何战胜和消除它</p></li>
-<li><p><strong>关键词：</strong> 恶意代码、逆向、汇编</p></li>
-<li><p>资料</p></li>
+<li>恶意代码分析是一种解剖恶意代码的艺术，了解恶意代码是如何工作的、如何识别他，以及如何战胜和消除它</li>
+<li><strong>关键词：</strong> 恶意代码、逆向、汇编</li>
+<li>资料</li>
 </ul>
 <ol type="1">
 <li><figure>
@@ -5203,9 +5255,9 @@ id="feature-representation-and-selection-in-malicious-code-detection-methods-bas
 target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S016740481100068X">Feature
 representation and selection in malicious code detection methods based
 on static system calls</a></h5></li>
-<li><p>（著名通讯软件telegram使用的协议mtproto）<a
+<li>（著名通讯软件telegram使用的协议mtproto）<a
 target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/9833666">Four Attacks and a
-Proof for Telegram</a>（IEEE S&amp;P）</p></li>
+Proof for Telegram</a>（IEEE S&amp;P）</li>
 <li><h6
 id="malicious-code-family-classification-based-on-multi-feature-fusion-fractional-kalman-filter"><a
 target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/9137472/">Malicious Code
@@ -5247,9 +5299,9 @@ target="_blank" rel="noopener" href="https://github.com/FederatedAI/FATE">FATE�
 <li><p>无数据交换，天然隐私保护</p></li>
 <li><p>分类</p>
 <ul>
-<li><p>横向</p></li>
-<li><p>纵向</p></li>
-<li><p>迁移</p></li>
+<li>横向</li>
+<li>纵向</li>
+<li>迁移</li>
 </ul></li>
 <li><p>安全和隐私攻击</p>
 <ul>
@@ -5273,7 +5325,7 @@ id="网络流量分析高性能网络报文处理数据分析">网络流量分�
 <p><br></p>
 <p><br></p>
 <p><br></p>
-<p><br><br></p>
+<p><code>&lt;br&gt;&lt;br&gt;</code></p>
 <p><br></p>
 <p><br></p>
 <p><br></p>
@@ -5925,7 +5977,7 @@ id="网络流量分析高性能网络报文处理数据分析">网络流量分�
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">241.5k</span>&nbsp;字
+                class="white-color">241.8k</span>&nbsp;字
             
             
             

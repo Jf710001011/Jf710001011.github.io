@@ -6,7 +6,7 @@
   <link href="https://jf710001011.github.io/atom.xml" rel="self"/>
   
   <link href="https://jf710001011.github.io/"/>
-  <updated>2024-01-18T13:41:39.645Z</updated>
+  <updated>2024-01-20T15:34:03.614Z</updated>
   <id>https://jf710001011.github.io/</id>
   
   <author>
@@ -15,6 +15,66 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Log4j2</title>
+    <link href="https://jf710001011.github.io/2024/01/19/log4j2/"/>
+    <id>https://jf710001011.github.io/2024/01/19/log4j2/</id>
+    <published>2024-01-19T13:15:34.714Z</published>
+    <updated>2024-01-20T15:34:03.614Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;impact&quot;&gt;Impact&lt;/h3&gt;
+&lt;ol type=&quot;1&quot;&gt;
+&lt;li&gt;The log4j library allows developers to log all kinds of data within
+their application,</summary>
+        
+      
+    
+    
+    
+    <category term="Cybersecurity" scheme="https://jf710001011.github.io/categories/Cybersecurity/"/>
+    
+    
+    <category term="Web" scheme="https://jf710001011.github.io/tags/Web/"/>
+    
+    <category term="RCE" scheme="https://jf710001011.github.io/tags/RCE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JNDI_LDAP_RCE</title>
+    <link href="https://jf710001011.github.io/2024/01/19/jndi-ldap-rce/"/>
+    <id>https://jf710001011.github.io/2024/01/19/jndi-ldap-rce/</id>
+    <published>2024-01-18T16:54:31.792Z</published>
+    <updated>2024-01-20T15:34:41.148Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;jndi&quot;&gt;JNDI&lt;/h3&gt;
+&lt;ol type=&quot;1&quot;&gt;
+&lt;li&gt;&lt;p&gt;JNDI, which stands for Java Naming and Directory Inter face, is a
+Java API (Application</summary>
+        
+      
+    
+    
+    
+    <category term="Cybersecurity" scheme="https://jf710001011.github.io/categories/Cybersecurity/"/>
+    
+    
+    <category term="Web" scheme="https://jf710001011.github.io/tags/Web/"/>
+    
+    <category term="RCE" scheme="https://jf710001011.github.io/tags/RCE/"/>
+    
+  </entry>
   
   <entry>
     <title>English</title>
@@ -48,7 +108,7 @@
     <link href="https://jf710001011.github.io/2024/01/13/java-blackhorse/"/>
     <id>https://jf710001011.github.io/2024/01/13/java-blackhorse/</id>
     <published>2024-01-13T12:40:48.724Z</published>
-    <updated>2024-01-17T16:14:55.942Z</updated>
+    <updated>2024-01-19T22:35:39.520Z</updated>
     
     
       
@@ -294,7 +354,7 @@ alt=&quot;image-20230718085116774&quot;</summary>
     <link href="https://jf710001011.github.io/2023/12/09/tabby-fen-xi/"/>
     <id>https://jf710001011.github.io/2023/12/09/tabby-fen-xi/</id>
     <published>2023-12-09T11:25:07.742Z</published>
-    <updated>2024-01-13T15:45:07.301Z</updated>
+    <updated>2024-01-20T15:28:43.130Z</updated>
     
     
       
@@ -507,62 +567,6 @@ Environment Variables for Java Multi-Version</summary>
     
     
     <category term="Java" scheme="https://jf710001011.github.io/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Docker</title>
-    <link href="https://jf710001011.github.io/2023/12/09/docker/"/>
-    <id>https://jf710001011.github.io/2023/12/09/docker/</id>
-    <published>2023-12-09T11:25:06.779Z</published>
-    <updated>2024-01-13T03:28:53.454Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;注意事项-经验-tips&quot;&gt;注意事项-经验-tips&lt;/h3&gt;
-&lt;ol type=&quot;1&quot;&gt;
-&lt;li&gt;确保tag正确才能pull成功&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3</summary>
-        
-      
-    
-    
-    
-    <category term="Tools" scheme="https://jf710001011.github.io/categories/Tools/"/>
-    
-    
-    <category term="Docker" scheme="https://jf710001011.github.io/tags/Docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Crypto Crash Course</title>
-    <link href="https://jf710001011.github.io/2023/12/09/crypto-crash-course/"/>
-    <id>https://jf710001011.github.io/2023/12/09/crypto-crash-course/</id>
-    <published>2023-12-09T11:25:06.713Z</published>
-    <updated>2024-01-13T03:28:53.454Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;padding-oracle-原理深度解析-cbc-字节翻转攻击原理解析&quot;&gt;padding
-oracle 原理深度解析 &amp;amp; CBC 字节翻转攻击原理解析&lt;/h3&gt;
-&lt;ol</summary>
-        
-      
-    
-    
-    
-    <category term="Cybersecurity" scheme="https://jf710001011.github.io/categories/Cybersecurity/"/>
-    
-    
-    <category term="Crypto" scheme="https://jf710001011.github.io/tags/Crypto/"/>
     
   </entry>
   

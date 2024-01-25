@@ -6,7 +6,7 @@
   <link href="https://jf710001011.github.io/atom.xml" rel="self"/>
   
   <link href="https://jf710001011.github.io/"/>
-  <updated>2024-01-20T15:34:03.614Z</updated>
+  <updated>2024-01-25T21:59:52.475Z</updated>
   <id>https://jf710001011.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vulnerbilities in machine learning model</title>
+    <link href="https://jf710001011.github.io/2024/01/26/vulnerbilities-in-machine-learning-model/"/>
+    <id>https://jf710001011.github.io/2024/01/26/vulnerbilities-in-machine-learning-model/</id>
+    <published>2024-01-25T20:14:22.260Z</published>
+    <updated>2024-01-25T21:59:52.475Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;前言&quot;&gt;前言&lt;/h3&gt;
+&lt;ol type=&quot;1&quot;&gt;
+&lt;li&gt;根据目前搜到的资料，机器学习模型中主要有两类漏洞会被攻击利用
+&lt;ol type=&quot;1&quot;&gt;
+&lt;li&gt;分类模型中的对抗性攻击（&lt;strong&gt;Adversarial Attacks in</summary>
+        
+      
+    
+    
+    
+    <category term="Academic" scheme="https://jf710001011.github.io/categories/Academic/"/>
+    
+    
+    <category term="Machine learning" scheme="https://jf710001011.github.io/tags/Machine-learning/"/>
+    
+    <category term="Cybersecurity" scheme="https://jf710001011.github.io/tags/Cybersecurity/"/>
+    
+  </entry>
   
   <entry>
     <title>Log4j2</title>
@@ -108,7 +139,7 @@ Java API (Application</summary>
     <link href="https://jf710001011.github.io/2024/01/13/java-blackhorse/"/>
     <id>https://jf710001011.github.io/2024/01/13/java-blackhorse/</id>
     <published>2024-01-13T12:40:48.724Z</published>
-    <updated>2024-01-21T01:28:56.726Z</updated>
+    <updated>2024-01-25T05:49:16.800Z</updated>
     
     
       
@@ -540,33 +571,6 @@ of tools</summary>
     <category term="Java" scheme="https://jf710001011.github.io/tags/Java/"/>
     
     <category term="Static-Analysis" scheme="https://jf710001011.github.io/tags/Static-Analysis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java(erge）</title>
-    <link href="https://jf710001011.github.io/2023/12/09/java-erge/"/>
-    <id>https://jf710001011.github.io/2023/12/09/java-erge/</id>
-    <published>2023-12-09T11:25:06.853Z</published>
-    <updated>2024-01-13T12:40:36.124Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3
-id=&quot;setting-environment-variables-for-java-multi-version-environment&quot;&gt;Setting
-Environment Variables for Java Multi-Version</summary>
-        
-      
-    
-    
-    
-    <category term="Programming" scheme="https://jf710001011.github.io/categories/Programming/"/>
-    
-    
-    <category term="Java" scheme="https://jf710001011.github.io/tags/Java/"/>
     
   </entry>
   

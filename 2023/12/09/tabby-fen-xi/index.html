@@ -477,14 +477,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2024-01-20
+                    2024-01-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    15.7k
+                    16.4k
                 </div>
                 
 
@@ -2354,6 +2354,122 @@ id="tabbycoredatatabbyvariable.java">tabby/core/data/TabbyVariable.java</h3>
 <span class="token punctuation">&#125;</span>
 
 <span class="token comment">// 总结:其设计反映了对复杂数据结构、变量状态以及它们之间的相互作用的仔细考虑，特别是在跟踪数据污染的背景下。</span></code></pre></li>
+</ol>
+<h3
+id="tabbycoremodeldefaultinvokemodel.java">tabby/core/model/DefaultInvokeModel.java</h3>
+<ol type="1">
+<li><p>Code: 这个类好难理解</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">tabby<span class="token punctuation">.</span>core<span class="token punctuation">.</span>model</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">lombok<span class="token punctuation">.</span></span><span class="token class-name">Getter</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">lombok<span class="token punctuation">.</span></span><span class="token class-name">Setter</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">soot<span class="token punctuation">.</span></span><span class="token class-name">Value</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">soot<span class="token punctuation">.</span></span><span class="token class-name">ValueBox</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">soot<span class="token punctuation">.</span>jimple<span class="token punctuation">.</span></span><span class="token operator">*</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">soot<span class="token punctuation">.</span>jimple<span class="token punctuation">.</span>internal<span class="token punctuation">.</span></span><span class="token class-name">JimpleLocalBox</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">tabby<span class="token punctuation">.</span>core<span class="token punctuation">.</span>container<span class="token punctuation">.</span></span><span class="token class-name">DataContainer</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">tabby<span class="token punctuation">.</span>dal<span class="token punctuation">.</span>caching<span class="token punctuation">.</span>bean<span class="token punctuation">.</span>edge<span class="token punctuation">.</span></span><span class="token class-name">Call</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">tabby<span class="token punctuation">.</span>dal<span class="token punctuation">.</span>caching<span class="token punctuation">.</span>bean<span class="token punctuation">.</span>ref<span class="token punctuation">.</span></span><span class="token class-name">MethodReference</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">ArrayList</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Arrays</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">List</span></span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * @author wh1t3p1g
+ * @since 2021/8/31
+ */</span>
+
+<span class="token comment">// 这个类是一个系统中的关键组件，该系统旨在分析和建模 Java 字节码中的方法调用。 其设计体现了对理解不同调用类型的细微差别和有效处理方法调用数据的关注。</span>
+<span class="token annotation punctuation">@Getter</span>
+<span class="token annotation punctuation">@Setter</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DefaultInvokeModel</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token comment">// 通过排除这些方法，系统会专注于代码中与其特定目的更相关或关键的部分，例如安全分析、优化或其他形式的静态分析。</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> <span class="token constant">IGNORE_LIST</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">asList</span><span class="token punctuation">(</span>
+            <span class="token string">"&lt;java.lang.Object: void &lt;init>()>"</span><span class="token punctuation">,</span>
+            <span class="token string">"&lt;java.io.PrintStream: void printl  n(java.lang.String)>"</span><span class="token punctuation">,</span>
+            <span class="token string">"&lt;java.lang.StringBuilder: java.lang.AbstractStringBuilder append(float)>"</span><span class="token punctuation">,</span>
+            <span class="token string">"&lt;java.lang.StringBuilder: java.lang.String toString()>"</span><span class="token punctuation">,</span>
+            <span class="token string">"&lt;java.lang.StringBuilder: int length()>"</span><span class="token punctuation">,</span>
+            <span class="token string">"&lt;java.lang.String: int hashCode()>"</span><span class="token punctuation">,</span>
+            <span class="token string">"&lt;java.lang.String: int length()>"</span><span class="token punctuation">,</span>
+            <span class="token string">"&lt;java.lang.String: boolean equals(java.lang.Object)>"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">apply</span><span class="token punctuation">(</span><span class="token class-name">Stmt</span> stmt<span class="token punctuation">,</span> <span class="token keyword">boolean</span> isManual<span class="token punctuation">,</span> <span class="token class-name">MethodReference</span> methodRef<span class="token punctuation">,</span>
+            <span class="token class-name">MethodReference</span> targetMethodRef<span class="token punctuation">,</span> <span class="token class-name">DataContainer</span> dataContainer<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+
+        <span class="token comment">// 检索目标方法的签名并检查它是否在 IGNORE_LIST 中。 如果是，则该方法提前返回，表明该调用不适合进一步分析。</span>
+        <span class="token class-name">String</span> signature <span class="token operator">=</span> targetMethodRef<span class="token punctuation">.</span><span class="token function">getSignature</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token constant">IGNORE_LIST</span><span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span>signature<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token comment">// 通过比较方法引用和目标方法引用的 ID，检查方法是否正在调用自身（递归调用）。 如果它们相同，它会提前返回，从分析中排除递归调用。</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>methodRef<span class="token punctuation">.</span><span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>targetMethodRef<span class="token punctuation">.</span><span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// Extracts the invocation expression from the statement. This expression</span>
+        <span class="token comment">// contains</span>
+        <span class="token comment">// information about the method invocation, like the method being called and the</span>
+        <span class="token comment">// arguments</span>
+        <span class="token comment">// passed.</span>
+        <span class="token class-name">InvokeExpr</span> ie <span class="token operator">=</span> stmt<span class="token punctuation">.</span><span class="token function">getInvokeExpr</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 创建 Call 的新实例，该类可能用于表示系统中的方法调用。 它使用当前方法引用和目标方法引用进行初始化。</span>
+        <span class="token class-name">Call</span> call <span class="token operator">=</span> <span class="token class-name">Call</span><span class="token punctuation">.</span><span class="token function">newInstance</span><span class="token punctuation">(</span>methodRef<span class="token punctuation">,</span> targetMethodRef<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// ??困惑的地方</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>isManual<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            call<span class="token punctuation">.</span><span class="token function">setRealCallType</span><span class="token punctuation">(</span>targetMethodRef<span class="token punctuation">.</span><span class="token function">getClassname</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            call<span class="token punctuation">.</span><span class="token function">setInvokerType</span><span class="token punctuation">(</span><span class="token string">"ManualInvoke"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+            call<span class="token punctuation">.</span><span class="token function">setRealCallType</span><span class="token punctuation">(</span><span class="token function">getRealCallType</span><span class="token punctuation">(</span>ie<span class="token punctuation">,</span> targetMethodRef<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            call<span class="token punctuation">.</span><span class="token function">setInvokerType</span><span class="token punctuation">(</span><span class="token function">getInvokeType</span><span class="token punctuation">(</span>ie<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        call<span class="token punctuation">.</span><span class="token function">setLineNum</span><span class="token punctuation">(</span>stmt<span class="token punctuation">.</span><span class="token function">getJavaSourceStartLineNumber</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>methodRef<span class="token punctuation">.</span><span class="token function">getCallEdge</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span>call<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            methodRef<span class="token punctuation">.</span><span class="token function">getCallEdge</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>call<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            dataContainer<span class="token punctuation">.</span><span class="token function">store</span><span class="token punctuation">(</span>call<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getInvokeType</span><span class="token punctuation">(</span><span class="token class-name">InvokeExpr</span> ie<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">String</span> invokeType <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>ie <span class="token keyword">instanceof</span> <span class="token class-name">StaticInvokeExpr</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            invokeType <span class="token operator">=</span> <span class="token string">"StaticInvoke"</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>ie <span class="token keyword">instanceof</span> <span class="token class-name">VirtualInvokeExpr</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            invokeType <span class="token operator">=</span> <span class="token string">"VirtualInvoke"</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>ie <span class="token keyword">instanceof</span> <span class="token class-name">SpecialInvokeExpr</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            invokeType <span class="token operator">=</span> <span class="token string">"SpecialInvoke"</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>ie <span class="token keyword">instanceof</span> <span class="token class-name">InterfaceInvokeExpr</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            invokeType <span class="token operator">=</span> <span class="token string">"InterfaceInvoke"</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> invokeType<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getRealCallType</span><span class="token punctuation">(</span><span class="token class-name">InvokeExpr</span> ie<span class="token punctuation">,</span> <span class="token class-name">MethodReference</span> targetMethodRef<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+
+        <span class="token class-name">String</span> classname <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">ValueBox</span><span class="token punctuation">></span></span> valueBoxes <span class="token operator">=</span> ie<span class="token punctuation">.</span><span class="token function">getUseBoxes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">ValueBox</span> box <span class="token operator">:</span> valueBoxes<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token comment">// 检查 ValueBox 是否是 JimpleLocalBox 的实例，这表明它包含局部变量或实例字段。</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>box <span class="token keyword">instanceof</span> <span class="token class-name">JimpleLocalBox</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token class-name">Value</span> base <span class="token operator">=</span> box<span class="token punctuation">.</span><span class="token function">getValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>base <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                    classname <span class="token operator">=</span> base<span class="token punctuation">.</span><span class="token function">getType</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>classname<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            classname <span class="token operator">=</span> targetMethodRef<span class="token punctuation">.</span><span class="token function">getClassname</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+
+        <span class="token keyword">return</span> classname<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+</code></pre></li>
 </ol>
 <h3
 id="tabbyonfigasyncconfiguration.java">tabby/onfig/AsyncConfiguration.java</h3>
@@ -4511,7 +4627,7 @@ id="tabbycorecontainerrulescontainer.java">tabby/core/container/RulesContainer.j
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">249.5k</span>&nbsp;字
+                class="white-color">250.4k</span>&nbsp;字
             
             
             

@@ -477,14 +477,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2024-01-30
+                    2024-02-06
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    5.3k
+                    5.7k
                 </div>
                 
 
@@ -1931,7 +1931,7 @@ alt="image-20240127063826159" /></li>
 <li>Static storage area in heap memory</li>
 <li><code>Method area</code>: student.class</li>
 </ol>
-<h3 id="inherit">inherit</h3>
+<h3 id="inherit">Inherit</h3>
 <ol type="1">
 <li><p>Single inheritance</p></li>
 <li><p>Subclasses can only inherit <code>non-private</code> members of
@@ -2024,6 +2024,143 @@ p<span class="token punctuation">.</span><span class="token function">work</span
 <pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">if</span> <span class="token punctuation">(</span>a <span class="token keyword">instanceof</span> <span class="token class-name">Dog</span> d<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
 	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
 <span class="token punctuation">&#125;</span></code></pre></li>
+</ol></li>
+</ol>
+<h3 id="pacakage-and-final">Pacakage and final</h3>
+<ol type="1">
+<li><p>pacakage: Manage classes with different functions</p></li>
+<li><p>The full name of the class ：pacakage name + class name</p></li>
+<li><p><code>final</code></p>
+<ol type="1">
+<li><p>Grooming <code>methods</code>：method can't be overried</p></li>
+<li><p>Groominng <code>class</code>: class can't be inherited</p></li>
+<li><p>Grooming <code>variable</code>： constant</p></li>
+<li><p><code>Naming</code> conventions for constant variables:</p>
+<ol type="1">
+<li><p><strong>single</strong> word: All caps</p></li>
+<li><p><strong>multiple</strong> words: use underline</p></li>
+<li><p>If it is a <code>base</code> type: the value cannot be
+changed</p></li>
+<li><p>If it is a <code>reference</code> type: the address value cannot
+be changed，<code>Property</code> values within <code>reference</code>
+type can be changed</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">test</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * TestFinal
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TestFinal</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">final</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> numbers <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+        numbers<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span> <span class="token comment">// Valid, modifying the element at index 0</span>
+        numbers <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">&#123;</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span> <span class="token comment">// Invalid, cannot reassign the reference variable</span>
+    <span class="token punctuation">&#125;</span>
+
+</code></pre></li>
+</ol></li>
+</ol></li>
+</ol>
+<h3 id="permission-modifier">Permission modifier</h3>
+<ol type="1">
+<li><p>The scope of action ranges from small to large:
+<code>private &lt; default &lt; protected &lt; public</code><img
+src="https://s2.loli.net/2024/02/05/Hn1ZRj2Yi3EShGP.png"
+alt="image-20240205184105771" /></p></li>
+<li><p>Subclasses under different packages, unrelated classes under
+different packages<img
+src="https://s2.loli.net/2024/02/05/XTyG4jrLheDYV6N.png"
+alt="image-20240205184752576" /></p></li>
+<li><p>generally,member variables are private and methods are
+public</p></li>
+<li><p>If the code in a method is to <strong>extract common
+code</strong> from other methods, this method is generally also
+<code>private</code>.</p></li>
+<li><p>local code block：curly braces</p></li>
+<li><p><del>Construct code blocks</del></p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">test</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TestConstructorCodeBlock</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> age<span class="token punctuation">;</span>
+
+    <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"constructor code block"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">TestConstructorCodeBlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"constructor without parameters"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">TestConstructorCodeBlock</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">,</span> <span class="token keyword">int</span> age<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"constructor with parameters"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">TestConstructorCodeBlock</span> tccb <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TestConstructorCodeBlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+<span class="token punctuation">&#125;</span>
+<span class="token comment">// output:</span>
+	<span class="token comment">// constructor code block</span>
+	<span class="token comment">// constructor without parameters</span></code></pre></li>
+<li><p>The main method can be called manually</p></li>
+<li><p>static code block</p></li>
+</ol>
+<h3 id="abstract-classes-and-abstract-methods">Abstract classes and
+abstract methods</h3>
+<ol type="1">
+<li>Abstract classes cannot be instantiated</li>
+<li>Abstract classes do not necessarily have abstract methods</li>
+<li>A class with abstract methods must be an abstract class</li>
+<li>Abstract classes can have constructors</li>
+<li>Subclass of abastract class: either override all abstract methods,
+or an abstract class</li>
+</ol>
+<h3 id="interface">Interface</h3>
+<ol type="1">
+<li>Interfaces rulse: interface is abstraction of action</li>
+<li>The relationship between interface and class is
+<code>implementation</code>，keywords: <code>implements</code></li>
+<li>subclass of interface: either override all abstract method,or
+abstract method</li>
+<li>one class can implement multiple interfaces</li>
+<li>You can implement multiple interfaces while <strong>inheriting a
+class</strong>： ...<code>extends</code>...<code>implements</code></li>
+<li><strong>member variable</strong>:
+<ol type="1">
+<li>constant: <code>public static final</code></li>
+</ol></li>
+<li>no constructor</li>
+<li>member method: abstract method
+<ol type="1">
+<li><code>public abstract</code></li>
+</ol></li>
+<li>Memory analysis tools,command:
+<ol type="1">
+<li><code>jps</code></li>
+<li><code>jhsdb hsdb</code></li>
+</ol></li>
+<li>Relationship between <code>interfaces</code>： multiple inheritance
+is possible</li>
+<li><code>default</code> method solve the problem that interfaces
+upgrade
+<ol type="1">
+<li>Not forced to be override，if overided,<code>default</code> must be
+omitted</li>
+<li><code>Public</code> can be omitted,but <code>default</code>
+can't</li>
+<li>If multiple interfaces are implemented and there are the same
+methods in multiple interfaces, they must be rewritten</li>
+</ol></li>
+<li>static method,can only be called through the interface name</li>
+<li><strong>Ordinary</strong> private methods serve default methods,
+static private methods serve static methods</li>
+<li>Adapter design pattern
+<ol type="1">
+<li>intermediate class,use <code>abstract</code></li>
+<li>Class to be implemented inherits intermediate class</li>
 </ol></li>
 <li></li>
 </ol>
@@ -2647,7 +2784,7 @@ p<span class="token punctuation">.</span><span class="token function">work</span
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">253.1k</span>&nbsp;字
+                class="white-color">253.6k</span>&nbsp;字
             
             
             

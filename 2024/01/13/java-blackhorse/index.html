@@ -477,14 +477,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2024-02-29
+                    2024-03-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    7.4k
+                    7.5k
                 </div>
                 
 
@@ -2726,9 +2726,65 @@ game</p>
     <span class="token comment">// Victory ends the game</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isVictory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">return</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span></code></pre>
-<p>​</p></li>
+    <span class="token punctuation">&#125;</span>	</code></pre></li>
 </ol></li>
+</ol></li>
+<li><p>Pedometer and menu services</p>
+<ol type="1">
+<li><p>steps</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">case</span> <span class="token number">37</span><span class="token operator">:</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"left"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>y <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+      
+    data<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span> <span class="token operator">=</span> data<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    data<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    y<span class="token operator">--</span><span class="token punctuation">;</span>
+      
+    step<span class="token operator">++</span><span class="token punctuation">;</span>
+      
+    <span class="token function">initialImage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span></code></pre></li>
+<li><p>menu</p>
+<ol type="1">
+<li><p>implements interface</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">GameJFrame</span> <span class="token keyword">extends</span> <span class="token class-name">JFrame</span> <span class="token keyword">implements</span> <span class="token class-name">KeyListener</span><span class="token punctuation">,</span> <span class="token class-name">ActionListener</span></code></pre></li>
+<li><p>Bind events to menu items</p>
+<pre class="language-java" data-language="java"><code class="language-java">replayItem<span class="token punctuation">.</span><span class="token function">addActionListener</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+reLoginItem<span class="token punctuation">.</span><span class="token function">addActionListener</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+closeItem<span class="token punctuation">.</span><span class="token function">addActionListener</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+accountItem<span class="token punctuation">.</span><span class="token function">addActionListener</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></li>
+<li><p><code>public void actionPerformed(ActionEvent e)</code></p></li>
+</ol>
+<p><pre class="language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Override</span>
+ <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">actionPerformed</span><span class="token punctuation">(</span><span class="token class-name">ActionEvent</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+     <span class="token class-name">Object</span> obj <span class="token operator">=</span> e<span class="token punctuation">.</span><span class="token function">getSource</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         
+     <span class="token keyword">if</span> <span class="token punctuation">(</span>obj <span class="token operator">==</span> replayItem<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+         step <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+         <span class="token function">initialData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token function">initialImage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>obj <span class="token operator">==</span> reLoginItem<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+         <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setVisible</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token keyword">new</span> <span class="token class-name">LoginJFrame</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>obj <span class="token operator">==</span> closeItem<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+         <span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>obj <span class="token operator">==</span> accountItem<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+         <span class="token class-name">JDialog</span> jDialog <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JDialog</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token class-name">JLabel</span> jLabel <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JLabel</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ImageIcon</span><span class="token punctuation">(</span><span class="token string">"image\\about.png"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         jLabel<span class="token punctuation">.</span><span class="token function">setBounds</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">258</span><span class="token punctuation">,</span> <span class="token number">258</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         jDialog<span class="token punctuation">.</span><span class="token function">getContentPane</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>jLabel<span class="token punctuation">)</span><span class="token punctuation">;</span>
+         
+         jDialog<span class="token punctuation">.</span><span class="token function">setSize</span><span class="token punctuation">(</span><span class="token number">344</span><span class="token punctuation">,</span> <span class="token number">344</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         jDialog<span class="token punctuation">.</span><span class="token function">setAlwaysOnTop</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         jDialog<span class="token punctuation">.</span><span class="token function">setLocationRelativeTo</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         jDialog<span class="token punctuation">.</span><span class="token function">setModal</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         
+         jDialog<span class="token punctuation">.</span><span class="token function">setVisible</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">&#125;</span>
+ <span class="token punctuation">&#125;</span></code></pre></p></li>
 </ol></li>
 </ol>
 
@@ -3351,7 +3407,7 @@ game</p>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">254.2k</span>&nbsp;字
+                class="white-color">254.3k</span>&nbsp;字
             
             
             

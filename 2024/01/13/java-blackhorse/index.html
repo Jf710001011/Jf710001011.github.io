@@ -484,7 +484,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    7k
+                    7.4k
                 </div>
                 
 
@@ -2590,6 +2590,147 @@ released.</p></li>
     <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getContentPane</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>background<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></code></pre></li>
 </ol>
+<h4 id="move-image">Move image</h4>
+<ol type="1">
+<li><p>Binding events</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">addKeyListener</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></li>
+<li><p>The coordinates of the blank image</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">int</span> x<span class="token punctuation">;</span>
+<span class="token keyword">int</span> y<span class="token punctuation">;</span></code></pre></li>
+<li><p>Initialize coordinate of the blank image for the first time</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token comment">// private void initialData()</span>
+    
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">4</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> <span class="token number">4</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                k<span class="token operator">++</span><span class="token punctuation">;</span>
+                data<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> dataIni<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>dataIni<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                    x <span class="token operator">=</span> i<span class="token punctuation">;</span>
+                    y <span class="token operator">=</span> j<span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+            <span class="token punctuation">&#125;</span></code></pre></li>
+<li><p>keyRelease method</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Override</span>
+ <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">keyReleased</span><span class="token punctuation">(</span><span class="token class-name">KeyEvent</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+     <span class="token keyword">int</span> code <span class="token operator">=</span> e<span class="token punctuation">.</span><span class="token function">getKeyCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   
+     <span class="token keyword">switch</span> <span class="token punctuation">(</span>code<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+         <span class="token keyword">case</span> <span class="token number">37</span><span class="token operator">:</span>
+             <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"left"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   
+             <span class="token keyword">if</span> <span class="token punctuation">(</span>y <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                 <span class="token keyword">break</span><span class="token punctuation">;</span>
+             <span class="token punctuation">&#125;</span>
+   
+             data<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span> <span class="token operator">=</span> data<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+             data<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+             y<span class="token operator">--</span><span class="token punctuation">;</span>
+   
+             <span class="token function">initialImage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+             <span class="token keyword">break</span><span class="token punctuation">;</span>
+         <span class="token keyword">case</span> <span class="token number">38</span><span class="token operator">:</span>
+             <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"up"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   
+             <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                 <span class="token keyword">break</span><span class="token punctuation">;</span>
+             <span class="token punctuation">&#125;</span>
+   
+             data<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span> <span class="token operator">=</span> data<span class="token punctuation">[</span>x <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">;</span>
+             data<span class="token punctuation">[</span>x <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+             x<span class="token operator">--</span><span class="token punctuation">;</span>
+   
+             <span class="token function">initialImage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+             <span class="token keyword">break</span><span class="token punctuation">;</span>
+         <span class="token keyword">case</span> <span class="token number">39</span><span class="token operator">:</span>
+             <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"right"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   
+             <span class="token keyword">if</span> <span class="token punctuation">(</span>y <span class="token operator">==</span> data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                 <span class="token keyword">break</span><span class="token punctuation">;</span>
+             <span class="token punctuation">&#125;</span>
+   
+             data<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span> <span class="token operator">=</span> data<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+             data<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+             y<span class="token operator">++</span><span class="token punctuation">;</span>
+   
+             <span class="token function">initialImage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+             <span class="token keyword">break</span><span class="token punctuation">;</span>
+         <span class="token keyword">case</span> <span class="token number">40</span><span class="token operator">:</span>
+             <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"down"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   
+             <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">==</span> data<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                 <span class="token keyword">break</span><span class="token punctuation">;</span>
+             <span class="token punctuation">&#125;</span>
+   
+             data<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span> <span class="token operator">=</span> data<span class="token punctuation">[</span>x <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">;</span>
+             data<span class="token punctuation">[</span>x <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+             x<span class="token operator">++</span><span class="token punctuation">;</span>
+   
+             <span class="token function">initialImage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+             <span class="token keyword">break</span><span class="token punctuation">;</span>
+         <span class="token keyword">default</span><span class="token operator">:</span>
+             <span class="token keyword">break</span><span class="token punctuation">;</span>
+     <span class="token punctuation">&#125;</span>
+ <span class="token punctuation">&#125;</span></code></pre></li>
+<li><p>See full pictures, cheat codes and judge your wins</p>
+<ol type="1">
+<li><p>Need to switch pictures in the game ： The <strong>path
+prefix</strong> is saved in a variable</p></li>
+<li><p>'c ' key bind event: cheat,</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">case</span> <span class="token number">67</span><span class="token operator">:</span>
+    data <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">&#123;</span> <span class="token punctuation">&#123;</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">12</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> <span class="token number">13</span><span class="token punctuation">,</span> <span class="token number">14</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">,</span> <span class="token number">0</span> <span class="token punctuation">&#125;</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+      
+    <span class="token function">initialImage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// System.out.println("data[][]:");</span>
+    <span class="token comment">// for (int[] first : data) &#123;</span>
+    <span class="token comment">// for (int second : first) &#123;</span>
+      
+    <span class="token comment">// System.out.print(second + " ");</span>
+    <span class="token comment">// &#125;</span>
+    <span class="token comment">// &#125;</span>
+    <span class="token comment">// System.out.println("data[3][3]: " + data[3][3]);</span>
+    <span class="token comment">// System.out.println(isVictory());</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span></code></pre></li>
+<li><p>The game ends after victory and the player cannot continue the
+game</p>
+<ol type="1">
+<li><p><code>Victory method</code></p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">private</span> <span class="token keyword">boolean</span> <span class="token function">isVictory</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> num <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>data<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">!=</span> num<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    num<span class="token operator">++</span><span class="token punctuation">;</span>
+         
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> first <span class="token operator">:</span> data<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> second <span class="token operator">:</span> first<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token comment">// Otherwise 0 and 16 will be compared</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>second <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">continue</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>second <span class="token operator">!=</span> num<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            num<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre></li>
+<li><p>Victory prompt pops up</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isVictory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">JLabel</span> vic <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JLabel</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ImageIcon</span><span class="token punctuation">(</span><span class="token string">"image\\win.png"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    vic<span class="token punctuation">.</span><span class="token function">setBounds</span><span class="token punctuation">(</span><span class="token number">203</span><span class="token punctuation">,</span> <span class="token number">283</span><span class="token punctuation">,</span> <span class="token number">197</span><span class="token punctuation">,</span> <span class="token number">73</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getContentPane</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>vic<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre></li>
+<li><p>if victory,game ends</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">keyReleased</span><span class="token punctuation">(</span><span class="token class-name">KeyEvent</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// Victory ends the game</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isVictory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span></code></pre>
+<p>​</p></li>
+</ol></li>
+</ol></li>
+</ol>
 
                 
             </div>
@@ -3210,7 +3351,7 @@ released.</p></li>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">253.8k</span>&nbsp;字
+                class="white-color">254.2k</span>&nbsp;字
             
             
             

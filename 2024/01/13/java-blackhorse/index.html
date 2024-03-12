@@ -477,14 +477,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2024-03-11
+                    2024-03-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    11k
+                    13.6k
                 </div>
                 
 
@@ -3426,8 +3426,8 @@ to see if the object attribute values are the same.</li>
 src="https://s2.loli.net/2024/03/10/3ELOlquK4QbZ71i.png"
 alt="image-20240310013303083" /></p></li>
 </ol>
-<h3 id="regular-expression">Regular expression</h3>
-<h4 id="basics">basics</h4>
+<h4 id="regular-expression">Regular expression</h4>
+<h5 id="basics">basics</h5>
 <ol type="1">
 <li><p>Character class（Matches only one）</p>
 <pre class="language-java" data-language="java"><code class="language-java"><span class="token comment">// only be a/b/c</span>
@@ -3481,7 +3481,7 @@ alt="image-20240310013303083" /></p></li>
 <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"2442_55dd"</span><span class="token punctuation">.</span><span class="token function">matches</span><span class="token punctuation">(</span><span class="token string">"\\w&#123;6,&#125;"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
 <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"244_d"</span><span class="token punctuation">.</span><span class="token function">matches</span><span class="token punctuation">(</span><span class="token string">"\\w&#123;6,&#125;"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// false</span></code></pre></li>
 </ol>
-<h4 id="practice1">Practice1</h4>
+<h5 id="practice1">Practice1</h5>
 <pre class="language-java" data-language="java"><code class="language-java">   <span class="token comment">// phone number</span>
    <span class="token class-name">String</span> regex1 <span class="token operator">=</span> <span class="token string">"1[3-9]\\d&#123;9&#125;"</span><span class="token punctuation">;</span>
    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"345226855"</span><span class="token punctuation">.</span><span class="token function">matches</span><span class="token punctuation">(</span>regex1<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// false</span>
@@ -3513,7 +3513,7 @@ alt="image-20240310013303083" /></p></li>
 alt="image-20240311092528054" />
 <figcaption aria-hidden="true">image-20240311092528054</figcaption>
 </figure>
-<h4 id="practice2">Practice2</h4>
+<h5 id="practice2">Practice2</h5>
 <pre class="language-java" data-language="java"><code class="language-java"><span class="token comment">// Username verification</span>
 <span class="token class-name">String</span> regex1 <span class="token operator">=</span> <span class="token string">"\\w&#123;4,16&#125;"</span><span class="token punctuation">;</span>
 <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"abcd_"</span><span class="token punctuation">.</span><span class="token function">matches</span><span class="token punctuation">(</span>regex1<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
@@ -3539,7 +3539,7 @@ alt="image-20240311092528054" />
 <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"36759818701314895x"</span><span class="token punctuation">.</span><span class="token function">matches</span><span class="token punctuation">(</span>regex3<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// false</span>
 <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"36759818701034895x"</span><span class="token punctuation">.</span><span class="token function">matches</span><span class="token punctuation">(</span>regex3<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// false</span>
 <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"36759818701014895x"</span><span class="token punctuation">.</span><span class="token function">matches</span><span class="token punctuation">(</span>regex3<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span></code></pre>
-<h3 id="crawler">Crawler</h3>
+<h4 id="crawler">Crawler</h4>
 <ol type="1">
 <li><p>Local</p>
 <pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -3620,6 +3620,463 @@ alt="image-20240311092528054" />
                              * 小惠惠
                              */</span>
 <span class="token punctuation">&#125;</span></code></pre></li>
+</ol>
+<h4 id="regular-grouping">Regular grouping</h4>
+<ol type="1">
+<li><p>Capturing group</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token comment">// Are the prefix and suffix consistent?</span>
+<span class="token class-name">String</span> regex1 <span class="token operator">=</span> <span class="token string">"(.).+\\1"</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"a251a"</span><span class="token punctuation">.</span><span class="token function">matches</span><span class="token punctuation">(</span>regex1<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"a251"</span><span class="token punctuation">.</span><span class="token function">matches</span><span class="token punctuation">(</span>regex1<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// false</span>
+   
+<span class="token comment">// The suffix and suffix can have multiple characters and are consistent</span>
+<span class="token class-name">String</span> regex2 <span class="token operator">=</span> <span class="token string">"(.+).+\\1"</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"abc254abc"</span><span class="token punctuation">.</span><span class="token function">matches</span><span class="token punctuation">(</span>regex2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"abc254dbc"</span><span class="token punctuation">.</span><span class="token function">matches</span><span class="token punctuation">(</span>regex2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// false</span>
+   
+<span class="token comment">// +Each character of the prefix and suffix must be the same</span>
+<span class="token class-name">String</span> regex3 <span class="token operator">=</span> <span class="token string">"((.)\\2*).+\\1"</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"aaa4568aaa"</span><span class="token punctuation">.</span><span class="token function">matches</span><span class="token punctuation">(</span>regex3<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"aaa4568aab"</span><span class="token punctuation">.</span><span class="token function">matches</span><span class="token punctuation">(</span>regex3<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// false</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"aaa4568bbb"</span><span class="token punctuation">.</span><span class="token function">matches</span><span class="token punctuation">(</span>regex3<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// false</span>
+   
+<span class="token comment">// Regular expression external use grouping</span>
+<span class="token class-name">String</span> str <span class="token operator">=</span> <span class="token string">"我要学学编编编程程程程程"</span><span class="token punctuation">;</span>
+<span class="token class-name">String</span> result <span class="token operator">=</span> str<span class="token punctuation">.</span><span class="token function">replaceAll</span><span class="token punctuation">(</span><span class="token string">"(.)\\1+"</span><span class="token punctuation">,</span> <span class="token string">"$1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 我要学编程</span></code></pre></li>
+<li><p>Non-capturing group</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token comment">// Non-capturing group: [?:] [?=] [?!]</span>
+<span class="token class-name">String</span> regex <span class="token operator">=</span> <span class="token string">"(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d"</span><span class="token punctuation">;</span></code></pre></li>
+</ol>
+<h4 id="date">Date</h4>
+<ol type="1">
+<li><p>Code</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token class-name">Date</span> d1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>d1<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Tue Mar 12 16:50:10 CST 2024</span>
+   
+<span class="token class-name">Date</span> d2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token number">0L</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>d2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Thu Jan 01 08:00:00 CST 1970</span>
+   
+d2<span class="token punctuation">.</span><span class="token function">setTime</span><span class="token punctuation">(</span><span class="token number">1000L</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>d2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Thu Jan 01 08:00:01 CST 1970</span>
+   
+<span class="token keyword">long</span> time <span class="token operator">=</span> d2<span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>time<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// 1000 </span></code></pre></li>
+<li><p>Code</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token class-name">Date</span> d1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token number">0L</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>d1<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Thu Jan 01 08:00:00 CST 1970</span>
+<span class="token keyword">long</span> time <span class="token operator">=</span> d1<span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+time <span class="token operator">+=</span> <span class="token number">1000L</span> <span class="token operator">*</span> <span class="token number">60</span> <span class="token operator">*</span> <span class="token number">60</span> <span class="token operator">*</span> <span class="token number">24</span> <span class="token operator">*</span> <span class="token number">365</span><span class="token punctuation">;</span>
+   
+d1<span class="token punctuation">.</span><span class="token function">setTime</span><span class="token punctuation">(</span>time<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>d1<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Fri Jan 01 08:00:00 CST 1971</span></code></pre></li>
+<li><p>Format</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token class-name">SimpleDateFormat</span> sdf1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SimpleDateFormat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">Date</span> d1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token number">0l</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">String</span> s1 <span class="token operator">=</span> sdf1<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span>d1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s1<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 01/01/1970, 08:00</span>
+   
+<span class="token class-name">SimpleDateFormat</span> sdf2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SimpleDateFormat</span><span class="token punctuation">(</span><span class="token string">"yyyy年MM月dd日 HH:mm:ss EE"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">Date</span> d2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token number">0l</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">String</span> s2 <span class="token operator">=</span> sdf2<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span>d2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 1970年01月01日 08:00:00 Thu</span>
+   
+<span class="token class-name">String</span> s3 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"2023-11-11 11:11:11"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">SimpleDateFormat</span> sdf3 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SimpleDateFormat</span><span class="token punctuation">(</span><span class="token string">"yyyy-MM-dd HH:mm:ss"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">Date</span> d1 <span class="token operator">=</span> sdf3<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>s3<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>d1<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Sat Nov 11 11:11:11 CST 2023</span></code></pre></li>
+<li><p>Calender</p>
+<pre class="language-java" data-language="java"><code class="language-java">    <span class="token class-name">Calendar</span> c <span class="token operator">=</span> <span class="token class-name">Calendar</span><span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">/*
+                           * java.util.GregorianCalendar[time=1710259388563,areFieldsSet=true,
+                           * areAllFieldsSet=true,lenient=true,zone=sun.util.calendar.ZoneInfo[id=
+                           * "Asia/Shanghai",offset=28800000,dstSavings=0,useDaylight=false,transitions=31
+                           * ,lastRule=null],firstDayOfWeek=2,minimalDaysInFirstWeek=4,ERA=1,
+                           * --------------------
+                           * YEAR=2024,
+                           * MONTH=2,WEEK_OF_YEAR=11,WEEK_OF_MONTH=2,DAY_OF_MONTH=13,DAY_OF_YEAR=73,
+                           * DAY_OF_WEEK=4,DAY_OF_WEEK_IN_MONTH=2,AM_PM=0,HOUR=0,HOUR_OF_DAY=0,MINUTE=3,
+                           * SECOND=8,MILLISECOND=563,ZONE_OFFSET=28800000,DST_OFFSET=0]
+                           */</span>
+    <span class="token class-name">Date</span> d <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token number">0L</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    c<span class="token punctuation">.</span><span class="token function">setTime</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">/*
+                           * java.util.GregorianCalendar[time=0,areFieldsSet=true,areAllFieldsSet=true,
+                           * lenient=true,zone=sun.util.calendar.ZoneInfo[id="Asia/Shanghai",offset=
+                           * 28800000,dstSavings=0,useDaylight=false,transitions=31,lastRule=null],
+                           * firstDayOfWeek=2,minimalDaysInFirstWeek=4,
+                           * -----------------------------------
+                           * ERA=1,YEAR=1970,MONTH=0,
+                           * WEEK_OF_YEAR=1,WEEK_OF_MONTH=1,DAY_OF_MONTH=1,DAY_OF_YEAR=1,DAY_OF_WEEK=5,
+                           * DAY_OF_WEEK_IN_MONTH=1,AM_PM=0,HOUR=8,HOUR_OF_DAY=8,MINUTE=0,SECOND=0,
+                           * MILLISECOND=0,ZONE_OFFSET=28800000,DST_OFFSET=0]
+                           */</span>
+
+    <span class="token keyword">int</span> year <span class="token operator">=</span> c<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token class-name">Calendar</span><span class="token punctuation">.</span><span class="token constant">YEAR</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> month <span class="token operator">=</span> c<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token class-name">Calendar</span><span class="token punctuation">.</span><span class="token constant">MONTH</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> date <span class="token operator">=</span> c<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token class-name">Calendar</span><span class="token punctuation">.</span><span class="token constant">DAY_OF_MONTH</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> week <span class="token operator">=</span> c<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token class-name">Calendar</span><span class="token punctuation">.</span><span class="token constant">DAY_OF_WEEK</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>year <span class="token operator">+</span> <span class="token string">" "</span> <span class="token operator">+</span> month <span class="token operator">+</span> <span class="token string">" "</span> <span class="token operator">+</span> date <span class="token operator">+</span> <span class="token string">" "</span> <span class="token operator">+</span> week<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 1970 1 1 5</span>
+
+<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>
+
+    c<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token class-name">Calendar</span><span class="token punctuation">.</span><span class="token constant">YEAR</span><span class="token punctuation">,</span> <span class="token number">2021</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    c<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token class-name">Calendar</span><span class="token punctuation">.</span><span class="token constant">MONTH</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    c<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token class-name">Calendar</span><span class="token punctuation">.</span><span class="token constant">DAY_OF_MONTH</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">int</span> year <span class="token operator">=</span> c<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token class-name">Calendar</span><span class="token punctuation">.</span><span class="token constant">YEAR</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> month <span class="token operator">=</span> c<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token class-name">Calendar</span><span class="token punctuation">.</span><span class="token constant">MONTH</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> date <span class="token operator">=</span> c<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token class-name">Calendar</span><span class="token punctuation">.</span><span class="token constant">DAY_OF_MONTH</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> week <span class="token operator">=</span> c<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token class-name">Calendar</span><span class="token punctuation">.</span><span class="token constant">DAY_OF_WEEK</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>year <span class="token operator">+</span> <span class="token string">" "</span> <span class="token operator">+</span> month <span class="token operator">+</span> <span class="token string">" "</span> <span class="token operator">+</span> date <span class="token operator">+</span> <span class="token string">" "</span> <span class="token operator">+</span> week<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 2021 8 25 4</span>
+
+
+<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>
+
+    c<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token class-name">Calendar</span><span class="token punctuation">.</span><span class="token constant">YEAR</span><span class="token punctuation">,</span> <span class="token number">2021</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    c<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token class-name">Calendar</span><span class="token punctuation">.</span><span class="token constant">MONTH</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    c<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token class-name">Calendar</span><span class="token punctuation">.</span><span class="token constant">DAY_OF_MONTH</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    c<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token class-name">Calendar</span><span class="token punctuation">.</span><span class="token constant">MONTH</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">int</span> year <span class="token operator">=</span> c<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token class-name">Calendar</span><span class="token punctuation">.</span><span class="token constant">YEAR</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> month <span class="token operator">=</span> c<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token class-name">Calendar</span><span class="token punctuation">.</span><span class="token constant">MONTH</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> date <span class="token operator">=</span> c<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token class-name">Calendar</span><span class="token punctuation">.</span><span class="token constant">DAY_OF_MONTH</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> week <span class="token operator">=</span> c<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token class-name">Calendar</span><span class="token punctuation">.</span><span class="token constant">DAY_OF_WEEK</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>year <span class="token operator">+</span> <span class="token string">" "</span> <span class="token operator">+</span> month <span class="token operator">+</span> <span class="token string">" "</span> <span class="token operator">+</span> date <span class="token operator">+</span> <span class="token string">" "</span> <span class="token operator">+</span> week<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 2021 9 25 7</span></code></pre></li>
+</ol>
+<h4 id="jdk8-date">Jdk8 date</h4>
+<ol type="1">
+<li><p>OverView<img
+src="https://s2.loli.net/2024/03/13/Xuznj2lrqWHfswx.png" /></p></li>
+<li><p>timezone</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token class-name">Set</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> zoneIds <span class="token operator">=</span> <span class="token class-name">ZoneId</span><span class="token punctuation">.</span><span class="token function">getAvailableZoneIds</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>zoneIds<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 603</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>zoneIds<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">/*
+                             * [Asia/Aden, America/Cuiaba, Etc/GMT+9, Etc/GMT+8, Africa/Nairobi,
+                             * America/Marigot, Asia/Aqtau, Pacific/Kwajalein, America/El_Salvador,
+                             * Asia/Pontianak, Africa/Cairo, Pacific/Pago_Pago, Africa/Mbabane,
+                             * Asia/Kuching, Pacific/Honolulu, Pacific/Rarotonga, America/Guatemala,
+                             * Australia/Hobart, Europe/London, America/Belize, America/Panama,
+                             * Asia/Chungking, America/Managua, America/Indiana/Petersburg, Asia/Yerevan,                                 * Europe/Brussels, GMT, Europe/Warsaw, America/Chicago, Asia/Kashgar,
+                             * Chile/Continental, Pacific/Yap, CET, Etc/GMT-1, Etc/GMT-0, Europe/Jersey,
+                             * America/Tegucigalpa, Etc/GMT-5, Europe/Istanbul, America/Eirunepe, Etc/GMT-4,
+                             * America/Miquelon, Etc/GMT-3, Europe/Luxembourg, Etc/GMT-2, Etc/GMT-9,
+                             * America/Argentina/Catamarca, Etc/GMT-8, Etc/GMT-7, Etc/GMT-6,
+                             * Europe/Zaporozhye, Canada/Yukon, Canada/Atlantic, Atlantic/St_Helena,
+                             * Australia/Tasmania, Libya, Europe/Guernsey, America/Grand_Turk,
+                             * Asia/Samarkand, America/Argentina/Cordoba, Asia/Phnom_Penh, Africa/Kigali,
+                             * Asia/Almaty, US/Alaska, Asia/Dubai, Europe/Isle_of_Man, America/Araguaina,
+                             * Cuba, Asia/Novosibirsk, America/Argentina/Salta, Etc/GMT+3, Africa/Tunis,
+                             * Etc/GMT+2, Etc/GMT+1, Pacific/Fakaofo, Africa/Tripoli, Etc/GMT+0, Israel,
+                             * Africa/Banjul, Etc/GMT+7, Indian/Comoro, Etc/GMT+6, Etc/GMT+5, Etc/GMT+4,
+                             * Pacific/Port_Moresby, US/Arizona, Antarctica/Syowa, Indian/Reunion,
+                             * Pacific/Palau, Europe/Kaliningrad, America/Montevideo, Africa/Windhoek,
+                             * Asia/Karachi, Africa/Mogadishu, Australia/Perth, Brazil/East, Etc/GMT,
+                             * Asia/Chita, Pacific/Easter, Antarctica/Davis, Antarctica/McMurdo, Asia/Macao,
+                             * America/Manaus, Africa/Freetown, Europe/Bucharest, Asia/Tomsk,
+                             * America/Argentina/Mendoza, Asia/Macau, Europe/Malta, Mexico/BajaSur,
+                             * Pacific/Tahiti, Africa/Asmera, Europe/Busingen,
+                             * America/Argentina/Rio_Gallegos, Africa/Malabo, Europe/Skopje,
+                             * America/Catamarca, America/Godthab, Europe/Sarajevo, Australia/ACT, GB-Eire,
+                             * Africa/Lagos, America/Cordoba, Europe/Rome, Asia/Dacca, Indian/Mauritius,
+                             * Pacific/Samoa, America/Regina, America/Fort_Wayne, America/Dawson_Creek,
+                             * Africa/Algiers, Europe/Mariehamn, America/St_Johns, America/St_Thomas,
+                             * Europe/Zurich, America/Anguilla, Asia/Dili, America/Denver, Africa/Bamako,
+                             * Europe/Saratov, GB, Mexico/General, Pacific/Wallis, Europe/Gibraltar,
+                             * Africa/Conakry, Africa/Lubumbashi, Asia/Istanbul, America/Havana, NZ-CHAT,
+                             * Asia/Choibalsan, America/Porto_Acre, Asia/Omsk, Europe/Vaduz, US/Michigan,
+                             * Asia/Dhaka, America/Barbados, Europe/Tiraspol, Atlantic/Cape_Verde,
+                             * Asia/Yekaterinburg, America/Louisville, Pacific/Johnston, Pacific/Chatham,
+                             * Europe/Ljubljana, America/Sao_Paulo, Asia/Jayapura, America/Curacao,
+                             * Asia/Dushanbe, America/Guyana, America/Guayaquil, America/Martinique,
+                             * Portugal, Europe/Berlin, Europe/Moscow, Europe/Chisinau, America/Puerto_Rico,
+                             * America/Rankin_Inlet, Pacific/Ponape, Europe/Stockholm, Europe/Budapest,
+                             * America/Argentina/Jujuy, Australia/Eucla, Asia/Shanghai, Universal,
+                             * Europe/Zagreb, America/Port_of_Spain, Europe/Helsinki, Asia/Beirut,
+                             * Asia/Tel_Aviv, Pacific/Bougainville, US/Central, Africa/Sao_Tome,
+                             * Indian/Chagos, America/Cayenne, Asia/Yakutsk, Pacific/Galapagos,
+                             * Australia/North, Europe/Paris, Africa/Ndjamena, Pacific/Fiji,
+                             * America/Rainy_River, Indian/Maldives, Australia/Yancowinna, SystemV/AST4,
+                             * Asia/Oral, America/Yellowknife, Pacific/Enderbury, America/Juneau,
+                             * Australia/Victoria, America/Indiana/Vevay, Asia/Tashkent, Asia/Jakarta,
+                             * Africa/Ceuta, Asia/Barnaul, America/Recife, America/Buenos_Aires,
+                             * America/Noronha, America/Swift_Current, Australia/Adelaide,
+                             * America/Metlakatla, Africa/Djibouti, America/Paramaribo, Asia/Qostanay,
+                             * Europe/Simferopol, Europe/Sofia, Africa/Nouakchott, Europe/Prague,
+                             * America/Indiana/Vincennes, Antarctica/Mawson, America/Kralendijk,
+                             * Antarctica/Troll, Europe/Samara, Indian/Christmas, America/Antigua,
+                             * Pacific/Gambier, America/Indianapolis, America/Inuvik, America/Iqaluit,
+                             * Pacific/Funafuti, UTC, Antarctica/Macquarie, Canada/Pacific, America/Moncton,
+                             * Africa/Gaborone, Pacific/Chuuk, Asia/Pyongyang, America/St_Vincent,
+                             * Asia/Gaza, Etc/Universal, PST8PDT, Atlantic/Faeroe, Asia/Qyzylorda,
+                             * Canada/Newfoundland, America/Kentucky/Louisville, America/Yakutat,
+                             * America/Ciudad_Juarez, Asia/Ho_Chi_Minh, Antarctica/Casey, Europe/Copenhagen,
+                             * Africa/Asmara, Atlantic/Azores, Europe/Vienna, ROK, Pacific/Pitcairn,
+                             * America/Mazatlan, Australia/Queensland, Pacific/Nauru, Europe/Tirane,
+                             * Asia/Kolkata, SystemV/MST7, Australia/Canberra, MET, Australia/Broken_Hill,
+                             * Europe/Riga, America/Dominica, Africa/Abidjan, America/Mendoza,
+                             * America/Santarem, Kwajalein, America/Asuncion, Asia/Ulan_Bator, NZ,
+                             * America/Boise, Australia/Currie, EST5EDT, Pacific/Guam, Pacific/Wake,
+                             * Atlantic/Bermuda, America/Costa_Rica, America/Dawson, Asia/Chongqing, Eire,
+                             * Europe/Amsterdam, America/Indiana/Knox, America/North_Dakota/Beulah,
+                             * Africa/Accra, Atlantic/Faroe, Mexico/BajaNorte, America/Maceio, Etc/UCT,
+                             * Pacific/Apia, GMT0, America/Atka, Pacific/Niue, Australia/Lord_Howe,
+                             * Europe/Dublin, Pacific/Truk, MST7MDT, America/Monterrey, America/Nassau,
+                             * America/Jamaica, Asia/Bishkek, America/Atikokan, Atlantic/Stanley,
+                             * Australia/NSW, US/Hawaii, SystemV/CST6, Indian/Mahe, Asia/Aqtobe,
+                             * America/Sitka, Asia/Vladivostok, Africa/Libreville, Africa/Maputo, Zulu,
+                             * America/Kentucky/Monticello, Africa/El_Aaiun, Africa/Ouagadougou,
+                             * America/Coral_Harbour, Pacific/Marquesas, Brazil/West, America/Aruba,
+                             * America/North_Dakota/Center, America/Cayman, Asia/Ulaanbaatar, Asia/Baghdad,
+                             * Europe/San_Marino, America/Indiana/Tell_City, America/Tijuana,
+                             * Pacific/Saipan, SystemV/YST9, Africa/Douala, America/Chihuahua,
+                             * America/Ojinaga, Asia/Hovd, America/Anchorage, Chile/EasterIsland,
+                             * America/Halifax, Antarctica/Rothera, America/Indiana/Indianapolis,
+                             * US/Mountain, Asia/Damascus, America/Argentina/San_Luis, America/Santiago,
+                             * Asia/Baku, America/Argentina/Ushuaia, Atlantic/Reykjavik, Africa/Brazzaville,
+                             * Africa/Porto-Novo, America/La_Paz, Antarctica/DumontDUrville, Asia/Taipei,
+                             * Antarctica/South_Pole, Asia/Manila, Asia/Bangkok, Africa/Dar_es_Salaam,
+                             * Poland, Atlantic/Madeira, Antarctica/Palmer, America/Thunder_Bay,
+                             * Africa/Addis_Ababa, Asia/Yangon, Europe/Uzhgorod, Brazil/DeNoronha,
+                             * Asia/Ashkhabad, Etc/Zulu, America/Indiana/Marengo, America/Creston,
+                             * America/Punta_Arenas, America/Mexico_City, Antarctica/Vostok, Asia/Jerusalem,
+                             * Europe/Andorra, US/Samoa, PRC, Asia/Vientiane, Pacific/Kiritimati,
+                             * America/Matamoros, America/Blanc-Sablon, Asia/Riyadh, Iceland,
+                             * Pacific/Pohnpei, Asia/Ujung_Pandang, Atlantic/South_Georgia, Europe/Lisbon,
+                             * Asia/Harbin, Europe/Oslo, Asia/Novokuznetsk, CST6CDT, Atlantic/Canary,
+                             * America/Knox_IN, Asia/Kuwait, SystemV/HST10, Pacific/Efate, Africa/Lome,
+                             * America/Bogota, America/Menominee, America/Adak, Pacific/Norfolk,
+                             * Europe/Kirov, America/Resolute, Pacific/Kanton, Pacific/Tarawa,
+                             * Africa/Kampala, Asia/Krasnoyarsk, Greenwich, SystemV/EST5, America/Edmonton,
+                             * Europe/Podgorica, Australia/South, Canada/Central, Africa/Bujumbura,
+                             * America/Santo_Domingo, US/Eastern, Europe/Minsk, Pacific/Auckland,
+                             * Africa/Casablanca, America/Glace_Bay, Canada/Eastern, Asia/Qatar,
+                             * Europe/Kiev, Singapore, Asia/Magadan, SystemV/PST8, America/Port-au-Prince,
+                             * Europe/Belfast, America/St_Barthelemy, Asia/Ashgabat, Africa/Luanda,
+                             * America/Nipigon, Atlantic/Jan_Mayen, Brazil/Acre, Asia/Muscat, Asia/Bahrain,
+                             * Europe/Vilnius, America/Fortaleza, Etc/GMT0, US/East-Indiana,
+                             * America/Hermosillo, America/Cancun, Africa/Maseru, Pacific/Kosrae,
+                             * Africa/Kinshasa, Asia/Kathmandu, Asia/Seoul, Australia/Sydney, America/Lima,
+                             * Australia/LHI, America/St_Lucia, Europe/Madrid, America/Bahia_Banderas,
+                             * America/Montserrat, Asia/Brunei, America/Santa_Isabel, Canada/Mountain,
+                             * America/Cambridge_Bay, Asia/Colombo, Australia/West, Indian/Antananarivo,
+                             * Australia/Brisbane, Indian/Mayotte, US/Indiana-Starke, Asia/Urumqi,
+                             * US/Aleutian, Europe/Volgograd, America/Lower_Princes, America/Vancouver,
+                             * Africa/Blantyre, America/Rio_Branco, America/Danmarkshavn, America/Detroit,
+                             * America/Thule, Africa/Lusaka, Asia/Hong_Kong, Iran,
+                             * America/Argentina/La_Rioja, Africa/Dakar, SystemV/CST6CDT, America/Tortola,
+                             * America/Porto_Velho, Asia/Sakhalin, Etc/GMT+10, America/Scoresbysund,
+                             * Asia/Kamchatka, Asia/Thimbu, Africa/Harare, Etc/GMT+12, Etc/GMT+11, Navajo,
+                             * America/Nome, Europe/Tallinn, Turkey, Africa/Khartoum, Africa/Johannesburg,
+                             * Africa/Bangui, Europe/Belgrade, Jamaica, Africa/Bissau, Asia/Tehran, WET,
+                             * Europe/Astrakhan, Africa/Juba, America/Campo_Grande, America/Belem,
+                             * Etc/Greenwich, Asia/Saigon, America/Ensenada, Pacific/Midway, America/Jujuy,
+                             * Africa/Timbuktu, America/Bahia, America/Goose_Bay, America/Virgin,
+                             * America/Pangnirtung, Asia/Katmandu, America/Phoenix, Africa/Niamey,
+                             * America/Whitehorse, Pacific/Noumea, Asia/Tbilisi, Europe/Kyiv,
+                             * America/Montreal, Asia/Makassar, America/Argentina/San_Juan, Hongkong, UCT,
+                             * Asia/Nicosia, America/Indiana/Winamac, SystemV/MST7MDT,
+                             * America/Argentina/ComodRivadavia, America/Boa_Vista, America/Grenada,
+                             * Asia/Atyrau, Australia/Darwin, Asia/Khandyga, Asia/Kuala_Lumpur,
+                             * Asia/Famagusta, Asia/Thimphu, Asia/Rangoon, Europe/Bratislava, Asia/Calcutta,
+                             * America/Argentina/Tucuman, Asia/Kabul, Indian/Cocos, Japan,
+                             * Pacific/Tongatapu, America/New_York, Etc/GMT-12, Etc/GMT-11, America/Nuuk,
+                             * Etc/GMT-10, SystemV/YST9YDT, Europe/Ulyanovsk, Etc/GMT-14, Etc/GMT-13, W-SU,
+                             * America/Merida, EET, America/Rosario, Canada/Saskatchewan, America/St_Kitts,
+                             * Arctic/Longyearbyen, America/Fort_Nelson, America/Caracas,
+                             * America/Guadeloupe, Asia/Hebron, Indian/Kerguelen, SystemV/PST8PDT,
+                             * Africa/Monrovia, Asia/Ust-Nera, Egypt, Asia/Srednekolymsk,
+                             * America/North_Dakota/New_Salem, Asia/Anadyr, Australia/Melbourne,
+                             * Asia/IAmerica/Shiprock, America/Winnipeg, Europe/Vatican, Asia/Amman,
+                             * Etc/UTC, SystemV/AST4ADT, Asia/Tokyo, America/Toronto, Asia/Singapore,
+                             * Australia/Lindeman, America/Los_Angeles, SystemV/EST5EDT, Pacific/Majuro,
+                             * America/Argentina/Buenos_Aires, Europe/Nicosia, Pacific/Guadalcanal,
+                             * Europe/Athens, US/Pacific, Europe/Monaco]
+                             */</span>
+   
+<span class="token comment">// default timezone</span>
+<span class="token class-name">ZoneId</span> zoneId <span class="token operator">=</span> <span class="token class-name">ZoneId</span><span class="token punctuation">.</span><span class="token function">systemDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>zoneId<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Asia/Shanghai</span>
+   
+<span class="token comment">// get specical timezone</span>
+<span class="token class-name">ZoneId</span> zoneId2 <span class="token operator">=</span> <span class="token class-name">ZoneId</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token string">"Australia/Lindeman"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>zoneId2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Australia/Lindeman</span>
+   
+<span class="token class-name">Instant</span> now <span class="token operator">=</span> <span class="token class-name">Instant</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>now<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 2024-03-12T16:56:55.840152200Z</span>
+   
+<span class="token class-name">Instant</span> ins1 <span class="token operator">=</span> <span class="token class-name">Instant</span><span class="token punctuation">.</span><span class="token function">ofEpochMilli</span><span class="token punctuation">(</span><span class="token number">0L</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>ins1<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 1970-01-01T00:00:00Z</span>
+   
+<span class="token class-name">Instant</span> ins2 <span class="token operator">=</span> <span class="token class-name">Instant</span><span class="token punctuation">.</span><span class="token function">ofEpochSecond</span><span class="token punctuation">(</span><span class="token number">1L</span><span class="token punctuation">,</span> <span class="token number">1000000000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>ins2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 1970-01-01T00:00:02Z</span>
+   
+<span class="token class-name">Instant</span> ins4 <span class="token operator">=</span> <span class="token class-name">Instant</span><span class="token punctuation">.</span><span class="token function">ofEpochSecond</span><span class="token punctuation">(</span><span class="token number">0L</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">Instant</span> ins5 <span class="token operator">=</span> <span class="token class-name">Instant</span><span class="token punctuation">.</span><span class="token function">ofEpochSecond</span><span class="token punctuation">(</span><span class="token number">1000L</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   
+<span class="token keyword">boolean</span> res <span class="token operator">=</span> ins4<span class="token punctuation">.</span><span class="token function">isBefore</span><span class="token punctuation">(</span>ins5<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+   
+<span class="token class-name">Instant</span> ins6 <span class="token operator">=</span> <span class="token class-name">Instant</span><span class="token punctuation">.</span><span class="token function">ofEpochSecond</span><span class="token punctuation">(</span><span class="token number">1000L</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>ins6<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 1970-01-01T00:16:40Z</span>
+<span class="token class-name">Instant</span> ins7 <span class="token operator">=</span> ins6<span class="token punctuation">.</span><span class="token function">minusSeconds</span><span class="token punctuation">(</span><span class="token number">500L</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>ins7<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 1970-01-01T00:08:20Z</span>
+   
+<span class="token class-name">ZonedDateTime</span> now <span class="token operator">=</span> <span class="token class-name">ZonedDateTime</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>now<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 2024-03-13T01:10:21.971134300+08:00[Asia/Shanghai]</span>
+   
+<span class="token class-name">Instant</span> ins1 <span class="token operator">=</span> <span class="token class-name">Instant</span><span class="token punctuation">.</span><span class="token function">ofEpochMilli</span><span class="token punctuation">(</span><span class="token number">0L</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">ZoneId</span> zId <span class="token operator">=</span> <span class="token class-name">ZoneId</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token string">"Asia/Shanghai"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">ZonedDateTime</span> zdt <span class="token operator">=</span> <span class="token class-name">ZonedDateTime</span><span class="token punctuation">.</span><span class="token function">ofInstant</span><span class="token punctuation">(</span>ins1<span class="token punctuation">,</span> zId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>zdt<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 1970-01-01T08:00+08:00[Asia/Shanghai]	</span>
+   
+<span class="token class-name">ZonedDateTime</span> zdt <span class="token operator">=</span> <span class="token class-name">Instant</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">atZone</span><span class="token punctuation">(</span><span class="token class-name">ZoneId</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token string">"Asia/Shanghai"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">DateTimeFormatter</span> dtf1 <span class="token operator">=</span> <span class="token class-name">DateTimeFormatter</span><span class="token punctuation">.</span><span class="token function">ofPattern</span><span class="token punctuation">(</span><span class="token string">"yyyy-MM-dd HH:mm:ss EE a"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>dtf1<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span>zdt<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 2024-03-13 01:20:11 Wed am</span></code></pre></li>
+<li><p><code>LocaDateTime</code></p>
+<ol type="1">
+<li><p><code>LocaDate</code></p>
+<pre class="language-none"><code class="language-none">LocalDate bld &#x3D; LocalDate.of(2000,3,5);
+LocalDate nowDate1 &#x3D; LocalDate.now();
+      
+MonthDay bldMd &#x3D; MonthDay.of(bld.getMonthValue(),bld.getDayOfMonth());
+MonthDay nowMd &#x3D; MonthDay.from(nowDate1);
+      
+&#x2F;&#x2F; equal</code></pre></li>
+<li><p><code>LocalTime</code></p></li>
+</ol></li>
+<li><p>Time interval</p>
+<ol type="1">
+<li><p><code>Period</code></p></li>
+<li><p><code>Duration</code></p></li>
+<li><p><code>ChronoUnit</code></p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token class-name">LocalDate</span> todayDate <span class="token operator">=</span> <span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>todayDate<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      
+<span class="token class-name">LocalDate</span> date2 <span class="token operator">=</span> <span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">2000</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>date2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      
+<span class="token class-name">Period</span> p <span class="token operator">=</span> <span class="token class-name">Period</span><span class="token punctuation">.</span><span class="token function">between</span><span class="token punctuation">(</span>date2<span class="token punctuation">,</span> todayDate<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Time interval:"</span> <span class="token operator">+</span> p<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Time interval:P23Y4M6D</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span><span class="token function">getYears</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 23</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span><span class="token function">getMonths</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 4</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span><span class="token function">getDays</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 6</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span><span class="token function">toTotalMonths</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 280</span>
+      
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">ChronoUnit</span><span class="token punctuation">.</span><span class="token constant">YEARS</span><span class="token punctuation">.</span><span class="token function">between</span><span class="token punctuation">(</span>date2<span class="token punctuation">,</span> todayDate<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></li>
+</ol></li>
+</ol>
+<h4 id="wrapper-class">Wrapper class</h4>
+<ol type="1">
+<li><p>Code</p>
+<pre class="language-java" data-language="java"><code class="language-java">   <span class="token class-name">Integer</span> i1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Integer</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token class-name">Integer</span> i2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Integer</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>i1<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 1</span>
+   <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>i2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 1</span>
+   
+   <span class="token class-name">Integer</span> i3 <span class="token operator">=</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token number">123</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token class-name">Integer</span> i4 <span class="token operator">=</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token string">"345"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token class-name">Integer</span> i5 <span class="token operator">=</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token string">"123"</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>i3<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 123</span>
+   <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>i4<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 345</span>
+   <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>i5<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 83</span>
+   
+   <span class="token class-name">Integer</span> i6 <span class="token operator">=</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token number">127</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token class-name">Integer</span> i7 <span class="token operator">=</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token number">127</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>i6 <span class="token operator">==</span> i7<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+   
+   <span class="token class-name">Integer</span> i8 <span class="token operator">=</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token number">128</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token class-name">Integer</span> i9 <span class="token operator">=</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token number">128</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>i8 <span class="token operator">==</span> i9<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// false</span>
+
+<span class="token comment">// After Jdk5</span>
+   <span class="token class-name">Integer</span> i1 <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+   <span class="token class-name">Integer</span> i2 <span class="token operator">=</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token keyword">int</span> i <span class="token operator">=</span> i2<span class="token punctuation">;</span>
+   
+   <span class="token class-name">String</span> s1 <span class="token operator">=</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">toBinaryString</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s1<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 1100100</span>
+   <span class="token class-name">String</span> s2 <span class="token operator">=</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">toOctalString</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 144</span>
+   <span class="token class-name">String</span> s3 <span class="token operator">=</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">toHexString</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s3<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 64</span>
+   
+   <span class="token class-name">String</span> s4 <span class="token operator">=</span> <span class="token string">"123"</span><span class="token punctuation">;</span>
+   <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s4 <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 1231</span>
+   <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token string">"123"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 124</span></code></pre></li>
+<li><p>Combined practice</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token class-name">Wrapper</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">ArrayList</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">List</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Scanner</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CombindPraticeTest</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> li <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token class-name">Scanner</span> sc <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Scanner</span><span class="token punctuation">(</span><span class="token class-name">System</span><span class="token punctuation">.</span>in<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Input an integer: "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">String</span> s <span class="token operator">=</span> sc<span class="token punctuation">.</span><span class="token function">nextLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">int</span> num <span class="token operator">=</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">parseInt</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>num <span class="token operator">&lt;</span> <span class="token number">1</span> <span class="token operator">||</span> num <span class="token operator">></span> <span class="token number">100</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"The entered data is not between 1-100, please re-enter!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">continue</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+
+            li<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">getsum</span><span class="token punctuation">(</span>li<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">200</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">Integer</span> n <span class="token operator">:</span> li<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>n <span class="token operator">+</span> <span class="token string">" "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+	
+    <span class="token comment">// This method is not necessary, but is purely for practice</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">getsum</span><span class="token punctuation">(</span><span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> li<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">Integer</span> num <span class="token operator">:</span> li<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            sum <span class="token operator">+=</span> num<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> sum<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token comment">// Jdk7</span>
+<span class="token class-name">String</span> birthday <span class="token operator">=</span> <span class="token string">"2000年11月8日"</span><span class="token punctuation">;</span>
+<span class="token class-name">SimpleDateFormat</span> sldf <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SimpleDateFormat</span><span class="token punctuation">(</span><span class="token string">"yyyy年MM月dd日"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">Date</span> date <span class="token operator">=</span> sldf<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>birthday<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">long</span> birthdayTime <span class="token operator">=</span> date<span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">long</span> now <span class="token operator">=</span> <span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">currentTimeMillis</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">long</span> time <span class="token operator">=</span> now <span class="token operator">-</span> birthdayTime<span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>time <span class="token operator">/</span> <span class="token number">1000</span> <span class="token operator">/</span> <span class="token number">60</span> <span class="token operator">/</span> <span class="token number">60</span> <span class="token operator">/</span> <span class="token number">24</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 8526</span>
+   
+<span class="token comment">// Jdk8</span>
+<span class="token class-name">LocalDate</span> ld1 <span class="token operator">=</span> <span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">2000</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">LocalDate</span> ld2 <span class="token operator">=</span> <span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">long</span> days <span class="token operator">=</span> <span class="token class-name">ChronoUnit</span><span class="token punctuation">.</span><span class="token constant">DAYS</span><span class="token punctuation">.</span><span class="token function">between</span><span class="token punctuation">(</span>ld1<span class="token punctuation">,</span> ld2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>days<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 8526</span></code></pre>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token comment">// Jdk7</span>
+<span class="token class-name">Calendar</span> c <span class="token operator">=</span> <span class="token class-name">Calendar</span><span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+c<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token number">2000</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+c<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token class-name">Calendar</span><span class="token punctuation">.</span><span class="token constant">DAY_OF_MONTH</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> day <span class="token operator">=</span> c<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token class-name">Calendar</span><span class="token punctuation">.</span><span class="token constant">DAY_OF_MONTH</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>day<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 29</span>
+   
+<span class="token comment">// Jdk8</span>
+<span class="token class-name">LocalDate</span> ld <span class="token operator">=</span> <span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">2000</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">LocalDate</span> ld2 <span class="token operator">=</span> ld<span class="token punctuation">.</span><span class="token function">minusDays</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> day2 <span class="token operator">=</span> ld2<span class="token punctuation">.</span><span class="token function">getDayOfMonth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>day2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 29</span></code></pre></li>
 </ol>
 
                 
@@ -4241,7 +4698,7 @@ alt="image-20240311092528054" />
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">257.9k</span>&nbsp;字
+                class="white-color">260.5k</span>&nbsp;字
             
             
             

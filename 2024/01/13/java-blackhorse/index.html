@@ -477,14 +477,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2024-03-21
+                    2024-03-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    17.4k
+                    18.5k
                 </div>
                 
 
@@ -5148,15 +5148,15 @@ aList<span class="token punctuation">.</span><span class="token function">stream
 </ol>
 <h4 id="middle-method">Middle method</h4>
 <ol type="1">
-<li><p><code>fileter</code></p>
-<pre class="language-none"><code class="language-none">ArrayList&lt;String&gt; aList &#x3D; new ArrayList&lt;&gt;();
-Collections.addAll(aList, &quot;abc&quot;, &quot;acd&quot;, &quot;aef&quot;, &quot;bcd&quot;);
+<li><p><code>filter</code></p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> aList <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">Collections</span><span class="token punctuation">.</span><span class="token function">addAll</span><span class="token punctuation">(</span>aList<span class="token punctuation">,</span> <span class="token string">"abc"</span><span class="token punctuation">,</span> <span class="token string">"acd"</span><span class="token punctuation">,</span> <span class="token string">"aef"</span><span class="token punctuation">,</span> <span class="token string">"bcd"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
    
-aList.stream().filter(s -&gt; s.startsWith(&quot;a&quot;)).forEach(s -&gt; System.out.println(s));&#x2F;*
+aList<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>s <span class="token operator">-></span> s<span class="token punctuation">.</span><span class="token function">startsWith</span><span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>s <span class="token operator">-></span> <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">/*
                                                                                    * abc
                                                                                    * acd
                                                                                    * aef
-                                                                                   *&#x2F;</code></pre></li>
+                                                                                   */</span></code></pre></li>
 <li><p><code>limit</code>,<code>skip</code></p>
 <pre class="language-java" data-language="java"><code class="language-java"><span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> aList <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token class-name">Collections</span><span class="token punctuation">.</span><span class="token function">addAll</span><span class="token punctuation">(</span>aList<span class="token punctuation">,</span> <span class="token string">"abc"</span><span class="token punctuation">,</span> <span class="token string">"acd"</span><span class="token punctuation">,</span> <span class="token string">"aef"</span><span class="token punctuation">,</span> <span class="token string">"bcd"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -5245,6 +5245,390 @@ aList<span class="token punctuation">.</span><span class="token function">stream
            <span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>s <span class="token operator">-></span> <span class="token string">"B"</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">"-"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
            <span class="token punctuation">.</span><span class="token function">collect</span><span class="token punctuation">(</span><span class="token class-name">Collectors</span><span class="token punctuation">.</span><span class="token function">toMap</span><span class="token punctuation">(</span>s <span class="token operator">-></span> s<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">"-"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> s <span class="token operator">-></span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">parseInt</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">"-"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>collectMap<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &#123;aaa=11, dec=22, ghi=31&#125;</span></code></pre></li>
+</ol>
+<h3 id="method-references">Method references</h3>
+<h4 id="reference-static-method">Reference static method</h4>
+<ol type="1">
+<li><code>Class name:static method Name</code></li>
+</ol>
+<h4 id="reference-member-methods">Reference member methods</h4>
+<ol type="1">
+<li>obejct: <code>obejcet name::member name method</code></li>
+<li>this class:<code>this</code></li>
+<li>superclasses: <code>super</code></li>
+</ol>
+<h4 id="reference-constructor">Reference constructor</h4>
+<ol type="1">
+<li><code>Class Name::new</code></li>
+</ol>
+<h4 id="reference-member-methods-using-class-names">Reference member
+methods using class names</h4>
+<ol type="1">
+<li>The <code>first parameter</code> in the functional interface method
+is the data that the method needs to manipulate. The data type
+determines which methods in the class can be called by this reference
+way.</li>
+<li>Starting from the <code>second parameter</code>, the parameter types
+are required to be consistent; if there is no second parameter, the
+implemented method will have <code>empty parameters</code>.</li>
+<li><code>String::toUppercase</code></li>
+</ol>
+<h4 id="reference-array-constructor">Reference array constructor</h4>
+<ol type="1">
+<li><code>Type[]::new</code></li>
+</ol>
+<h4 id="comprehensive-practice-1">Comprehensive Practice</h4>
+<ol type="1">
+<li><p>Code</p>
+<pre class="language-java" data-language="java"><code class="language-java">  <span class="token comment">// Student.class</span>
+<span class="token keyword">public</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+       <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> stu <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">"-"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> stu<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+       <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">parseInt</span><span class="token punctuation">(</span>stu<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">&#125;</span>
+   </code></pre>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> aList <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">Collections</span><span class="token punctuation">.</span><span class="token function">addAll</span><span class="token punctuation">(</span>aList<span class="token punctuation">,</span> <span class="token string">"abc-15"</span><span class="token punctuation">,</span> <span class="token string">"bcd-16"</span><span class="token punctuation">,</span> <span class="token string">"cde-17"</span><span class="token punctuation">,</span> <span class="token string">"ade-18"</span><span class="token punctuation">,</span> <span class="token string">"def-25"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   
+<span class="token class-name">Student</span><span class="token punctuation">[</span><span class="token punctuation">]</span> stuArray <span class="token operator">=</span> aList<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token class-name">Student</span><span class="token operator">::</span><span class="token keyword">new</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toArray</span><span class="token punctuation">(</span><span class="token class-name">Student</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">::</span><span class="token keyword">new</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span>stuArray<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">/*
+                                               * [Student&#123;name='abc', age=15&#125;, 
+                                               * Student&#123;name='bcd', age=16&#125;,
+                                               * Student&#123;name='cde', age=17&#125;, 
+                                               * Student&#123;name='ade', age=18&#125;,
+                                               * Student&#123;name='def', age=25&#125;]
+                                               */</span></code></pre></li>
+<li><p>Code</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Student</span><span class="token punctuation">></span></span> aList <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+aList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token string">"abc"</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+aList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token string">"bcd"</span><span class="token punctuation">,</span> <span class="token number">17</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>	
+aList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token string">"ade"</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+aList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token string">"def"</span><span class="token punctuation">,</span> <span class="token number">19</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   
+<span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> stuArray <span class="token operator">=</span> aList<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token class-name">Student</span><span class="token operator">::</span><span class="token function">getName</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toArray</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">::</span><span class="token keyword">new</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span>stuArray<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [abc, bcd, ade, def]</span></code></pre></li>
+</ol>
+<h3 id="exception">Exception</h3>
+<h4 id="intrduction">Intrduction</h4>
+<ol type="1">
+<li>Architecture<img
+src="https://s2.loli.net/2024/03/22/pYRJOEio7uS8jTt.png"
+alt="image-20240322005633945" /></li>
+</ol>
+<h4 id="comprehensive-pratice">Comprehensive Pratice</h4>
+<ol type="1">
+<li><p>Code</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token comment">// GirlFriend.java</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setName</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> len <span class="token operator">=</span> name<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>len <span class="token operator">&lt;</span> <span class="token number">3</span> <span class="token operator">||</span> len <span class="token operator">></span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">RuntimeException</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setAge</span><span class="token punctuation">(</span><span class="token keyword">int</span> age<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>age <span class="token operator">&lt;</span> <span class="token number">18</span> <span class="token operator">||</span> age <span class="token operator">></span> <span class="token number">40</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">RuntimeException</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token class-name">GirlFriend</span> gf1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">GirlFriend</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"GirlFriend infomation:"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Scanner</span> sc <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Scanner</span><span class="token punctuation">(</span><span class="token class-name">System</span><span class="token punctuation">.</span>in<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"Input name: "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">String</span> name <span class="token operator">=</span> sc<span class="token punctuation">.</span><span class="token function">nextLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        gf1<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"Input age: "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">String</span> ageStr <span class="token operator">=</span> sc<span class="token punctuation">.</span><span class="token function">nextLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> age <span class="token operator">=</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">parseInt</span><span class="token punctuation">(</span>ageStr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        gf1<span class="token punctuation">.</span><span class="token function">setAge</span><span class="token punctuation">(</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   
+        sc<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">NumberFormatException</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Age format error!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">RuntimeException</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Age or name does not meet the requirements!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+   </code></pre></li>
+</ol>
+<h4 id="custom-exception">Custom exception</h4>
+<h3 id="file">File</h3>
+<h4 id="comprehensive-pratice-1">Comprehensive Pratice</h4>
+<ol type="1">
+<li><p>Create <code>aaa\a.txt</code></p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token class-name">File</span> f1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"FileTest\\aaa"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+f1<span class="token punctuation">.</span><span class="token function">mkdirs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<figure>
+<img src="https://s2.loli.net/2024/03/22/CfYcstaXK8EJnxM.png"
+alt="image-20240322223252405" />
+<figcaption aria-hidden="true">image-20240322223252405</figcaption>
+</figure>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token class-name">File</span> f2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span>f1<span class="token punctuation">,</span> <span class="token string">"a.txt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">boolean</span> b <span class="token operator">=</span> f2<span class="token punctuation">.</span><span class="token function">createNewFile</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<figure>
+<img src="https://s2.loli.net/2024/03/22/2AKOqzxSLBIdriy.png"
+alt="image-20240322223311735" />
+<figcaption aria-hidden="true">image-20240322223311735</figcaption>
+</figure></li>
+<li><p>Check if there is a file of the specified type</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">FileTest</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">IOException</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">File</span> f1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"FileTest\\aaa"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        f1<span class="token punctuation">.</span><span class="token function">mkdirs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token function">havaAvifile</span><span class="token punctuation">(</span>f1<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+
+        <span class="token class-name">File</span> f2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"FileTest\\bbb"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        f2<span class="token punctuation">.</span><span class="token function">mkdirs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token function">havaAvifile</span><span class="token punctuation">(</span>f2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//false</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">boolean</span> <span class="token function">havaAvifile</span><span class="token punctuation">(</span><span class="token class-name">File</span> f<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">File</span><span class="token punctuation">[</span><span class="token punctuation">]</span> fFiles <span class="token operator">=</span> f<span class="token punctuation">.</span><span class="token function">listFiles</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">File</span> ff <span class="token operator">:</span> fFiles<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>ff<span class="token punctuation">.</span><span class="token function">isFile</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> ff<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">endsWith</span><span class="token punctuation">(</span><span class="token string">".avi"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<figure>
+<img src="https://s2.loli.net/2024/03/22/o8V4etG7Rjuxlgq.png"
+alt="image-20240322224624153" />
+<figcaption aria-hidden="true">image-20240322224624153</figcaption>
+</figure></li>
+<li><p>Get file size</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>hunt<span class="token punctuation">.</span>file</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span><span class="token class-name">File</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">FileSize</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">File</span> f <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"FileTest"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> fSize <span class="token operator">=</span> <span class="token function">getSize</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>fSize<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 14</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">getSize</span><span class="token punctuation">(</span><span class="token class-name">File</span> f<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span> len <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token class-name">File</span><span class="token punctuation">[</span><span class="token punctuation">]</span> ffFiles <span class="token operator">=</span> f<span class="token punctuation">.</span><span class="token function">listFiles</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">File</span> ff <span class="token operator">:</span> ffFiles<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>ff<span class="token punctuation">.</span><span class="token function">isFile</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                len <span class="token operator">+=</span> ff<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+                len <span class="token operator">+=</span> <span class="token function">getSize</span><span class="token punctuation">(</span>ff<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+
+        <span class="token keyword">return</span> len<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+</code></pre></li>
+<li><p>Cont type</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>hunt<span class="token punctuation">.</span>file</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span><span class="token class-name">File</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">HashMap</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Map</span><span class="token punctuation">.</span><span class="token class-name">Entry</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Set</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TypeSize</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">File</span> f <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"FileTest"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Integer</span><span class="token punctuation">></span></span> typeSize <span class="token operator">=</span> <span class="token function">countType</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>typeSize<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &#123;txt=4, avi=3&#125;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Integer</span><span class="token punctuation">></span></span> <span class="token function">countType</span><span class="token punctuation">(</span><span class="token class-name">File</span> f<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Integer</span><span class="token punctuation">></span></span> hm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">File</span><span class="token punctuation">[</span><span class="token punctuation">]</span> fFiles <span class="token operator">=</span> f<span class="token punctuation">.</span><span class="token function">listFiles</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">File</span> ff <span class="token operator">:</span> fFiles<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token comment">// System.out.println(ff);</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>ff<span class="token punctuation">.</span><span class="token function">isFile</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token comment">// System.out.println(ff);</span>
+                <span class="token class-name">String</span> fileName <span class="token operator">=</span> ff<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> namesSplit <span class="token operator">=</span> fileName<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">"\\."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token comment">// System.out.println(namesSplit.length);</span>
+
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>namesSplit<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                    <span class="token class-name">String</span> sufixKey <span class="token operator">=</span> namesSplit<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+                    <span class="token comment">// System.out.println(sufixKey);</span>
+                    <span class="token keyword">int</span> value <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span>hm<span class="token punctuation">.</span><span class="token function">containsKey</span><span class="token punctuation">(</span>sufixKey<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                        value <span class="token operator">=</span> hm<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>sufixKey<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">&#125;</span>
+                    value<span class="token operator">++</span><span class="token punctuation">;</span>
+                    <span class="token comment">// System.out.println(value);</span>
+                    hm<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>sufixKey<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+
+            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+                <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Integer</span><span class="token punctuation">></span></span> sonHm <span class="token operator">=</span> <span class="token function">countType</span><span class="token punctuation">(</span>ff<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token class-name">Set</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Entry</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Integer</span><span class="token punctuation">></span><span class="token punctuation">></span></span> entriesSet <span class="token operator">=</span> sonHm<span class="token punctuation">.</span><span class="token function">entrySet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">Entry</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Integer</span><span class="token punctuation">></span></span> entry <span class="token operator">:</span> entriesSet<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                    <span class="token class-name">String</span> key <span class="token operator">=</span> entry<span class="token punctuation">.</span><span class="token function">getKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span>hm<span class="token punctuation">.</span><span class="token function">containsKey</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                        <span class="token keyword">int</span> vHm <span class="token operator">=</span> hm<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token keyword">int</span> vSonHm <span class="token operator">=</span> sonHm<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        vHm <span class="token operator">+=</span> vSonHm<span class="token punctuation">;</span>
+                        hm<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> vHm<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+                        hm<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> entry<span class="token punctuation">.</span><span class="token function">getValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">&#125;</span>
+                <span class="token punctuation">&#125;</span>
+                <span class="token comment">// System.out.println(hm);</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token comment">// System.out.println(hm);</span>
+        <span class="token keyword">return</span> hm<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+</code></pre>
+<figure>
+<img src="https://s2.loli.net/2024/03/23/zK9EAydG5SlogN7.png"
+alt="image-20240323023012609" />
+<figcaption aria-hidden="true">image-20240323023012609</figcaption>
+</figure></li>
+</ol>
+<h3 id="io-stream">IO Stream</h3>
+<h4 id="introduction">Introduction</h4>
+<ol type="1">
+<li>Classification<img
+src="https://s2.loli.net/2024/03/23/TkNB5itbPM1o3Zp.png"
+alt="image-20240323082413541" /></li>
+<li>Archietecture<img
+src="https://s2.loli.net/2024/03/23/S2olbAzqtUIvxD9.png"
+alt="image-20240323082758698" /></li>
+</ol>
+<h4 id="fileoutputstream">FileOutputStream</h4>
+<ol type="1">
+<li><p>Code</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token class-name">FileOutputStream</span> fos <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileOutputStream</span><span class="token punctuation">(</span><span class="token string">"FileTest\\root.txt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   
+<span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> bytes <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token number">97</span><span class="token punctuation">,</span><span class="token number">98</span><span class="token punctuation">,</span><span class="token number">99</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+fos<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>bytes<span class="token punctuation">)</span><span class="token punctuation">;</span>
+fos<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// fos.write(97);</span></code></pre>
+<figure>
+<img src="https://s2.loli.net/2024/03/23/lpxdPUuZqf68gTh.png"
+alt="image-20240323044402388" />
+<figcaption aria-hidden="true">image-20240323044402388</figcaption>
+</figure>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token class-name">FileOutputStream</span> fos <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileOutputStream</span><span class="token punctuation">(</span><span class="token string">"FileTest\\root.txt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   
+<span class="token class-name">String</span> s <span class="token operator">=</span> <span class="token string">"Hello world"</span><span class="token punctuation">;</span>
+<span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> bytes <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">getBytes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+fos<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>bytes<span class="token punctuation">)</span><span class="token punctuation">;</span>
+fos<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<figure>
+<img src="https://s2.loli.net/2024/03/23/2hbN4BmGyZdw3WI.png"
+alt="image-20240323045302440" />
+<figcaption aria-hidden="true">image-20240323045302440</figcaption>
+</figure>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token class-name">FileOutputStream</span> fos <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileOutputStream</span><span class="token punctuation">(</span><span class="token string">"FileTest\\root.txt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   
+<span class="token class-name">String</span> s <span class="token operator">=</span> <span class="token string">"Hello world"</span><span class="token punctuation">;</span>
+<span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> bytes <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">getBytes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+fos<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>bytes<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   
+<span class="token class-name">String</span> s2 <span class="token operator">=</span> <span class="token string">"\r\n"</span><span class="token punctuation">;</span>
+<span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> bytes2 <span class="token operator">=</span> s2<span class="token punctuation">.</span><span class="token function">getBytes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+fos<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>bytes2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   
+<span class="token class-name">String</span> s3 <span class="token operator">=</span> <span class="token string">"666"</span><span class="token punctuation">;</span>
+<span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> bytes3 <span class="token operator">=</span> s3<span class="token punctuation">.</span><span class="token function">getBytes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+fos<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>bytes3<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   
+fos<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<figure>
+<img src="https://s2.loli.net/2024/03/23/MWHcQj3ZBDypPLI.png"
+alt="image-20240323045617928" />
+<figcaption aria-hidden="true">image-20240323045617928</figcaption>
+</figure>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token class-name">FileOutputStream</span> fos <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileOutputStream</span><span class="token punctuation">(</span><span class="token string">"FileTest\\root.txt"</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// key point</span>
+   
+<span class="token class-name">String</span> s2 <span class="token operator">=</span> <span class="token string">"\r\n"</span><span class="token punctuation">;</span>
+<span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> bytes2 <span class="token operator">=</span> s2<span class="token punctuation">.</span><span class="token function">getBytes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+fos<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>bytes2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   
+<span class="token class-name">String</span> s3 <span class="token operator">=</span> <span class="token string">"777"</span><span class="token punctuation">;</span>
+<span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> bytes3 <span class="token operator">=</span> s3<span class="token punctuation">.</span><span class="token function">getBytes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+fos<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>bytes3<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   
+fos<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<figure>
+<img src="https://s2.loli.net/2024/03/23/YdFsgbr7xNhUHA4.png"
+alt="image-20240323045823583" />
+<figcaption aria-hidden="true">image-20240323045823583</figcaption>
+</figure></li>
+</ol>
+<h4 id="fileinputstream">FileInputStream</h4>
+<h4 id="copy-file">Copy file</h4>
+<h4 id="try-catch-finally">Try-catch-finally</h4>
+<ol type="1">
+<li><code>AutoCloseable</code> interface</li>
+</ol>
+<h4 id="unicodeencoding-and-decoding">UnicodeEncoding and decoding</h4>
+<h4 id="underlying-principle-of-character-input-stream">Underlying
+principle of character input stream</h4>
+<h4 id="underlying-principle-of-character-output-stream">Underlying
+principle of character output stream</h4>
+<h4 id="copydir"><code>copyDir</code></h4>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>hunt<span class="token punctuation">.</span></span><span class="token class-name">IOStream</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span><span class="token class-name">File</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span><span class="token class-name">FileInputStream</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span><span class="token class-name">FileOutputStream</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span><span class="token class-name">IOException</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CopyDir</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">IOException</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">File</span> src <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"FileTest"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">File</span> dest <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"dest"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token function">copyDir</span><span class="token punctuation">(</span>src<span class="token punctuation">,</span> dest<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">copyDir</span><span class="token punctuation">(</span><span class="token class-name">File</span> src<span class="token punctuation">,</span> <span class="token class-name">File</span> dest<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">IOException</span> <span class="token punctuation">&#123;</span>
+        dest<span class="token punctuation">.</span><span class="token function">mkdirs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token class-name">File</span><span class="token punctuation">[</span><span class="token punctuation">]</span> fSrc <span class="token operator">=</span> src<span class="token punctuation">.</span><span class="token function">listFiles</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">File</span> fs <span class="token operator">:</span> fSrc<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>fs<span class="token punctuation">.</span><span class="token function">isFile</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token comment">// !NOTE: Byte stream</span>
+                <span class="token class-name">FileInputStream</span> fis <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileInputStream</span><span class="token punctuation">(</span>fs<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token class-name">FileOutputStream</span> fos <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileOutputStream</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span>dest<span class="token punctuation">,</span> fs<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// !NOTE: Specify destination</span>
+
+                <span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> bytes <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token number">1024</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+                <span class="token keyword">int</span> len<span class="token punctuation">;</span>
+                <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>len <span class="token operator">=</span> fis<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span>bytes<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                    fos<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>bytes<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> len<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+                fos<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                fis<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+                <span class="token function">copyDir</span><span class="token punctuation">(</span>fs<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span>dest<span class="token punctuation">,</span>fs<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<figure>
+<img src="https://s2.loli.net/2024/03/23/5IYOrKacXfZTpgx.png"
+alt="image-20240323101822613" />
+<figcaption aria-hidden="true">image-20240323101822613</figcaption>
+</figure>
+<h4 id="encrypt-documents">Encrypt documents</h4>
+<ol type="1">
+<li><code>XOR</code></li>
 </ol>
 
                 
@@ -5859,7 +6243,7 @@ aList<span class="token punctuation">.</span><span class="token function">stream
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">264.5k</span>&nbsp;字
+                class="white-color">265.5k</span>&nbsp;字
             
             
             

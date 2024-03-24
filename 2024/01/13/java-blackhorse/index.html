@@ -477,14 +477,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2024-03-24
+                    2024-03-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    18.9k
+                    19k
                 </div>
                 
 
@@ -5742,6 +5742,71 @@ br<span class="token punctuation">.</span><span class="token function">close</sp
 bw<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 br<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></li>
 </ol>
+<h4 id="transform-stream">Transform stream</h4>
+<ol type="1">
+<li><p><code>InputStreamReader</code> and
+<code>OutputStreamWriter</code></p></li>
+<li><p>Byte stream-》Character stream</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token comment">// !NOTE: </span>
+<span class="token class-name">FileInputStream</span> fis <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileInputStream</span><span class="token punctuation">(</span><span class="token string">"FileTest\\root.txt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">BufferedReader</span> br <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BufferedReader</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">InputStreamReader</span><span class="token punctuation">(</span>fis<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   
+<span class="token class-name">String</span> line<span class="token punctuation">;</span>
+<span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>line <span class="token operator">=</span> br<span class="token punctuation">.</span><span class="token function">readLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>line<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+br<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></li>
+</ol>
+<h4 id="objectiutputstream-objectoutputstream">ObjectIutputStream &amp;
+ObjectOutputStream</h4>
+<ol type="1">
+<li><p><code>Student.class</code></p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token comment">// !NOTE:</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Student</span> <span class="token keyword">implements</span> <span class="token class-name">Serializable</span> <span class="token punctuation">&#123;</span></code></pre>
+<p>start<img src="https://s2.loli.net/2024/03/24/lvDdFnVQ9BhXRu2.png"
+alt="image-20240324094015027" /></p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token class-name">Student</span> stu <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token string">"abc"</span><span class="token punctuation">,</span> <span class="token number">17</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">ObjectOutputStream</span> oos <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ObjectOutputStream</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">FileOutputStream</span><span class="token punctuation">(</span><span class="token string">"FileTest\\root.txt"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   
+oos<span class="token punctuation">.</span><span class="token function">writeObject</span><span class="token punctuation">(</span>stu<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>result<img src="https://s2.loli.net/2024/03/24/asZvPzo4tVQjF15.png"
+alt="image-20240324094037925" /></p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token class-name">ObjectInputStream</span> ois <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ObjectInputStream</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">FileInputStream</span><span class="token punctuation">(</span><span class="token string">"FileTest\\root.txt"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   
+<span class="token class-name">Student</span> o <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Student</span><span class="token punctuation">)</span> ois<span class="token punctuation">.</span><span class="token function">readObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>o<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &#123; name='abc', age='17'&#125;</span>
+ois<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></li>
+<li><p>Details</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Student</span> <span class="token keyword">implements</span> <span class="token class-name">Serializable</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> age<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">long</span> serialVersionUID <span class="token operator">=</span> <span class="token number">4973455209L</span><span class="token punctuation">;</span>   <span class="token comment">// !NOTE:</span></code></pre>
+<p>Automatic generated<img
+src="https://s2.loli.net/2024/03/24/mGPaT3VJzr7v6Do.png"
+alt="image-20240324100843917" /></p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">private</span> <span class="token keyword">transient</span> <span class="token class-name">String</span> address<span class="token punctuation">;</span> <span class="token comment">// Forced not to deserialize</span></code></pre></li>
+<li><p>Serialize with ArrayList</p></li>
+</ol>
+<h4 id="byte-print-stream">Byte print stream</h4>
+<h4 id="character-print-stream">Character print stream</h4>
+<h4 id="system.out.println">System.out.println()</h4>
+<h4 id="zipinputstream">ZipInputStream</h4>
+<ol type="1">
+<li><code>ZipEntry</code> obeject</li>
+<li><code>getNextEntry</code></li>
+<li><code>enrty.toString()</code></li>
+</ol>
+<h4 id="zipoutputstream">ZipOutputStream</h4>
+<ol type="1">
+<li>Compressed file<code>putNextEntry()</code></li>
+<li><code>zos.closeEntry()</code></li>
+<li>getParentFile()</li>
+</ol>
+<h4 id="commons-io">Commons-io</h4>
+<ol type="1">
+<li><code>FileUtils</code> class</li>
+</ol>
+<h4 id="hutool">🍔HuTool</h4>
 
                 
             </div>
@@ -6355,7 +6420,7 @@ br<span class="token punctuation">.</span><span class="token function">close</sp
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">266k</span>&nbsp;字
+                class="white-color">266.2k</span>&nbsp;字
             
             
             

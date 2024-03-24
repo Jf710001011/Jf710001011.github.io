@@ -6,7 +6,7 @@
   <link href="https://jf710001011.github.io/atom.xml" rel="self"/>
   
   <link href="https://jf710001011.github.io/"/>
-  <updated>2024-03-24T20:04:50.946Z</updated>
+  <updated>2024-03-24T20:07:24.813Z</updated>
   <id>https://jf710001011.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaTest2</title>
+    <link href="https://jf710001011.github.io/2024/03/25/javatest2/"/>
+    <id>https://jf710001011.github.io/2024/03/25/javatest2/</id>
+    <published>2024-03-24T20:05:32.975Z</published>
+    <updated>2024-03-24T20:07:24.813Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;boy-name&quot;&gt;Boy</summary>
+        
+      
+    
+    
+    
+    <category term="Program design" scheme="https://jf710001011.github.io/categories/Program-design/"/>
+    
+    
+    <category term="Test" scheme="https://jf710001011.github.io/tags/Test/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaTest1</title>
@@ -544,31 +569,6 @@ of tools</summary>
     <category term="Web" scheme="https://jf710001011.github.io/tags/Web/"/>
     
     <category term="Sql" scheme="https://jf710001011.github.io/tags/Sql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Sekiro-只狼</title>
-    <link href="https://jf710001011.github.io/2023/12/09/sekiro/"/>
-    <id>https://jf710001011.github.io/2023/12/09/sekiro/</id>
-    <published>2023-12-09T11:25:07.561Z</published>
-    <updated>2024-01-13T03:28:53.391Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3</summary>
-        
-      
-    
-    
-    
-    <category term="Game" scheme="https://jf710001011.github.io/categories/Game/"/>
-    
-    
-    <category term="Sekiro" scheme="https://jf710001011.github.io/tags/Sekiro/"/>
     
   </entry>
   

@@ -477,14 +477,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2024-03-25
+                    2024-03-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    20k
+                    20.1k
                 </div>
                 
 
@@ -5990,26 +5990,26 @@ alt="image-20240325063833402" /></p></li>
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> probStu<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
             probStu<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> stuAList<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getWeight</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">&#125;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span>probStu<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// System.out.println(Arrays.toString(probStu));</span>
 
         <span class="token keyword">double</span><span class="token punctuation">[</span><span class="token punctuation">]</span> probAxis <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">double</span><span class="token punctuation">[</span>stuAList<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
         <span class="token function">setAxis</span><span class="token punctuation">(</span>probStu<span class="token punctuation">,</span> probAxis<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span>probAxis<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// System.out.println(Arrays.toString(probAxis));</span>
 
         <span class="token keyword">double</span> rcNum <span class="token operator">=</span> <span class="token function">getRcNum</span><span class="token punctuation">(</span>probAxis<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>rcNum<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>rcNum<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 0.18120432537919826</span>
+
         <span class="token comment">// !NOTE: index = -num-1;</span>
         <span class="token keyword">int</span> index <span class="token operator">=</span> <span class="token operator">-</span><span class="token punctuation">(</span><span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">binarySearch</span><span class="token punctuation">(</span>probAxis<span class="token punctuation">,</span> rcNum<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// System.out.println(index);</span>
 
         <span class="token function">setProbStu</span><span class="token punctuation">(</span>probStu<span class="token punctuation">,</span> index<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span>probStu<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// System.out.println(Arrays.toString(probStu));</span>
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> probStu<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
             stuAList<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setWeight</span><span class="token punctuation">(</span>probStu<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">&#125;</span>
         <span class="token function">setAxis</span><span class="token punctuation">(</span>probStu<span class="token punctuation">,</span> probAxis<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span>probAxis<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// System.out.println(Arrays.toString(probAxis));</span>
 
         <span class="token class-name">BufferedWriter</span> bw <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BufferedWriter</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">FileWriter</span><span class="token punctuation">(</span><span class="token string">"FileTest\\root.txt"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">Student</span> stu <span class="token operator">:</span> stuAList<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -6021,10 +6021,12 @@ alt="image-20240325063833402" /></p></li>
 
     <span class="token comment">// !NOTE:</span>
     <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">setProbStu</span><span class="token punctuation">(</span><span class="token keyword">double</span><span class="token punctuation">[</span><span class="token punctuation">]</span> probStu<span class="token punctuation">,</span> <span class="token keyword">int</span> index<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+
         probStu<span class="token punctuation">[</span>index<span class="token punctuation">]</span> <span class="token operator">/=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+        <span class="token keyword">double</span> avg <span class="token operator">=</span> probStu<span class="token punctuation">[</span>index<span class="token punctuation">]</span> <span class="token operator">/</span> probStu<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> probStu<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
             <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">!=</span> index<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                probStu<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+=</span> probStu<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                probStu<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+=</span> avg<span class="token punctuation">;</span>
             <span class="token punctuation">&#125;</span>
         <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
@@ -6050,17 +6052,92 @@ alt="image-20240325063833402" /></p></li>
 <span class="token punctuation">&#125;</span>
 </code></pre>
 <p>After excute code:</p>
-<pre class="language-java" data-language="java"><code class="language-java"><span class="token comment">// </span>
-龚叶妤<span class="token operator">-</span>男<span class="token operator">-</span><span class="token number">25</span><span class="token operator">-</span><span class="token number">0.15000000000000002</span>
-里梓萱<span class="token operator">-</span>女<span class="token operator">-</span><span class="token number">22</span><span class="token operator">-</span><span class="token number">0.15000000000000002</span>
-石文锐<span class="token operator">-</span>男<span class="token operator">-</span><span class="token number">21</span><span class="token operator">-</span><span class="token number">0.15000000000000002</span>
-花可心<span class="token operator">-</span>女<span class="token operator">-</span><span class="token number">21</span><span class="token operator">-</span><span class="token number">0.15000000000000002</span>
-钱津媛<span class="token operator">-</span>女<span class="token operator">-</span><span class="token number">24</span><span class="token operator">-</span><span class="token number">0.15000000000000002</span>
-丰艾琪<span class="token operator">-</span>男<span class="token operator">-</span><span class="token number">19</span><span class="token operator">-</span><span class="token number">0.15000000000000002</span>
-郎馨雨<span class="token operator">-</span>女<span class="token operator">-</span><span class="token number">25</span><span class="token operator">-</span><span class="token number">0.15000000000000002</span>
-诸紫月<span class="token operator">-</span>女<span class="token operator">-</span><span class="token number">20</span><span class="token operator">-</span><span class="token number">0.05</span>
-龙新哲<span class="token operator">-</span>男<span class="token operator">-</span><span class="token number">20</span><span class="token operator">-</span><span class="token number">0.15000000000000002</span>
-边子文<span class="token operator">-</span>男<span class="token operator">-</span><span class="token number">21</span><span class="token operator">-</span><span class="token number">0.15000000000000002</span></code></pre></li>
+<pre class="language-java" data-language="java"><code class="language-java">龚叶妤<span class="token operator">-</span>男<span class="token operator">-</span><span class="token number">25</span><span class="token operator">-</span><span class="token number">0.10500000000000001</span>
+里梓萱<span class="token operator">-</span>女<span class="token operator">-</span><span class="token number">22</span><span class="token operator">-</span><span class="token number">0.10500000000000001</span>
+石文锐<span class="token operator">-</span>男<span class="token operator">-</span><span class="token number">21</span><span class="token operator">-</span><span class="token number">0.10500000000000001</span>
+花可心<span class="token operator">-</span>女<span class="token operator">-</span><span class="token number">21</span><span class="token operator">-</span><span class="token number">0.10500000000000001</span>
+钱津媛<span class="token operator">-</span>女<span class="token operator">-</span><span class="token number">24</span><span class="token operator">-</span><span class="token number">0.10500000000000001</span>
+丰艾琪<span class="token operator">-</span>男<span class="token operator">-</span><span class="token number">19</span><span class="token operator">-</span><span class="token number">0.10500000000000001</span>
+郎馨雨<span class="token operator">-</span>女<span class="token operator">-</span><span class="token number">25</span><span class="token operator">-</span><span class="token number">0.10500000000000001</span>
+诸紫月<span class="token operator">-</span>女<span class="token operator">-</span><span class="token number">20</span><span class="token operator">-</span><span class="token number">0.10500000000000001</span>
+龙新哲<span class="token operator">-</span>男<span class="token operator">-</span><span class="token number">20</span><span class="token operator">-</span><span class="token number">0.10500000000000001</span>
+边子文<span class="token operator">-</span>男<span class="token operator">-</span><span class="token number">21</span><span class="token operator">-</span><span class="token number">0.05</span></code></pre></li>
+</ol>
+<h4 id="project-puzzle">🌭Project puzzle</h4>
+<ol type="1">
+<li><strong>Loading</strong> and <strong>Saving</strong></li>
+</ol>
+<h4 id="configuration-file">🥩Configuration file</h4>
+<ol type="1">
+<li><code>Properties</code>
+<ol type="1">
+<li><code>store()</code> method</li>
+<li><code>load()</code> method</li>
+</ol></li>
+</ol>
+<h3 id="multithreading">Multithreading</h3>
+<h4 id="create">Create</h4>
+<ol type="1">
+<li><p>MyThread</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>hunt<span class="token punctuation">.</span>thread</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyThread</span> <span class="token keyword">extends</span> <span class="token class-name">Thread</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">50</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"My thread"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+
+<span class="token punctuation">&#125;</span>
+</code></pre>
+<p>Test</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>hunt<span class="token punctuation">.</span>thread</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ThreadTest</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">MyThread</span> mt1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">MyThread</span> mt2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        mt1<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">"Thread 1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        mt2<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">"Thread 2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        mt1<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        mt2<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+</code></pre>
+<p>output<img src="https://s2.loli.net/2024/03/26/GEMeiq1ZPNavS4n.png" alt="image-20240326010701945" style="zoom: 67%;" /></p></li>
+<li><p>MyRun</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>hunt<span class="token punctuation">.</span>thread</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyRun</span> <span class="token keyword">implements</span> <span class="token class-name">Runnable</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">20</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"hello world"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+
+<span class="token punctuation">&#125;</span>
+</code></pre>
+<p>Test</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>hunt<span class="token punctuation">.</span>thread</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ThreadTest</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">MyRun</span> mr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyRun</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Thread</span> t1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>mr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Thread</span> t2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>mr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        t1<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        t2<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+</code></pre>
+<p>output<img src="https://s2.loli.net/2024/03/26/fhAavIzBKg6HcQP.png" alt="image-20240326011749402" style="zoom:67%;" /></p></li>
 </ol>
 
                 
@@ -6675,7 +6752,7 @@ alt="image-20240325063833402" /></p></li>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">268k</span>&nbsp;字
+                class="white-color">268.2k</span>&nbsp;字
             
             
             

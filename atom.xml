@@ -6,7 +6,7 @@
   <link href="https://jf710001011.github.io/atom.xml" rel="self"/>
   
   <link href="https://jf710001011.github.io/"/>
-  <updated>2024-03-24T20:09:32.353Z</updated>
+  <updated>2024-03-29T06:17:16.189Z</updated>
   <id>https://jf710001011.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaWeb</title>
+    <link href="https://jf710001011.github.io/2024/03/29/java-web/"/>
+    <id>https://jf710001011.github.io/2024/03/29/java-web/</id>
+    <published>2024-03-29T03:18:59.974Z</published>
+    <updated>2024-03-29T06:17:16.189Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;tutoring&quot;&gt;Tutoring&lt;/h3&gt;
+&lt;ol</summary>
+        
+      
+    
+    
+    
+    <category term="Program design" scheme="https://jf710001011.github.io/categories/Program-design/"/>
+    
+    
+    <category term="Web" scheme="https://jf710001011.github.io/tags/Web/"/>
+    
+    <category term="Java" scheme="https://jf710001011.github.io/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaTest3</title>
@@ -46,7 +74,7 @@
     <link href="https://jf710001011.github.io/2024/03/25/javatest2/"/>
     <id>https://jf710001011.github.io/2024/03/25/javatest2/</id>
     <published>2024-03-24T20:05:32.975Z</published>
-    <updated>2024-03-24T20:07:24.813Z</updated>
+    <updated>2024-03-24T20:11:23.080Z</updated>
     
     
       
@@ -536,36 +564,6 @@ of tools</summary>
     
     
     <category term="Static-Analysis" scheme="https://jf710001011.github.io/tags/Static-Analysis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Static Analysis II</title>
-    <link href="https://jf710001011.github.io/2023/12/09/static-analysis-ii/"/>
-    <id>https://jf710001011.github.io/2023/12/09/static-analysis-ii/</id>
-    <published>2023-12-09T11:25:07.656Z</published>
-    <updated>2024-02-08T03:55:59.503Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;概述&quot;&gt;概述&lt;/h3&gt;
-&lt;ol type=&quot;1&quot;&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;静态分析（Static Analysis）&lt;/strong&gt; 是指在实际运行程序
-&lt;em&gt;P&lt;/em&gt; 之前，通过分析静态程序</summary>
-        
-      
-    
-    
-    
-    <category term="Static Analysis" scheme="https://jf710001011.github.io/categories/Static-Analysis/"/>
-    
-    
-    <category term="Java" scheme="https://jf710001011.github.io/tags/Java/"/>
-    
-    <category term="Program design" scheme="https://jf710001011.github.io/tags/Program-design/"/>
     
   </entry>
   

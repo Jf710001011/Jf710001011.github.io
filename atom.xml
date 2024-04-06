@@ -6,7 +6,7 @@
   <link href="https://jf710001011.github.io/atom.xml" rel="self"/>
   
   <link href="https://jf710001011.github.io/"/>
-  <updated>2024-03-29T06:17:16.189Z</updated>
+  <updated>2024-04-06T20:22:41.283Z</updated>
   <id>https://jf710001011.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Soot</title>
+    <link href="https://jf710001011.github.io/2024/04/07/soot/"/>
+    <id>https://jf710001011.github.io/2024/04/07/soot/</id>
+    <published>2024-04-06T20:03:04.168Z</published>
+    <updated>2024-04-06T20:22:41.283Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+&lt;p&gt;Static analysis plays a crucial role in identifying potential issues
+in code without executing</summary>
+        
+      
+    
+    
+    
+    <category term="Academic" scheme="https://jf710001011.github.io/categories/Academic/"/>
+    
+    
+    <category term="Java" scheme="https://jf710001011.github.io/tags/Java/"/>
+    
+    <category term="Cybersecurity" scheme="https://jf710001011.github.io/tags/Cybersecurity/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaWeb</title>
@@ -271,7 +300,7 @@ Java API (Application</summary>
     <link href="https://jf710001011.github.io/2024/01/13/java-blackhorse/"/>
     <id>https://jf710001011.github.io/2024/01/13/java-blackhorse/</id>
     <published>2024-01-13T12:40:48.724Z</published>
-    <updated>2024-03-29T03:06:43.312Z</updated>
+    <updated>2024-04-06T19:38:39.579Z</updated>
     
     
       
@@ -535,35 +564,6 @@ alt=&quot;image-20230718085116774&quot;</summary>
     
     
     <category term="Java" scheme="https://jf710001011.github.io/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Static-Program-Analysis</title>
-    <link href="https://jf710001011.github.io/2023/12/09/static-program-analysis/"/>
-    <id>https://jf710001011.github.io/2023/12/09/static-program-analysis/</id>
-    <published>2023-12-09T11:25:07.678Z</published>
-    <updated>2024-01-13T03:28:53.391Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;resource&quot;&gt;Resource&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a
-href=&quot;https://en.wikipedia.org/wiki/List_of_tools_for_static_code_analysis&quot;&gt;List
-of tools</summary>
-        
-      
-    
-    
-    
-    <category term="Academic" scheme="https://jf710001011.github.io/categories/Academic/"/>
-    
-    
-    <category term="Static-Analysis" scheme="https://jf710001011.github.io/tags/Static-Analysis/"/>
     
   </entry>
   

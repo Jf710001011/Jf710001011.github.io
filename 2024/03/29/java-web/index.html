@@ -488,7 +488,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    338
+                    352
                 </div>
                 
 
@@ -525,12 +525,6 @@ src="https://s2.loli.net/2024/04/09/v13HwQarnUtJiOX.png"
 alt="image-20240409141702690" /></p></li>
 <li><p><code>div</code></p></li>
 <li><p><code>span</code></p></li>
-<li><table border="1px">
-<tr>
-<td>
-<p>1</p>
-</td>
-<pre><code>         &lt;td&gt;2&lt;/td&gt;             &lt;td&gt;3&lt;/td&gt;             &lt;td&gt;4&lt;/td&gt;         &lt;/tr&gt;     &lt;/table&gt;</code></pre></li>
 <li><p><code>form</code></p>
 <pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>get<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
   username<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>username<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
@@ -625,6 +619,20 @@ alt="image-20240409172955880" /></p></li>
   <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></code></pre></li>
 </ol>
+<h4 id="json">Json</h4>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script<span class="token operator">></span>
+  <span class="token comment">// Json</span>
+  <span class="token keyword">var</span> jsonStr <span class="token operator">=</span>
+    <span class="token string">'&#123;"name": "tom", "age": 20,"sex": "boy", "addr":["Beijing","Shanghai","Nanjing"]&#125;'</span><span class="token punctuation">;</span>
+  <span class="token function">alert</span><span class="token punctuation">(</span>jsonStr<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// undefined</span>
+
+  <span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>jsonStr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">alert</span><span class="token punctuation">(</span>obj<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// tom</span>
+
+  <span class="token keyword">var</span> str <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">alert</span><span class="token punctuation">(</span>jsonStr<span class="token punctuation">.</span>name<span class="token punctuation">)</span> <span class="token comment">// undefined</span>
+  
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></code></pre>
 
                 
             </div>

@@ -481,14 +481,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2024-04-09
+                    2024-04-14
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    357
+                    1.2k
                 </div>
                 
 
@@ -609,7 +609,7 @@ alt="image-20240409172955880" /></p></li>
 <li><p><code>var</code> , <code>let</code>,
 <code>undefined</code>,<code>NAN</code></p></li>
 </ol>
-<h4 id="function">Function</h4>
+<h5 id="function">Function</h5>
 <ol type="1">
 <li><p>lambda</p>
 <pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script<span class="token operator">></span>
@@ -619,7 +619,7 @@ alt="image-20240409172955880" /></p></li>
   <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></code></pre></li>
 </ol>
-<h4 id="json">Json</h4>
+<h5 id="json">Json</h5>
 <pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script<span class="token operator">></span>
   <span class="token comment">// Json</span>
   <span class="token keyword">var</span> jsonStr <span class="token operator">=</span>
@@ -633,25 +633,308 @@ alt="image-20240409172955880" /></p></li>
   <span class="token function">alert</span><span class="token punctuation">(</span>jsonStr<span class="token punctuation">.</span>name<span class="token punctuation">)</span> <span class="token comment">// undefined</span>
   
 <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></code></pre>
-<p>Test</p>
-<table>
-<tr>
-<th>
-title
-</th>
-</tr>
-<tr>
-<td>
-1
-</td>
-<td>
-2
-</td>
-<td>
-3
-</td>
-</tr>
-</table>
+<h5 id="bom">Bom</h5>
+<ol type="1">
+<li><p><code>window</code></p>
+<ol type="1">
+<li><p><code>alert()</code></p></li>
+<li><p><code>confirm()</code></p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> flag <span class="token operator">=</span> <span class="token function">confirm</span><span class="token punctuation">(</span><span class="token string">"You sure you want to delete it?"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">alert</span><span class="token punctuation">(</span>flag<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<figure>
+<img src="https://s2.loli.net/2024/04/09/cPH7yAw2LsaZGE5.png"
+alt="image-20240409214519319" />
+<figcaption aria-hidden="true">image-20240409214519319</figcaption>
+</figure></li>
+</ol></li>
+<li><p><code>location</code></p>
+<ol type="1">
+<li><p><code>href</code></p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token function">alert</span><span class="token punctuation">(</span>location<span class="token punctuation">.</span>href<span class="token punctuation">)</span><span class="token punctuation">;</span>
+location<span class="token punctuation">.</span>href <span class="token operator">=</span> <span class="token string">"https://jf710001011.github.io/2024/03/29/java-web/"</span><span class="token punctuation">;</span></code></pre></li>
+</ol></li>
+</ol>
+<h5 id="dom">Dom</h5>
+<ol type="1">
+<li><p>code</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> img <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"h1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">alert</span><span class="token punctuation">(</span>img<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [object HTMLImageElement]</span>
+   
+<span class="token keyword">var</span> divArr <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementsByClassName</span><span class="token punctuation">(</span><span class="token string">"cls"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> divArr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">alert</span><span class="token punctuation">(</span>divArr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// pop up twice:[object HTMLDivElement]</span>
+<span class="token punctuation">&#125;</span>
+   
+<span class="token keyword">var</span> divArr <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementsByClassName</span><span class="token punctuation">(</span><span class="token string">"cls"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> divArr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">alert</span><span class="token punctuation">(</span>divArr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// pop up twice: [object HTMLDivElement]</span>
+<span class="token punctuation">&#125;</span>	
+   
+<span class="token keyword">var</span> divArr <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementsByName</span><span class="token punctuation">(</span><span class="token string">"hobby"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> divArr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">alert</span><span class="token punctuation">(</span>divArr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// pop up twice: [object HTMLInputElement]</span>
+<span class="token punctuation">&#125;</span>	
+   
+<span class="token keyword">var</span> divArr <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementsByClassName</span><span class="token punctuation">(</span><span class="token string">"cls"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+div <span class="token operator">=</span> divArr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+divArr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token string">"xx++"</span><span class="token punctuation">;</span></code></pre></li>
+</ol>
+<h5 id="event">Event</h5>
+<ol type="1">
+<li><p>Code</p>
+<pre class="language-markup" data-language="markup"><code class="language-markup">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bt1<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bt1<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value javascript language-javascript"><span class="token function">on</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span><span class="token punctuation">"</span></span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bt2<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bt2<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+------------------------------------------------------------------
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span>
+    function on() &#123;
+      alert("Button 1 is clicked");
+    &#125;
+------------------------------------------------------------------
+    document.getElementById("bt2").onclick = function () &#123;
+      alert("Button 2 is clicked");
+    &#125;;</code></pre>
+<p>result:<img src="https://s2.loli.net/2024/04/10/HcfQydVEqo2nIhS.png"
+alt="image-20240410020950275" /><img
+src="https://s2.loli.net/2024/04/10/P5NulK9UGyQLYeC.png"
+alt="image-20240410020959637" /></p></li>
+<li><p>Event type</p></li>
+</ol>
+<h4 id="vue">Vue</h4>
+<ol type="1">
+<li><p>Code</p>
+<pre class="language-markup" data-language="markup"><code class="language-markup">   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>js/vue.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+---------------------------------------------------
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>message<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        &#123;&#123;message&#125;&#125;
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+---------------------------------------------------------
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+    <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+        <span class="token literal-property property">el</span><span class="token operator">:</span><span class="token string">"#app"</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">data</span><span class="token operator">:</span><span class="token punctuation">&#123;</span>
+            <span class="token literal-property property">message</span><span class="token operator">:</span><span class="token string">"Hello vue"</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+  </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
+<p>res:<img src="https://s2.loli.net/2024/04/10/B61nVfxTZCeQrPq.png"
+alt="image-20240410112917235" /></p>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name"><span class="token namespace">v-bind:</span>href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>url<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Link1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+   
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>url<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    &#123;&#123;message&#125;&#125;
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+    <span class="token literal-property property">el</span><span class="token operator">:</span> <span class="token string">"#app"</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">data</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token literal-property property">url</span><span class="token operator">:</span> <span class="token string">"https://jf710001011.github.io"</span><span class="token punctuation">,</span>
+      <span class="token comment">// message:"Hello vue"</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre></li>
+<li><p>Vue instruction</p></li>
+<li><p>Life cycle</p></li>
+</ol>
+<h4 id="ajax">Ajax</h4>
+<ol type="1">
+<li><p>Axios</p>
+<ol type="1">
+<li><p><code>npm install axiosl</code> in vue project</p></li>
+<li><p><code>import axios from axios</code>
+under<code>&lt;script&gt;</code></p></li>
+<li><p>mount</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token function">mounted</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	axios<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"link"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">result</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span>
+		result<span class="token punctuation">.</span>data<span class="token punctuation">.</span>data<span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre></li>
+</ol></li>
+</ol>
+<h4 id="front-end-engineering">Front-end engineering</h4>
+<ol type="1">
+<li><p><a target="_blank" rel="noopener" href="https://yapi.pro/">接口管理平台</a></p></li>
+<li><p><code>vue-cli</code></p>
+<ol type="1">
+<li><p><code>template</code></p></li>
+<li><p><code>script</code>:</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">export</span> <span class="token keyword">default</span><span class="token punctuation">&#123;</span>
+	<span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+		<span class="token keyword">return</span><span class="token punctuation">&#123;</span>
+			<span class="token operator">...</span><span class="token operator">...</span>
+		<span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre></li>
+<li><p><code>style</code></p></li>
+</ol></li>
+<li><p><code>Element</code>：Desktop component library based on vue
+2.0</p>
+<ol type="1">
+<li>Install <code>element-ui</code> in the current project
+directory</li>
+<li>import element-ui component library in <code>main.js</code></li>
+<li>new file: <code>elementView.vue</code> in <strong>views</strong>
+folder
+<ol type="1">
+<li><code>template</code></li>
+<li><code>&lt;element-view&gt;</code> in <strong>App.vue</strong></li>
+</ol></li>
+<li><code>table</code></li>
+<li><code>pagination</code></li>
+<li><code>dialog</code></li>
+<li><code>form</code></li>
+<li>layout <code>container</code></li>
+</ol></li>
+</ol>
+<h4 id="example">Example</h4>
+<ol type="1">
+<li><code>slot-scope</code></li>
+</ol>
+<h4 id="vue-router">Vue-router</h4>
+<ol type="1">
+<li><code>router-link</code></li>
+<li><code>router-view</code></li>
+<li><code>redirect</code></li>
+</ol>
+<h4 id="package-deployment">Package deployment</h4>
+<ol type="1">
+<li><code>build</code><br />
+</li>
+<li><code>nginx</code></li>
+</ol>
+<h3 id="maven">Maven</h3>
+<ol type="1">
+<li>Install and configure<img
+src="https://s2.loli.net/2024/04/14/AyLQrdnpBR8YvEj.png"
+alt="image-20240414010525134" />
+<ol type="1">
+<li>copy <code>setting.xml</code> to <code>repo/</code> folder</li>
+<li>set environment variable<img
+src="https://s2.loli.net/2024/04/14/SPbxER92Vd54CZB.png"
+alt="image-20240414011114305" /></li>
+<li>vscode setting<img
+src="https://s2.loli.net/2024/04/14/E8RPMKy2OICcpeH.png"
+alt="image-20240414011521976" /></li>
+</ol></li>
+<li>Maven Coordinates</li>
+<li>Import maven project</li>
+<li>transitive dependency</li>
+<li>dependency exclusion
+<ol type="1">
+<li><code>exclusion</code></li>
+</ol></li>
+<li>dependency scope</li>
+<li>life cycle
+<ol type="1">
+<li><code>clean</code></li>
+<li><code>default</code></li>
+<li><code>site</code></li>
+<li>focus
+<ol type="1">
+<li><code>clean</code></li>
+<li><code>compile</code></li>
+<li><code>test</code></li>
+<li><code>package</code></li>
+<li><code>install</code></li>
+</ol></li>
+</ol></li>
+</ol>
+<h3 id="spring">Spring</h3>
+<h4 id="spring-web-introduction">Spring web introduction</h4>
+<h4 id="spring-boot">Spring boot</h4>
+<ol type="1">
+<li><p>In <strong>vscode</strong>:</p>
+<ol type="1">
+<li><p>extensions:<img
+src="https://s2.loli.net/2024/04/14/dvESymHDBu5lkYs.png"
+alt="image-20240414010009007" /></p></li>
+<li><p>spring initialize<img
+src="https://s2.loli.net/2024/04/14/YOc1C4kVTLhe9uD.png"
+alt="image-20240414011846178" /><img
+src="https://s2.loli.net/2024/04/14/DcbLZK7Bixa31In.png" /><img
+src="https://s2.loli.net/2024/04/14/GVkqEzZXv3mrH6y.png"
+alt="image-20240414011945153" /></p>
+<p><img src="https://s2.loli.net/2024/04/14/ZzWua8jmsOtPES5.png"
+alt="image-20240414012008946" /><img
+src="https://s2.loli.net/2024/04/14/HsEjIMdrFkqAYVX.png" /></p>
+<figure>
+<img src="https://s2.loli.net/2024/04/14/3n8LChYDcy4BZU2.png"
+alt="image-20240414012120176" />
+<figcaption aria-hidden="true">image-20240414012120176</figcaption>
+</figure>
+<figure>
+<img src="https://s2.loli.net/2024/04/14/94ShlgspHA856Ry.png"
+alt="image-20240414012152386" />
+<figcaption aria-hidden="true">image-20240414012152386</figcaption>
+</figure></li>
+<li><p>Code</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>hunt</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>boot<span class="token punctuation">.</span></span><span class="token class-name">SpringApplication</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>autoconfigure<span class="token punctuation">.</span></span><span class="token class-name">SpringBootApplication</span></span><span class="token punctuation">;</span>
+
+<span class="token annotation punctuation">@SpringBootApplication</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MySpringbootWebProjectApplication</span> <span class="token punctuation">&#123;</span>
+
+	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token class-name">SpringApplication</span><span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token class-name">MySpringbootWebProjectApplication</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+
+<span class="token punctuation">&#125;</span>
+</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>hunt<span class="token punctuation">.</span>controller</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">RequestMapping</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">RestController</span></span><span class="token punctuation">;</span> <span class="token comment">// Import the RestController class</span>
+
+<span class="token comment">// Request processing class</span>
+<span class="token annotation punctuation">@RestController</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HelloController</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/hello"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"hello world"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token string">"hello world~"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+</code></pre>
+<p>run code:</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash">PS D:<span class="token punctuation">\</span>IntelliJ IDEA <span class="token number">2023.3</span>.1<span class="token punctuation">\</span>My_JavaProjects<span class="token punctuation">\</span>My_Springboot_Project<span class="token operator">></span>  <span class="token operator">&amp;</span> <span class="token string">'D:\Java\Jdk21\bin\java.exe'</span> <span class="token string">'@C:\Users\Jf710\AppData\Local\Temp\cp_e0vl3et94st6v56lo0n3ejp0q.argfile'</span> <span class="token string">'com.hunt.MySpringbootWebProjectApplication'</span> 
+
+  <span class="token builtin class-name">.</span>   ____          _            __ _ _
+ /<span class="token punctuation">\</span><span class="token punctuation">\</span> / ___<span class="token string">'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '</span>_ <span class="token operator">|</span> <span class="token string">'_| | '</span>_ <span class="token punctuation">\</span>/ _` <span class="token operator">|</span> <span class="token punctuation">\</span> <span class="token punctuation">\</span> <span class="token punctuation">\</span> <span class="token punctuation">\</span>
+ <span class="token punctuation">\</span><span class="token punctuation">\</span>/  ___<span class="token punctuation">)</span><span class="token operator">|</span> <span class="token operator">|</span>_<span class="token punctuation">)</span><span class="token operator">|</span> <span class="token operator">|</span> <span class="token operator">|</span> <span class="token operator">|</span> <span class="token operator">|</span> <span class="token operator">||</span> <span class="token punctuation">(</span>_<span class="token operator">|</span> <span class="token operator">|</span>  <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span>
+  <span class="token string">'  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.4)
+
+2024-04-14T01:23:11.379+08:00  INFO 7988 --- [my_springboot_web_project] [           main] c.h.MySpringbootWebProjectApplication    : Starting MySpringbootWebProjectApplication using Java 21.0.1 with PID 7988 (D:\IntelliJ IDEA 2023.3.1\My_JavaProjects\My_Springboot_Project\my_springboot_web_project\target\classes started by Jf710 in D:\IntelliJ IDEA 2023.3.1\My_JavaProjects\My_Springboot_Project)
+2024-04-14T01:23:11.382+08:00  INFO 7988 --- [my_springboot_web_project] [           main] c.h.MySpringbootWebProjectApplication    : No active profile set, falling back to 1 default profile: "default"
+2024-04-14T01:23:12.742+08:00  INFO 7988 --- [my_springboot_web_project] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-04-14T01:23:12.759+08:00  INFO 7988 --- [my_springboot_web_project] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext2024-..a..a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext2024-04-14T01:23:12.833+08:00  INFO 7988 --- [my_springboot_web_project] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1356 ms
+2024-04-14T01:23:13.338+08:00  INFO 7988 --- [my_springboot_web_project] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '</span>'
+<span class="token number">2024</span>-04-14T01:23:13.358+08:00  INFO <span class="token number">7988</span> --- <span class="token punctuation">[</span>my_springboot_web_project<span class="token punctuation">]</span> <span class="token punctuation">[</span>           main<span class="token punctuation">]</span> c.h.MySpringbootWebProjectApplication    <span class="token builtin class-name">:</span> Started MySpringbootWebProjectApplication <span class="token keyword">in</span> <span class="token number">2.395</span> seconds <span class="token punctuation">(</span>process running <span class="token keyword">for</span> <span class="token number">2.759</span><span class="token punctuation">)</span>
+<span class="token number">2024</span>-04-14T01:24:45.385+08:00  INFO <span class="token number">7988</span> --- <span class="token punctuation">[</span>my_springboot_web_project<span class="token punctuation">]</span> <span class="token punctuation">[</span>nio-8080-exec-1<span class="token punctuation">]</span> o.a.c.c.C.<span class="token punctuation">[</span>Tomcat<span class="token punctuation">]</span>.<span class="token punctuation">[</span>localhost<span class="token punctuation">]</span>.<span class="token punctuation">[</span>/<span class="token punctuation">]</span>       <span class="token builtin class-name">:</span> Initializing Spring DispatcherServlet <span class="token string">'dispatcherServlet'</span>
+<span class="token number">2024</span>-04-14T01:24:45.385+08:00  INFO <span class="token number">7988</span> --- <span class="token punctuation">[</span>my_springboot_web_project<span class="token punctuation">]</span> <span class="token punctuation">[</span>nio-8080-exec-1<span class="token punctuation">]</span> o.s.web.servlet.DispatcherServlet        <span class="token builtin class-name">:</span> Initializing Servlet <span class="token string">'dispatcherServlet'</span>
+<span class="token number">2024</span>-04-14T01:24:45.387+08:00  INFO <span class="token number">7988</span> --- <span class="token punctuation">[</span>my_springboot_web_project<span class="token punctuation">]</span> <span class="token punctuation">[</span>nio-8080-exec-1<span class="token punctuation">]</span> o.s.web.servlet.DispatcherServlet        <span class="token builtin class-name">:</span> Completed initialization <span class="token keyword">in</span> <span class="token number">2</span> ms
+hello world</code></pre>
+<figure>
+<img src="https://s2.loli.net/2024/04/14/EHu5JZxOdNMVvPz.png"
+alt="image-20240414012509040" />
+<figcaption aria-hidden="true">image-20240414012509040</figcaption>
+</figure></li>
+</ol></li>
+</ol>
+<h3 id="http-protocol">Http protocol</h3>
+<h3 id="tomcat">Tomcat</h3>
 
                 
             </div>
@@ -1269,7 +1552,7 @@ title
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">273.9k</span>&nbsp;字
+                class="white-color">274.8k</span>&nbsp;字
             
             
             

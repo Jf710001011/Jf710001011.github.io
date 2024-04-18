@@ -481,14 +481,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2024-04-15
+                    2024-04-19
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    3.2k
+                    6.9k
                 </div>
                 
 
@@ -1490,6 +1490,1741 @@ alt="image-20240415124103724" /></p></li>
 <li><p><code>@Resource</code></p></li>
 </ol>
 <h3 id="mysql">MySql</h3>
+<h4 id="install-and-configue">Install and configue</h4>
+<h4 id="data-model">Data model</h4>
+<h4 id="ddl">DDL</h4>
+<pre class="language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- database</span>
+
+<span class="token keyword">SHOW</span> <span class="token keyword">DATABASES</span><span class="token punctuation">;</span>
+
+<span class="token keyword">CREATE</span> <span class="token keyword">DATABASE</span> db02<span class="token punctuation">;</span>
+
+<span class="token keyword">USE</span> db01<span class="token punctuation">;</span>
+
+<span class="token keyword">SELECT</span> <span class="token keyword">DATABASE</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">DROP</span> <span class="token keyword">DATABASE</span> db03<span class="token punctuation">;</span>
+
+<span class="token keyword">SHOW</span> SCHEMAS<span class="token punctuation">;</span></code></pre>
+<pre class="language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> tb_user<span class="token punctuation">(</span>
+    id <span class="token keyword">INT</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token keyword">auto_increment</span><span class="token punctuation">,</span>
+    username <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span> <span class="token keyword">UNIQUE</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    name <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    age <span class="token keyword">INT</span><span class="token punctuation">,</span>
+    gender <span class="token keyword">CHAR</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token keyword">DEFAULT</span> <span class="token string">"girl"</span>
+<span class="token punctuation">)</span></code></pre>
+<pre class="language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">DESCRIBE</span>  tb_user<span class="token punctuation">;</span>
+
+<span class="token keyword">SHOW</span>  <span class="token keyword">CREATE</span>  <span class="token keyword">TABLE</span>  tb_user<span class="token punctuation">;</span>
+
+<span class="token keyword">ALTER</span>  <span class="token keyword">TABLE</span>  tb_emp <span class="token keyword">ADD</span>  qq <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> tb_emp <span class="token keyword">modify</span> qq <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span>  tb_emp CHANGE qq qq_num <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">ALTER</span>  <span class="token keyword">TABLE</span>  tb_emp <span class="token keyword">DROP</span>  qq_num<span class="token punctuation">;</span>
+
+<span class="token keyword">Rename</span> <span class="token keyword">Table</span> db01<span class="token punctuation">.</span>tb_emp <span class="token keyword">to</span> tb_ee<span class="token punctuation">;</span></code></pre>
+<h4 id="dml">DML</h4>
+<pre class="language-sql" data-language="sql"><code class="language-sql">
+<span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> tb_user
+<span class="token keyword">MODIFY</span> create_time <span class="token keyword">DATETIME</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">;</span>
+
+<span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> tb_user
+<span class="token keyword">modify</span> uptde_time <span class="token keyword">DATETIME</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">;</span>
+
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> tb_user<span class="token punctuation">(</span>username<span class="token punctuation">,</span> age<span class="token punctuation">,</span> gender<span class="token punctuation">,</span>create_time<span class="token punctuation">,</span>uptde_time<span class="token punctuation">)</span>
+<span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'wuji'</span><span class="token punctuation">,</span> <span class="token number">17</span><span class="token punctuation">,</span> <span class="token string">'2'</span><span class="token punctuation">,</span> <span class="token function">NOW</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">NOW</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">UPDATE</span> tb_user <span class="token keyword">SET</span> username <span class="token operator">=</span> <span class="token string">'zhiruo'</span><span class="token punctuation">,</span>uptde_time <span class="token operator">=</span> <span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">WHERE</span> username <span class="token operator">=</span> <span class="token string">'lhh'</span><span class="token punctuation">;</span></code></pre>
+<pre class="language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">DELETE</span> <span class="token keyword">FROM</span> tb_user <span class="token keyword">WHERE</span> id <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">;</span></code></pre>
+<h4 id="dql">DQL</h4>
+<table>
+<colgroup>
+<col style="width: 4%" />
+<col style="width: 12%" />
+<col style="width: 8%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 4%" />
+<col style="width: 10%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>id</th>
+<th>username</th>
+<th>password</th>
+<th>name</th>
+<th>gender</th>
+<th>image</th>
+<th>job</th>
+<th>entrydate</th>
+<th>create_time</th>
+<th>update_time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>jinyong</td>
+<td>123456</td>
+<td>金庸</td>
+<td>1</td>
+<td>1.jpg</td>
+<td>4</td>
+<td>2000-01-01</td>
+<td>2022-10-27 16:35:33</td>
+<td>2022-10-27 16:35:35</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>zhangwuji</td>
+<td>123456</td>
+<td>张无忌</td>
+<td>1</td>
+<td>2.jpg</td>
+<td>2</td>
+<td>2015-01-01</td>
+<td>2022-10-27 16:35:33</td>
+<td>2022-10-27 16:35:37</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>yangxiao</td>
+<td>123456</td>
+<td>杨逍</td>
+<td>1</td>
+<td>3.jpg</td>
+<td>2</td>
+<td>2008-05-01</td>
+<td>2022-10-27 16:35:33</td>
+<td>2022-10-27 16:35:39</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>weiyixiao</td>
+<td>123456</td>
+<td>韦一笑</td>
+<td>1</td>
+<td>4.jpg</td>
+<td>2</td>
+<td>2007-01-01</td>
+<td>2022-10-27 16:35:33</td>
+<td>2022-10-27 16:35:41</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>changyuchun</td>
+<td>123456</td>
+<td>常遇春</td>
+<td>1</td>
+<td>5.jpg</td>
+<td>2</td>
+<td>2012-12-05</td>
+<td>2022-10-27 16:35:33</td>
+<td>2022-10-27 16:35:43</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>xiaozhao</td>
+<td>123456</td>
+<td>小昭</td>
+<td>2</td>
+<td>6.jpg</td>
+<td>3</td>
+<td>2013-09-05</td>
+<td>2022-10-27 16:35:33</td>
+<td>2022-10-27 16:35:45</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>jixiaofu</td>
+<td>123456</td>
+<td>纪晓芙</td>
+<td>2</td>
+<td>7.jpg</td>
+<td>1</td>
+<td>2005-08-01</td>
+<td>2022-10-27 16:35:33</td>
+<td>2022-10-27 16:35:47</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>zhouzhiruo</td>
+<td>123456</td>
+<td>周芷若</td>
+<td>2</td>
+<td>8.jpg</td>
+<td>1</td>
+<td>2014-11-09</td>
+<td>2022-10-27 16:35:33</td>
+<td>2022-10-27 16:35:49</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>dingminjun</td>
+<td>123456</td>
+<td>丁敏君</td>
+<td>2</td>
+<td>9.jpg</td>
+<td>1</td>
+<td>2011-03-11</td>
+<td>2022-10-27 16:35:33</td>
+<td>2022-10-27 16:35:51</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>zhaomin</td>
+<td>123456</td>
+<td>赵敏</td>
+<td>2</td>
+<td>10.jpg</td>
+<td>1</td>
+<td>2013-09-05</td>
+<td>2022-10-27 16:35:33</td>
+<td>2022-10-27 16:35:53</td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td>luzhangke</td>
+<td>123456</td>
+<td>鹿杖客</td>
+<td>1</td>
+<td>11.jpg</td>
+<td>2</td>
+<td>2007-02-01</td>
+<td>2022-10-27 16:35:33</td>
+<td>2022-10-27 16:35:55</td>
+</tr>
+<tr class="even">
+<td>12</td>
+<td>hebiweng</td>
+<td>123456</td>
+<td>鹤笔翁</td>
+<td>1</td>
+<td>12.jpg</td>
+<td>2</td>
+<td>2008-08-18</td>
+<td>2022-10-27 16:35:33</td>
+<td>2022-10-27 16:35:57</td>
+</tr>
+<tr class="odd">
+<td>13</td>
+<td>fangdongbai</td>
+<td>123456</td>
+<td>方东白</td>
+<td>1</td>
+<td>13.jpg</td>
+<td>1</td>
+<td>2012-11-01</td>
+<td>2022-10-27 16:35:33</td>
+<td>2022-10-27 16:35:59</td>
+</tr>
+<tr class="even">
+<td>14</td>
+<td>zhangsanfeng</td>
+<td>123456</td>
+<td>张三丰</td>
+<td>1</td>
+<td>14.jpg</td>
+<td>2</td>
+<td>2002-08-01</td>
+<td>2022-10-27 16:35:33</td>
+<td>2022-10-27 16:36:01</td>
+</tr>
+<tr class="odd">
+<td>15</td>
+<td>yulianzhou</td>
+<td>123456</td>
+<td>俞莲舟</td>
+<td>1</td>
+<td>15.jpg</td>
+<td>2</td>
+<td>2011-05-01</td>
+<td>2022-10-27 16:35:33</td>
+<td>2022-10-27 16:36:03</td>
+</tr>
+<tr class="even">
+<td>16</td>
+<td>songyuanqiao</td>
+<td>123456</td>
+<td>宋远桥</td>
+<td>1</td>
+<td>16.jpg</td>
+<td>2</td>
+<td>2010-01-01</td>
+<td>2022-10-27 16:35:33</td>
+<td>2022-10-27 16:36:05</td>
+</tr>
+<tr class="odd">
+<td>17</td>
+<td>chenyouliang</td>
+<td>12345678</td>
+<td>陈友谅</td>
+<td>1</td>
+<td>17.jpg</td>
+<td></td>
+<td>2015-03-21</td>
+<td>2022-10-27 16:35:33</td>
+<td>2022-10-27 16:36:07</td>
+</tr>
+<tr class="even">
+<td>18</td>
+<td>zhang1</td>
+<td>123456</td>
+<td>张一</td>
+<td>1</td>
+<td>2.jpg</td>
+<td>2</td>
+<td>2015-01-01</td>
+<td>2022-10-27 16:35:33</td>
+<td>2022-10-27 16:36:09</td>
+</tr>
+<tr class="odd">
+<td>19</td>
+<td>zhang2</td>
+<td>123456</td>
+<td>张二</td>
+<td>1</td>
+<td>2.jpg</td>
+<td>2</td>
+<td>2012-01-01</td>
+<td>2022-10-27 16:35:33</td>
+<td>2022-10-27 16:36:11</td>
+</tr>
+<tr class="even">
+<td>20</td>
+<td>zhang3</td>
+<td>123456</td>
+<td>张三</td>
+<td>1</td>
+<td>2.jpg</td>
+<td>2</td>
+<td>2018-01-01</td>
+<td>2022-10-27 16:35:33</td>
+<td>2022-10-27 16:36:13</td>
+</tr>
+<tr class="odd">
+<td>21</td>
+<td>zhang4</td>
+<td>123456</td>
+<td>张四</td>
+<td>1</td>
+<td>2.jpg</td>
+<td>2</td>
+<td>2015-01-01</td>
+<td>2022-10-27 16:35:33</td>
+<td>2022-10-27 16:36:15</td>
+</tr>
+<tr class="even">
+<td>22</td>
+<td>zhang5</td>
+<td>123456</td>
+<td>张五</td>
+<td>1</td>
+<td>2.jpg</td>
+<td>2</td>
+<td>2016-01-01</td>
+<td>2022-10-27 16:35:33</td>
+<td>2022-10-27 16:36:17</td>
+</tr>
+<tr class="odd">
+<td>23</td>
+<td>zhang6</td>
+<td>123456</td>
+<td>张六</td>
+<td>1</td>
+<td>2.jpg</td>
+<td>2</td>
+<td>2012-01-01</td>
+<td>2022-10-27 16:35:33</td>
+<td>2022-10-27 16:36:19</td>
+</tr>
+<tr class="even">
+<td>24</td>
+<td>zhang7</td>
+<td>123456</td>
+<td>张七</td>
+<td>1</td>
+<td>2.jpg</td>
+<td>2</td>
+<td>2006-01-01</td>
+<td>2022-10-27 16:35:33</td>
+<td>2022-10-27 16:36:21</td>
+</tr>
+<tr class="odd">
+<td>25</td>
+<td>zhang8</td>
+<td>123456</td>
+<td>张八</td>
+<td>1</td>
+<td>2.jpg</td>
+<td>2</td>
+<td>2002-01-01</td>
+<td>2022-10-27 16:35:33</td>
+<td>2022-10-27 16:36:23</td>
+</tr>
+<tr class="even">
+<td>26</td>
+<td>zhang9</td>
+<td>123456</td>
+<td>张九</td>
+<td>1</td>
+<td>2.jpg</td>
+<td>2</td>
+<td>2011-01-01</td>
+<td>2022-10-27 16:35:33</td>
+<td>2022-10-27 16:36:25</td>
+</tr>
+<tr class="odd">
+<td>27</td>
+<td>zhang10</td>
+<td>123456</td>
+<td>张十</td>
+<td>1</td>
+<td>2.jpg</td>
+<td>2</td>
+<td>2004-01-01</td>
+<td>2022-10-27 16:35:33</td>
+<td>2022-10-27 16:36:27</td>
+</tr>
+<tr class="even">
+<td>28</td>
+<td>zhang11</td>
+<td>123456</td>
+<td>张十一</td>
+<td>1</td>
+<td>2.jpg</td>
+<td>2</td>
+<td>2007-01-01</td>
+<td>2022-10-27 16:35:33</td>
+<td>2022-10-27 16:36:29</td>
+</tr>
+<tr class="odd">
+<td>29</td>
+<td>zhang12</td>
+<td>123456</td>
+<td>张十二</td>
+<td>1</td>
+<td>2.jpg</td>
+<td>2</td>
+<td>2020-01-01</td>
+<td>2022-10-27 16:35:33</td>
+<td>2022-10-27 16:36:31</td>
+</tr>
+</tbody>
+</table>
+<pre class="language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> tb_emp<span class="token punctuation">;</span>
+
+<span class="token keyword">SELECT</span> <span class="token keyword">DISTINCT</span> job <span class="token keyword">FROM</span> tb_emp<span class="token punctuation">;</span>
+
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> tb_emp <span class="token keyword">WHERE</span> name <span class="token operator">=</span> <span class="token string">'杨逍'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> tb_emp <span class="token keyword">WHERE</span> job <span class="token operator">IS</span> <span class="token boolean">NULL</span><span class="token punctuation">;</span>
+
+<span class="token keyword">SELECT</span> <span class="token operator">*</span>
+<span class="token keyword">FROM</span> tb_emp
+<span class="token keyword">WHERE</span>
+    entrydate <span class="token operator">BETWEEN</span> <span class="token string">'2000-01-01'</span> <span class="token operator">AND</span> <span class="token string">'2010-01-01'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> tb_emp <span class="token keyword">WHERE</span> job <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 名字两个字</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> tb_emp <span class="token keyword">WHERE</span> name <span class="token operator">LIKE</span> <span class="token string">'__'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> tb_emp <span class="token keyword">WHERE</span> name <span class="token operator">LIKE</span> <span class="token string">'张_'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">SELECT</span> <span class="token function">COUNT</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span> <span class="token keyword">FROM</span> tb_emp<span class="token punctuation">;</span>
+<span class="token comment">-- 29</span>
+
+<span class="token keyword">SELECT</span> <span class="token function">COUNT</span><span class="token punctuation">(</span>job<span class="token punctuation">)</span> <span class="token keyword">FROM</span> tb_emp<span class="token punctuation">;</span>
+<span class="token comment">-- 28</span>
+
+<span class="token keyword">SELECT</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token string">','</span><span class="token punctuation">)</span> <span class="token keyword">FROM</span> tb_emp<span class="token punctuation">;</span>
+<span class="token comment">-- 29</span>
+
+<span class="token keyword">SELECT</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token string">'*'</span><span class="token punctuation">)</span> <span class="token keyword">FROM</span> tb_emp<span class="token punctuation">;</span>
+
+<span class="token keyword">SELECT</span> <span class="token function">MIN</span><span class="token punctuation">(</span>entrydate<span class="token punctuation">)</span> <span class="token keyword">FROM</span> tb_emp<span class="token punctuation">;</span></code></pre>
+<pre class="language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> gender<span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">FROM</span> tb_emp <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> gender<span class="token punctuation">;</span>    </code></pre>
+<table>
+<thead>
+<tr class="header">
+<th>1</th>
+<th>24</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<pre class="language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> job<span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">as</span> num
+<span class="token keyword">FROM</span> tb_emp
+<span class="token keyword">WHERE</span>
+    entrydate <span class="token operator">&lt;=</span> <span class="token string">'2015-01-01'</span>
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span>
+    job
+<span class="token keyword">HAVING</span>
+    num <span class="token operator">>=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+</code></pre>
+<pre class="language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> entrydate<span class="token punctuation">,</span> update_time
+<span class="token keyword">FROM</span> tb_emp
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> entrydate<span class="token punctuation">,</span> update_time <span class="token keyword">desc</span><span class="token punctuation">;</span></code></pre>
+<table>
+<thead>
+<tr class="header">
+<th>2004-01-01</th>
+<th>2022-10-27 16:36:27</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2005-08-01</td>
+<td>2022-10-27 16:35:47</td>
+</tr>
+<tr class="even">
+<td>2006-01-01</td>
+<td>2022-10-27 16:36:21</td>
+</tr>
+<tr class="odd">
+<td>2007-01-01</td>
+<td>2022-10-27 16:36:29</td>
+</tr>
+<tr class="even">
+<td>2007-01-01</td>
+<td>2022-10-27 16:35:41</td>
+</tr>
+<tr class="odd">
+<td>2007-02-01</td>
+<td>2022-10-27 16:35:55</td>
+</tr>
+<tr class="even">
+<td>2008-05-01</td>
+<td>2022-10-27 16:35:39</td>
+</tr>
+<tr class="odd">
+<td>2008-08-18</td>
+<td>2022-10-27 16:35:57</td>
+</tr>
+<tr class="even">
+<td>2010-01-01</td>
+<td>2022-10-27 16:36:05</td>
+</tr>
+<tr class="odd">
+<td>2011-01-01</td>
+<td>2022-10-27 16:36:25</td>
+</tr>
+</tbody>
+</table>
+<pre class="language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> tb_emp <span class="token keyword">LIMIT</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">;</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> tb_emp <span class="token keyword">LIMIT</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">;</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> tb_emp <span class="token keyword">LIMIT</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">;</span></code></pre>
+<pre class="language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token keyword">IF</span><span class="token punctuation">(</span>gender <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'boy'</span><span class="token punctuation">,</span> <span class="token string">'girl'</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> sex<span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> num
+<span class="token keyword">FROM</span> tb_emp
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span>
+    gender<span class="token punctuation">;</span></code></pre>
+<pre class="language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token punctuation">(</span>
+        <span class="token keyword">CASE</span> job
+            <span class="token keyword">WHEN</span> <span class="token number">1</span> <span class="token keyword">THEN</span> <span class="token string">'head teacher'</span>
+            <span class="token keyword">WHEN</span> <span class="token number">2</span> <span class="token keyword">THEN</span> <span class="token string">'lecturer'</span>
+            <span class="token keyword">WHEN</span> <span class="token number">3</span> <span class="token keyword">THEN</span> <span class="token string">'Academic and Engineering Supervisor'</span>
+            <span class="token keyword">WHEN</span> <span class="token number">4</span> <span class="token keyword">THEN</span> <span class="token string">'Teaching and research supervisor'</span>
+            <span class="token keyword">ELSE</span> <span class="token string">'Unassigned positions'</span>
+        <span class="token keyword">END</span>
+    <span class="token punctuation">)</span> <span class="token keyword">as</span> job<span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> num
+<span class="token keyword">FROM</span> tb_emp
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span>
+    job<span class="token punctuation">;</span></code></pre>
+<table>
+<thead>
+<tr class="header">
+<th>job</th>
+<th>num</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Teaching and research supervisor</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>lecturer</td>
+<td>21</td>
+</tr>
+<tr class="odd">
+<td>Academic and Engineering Supervisor</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>head teacher</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>Unassigned positions</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h4 id="multiple-table-design">Multiple table design</h4>
+<ol type="1">
+<li><p>dept</p>
+<table>
+<thead>
+<tr class="header">
+<th>id</th>
+<th>name</th>
+<th>create_time</th>
+<th>update_time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>学工部</td>
+<td>2024-04-17 04:37:16</td>
+<td>2024-04-17 04:37:16</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>教研部</td>
+<td>2024-04-17 04:37:16</td>
+<td>2024-04-17 04:37:16</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>咨询部</td>
+<td>2024-04-17 04:15:45</td>
+<td>2024-04-17 04:15:45</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>就业部</td>
+<td>2024-04-17 04:15:45</td>
+<td>2024-04-17 04:15:45</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>人事部</td>
+<td>2024-04-17 04:15:45</td>
+<td>2024-04-17 04:15:45</td>
+</tr>
+</tbody>
+</table>
+<p>emp</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 3%" />
+<col style="width: 11%" />
+<col style="width: 7%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 3%" />
+<col style="width: 9%" />
+<col style="width: 6%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>id</th>
+<th>username</th>
+<th>password</th>
+<th>name</th>
+<th>gender</th>
+<th>image</th>
+<th>job</th>
+<th>entrydate</th>
+<th>dept_id</th>
+<th>create_time</th>
+<th>update_time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>jinyong</td>
+<td>123456</td>
+<td>金庸</td>
+<td>1</td>
+<td>1.jpg</td>
+<td>4</td>
+<td>2000-01-01</td>
+<td>2</td>
+<td>2024-04-17 04:15:45</td>
+<td>2024-04-17 04:15:45</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>zhangwuji</td>
+<td>123456</td>
+<td>张无忌</td>
+<td>1</td>
+<td>2.jpg</td>
+<td>2</td>
+<td>2015-01-01</td>
+<td>2</td>
+<td>2024-04-17 04:15:45</td>
+<td>2024-04-17 04:15:45</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>yangxiao</td>
+<td>123456</td>
+<td>杨逍</td>
+<td>1</td>
+<td>3.jpg</td>
+<td>2</td>
+<td>2008-05-01</td>
+<td>2</td>
+<td>2024-04-17 04:15:45</td>
+<td>2024-04-17 04:15:45</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>weiyixiao</td>
+<td>123456</td>
+<td>韦一笑</td>
+<td>1</td>
+<td>4.jpg</td>
+<td>2</td>
+<td>2007-01-01</td>
+<td>2</td>
+<td>2024-04-17 04:15:45</td>
+<td>2024-04-17 04:15:45</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>changyuchun</td>
+<td>123456</td>
+<td>常遇春</td>
+<td>1</td>
+<td>5.jpg</td>
+<td>2</td>
+<td>2012-12-05</td>
+<td>2</td>
+<td>2024-04-17 04:15:45</td>
+<td>2024-04-17 04:15:45</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>xiaozhao</td>
+<td>123456</td>
+<td>小昭</td>
+<td>2</td>
+<td>6.jpg</td>
+<td>3</td>
+<td>2013-09-05</td>
+<td>1</td>
+<td>2024-04-17 04:15:45</td>
+<td>2024-04-17 04:15:45</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>jixiaofu</td>
+<td>123456</td>
+<td>纪晓芙</td>
+<td>2</td>
+<td>7.jpg</td>
+<td>1</td>
+<td>2005-08-01</td>
+<td>1</td>
+<td>2024-04-17 04:15:45</td>
+<td>2024-04-17 04:15:45</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>zhouzhiruo</td>
+<td>123456</td>
+<td>周芷若</td>
+<td>2</td>
+<td>8.jpg</td>
+<td>1</td>
+<td>2014-11-09</td>
+<td>1</td>
+<td>2024-04-17 04:15:45</td>
+<td>2024-04-17 04:15:45</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>dingminjun</td>
+<td>123456</td>
+<td>丁敏君</td>
+<td>2</td>
+<td>9.jpg</td>
+<td>1</td>
+<td>2011-03-11</td>
+<td>1</td>
+<td>2024-04-17 04:15:45</td>
+<td>2024-04-17 04:15:45</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>zhaomin</td>
+<td>123456</td>
+<td>赵敏</td>
+<td>2</td>
+<td>10.jpg</td>
+<td>1</td>
+<td>2013-09-05</td>
+<td>1</td>
+<td>2024-04-17 04:15:45</td>
+<td>2024-04-17 04:15:45</td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td>luzhangke</td>
+<td>123456</td>
+<td>鹿杖客</td>
+<td>1</td>
+<td>11.jpg</td>
+<td>1</td>
+<td>2007-02-01</td>
+<td>1</td>
+<td>2024-04-17 04:15:45</td>
+<td>2024-04-17 04:15:45</td>
+</tr>
+<tr class="even">
+<td>12</td>
+<td>hebiweng</td>
+<td>123456</td>
+<td>鹤笔翁</td>
+<td>1</td>
+<td>12.jpg</td>
+<td>1</td>
+<td>2008-08-18</td>
+<td>1</td>
+<td>2024-04-17 04:15:45</td>
+<td>2024-04-17 04:15:45</td>
+</tr>
+<tr class="odd">
+<td>13</td>
+<td>fangdongbai</td>
+<td>123456</td>
+<td>方东白</td>
+<td>1</td>
+<td>13.jpg</td>
+<td>2</td>
+<td>2012-11-01</td>
+<td>2</td>
+<td>2024-04-17 04:15:45</td>
+<td>2024-04-17 04:15:45</td>
+</tr>
+<tr class="even">
+<td>14</td>
+<td>zhangsanfeng</td>
+<td>123456</td>
+<td>张三丰</td>
+<td>1</td>
+<td>14.jpg</td>
+<td>2</td>
+<td>2002-08-01</td>
+<td>2</td>
+<td>2024-04-17 04:15:45</td>
+<td>2024-04-17 04:15:45</td>
+</tr>
+<tr class="odd">
+<td>15</td>
+<td>yulianzhou</td>
+<td>123456</td>
+<td>俞莲舟</td>
+<td>1</td>
+<td>15.jpg</td>
+<td>2</td>
+<td>2011-05-01</td>
+<td>2</td>
+<td>2024-04-17 04:15:45</td>
+<td>2024-04-17 04:15:45</td>
+</tr>
+<tr class="even">
+<td>16</td>
+<td>songyuanqiao</td>
+<td>123456</td>
+<td>宋远桥</td>
+<td>1</td>
+<td>16.jpg</td>
+<td>2</td>
+<td>2010-01-01</td>
+<td>2</td>
+<td>2024-04-17 04:15:45</td>
+<td>2024-04-17 04:15:45</td>
+</tr>
+<tr class="odd">
+<td>17</td>
+<td>chenyouliang</td>
+<td>123456</td>
+<td>陈友谅</td>
+<td>1</td>
+<td>17.jpg</td>
+<td></td>
+<td>2015-03-21</td>
+<td></td>
+<td>2024-04-17 04:15:45</td>
+<td>2024-04-17 04:15:45</td>
+</tr>
+</tbody>
+</table>
+<pre class="language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> tb_emp
+<span class="token keyword">ADD</span> <span class="token keyword">CONSTRAINT</span> fk <span class="token keyword">FOREIGN</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>dept_id<span class="token punctuation">)</span> <span class="token keyword">REFERENCES</span> tb_dept <span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<pre class="language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">DELETE</span> <span class="token keyword">FROM</span> tb_dept <span class="token keyword">WHERE</span> id <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span></code></pre>
+<p>error:
+<code>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'REFERENCES tb_dept' at line 1</code></p></li>
+</ol>
+<h4 id="nm">N:M</h4>
+<ol type="1">
+<li>example<img src="https://s2.loli.net/2024/04/17/vdY6R5pNFganErb.png"
+alt="image-20240417153927150" /></li>
+</ol>
+<h4 id="multi-table-query">Multi-table query</h4>
+<ol type="1">
+<li><p>sql</p>
+<pre class="language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> tb_dept<span class="token punctuation">,</span> tb_emp<span class="token punctuation">;</span>
+
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> tb_dept<span class="token punctuation">,</span> tb_emp <span class="token keyword">WHERE</span> tb_dept<span class="token punctuation">.</span>id <span class="token operator">=</span> tb_emp<span class="token punctuation">.</span>dept_id<span class="token punctuation">;</span>
+<span class="token keyword">SELECT</span> d<span class="token punctuation">.</span>name<span class="token punctuation">,</span>e<span class="token punctuation">.</span>name <span class="token keyword">FROM</span> tb_dept d<span class="token punctuation">,</span> tb_emp e <span class="token keyword">WHERE</span> d<span class="token punctuation">.</span>id <span class="token operator">=</span> e<span class="token punctuation">.</span>dept_id<span class="token punctuation">;</span></code></pre>
+<pre class="language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> id <span class="token keyword">FROM</span> tb_dept <span class="token keyword">WHERE</span> name <span class="token operator">=</span> <span class="token string">'教研部'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">SELECT</span> <span class="token operator">*</span>
+<span class="token keyword">FROM</span> tb_emp
+<span class="token keyword">WHERE</span>
+    dept_id <span class="token operator">=</span> <span class="token punctuation">(</span>
+        <span class="token keyword">SELECT</span> id
+        <span class="token keyword">FROM</span> tb_dept
+        <span class="token keyword">WHERE</span>
+            name <span class="token operator">=</span> <span class="token string">'教研部'</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<pre class="language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> entrydate<span class="token punctuation">,</span> job <span class="token keyword">FROM</span> tb_emp <span class="token keyword">WHERE</span> name <span class="token operator">=</span> <span class="token string">'韦一笑'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">SELECT</span> <span class="token operator">*</span>
+<span class="token keyword">FROM</span> tb_emp
+<span class="token keyword">WHERE</span> <span class="token punctuation">(</span>entrydate<span class="token punctuation">,</span> job<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token punctuation">(</span>
+        <span class="token keyword">SELECT</span> entrydate<span class="token punctuation">,</span> job
+        <span class="token keyword">FROM</span> tb_emp
+        <span class="token keyword">WHERE</span>
+            name <span class="token operator">=</span> <span class="token string">'韦一笑'</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<pre class="language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> tb_emp <span class="token keyword">WHERE</span> entrydate <span class="token operator">></span> <span class="token string">'2006-01-01'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">SELECT</span> e<span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">,</span> d<span class="token punctuation">.</span>name
+<span class="token keyword">from</span> <span class="token punctuation">(</span>
+        <span class="token keyword">SELECT</span> <span class="token operator">*</span>
+        <span class="token keyword">FROM</span> tb_emp
+        <span class="token keyword">WHERE</span>
+            entrydate <span class="token operator">></span> <span class="token string">'2006-01-01'</span>
+    <span class="token punctuation">)</span> e
+    <span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> tb_dept d <span class="token keyword">ON</span> e<span class="token punctuation">.</span>dept_id <span class="token operator">=</span> d<span class="token punctuation">.</span>id<span class="token punctuation">;</span></code></pre></li>
+<li><p>category</p>
+<table>
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 12%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 9%" />
+<col style="width: 29%" />
+<col style="width: 29%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>id</th>
+<th>name</th>
+<th>type</th>
+<th>sort</th>
+<th>status</th>
+<th>create_time</th>
+<th>update_time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>酒水饮料</td>
+<td>1</td>
+<td>10</td>
+<td>1</td>
+<td>2022-08-09 22:09:18</td>
+<td>2022-08-09 22:09:18</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>传统主食</td>
+<td>1</td>
+<td>9</td>
+<td>1</td>
+<td>2022-08-09 22:09:32</td>
+<td>2022-08-09 22:18:53</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>人气套餐</td>
+<td>2</td>
+<td>12</td>
+<td>1</td>
+<td>2022-08-09 22:11:38</td>
+<td>2022-08-10 11:04:40</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>商务套餐</td>
+<td>2</td>
+<td>13</td>
+<td>1</td>
+<td>2022-08-09 22:14:10</td>
+<td>2022-08-10 11:04:48</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>经典川菜</td>
+<td>1</td>
+<td>6</td>
+<td>1</td>
+<td>2022-08-09 22:17:42</td>
+<td>2022-08-09 22:17:42</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>新鲜时蔬</td>
+<td>1</td>
+<td>7</td>
+<td>1</td>
+<td>2022-08-09 22:18:12</td>
+<td>2022-08-09 22:18:28</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>汤类</td>
+<td>1</td>
+<td>11</td>
+<td>1</td>
+<td>2022-08-10 10:51:47</td>
+<td>2022-08-10 10:51:47</td>
+</tr>
+</tbody>
+</table>
+<p>dish</p>
+<table>
+<colgroup>
+<col style="width: 2%" />
+<col style="width: 7%" />
+<col style="width: 6%" />
+<col style="width: 3%" />
+<col style="width: 36%" />
+<col style="width: 16%" />
+<col style="width: 3%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>id</th>
+<th>name</th>
+<th>category_id</th>
+<th>price</th>
+<th>image</th>
+<th>description</th>
+<th>status</th>
+<th>create_time</th>
+<th>update_time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>王老吉</td>
+<td>1</td>
+<td>6.00</td>
+<td>https://reggie-itcast.oss-cn-beijing.aliyuncs.com/41bfcacf-7ad4-4927-8b26-df366553a94c.png</td>
+<td></td>
+<td>1</td>
+<td>2022-06-09 22:40:47</td>
+<td>2022-06-09 22:40:47</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>北冰洋</td>
+<td>1</td>
+<td>4.00</td>
+<td>https://reggie-itcast.oss-cn-beijing.aliyuncs.com/4451d4be-89a2-4939-9c69-3a87151cb979.png</td>
+<td>还是小时候的味道</td>
+<td>1</td>
+<td>2022-06-10 09:18:49</td>
+<td>2022-06-10 09:18:49</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>雪花啤酒</td>
+<td>1</td>
+<td>4.00</td>
+<td>https://reggie-itcast.oss-cn-beijing.aliyuncs.com/bf8cbfc1-04d2-40e8-9826-061ee41ab87c.png</td>
+<td></td>
+<td>1</td>
+<td>2022-06-10 09:22:54</td>
+<td>2022-06-10 09:22:54</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>米饭</td>
+<td>2</td>
+<td>2.00</td>
+<td>https://reggie-itcast.oss-cn-beijing.aliyuncs.com/76752350-2121-44d2-b477-10791c23a8ec.png</td>
+<td>精选五常大米</td>
+<td>1</td>
+<td>2022-06-10 09:30:17</td>
+<td>2022-06-10 09:30:17</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>馒头</td>
+<td>2</td>
+<td>1.00</td>
+<td>https://reggie-itcast.oss-cn-beijing.aliyuncs.com/475cc599-8661-4899-8f9e-121dd8ef7d02.png</td>
+<td>优质面粉</td>
+<td>1</td>
+<td>2022-06-10 09:34:28</td>
+<td>2022-06-10 09:34:28</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>老坛酸菜鱼</td>
+<td>5</td>
+<td>56.00</td>
+<td>https://reggie-itcast.oss-cn-beijing.aliyuncs.com/4a9cefba-6a74-467e-9fde-6e687ea725d7.png</td>
+<td>原料：汤，草鱼，酸菜</td>
+<td>1</td>
+<td>2022-06-10 09:40:51</td>
+<td>2022-06-10 09:40:51</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>经典酸菜鮰鱼</td>
+<td>5</td>
+<td>66.00</td>
+<td>https://reggie-itcast.oss-cn-beijing.aliyuncs.com/5260ff39-986c-4a97-8850-2ec8c7583efc.png</td>
+<td>原料：酸菜，江团，鮰鱼</td>
+<td>1</td>
+<td>2022-06-10 09:46:02</td>
+<td>2022-06-10 09:46:02</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>蜀味水煮草鱼</td>
+<td>5</td>
+<td>38.00</td>
+<td>https://reggie-itcast.oss-cn-beijing.aliyuncs.com/a6953d5a-4c18-4b30-9319-4926ee77261f.png</td>
+<td>原料：草鱼，汤</td>
+<td>1</td>
+<td>2022-06-10 09:48:37</td>
+<td>2022-06-10 09:48:37</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>清炒小油菜</td>
+<td>6</td>
+<td>18.00</td>
+<td>https://reggie-itcast.oss-cn-beijing.aliyuncs.com/3613d38e-5614-41c2-90ed-ff175bf50716.png</td>
+<td>原料：小油菜</td>
+<td>1</td>
+<td>2022-06-10 09:51:46</td>
+<td>2022-06-10 09:51:46</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>蒜蓉娃娃菜</td>
+<td>6</td>
+<td>18.00</td>
+<td>https://reggie-itcast.oss-cn-beijing.aliyuncs.com/4879ed66-3860-4b28-ba14-306ac025fdec.png</td>
+<td>原料：蒜，娃娃菜</td>
+<td>1</td>
+<td>2022-06-10 09:53:37</td>
+<td>2022-06-10 09:53:37</td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td>清炒西兰花</td>
+<td>6</td>
+<td>18.00</td>
+<td>https://reggie-itcast.oss-cn-beijing.aliyuncs.com/e9ec4ba4-4b22-4fc8-9be0-4946e6aeb937.png</td>
+<td>原料：西兰花</td>
+<td>1</td>
+<td>2022-06-10 09:55:44</td>
+<td>2022-06-10 09:55:44</td>
+</tr>
+<tr class="even">
+<td>12</td>
+<td>炝炒圆白菜</td>
+<td>6</td>
+<td>18.00</td>
+<td>https://reggie-itcast.oss-cn-beijing.aliyuncs.com/22f59feb-0d44-430e-a6cd-6a49f27453ca.png</td>
+<td>原料：圆白菜</td>
+<td>1</td>
+<td>2022-06-10 09:58:35</td>
+<td>2022-06-10 09:58:35</td>
+</tr>
+<tr class="odd">
+<td>13</td>
+<td>清蒸鲈鱼</td>
+<td>5</td>
+<td>98.00</td>
+<td>https://reggie-itcast.oss-cn-beijing.aliyuncs.com/c18b5c67-3b71-466c-a75a-e63c6449f21c.png</td>
+<td>原料：鲈鱼</td>
+<td>1</td>
+<td>2022-06-10 10:12:28</td>
+<td>2022-06-10 10:12:28</td>
+</tr>
+<tr class="even">
+<td>14</td>
+<td>东坡肘子</td>
+<td>5</td>
+<td>138.00</td>
+<td>https://reggie-itcast.oss-cn-beijing.aliyuncs.com/a80a4b8c-c93e-4f43-ac8a-856b0d5cc451.png</td>
+<td>原料：猪肘棒</td>
+<td>1</td>
+<td>2022-06-10 10:24:03</td>
+<td>2022-06-10 10:24:03</td>
+</tr>
+<tr class="odd">
+<td>15</td>
+<td>梅菜扣肉</td>
+<td>5</td>
+<td>58.00</td>
+<td>https://reggie-itcast.oss-cn-beijing.aliyuncs.com/6080b118-e30a-4577-aab4-45042e3f88be.png</td>
+<td>原料：猪肉，梅菜</td>
+<td>1</td>
+<td>2022-06-10 10:26:03</td>
+<td>2022-06-10 10:26:03</td>
+</tr>
+<tr class="even">
+<td>16</td>
+<td>剁椒鱼头</td>
+<td>5</td>
+<td>66.00</td>
+<td>https://reggie-itcast.oss-cn-beijing.aliyuncs.com/13da832f-ef2c-484d-8370-5934a1045a06.png</td>
+<td>原料：鲢鱼，剁椒</td>
+<td>1</td>
+<td>2022-06-10 10:28:54</td>
+<td>2022-06-10 10:28:54</td>
+</tr>
+<tr class="odd">
+<td>17</td>
+<td>馋嘴牛蛙</td>
+<td>5</td>
+<td>98.00</td>
+<td>https://reggie-itcast.oss-cn-beijing.aliyuncs.com/7a55b845-1f2b-41fa-9486-76d187ee9ee1.png</td>
+<td>配料：鲜活牛蛙，丝瓜，黄豆芽</td>
+<td>1</td>
+<td>2022-06-10 10:37:52</td>
+<td>2022-06-10 10:37:52</td>
+</tr>
+<tr class="even">
+<td>18</td>
+<td>鸡蛋汤</td>
+<td>7</td>
+<td>4.00</td>
+<td>https://reggie-itcast.oss-cn-beijing.aliyuncs.com/c09a0ee8-9d19-428d-81b9-746221824113.png</td>
+<td>配料：鸡蛋，紫菜</td>
+<td>1</td>
+<td>2022-06-10 10:54:25</td>
+<td>2022-06-10 10:54:25</td>
+</tr>
+<tr class="odd">
+<td>19</td>
+<td>平菇豆腐汤</td>
+<td>7</td>
+<td>6.00</td>
+<td>https://reggie-itcast.oss-cn-beijing.aliyuncs.com/16d0a3d6-2253-4cfc-9b49-bf7bd9eb2ad2.png</td>
+<td>配料：豆腐，平菇</td>
+<td>1</td>
+<td>2022-06-10 10:55:02</td>
+<td>2022-06-10 10:55:02</td>
+</tr>
+</tbody>
+</table>
+<p>setmeal</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 2%" />
+<col style="width: 6%" />
+<col style="width: 7%" />
+<col style="width: 3%" />
+<col style="width: 41%" />
+<col style="width: 7%" />
+<col style="width: 4%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>id</th>
+<th>name</th>
+<th>category_id</th>
+<th>price</th>
+<th>image</th>
+<th>description</th>
+<th>status</th>
+<th>create_time</th>
+<th>update_time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>商务套餐A</td>
+<td>4</td>
+<td>20.00</td>
+<td>https://reggie-itcast.oss-cn-beijing.aliyuncs.com/21a5ed3a-97f6-447a-af9d-53deabfb5661.png</td>
+<td></td>
+<td>1</td>
+<td>2022-06-10 10:58:09</td>
+<td>2022-06-10 10:58:09</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>商务套餐B</td>
+<td>4</td>
+<td>22.00</td>
+<td>https://reggie-itcast.oss-cn-beijing.aliyuncs.com/8d0075f8-9008-4390-94ca-2ca631440304.png</td>
+<td></td>
+<td>1</td>
+<td>2022-06-10 11:00:13</td>
+<td>2022-06-10 11:11:37</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>人气套餐A</td>
+<td>3</td>
+<td>49.00</td>
+<td>https://reggie-itcast.oss-cn-beijing.aliyuncs.com/8979566b-0e17-462b-81d8-8dbace4138f4.png</td>
+<td></td>
+<td>1</td>
+<td>2022-06-10 11:11:23</td>
+<td>2022-06-10 11:11:23</td>
+</tr>
+</tbody>
+</table>
+<p>setmeal_dish</p>
+<table>
+<thead>
+<tr class="header">
+<th>id</th>
+<th>setmeal_id</th>
+<th>dish_id</th>
+<th>copies</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>1</td>
+<td>4</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>1</td>
+<td>11</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>2</td>
+<td>2</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>2</td>
+<td>4</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>2</td>
+<td>9</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>3</td>
+<td>6</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>3</td>
+<td>5</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<pre class="language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">DROP</span> <span class="token keyword">TABLE</span> tb_dept<span class="token punctuation">,</span> tb_emp<span class="token punctuation">;</span>
+
+<span class="token keyword">SELECT</span> c<span class="token punctuation">.</span>name<span class="token punctuation">,</span> <span class="token function">MAX</span><span class="token punctuation">(</span>d<span class="token punctuation">.</span>price<span class="token punctuation">)</span>
+<span class="token keyword">FROM</span> category c<span class="token punctuation">,</span> dish d
+<span class="token keyword">WHERE</span>
+    c<span class="token punctuation">.</span>id <span class="token operator">=</span> d<span class="token punctuation">.</span>category_id
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span>
+    c<span class="token punctuation">.</span>id<span class="token punctuation">;</span>
+
+<span class="token keyword">SELECT</span> c<span class="token punctuation">.</span>name<span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> num
+<span class="token keyword">FROM</span> dish d<span class="token punctuation">,</span> category c
+<span class="token keyword">WHERE</span>
+    d<span class="token punctuation">.</span><span class="token keyword">status</span> <span class="token operator">=</span> <span class="token number">1</span>
+    <span class="token operator">and</span> d<span class="token punctuation">.</span>category_id <span class="token operator">=</span> c<span class="token punctuation">.</span>id
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span>
+    c<span class="token punctuation">.</span>id
+<span class="token keyword">HAVING</span>
+    num <span class="token operator">>=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+
+<span class="token keyword">SELECT</span> s<span class="token punctuation">.</span>name<span class="token punctuation">,</span> s<span class="token punctuation">.</span>price<span class="token punctuation">,</span> d<span class="token punctuation">.</span>name<span class="token punctuation">,</span> d<span class="token punctuation">.</span>price<span class="token punctuation">,</span> sd<span class="token punctuation">.</span>copies
+<span class="token keyword">FROM</span> dish d<span class="token punctuation">,</span> setmeal s<span class="token punctuation">,</span> setmeal_dish sd
+<span class="token keyword">WHERE</span>
+    d<span class="token punctuation">.</span>id <span class="token operator">=</span> sd<span class="token punctuation">.</span>dish_id <span class="token operator">&amp;&amp;</span> sd<span class="token punctuation">.</span>setmeal_id <span class="token operator">=</span> s<span class="token punctuation">.</span>id <span class="token operator">&amp;&amp;</span> s<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'商务套餐A'</span><span class="token punctuation">;</span></code></pre>
+<h4 id="transaction">Transaction</h4>
+<ol type="1">
+<li><p>sql</p>
+<pre class="language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">START</span> <span class="token keyword">TRANSACTION</span><span class="token punctuation">;</span>
+
+<span class="token keyword">DELETE</span> <span class="token keyword">FROM</span> category <span class="token keyword">where</span> id <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+<span class="token keyword">DELETE</span> <span class="token keyword">FROM</span> dish <span class="token keyword">where</span> name <span class="token operator">=</span> <span class="token string">'王老吉'</span>
+
+<span class="token keyword">COMMIT</span><span class="token punctuation">;</span>
+
+<span class="token keyword">ROLLBACK</span><span class="token punctuation">;</span></code></pre></li>
+<li><p>ACID</p></li>
+</ol>
+<h4 id="index">Index</h4>
+<ol type="1">
+<li><p><code>B+ tree</code></p></li>
+<li><p>sql</p>
+<pre class="language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SHOW</span> <span class="token keyword">INDEX</span> <span class="token keyword">FROM</span> dish<span class="token punctuation">;</span></code></pre>
+<table>
+<colgroup>
+<col style="width: 3%" />
+<col style="width: 7%" />
+<col style="width: 6%" />
+<col style="width: 9%" />
+<col style="width: 8%" />
+<col style="width: 6%" />
+<col style="width: 8%" />
+<col style="width: 6%" />
+<col style="width: 4%" />
+<col style="width: 3%" />
+<col style="width: 7%" />
+<col style="width: 5%" />
+<col style="width: 9%" />
+<col style="width: 5%" />
+<col style="width: 7%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Table</th>
+<th>Non_unique</th>
+<th>Key_name</th>
+<th>Seq_in_index</th>
+<th>Column_name</th>
+<th>Collation</th>
+<th>Cardinality</th>
+<th>Sub_part</th>
+<th>Packed</th>
+<th>Null</th>
+<th>Index_type</th>
+<th>Comment</th>
+<th>Index_comment</th>
+<th>Visible</th>
+<th>Expression</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>dish</td>
+<td>0</td>
+<td>PRIMARY</td>
+<td>1</td>
+<td>id</td>
+<td>A</td>
+<td>19</td>
+<td></td>
+<td></td>
+<td></td>
+<td>BTREE</td>
+<td></td>
+<td></td>
+<td>YES</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>dish</td>
+<td>0</td>
+<td>name</td>
+<td>1</td>
+<td>name</td>
+<td>A</td>
+<td>19</td>
+<td></td>
+<td></td>
+<td></td>
+<td>BTREE</td>
+<td></td>
+<td></td>
+<td>YES</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre class="language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">INDEX</span> idx_cgy <span class="token keyword">ON</span> dish <span class="token punctuation">(</span>price<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<table>
+<colgroup>
+<col style="width: 3%" />
+<col style="width: 7%" />
+<col style="width: 6%" />
+<col style="width: 9%" />
+<col style="width: 8%" />
+<col style="width: 6%" />
+<col style="width: 8%" />
+<col style="width: 6%" />
+<col style="width: 4%" />
+<col style="width: 3%" />
+<col style="width: 7%" />
+<col style="width: 5%" />
+<col style="width: 9%" />
+<col style="width: 5%" />
+<col style="width: 7%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Table</th>
+<th>Non_unique</th>
+<th>Key_name</th>
+<th>Seq_in_index</th>
+<th>Column_name</th>
+<th>Collation</th>
+<th>Cardinality</th>
+<th>Sub_part</th>
+<th>Packed</th>
+<th>Null</th>
+<th>Index_type</th>
+<th>Comment</th>
+<th>Index_comment</th>
+<th>Visible</th>
+<th>Expression</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>dish</td>
+<td>0</td>
+<td>PRIMARY</td>
+<td>1</td>
+<td>id</td>
+<td>A</td>
+<td>19</td>
+<td></td>
+<td></td>
+<td></td>
+<td>BTREE</td>
+<td></td>
+<td></td>
+<td>YES</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>dish</td>
+<td>0</td>
+<td>name</td>
+<td>1</td>
+<td>name</td>
+<td>A</td>
+<td>19</td>
+<td></td>
+<td></td>
+<td></td>
+<td>BTREE</td>
+<td></td>
+<td></td>
+<td>YES</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>dish</td>
+<td>1</td>
+<td>idx_cgy</td>
+<td>1</td>
+<td>price</td>
+<td>A</td>
+<td>11</td>
+<td></td>
+<td></td>
+<td></td>
+<td>BTREE</td>
+<td></td>
+<td></td>
+<td>YES</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre class="language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">DROP</span> <span class="token keyword">INDEX</span> idx_cgy <span class="token keyword">ON</span> dish<span class="token punctuation">;</span></code></pre>
+<h3 id="mybatis">Mybatis</h3>
+<h4 id="introduction">Introduction</h4>
+<h4 id="getting-started-1">Getting-started</h4>
+<ol type="1">
+<li><p>Create project<img
+src="https://s2.loli.net/2024/04/18/aBUp7QKiFMW3HhT.png"
+alt="image-20240418181533249" /></p></li>
+<li><p>pox.ml</p>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://maven.apache.org/POM/4.0.0<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">xmlns:</span>xsi</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/2001/XMLSchema-instance<span class="token punctuation">"</span></span>
+	<span class="token attr-name"><span class="token namespace">xsi:</span>schemaLocation</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>modelVersion</span><span class="token punctuation">></span></span>4.0.0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>modelVersion</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>parent</span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-parent<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>3.2.4<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>relativePath</span><span class="token punctuation">/></span></span> <span class="token comment">&lt;!-- lookup parent from repository --></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>parent</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.hunt<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>springboot-mybatis-quickstart<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>0.0.1-SNAPSHOT<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>springboot-mybatis-quickstart<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>description</span><span class="token punctuation">></span></span>Demo project for Spring Boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>description</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>properties</span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>java.version</span><span class="token punctuation">></span></span>17<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>java.version</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>properties</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependencies</span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.mybatis.spring.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>mybatis-spring-boot-starter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>3.0.3<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.mysql<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>mysql-connector-j<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>scope</span><span class="token punctuation">></span></span>runtime<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>scope</span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-test<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>scope</span><span class="token punctuation">></span></span>test<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>scope</span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.mybatis.spring.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>mybatis-spring-boot-starter-test<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>3.0.3<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>scope</span><span class="token punctuation">></span></span>test<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>scope</span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependencies</span><span class="token punctuation">></span></span>
+
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>build</span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>plugins</span><span class="token punctuation">></span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>plugin</span><span class="token punctuation">></span></span>
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-maven-plugin<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>plugin</span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>plugins</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>build</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>project</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>comment <img src="https://s2.loli.net/2024/04/18/G3HOS8LIvXxgQjp.png"
+alt="image-20240418181752496" /></p></li>
+<li><p>application.properties</p>
+<pre class="language-properties" data-language="properties"><code class="language-properties"><span class="token key attr-name">spring.application.name</span><span class="token punctuation">=</span><span class="token value attr-value">springboot-mybatis-quickstart</span>
+
+<span class="token key attr-name">spring.datasource.url</span><span class="token punctuation">=</span><span class="token value attr-value">jdbc:mysql://localhost:3306/db01_mybatis</span>
+<span class="token key attr-name">spring.datasource.username</span><span class="token punctuation">=</span><span class="token value attr-value">root</span>
+<span class="token key attr-name">spring.datasource.password</span><span class="token punctuation">=</span><span class="token value attr-value">123456</span>
+<span class="token key attr-name">spring.datasource.driver-class-name</span><span class="token punctuation">=</span><span class="token value attr-value">com.mysql.cj.jdbc.Driver</span>
+<span class="token key attr-name">spring.jpa.database-platform</span><span class="token punctuation">=</span><span class="token value attr-value">org.hibernate.dialect.MySQL5Dialect</span></code></pre></li>
+<li><p>folder hierarchy<img
+src="https://s2.loli.net/2024/04/18/MACifDtdmuvZE9y.png"
+alt="image-20240418190422075" /></p></li>
+<li><p>Usermapper.java</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>hunt<span class="token punctuation">.</span>mapper</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">List</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>ibatis<span class="token punctuation">.</span>annotations<span class="token punctuation">.</span></span><span class="token class-name">Mapper</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>ibatis<span class="token punctuation">.</span>annotations<span class="token punctuation">.</span></span><span class="token class-name">Select</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>hunt<span class="token punctuation">.</span>pojo<span class="token punctuation">.</span></span><span class="token class-name">User</span></span><span class="token punctuation">;</span>
+
+<span class="token annotation punctuation">@Mapper</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">Usermapper</span> <span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Select</span><span class="token punctuation">(</span><span class="token string">"SELECT * FROM user"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">User</span><span class="token punctuation">></span></span> <span class="token function">list</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+</code></pre></li>
+<li><p>SpringbootMybatisQuickstartApplicationTests.java</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>hunt</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">List</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>junit<span class="token punctuation">.</span>jupiter<span class="token punctuation">.</span>api<span class="token punctuation">.</span></span><span class="token class-name">Test</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>beans<span class="token punctuation">.</span>factory<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">Autowired</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>test<span class="token punctuation">.</span>context<span class="token punctuation">.</span></span><span class="token class-name">SpringBootTest</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>hunt<span class="token punctuation">.</span>mapper<span class="token punctuation">.</span></span><span class="token class-name">Usermapper</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>hunt<span class="token punctuation">.</span>pojo<span class="token punctuation">.</span></span><span class="token class-name">User</span></span><span class="token punctuation">;</span>
+
+<span class="token annotation punctuation">@SpringBootTest</span>
+<span class="token keyword">class</span> <span class="token class-name">SpringbootMybatisQuickstartApplicationTests</span> <span class="token punctuation">&#123;</span>
+
+	<span class="token annotation punctuation">@Autowired</span>
+	<span class="token keyword">private</span> <span class="token class-name">Usermapper</span> ump<span class="token punctuation">;</span>
+
+	<span class="token annotation punctuation">@Test</span>
+	<span class="token keyword">void</span> <span class="token function">contextLoads</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">User</span><span class="token punctuation">></span></span> userList <span class="token operator">=</span> ump<span class="token punctuation">.</span><span class="token function">list</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		userList<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>user <span class="token operator">-></span> <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+
+<span class="token punctuation">&#125;</span>
+</code></pre></li>
+<li><p>vscode extension<img
+src="https://s2.loli.net/2024/04/18/yk7MqofKLSpHlci.png"
+alt="image-20240418190247914" /></p></li>
+<li><p>run test<img
+src="https://s2.loli.net/2024/04/18/9XvVecC7By1LlKA.png"
+alt="image-20240418190330283" /></p></li>
+</ol></li>
+</ol></li>
+<li><p>Embed sql in Java<img
+src="https://s2.loli.net/2024/04/19/peKnvhcTrJq1yN3.png"
+alt="image-20240419010744187" /></p>
+<ol type="1">
+<li>put cursor inside string, pres <code>alt</code> +
+<code>enter</code></li>
+<li>language injection settings</li>
+<li>select mysql<img
+src="https://s2.loli.net/2024/04/19/YrHgh65Uauzi84t.png"
+alt="image-20240419010911136" /></li>
+<li>connect database server<img
+src="https://s2.loli.net/2024/04/19/9k2iYaMn4oKqGbB.png"
+alt="image-20240419011019545" /></li>
+</ol></li>
+</ol>
 
                 
             </div>
@@ -2107,7 +3842,7 @@ alt="image-20240415124103724" /></p></li>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">276.8k</span>&nbsp;字
+                class="white-color">280.4k</span>&nbsp;字
             
             
             

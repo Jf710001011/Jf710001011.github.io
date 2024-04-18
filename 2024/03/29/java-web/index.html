@@ -2898,7 +2898,8 @@ alt="image-20240417153927150" /></li>
 <span class="token keyword">SELECT</span> s<span class="token punctuation">.</span>name<span class="token punctuation">,</span> s<span class="token punctuation">.</span>price<span class="token punctuation">,</span> d<span class="token punctuation">.</span>name<span class="token punctuation">,</span> d<span class="token punctuation">.</span>price<span class="token punctuation">,</span> sd<span class="token punctuation">.</span>copies
 <span class="token keyword">FROM</span> dish d<span class="token punctuation">,</span> setmeal s<span class="token punctuation">,</span> setmeal_dish sd
 <span class="token keyword">WHERE</span>
-    d<span class="token punctuation">.</span>id <span class="token operator">=</span> sd<span class="token punctuation">.</span>dish_id <span class="token operator">&amp;&amp;</span> sd<span class="token punctuation">.</span>setmeal_id <span class="token operator">=</span> s<span class="token punctuation">.</span>id <span class="token operator">&amp;&amp;</span> s<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'商务套餐A'</span><span class="token punctuation">;</span></code></pre>
+    d<span class="token punctuation">.</span>id <span class="token operator">=</span> sd<span class="token punctuation">.</span>dish_id <span class="token operator">&amp;&amp;</span> sd<span class="token punctuation">.</span>setmeal_id <span class="token operator">=</span> s<span class="token punctuation">.</span>id <span class="token operator">&amp;&amp;</span> s<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'商务套餐A'</span><span class="token punctuation">;</span></code></pre></li>
+</ol>
 <h4 id="transaction">Transaction</h4>
 <ol type="1">
 <li><p>sql</p>
@@ -3084,7 +3085,8 @@ alt="image-20240417153927150" /></li>
 </tr>
 </tbody>
 </table>
-<pre class="language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">DROP</span> <span class="token keyword">INDEX</span> idx_cgy <span class="token keyword">ON</span> dish<span class="token punctuation">;</span></code></pre>
+<pre class="language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">DROP</span> <span class="token keyword">INDEX</span> idx_cgy <span class="token keyword">ON</span> dish<span class="token punctuation">;</span></code></pre></li>
+</ol>
 <h3 id="mybatis">Mybatis</h3>
 <h4 id="introduction">Introduction</h4>
 <h4 id="getting-started-1">Getting-started</h4>
@@ -3208,8 +3210,6 @@ alt="image-20240418190247914" /></p></li>
 <li><p>run test<img
 src="https://s2.loli.net/2024/04/18/9XvVecC7By1LlKA.png"
 alt="image-20240418190330283" /></p></li>
-</ol></li>
-</ol></li>
 <li><p>Embed sql in Java<img
 src="https://s2.loli.net/2024/04/19/peKnvhcTrJq1yN3.png"
 alt="image-20240419010744187" /></p>
@@ -3225,6 +3225,7 @@ src="https://s2.loli.net/2024/04/19/9k2iYaMn4oKqGbB.png"
 alt="image-20240419011019545" /></li>
 </ol></li>
 </ol>
+<h4 id="jdbc">JDBC</h4>
 
                 
             </div>

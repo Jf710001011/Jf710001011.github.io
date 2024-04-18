@@ -488,7 +488,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    7.2k
+                    7.4k
                 </div>
                 
 
@@ -3346,14 +3346,26 @@ alt="image-20240419020322578" /></p>
 <p><code>SpringbootMybatisQuickstartApplicationTests.java</code></p>
 <pre class="language-java" data-language="java"><code class="language-java"><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span><span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></li>
 <li><p>select: return value</p>
+<p>Turn on camel case naming</p>
 <pre class="language-properties" data-language="properties"><code class="language-properties"><span class="token key attr-name">mybatis.configuration.map-underscore-to-camel-case</span><span class="token punctuation">=</span><span class="token value attr-value">true</span></code></pre>
 <pre class="language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Select</span><span class="token punctuation">(</span><span class="token string">"SELECT * FROM emp WHERE id = #&#123;id&#125;"</span><span class="token punctuation">)</span>
 <span class="token keyword">public</span> <span class="token class-name">Emp</span> <span class="token function">select</span><span class="token punctuation">(</span><span class="token class-name">Integer</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<pre class="language-java" data-language="java"><code class="language-java">	<span class="token annotation punctuation">@Test</span>
-	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">selectTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-		<span class="token class-name">Emp</span> e <span class="token operator">=</span> empp<span class="token punctuation">.</span><span class="token function">select</span><span class="token punctuation">(</span><span class="token number">21</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token punctuation">&#125;</span>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Test</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">selectTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">Emp</span> e <span class="token operator">=</span> empp<span class="token punctuation">.</span><span class="token function">select</span><span class="token punctuation">(</span><span class="token number">21</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre></li>
+<li><p>Conditional query</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Select</span><span class="token punctuation">(</span><span class="token string">"SELECT * FROM emp WHERE name LIKE '%$&#123;name&#125;%' &amp;&amp; gender = #&#123;gender&#125; &amp;&amp; entrydate BETWEEN #&#123;begin&#125; and #&#123;end&#125;"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Emp</span><span class="token punctuation">></span></span> <span class="token function">list</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">,</span> <span class="token keyword">short</span> gender<span class="token punctuation">,</span> <span class="token class-name">LocalDate</span> begin<span class="token punctuation">,</span> <span class="token class-name">LocalDate</span> end<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>or</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Select</span><span class="token punctuation">(</span><span class="token string">"SELECT * FROM emp WHERE name LIKE CONCAT('%',#&#123;name&#125;,'%') &amp;&amp; gender = #&#123;gender&#125; &amp;&amp; entrydate BETWEEN #&#123;begin&#125; and #&#123;end&#125;"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Emp</span><span class="token punctuation">></span></span> <span class="token function">list</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">,</span> <span class="token keyword">short</span> gender<span class="token punctuation">,</span> <span class="token class-name">LocalDate</span> begin<span class="token punctuation">,</span> <span class="token class-name">LocalDate</span> end<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Test</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">listTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Emp</span><span class="token punctuation">></span></span> empList <span class="token operator">=</span> empp<span class="token punctuation">.</span><span class="token function">list</span><span class="token punctuation">(</span><span class="token string">"张"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">short</span><span class="token punctuation">)</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">2010</span><span class="token punctuation">,</span><span class="token number">01</span><span class="token punctuation">,</span><span class="token number">01</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">2020</span><span class="token punctuation">,</span> <span class="token number">01</span><span class="token punctuation">,</span> <span class="token number">01</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>empList<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></code></pre></li>
 </ol>
 
@@ -3973,7 +3985,7 @@ alt="image-20240419020322578" /></p>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">280.8k</span>&nbsp;字
+                class="white-color">280.9k</span>&nbsp;字
             
             
             

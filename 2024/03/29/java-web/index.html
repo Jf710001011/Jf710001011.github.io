@@ -488,7 +488,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    8.8k
+                    8.9k
                 </div>
                 
 
@@ -3769,9 +3769,47 @@ alt="image-20240420200831922" />
 <p>Errors reported： read the error message and associate the cause of
 the problem</p>
 <ol type="1">
-<li><p>resource folder</p></li>
-<li><p><code>resultType</code></p></li>
-<li><p>where conditions cannot be written down</p></li>
+<li>resource folder</li>
+<li><code>resultType</code><br />
+</li>
+<li>where conditions cannot be written down</li>
+</ol>
+<h4 id="batch-delete">Batch delete</h4>
+<ol type="1">
+<li><p>Code</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/emps"</span><span class="token punctuation">)</span></code></pre>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@DeleteMapping</span><span class="token punctuation">(</span><span class="token string">"/&#123;ids&#125;"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token class-name">Result</span> <span class="token function">delete</span><span class="token punctuation">(</span><span class="token annotation punctuation">@PathVariable</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> ids<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"Batch deletion:ids: &#123;&#125;"</span><span class="token punctuation">,</span> ids<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    es<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>ids<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token class-name">Result</span><span class="token punctuation">.</span><span class="token function">success</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Override</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">delete</span><span class="token punctuation">(</span><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> ids<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    empp<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>ids<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">delete</span><span class="token punctuation">(</span><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> ids<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>delete</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>delete<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+   DELETE FROM emp
+   WHERE id IN
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>foreach</span> <span class="token attr-name">collection</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ids<span class="token punctuation">"</span></span> <span class="token attr-name">item</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>id<span class="token punctuation">"</span></span> <span class="token attr-name">separator</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>,<span class="token punctuation">"</span></span> <span class="token attr-name">open</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>(<span class="token punctuation">"</span></span> <span class="token attr-name">close</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>)<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    #&#123;id&#125;
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>foreach</span><span class="token punctuation">></span></span> 
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>delete</span><span class="token punctuation">></span></span></code></pre></li>
+</ol>
+<h4 id="add-employee">Add employee</h4>
+<ol type="1">
+<li><p>code</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Autowired</span>
+<span class="token keyword">private</span> <span class="token class-name">EmpMapper</span> empp<span class="token punctuation">;</span>
+
+<span class="token annotation punctuation">@Override</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token class-name">Emp</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    e<span class="token punctuation">.</span><span class="token function">setCreateTime</span><span class="token punctuation">(</span><span class="token class-name">LocalDateTime</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    e<span class="token punctuation">.</span><span class="token function">setUpdateTime</span><span class="token punctuation">(</span><span class="token class-name">LocalDateTime</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    empp<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre></li>
 </ol></li>
 </ol>
 
@@ -4391,7 +4429,7 @@ the problem</p>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">282.4k</span>&nbsp;字
+                class="white-color">282.5k</span>&nbsp;字
             
             
             

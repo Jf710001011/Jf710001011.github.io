@@ -474,21 +474,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2024-03-29
+                    2024-04-21
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2024-04-20
+                    2024-04-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    8.9k
+                    9.6k
                 </div>
                 
 
@@ -3773,6 +3773,7 @@ the problem</p>
 <li><code>resultType</code><br />
 </li>
 <li>where conditions cannot be written down</li>
+</ol></li>
 </ol>
 <h4 id="batch-delete">Batch delete</h4>
 <ol type="1">
@@ -3810,7 +3811,203 @@ the problem</p>
     e<span class="token punctuation">.</span><span class="token function">setUpdateTime</span><span class="token punctuation">(</span><span class="token class-name">LocalDateTime</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     empp<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></code></pre></li>
-</ol></li>
+</ol>
+<h4 id="file-upload">File Upload</h4>
+<h5 id="getting-startted">Getting startted</h5>
+<ol type="1">
+<li><p>html</p>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>上传文件<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/upload<span class="token punctuation">"</span></span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>post<span class="token punctuation">"</span></span> <span class="token attr-name">enctype</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>multipart/form-data<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        姓名: <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>username<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span>
+        年龄: <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>age<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span>
+        头像: <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>image<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>提交<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>
+</code></pre></li>
+<li><p>http request<img
+src="https://s2.loli.net/2024/04/21/tKdewAWVuNMRHbr.png"
+alt="image-20240421183220802" /></p></li>
+<li><p>controller</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Slf4j</span>
+<span class="token annotation punctuation">@RestController</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> uldController <span class="token punctuation">&#123;</span>
+
+    <span class="token annotation punctuation">@PostMapping</span><span class="token punctuation">(</span><span class="token string">"/upload"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">Result</span> <span class="token function">upload</span><span class="token punctuation">(</span><span class="token class-name">String</span> username<span class="token punctuation">,</span> <span class="token class-name">Integer</span> age<span class="token punctuation">,</span> <span class="token class-name">MultipartFile</span> image<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"Uploaded information: &#123;&#125;,&#123;&#125;,&#123;&#125;"</span><span class="token punctuation">,</span> username<span class="token punctuation">,</span> age<span class="token punctuation">,</span> image<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span> <span class="token class-name">Result</span><span class="token punctuation">.</span><span class="token function">success</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre></li>
+<li><p>html<img src="https://s2.loli.net/2024/04/21/sLjiou1eENJaHnX.png"
+alt="image-20240421194545202" /><img
+src="https://s2.loli.net/2024/04/21/8zOLTjbInmRAqJp.png"
+alt="image-20240421194623072" /></p></li>
+<li><p>add breakpoint<img
+src="https://s2.loli.net/2024/04/21/vHnLf9g6oN8CQDR.png"
+alt="image-20240421194725962" /></p>
+<p>Temporary Files</p></li>
+</ol>
+<h5 id="local-storage">Local storage</h5>
+<ol type="1">
+<li><p>code</p>
+<pre class="language-properties" data-language="properties"><code class="language-properties"><span class="token key attr-name">spring.servlet.multipart.max-file-size</span><span class="token punctuation">=</span><span class="token value attr-value">10MB</span>
+<span class="token key attr-name">spring.servlet.multipart.max-request-size</span><span class="token punctuation">=</span><span class="token value attr-value">100MB</span></code></pre>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Slf4j</span>
+<span class="token annotation punctuation">@RestController</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> uldController <span class="token punctuation">&#123;</span>
+
+    <span class="token annotation punctuation">@PostMapping</span><span class="token punctuation">(</span><span class="token string">"/upload"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">Result</span> <span class="token function">upload</span><span class="token punctuation">(</span><span class="token class-name">String</span> username<span class="token punctuation">,</span> <span class="token class-name">Integer</span> age<span class="token punctuation">,</span> <span class="token class-name">MultipartFile</span> image<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">IllegalStateException</span><span class="token punctuation">,</span> <span class="token class-name">IOException</span> <span class="token punctuation">&#123;</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"Uploaded information: &#123;&#125;,&#123;&#125;,&#123;&#125;"</span><span class="token punctuation">,</span> username<span class="token punctuation">,</span> age<span class="token punctuation">,</span> image<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token class-name">String</span> filename <span class="token operator">=</span> image<span class="token punctuation">.</span><span class="token function">getOriginalFilename</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> index <span class="token operator">=</span> filename<span class="token punctuation">.</span><span class="token function">lastIndexOf</span><span class="token punctuation">(</span><span class="token string">"."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">String</span> extname <span class="token operator">=</span> filename<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">String</span> newFilename <span class="token operator">=</span> <span class="token constant">UUID</span><span class="token punctuation">.</span><span class="token function">randomUUID</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> extname<span class="token punctuation">;</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"New file name: &#123;&#125;"</span><span class="token punctuation">,</span> newFilename<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        image<span class="token punctuation">.</span><span class="token function">transferTo</span><span class="token punctuation">(</span>
+                <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"D:\\My_JavaProjects\\My_Springboot_Project\\tlias\\src\\main\\resources\\test_file\\"</span><span class="token operator">+</span>newFilename<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token class-name">Result</span><span class="token punctuation">.</span><span class="token function">success</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<figure>
+<img src="https://s2.loli.net/2024/04/21/51pGmoCB2EKr3yO.png"
+alt="image-20240421212334018" />
+<figcaption aria-hidden="true">image-20240421212334018</figcaption>
+</figure></li>
+</ol>
+<h5 id="aliyun-oss">Aliyun oss</h5>
+<ol type="1">
+<li><p>Workbench<img
+src="https://s2.loli.net/2024/04/22/WlKRXt9QcCeE43b.png"
+alt="image-20240422012037566" /></p></li>
+<li><p>Demo</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>hunt</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>aliyun<span class="token punctuation">.</span>oss<span class="token punctuation">.</span></span><span class="token class-name">ClientException</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>aliyun<span class="token punctuation">.</span>oss<span class="token punctuation">.</span></span><span class="token class-name">OSS</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>aliyun<span class="token punctuation">.</span>oss<span class="token punctuation">.</span></span><span class="token class-name">OSSClientBuilder</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>aliyun<span class="token punctuation">.</span>oss<span class="token punctuation">.</span></span><span class="token class-name">OSSException</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>aliyun<span class="token punctuation">.</span>oss<span class="token punctuation">.</span>common<span class="token punctuation">.</span>auth<span class="token punctuation">.</span></span><span class="token class-name">CredentialsProviderFactory</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>aliyun<span class="token punctuation">.</span>oss<span class="token punctuation">.</span>common<span class="token punctuation">.</span>auth<span class="token punctuation">.</span></span><span class="token class-name">EnvironmentVariableCredentialsProvider</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span><span class="token class-name">ByteArrayInputStream</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Demo</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// Endpoint以华东1（杭州）为例，其它Region请按实际情况填写。</span>
+        <span class="token class-name">String</span> endpoint <span class="token operator">=</span> <span class="token string">"https://oss-cn-beijing.aliyuncs.com"</span><span class="token punctuation">;</span>
+        <span class="token comment">// 从环境变量中获取访问凭证。运行本代码示例之前，请确保已设置环境变量OSS_ACCESS_KEY_ID和OSS_ACCESS_KEY_SECRET。</span>
+        <span class="token class-name">EnvironmentVariableCredentialsProvider</span> credentialsProvider <span class="token operator">=</span> <span class="token class-name">CredentialsProviderFactory</span>
+                <span class="token punctuation">.</span><span class="token function">newEnvironmentVariableCredentialsProvider</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 填写Bucket名称，例如examplebucket。</span>
+        <span class="token class-name">String</span> bucketName <span class="token operator">=</span> <span class="token string">"tlias-ethan"</span><span class="token punctuation">;</span>
+        <span class="token comment">// 填写Object完整路径，例如exampledir/exampleobject.txt。Object完整路径中不能包含Bucket名称。</span>
+        <span class="token class-name">String</span> objectName <span class="token operator">=</span> <span class="token string">"test.txt"</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 创建OSSClient实例。</span>
+        <span class="token class-name">OSS</span> ossClient <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">OSSClientBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span>endpoint<span class="token punctuation">,</span> credentialsProvider<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+            <span class="token class-name">String</span> content <span class="token operator">=</span> <span class="token string">"Hello OSS"</span><span class="token punctuation">;</span>
+            ossClient<span class="token punctuation">.</span><span class="token function">putObject</span><span class="token punctuation">(</span>bucketName<span class="token punctuation">,</span> objectName<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ByteArrayInputStream</span><span class="token punctuation">(</span>content<span class="token punctuation">.</span><span class="token function">getBytes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">OSSException</span> oe<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Caught an OSSException, which means your request made it to OSS, "</span>
+                    <span class="token operator">+</span> <span class="token string">"but was rejected with an error response for some reason."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Error Message:"</span> <span class="token operator">+</span> oe<span class="token punctuation">.</span><span class="token function">getErrorMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Error Code:"</span> <span class="token operator">+</span> oe<span class="token punctuation">.</span><span class="token function">getErrorCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Request ID:"</span> <span class="token operator">+</span> oe<span class="token punctuation">.</span><span class="token function">getRequestId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Host ID:"</span> <span class="token operator">+</span> oe<span class="token punctuation">.</span><span class="token function">getHostId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">ClientException</span> ce<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Caught an ClientException, which means the client encountered "</span>
+                    <span class="token operator">+</span> <span class="token string">"a serious internal problem while trying to communicate with OSS, "</span>
+                    <span class="token operator">+</span> <span class="token string">"such as not being able to access the network."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Error Message:"</span> <span class="token operator">+</span> ce<span class="token punctuation">.</span><span class="token function">getMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">finally</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>ossClient <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                ossClient<span class="token punctuation">.</span><span class="token function">shutdown</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> content <span class="token operator">=</span> <span class="token string">"Hello OSS"</span><span class="token punctuation">;</span>
+ossClient<span class="token punctuation">.</span><span class="token function">putObject</span><span class="token punctuation">(</span>bucketName<span class="token punctuation">,</span> objectName<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ByteArrayInputStream</span><span class="token punctuation">(</span>content<span class="token punctuation">.</span><span class="token function">getBytes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>run:<img src="https://s2.loli.net/2024/04/22/FQwGmVvHfdl5PDO.png"
+alt="image-20240422012422957" /></p></li>
+<li><p>Code</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>hunt<span class="token punctuation">.</span>utils</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>aliyun<span class="token punctuation">.</span>oss<span class="token punctuation">.</span></span><span class="token class-name">OSS</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>aliyun<span class="token punctuation">.</span>oss<span class="token punctuation">.</span></span><span class="token class-name">OSSClientBuilder</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>stereotype<span class="token punctuation">.</span></span><span class="token class-name">Component</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>multipart<span class="token punctuation">.</span></span><span class="token class-name">MultipartFile</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span><span class="token operator">*</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">UUID</span></span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * 阿里云 OSS 工具类
+ */</span>
+<span class="token annotation punctuation">@Component</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AliOSSUtils</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token keyword">private</span> <span class="token class-name">String</span> endpoint <span class="token operator">=</span> <span class="token string">"https://oss-cn-beijing.aliyuncs.com"</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> accessKeyId <span class="token operator">=</span> <span class="token string">"-------"</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> accessKeySecret <span class="token operator">=</span> <span class="token string">"----------"</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> bucketName <span class="token operator">=</span> <span class="token string">"tlias-ethan"</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * 实现上传图片到OSS
+     */</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">upload</span><span class="token punctuation">(</span><span class="token class-name">MultipartFile</span> file<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">IOException</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// 获取上传的文件的输入流</span>
+        <span class="token class-name">InputStream</span> inputStream <span class="token operator">=</span> file<span class="token punctuation">.</span><span class="token function">getInputStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 避免文件覆盖</span>
+        <span class="token class-name">String</span> originalFilename <span class="token operator">=</span> file<span class="token punctuation">.</span><span class="token function">getOriginalFilename</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">String</span> fileName <span class="token operator">=</span> <span class="token constant">UUID</span><span class="token punctuation">.</span><span class="token function">randomUUID</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> originalFilename<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span>originalFilename<span class="token punctuation">.</span><span class="token function">lastIndexOf</span><span class="token punctuation">(</span><span class="token string">"."</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 上传文件到 OSS</span>
+        <span class="token class-name">OSS</span> ossClient <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">OSSClientBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span>endpoint<span class="token punctuation">,</span> accessKeyId<span class="token punctuation">,</span> accessKeySecret<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        ossClient<span class="token punctuation">.</span><span class="token function">putObject</span><span class="token punctuation">(</span>bucketName<span class="token punctuation">,</span> fileName<span class="token punctuation">,</span> inputStream<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 文件访问路径</span>
+        <span class="token class-name">String</span> url <span class="token operator">=</span> endpoint<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">"//"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">"//"</span> <span class="token operator">+</span> bucketName <span class="token operator">+</span> <span class="token string">"."</span> <span class="token operator">+</span> endpoint<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">"//"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">"/"</span> <span class="token operator">+</span> fileName<span class="token punctuation">;</span>
+        <span class="token comment">// 关闭ossClient</span>
+        ossClient<span class="token punctuation">.</span><span class="token function">shutdown</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> url<span class="token punctuation">;</span><span class="token comment">// 把上传到oss的路径返回</span>
+    <span class="token punctuation">&#125;</span>
+
+<span class="token punctuation">&#125;</span>
+</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Autowired</span>
+<span class="token keyword">private</span> <span class="token class-name">AliOSSUtils</span> aliOssU<span class="token punctuation">;</span>
+
+<span class="token annotation punctuation">@PostMapping</span><span class="token punctuation">(</span><span class="token string">"/upload"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token class-name">Result</span> <span class="token function">upload</span><span class="token punctuation">(</span><span class="token class-name">MultipartFile</span> image<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">IOException</span> <span class="token punctuation">&#123;</span>
+    log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"Upload file:&#123;&#125;"</span><span class="token punctuation">,</span>image<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">String</span> url <span class="token operator">=</span> aliOssU<span class="token punctuation">.</span><span class="token function">upload</span><span class="token punctuation">(</span>image<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"Upload successfully"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token class-name">Result</span><span class="token punctuation">.</span><span class="token function">success</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<figure>
+<img src="https://s2.loli.net/2024/04/22/c3WBYwCiTJXdEer.png"
+alt="image-20240422021841913" />
+<figcaption aria-hidden="true">image-20240422021841913</figcaption>
+</figure></li>
 </ol>
 
                 
@@ -3838,7 +4035,7 @@ the problem</p>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://Jf710001011.github.io/2024/03/29/java-web/">https://Jf710001011.github.io/2024/03/29/java-web/</a>
+                    <a href="https://Jf710001011.github.io/2024/04/21/java-web/">https://Jf710001011.github.io/2024/04/21/java-web/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -4188,81 +4385,29 @@ the problem</p>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2024/04/07/soot/">
+                <a href="/2024/04/21/java-web/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Soot">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="JavaWeb">
                         
-                        <span class="card-title">Soot</span>
+                        <span class="card-title">JavaWeb</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-04-07
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Academic/" class="post-category">
-                                    Academic
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Java/">
-                        <span class="chip bg-color">Java</span>
-                    </a>
-                    
-                    <a href="/tags/Cybersecurity/">
-                        <span class="chip bg-color">Cybersecurity</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2024/03/25/javtest3/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="JavaTest3">
-                        
-                        <span class="card-title">JavaTest3</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
+                            Black horse
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-03-25
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-04-21
                             </span>
                         <span class="publish-author">
                             
@@ -4276,13 +4421,55 @@ the problem</p>
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Test/">
-                        <span class="chip bg-color">Test</span>
+                    <a href="/tags/Web/">
+                        <span class="chip bg-color">Web</span>
                     </a>
                     
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/04/15/myacademic-xue-zhu-jin-zhan/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        
+                        <span class="card-title"></span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-04-15
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Jf71o0x1o1l
+                            
+                        </span>
+                    </div>
                 </div>
                 
             </div>
@@ -4429,7 +4616,7 @@ the problem</p>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">282.5k</span>&nbsp;字
+                class="white-color">283.3k</span>&nbsp;字
             
             
             

@@ -3966,7 +3966,7 @@ alt="image-20240422012422957" /></p></li>
 
     <span class="token keyword">private</span> <span class="token class-name">String</span> endpoint <span class="token operator">=</span> <span class="token string">"https://oss-cn-beijing.aliyuncs.com"</span><span class="token punctuation">;</span>
     <span class="token keyword">private</span> <span class="token class-name">String</span> accessKeyId <span class="token operator">=</span> <span class="token string">"-------"</span><span class="token punctuation">;</span>
-    <span class="token keyword">private</span> <span class="token class-name">String</span> accessKeySecret <span class="token operator">=</span> <span class="token string">"----------"</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> accessKeySecret <span class="token operator">=</span> <span class="token punctuation">;</span>
     <span class="token keyword">private</span> <span class="token class-name">String</span> bucketName <span class="token operator">=</span> <span class="token string">"tlias-ethan"</span><span class="token punctuation">;</span>
 
     <span class="token comment">/**
@@ -4022,7 +4022,7 @@ alt="image-20240422021841913" />
 <pre class="language-properties" data-language="properties"><code class="language-properties"><span class="token comment">#AliOSS</span>
 <span class="token key attr-name">ali.oss.endpoint</span> <span class="token punctuation">=</span> <span class="token value attr-value">https://oss-cn-beijing.aliyuncs.com</span>
 <span class="token key attr-name">ali.oss.accessKeyId</span> <span class="token punctuation">=</span> <span class="token value attr-value">xxx</span>
-<span class="token key attr-name">ali.oss.accessKeySecret</span> <span class="token punctuation">=</span> <span class="token value attr-value">xxx</span>
+<span class="token key attr-name">ali.oss.accessKeySecret</span> <span class="token value attr-value">= </span>
 <span class="token key attr-name">ali.oss.bucketName</span> <span class="token punctuation">=</span> <span class="token value attr-value">tlias-ethan</span></code></pre>
 <pre class="language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"$&#123;ali.oss.endpoint&#125;"</span><span class="token punctuation">)</span>
 <span class="token keyword">private</span> <span class="token class-name">String</span> endpoint<span class="token punctuation">;</span>
@@ -4057,7 +4057,7 @@ alt="image-20240424052339222" /></p></li>
 <span class="token comment">#AliOSS</span>
 <span class="token key attr-name">ali.oss.endpoint</span> <span class="token punctuation">=</span> <span class="token value attr-value">https://oss-cn-beijing.aliyuncs.com</span>
 <span class="token key attr-name">ali.oss.accessKeyId</span> <span class="token punctuation">=</span> <span class="token value attr-value">xxx</span>
-<span class="token key attr-name">ali.oss.accessKeySecret</span> <span class="token punctuation">=</span> <span class="token value attr-value">xxx</span>
+<span class="token key attr-name">ali.oss.accessKeySecret</span> <span class="token value attr-value">= </span>
 <span class="token key attr-name">ali.oss.bucketName</span> <span class="token punctuation">=</span> <span class="token value attr-value">tlias-ethan</span></code></pre>
 <p>application.yml</p>
 <pre class="language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">spring</span><span class="token punctuation">:</span>
@@ -4082,7 +4082,7 @@ alt="image-20240424052339222" /></p></li>
   <span class="token key atrule">oss</span><span class="token punctuation">:</span>
     <span class="token key atrule">endpoint</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//oss<span class="token punctuation">-</span>cn<span class="token punctuation">-</span>beijing.aliyuncs.com
     <span class="token key atrule">accessKeyId</span><span class="token punctuation">:</span> xxx
-    <span class="token key atrule">accessKeySecret</span><span class="token punctuation">:</span> xxx
+    <span class="token key atrule">accessKeSecret</span><span class="token punctuation">:</span> 
     <span class="token key atrule">bucketName</span><span class="token punctuation">:</span> tlias<span class="token punctuation">-</span>ethan</code></pre></li>
 <li><p><code>@ConfigurationProperties</code></p>
 <p>AliOSSProperties.java</p>

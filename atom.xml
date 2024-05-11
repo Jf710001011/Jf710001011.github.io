@@ -6,7 +6,7 @@
   <link href="https://jf710001011.github.io/atom.xml" rel="self"/>
   
   <link href="https://jf710001011.github.io/"/>
-  <updated>2024-05-01T22:33:25.552Z</updated>
+  <updated>2024-05-05T22:49:00.097Z</updated>
   <id>https://jf710001011.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SpringCloud</title>
+    <link href="https://jf710001011.github.io/2024/05/03/springcloud/"/>
+    <id>https://jf710001011.github.io/2024/05/03/springcloud/</id>
+    <published>2024-05-02T18:42:29.481Z</published>
+    <updated>2024-05-05T22:49:00.097Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;mybatisplus&quot;&gt;MybatisPlus&lt;/h3&gt;
+&lt;h4 id=&quot;getting-started&quot;&gt;Getting started&lt;/h4&gt;
+&lt;ol type=&quot;1&quot;&gt;
+&lt;li&gt;&lt;p&gt;pom.xml&lt;/p&gt;
+&lt;pre</summary>
+        
+      
+    
+    
+    
+    <category term="Program design" scheme="https://jf710001011.github.io/categories/Program-design/"/>
+    
+    
+    <category term="Java" scheme="https://jf710001011.github.io/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaWeb</title>
@@ -534,34 +563,6 @@ alt=&quot;image-20230718085116774&quot;</summary>
     
     
     <category term="Windows" scheme="https://jf710001011.github.io/tags/Windows/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Web &amp; JavaScript</title>
-    <link href="https://jf710001011.github.io/2023/12/09/web/"/>
-    <id>https://jf710001011.github.io/2023/12/09/web/</id>
-    <published>2023-12-09T11:25:07.853Z</published>
-    <updated>2024-01-13T03:28:53.375Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;getting-started-with-the-web&quot;&gt;Getting started with the web&lt;/h3&gt;
-&lt;h4 id=&quot;installing-a-local-web-server&quot;&gt;Installing a local</summary>
-        
-      
-    
-    
-    
-    <category term="Cybersecurity" scheme="https://jf710001011.github.io/categories/Cybersecurity/"/>
-    
-    
-    <category term="Web" scheme="https://jf710001011.github.io/tags/Web/"/>
-    
-    <category term="Program design" scheme="https://jf710001011.github.io/tags/Program-design/"/>
     
   </entry>
   

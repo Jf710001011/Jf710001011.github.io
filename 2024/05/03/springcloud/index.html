@@ -477,14 +477,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2024-05-06
+                    2024-05-19
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    2.4k
+                    2.8k
                 </div>
                 
 
@@ -1074,7 +1074,82 @@ their names.</p></li>
     users<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token operator">::</span><span class="token function">println</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
 </code></pre></li>
-<li><p>Universal paging entity</p></li>
+<li><p>Universal paging entity</p>
+<p>Mybatis Plus provides a convenient and flexible approach to
+pagination, enabling developers to efficiently retrieve paginated data
+from databases. The "universal paging entity" (通用分页实体) plays a
+central role in this process by encapsulating pagination parameters and
+facilitating their consistent usage across different mapper methods and
+service calls.</p>
+<p><strong>Key Features of the Universal Paging Entity:</strong></p>
+<ol type="1">
+<li><strong>Simplified Pagination Logic:</strong> By encapsulating
+pagination parameters in a dedicated entity, developers can manage and
+pass these parameters consistently, reducing the complexity of
+pagination logic.</li>
+<li><strong>Enhanced Code Readability:</strong> Using a separate entity
+for pagination parameters improves code readability and maintainability,
+making it easier to understand and modify paging behavior.</li>
+<li><strong>Promotes Code Reuse:</strong> The universal paging entity
+can be reused across various parts of the application, minimizing code
+duplication and promoting consistent pagination handling.</li>
+</ol>
+<p><strong>Structure of the Universal Paging Entity:</strong></p>
+<p>The specific structure of the universal paging entity may vary
+depending on the application's requirements and preferences. However, it
+typically includes the following fields:</p>
+<ol type="1">
+<li><strong><code>page</code>:</strong> Represents the current page
+number.</li>
+<li><strong><code>size</code>:</strong> Represents the page size, i.e.,
+the number of items per page.</li>
+<li><strong><code>orderByColumn</code>:</strong> Specifies the column
+name for sorting.</li>
+<li><strong><code>isAsc</code>:</strong> Indicates whether the sorting
+order is ascending (true) or descending (false).</li>
+</ol>
+<p><strong>Example Universal Paging Entity:</strong></p>
+<p>Java</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">PageInfo</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">></span></span> <span class="token punctuation">&#123;</span>
+
+    <span class="token keyword">private</span> <span class="token class-name">Long</span> page<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Long</span> size<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> orderByColumn<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Boolean</span> isAsc<span class="token punctuation">;</span>
+
+    <span class="token comment">// Getters and setters for all fields</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p><strong>Using the Universal Paging Entity:</strong></p>
+<p>To utilize the universal paging entity, follow these steps:</p>
+<ol type="1">
+<li><strong>Create the Paging Entity:</strong> Create a class that
+represents the paging entity, including the necessary fields for page
+number, page size, and sorting.</li>
+<li><strong>Pass Paging Entity to Mapper:</strong> When invoking mapper
+methods that require pagination, pass an instance of the paging entity
+as an argument.</li>
+<li><strong>Process Paging Parameters:</strong> Mybatis Plus will
+automatically extract the pagination parameters from the paging entity
+and apply them to the corresponding SQL query.</li>
+</ol>
+<p><strong>Example Usage:</strong></p>
+<p>Java</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token comment">// Create paging entity instance</span>
+<span class="token class-name">PageInfo</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">User</span><span class="token punctuation">></span></span> pageInfo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">PageInfo</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+pageInfo<span class="token punctuation">.</span><span class="token function">setPage</span><span class="token punctuation">(</span><span class="token number">1L</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+pageInfo<span class="token punctuation">.</span><span class="token function">setSize</span><span class="token punctuation">(</span><span class="token number">10L</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+pageInfo<span class="token punctuation">.</span><span class="token function">setOrderByColumn</span><span class="token punctuation">(</span><span class="token string">"name"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+pageInfo<span class="token punctuation">.</span><span class="token function">setIsAsc</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Retrieve paginated user list</span>
+<span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">User</span><span class="token punctuation">></span></span> users <span class="token operator">=</span> userService<span class="token punctuation">.</span><span class="token function">selectPage</span><span class="token punctuation">(</span>pageInfo<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Access pagination information from pageInfo object</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Total pages: "</span> <span class="token operator">+</span> pageInfo<span class="token punctuation">.</span><span class="token function">getPages</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Total records: "</span> <span class="token operator">+</span> pageInfo<span class="token punctuation">.</span><span class="token function">getTotal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>By employing the universal paging entity, developers can streamline
+pagination logic, enhance code readability, and promote code reuse in
+Mybatis Plus applications.</p></li>
 </ol>
 
                 
@@ -1691,7 +1766,7 @@ their names.</p></li>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">289k</span>&nbsp;字
+                class="white-color">289.4k</span>&nbsp;字
             
             
             

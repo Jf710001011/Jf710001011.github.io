@@ -1210,22 +1210,22 @@ nameserver 8.8.8.8</code></pre></li>
 <ol type="1">
 <li><p>xx</p>
 <pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> pull</code></pre>
-<pre class="language-none"><code class="language-none">docker images</code></pre>
-<pre class="language-none"><code class="language-none">docker rmi</code></pre>
-<pre class="language-none"><code class="language-none">docker build
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> images</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> rmi</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> build
 
-docker save</code></pre>
-<pre class="language-none"><code class="language-none">docker load</code></pre>
-<pre class="language-none"><code class="language-none">docker push</code></pre>
-<pre class="language-none"><code class="language-none">docker run
+<span class="token function">docker</span> save</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> load</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> push</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run
 
-docker stop
+<span class="token function">docker</span> stop
 
-docker start</code></pre>
-<pre class="language-none"><code class="language-none">docker rm</code></pre>
-<pre class="language-none"><code class="language-none">docker logs</code></pre>
-<pre class="language-none"><code class="language-none">docker exec</code></pre>
-<pre class="language-none"><code class="language-none">docker save --help</code></pre></li>
+<span class="token function">docker</span> start</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> <span class="token function">rm</span></code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> logs</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> <span class="token builtin class-name">exec</span></code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> save <span class="token parameter variable">--help</span></code></pre></li>
 <li><p>error:</p>
 <pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> nginx <span class="token function">bash</span>
 Error response from daemon: No such container: nginx</code></pre>
@@ -1263,7 +1263,16 @@ alt="image-20240526061525564" /></p></li>
 </ol>
 <h4 id="mount-mysql-locally">Mount MySQL locally</h4>
 <ol type="1">
-<li></li>
+<li><p>cmd</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>
+  <span class="token parameter variable">--name</span> mysql <span class="token punctuation">\</span>
+  <span class="token parameter variable">-p</span> <span class="token number">3306</span>:3306 <span class="token punctuation">\</span>
+  <span class="token parameter variable">-e</span> <span class="token assign-left variable">TZ</span><span class="token operator">=</span>Asia/Shanghai <span class="token punctuation">\</span>
+  <span class="token parameter variable">-e</span> <span class="token assign-left variable">MYSQL_ROOT_PASSWORD</span><span class="token operator">=</span><span class="token number">123</span> <span class="token punctuation">\</span>
+  <span class="token parameter variable">-v</span> ./mysql/data:/var/lib/mysql <span class="token punctuation">\</span>
+  <span class="token parameter variable">-v</span> ./mysql/conf:/etc/mysql/conf.d <span class="token punctuation">\</span>
+  <span class="token parameter variable">-v</span> ./mysql/init:/docker-entrypoint-initdb.d <span class="token punctuation">\</span>
+  mysql</code></pre></li>
 </ol>
 
                 

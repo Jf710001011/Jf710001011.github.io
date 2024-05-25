@@ -477,14 +477,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2024-05-19
+                    2024-05-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    2.8k
+                    3.2k
                 </div>
                 
 
@@ -1074,7 +1074,7 @@ their names.</p></li>
     users<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token operator">::</span><span class="token function">println</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
 </code></pre></li>
-<li><p>Universal paging entity</p>
+<li><p>generic paging entity</p>
 <p>Mybatis Plus provides a convenient and flexible approach to
 pagination, enabling developers to efficiently retrieve paginated data
 from databases. The "universal paging entity" (通用分页实体) plays a
@@ -1108,7 +1108,7 @@ name for sorting.</li>
 <li><strong><code>isAsc</code>:</strong> Indicates whether the sorting
 order is ascending (true) or descending (false).</li>
 </ol>
-<p><strong>Example Universal Paging Entity:</strong></p>
+<p><strong>Example generic paging entity:</strong></p>
 <p>Java</p>
 <pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">PageInfo</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">></span></span> <span class="token punctuation">&#123;</span>
 
@@ -1119,7 +1119,7 @@ order is ascending (true) or descending (false).</li>
 
     <span class="token comment">// Getters and setters for all fields</span>
 <span class="token punctuation">&#125;</span></code></pre>
-<p><strong>Using the Universal Paging Entity:</strong></p>
+<p><strong>Using the generic paging entity:</strong></p>
 <p>To utilize the universal paging entity, follow these steps:</p>
 <ol type="1">
 <li><strong>Create the Paging Entity:</strong> Create a class that
@@ -1150,6 +1150,120 @@ pageInfo<span class="token punctuation">.</span><span class="token function">set
 <p>By employing the universal paging entity, developers can streamline
 pagination logic, enhance code readability, and promote code reuse in
 Mybatis Plus applications.</p></li>
+<li><p>The <strong>conversion</strong> between a
+<code>generic paging entity</code> in Java and <code>Mybatis Plus</code>
+involves mapping the paging parameters from the entity to the
+corresponding parameters used by Mybatis Plus for pagination.</p></li>
+</ol>
+<h3 id="docker">Docker</h3>
+<h4 id="insttall-docker-in-centos-within-vmware">Insttall docker in
+centos within VMware</h4>
+<ol type="1">
+<li><p><a target="_blank" rel="noopener" href="https://www.linuxvmimages.com/images/centos-7/">Centos7
+Image</a></p></li>
+<li><p><a
+href="https://jf710001011.github.io/2023/02/27/vmware/#toc-heading-2">Vmware
+Internet connection problem</a></p></li>
+<li><p>Command used</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash">// Determine whether the connection is successful
+<span class="token function">curl</span> google.com
+
+// Use correct dns
+<span class="token function">ping</span> <span class="token number">8.8</span>.8.8
+
+// Install <span class="token function">docker</span>
+<span class="token function">sudo</span> yum <span class="token function">install</span> <span class="token parameter variable">-y</span> yum-utils
+<span class="token function">sudo</span> yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+<span class="token function">sudo</span> yum <span class="token function">install</span> <span class="token parameter variable">-y</span> docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+<span class="token function">docker</span> <span class="token parameter variable">-v</span>
+
+// Now  u will see error
+<span class="token function">sudo</span> <span class="token function">docker</span> images
+systemctl <span class="token builtin class-name">enable</span> <span class="token function">docker</span>
+systemctl start <span class="token function">docker</span>
+
+// Try again
+<span class="token function">sudo</span> <span class="token function">docker</span> images</code></pre></li>
+</ol>
+<h4 id="deploy-mysql">Deploy Mysql</h4>
+<ol type="1">
+<li><p>xx</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>
+  <span class="token parameter variable">--name</span> mysql <span class="token punctuation">\</span>
+  <span class="token parameter variable">-p</span> <span class="token number">3306</span>:3306 <span class="token punctuation">\</span>
+  <span class="token parameter variable">-e</span> <span class="token assign-left variable">TZ</span><span class="token operator">=</span>Asia/Shanghai <span class="token punctuation">\</span>
+  <span class="token parameter variable">-e</span> <span class="token assign-left variable">MYSQL_ROOT_PASSWORD</span><span class="token operator">=</span><span class="token number">123</span> <span class="token punctuation">\</span>
+  mysql</code></pre>
+<p>error:</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash">Unable to <span class="token function">find</span> image <span class="token string">'mysql:latest'</span> locally
+docker: Error response from daemon: Get <span class="token string">"https://registry-1.docker.io/v2/"</span><span class="token builtin class-name">:</span> net/http: request canceled <span class="token keyword">while</span> waiting <span class="token keyword">for</span> connection <span class="token punctuation">(</span>Client.Timeout exceeded <span class="token keyword">while</span> awaiting headers<span class="token punctuation">)</span>.
+See <span class="token string">'docker run --help'</span><span class="token builtin class-name">.</span></code></pre>
+<p>solu:</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">vi</span> /etc/resolv.conf</code></pre>
+<p>modify dns</p>
+<pre class="language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># Generated by NetworkManager</span>
+search localdomain linuxvmimages.local
+nameserver 8.8.8.8</code></pre></li>
+</ol>
+<h4 id="docker-command">Docker command</h4>
+<ol type="1">
+<li><p>xx</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> pull</code></pre>
+<pre class="language-none"><code class="language-none">docker images</code></pre>
+<pre class="language-none"><code class="language-none">docker rmi</code></pre>
+<pre class="language-none"><code class="language-none">docker build
+
+docker save</code></pre>
+<pre class="language-none"><code class="language-none">docker load</code></pre>
+<pre class="language-none"><code class="language-none">docker push</code></pre>
+<pre class="language-none"><code class="language-none">docker run
+
+docker stop
+
+docker start</code></pre>
+<pre class="language-none"><code class="language-none">docker rm</code></pre>
+<pre class="language-none"><code class="language-none">docker logs</code></pre>
+<pre class="language-none"><code class="language-none">docker exec</code></pre>
+<pre class="language-none"><code class="language-none">docker save --help</code></pre></li>
+<li><p>error:</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> nginx <span class="token function">bash</span>
+Error response from daemon: No such container: nginx</code></pre>
+<p>solu:</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@centos7 centos<span class="token punctuation">]</span><span class="token comment"># docker run -d --name nginx nginx</span>
+e6ea1b0ae26cad27fb408f762e8aeeb73b888b2efa9e3e78cc7d8d34423cd253
+<span class="token punctuation">[</span>root@centos7 centos<span class="token punctuation">]</span><span class="token comment"># docker exec -it nginx bash</span>
+root@e6ea1b0ae26c:/<span class="token comment"># </span></code></pre></li>
+</ol>
+<h4 id="volume-mount">Volume Mount</h4>
+<ol type="1">
+<li><p>cmd</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token parameter variable">--name</span> nginx <span class="token parameter variable">-p</span> <span class="token number">80</span>:80 <span class="token parameter variable">-v</span> html:/usr/share/nginx/html nginx</code></pre></li>
+<li><p>cmd</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> volume <span class="token function">ls</span></code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash">DRIVER    VOLUME NAME
+<span class="token builtin class-name">local</span>     a36c7cbc976914bd5222ae51d5fcb3dd5cfbe31f55d350f03777c86e361d3773
+<span class="token builtin class-name">local</span>     html</code></pre></li>
+<li><p>cmd</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> volume inspect html</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token string">"CreatedAt"</span><span class="token builtin class-name">:</span> <span class="token string">"2024-05-25T17:54:24-04:00"</span>,
+        <span class="token string">"Driver"</span><span class="token builtin class-name">:</span> <span class="token string">"local"</span>,
+        <span class="token string">"Labels"</span><span class="token builtin class-name">:</span> null,
+        <span class="token string">"Mountpoint"</span><span class="token builtin class-name">:</span> <span class="token string">"/var/lib/docker/volumes/html/_data"</span>,
+        <span class="token string">"Name"</span><span class="token builtin class-name">:</span> <span class="token string">"html"</span>,
+        <span class="token string">"Options"</span><span class="token builtin class-name">:</span> null,
+        <span class="token string">"Scope"</span><span class="token builtin class-name">:</span> <span class="token string">"local"</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">]</span></code></pre></li>
+<li><p>edit html<img
+src="https://s2.loli.net/2024/05/26/Sdqum3Z76CsaxUb.png"
+alt="image-20240526061525564" /></p></li>
+</ol>
+<h4 id="mount-mysql-locally">Mount MySQL locally</h4>
+<ol type="1">
+<li></li>
 </ol>
 
                 
@@ -1766,7 +1880,7 @@ Mybatis Plus applications.</p></li>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">289.4k</span>&nbsp;字
+                class="white-color">289.7k</span>&nbsp;字
             
             
             

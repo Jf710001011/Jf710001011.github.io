@@ -477,14 +477,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2024-05-26
+                    2024-05-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    3.2k
+                    4.5k
                 </div>
                 
 
@@ -1156,7 +1156,7 @@ involves mapping the paging parameters from the entity to the
 corresponding parameters used by Mybatis Plus for pagination.</p></li>
 </ol>
 <h3 id="docker">Docker</h3>
-<h4 id="insttall-docker-in-centos-within-vmware">Insttall docker in
+<h4 id="installing-docker-in-centos-within-vmware">Installing docker in
 centos within VMware</h4>
 <ol type="1">
 <li><p><a target="_blank" rel="noopener" href="https://www.linuxvmimages.com/images/centos-7/">Centos7
@@ -1186,7 +1186,7 @@ systemctl start <span class="token function">docker</span>
 // Try again
 <span class="token function">sudo</span> <span class="token function">docker</span> images</code></pre></li>
 </ol>
-<h4 id="deploy-mysql">Deploy Mysql</h4>
+<h4 id="deploying-mysql">Deploying Mysql</h4>
 <ol type="1">
 <li><p>xx</p>
 <pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>
@@ -1194,6 +1194,7 @@ systemctl start <span class="token function">docker</span>
   <span class="token parameter variable">-p</span> <span class="token number">3306</span>:3306 <span class="token punctuation">\</span>
   <span class="token parameter variable">-e</span> <span class="token assign-left variable">TZ</span><span class="token operator">=</span>Asia/Shanghai <span class="token punctuation">\</span>
   <span class="token parameter variable">-e</span> <span class="token assign-left variable">MYSQL_ROOT_PASSWORD</span><span class="token operator">=</span><span class="token number">123</span> <span class="token punctuation">\</span>
+  <span class="token parameter variable">--network</span> hun7<span class="token punctuation">\</span>
   mysql</code></pre>
 <p>error:</p>
 <pre class="language-bash" data-language="bash"><code class="language-bash">Unable to <span class="token function">find</span> image <span class="token string">'mysql:latest'</span> locally
@@ -1235,7 +1236,7 @@ e6ea1b0ae26cad27fb408f762e8aeeb73b888b2efa9e3e78cc7d8d34423cd253
 <span class="token punctuation">[</span>root@centos7 centos<span class="token punctuation">]</span><span class="token comment"># docker exec -it nginx bash</span>
 root@e6ea1b0ae26c:/<span class="token comment"># </span></code></pre></li>
 </ol>
-<h4 id="volume-mount">Volume Mount</h4>
+<h4 id="volume-mounting">Volume Mounting</h4>
 <ol type="1">
 <li><p>cmd</p>
 <pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token parameter variable">--name</span> nginx <span class="token parameter variable">-p</span> <span class="token number">80</span>:80 <span class="token parameter variable">-v</span> html:/usr/share/nginx/html nginx</code></pre></li>
@@ -1263,9 +1264,21 @@ alt="image-20240526061525564" /></p></li>
 </ol>
 <h4 id="mount-mysql-locally">Mount MySQL locally</h4>
 <ol type="1">
-<li><p>cmd</p>
-<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>
+<li><p><code>mkdir</code></p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token punctuation">[</span>root<span class="token annotation punctuation">@localhost</span> <span class="token number">3</span>thanhun71o<span class="token punctuation">]</span># tree java <span class="token operator">-</span><span class="token class-name">L</span> <span class="token number">2</span>
+java
+├── hmall_java
+│   ├── <span class="token class-name">Dockerfile</span>
+│   └── hm<span class="token operator">-</span>service<span class="token punctuation">.</span>jar
+└── mysql
+    ├── conf
+    ├── data
+    └── init</code></pre></li>
+<li><p>"data" foleder is empty, upload "conf" and "init"</p></li>
+<li><p>run</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>
   <span class="token parameter variable">--name</span> mysql <span class="token punctuation">\</span>
+  <span class="token parameter variable">--network</span> hun7<span class="token punctuation">\</span>
   <span class="token parameter variable">-p</span> <span class="token number">3306</span>:3306 <span class="token punctuation">\</span>
   <span class="token parameter variable">-e</span> <span class="token assign-left variable">TZ</span><span class="token operator">=</span>Asia/Shanghai <span class="token punctuation">\</span>
   <span class="token parameter variable">-e</span> <span class="token assign-left variable">MYSQL_ROOT_PASSWORD</span><span class="token operator">=</span><span class="token number">123</span> <span class="token punctuation">\</span>
@@ -1273,6 +1286,328 @@ alt="image-20240526061525564" /></p></li>
   <span class="token parameter variable">-v</span> ./mysql/conf:/etc/mysql/conf.d <span class="token punctuation">\</span>
   <span class="token parameter variable">-v</span> ./mysql/init:/docker-entrypoint-initdb.d <span class="token punctuation">\</span>
   mysql</code></pre></li>
+<li><p>"data" folder</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost mysql<span class="token punctuation">]</span><span class="token comment"># tree data -L 1</span>
+data
+├── auto.cnf
+├── binlog.000001
+├── binlog.000002
+├── binlog.index
+├── ca-key.pem
+├── ca.pem
+├── client-cert.pem
+├── client-key.pem
+├── hmall
+├── <span class="token comment">#ib_16384_0.dblwr</span>
+├── <span class="token comment">#ib_16384_1.dblwr</span>
+├── ib_buffer_pool
+├── ibdata1
+├── ibtmp1
+├── <span class="token comment">#innodb_redo</span>
+├── <span class="token comment">#innodb_temp</span>
+├── mysql
+├── mysql.ibd
+├── mysql.sock -<span class="token operator">></span> /var/run/mysqld/mysqld.sock
+├── mysql_upgrade_history
+├── performance_schema
+├── private_key.pem
+├── public_key.pem
+├── server-cert.pem
+├── server-key.pem
+├── sys
+├── undo_001
+└── undo_002</code></pre></li>
+</ol>
+<h4 id="dockerfile">Dockerfile</h4>
+<ol type="1">
+<li><p>layer redis example: note "<strong>already exist</strong>"</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>3thanhun71o@localhost network-scripts<span class="token punctuation">]</span>$ <span class="token function">sudo</span> <span class="token function">docker</span> pull redis
+Using default tag: latest
+latest: Pulling from library/redis
+09f376ebb190: Already exists 
+9ae6a7172b01: Pull complete 
+2c310454138b: Pull complete 
+3eba9ec960aa: Pull complete 
+3d36c165ff0a: Pull complete 
+493d196d734f: Pull complete 
+4f4fb700ef54: Pull complete 
+484e0560ae90: Pull complete 
+Digest: sha256:01afb31d6d633451d84475ff3eb95f8c48bf0ee59ec9c948b161adb4da882053
+Status: Downloaded newer image <span class="token keyword">for</span> redis:latest
+docker.io/library/redis:latest</code></pre></li>
+<li><p>directory hierarchy:<code>tree</code></p>
+<pre class="language-java" data-language="java"><code class="language-java">
+<span class="token punctuation">.</span>
+├── demo
+│   ├── docker<span class="token operator">-</span>demo<span class="token punctuation">.</span>jar
+│   └── <span class="token class-name">Dockerfile</span>
+└── dockerImages
+    └── jdk<span class="token punctuation">.</span>tar</code></pre></li>
+<li><p>dockerfile</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 基础镜像</span>
+FROM openjdk:11.0-jre-buster
+<span class="token comment"># 设定时区</span>
+ENV <span class="token assign-left variable">TZ</span><span class="token operator">=</span>Asia/Shanghai
+RUN <span class="token function">ln</span> <span class="token parameter variable">-snf</span> /usr/share/zoneinfo/<span class="token variable">$TZ</span> /etc/localtime <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">echo</span> <span class="token variable">$TZ</span> <span class="token operator">></span> /etc/timezone
+<span class="token comment"># 拷贝jar包</span>
+COPY docker-demo.jar /app.jar
+<span class="token comment"># 入口</span>
+ENTRYPOINT <span class="token punctuation">[</span><span class="token string">"java"</span>, <span class="token string">"-jar"</span>, <span class="token string">"/app.jar"</span><span class="token punctuation">]</span></code></pre></li>
+<li><p><code>sudo docker load -i jdk.tar</code></p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>sudo<span class="token punctuation">]</span> password <span class="token keyword">for</span> 3thanhun71o: 
+2c7e7ab2260a: Loading layer  <span class="token number">119</span>.3MB/119.3MB
+9ad2165feb02: Loading layer  <span class="token number">17</span>.18MB/17.18MB
+92903c3857f8: Loading layer  <span class="token number">17</span>.87MB/17.87MB
+1736ab871b32: Loading layer  <span class="token number">12</span>.18MB/12.18MB
+6f8e4cb95a88: Loading layer  <span class="token number">3</span>.584kB/3.584kB
+41080a0c646f: Loading layer  <span class="token number">141</span>.8MB/141.8MB
+Loaded image: openjdk:11.0-jre-buster</code></pre></li>
+<li><p><code>docker build -t docker-demo .</code></p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>+<span class="token punctuation">]</span> Building <span class="token number">1</span>.1s <span class="token punctuation">(</span><span class="token number">8</span>/8<span class="token punctuation">)</span> FINISHED                          docker:default
+ <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">[</span>internal<span class="token punctuation">]</span> load build definition from Dockerfile                <span class="token number">0</span>.0s
+ <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">=</span><span class="token operator">></span> transferring dockerfile: 358B                                <span class="token number">0</span>.0s
+ <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">[</span>internal<span class="token punctuation">]</span> load metadata <span class="token keyword">for</span> docker.io/library/openjdk:11.0-jr  <span class="token number">0</span>.0s
+ <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">[</span>internal<span class="token punctuation">]</span> load .dockerignore                                   <span class="token number">0</span>.0s
+ <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">=</span><span class="token operator">></span> transferring context: 2B                                     <span class="token number">0</span>.0s
+ <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">[</span><span class="token number">1</span>/3<span class="token punctuation">]</span> FROM docker.io/library/openjdk:11.0-jre-buster            <span class="token number">0</span>.1s
+ <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">[</span>internal<span class="token punctuation">]</span> load build context                                   <span class="token number">0</span>.2s
+ <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">=</span><span class="token operator">></span> transferring context: <span class="token number">17</span>.70MB                                <span class="token number">0</span>.2s
+ <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">[</span><span class="token number">2</span>/3<span class="token punctuation">]</span> RUN <span class="token function">ln</span> <span class="token parameter variable">-snf</span> /usr/share/zoneinfo/Asia/Shanghai /etc/local  <span class="token number">0</span>.8s
+ <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">[</span><span class="token number">3</span>/3<span class="token punctuation">]</span> COPY docker-demo.jar /app.jar                             <span class="token number">0</span>.1s
+ <span class="token operator">=</span><span class="token operator">></span> exporting to image                                              <span class="token number">0</span>.1s
+ <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">=</span><span class="token operator">></span> exporting layers                                             <span class="token number">0</span>.1s
+ <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">=</span><span class="token operator">></span> writing image sha256:0fa81b613e254e1af23b433fbab915f34bea28  <span class="token number">0</span>.0s
+ <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">=</span><span class="token operator">></span> naming to docker.io/library/docker-demo                      <span class="token number">0</span>.0s</code></pre></li>
+<li><p><code>sudo docker run -d --name dd -p 8080:8080 docker-demo</code></p>
+<ol type="1">
+<li>place “docker-demo” at the end</li>
+</ol></li>
+<li><p><code>sudo docker logs -f dd</code></p>
+<pre class="language-bash" data-language="bash"><code class="language-bash">
+  <span class="token builtin class-name">.</span>   ____          _            __ _ _
+ /<span class="token punctuation">\</span><span class="token punctuation">\</span> / ___<span class="token string">'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '</span>_ <span class="token operator">|</span> <span class="token string">'_| | '</span>_ <span class="token punctuation">\</span>/ _` <span class="token operator">|</span> <span class="token punctuation">\</span> <span class="token punctuation">\</span> <span class="token punctuation">\</span> <span class="token punctuation">\</span>
+ <span class="token punctuation">\</span><span class="token punctuation">\</span>/  ___<span class="token punctuation">)</span><span class="token operator">|</span> <span class="token operator">|</span>_<span class="token punctuation">)</span><span class="token operator">|</span> <span class="token operator">|</span> <span class="token operator">|</span> <span class="token operator">|</span> <span class="token operator">|</span> <span class="token operator">||</span> <span class="token punctuation">(</span>_<span class="token operator">|</span> <span class="token operator">|</span>  <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span>
+  <span class="token string">'  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::               (v2.7.12)
+
+13:01:56  INFO 1 --- [           main] com.itheima.mp.MpDemoApplication         : Starting MpDemoApplication v0.0.1-SNAPSHOT using Java 11.0.13 on 1a9f9c451d3f with PID 1 (/app.jar started by root in /)
+13:01:56 DEBUG 1 --- [           main] com.itheima.mp.MpDemoApplication         : Running with Spring Boot v2.7.12, Spring v5.3.27
+13:01:56  INFO 1 --- [           main] com.itheima.mp.MpDemoApplication         : No active profile set, falling back to 1 default profile: "default"
+13:01:58  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+13:01:58  INFO 1 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+13:01:58  INFO 1 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+13:01:58  INFO 1 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+13:01:58  INFO 1 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1433 ms
+13:01:58  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '</span>'
+<span class="token number">13</span>:01:58  INFO <span class="token number">1</span> --- <span class="token punctuation">[</span>           main<span class="token punctuation">]</span> com.itheima.mp.MpDemoApplication         <span class="token builtin class-name">:</span> Started MpDemoApplication <span class="token keyword">in</span> <span class="token number">3.124</span> seconds <span class="token punctuation">(</span>JVM running <span class="token keyword">for</span> <span class="token number">3.583</span><span class="token punctuation">)</span>
+</code></pre></li>
+</ol>
+<h4 id="container-network-interconnectivity">Container network
+interconnectivity</h4>
+<ol type="1">
+<li><p><code>docker network ls</code></p>
+<pre class="language-bash" data-language="bash"><code class="language-bash">NETWORK ID     NAME      DRIVER    SCOPE
+f30844574f2e   bridge    bridge    <span class="token builtin class-name">local</span>
+365088aeeb58   <span class="token function">host</span>      <span class="token function">host</span>      <span class="token builtin class-name">local</span>
+84031f9c99f1   none      null      <span class="token builtin class-name">local</span></code></pre></li>
+<li><p><code>docker network create hun7</code></p></li>
+<li><p><code>docker network ls</code></p>
+<pre class="language-none"><code class="language-none">NETWORK ID     NAME      DRIVER    SCOPE
+f30844574f2e   bridge    bridge    local
+365088aeeb58   host      host      local
+686d781fa30f   hun7      bridge    local
+84031f9c99f1   none      null      local</code></pre></li>
+<li><p><code>sudo docker ps</code></p>
+<pre class="language-bash" data-language="bash"><code class="language-bash">CONTAINER ID   IMAGE         COMMAND                  CREATED          STATUS          PORTS                                                  NAMES
+0de640d41c60   docker-demo   <span class="token string">"java -jar /app.jar"</span>     <span class="token number">44</span> minutes ago   Up <span class="token number">44</span> minutes   <span class="token number">0.0</span>.0.0:8080-<span class="token operator">></span><span class="token number">8080</span>/tcp, :::8080-<span class="token operator">></span><span class="token number">8080</span>/tcp              <span class="token function">dd</span>
+9d0ed0dc77e5   nginx         <span class="token string">"/docker-entrypoint.…"</span>   <span class="token number">22</span> hours ago     Up <span class="token number">49</span> minutes   <span class="token number">0.0</span>.0.0:80-<span class="token operator">></span><span class="token number">80</span>/tcp, :::80-<span class="token operator">></span><span class="token number">80</span>/tcp                      nginx
+8a0bdeb50841   mysql         <span class="token string">"docker-entrypoint.s…"</span>   <span class="token number">22</span> hours ago     Up <span class="token number">4</span> seconds    <span class="token number">0.0</span>.0.0:3306-<span class="token operator">></span><span class="token number">3306</span>/tcp, :::3306-<span class="token operator">></span><span class="token number">3306</span>/tcp, <span class="token number">33060</span>/tcp   mysql</code></pre></li>
+<li><p><code>docker network connect hun7 mysql</code></p></li>
+<li><p><code>docker network connect hun7 dd</code></p></li>
+<li><p><code>docker inspect mysql</code></p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token string">"hun7"</span><span class="token builtin class-name">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token string">"IPAMConfig"</span><span class="token builtin class-name">:</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>,
+    <span class="token string">"Links"</span><span class="token builtin class-name">:</span> null,
+    <span class="token string">"Aliases"</span><span class="token builtin class-name">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>,
+    <span class="token string">"MacAddress"</span><span class="token builtin class-name">:</span> <span class="token string">"02:42:ac:12:00:03"</span>,
+    <span class="token string">"NetworkID"</span><span class="token builtin class-name">:</span> <span class="token string">"686d781fa30f40ca02fec31d3f683b1bb61a6088b22a2861487688fe39ce5620"</span>,
+    <span class="token string">"EndpointID"</span><span class="token builtin class-name">:</span> <span class="token string">"4c453d1275cdd02390edcd927b22d3e77676b6af105cd5a9c46bb8638d18842a"</span>,
+    <span class="token string">"Gateway"</span><span class="token builtin class-name">:</span> <span class="token string">"172.18.0.1"</span>,
+    <span class="token string">"IPAddress"</span><span class="token builtin class-name">:</span> <span class="token string">"172.18.0.3"</span>,
+    <span class="token string">"IPPrefixLen"</span><span class="token builtin class-name">:</span> <span class="token number">16</span>,
+    <span class="token string">"IPv6Gateway"</span><span class="token builtin class-name">:</span> <span class="token string">""</span>,
+    <span class="token string">"GlobalIPv6Address"</span><span class="token builtin class-name">:</span> <span class="token string">""</span>,
+    <span class="token string">"GlobalIPv6PrefixLen"</span><span class="token builtin class-name">:</span> <span class="token number">0</span>,
+    <span class="token string">"DriverOpts"</span><span class="token builtin class-name">:</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>,
+    <span class="token string">"DNSNames"</span><span class="token builtin class-name">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"mysql"</span>,
+        <span class="token string">"8a0bdeb50841"</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span></code></pre></li>
+<li><p><code>docker inspect dd</code></p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token string">"hun7"</span><span class="token builtin class-name">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token string">"IPAMConfig"</span><span class="token builtin class-name">:</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>,
+    <span class="token string">"Links"</span><span class="token builtin class-name">:</span> null,
+    <span class="token string">"Aliases"</span><span class="token builtin class-name">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>,
+    <span class="token string">"MacAddress"</span><span class="token builtin class-name">:</span> <span class="token string">"02:42:ac:12:00:02"</span>,
+    <span class="token string">"NetworkID"</span><span class="token builtin class-name">:</span> <span class="token string">"686d781fa30f40ca02fec31d3f683b1bb61a6088b22a2861487688fe39ce5620"</span>,
+    <span class="token string">"EndpointID"</span><span class="token builtin class-name">:</span> <span class="token string">"098e973e681d7c83a56835c219e952050b952a1faaf73dfdd3bed807ee40d416"</span>,
+    <span class="token string">"Gateway"</span><span class="token builtin class-name">:</span> <span class="token string">"172.18.0.1"</span>,
+    <span class="token string">"IPAddress"</span><span class="token builtin class-name">:</span> <span class="token string">"172.18.0.2"</span>,
+    <span class="token string">"IPPrefixLen"</span><span class="token builtin class-name">:</span> <span class="token number">16</span>,
+    <span class="token string">"IPv6Gateway"</span><span class="token builtin class-name">:</span> <span class="token string">""</span>,
+    <span class="token string">"GlobalIPv6Address"</span><span class="token builtin class-name">:</span> <span class="token string">""</span>,
+    <span class="token string">"GlobalIPv6PrefixLen"</span><span class="token builtin class-name">:</span> <span class="token number">0</span>,
+    <span class="token string">"DriverOpts"</span><span class="token builtin class-name">:</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>,
+    <span class="token string">"DNSNames"</span><span class="token builtin class-name">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"dd"</span>,
+        <span class="token string">"0de640d41c60"</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span></code></pre></li>
+<li><p><code>docker exec -it dd bash</code></p></li>
+<li><p><code>ping mysql</code></p>
+<pre class="language-bash" data-language="bash"><code class="language-bash">PING mysql <span class="token punctuation">(</span><span class="token number">172.18</span>.0.3<span class="token punctuation">)</span> <span class="token number">56</span><span class="token punctuation">(</span><span class="token number">84</span><span class="token punctuation">)</span> bytes of data.
+<span class="token number">64</span> bytes from mysql.hun7 <span class="token punctuation">(</span><span class="token number">172.18</span>.0.3<span class="token punctuation">)</span>: <span class="token assign-left variable">icmp_seq</span><span class="token operator">=</span><span class="token number">1</span> <span class="token assign-left variable">ttl</span><span class="token operator">=</span><span class="token number">64</span> <span class="token assign-left variable">time</span><span class="token operator">=</span><span class="token number">0.102</span> ms
+<span class="token number">64</span> bytes from mysql.hun7 <span class="token punctuation">(</span><span class="token number">172.18</span>.0.3<span class="token punctuation">)</span>: <span class="token assign-left variable">icmp_seq</span><span class="token operator">=</span><span class="token number">2</span> <span class="token assign-left variable">ttl</span><span class="token operator">=</span><span class="token number">64</span> <span class="token assign-left variable">time</span><span class="token operator">=</span><span class="token number">0.062</span> ms
+<span class="token number">64</span> bytes from mysql.hun7 <span class="token punctuation">(</span><span class="token number">172.18</span>.0.3<span class="token punctuation">)</span>: <span class="token assign-left variable">icmp_seq</span><span class="token operator">=</span><span class="token number">3</span> <span class="token assign-left variable">ttl</span><span class="token operator">=</span><span class="token number">64</span> <span class="token assign-left variable">time</span><span class="token operator">=</span><span class="token number">0.057</span> ms
+<span class="token number">64</span> bytes from mysql.hun7 <span class="token punctuation">(</span><span class="token number">172.18</span>.0.3<span class="token punctuation">)</span>: <span class="token assign-left variable">icmp_seq</span><span class="token operator">=</span><span class="token number">4</span> <span class="token assign-left variable">ttl</span><span class="token operator">=</span><span class="token number">64</span> <span class="token assign-left variable">time</span><span class="token operator">=</span><span class="token number">0.087</span> ms</code></pre></li>
+</ol>
+<h4 id="dockerizing-and-deploying-applications">Dockerizing and
+deploying applications</h4>
+<ol type="1">
+<li><p>[3thanhun71o@localhost java]$ <code>mkdir mysql</code></p></li>
+<li><p>[3thanhun71o@localhost mysql]$ <code>mkdir data</code></p></li>
+<li><p>upload <code>conf</code> and <code>init</code><img
+src="https://s2.loli.net/2024/05/27/7XRG6MiBahb8ZWS.png"
+alt="image-20240527224146751" /></p></li>
+<li><p>mount mysql</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>
+  <span class="token parameter variable">--name</span> mysql <span class="token punctuation">\</span>
+  <span class="token parameter variable">--network</span> hun7<span class="token punctuation">\</span>
+  <span class="token parameter variable">-p</span> <span class="token number">3306</span>:3306 <span class="token punctuation">\</span>
+  <span class="token parameter variable">-e</span> <span class="token assign-left variable">TZ</span><span class="token operator">=</span>Asia/Shanghai <span class="token punctuation">\</span>
+  <span class="token parameter variable">-e</span> <span class="token assign-left variable">MYSQL_ROOT_PASSWORD</span><span class="token operator">=</span><span class="token number">123</span> <span class="token punctuation">\</span>
+  <span class="token parameter variable">-v</span> ./mysql/data:/var/lib/mysql <span class="token punctuation">\</span>
+  <span class="token parameter variable">-v</span> ./mysql/conf:/etc/mysql/conf.d <span class="token punctuation">\</span>
+  <span class="token parameter variable">-v</span> ./mysql/init:/docker-entrypoint-initdb.d <span class="token punctuation">\</span>
+  mysql</code></pre></li>
+<li><p>[root@localhost java]#<code>tree hmall_java/ -L 1</code></p>
+<pre class="language-bash" data-language="bash"><code class="language-bash">hmall_java/
+├── Dockerfile
+└── hm-service.jar</code></pre></li>
+<li><p><code>docker build -t hmall .</code></p></li>
+<li><p><code>docker run -d --name hm -p 8080:8080 --network hun7 hmall</code></p></li>
+<li><p><code>docker logs -f hm</code></p></li>
+<li><p>request:
+http://192.168.130.128:8080/search/list?pageNo=1&amp;pageSize=5</p></li>
+</ol>
+<h4 id="deploying-a-front-end-application">Deploying a front-end
+application</h4>
+<ol type="1">
+<li><p>modify <code>nginx.conf</code>:
+<code>hmall</code>-&gt;<code>hm</code><img
+src="https://s2.loli.net/2024/05/27/cpdJjoGR2mM49uy.png"
+alt="image-20240527230902004" /></p></li>
+<li><p>upload <code>nginx</code> folder</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token punctuation">[</span>root<span class="token annotation punctuation">@localhost</span> mounting<span class="token punctuation">]</span># tree nginx <span class="token operator">-</span><span class="token class-name">L</span> <span class="token number">1</span>
+nginx
+├── html
+└── nginx<span class="token punctuation">.</span>conf</code></pre></li>
+<li><p>run</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>
+  <span class="token parameter variable">--name</span> nginx <span class="token punctuation">\</span>
+  <span class="token parameter variable">-p</span> <span class="token number">18080</span>:18080 <span class="token punctuation">\</span>
+  <span class="token parameter variable">-p</span> <span class="token number">18081</span>:18081 <span class="token punctuation">\</span>
+  <span class="token parameter variable">-v</span> ./nginx/html:/usr/share/nginx/html <span class="token punctuation">\</span>
+  <span class="token parameter variable">-v</span> ./nginx/nginx.conf:/etc/nginx/nginx.conf <span class="token punctuation">\</span>
+  <span class="token parameter variable">--network</span> hun7 <span class="token punctuation">\</span>
+  nginx</code></pre>
+<figure>
+<img src="https://s2.loli.net/2024/05/27/bDFMhsKTyHr8t4w.png"
+alt="image-20240527232547896" />
+<figcaption aria-hidden="true">image-20240527232547896</figcaption>
+</figure></li>
+</ol>
+<h4 id="dockercompose">DockerCompose</h4>
+<ol type="1">
+<li><p>example: <code>docker-compose.yml</code></p>
+<pre class="language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">"3.8"</span>
+
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">mysql</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> mysql
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> mysql
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">"3306:3306"</span>
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token key atrule">TZ</span><span class="token punctuation">:</span> Asia/Shanghai
+      <span class="token key atrule">MYSQL_ROOT_PASSWORD</span><span class="token punctuation">:</span> <span class="token number">123</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">"./mysql/conf:/etc/mysql/conf.d"</span>
+      <span class="token punctuation">-</span> <span class="token string">"./mysql/data:/var/lib/mysql"</span>
+      <span class="token punctuation">-</span> <span class="token string">"./mysql/init:/docker-entrypoint-initdb.d"</span>
+    <span class="token key atrule">networks</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> hm<span class="token punctuation">-</span>net
+  <span class="token key atrule">hmall</span><span class="token punctuation">:</span>
+    <span class="token key atrule">build</span><span class="token punctuation">:</span> 
+      <span class="token key atrule">context</span><span class="token punctuation">:</span> .
+      <span class="token key atrule">dockerfile</span><span class="token punctuation">:</span> Dockerfile
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> hmall
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">"8080:8080"</span>
+    <span class="token key atrule">networks</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> hm<span class="token punctuation">-</span>net
+    <span class="token key atrule">depends_on</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> mysql
+  <span class="token key atrule">nginx</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> nginx
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> nginx
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">"18080:18080"</span>
+      <span class="token punctuation">-</span> <span class="token string">"18081:18081"</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">"./nginx/nginx.conf:/etc/nginx/nginx.conf"</span>
+      <span class="token punctuation">-</span> <span class="token string">"./nginx/html:/usr/share/nginx/html"</span>
+    <span class="token key atrule">depends_on</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> hmall
+    <span class="token key atrule">networks</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> hm<span class="token punctuation">-</span>net
+<span class="token key atrule">networks</span><span class="token punctuation">:</span>
+  <span class="token key atrule">hm-net</span><span class="token punctuation">:</span>
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> hmall</code></pre></li>
+<li><p>Preparation</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost 3thanhun71o<span class="token punctuation">]</span><span class="token comment"># tree my_app/ -L 2</span>
+my_app/
+├── docker-compose.yml
+├── Dockerfile
+├── hm-service.jar
+├── mysql
+│   ├── conf
+│   ├── data
+│   └── init
+└── nginx
+    ├── html
+    └── nginx.conf</code></pre>
+<p>!Note：use correct container name<img
+src="https://s2.loli.net/2024/05/28/sQDqp8Y5brEWRVx.png"
+alt="image-20240528000924435" /><img
+src="https://s2.loli.net/2024/05/28/7nsByQwh6cNvHUV.png"
+alt="image-20240528000947001" /></p></li>
+<li><p>cmd</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> my_app/
+
+<span class="token function">docker</span> compose up <span class="token parameter variable">-d</span>
+WARN<span class="token punctuation">[</span>0000<span class="token punctuation">]</span> /home/3thanhun71o/my_app/docker-compose.yml: <span class="token variable"><span class="token variable">`</span>version<span class="token variable">`</span></span> is obsolete 
+<span class="token punctuation">[</span>+<span class="token punctuation">]</span> Running <span class="token number">3</span>/3
+ ✔ Container mysql  Running                                                                                <span class="token number">0</span>.0s 
+ ✔ Container hmall  Running                                                                                <span class="token number">0</span>.0s 
+ ✔ Container nginx  Started                                                                                <span class="token number">0</span>.4s 
+ 
+ <span class="token function">docker</span> compose <span class="token function">ps</span></code></pre></li>
+<li><p>request: http://192.168.130.128:18080/search.html</p></li>
+<li><p><code>docker compose down</code></p></li>
 </ol>
 
                 
@@ -1889,7 +2224,7 @@ alt="image-20240526061525564" /></p></li>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">289.8k</span>&nbsp;字
+                class="white-color">291.1k</span>&nbsp;字
             
             
             

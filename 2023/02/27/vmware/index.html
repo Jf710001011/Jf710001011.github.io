@@ -484,7 +484,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    362
+                    379
                 </div>
                 
 
@@ -546,9 +546,15 @@ iface eth0 inet dhcp <span class="token comment"># 网络接口类型</span></co
 </ul>
 </blockquote>
 <ul>
-<li>modify dns:<code>vi etc/resolv.conf</code><img
+<li><p>modify dns temporary:<code>vi etc/resolv.conf</code><img
 src="https://s2.loli.net/2024/05/25/mODxK2GkTugEMlB.png"
-alt="image-20240525080143066" /></li>
+alt="image-20240525080143066" /></p></li>
+<li><p>permanently modify dns:</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> /etc/sysconfig/network-scripts/
+
+<span class="token function">chmod</span> <span class="token assign-left variable">o</span><span class="token operator">=</span>rw ifcfg-ens33
+
+<span class="token function">vi</span> ifcfg-ens33</code></pre></li>
 </ul>
 <h3 id="桥接nat转换仅主机模式">桥接、NAT转换、仅主机模式</h3>
 <ul>
@@ -1209,7 +1215,7 @@ alt="image-20230215144609089" /></p></li>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">289.8k</span>&nbsp;字
+                class="white-color">291.1k</span>&nbsp;字
             
             
             

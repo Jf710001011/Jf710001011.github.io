@@ -477,14 +477,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2024-05-28
+                    2024-06-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    4.5k
+                    6.4k
                 </div>
                 
 
@@ -1609,6 +1609,733 @@ WARN<span class="token punctuation">[</span>0000<span class="token punctuation">
 <li><p>request: http://192.168.130.128:18080/search.html</p></li>
 <li><p><code>docker compose down</code></p></li>
 </ol>
+<h3 id="microservices">Microservices</h3>
+<h4 id="import-project-heima-mall">Import project heima-mall</h4>
+<ol type="1">
+<li><p>deploying mysql in docker</p></li>
+<li><p>start project locally<img
+src="https://s2.loli.net/2024/05/28/jkr4752VqePwQ9c.png"
+alt="image-20240528012304718" /></p></li>
+<li><p>start <code>nginx</code></p>
+<pre class="language-bash" data-language="bash"><code class="language-bash">PS D:<span class="token punctuation">\</span>Jf7Blog<span class="token punctuation">\</span>blog<span class="token operator">></span> <span class="token builtin class-name">cd</span> D:<span class="token punctuation">\</span>Java_Projects<span class="token punctuation">\</span>Front_End<span class="token punctuation">\</span>hmall-nginx
+PS D:<span class="token punctuation">\</span>Java_Projects<span class="token punctuation">\</span>Front_End<span class="token punctuation">\</span>hmall-nginx<span class="token operator">></span> start .<span class="token punctuation">\</span>nginx.exe
+PS D:<span class="token punctuation">\</span>Java_Projects<span class="token punctuation">\</span>Front_End<span class="token punctuation">\</span>hmall-nginx<span class="token operator">></span> </code></pre></li>
+<li><p>request:http://localhost:18080/</p></li>
+</ol>
+<h4 id="distinguishment">Distinguishment</h4>
+<ol type="1">
+<li>monolithic architecture</li>
+<li>microservices architecture</li>
+</ol>
+<h4 id="spring-cloud">Spring cloud</h4>
+<h4 id="get-familiar-with-hmall">Get familiar with
+<code>hmall</code></h4>
+<ol type="1">
+<li>if error “username or password is wrong” when login<img
+src="https://s2.loli.net/2024/05/28/9QAJE1HBcKY2kn5.png"
+alt="image-20240528031906050" /></li>
+<li><strong>Independent Project:</strong> and <strong>Maven
+Aggregate:</strong></li>
+</ol>
+<h4 id="item-service">Item-service</h4>
+<ol type="1">
+<li><p>hmall：monolithic architecture</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash">├───hm-common
+│   │   pom.xml
+│   │
+│   ├───src
+│   │   ├───main
+│   │   │   ├───java
+│   │   │   │   └───com
+│   │   │   │       └───hmall
+│   │   │   │           └───common
+│   │   │   │               ├───advice
+│   │   │   │               │       CommonExceptionAdvice.java
+│   │   │   │               │
+│   │   │   │               ├───config
+│   │   │   │               │       JsonConfig.java
+│   │   │   │               │       MyBatisConfig.java
+│   │   │   │               │
+│   │   │   │               ├───domain
+│   │   │   │               │       PageDTO.java
+│   │   │   │               │       PageQuery.java
+│   │   │   │               │       R.java
+│   │   │   │               │
+│   │   │   │               ├───exception
+│   │   │   │               │       BadRequestException.java
+│   │   │   │               │       BizIllegalException.java
+│   │   │   │               │       CommonException.java
+│   │   │   │               │       DbException.java
+│   │   │   │               │       ForbiddenException.java
+│   │   │   │               │       UnauthorizedException.java
+│   │   │   │               │
+│   │   │   │               └───utils
+│   │   │   │                       BeanUtils.java
+│   │   │   │                       CollUtils.java
+│   │   │   │                       Convert.java
+│   │   │   │                       CookieBuilder.java
+│   │   │   │                       UserContext.java
+│   │   │   │                       WebUtils.java
+│   │   │   │
+│   │   │   └───resources
+│   │   │       └───META-INF
+│   │   │               spring-configuration-metadata.json
+│   │   │               spring.factories
+│   │   │
+│   │   └───test
+│   │       └───java
+│   └───target
+│       ├───classes
+│       │   ├───com
+│       │   │   └───hmall
+│       │   │       └───common
+│       │   │           ├───advice
+│       │   │           │       CommonExceptionAdvice.class
+│       │   │           │
+│       │   │           ├───config
+│       │   │           │       JsonConfig.class
+│       │   │           │       MyBatisConfig.class
+│       │   │           │
+│       │   │           ├───domain
+│       │   │           │       PageDTO.class
+│       │   │           │       PageQuery.class
+│       │   │           │       R.class
+│       │   │           │
+│       │   │           ├───exception
+│       │   │           │       BadRequestException.class
+│       │   │           │       BizIllegalException.class
+│       │   │           │       CommonException.class
+│       │   │           │       DbException.class
+│       │   │           │       ForbiddenException.class
+│       │   │           │       UnauthorizedException.class
+│       │   │           │
+│       │   │           └───utils
+│       │   │                   BeanUtils.class
+│       │   │                   CollUtils.class
+│       │   │                   Convert.class
+│       │   │                   CookieBuilder.class
+│       │   │                   UserContext.class
+│       │   │                   WebUtils.class
+│       │   │
+│       │   └───META-INF
+│       │           spring-configuration-metadata.json
+│       │           spring.factories
+│       │
+│       ├───generated-sources
+│       │   └───annotations
+│       ├───generated-test-sources
+│       │   └───test-annotations
+│       └───test-classes
+├───hm-service
+│   │   Dockerfile
+│   │   pom.xml
+│   │
+│   ├───src
+│   │   ├───main
+│   │   │   ├───java
+│   │   │   │   └───com
+│   │   │   │       └───hmall
+│   │   │   │           │   HMallApplication.java
+│   │   │   │           │
+│   │   │   │           ├───config
+│   │   │   │           │       AuthProperties.java
+│   │   │   │           │       JwtProperties.java
+│   │   │   │           │       MvcConfig.java
+│   │   │   │           │       SecurityConfig.java
+│   │   │   │           │
+│   │   │   │           ├───controller
+│   │   │   │           │       AddressController.java
+│   │   │   │           │       CartController.java
+│   │   │   │           │       HelloController.java
+│   │   │   │           │       ItemController.java
+│   │   │   │           │       OrderController.java
+│   │   │   │           │       PayController.java
+│   │   │   │           │       SearchController.java
+│   │   │   │           │       UserController.java
+│   │   │   │           │       
+│   │   │   │           ├───domain
+│   │   │   │           │   ├───dto
+│   │   │   │           │   │       AddressDTO.java
+│   │   │   │           │   │       CartFormDTO.java
+│   │   │   │           │   │       ItemDTO.java
+│   │   │   │           │   │       LoginFormDTO.java
+│   │   │   │           │   │       OrderDetailDTO.java
+│   │   │   │           │   │       OrderFormDTO.java
+│   │   │   │           │   │       PayApplyDTO.java
+│   │   │   │           │   │       PayOrderFormDTO.java
+│   │   │   │           │   │
+│   │   │   │           │   ├───po
+│   │   │   │           │   │       Address.java
+│   │   │   │           │   │       Cart.java
+│   │   │   │           │   │       Item.java
+│   │   │   │           │   │       Order.java
+│   │   │   │           │   │       OrderDetail.java
+│   │   │   │           │   │       OrderLogistics.java
+│   │   │   │           │   │       PayOrder.java
+│   │   │   │           │   │       User.java
+│   │   │   │           │   │
+│   │   │   │           │   ├───query
+│   │   │   │           │   │       ItemPageQuery.java
+│   │   │   │           │   │
+│   │   │   │           │   └───vo
+│   │   │   │           │           CartVO.java
+│   │   │   │           │           OrderVO.java
+│   │   │   │           │           PayOrderVO.java
+│   │   │   │           │           UserLoginVO.java
+│   │   │   │           │
+│   │   │   │           ├───enums
+│   │   │   │           │       PayChannel.java
+│   │   │   │           │       PayStatus.java
+│   │   │   │           │       PayType.java
+│   │   │   │           │       UserStatus.java
+│   │   │   │           │
+│   │   │   │           ├───interceptor
+│   │   │   │           │       LoginInterceptor.java
+│   │   │   │           │
+│   │   │   │           ├───mapper
+│   │   │   │           │       AddressMapper.java
+│   │   │   │           │       CartMapper.java
+│   │   │   │           │       ItemMapper.java
+│   │   │   │           │       OrderDetailMapper.java
+│   │   │   │           │       OrderLogisticsMapper.java
+│   │   │   │           │       OrderMapper.java
+│   │   │   │           │       PayOrderMapper.java
+│   │   │   │           │       UserMapper.java
+│   │   │   │           │
+│   │   │   │           ├───service
+│   │   │   │           │   │   IAddressService.java
+│   │   │   │           │   │   ICartService.java
+│   │   │   │           │   │   IItemService.java
+│   │   │   │           │   │   IOrderDetailService.java
+│   │   │   │           │   │   IOrderLogisticsService.java
+│   │   │   │           │   │   IOrderService.java
+│   │   │   │           │   │   IPayOrderService.java
+│   │   │   │           │   │   IUserService.java
+│   │   │   │           │   │
+│   │   │   │           │   └───impl
+│   │   │   │           │           AddressServiceImpl.java
+│   │   │   │           │           CartServiceImpl.java
+│   │   │   │           │           ItemServiceImpl.java
+│   │   │   │           │           OrderDetailServiceImpl.java
+│   │   │   │           │           OrderLogisticsServiceImpl.java       
+│   │   │   │           │           OrderServiceImpl.java
+│   │   │   │           │           PayOrderServiceImpl.java
+│   │   │   │           │           UserServiceImpl.java
+│   │   │   │           │
+│   │   │   │           └───utils
+│   │   │   │                   JwtTool.java
+│   │   │   │
+│   │   │   └───resources
+│   │   │       │   application-dev.yaml
+│   │   │       │   application-local.yaml
+│   │   │       │   application.yaml
+│   │   │       │   hmall.jks
+│   │   │       │
+│   │   │       └───mapper
+│   │   │               CartMapper.xml
+│   │   │               ItemMapper.xml
+│   │   │               OrderDetailMapper.xml
+│   │   │               OrderLogisticsMapper.xml
+│   │   │               OrderMapper.xml
+│   │   │               PayOrderMapper.xml
+│   │   │               TradeClient.xml
+│   │   │               UserMapper.xml
+│   │   │
+│   │   └───test
+│   │       └───java
+│   │           └───com
+│   │               └───hmall
+│   │                   └───service
+│   │                       └───impl
+│   │                               HutoolTest.java
+│   │                               ItemServiceImplTest.java
+│   │
+│   └───target
+│       ├───classes
+│       │   │   application-dev.yaml
+│       │   │   application-local.yaml
+│       │   │   application.yaml
+│       │   │   hmall.jks
+│       │   │
+│       │   ├───com
+│       │   │   └───hmall
+│       │   │       │   HMallApplication.class
+│       │   │       │
+│       │   │       ├───config
+│       │   │       │       AuthProperties.class
+│       │   │       │       JwtProperties.class
+│       │   │       │       MvcConfig.class
+│       │   │       │       SecurityConfig.class
+│       │   │       │
+│       │   │       ├───controller
+│       │   │       │       AddressController.class
+│       │   │       │       CartController.class
+│       │   │       │       HelloController.class
+│       │   │       │       ItemController.class
+│       │   │       │       OrderController.class
+│       │   │       │       PayController.class
+│       │   │       │       SearchController.class
+│       │   │       │       UserController.class
+│       │   │       │
+│       │   │       ├───domain
+│       │   │       │   ├───dto
+│       │   │       │   │       AddressDTO.class
+│       │   │       │   │       CartFormDTO.class
+│       │   │       │   │       ItemDTO.class
+│       │   │       │   │       LoginFormDTO.class
+│       │   │       │   │       OrderDetailDTO.class
+│       │   │       │   │       OrderFormDTO.class
+│       │   │       │   │       PayApplyDTO<span class="token variable">$PayApplyDTOBuilder</span>.class     
+│       │   │       │   │       PayApplyDTO.class
+│       │   │       │   │       PayOrderFormDTO<span class="token variable">$PayOrderFormDTOBuilder</span>.class
+│       │   │       │   │       PayOrderFormDTO.class
+│       │   │       │   │
+│       │   │       │   ├───po
+│       │   │       │   │       Address.class
+│       │   │       │   │       Cart.class
+│       │   │       │   │       Item.class
+│       │   │       │   │       Order.class
+│       │   │       │   │       OrderDetail.class
+│       │   │       │   │       OrderLogistics.class
+│       │   │       │   │       PayOrder.class
+│       │   │       │   │       User.class
+│       │   │       │   │
+│       │   │       │   ├───query
+│       │   │       │   │       ItemPageQuery.class
+│       │   │       │   │
+│       │   │       │   └───vo
+│       │   │       │           CartVO.class
+│       │   │       │           OrderVO.class
+│       │   │       │           PayOrderVO.class
+│       │   │       │           UserLoginVO.class
+│       │   │       │
+│       │   │       ├───enums
+│       │   │       │       PayChannel.class
+│       │   │       │       PayStatus.class
+│       │   │       │       PayType.class
+│       │   │       │       UserStatus.class
+│       │   │       │
+│       │   │       ├───interceptor
+│       │   │       │       LoginInterceptor.class
+│       │   │       │
+│       │   │       ├───mapper
+│       │   │       │       AddressMapper.class
+│       │   │       │       CartMapper.class
+│       │   │       │       ItemMapper.class
+│       │   │       │       OrderDetailMapper.class
+│       │   │       │       OrderLogisticsMapper.class
+│       │   │       │       OrderMapper.class
+│       │   │       │       PayOrderMapper.class
+│       │   │       │       UserMapper.class
+│       │   │       │
+│       │   │       ├───service
+│       │   │       │   │   IAddressService.class
+│       │   │       │   │   ICartService.class
+│       │   │       │   │   IItemService.class
+│       │   │       │   │   IOrderDetailService.class
+│       │   │       │   │   IOrderLogisticsService.class
+│       │   │       │   │   IOrderService.class
+│       │   │       │   │   IPayOrderService.class
+│       │   │       │   │   IUserService.class
+│       │   │       │   │
+│       │   │       │   └───impl
+│       │   │       │           AddressServiceImpl.class
+│       │   │       │           CartServiceImpl.class
+│       │   │       │           ItemServiceImpl.class
+│       │   │       │           OrderDetailServiceImpl.class
+│       │   │       │           OrderLogisticsServiceImpl.class
+│       │   │       │           OrderServiceImpl.class
+│       │   │       │           PayOrderServiceImpl.class
+│       │   │       │           UserServiceImpl.class
+│       │   │       │
+│       │   │       └───utils
+│       │   │               JwtTool.class
+│       │   │
+│       │   └───mapper
+│       │           CartMapper.xml
+│       │           ItemMapper.xml
+│       │           OrderDetailMapper.xml
+│       │           OrderLogisticsMapper.xml
+│       │           OrderMapper.xml
+│       │           PayOrderMapper.xml
+│       │           TradeClient.xml
+│       │           UserMapper.xml
+│       │
+│       ├───generated-sources
+│       │   └───annotations
+│       ├───generated-test-sources
+│       │   └───test-annotations
+│       └───test-classes
+│           └───com
+│               └───hmall
+│                   └───service
+│                       └───impl
+│                               HutoolTest<span class="token variable">$User</span>.class
+│                               HutoolTest<span class="token variable">$User2</span>.class
+│                               HutoolTest.class
+│                               ItemServiceImplTest.class
+│</code></pre></li>
+<li><p>pom.xml</p>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://maven.apache.org/POM/4.0.0<span class="token punctuation">"</span></span>
+         <span class="token attr-name"><span class="token namespace">xmlns:</span>xsi</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/2001/XMLSchema-instance<span class="token punctuation">"</span></span>
+         <span class="token attr-name"><span class="token namespace">xsi:</span>schemaLocation</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>modelVersion</span><span class="token punctuation">></span></span>4.0.0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>modelVersion</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>parent</span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.heima<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>hmall<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>1.0.0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>parent</span><span class="token punctuation">></span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.heima<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>item-service<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>1.0-SNAPSHOT<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>properties</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>maven.compiler.source</span><span class="token punctuation">></span></span>11<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>maven.compiler.source</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>maven.compiler.target</span><span class="token punctuation">></span></span>11<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>maven.compiler.target</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>properties</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependencies</span><span class="token punctuation">></span></span>
+        <span class="token comment">&lt;!--common--></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.heima<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>hm-common<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>1.0.0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+        <span class="token comment">&lt;!--web--></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-web<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+
+        <span class="token comment">&lt;!--数据库--></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>mysql<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>mysql-connector-java<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+        <span class="token comment">&lt;!--mybatis--></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.baomidou<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>mybatis-plus-boot-starter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependencies</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>build</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>finalName</span><span class="token punctuation">></span></span>$&#123;project.artifactId&#125;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>finalName</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>plugins</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>plugin</span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-maven-plugin<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>plugin</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>plugins</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>build</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>project</span><span class="token punctuation">></span></span></code></pre></li>
+<li><p>item-service</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash">D:.
+│   pom.xml
+│
+├───src
+│   ├───main
+│   │   ├───java
+│   │   │   └───com
+│   │   │       └───hmall
+│   │   │           └───item
+│   │   │               │   itemApplication.java
+│   │   │               │
+│   │   │               ├───controller
+│   │   │               │       ItemController.java
+│   │   │               │
+│   │   │               ├───domain
+│   │   │               │   ├───dto
+│   │   │               │   │       ItemDTO.java
+│   │   │               │   │       OrderDetailDTO.java
+│   │   │               │   │
+│   │   │               │   ├───po
+│   │   │               │   │       Item.java
+│   │   │               │   │
+│   │   │               │   └───query
+│   │   │               │           ItemPageQuery.java
+│   │   │               │
+│   │   │               ├───mapper
+│   │   │               │       ItemMapper.java
+│   │   │               │
+│   │   │               └───service
+│   │   │                   │   IItemService.java
+│   │   │                   │
+│   │   │                   └───impl
+│   │   │                           ItemServiceImpl.java
+│   │   │
+│   │   └───resources
+│   │           application-dev.yaml
+│   │           application-local.yaml
+│   │           application.yaml
+│   │
+│   └───test
+│       └───java</code></pre></li>
+</ol>
+<h4 id="remote-calling">Remote calling</h4>
+<ol type="1">
+<li><p>code</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@RequiredArgsConstructor</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CartServiceImpl</span> <span class="token keyword">extends</span> <span class="token class-name">ServiceImpl</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">CartMapper</span><span class="token punctuation">,</span> <span class="token class-name">Cart</span><span class="token punctuation">></span></span> <span class="token keyword">implements</span> <span class="token class-name">ICartService</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">RestTemplate</span> rt<span class="token punctuation">;</span>
+    
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">handleCartItems</span><span class="token punctuation">(</span><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">CartVO</span><span class="token punctuation">></span></span> vos<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// 1.获取商品id</span>
+        <span class="token class-name">Set</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Long</span><span class="token punctuation">></span></span> itemIds <span class="token operator">=</span> vos<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token class-name">CartVO</span><span class="token operator">::</span><span class="token function">getItemId</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">collect</span><span class="token punctuation">(</span><span class="token class-name">Collectors</span><span class="token punctuation">.</span><span class="token function">toSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 2.查询商品</span>
+        <span class="token class-name">ResponseEntity</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">List</span><span class="token punctuation">&lt;</span><span class="token class-name">ItemDTO</span><span class="token punctuation">></span><span class="token punctuation">></span></span> response <span class="token operator">=</span> rt<span class="token punctuation">.</span><span class="token function">exchange</span><span class="token punctuation">(</span><span class="token string">"http://localhost:8081/items?ids=&#123;ids&#125;"</span><span class="token punctuation">,</span>
+                <span class="token class-name">HttpMethod</span><span class="token punctuation">.</span><span class="token constant">GET</span><span class="token punctuation">,</span>
+                <span class="token keyword">null</span><span class="token punctuation">,</span>
+                <span class="token keyword">new</span> <span class="token class-name">ParameterizedTypeReference</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">List</span><span class="token punctuation">&lt;</span><span class="token class-name">ItemDTO</span><span class="token punctuation">></span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+                <span class="token class-name">Map</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token string">"ids"</span><span class="token punctuation">,</span> <span class="token class-name">CollUtil</span><span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>itemIds<span class="token punctuation">,</span> <span class="token string">","</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>response<span class="token punctuation">.</span><span class="token function">getStatusCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">is2xxSuccessful</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">ItemDTO</span><span class="token punctuation">></span></span> items <span class="token operator">=</span> response<span class="token punctuation">.</span><span class="token function">getBody</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></li>
+</ol>
+<h4 id="registry-center-principle">Registry center principle</h4>
+<h4 id="nacos-registry-center">Nacos registry center</h4>
+<ol type="1">
+<li><p>Nacos <code>database</code><img
+src="https://s2.loli.net/2024/05/29/p3MyjhWKCsOkRrg.png"
+alt="image-20240529042422304" /></p></li>
+<li><p>custom.env</p>
+<pre class="language-env" data-language="env"><code class="language-env">PREFER_HOST_MODE&#x3D;hostname
+MODE&#x3D;standalone
+SPRING_DATASOURCE_PLATFORM&#x3D;mysql
+MYSQL_SERVICE_HOST&#x3D;192.168.130.128
+MYSQL_SERVICE_DB_NAME&#x3D;nacos
+MYSQL_SERVICE_PORT&#x3D;3306
+MYSQL_SERVICE_USER&#x3D;root
+MYSQL_SERVICE_PASSWORD&#x3D;123
+MYSQL_SERVICE_DB_PARAM&#x3D;characterEncoding&#x3D;utf8&amp;connectTimeout&#x3D;1000&amp;socketTimeout&#x3D;3000&amp;autoReconnect&#x3D;true&amp;useSSL&#x3D;false&amp;allowPublicKeyRetrieval&#x3D;true&amp;serverTimezone&#x3D;Asia&#x2F;Shanghai</code></pre></li>
+<li><p>upload "<code>nacos</code>"</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost my_app<span class="token punctuation">]</span><span class="token comment"># tree nacos</span>
+nacos
+└── custom.env</code></pre></li>
+<li><p>run</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>
+<span class="token parameter variable">--name</span> nacos <span class="token punctuation">\</span>
+--env-file ./nacos/custom.env <span class="token punctuation">\</span>
+<span class="token parameter variable">-p</span> <span class="token number">8848</span>:8848 <span class="token punctuation">\</span>
+<span class="token parameter variable">-p</span> <span class="token number">9848</span>:9848 <span class="token punctuation">\</span>
+<span class="token parameter variable">-p</span> <span class="token number">9849</span>:9849 <span class="token punctuation">\</span>
+<span class="token parameter variable">--restart</span><span class="token operator">=</span>always <span class="token punctuation">\</span>
+nacos/nacos-server:v2.1.0-slim</code></pre></li>
+<li><p>request: http://192.168.130.128:8848/nacos/#/login</p></li>
+</ol>
+<h4 id="registering-microservices">Registering microservices</h4>
+<ol type="1">
+<li><p>dependency</p>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!--nacos 服务注册发现--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.alibaba.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-starter-alibaba-nacos-discovery<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre></li>
+<li><p>application.yaml</p>
+<pre class="language-properties" data-language="properties"><code class="language-properties"><span class="token key attr-name">spring</span><span class="token punctuation">:</span>
+<span class="token key attr-name">  application</span><span class="token punctuation">:</span>
+<span class="token key attr-name">    name</span><span class="token punctuation">:</span> <span class="token value attr-value">item-service</span>
+<span class="token key attr-name">  profiles</span><span class="token punctuation">:</span>
+<span class="token key attr-name">    active</span><span class="token punctuation">:</span> <span class="token value attr-value">dev</span>
+<span class="token key attr-name">  datasource</span><span class="token punctuation">:</span>
+<span class="token key attr-name">    url</span><span class="token punctuation">:</span> <span class="token value attr-value">jdbc:mysql://$&#123;hm.db.host&#125;:3306/hm-item?useUnicode=true&amp;characterEncoding=UTF-8&amp;autoReconnect=true&amp;serverTimezone=Asia/Shanghai</span>
+<span class="token key attr-name">    driver-class-name</span><span class="token punctuation">:</span> <span class="token value attr-value">com.mysql.cj.jdbc.Driver</span>
+<span class="token key attr-name">    username</span><span class="token punctuation">:</span> <span class="token value attr-value">root</span>
+<span class="token key attr-name">    password</span><span class="token punctuation">:</span> <span class="token value attr-value">$&#123;hm.db.pw&#125;</span>
+<span class="token key attr-name">  cloud</span><span class="token punctuation">:</span>
+<span class="token key attr-name">    nacos</span><span class="token punctuation">:</span>
+<span class="token key attr-name">      server-addr</span><span class="token punctuation">:</span> <span class="token value attr-value">192.168.130.128:8848</span></code></pre></li>
+<li><p>Deploying multiple instances simulation<img
+src="https://s2.loli.net/2024/05/29/pgfAlzCFEROkPhi.png"
+alt="image-20240529051136051" /><img
+src="https://s2.loli.net/2024/05/29/jTAlUBRtfysxHgI.png"
+alt="image-20240529051359217" /><img
+src="https://s2.loli.net/2024/05/29/QCUSyeg4idTI2Dn.png"
+alt="image-20240529051504262" /></p></li>
+</ol>
+<h4 id="service-discovery-and-load-balancing">Service discovery and load
+balancing</h4>
+<ol type="1">
+<li><p>Code</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@RequiredArgsConstructor</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CartServiceImpl</span> <span class="token keyword">extends</span> <span class="token class-name">ServiceImpl</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">CartMapper</span><span class="token punctuation">,</span> <span class="token class-name">Cart</span><span class="token punctuation">></span></span> <span class="token keyword">implements</span> <span class="token class-name">ICartService</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">RestTemplate</span> rt<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">DiscoveryClient</span> dc<span class="token punctuation">;</span>
+    
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">handleCartItems</span><span class="token punctuation">(</span><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">CartVO</span><span class="token punctuation">></span></span> vos<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// 1.获取商品id</span>
+        <span class="token class-name">Set</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Long</span><span class="token punctuation">></span></span> itemIds <span class="token operator">=</span> vos<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token class-name">CartVO</span><span class="token operator">::</span><span class="token function">getItemId</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">collect</span><span class="token punctuation">(</span><span class="token class-name">Collectors</span><span class="token punctuation">.</span><span class="token function">toSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 2.查询商品</span>
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">ServiceInstance</span><span class="token punctuation">></span></span> instances <span class="token operator">=</span> dc<span class="token punctuation">.</span><span class="token function">getInstances</span><span class="token punctuation">(</span><span class="token string">"item-service"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token class-name">CollUtil</span><span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span>instances<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token class-name">ServiceInstance</span> si <span class="token operator">=</span> instances<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token class-name">RandomUtil</span><span class="token punctuation">.</span><span class="token function">randomInt</span><span class="token punctuation">(</span>instances<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>si<span class="token punctuation">.</span><span class="token function">getUri</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">ResponseEntity</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">List</span><span class="token punctuation">&lt;</span><span class="token class-name">ItemDTO</span><span class="token punctuation">></span><span class="token punctuation">></span></span> response <span class="token operator">=</span> rt<span class="token punctuation">.</span><span class="token function">exchange</span><span class="token punctuation">(</span>si<span class="token punctuation">.</span><span class="token function">getUri</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"/items?ids=&#123;ids&#125;"</span><span class="token punctuation">,</span>
+                <span class="token class-name">HttpMethod</span><span class="token punctuation">.</span><span class="token constant">GET</span><span class="token punctuation">,</span>
+                <span class="token keyword">null</span><span class="token punctuation">,</span>
+                <span class="token keyword">new</span> <span class="token class-name">ParameterizedTypeReference</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">List</span><span class="token punctuation">&lt;</span><span class="token class-name">ItemDTO</span><span class="token punctuation">></span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+                <span class="token class-name">Map</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token string">"ids"</span><span class="token punctuation">,</span> <span class="token class-name">CollUtil</span><span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>itemIds<span class="token punctuation">,</span> <span class="token string">","</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></li>
+<li><p>restart <code>cartApplication</code><img
+src="https://s2.loli.net/2024/05/29/PTKxGVMjlDq1Wnz.png"
+alt="image-20240529063505488" /></p></li>
+</ol>
+<h4 id="openfeign">OpenFeign</h4>
+<ol type="1">
+<li><p>dependency</p>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!--openFeign--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-starter-openfeign<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+<span class="token comment">&lt;!--负载均衡器--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-starter-loadbalancer<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre></li>
+<li><p>启用OpenFeign</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@EnableFeignClients</span>
+<span class="token annotation punctuation">@MapperScan</span><span class="token punctuation">(</span><span class="token string">"com.hmall.cart.mapper"</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@SpringBootApplication</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> cartApplication <span class="token punctuation">&#123;</span></code></pre></li>
+<li><p>interface</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>hmall<span class="token punctuation">.</span>cart<span class="token punctuation">.</span>client</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Collection</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">List</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>cloud<span class="token punctuation">.</span>openfeign<span class="token punctuation">.</span></span><span class="token class-name">FeignClient</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">GetMapping</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">RequestParam</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>hmall<span class="token punctuation">.</span>cart<span class="token punctuation">.</span>domain<span class="token punctuation">.</span>dto<span class="token punctuation">.</span></span><span class="token class-name">ItemDTO</span></span><span class="token punctuation">;</span>
+
+<span class="token annotation punctuation">@FeignClient</span><span class="token punctuation">(</span><span class="token string">"item-service"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">ItemClient</span> <span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/items"</span><span class="token punctuation">)</span>
+    <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">ItemDTO</span><span class="token punctuation">></span></span> <span class="token function">queryItemByIds</span><span class="token punctuation">(</span><span class="token annotation punctuation">@RequestParam</span><span class="token punctuation">(</span><span class="token string">"ids"</span><span class="token punctuation">)</span> <span class="token class-name">Collection</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Long</span><span class="token punctuation">></span></span> ids<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+</code></pre></li>
+<li><p>service</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">handleCartItems</span><span class="token punctuation">(</span><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">CartVO</span><span class="token punctuation">></span></span> vos<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// 1.获取商品id</span>
+      <span class="token class-name">Set</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Long</span><span class="token punctuation">></span></span> itemIds <span class="token operator">=</span> vos<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token class-name">CartVO</span><span class="token operator">::</span><span class="token function">getItemId</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">collect</span><span class="token punctuation">(</span><span class="token class-name">Collectors</span><span class="token punctuation">.</span><span class="token function">toSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   
+      <span class="token comment">// 2.查询商品</span>
+      <span class="token comment">// List&lt;ServiceInstance> instances = dc.getInstances("item-service");</span>
+      <span class="token comment">// if (CollUtil.isEmpty(instances)) &#123;</span>
+      <span class="token comment">//     return;</span>
+      <span class="token comment">// &#125;</span>
+      <span class="token comment">// ServiceInstance si = instances.get(RandomUtil.randomInt(instances.size()));</span>
+      <span class="token comment">// System.out.println(si.getUri());</span>
+      <span class="token comment">// ResponseEntity&lt;List&lt;ItemDTO>> response = rt.exchange(si.getUri() + "/items?ids=&#123;ids&#125;",</span>
+      <span class="token comment">//         HttpMethod.GET,</span>
+      <span class="token comment">//         null,</span>
+      <span class="token comment">//         new ParameterizedTypeReference&lt;List&lt;ItemDTO>>() &#123;</span>
+      <span class="token comment">//         &#125;,</span>
+      <span class="token comment">//         Map.of("ids", CollUtil.join(itemIds, ",")));</span>
+      <span class="token comment">// if (!response.getStatusCode().is2xxSuccessful()) &#123;</span>
+      <span class="token comment">//     return;</span>
+      <span class="token comment">// &#125;</span>
+   
+      <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">ItemDTO</span><span class="token punctuation">></span></span> items <span class="token operator">=</span> ic<span class="token punctuation">.</span><span class="token function">queryItemByIds</span><span class="token punctuation">(</span>itemIds<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token class-name">CollUtils</span><span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span>items<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+          <span class="token keyword">return</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+      <span class="token comment">// 3.转为 id 到 item的map</span>
+      <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Long</span><span class="token punctuation">,</span> <span class="token class-name">ItemDTO</span><span class="token punctuation">></span></span> itemMap <span class="token operator">=</span> items<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">collect</span><span class="token punctuation">(</span><span class="token class-name">Collectors</span><span class="token punctuation">.</span><span class="token function">toMap</span><span class="token punctuation">(</span><span class="token class-name">ItemDTO</span><span class="token operator">::</span><span class="token function">getId</span><span class="token punctuation">,</span> <span class="token class-name">Function</span><span class="token punctuation">.</span><span class="token function">identity</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token comment">// 4.写入vo</span>
+      <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">CartVO</span> v <span class="token operator">:</span> vos<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+          <span class="token class-name">ItemDTO</span> item <span class="token operator">=</span> itemMap<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>v<span class="token punctuation">.</span><span class="token function">getItemId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">if</span> <span class="token punctuation">(</span>item <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+              <span class="token keyword">continue</span><span class="token punctuation">;</span>
+          <span class="token punctuation">&#125;</span>
+          v<span class="token punctuation">.</span><span class="token function">setNewPrice</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span><span class="token function">getPrice</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          v<span class="token punctuation">.</span><span class="token function">setStatus</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span><span class="token function">getStatus</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          v<span class="token punctuation">.</span><span class="token function">setStock</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span><span class="token function">getStock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span></code></pre></li>
+<li><p>rerun <code>cartApplication</code></p>
+<ol type="1">
+<li><strong>error</strong>:java: package
+org.springframework.cloud.openfeign does not exist</li>
+<li>solu:<img src="https://s2.loli.net/2024/05/31/Wz5PXbuNAOYreZK.png"
+alt="image-20240531070917727" /></li>
+</ol></li>
+</ol>
+<h4 id="openfeign-source-code-analysis"><em>OpenFeign</em> Source Code
+Analysis</h4>
+<ol type="1">
+<li>Full flow<img
+src="https://raw.githubusercontent.com/Jf710001011/pictureBed/main/img/OpenFeign.png"
+alt="OpenFeign" /></li>
+</ol>
+<h4 id="openfeign-connection-pool">OpenFeign Connection Pool</h4>
+<ol type="1">
+<li><p>dependency</p>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!--OK http 的依赖 --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>io.github.openfeign<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>feign-okhttp<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre></li>
+<li><p>application.yml</p>
+<pre class="language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">feign</span><span class="token punctuation">:</span>
+  <span class="token key atrule">okhttp</span><span class="token punctuation">:</span>
+    <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment"># 开启OKHttp功能</span></code></pre></li>
+<li><p>result<img
+src="https://s2.loli.net/2024/05/31/JIFmA4LX2zO1sWl.png"
+alt="image-20240531122824184" /></p></li>
+</ol>
+<h4 id="openfeign-best-practices">OpenFeign Best Practices</h4>
+<ol type="1">
+<li><p>new module<img
+src="https://s2.loli.net/2024/06/02/EmZfarPH7p9bVo2.png"
+alt="image-20240602055152925" /></p></li>
+<li><p>hm-api</p>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!--openFeign--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-starter-openfeign<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+<span class="token comment">&lt;!--负载均衡器--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-starter-loadbalancer<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre></li>
+<li><p>folder hierarchy</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash">├───src
+│   ├───main
+│   │   ├───java
+│   │   │   └───com
+│   │   │       └───hmall
+│   │   │           └───api
+│   │   │               ├───client
+│   │   │               │       ItemClient.java
+│   │   │               │
+│   │   │               └───dto
+│   │   │                       ItemDTO.java
+│   │   │</code></pre></li>
+<li><p>keep consistent<img
+src="https://s2.loli.net/2024/06/02/mqWEild3RngVFw5.png"
+alt="image-20240602062529459" /></p></li>
+<li><p><strong>error</strong> 报错</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash">java.util.concurrent.TimeoutException: Waited <span class="token number">3000</span> milliseconds <span class="token punctuation">(</span>plus <span class="token number">14</span> milliseconds, <span class="token number">400500</span> nanoseconds delay<span class="token punctuation">)</span> <span class="token keyword">for</span> com.alibaba.nacos.shaded.io.grpc.stub.ClientCalls<span class="token variable">$GrpcFuture</span>@363ba634<span class="token punctuation">[</span>status<span class="token operator">=</span>PENDING, <span class="token assign-left variable">info</span><span class="token operator">=</span><span class="token punctuation">[</span>GrpcFuture<span class="token punctuation">&#123;</span>clientCall<span class="token operator">=</span><span class="token punctuation">&#123;</span>delegate<span class="token operator">=</span><span class="token punctuation">&#123;</span>delegate<span class="token operator">=</span>ClientCallImpl<span class="token punctuation">&#123;</span>method<span class="token operator">=</span>MethodDescriptor<span class="token punctuation">&#123;</span>fullMethodName<span class="token operator">=</span>Request/request, <span class="token assign-left variable">type</span><span class="token operator">=</span>UNARY, <span class="token assign-left variable">idempotent</span><span class="token operator">=</span>false, <span class="token assign-left variable">safe</span><span class="token operator">=</span>false, <span class="token assign-left variable">sampledToLocalTracing</span><span class="token operator">=</span>true, <span class="token assign-left variable">requestMarshaller</span><span class="token operator">=</span>com.alibaba.nacos.shaded.io.grpc.protobuf.lite.ProtoLiteUtils<span class="token variable">$MessageMarshaller</span>@7c6ab057, <span class="token assign-left variable">responseMarshaller</span><span class="token operator">=</span>com.alibaba.nacos.shaded.io.grpc.protobuf.lite.ProtoLiteUtils<span class="token variable">$MessageMarshaller</span>@7ce4498f, <span class="token assign-left variable">schemaDescriptor</span><span class="token operator">=</span>com.alibaba.nacos.api.grpc.auto.RequestGrpc<span class="token variable">$RequestMethodDescriptorSupplier</span>@1f7557fe<span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+</code></pre>
+<p>reason:I shut down the virtual machine a few days ago and restarted
+it today, but mysql in docker is not set to start automatically at
+boot.</p></li>
+<li></li>
+</ol>
 
                 
             </div>
@@ -1981,50 +2708,36 @@ WARN<span class="token punctuation">[</span>0000<span class="token punctuation">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;Current
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2024/05/03/springcloud/">
+                <a href="/2024/06/02/untitled/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="SpringCloud">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
                         
-                        <span class="card-title">SpringCloud</span>
+                        <span class="card-title"></span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            last one
+                            
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-05-03
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-06-02
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Program-design/" class="post-category">
-                                    Program design
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Jf71o0x1o1l
                             
                         </span>
                     </div>
-                </div>
-
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Java/">
-                        <span class="chip bg-color">Java</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -2224,7 +2937,7 @@ WARN<span class="token punctuation">[</span>0000<span class="token punctuation">
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">291.1k</span>&nbsp;字
+                class="white-color">293k</span>&nbsp;字
             
             
             

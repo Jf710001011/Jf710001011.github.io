@@ -6,7 +6,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="xss文件包含漏洞原理, Hunter|Hacker|Coder|Artist">
+    <meta name="keywords" content="Douyu_Java_Project, Hunter|Hacker|Coder|Artist">
     <meta name="description" content="信念与认知">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -29,7 +29,7 @@
 </script>
 
 
-    <title>xss文件包含漏洞原理 | Jf71o0x1o1l</title>
+    <title>Douyu_Java_Project | Jf71o0x1o1l</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -324,12 +324,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">xss文件包含漏洞原理</h1>
+                    <h1 class="description center-align post-title">Douyu_Java_Project</h1>
                 </div>
             </div>
         </div>
@@ -445,12 +445,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Web/">
-                                <span class="chip bg-color">Web</span>
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
                             </a>
                         
-                            <a href="/tags/Xss/">
-                                <span class="chip bg-color">Xss</span>
+                            <a href="/tags/Project/">
+                                <span class="chip bg-color">Project</span>
                             </a>
                         
                     </div>
@@ -461,8 +461,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Cybersecurity/" class="post-category">
-                                Cybersecurity
+                            <a href="/categories/Program-design/" class="post-category">
+                                Program design
                             </a>
                         
                     </div>
@@ -474,21 +474,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2022-10-03
+                    2024-06-20
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2023-05-07
+                    2024-06-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    104
+                    534
                 </div>
                 
 
@@ -513,39 +513,78 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="本地文件包含">本地文件包含</h3>
-<pre class="language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
-<span class="token variable">$fileName</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'fileName'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token keyword">include</span> <span class="token variable">$fileName</span><span class="token punctuation">;</span>
+                <h3 id="setting-up-the-foundational-infrastructure">Setting up the
+foundational infrastructure</h3>
+<h4 id="asynchronous-messaging">Asynchronous messaging</h4>
+<h4 id="apache-dubbo">Apache Dubbo</h4>
+<ol type="1">
+<li>Canary release</li>
+</ol>
+<h4 id="springcloud-alibaba">SpringCloud Alibaba</h4>
+<h4 id="live-streaming-business-analysis">Live Streaming Business
+Analysis</h4>
+<h4 id="docker">Docker</h4>
+<h4 id="rocketmq-on-windows">RocketMQ on windows</h4>
+<ol type="1">
+<li><p>version:4.8.0,https://rocketmq.apache.org/download</p></li>
+<li><p>windows cmd</p></li>
+<li><p>Start NameServer</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash">D:<span class="token punctuation">\</span>Rocketmq_all_4.8.0_bin_release<span class="token punctuation">\</span>bin<span class="token operator">></span>
 
-<span class="token keyword">echo</span> <span class="token string double-quoted-string">"欢迎来到php的世界"</span><span class="token punctuation">;</span></span></code></pre>
-<h3 id="远程文件包含">远程文件包含</h3>
-<ul>
-<li>/opt/lampp/etc/php.ini,更改配置</li>
-</ul>
-<figure>
-<img
-src="https://cdn.jsdelivr.net/gh/A1phaM7/pictureBed/img/202210021703113.png"
-alt="image-20221002170334041" />
-<figcaption aria-hidden="true">image-20221002170334041</figcaption>
-</figure>
-<ul>
-<li>在远程主机还是本地主机执行远程文件</li>
-</ul>
-<h3 id="php伪协议利用">php伪协议利用</h3>
-<pre class="language-uri" data-language="uri"><code class="language-uri"><span class="token scheme">http<span class="token scheme-delimiter">:</span></span><span class="token authority"><span class="token authority-delimiter">//</span><span class="token host"><span class="token ipv4-address">192.168.104.130</span></span></span><span class="token authority"><span class="token authority-delimiter">//</span><span class="token host">security</span></span><span class="token path"><span class="token path-separator">/</span>fileInc</span><span class="token query"><span class="token query-delimiter">?</span><span class="token pair"><span class="token key">fileName</span>=<span class="token value">php://filter</span></span></span> </code></pre>
-<ul>
-<li>php://filter</li>
-<li>php://input</li>
-<li>phar://</li>
-</ul>
-<h3 id="文件包含漏洞原理利用">文件包含漏洞原理利用</h3>
-<ul>
-<li>access_log</li>
-<li>web日志</li>
-<li>登录日志</li>
-<li>包含上传文件：图片马</li>
-</ul>
+start mqnamesrv.cmd</code></pre>
+<p>error reported</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash">Unrecognized VM option <span class="token string">'UseConcMarkSweepGC'</span>
+Error: Could not create the Java Virtual Machine.
+Error: A fatal exception has occurred. Program will exit.</code></pre>
+<p>solu: change jdk version to 1.8</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash">Java HotSpot<span class="token punctuation">(</span>TM<span class="token punctuation">)</span> <span class="token number">64</span>-Bit Server VM warning: Using the DefNew young collector with the CMS collector is deprecated and will likely be removed <span class="token keyword">in</span> a future release
+Java HotSpot<span class="token punctuation">(</span>TM<span class="token punctuation">)</span> <span class="token number">64</span>-Bit Server VM warning: UseCMSCompactAtFullCollection is deprecated and will likely be removed <span class="token keyword">in</span> a future release.
+The Name Server boot success. <span class="token assign-left variable">serializeType</span><span class="token operator">=</span>JSON</code></pre></li>
+<li><p>Start Broker</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash">start mqbroker.cmd <span class="token parameter variable">-n</span> <span class="token number">127.0</span>.0.1:9876 <span class="token assign-left variable">autoCreateTopicEnable</span><span class="token operator">=</span>true</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash">The broker<span class="token punctuation">[</span>Jf1o0x1o1l_Os, <span class="token number">169.254</span>.97.218:10911<span class="token punctuation">]</span> boot success. <span class="token assign-left variable">serializeType</span><span class="token operator">=</span>JSON and name server is <span class="token number">127.0</span>.0.1:9876</code></pre></li>
+<li><p>Send and Receive Messages with tools</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">set</span> <span class="token assign-left variable">NAMESRV_ADDR</span><span class="token operator">=</span>localhost:9876
+
+tools.cmd org.apache.rocketmq.example.quickstart.Consumer</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash">ConsumeMessageThread_16 Receive New Messages: <span class="token punctuation">[</span>MessageExt <span class="token punctuation">[</span>brokerName<span class="token operator">=</span>Jf1o0x1o1l_Os, <span class="token assign-left variable">queueId</span><span class="token operator">=</span><span class="token number">3</span>, <span class="token assign-left variable">storeSize</span><span class="token operator">=</span><span class="token number">203</span>, <span class="token assign-left variable">queueOffset</span><span class="token operator">=</span><span class="token number">241</span>, <span class="token assign-left variable">sysFlag</span><span class="token operator">=</span><span class="token number">0</span>, <span class="token assign-left variable">bornTimestamp</span><span class="token operator">=</span><span class="token number">1718903594100</span>, <span class="token assign-left variable">bornHost</span><span class="token operator">=</span>/169.254.97.218:50790, <span class="token assign-left variable">storeTimestamp</span><span class="token operator">=</span><span class="token number">1718903594101</span>, <span class="token assign-left variable">storeHost</span><span class="token operator">=</span>/169.254.97.218:10911, <span class="token assign-left variable">msgId</span><span class="token operator">=</span>A9FE61DA00002A9F000000000002FBFE, <span class="token assign-left variable">commitLogOffset</span><span class="token operator">=</span><span class="token number">195582</span>, <span class="token assign-left variable">bodyCRC</span><span class="token operator">=</span><span class="token number">1595989865</span>, <span class="token assign-left variable">reconsumeTimes</span><span class="token operator">=</span><span class="token number">0</span>, <span class="token assign-left variable">preparedTransactionOffset</span><span class="token operator">=</span><span class="token number">0</span>, toString<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span>Message<span class="token punctuation">&#123;</span>topic<span class="token operator">=</span><span class="token string">'TopicTest'</span>, <span class="token assign-left variable">flag</span><span class="token operator">=</span><span class="token number">0</span>, <span class="token assign-left variable">properties</span><span class="token operator">=</span><span class="token punctuation">&#123;</span>MIN_OFFSET<span class="token operator">=</span><span class="token number">0</span>, <span class="token assign-left variable">MAX_OFFSET</span><span class="token operator">=</span><span class="token number">250</span>, <span class="token assign-left variable">CONSUME_START_TIME</span><span class="token operator">=</span><span class="token number">1718903597806</span>, <span class="token assign-left variable">UNIQ_KEY</span><span class="token operator">=</span>7F00000197186FF3C5B567423C7403C4, <span class="token assign-left variable">CLUSTER</span><span class="token operator">=</span>DefaultCluster, <span class="token assign-left variable">WAIT</span><span class="token operator">=</span>true, <span class="token assign-left variable">TAGS</span><span class="token operator">=</span>TagA<span class="token punctuation">&#125;</span>, <span class="token assign-left variable">body</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">72</span>, <span class="token number">101</span>, <span class="token number">108</span>, <span class="token number">108</span>, <span class="token number">111</span>, <span class="token number">32</span>, <span class="token number">82</span>, <span class="token number">111</span>, <span class="token number">99</span>, <span class="token number">107</span>, <span class="token number">101</span>, <span class="token number">116</span>, <span class="token number">77</span>, <span class="token number">81</span>, <span class="token number">32</span>, <span class="token number">57</span>, <span class="token number">54</span>, <span class="token number">52</span><span class="token punctuation">]</span>, <span class="token assign-left variable">transactionId</span><span class="token operator">=</span><span class="token string">'null'</span><span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+ConsumeMessageThread_11 Receive New Messages: <span class="token punctuation">[</span>MessageExt <span class="token punctuation">[</span>brokerName<span class="token operator">=</span>Jf1o0x1o1l_Os, <span class="token assign-left variable">queueId</span><span class="token operator">=</span><span class="token number">3</span>, <span class="token assign-left variable">storeSize</span><span class="token operator">=</span><span class="token number">203</span>, <span class="token assign-left variable">queueOffset</span><span class="token operator">=</span><span class="token number">240</span>, <span class="token assign-left variable">sysFlag</span><span class="token operator">=</span><span class="token number">0</span>, <span class="token assign-left variable">bornTimestamp</span><span class="token operator">=</span><span class="token number">1718903594095</span>, <span class="token assign-left variable">bornHost</span><span class="token operator">=</span>/169.254.97.218:50790, <span class="token assign-left variable">storeTimestamp</span><span class="token operator">=</span><span class="token number">1718903594096</span>, <span class="token assign-left variable">storeHost</span><span class="token operator">=</span>/169.254.97.218:10911, <span class="token assign-left variable">msgId</span><span class="token operator">=</span>A9FE61DA00002A9F000000000002F8D2, <span class="token assign-left variable">commitLogOffset</span><span class="token operator">=</span><span class="token number">194770</span>, <span class="token assign-left variable">bodyCRC</span><span class="token operator">=</span><span class="token number">1481448304</span>, <span class="token assign-left variable">reconsumeTimes</span><span class="token operator">=</span><span class="token number">0</span>, <span class="token assign-left variable">preparedTransactionOffset</span><span class="token operator">=</span><span class="token number">0</span>, toString<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span>Message<span class="token punctuation">&#123;</span>topic<span class="token operator">=</span><span class="token string">'TopicTest'</span>, <span class="token assign-left variable">flag</span><span class="token operator">=</span><span class="token number">0</span>, <span class="token assign-left variable">properties</span><span class="token operator">=</span><span class="token punctuation">&#123;</span>MIN_OFFSET<span class="token operator">=</span><span class="token number">0</span>, <span class="token assign-left variable">MAX_OFFSET</span><span class="token operator">=</span><span class="token number">250</span>, <span class="token assign-left variable">CONSUME_START_TIME</span><span class="token operator">=</span><span class="token number">1718903597806</span>, <span class="token assign-left variable">UNIQ_KEY</span><span class="token operator">=</span>7F00000197186FF3C5B567423C6F03C0, <span class="token assign-left variable">CLUSTER</span><span class="token operator">=</span>DefaultCluster, <span class="token assign-left variable">WAIT</span><span class="token operator">=</span>true, <span class="token assign-left variable">TAGS</span><span class="token operator">=</span>TagA<span class="token punctuation">&#125;</span>, <span class="token assign-left variable">body</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">72</span>, <span class="token number">101</span>, <span class="token number">108</span>, <span class="token number">108</span>, <span class="token number">111</span>, <span class="token number">32</span>, <span class="token number">82</span>, <span class="token number">111</span>, <span class="token number">99</span>, <span class="token number">107</span>, <span class="token number">101</span>, <span class="token number">116</span>, <span class="token number">77</span>, <span class="token number">81</span>, <span class="token number">32</span>, <span class="token number">57</span>, <span class="token number">54</span>, <span class="token number">48</span><span class="token punctuation">]</span>, <span class="token assign-left variable">transactionId</span><span class="token operator">=</span><span class="token string">'null'</span><span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">]</span></code></pre></li>
+<li><p>new cmd window</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash">D:<span class="token punctuation">\</span>Rocketmq_all_4.8.0_bin_release<span class="token punctuation">\</span>bin<span class="token operator">></span>
+
+tools.cmd org.apache.rocketmq.example.quickstart.Producer</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash">SendResult <span class="token punctuation">[</span>sendStatus<span class="token operator">=</span>SEND_OK, <span class="token assign-left variable">msgId</span><span class="token operator">=</span>7F00000197186FF3C5B567423C9F03E6, <span class="token assign-left variable">offsetMsgId</span><span class="token operator">=</span>A9FE61DA00002A9F00000000000316F4, <span class="token assign-left variable">messageQueue</span><span class="token operator">=</span>MessageQueue <span class="token punctuation">[</span>topic<span class="token operator">=</span>TopicTest, <span class="token assign-left variable">brokerName</span><span class="token operator">=</span>Jf1o0x1o1l_Os, <span class="token assign-left variable">queueId</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">]</span>, <span class="token assign-left variable">queueOffset</span><span class="token operator">=</span><span class="token number">249</span><span class="token punctuation">]</span>
+SendResult <span class="token punctuation">[</span>sendStatus<span class="token operator">=</span>SEND_OK, <span class="token assign-left variable">msgId</span><span class="token operator">=</span>7F00000197186FF3C5B567423CA003E7, <span class="token assign-left variable">offsetMsgId</span><span class="token operator">=</span>A9FE61DA00002A9F00000000000317BF, <span class="token assign-left variable">messageQueue</span><span class="token operator">=</span>MessageQueue <span class="token punctuation">[</span>topic<span class="token operator">=</span>TopicTest, <span class="token assign-left variable">brokerName</span><span class="token operator">=</span>Jf1o0x1o1l_Os, <span class="token assign-left variable">queueId</span><span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">]</span>, <span class="token assign-left variable">queueOffset</span><span class="token operator">=</span><span class="token number">249</span><span class="token punctuation">]</span>
+01:13:14.153 <span class="token punctuation">[</span>NettyClientSelector_1<span class="token punctuation">]</span> INFO  RocketmqRemoting - closeChannel: close the connection to remote address<span class="token punctuation">[</span><span class="token number">127.0</span>.0.1:9876<span class="token punctuation">]</span> result: <span class="token boolean">true</span>
+01:13:14.155 <span class="token punctuation">[</span>NettyClientSelector_1<span class="token punctuation">]</span> INFO  RocketmqRemoting - closeChannel: close the connection to remote address<span class="token punctuation">[</span><span class="token number">169.254</span>.97.218:10911<span class="token punctuation">]</span> result: <span class="token boolean">true</span></code></pre></li>
+</ol>
+<h4 id="nacos-on-windows">Nacos on windows</h4>
+<ol type="1">
+<li><p>version:<a
+target="_blank" rel="noopener" href="https://github.com/alibaba/nacos/releases/tag/2.2.0.1">2.2.0.1
+(March 2nd, 2023)</a></p></li>
+<li><p>folder hierarchy<img
+src="https://s2.loli.net/2024/06/21/SEyeoWqtLNuD497.png"
+alt="image-20240621021021811" /></p></li>
+<li><p>backup <code>application.properties</code></p></li>
+<li><p>edit <code>application.properties</code></p>
+<pre class="language-properties" data-language="properties"><code class="language-properties"><span class="token comment">#*************** Config Module Related Configurations ***************#</span>
+<span class="token comment">### If use MySQL as datasource:</span>
+<span class="token key attr-name">spring.datasource.platform</span><span class="token punctuation">=</span><span class="token value attr-value">mysql</span>
+
+<span class="token comment">### Count of DB:</span>
+<span class="token key attr-name">db.num</span><span class="token punctuation">=</span><span class="token value attr-value">1</span>
+
+<span class="token comment">### Connect URL of DB:</span>
+<span class="token key attr-name">db.url.0</span><span class="token punctuation">=</span><span class="token value attr-value">jdbc:mysql://127.0.0.1:3306/nacos_config?characterEncoding=utf8&amp;connectTimeout=1000&amp;socketTimeout=3000&amp;autoReconnect=true&amp;useUnicode=true&amp;useSSL=false&amp;serverTimezone=UTC</span>
+<span class="token key attr-name">db.user.0</span><span class="token punctuation">=</span><span class="token value attr-value">root</span>
+<span class="token key attr-name">db.password.0</span><span class="token punctuation">=</span><span class="token value attr-value">123456</span></code></pre></li>
+<li><p>create <code>nacos_config</code> database</p></li>
+<li><p>run <code>mysql-schema.sql</code></p></li>
+<li><p>result<img
+src="https://s2.loli.net/2024/06/21/MvVnYJXQKPlTBrx.png"
+alt="image-20240621021347917" /></p></li>
+</ol>
 
                 
             </div>
@@ -562,7 +601,7 @@ alt="image-20221002170334041" />
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">Jf710001011</a>
+                    <a href="/about" rel="external nofollow noreferrer">Jf71o0x1o1l</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -572,7 +611,7 @@ alt="image-20221002170334041" />
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://Jf710001011.github.io/2022/10/03/xss-wen-jian-bao-han-lou-dong-yuan-li/">https://Jf710001011.github.io/2022/10/03/xss-wen-jian-bao-han-lou-dong-yuan-li/</a>
+                    <a href="https://Jf710001011.github.io/2024/06/20/douyu-project/">https://Jf710001011.github.io/2024/06/20/douyu-project/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -585,7 +624,7 @@ alt="image-20221002170334041" />
                     All articles in this blog are used except for special statements
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     reprint polocy. If reproduced, please indicate source
-                    <a href="/about" target="_blank">Jf710001011</a>
+                    <a href="/about" target="_blank">Jf71o0x1o1l</a>
                     !
                 </span>
             </div>
@@ -610,12 +649,12 @@ alt="image-20221002170334041" />
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Web/">
-                                    <span class="chip bg-color">Web</span>
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
                                 </a>
                             
-                                <a href="/tags/Xss/">
-                                    <span class="chip bg-color">Xss</span>
+                                <a href="/tags/Project/">
+                                    <span class="chip bg-color">Project</span>
                                 </a>
                             
                         </div>
@@ -922,50 +961,52 @@ alt="image-20221002170334041" />
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2022/10/08/pma02-dong-tai-fen-xi/">
+                <a href="/2024/06/20/douyu-project/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="动态分析">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Douyu_Java_Project">
                         
-                        <span class="card-title">动态分析</span>
+                        <span class="card-title">Douyu_Java_Project</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Practical Malware Analysis-02
+                            
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-08
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-06-20
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Cybersecurity/" class="post-category">
-                                    Cybersecurity
+                            <a href="/categories/Program-design/" class="post-category">
+                                    Program design
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Binary-exploition/">
-                        <span class="chip bg-color">Binary exploition</span>
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
                     </a>
                     
-                    <a href="/tags/Reverse-engineering/">
-                        <span class="chip bg-color">Reverse engineering</span>
+                    <a href="/tags/Project/">
+                        <span class="chip bg-color">Project</span>
                     </a>
                     
                 </div>
@@ -979,36 +1020,44 @@ alt="image-20221002170334041" />
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/10/01/ml01/">
+                <a href="/2024/05/03/springcloud/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Machine-Learning00">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="SpringCloud">
                         
-                        <span class="card-title">Machine-Learning00</span>
+                        <span class="card-title">SpringCloud</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            机器学习，西瓜书-周志华
+                            last one
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-05-03
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Machine-Learning/" class="post-category">
-                                    Machine Learning
+                            <a href="/categories/Program-design/" class="post-category">
+                                    Program design
                                 </a>
                             
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
                 </div>
                 
             </div>

@@ -481,14 +481,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2024-06-21
+                    2024-06-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    842
+                    1.3k
                 </div>
                 
 
@@ -609,7 +609,74 @@ d-----        <span class="token number">2024</span>-06-21  01:26 PM            
 ### The default token (Base64 String):
 nacos.core.auth.plugin.nacos.token.secret.key&#x3D;yourSecertKey</code></pre>
 <p>how to get secret key: Any one, copied from the Internet</p></li>
-<li></li>
+</ol>
+<h4 id="docker-1">Docker</h4>
+<h5 id="underlying-principles">Underlying principles</h5>
+<ol type="1">
+<li><p><code>NameSpace</code></p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># cd /proc/</span>
+<span class="token punctuation">[</span>root@localhost proc<span class="token punctuation">]</span><span class="token comment"># ls</span>
+<span class="token number">1</span>     <span class="token number">2247</span>   <span class="token number">303</span>    <span class="token number">40078</span>  <span class="token number">430</span>  <span class="token number">637</span>  <span class="token number">742</span>          filesystems  pagetypeinfo
+<span class="token number">10</span>    <span class="token number">2266</span>   <span class="token number">304</span>    <span class="token number">407</span>    <span class="token number">431</span>  <span class="token number">638</span>  <span class="token number">749</span>          fs           partitions
+<span class="token number">1057</span>  <span class="token number">2287</span>   <span class="token number">309</span>    <span class="token number">408</span>    <span class="token number">45</span>   <span class="token number">639</span>  <span class="token number">751</span>          interrupts   sched_debug
+<span class="token number">1059</span>  <span class="token number">23</span>     <span class="token number">31</span>     <span class="token number">41484</span>  <span class="token number">46</span>   <span class="token number">64</span>   <span class="token number">77</span>           iomem        schedstat
+<span class="token number">1065</span>  <span class="token number">24</span>     <span class="token number">310</span>    <span class="token number">41593</span>  <span class="token number">47</span>   <span class="token number">640</span>  <span class="token number">8</span>            ioports      scsi
+<span class="token number">1070</span>  <span class="token number">2404</span>   <span class="token number">311</span>    <span class="token number">41738</span>  <span class="token number">48</span>   <span class="token number">642</span>  <span class="token number">830</span>          irq          self
+<span class="token number">11</span>    <span class="token number">2579</span>   <span class="token number">312</span>    <span class="token number">41834</span>  <span class="token number">511</span>  <span class="token number">643</span>  <span class="token number">879</span>          kallsyms     slabinfo
+<span class="token number">113</span>   <span class="token number">2585</span>   <span class="token number">314</span>    <span class="token number">420</span>    <span class="token number">528</span>  <span class="token number">660</span>  <span class="token number">9</span>            kcore        softirqs
+<span class="token number">12</span>    <span class="token number">2598</span>   <span class="token number">316</span>    <span class="token number">42000</span>  <span class="token number">545</span>  <span class="token number">661</span>  acpi         keys         <span class="token function">stat</span>
+<span class="token number">1280</span>  <span class="token number">26</span>     <span class="token number">32</span>     <span class="token number">42065</span>  <span class="token number">56</span>   <span class="token number">662</span>  asound       key-users    swaps
+<span class="token number">13</span>    <span class="token number">2604</span>   <span class="token number">33</span>     <span class="token number">421</span>    <span class="token number">59</span>   <span class="token number">663</span>  buddyinfo    kmsg         sys
+<span class="token number">1310</span>  <span class="token number">2618</span>   <span class="token number">34</span>     <span class="token number">422</span>    <span class="token number">598</span>  <span class="token number">664</span>  bus          kpagecount   sysrq-trigger
+<span class="token number">1321</span>  <span class="token number">2624</span>   <span class="token number">34701</span>  <span class="token number">42234</span>  <span class="token number">6</span>    <span class="token number">665</span>  cgroups      kpageflags   sysvipc
+<span class="token number">14</span>    <span class="token number">2641</span>   <span class="token number">35</span>     <span class="token number">42299</span>  <span class="token number">60</span>   <span class="token number">666</span>  cmdline      loadavg      timer_list
+<span class="token number">1549</span>  <span class="token number">2662</span>   <span class="token number">36</span>     <span class="token number">423</span>    <span class="token number">602</span>  <span class="token number">667</span>  consoles     locks        timer_stats
+<span class="token number">16</span>    <span class="token number">28</span>     <span class="token number">37</span>     <span class="token number">42303</span>  <span class="token number">606</span>  <span class="token number">690</span>  cpuinfo      mdstat       <span class="token function">tty</span>
+<span class="token number">17</span>    <span class="token number">29</span>     <span class="token number">37723</span>  <span class="token number">42374</span>  <span class="token number">608</span>  <span class="token number">7</span>    crypto       meminfo      <span class="token function">uptime</span>
+<span class="token number">18</span>    <span class="token number">29613</span>  <span class="token number">38</span>     <span class="token number">424</span>    <span class="token number">615</span>  <span class="token number">714</span>  devices      misc         version
+<span class="token number">19</span>    <span class="token number">297</span>    <span class="token number">38467</span>  <span class="token number">425</span>    <span class="token number">618</span>  <span class="token number">715</span>  diskstats    modules      vmallocinfo
+<span class="token number">2</span>     <span class="token number">298</span>    <span class="token number">39</span>     <span class="token number">426</span>    <span class="token number">62</span>   <span class="token number">717</span>  dma          mounts       <span class="token function">vmstat</span>
+<span class="token number">21</span>    <span class="token number">299</span>    <span class="token number">395</span>    <span class="token number">427</span>    <span class="token number">63</span>   <span class="token number">720</span>  driver       mpt          zoneinfo
+<span class="token number">22</span>    <span class="token number">30</span>     <span class="token number">396</span>    <span class="token number">428</span>    <span class="token number">631</span>  <span class="token number">723</span>  execdomains  mtrr
+<span class="token number">2240</span>  <span class="token number">300</span>    <span class="token number">4</span>      <span class="token number">429</span>    <span class="token number">634</span>  <span class="token number">741</span>  fb           net</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost proc<span class="token punctuation">]</span><span class="token comment"># cd 30</span>
+<span class="token punctuation">[</span>root@localhost <span class="token number">30</span><span class="token punctuation">]</span><span class="token comment"># ls</span>
+ls: cannot <span class="token builtin class-name">read</span> symbolic <span class="token function">link</span> exe: No such <span class="token function">file</span> or directory
+attr             cwd       map_files   oom_adj        schedstat  task
+autogroup        environ   maps        oom_score      sessionid  timers
+auxv             exe       mem         oom_score_adj  setgroups  uid_map
+cgroup           fd        mountinfo   pagemap        smaps      wchan
+clear_refs       fdinfo    mounts      patch_state    stack
+cmdline          gid_map   mountstats  personality    <span class="token function">stat</span>
+<span class="token function">comm</span>             io        net         projid_map     statm
+coredump_filter  limits    ns          root           status
+cpuset           loginuid  numa_maps   sched          syscall</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost <span class="token number">30</span><span class="token punctuation">]</span><span class="token comment"># cd ns/</span>
+<span class="token punctuation">[</span>root@localhost ns<span class="token punctuation">]</span><span class="token comment"># ll</span>
+total <span class="token number">0</span>
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jun <span class="token number">21</span> <span class="token number">14</span>:19 ipc -<span class="token operator">></span> ipc:<span class="token punctuation">[</span><span class="token number">4026531839</span><span class="token punctuation">]</span>
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jun <span class="token number">21</span> <span class="token number">14</span>:19 mnt -<span class="token operator">></span> mnt:<span class="token punctuation">[</span><span class="token number">4026531840</span><span class="token punctuation">]</span>
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jun <span class="token number">21</span> <span class="token number">14</span>:19 net -<span class="token operator">></span> net:<span class="token punctuation">[</span><span class="token number">4026531956</span><span class="token punctuation">]</span>
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jun <span class="token number">21</span> <span class="token number">14</span>:19 pid -<span class="token operator">></span> pid:<span class="token punctuation">[</span><span class="token number">4026531836</span><span class="token punctuation">]</span>
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jun <span class="token number">21</span> <span class="token number">14</span>:19 user -<span class="token operator">></span> user:<span class="token punctuation">[</span><span class="token number">4026531837</span><span class="token punctuation">]</span>
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jun <span class="token number">21</span> <span class="token number">14</span>:19 uts -<span class="token operator">></span> uts:<span class="token punctuation">[</span><span class="token number">4026531838</span><span class="token punctuation">]</span></code></pre></li>
+<li><p><code>crgroup</code></p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># cd /sys/fs/cgroup/</span>
+<span class="token punctuation">[</span>root@localhost cgroup<span class="token punctuation">]</span><span class="token comment"># ls</span>
+blkio    cpu,cpuacct  freezer  net_cls           perf_event
+cpu      cpuset       hugetlb  net_cls,net_prio  pids
+cpuacct  devices      memory   net_prio          system</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost cgroup<span class="token punctuation">]</span><span class="token comment"># cd ./cpu</span>
+<span class="token punctuation">[</span>root@localhost cpu<span class="token punctuation">]</span><span class="token comment"># ls</span>
+cgroup.clone_children  cpuacct.usage         cpu.rt_runtime_us  release_agent
+cgroup.event_control   cpuacct.usage_percpu  cpu.shares         system.slice
+cgroup.procs           cpu.cfs_period_us     cpu.stat           tasks
+cgroup.sane_behavior   cpu.cfs_quota_us      <span class="token function">docker</span>             user.slice
+cpuacct.stat           cpu.rt_period_us      notify_on_release</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost cpu<span class="token punctuation">]</span><span class="token comment"># cat cpu.cfs_period_us </span>
+<span class="token number">100000</span>
+<span class="token punctuation">[</span>root@localhost cpu<span class="token punctuation">]</span><span class="token comment"># cat cpu.cfs_quota_us </span>
+<span class="token parameter variable">-1</span></code></pre></li>
 </ol>
 
                 
@@ -1230,7 +1297,7 @@ nacos.core.auth.plugin.nacos.token.secret.key&#x3D;yourSecertKey</code></pre>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">297.2k</span>&nbsp;字
+                class="white-color">297.6k</span>&nbsp;字
             
             
             

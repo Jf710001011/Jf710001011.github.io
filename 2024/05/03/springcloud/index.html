@@ -477,14 +477,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2024-06-26
+                    2024-06-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    10k
+                    10.1k
                 </div>
                 
 
@@ -3331,6 +3331,53 @@ src="https://s2.loli.net/2024/06/26/5vtbDnFJyx3XaL7.png"
 alt="image-20240626042933061" /></li>
 </ol></li>
 </ol>
+<h4 id="hot-updates-of-configuration-properties">Hot updates of
+configuration properties</h4>
+<ol type="1">
+<li><p>cart-service/src/main/java/com/hmall/cart/config/CartProperties.java</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>hmall<span class="token punctuation">.</span>cart<span class="token punctuation">.</span>config</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>context<span class="token punctuation">.</span>properties<span class="token punctuation">.</span></span><span class="token class-name">ConfigurationProperties</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>stereotype<span class="token punctuation">.</span></span><span class="token class-name">Component</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">lombok<span class="token punctuation">.</span></span><span class="token class-name">Data</span></span><span class="token punctuation">;</span>
+
+<span class="token annotation punctuation">@Data</span>
+<span class="token annotation punctuation">@Component</span>
+<span class="token annotation punctuation">@ConfigurationProperties</span><span class="token punctuation">(</span>prefix <span class="token operator">=</span> <span class="token string">"hm.cart"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CartProperties</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Integer</span> maxItems<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+</code></pre></li>
+<li><p><code>cart-service\src\main\java\com\hmall\cart\service\impl\CartServiceImpl.java</code></p>
+<pre class="language-none"><code class="language-none">private void checkCartsFull(Long userId) &#123;
+    int count &#x3D; lambdaQuery().eq(Cart::getUserId, userId).count();
+    if (count &gt;&#x3D; cp.getMaxItems()) &#123;
+        throw new BizIllegalException(
+                StrUtil.format(&quot;The number of items in the user&#39;s shopping cart cannot exceed &#123;&#125;&quot;, cp.getMaxItems()));
+    &#125;
+&#125;</code></pre></li>
+<li><p>nacos: cart-service.yaml</p>
+<pre class="language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># 10 different items</span>
+<span class="token comment"># "space" after ":"</span>
+<span class="token key atrule">hm</span><span class="token punctuation">:</span>
+  <span class="token key atrule">cart</span><span class="token punctuation">:</span>
+    <span class="token key atrule">maxItems</span><span class="token punctuation">:</span> <span class="token number">10</span></code></pre></li>
+</ol>
+<h4 id="dynamic-route">Dynamic route</h4>
+<ol type="1">
+<li><p>dependencies</p>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.alibaba.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-starter-alibaba-nacos-config<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+<span class="token comment">&lt;!--加载bootstrap--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-starter-bootstrap<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre></li>
+<li><p>hm-gateway.yaml</p></li>
+</ol>
 
                 
             </div>
@@ -3948,7 +3995,7 @@ alt="image-20240626042933061" /></li>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">298k</span>&nbsp;字
+                class="white-color">298.2k</span>&nbsp;字
             
             
             

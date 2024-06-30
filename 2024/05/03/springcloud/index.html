@@ -477,14 +477,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2024-06-28
+                    2024-07-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    10.1k
+                    10.7k
                 </div>
                 
 
@@ -3376,7 +3376,210 @@ configuration properties</h4>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-starter-bootstrap<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre></li>
-<li><p>hm-gateway.yaml</p></li>
+<li><p><code>hm-gateway\src\main\resources\application.yaml</code></p>
+<pre class="language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">server</span><span class="token punctuation">:</span>
+  <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">8080</span> <span class="token comment"># 端口</span>
+<span class="token key atrule">hm</span><span class="token punctuation">:</span>
+  <span class="token key atrule">jwt</span><span class="token punctuation">:</span>
+    <span class="token key atrule">location</span><span class="token punctuation">:</span> classpath<span class="token punctuation">:</span>hmall.jks <span class="token comment"># 秘钥地址</span>
+    <span class="token key atrule">alias</span><span class="token punctuation">:</span> hmall <span class="token comment"># 秘钥别名</span>
+    <span class="token key atrule">password</span><span class="token punctuation">:</span> hmall123 <span class="token comment"># 秘钥文件密码</span>
+    <span class="token key atrule">tokenTTL</span><span class="token punctuation">:</span> 30m <span class="token comment"># 登录有效期</span>
+  <span class="token key atrule">auth</span><span class="token punctuation">:</span>
+    <span class="token key atrule">excludePaths</span><span class="token punctuation">:</span> <span class="token comment"># 无需登录校验的路径</span>
+      <span class="token punctuation">-</span> /search/<span class="token important">**</span>
+      <span class="token punctuation">-</span> /users/login
+      <span class="token punctuation">-</span> /items/<span class="token important">**</span></code></pre></li>
+<li><p><code>hm-gateway\src\main\resources\bootstrap.yaml</code></p>
+<pre class="language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">application</span><span class="token punctuation">:</span>
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> gateway
+  <span class="token key atrule">cloud</span><span class="token punctuation">:</span>
+    <span class="token key atrule">nacos</span><span class="token punctuation">:</span>  
+      <span class="token key atrule">server-addr</span><span class="token punctuation">:</span> 192.168.130.128
+      <span class="token key atrule">config</span><span class="token punctuation">:</span>
+        <span class="token key atrule">file-extension</span><span class="token punctuation">:</span> yaml
+        <span class="token key atrule">shared-configs</span><span class="token punctuation">:</span> 
+          <span class="token punctuation">-</span> <span class="token key atrule">dataId</span><span class="token punctuation">:</span> share<span class="token punctuation">-</span>log.yaml </code></pre></li>
+<li><p><code>hm-gateway\src\main\java\com\hmall\gateway\route\DynamicRouteLoader.java</code></p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>hmall<span class="token punctuation">.</span>gateway<span class="token punctuation">.</span>route</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">HashSet</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">List</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Set</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>concurrent<span class="token punctuation">.</span></span><span class="token class-name">Executor</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">javax<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">PostConstruct</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>cloud<span class="token punctuation">.</span>gateway<span class="token punctuation">.</span>route<span class="token punctuation">.</span></span><span class="token class-name">RouteDefinition</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>cloud<span class="token punctuation">.</span>gateway<span class="token punctuation">.</span>route<span class="token punctuation">.</span></span><span class="token class-name">RouteDefinitionWriter</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>stereotype<span class="token punctuation">.</span></span><span class="token class-name">Component</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>alibaba<span class="token punctuation">.</span>cloud<span class="token punctuation">.</span>nacos<span class="token punctuation">.</span></span><span class="token class-name">NacosConfigManager</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>alibaba<span class="token punctuation">.</span>nacos<span class="token punctuation">.</span>api<span class="token punctuation">.</span>config<span class="token punctuation">.</span>listener<span class="token punctuation">.</span></span><span class="token class-name">Listener</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>alibaba<span class="token punctuation">.</span>nacos<span class="token punctuation">.</span>api<span class="token punctuation">.</span>exception<span class="token punctuation">.</span></span><span class="token class-name">NacosException</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>hmall<span class="token punctuation">.</span>common<span class="token punctuation">.</span>utils<span class="token punctuation">.</span></span><span class="token class-name">CollUtils</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">cn<span class="token punctuation">.</span>hutool<span class="token punctuation">.</span>json<span class="token punctuation">.</span></span><span class="token class-name">JSONUtil</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">lombok<span class="token punctuation">.</span></span><span class="token class-name">RequiredArgsConstructor</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">lombok<span class="token punctuation">.</span>extern<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span></span><span class="token class-name">Slf4j</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">reactor<span class="token punctuation">.</span>core<span class="token punctuation">.</span>publisher<span class="token punctuation">.</span></span><span class="token class-name">Mono</span></span><span class="token punctuation">;</span>
+
+<span class="token annotation punctuation">@Slf4j</span>
+<span class="token annotation punctuation">@Component</span>
+<span class="token annotation punctuation">@RequiredArgsConstructor</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DynamicRouteLoader</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">RouteDefinitionWriter</span> rdw<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">NacosConfigManager</span> ncm<span class="token punctuation">;</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">String</span> dataId <span class="token operator">=</span> <span class="token string">"gateway-routes.json"</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> group <span class="token operator">=</span> <span class="token string">"DEFAULT_GROUP"</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">Set</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> routeIds <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashSet</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@PostConstruct</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">initRouteConfigListener</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">NacosException</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// Register the listener and pull the configuration for the first time</span>
+        <span class="token class-name">String</span> configInfo <span class="token operator">=</span> ncm<span class="token punctuation">.</span><span class="token function">getConfigService</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getConfigAndSignListener</span><span class="token punctuation">(</span>dataId<span class="token punctuation">,</span> group<span class="token punctuation">,</span> <span class="token number">5000</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Listener</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token class-name">Executor</span> <span class="token function">getExecutor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">receiveConfigInfo</span><span class="token punctuation">(</span><span class="token class-name">String</span> configInfo<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token function">updateConfigInfo</span><span class="token punctuation">(</span>configInfo<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+
+        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">updateConfigInfo</span><span class="token punctuation">(</span>configInfo<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">updateConfigInfo</span><span class="token punctuation">(</span><span class="token class-name">String</span> configInfo<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        log<span class="token punctuation">.</span><span class="token function">debug</span><span class="token punctuation">(</span><span class="token string">"Monitor routing configuration changes,&#123;&#125;"</span><span class="token punctuation">,</span> configInfo<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 1. Deserialization</span>
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">RouteDefinition</span><span class="token punctuation">></span></span> routeDefinitions <span class="token operator">=</span> <span class="token class-name">JSONUtil</span><span class="token punctuation">.</span><span class="token function">toList</span><span class="token punctuation">(</span>configInfo<span class="token punctuation">,</span> <span class="token class-name">RouteDefinition</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 2. Clear old routes before updating</span>
+        <span class="token comment">// 2.1 Clear old routes</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">String</span> routeId <span class="token operator">:</span> routeIds<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            rdw<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span><span class="token class-name">Mono</span><span class="token punctuation">.</span><span class="token function">just</span><span class="token punctuation">(</span>routeId<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        routeIds<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 2.2 Determine whether there are new routes to be updated</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token class-name">CollUtils</span><span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span>routeDefinitions<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token comment">// No new routing configuration, end</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+
+        <span class="token comment">// 3. update routes</span>
+        routeDefinitions<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>routeDefinition <span class="token operator">-></span> <span class="token punctuation">&#123;</span>
+            <span class="token comment">// 3.1 update routes</span>
+            rdw<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span><span class="token class-name">Mono</span><span class="token punctuation">.</span><span class="token function">just</span><span class="token punctuation">(</span>routeDefinition<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">// 3.2 Record the route ID for future deletion</span>
+            routeIds<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>routeDefinition<span class="token punctuation">.</span><span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+</code></pre></li>
+<li><p>Nacode admin panel: <code>gateway-routes.json</code></p>
+<pre class="language-json" data-language="json"><code class="language-json"><span class="token punctuation">[</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"item"</span><span class="token punctuation">,</span>
+        <span class="token property">"predicates"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">&#123;</span>
+            <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"Path"</span><span class="token punctuation">,</span>
+            <span class="token property">"args"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span><span class="token property">"_genkey_0"</span><span class="token operator">:</span><span class="token string">"/items/**"</span><span class="token punctuation">,</span> <span class="token property">"_genkey_1"</span><span class="token operator">:</span><span class="token string">"/search/**"</span><span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token property">"filters"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token property">"uri"</span><span class="token operator">:</span> <span class="token string">"lb://item-service"</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"cart"</span><span class="token punctuation">,</span>
+        <span class="token property">"predicates"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">&#123;</span>
+            <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"Path"</span><span class="token punctuation">,</span>
+            <span class="token property">"args"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span><span class="token property">"_genkey_0"</span><span class="token operator">:</span><span class="token string">"/carts/**"</span><span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token property">"filters"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token property">"uri"</span><span class="token operator">:</span> <span class="token string">"lb://cart-service"</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"user"</span><span class="token punctuation">,</span>
+        <span class="token property">"predicates"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">&#123;</span>
+            <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"Path"</span><span class="token punctuation">,</span>
+            <span class="token property">"args"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span><span class="token property">"_genkey_0"</span><span class="token operator">:</span><span class="token string">"/users/**"</span><span class="token punctuation">,</span> <span class="token property">"_genkey_1"</span><span class="token operator">:</span><span class="token string">"/addresses/**"</span><span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token property">"filters"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token property">"uri"</span><span class="token operator">:</span> <span class="token string">"lb://user-service"</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"trade"</span><span class="token punctuation">,</span>
+        <span class="token property">"predicates"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">&#123;</span>
+            <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"Path"</span><span class="token punctuation">,</span>
+            <span class="token property">"args"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span><span class="token property">"_genkey_0"</span><span class="token operator">:</span><span class="token string">"/orders/**"</span><span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token property">"filters"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token property">"uri"</span><span class="token operator">:</span> <span class="token string">"lb://trade-service"</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"pay"</span><span class="token punctuation">,</span>
+        <span class="token property">"predicates"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">&#123;</span>
+            <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"Path"</span><span class="token punctuation">,</span>
+            <span class="token property">"args"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span><span class="token property">"_genkey_0"</span><span class="token operator">:</span><span class="token string">"/pay-orders/**"</span><span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token property">"filters"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token property">"uri"</span><span class="token operator">:</span> <span class="token string">"lb://pay-service"</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">]</span></code></pre></li>
+<li><p>request
+http://localhost:8080/search/list?pageNo=1&amp;pageSize=1</p></li>
+</ol>
+<h3 id="service-protection-and-distributed-service">Service protection
+and distributed service</h3>
+<h4 id="cascading-failures-avalanche">Cascading Failures
+(Avalanche)</h4>
+<ol type="1">
+<li>Solution
+<ol type="1">
+<li>thread isolation</li>
+<li>service Circuit Breaking</li>
+<li>request rate limiting</li>
+</ol></li>
+</ol>
+<h4 id="sentinel">Sentinel</h4>
+<ol type="1">
+<li><p>download <code>sentinel-dashboard.jar</code></p></li>
+<li><p>start:</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">java</span> <span class="token parameter variable">-Dserver.port</span><span class="token operator">=</span><span class="token number">8090</span> <span class="token parameter variable">-Dcsp.sentinel.dashboard.server</span><span class="token operator">=</span>localhost:8090 <span class="token parameter variable">-Dproject.name</span><span class="token operator">=</span>sentinel-dashboard <span class="token parameter variable">-jar</span> sentinel-dashboard.jar</code></pre></li>
+<li><p>Administrator console<img
+src="https://s2.loli.net/2024/07/01/szFv2qhYymu1fno.png"
+alt="image-20240701024156181" /></p></li>
+<li><p>dependecy</p>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!--sentinel--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.alibaba.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span> 
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-starter-alibaba-sentinel<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre></li>
+<li><p>application.yaml</p>
+<pre class="language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">cloud</span><span class="token punctuation">:</span> 
+    <span class="token key atrule">sentinel</span><span class="token punctuation">:</span>
+      <span class="token key atrule">transport</span><span class="token punctuation">:</span>
+        <span class="token key atrule">dashboard</span><span class="token punctuation">:</span> localhost<span class="token punctuation">:</span><span class="token number">8090</span></code></pre></li>
+<li><p>In the cart-service, the request paths are all
+<code>/carts</code>, but the <code>request methods</code> are different.
+If sentinel wants to distinguish, it needs to be configured:</p>
+<pre class="language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">cloud</span><span class="token punctuation">:</span> 
+    <span class="token key atrule">sentinel</span><span class="token punctuation">:</span>
+      <span class="token key atrule">transport</span><span class="token punctuation">:</span>
+        <span class="token key atrule">dashboard</span><span class="token punctuation">:</span> localhost<span class="token punctuation">:</span><span class="token number">8090</span>
+      <span class="token key atrule">http-method-specify</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment"># 开启请求方式前缀  </span></code></pre></li>
+<li><p>operate cart-service</p></li>
+<li><p>refresh<img
+src="https://s2.loli.net/2024/07/01/tWhwLHvcXxMFe61.png"
+alt="image-20240701024652515" /></p></li>
 </ol>
 
                 
@@ -3995,7 +4198,7 @@ configuration properties</h4>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">298.2k</span>&nbsp;字
+                class="white-color">298.8k</span>&nbsp;字
             
             
             

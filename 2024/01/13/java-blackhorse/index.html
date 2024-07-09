@@ -477,14 +477,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2024-04-07
+                    2024-07-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    24.5k
+                    24.9k
                 </div>
                 
 
@@ -615,7 +615,7 @@ data must be provided.</li>
 </ol></li>
 </ol>
 <h3 id="proximity-principle-and-this-keyword">Proximity principle and
-this keyword</h3>
+"this" keyword</h3>
 <ol type="1">
 <li>When the method parameter has the <strong>same name as the member
 variable</strong></li>
@@ -856,7 +856,7 @@ alt="image-20240116001541349" /></p></li>
         <span class="token class-name">String</span> s2 <span class="token operator">=</span> <span class="token string">"abc"</span><span class="token punctuation">;</span>
         <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> chs <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token char">'a'</span><span class="token punctuation">,</span> <span class="token char">'b'</span><span class="token punctuation">,</span> <span class="token char">'c'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
         <span class="token class-name">String</span> s3 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span>chs<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment">// Compare the memory address of th     e object</span>
+        <span class="token comment">// Compare the memory address of the object</span>
         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s1 <span class="token operator">==</span> s2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s1 <span class="token operator">==</span> s3<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// false</span>
         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"--------"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1290,7 +1290,6 @@ alt="image-20240120063204125" /></p>
             <span class="token punctuation">&#125;</span>
 
             <span class="token keyword">switch</span> <span class="token punctuation">(</span>selection<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                <span class="token comment">// FIXME: case 1->addstudent();</span>
                 <span class="token keyword">case</span> <span class="token number">1</span><span class="token operator">:</span>
                     <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"1. add student: "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
                     <span class="token class-name">Student</span> stu <span class="token operator">=</span> <span class="token function">addStudent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1954,7 +1953,7 @@ locations with the parent class's attributes.</p>
     <span class="token keyword">int</span> y <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
 
-<span class="token comment">// Creating objects</span>
+<span class="token comment">// Creating objects </span>
 <span class="token class-name">Parent</span> obj1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Parent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token class-name">Child</span> obj2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Child</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -1976,6 +1975,20 @@ table can be used directly</p></li>
 <li><p>When a subclass overrides a parent class method, it must ensure
 that the access rights are greater than or equal those of the parent
 class.</p>
+<blockquote>
+<p><strong>父类方法是 <code>public</code>
+的</strong>：子类重写的方法必须是 <code>public</code> 的。</p>
+<p><strong>父类方法是 <code>protected</code>
+的</strong>：子类重写的方法可以是 <code>protected</code> 或
+<code>public</code> 的，不能是 <code>private</code>
+或默认的包级访问权限。</p>
+<p><strong>父类方法是默认包级访问权限（无修饰符）的</strong>：子类重写的方法可以是默认包级访问权限、<code>protected</code>
+或 <code>public</code> 的，不能是 <code>private</code> 的。</p>
+<p><strong>父类方法是 <code>private</code> 的</strong>：子类不能重写
+<code>private</code> 方法，因为 <code>private</code>
+方法对子类是不可见的。实际上，<code>private</code>
+方法在子类中是不可见的，它们不能被重写，只能在定义它们的类内部访问。</p>
+</blockquote>
 <ol type="1">
 <li>The return value type must be less than or equal to that of the
 parent class</li>
@@ -2005,8 +2018,58 @@ parent class</li>
 <li><p>When calling a <code>member variable</code>, look to the left
 when compiling and to the left when running.</p>
 <ol type="1">
-<li>When calling a <code>member method,</code> look at the left when
-compiling and the right when running.</li>
+<li><p>When calling a <code>member method,</code> look at the left when
+compiling and the right when running.</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token class-name">Example</span> <span class="token keyword">for</span> <span class="token class-name">Member</span> <span class="token class-name">Variables</span><span class="token operator">:</span>
+java
+<span class="token class-name">Copy</span> code
+<span class="token keyword">class</span> <span class="token class-name">Parent</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> name <span class="token operator">=</span> <span class="token string">"Parent"</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Child</span> <span class="token keyword">extends</span> <span class="token class-name">Parent</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> name <span class="token operator">=</span> <span class="token string">"Child"</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Parent</span> obj <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Child</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>obj<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Outputs "Parent"</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+</code></pre>
+<p>Compile-Time: The compiler sees obj as a Parent type and checks for
+the existence of the name variable in the Parent class. Runtime: The JVM
+uses the type of the reference (Parent) to access the name variable,
+which results in "Parent".</p>
+<h3 id="example-for-member-methods">Example for Member Methods:</h3>
+<pre class="language-java" data-language="java"><code class="language-java">javaCopy codeclass <span class="token class-name">Parent</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Parent display method"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Child</span> <span class="token keyword">extends</span> <span class="token class-name">Parent</span> <span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Child display method"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Parent</span> obj <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Child</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        obj<span class="token punctuation">.</span><span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Outputs "Child display method"</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<ul>
+<li><strong>Compile-Time:</strong> The compiler sees <code>obj</code> as
+a <code>Parent</code> type and checks for the existence of the
+<code>display</code> method in the <code>Parent</code> class.</li>
+<li><strong>Runtime:</strong> The JVM uses the actual object type
+(<code>Child</code>) to invoke the <code>display</code> method, which
+results in "Child display method".</li>
+</ul></li>
 </ol></li>
 <li><p>In polymorphic form, the object on the right can be
 <code>decoupled</code>, which facilitates expansion and maintenance.</p>
@@ -2034,76 +2097,73 @@ p<span class="token punctuation">.</span><span class="token function">work</span
 <li><p>Grooming <code>methods</code>：method can't be overried</p></li>
 <li><p>Groominng <code>class</code>: class can't be inherited</p></li>
 <li><p>Grooming <code>variable</code>： constant</p></li>
-<li><p><code>Naming</code> conventions for constant variables:</p>
-<ol type="1">
-<li><p><strong>single</strong> word: All caps</p></li>
-<li><p><strong>multiple</strong> words: use underline</p></li>
-<li><p>If it is a <code>base</code> type: the value cannot be
-changed</p></li>
-<li><p>If it is a <code>reference</code> type: the address value cannot
-be changed，<code>Property</code> values within <code>reference</code>
-type can be changed</p>
-<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">test</span><span class="token punctuation">;</span>
+<li><p>`</p>
+<pre class="language-none"><code class="language-none">Naming&#96; conventions for constant variables:
 
-<span class="token comment">/**
- * TestFinal
- */</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TestFinal</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">final</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> numbers <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-        numbers<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span> <span class="token comment">// Valid, modifying the element at index 0</span>
-        numbers <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">&#123;</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span> <span class="token comment">// Invalid, cannot reassign the reference variable</span>
-    <span class="token punctuation">&#125;</span>
+1. **single** word: All caps
+2. **multiple** words: use underline
 
-</code></pre></li>
+3. If it is a &#96;base&#96; type: the value cannot be changed
+
+4. If it is a &#96;reference&#96; type: the address value cannot be changed，&#96;Property&#96; values within &#96;reference&#96; type can be changed</code></pre>
+<ol start="4" type="1">
+<li><p>```java package test;</p>
+<p>/**</p>
+<ul>
+<li>TestFinal */ public class TestFinal { public static void
+main(String[] args) { final int[] numbers = { 1, 2, 3 }; numbers[0] =
+10; // Valid, modifying the element at index 0 numbers = new int[] { 4,
+5, 6 }; // Invalid, cannot reassign the reference variable }</li>
+</ul>
+<pre class="language-none"><code class="language-none">
+
+
+
+### Permission modifier
+
+1. The scope of action ranges from small to large: &#96;private &lt; default &lt; protected &lt; public&#96;![image-20240205184105771](https:&#x2F;&#x2F;s2.loli.net&#x2F;2024&#x2F;02&#x2F;05&#x2F;Hn1ZRj2Yi3EShGP.png)
+
+2. Subclasses under different packages, unrelated classes under different packages![image-20240205184752576](https:&#x2F;&#x2F;s2.loli.net&#x2F;2024&#x2F;02&#x2F;05&#x2F;XTyG4jrLheDYV6N.png)
+
+3. generally,member variables are private and methods are public
+
+4. If the code in a method is to **extract common code** from other methods, this method is generally also &#96;private&#96;.
+
+5. local code block：curly braces
+
+6. ~~Construct code blocks~~
+
+   &#96;&#96;&#96;java
+   package test;
+   
+   public class TestConstructorCodeBlock &#123;
+       private String name;
+       private int age;
+   
+       &#123;
+           System.out.println(&quot;constructor code block&quot;);
+       &#125;
+   
+       public TestConstructorCodeBlock() &#123;
+           System.out.println(&quot;constructor without parameters&quot;);
+       &#125;
+   
+       public TestConstructorCodeBlock(String name, int age) &#123;
+           System.out.println(&quot;constructor with parameters&quot;);
+           this.name &#x3D; name;
+           this.age &#x3D; age;
+       &#125;
+   
+       public static void main(String[] args) &#123;
+           TestConstructorCodeBlock tccb &#x3D; new TestConstructorCodeBlock();
+       &#125;
+   
+   &#125;
+   &#x2F;&#x2F; output:
+   	&#x2F;&#x2F; constructor code block
+   	&#x2F;&#x2F; constructor without parameters</code></pre></li>
 </ol></li>
 </ol></li>
-</ol>
-<h3 id="permission-modifier">Permission modifier</h3>
-<ol type="1">
-<li><p>The scope of action ranges from small to large:
-<code>private &lt; default &lt; protected &lt; public</code><img
-src="https://s2.loli.net/2024/02/05/Hn1ZRj2Yi3EShGP.png"
-alt="image-20240205184105771" /></p></li>
-<li><p>Subclasses under different packages, unrelated classes under
-different packages<img
-src="https://s2.loli.net/2024/02/05/XTyG4jrLheDYV6N.png"
-alt="image-20240205184752576" /></p></li>
-<li><p>generally,member variables are private and methods are
-public</p></li>
-<li><p>If the code in a method is to <strong>extract common
-code</strong> from other methods, this method is generally also
-<code>private</code>.</p></li>
-<li><p>local code block：curly braces</p></li>
-<li><p><del>Construct code blocks</del></p>
-<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">test</span><span class="token punctuation">;</span>
-
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TestConstructorCodeBlock</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
-    <span class="token keyword">private</span> <span class="token keyword">int</span> age<span class="token punctuation">;</span>
-
-    <span class="token punctuation">&#123;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"constructor code block"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-
-    <span class="token keyword">public</span> <span class="token class-name">TestConstructorCodeBlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"constructor without parameters"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-
-    <span class="token keyword">public</span> <span class="token class-name">TestConstructorCodeBlock</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">,</span> <span class="token keyword">int</span> age<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"constructor with parameters"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">TestConstructorCodeBlock</span> tccb <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TestConstructorCodeBlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-
-<span class="token punctuation">&#125;</span>
-<span class="token comment">// output:</span>
-	<span class="token comment">// constructor code block</span>
-	<span class="token comment">// constructor without parameters</span></code></pre></li>
 <li><p>The main method can be called manually</p></li>
 <li><p>static code block</p></li>
 </ol>
@@ -2119,44 +2179,72 @@ or an abstract class</li>
 </ol>
 <h3 id="interface">Interface</h3>
 <ol type="1">
-<li>Interfaces rulse: interface is abstraction of action</li>
-<li>The relationship between interface and class is
-<code>implementation</code>，keywords: <code>implements</code></li>
-<li>subclass of interface: either override all abstract method,or
-abstract method</li>
-<li>one class can implement multiple interfaces</li>
-<li>You can implement multiple interfaces while <strong>inheriting a
-class</strong>： ...<code>extends</code>...<code>implements</code></li>
-<li><strong>member variable</strong>:
+<li><p>Interfaces rulse: interface is abstraction of action</p></li>
+<li><p>The relationship between interface and class is
+<code>implementation</code>，keywords: <code>implements</code></p></li>
+<li><p>subclass of interface: either override all abstract method,or
+abstract method</p></li>
+<li><p>one class can implement multiple interfaces</p></li>
+<li><p>You can implement multiple interfaces while <strong>inheriting a
+class</strong>：
+...<code>extends</code>...<code>implements</code></p></li>
+<li><p><strong>member variable</strong>:</p>
 <ol type="1">
 <li>constant: <code>public static final</code></li>
 </ol></li>
-<li>no constructor</li>
-<li>member method: abstract method
+<li><p>no constructor</p></li>
+<li><p>member method: abstract method</p>
 <ol type="1">
 <li><code>public abstract</code></li>
 </ol></li>
-<li>Memory analysis tools,command:
+<li><p>Memory analysis tools,command:</p>
 <ol type="1">
 <li><code>jps</code></li>
 <li><code>jhsdb hsdb</code></li>
 </ol></li>
-<li>Relationship between <code>interfaces</code>： multiple inheritance
-is possible</li>
-<li><code>default</code> method solve the problem that interfaces
-upgrade
+<li><p>Relationship between <code>interfaces</code>： multiple
+inheritance is possible</p></li>
+<li><p><code>default</code> method solve the problem that interfaces
+upgrade</p>
 <ol type="1">
-<li>Not forced to be override，if overided,<code>default</code> must be
-omitted</li>
-<li><code>Public</code> can be omitted,but <code>default</code>
-can't</li>
-<li>If multiple interfaces are implemented and there are the same
-methods in multiple interfaces, they must be rewritten</li>
+<li><p>Not forced to be override，if overided,<code>default</code> must
+be omitted</p></li>
+<li><p><code>Public</code> can be omitted,but <code>default</code>
+can't</p></li>
+<li><p>If multiple interfaces are implemented and there are the same
+methods in multiple interfaces, they must be rewritten</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">interface</span> <span class="token class-name">InterfaceA</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">default</span> <span class="token keyword">void</span> <span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"InterfaceA doSomething"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">interface</span> <span class="token class-name">InterfaceB</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">default</span> <span class="token keyword">void</span> <span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"InterfaceB doSomething"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">MultiInterfaceClass</span> <span class="token keyword">implements</span> <span class="token class-name">InterfaceA</span><span class="token punctuation">,</span> <span class="token class-name">InterfaceB</span> <span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"MultiInterfaceClass doSomething"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">MultiInterfaceClass</span> obj <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MultiInterfaceClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        obj<span class="token punctuation">.</span><span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Outputs: MultiInterfaceClass doSomething</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+</code></pre></li>
 </ol></li>
-<li>static method,can only be called through the interface name</li>
-<li><strong>Ordinary</strong> private methods serve default methods,
-static private methods serve static methods</li>
-<li>Adapter design pattern
+<li><p>static method,can only be called through the interface
+name</p></li>
+<li><p><strong>Ordinary</strong> private methods serve default methods,
+static private methods serve static methods</p></li>
+<li><p>Adapter design pattern</p>
 <ol type="1">
 <li>intermediate class,use <code>abstract</code></li>
 <li>Class to be implemented inherits intermediate class</li>
@@ -5431,7 +5519,7 @@ alt="image-20240322224624153" />
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span>
 </code></pre></li>
-<li><p>Cont type</p>
+<li><p>ContType</p>
 <pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>hunt<span class="token punctuation">.</span>file</span><span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span><span class="token class-name">File</span></span><span class="token punctuation">;</span>
@@ -6196,7 +6284,7 @@ t1<span class="token punctuation">.</span><span class="token function">start</sp
 <li>try-catch-finally(.unlock)</li>
 </ol></li>
 <li><p>死锁</p></li>
-<li><p><code>wai()</code>, <code>notify()</code></p></li>
+<li><p><code>wait()</code>, <code>notify()</code></p></li>
 <li><p>Desk</p>
 <pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>hunt<span class="token punctuation">.</span>thread</span><span class="token punctuation">;</span>
 
@@ -7982,7 +8070,7 @@ I'</span>m singing We don't talk anymore</code></pre></li>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">298.9k</span>&nbsp;字
+                class="white-color">299.3k</span>&nbsp;字
             
             
             

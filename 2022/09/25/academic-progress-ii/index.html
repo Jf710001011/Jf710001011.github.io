@@ -477,14 +477,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2024-07-01
+                    2024-12-31
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.6k
+                    1.8k
                 </div>
                 
 
@@ -651,8 +651,66 @@ the 23rd Pan-Hellenic Conference on Informatics）</li>
 Identification of Injection Attacks in Java</a>
 （软件工程<strong>CCF-A</strong>:TOPLAS——ACM Transactions on Programming
 Languages and Systems）</li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2311.00943">Seneca: Taint-Based Call
+Graph Construction for Java Object Deserialization</a> OOPSLA1</li>
 </ol>
-<h3 id="section">2024-06-29</h3>
+<h3 id="section">2024-12-09</h3>
+<h4 id="paper">Paper</h4>
+<ol type="1">
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2311.00943">Seneca: Taint-Based Call
+Graph Construction for Java Object Deserialization</a> OOPSLA1</li>
+</ol>
+<h4 id="trivial">Trivial</h4>
+<ol type="1">
+<li>Current <strong>Limitations</strong> in Call Graph Construction
+Algorithms
+<ol type="1">
+<li>Static Nature: they miss runtime-specific behaviors such as
+serialization callbacks triggered by the framework.</li>
+<li><strong>Framework Opaqueness</strong>: Serialization logic is often
+hidden in standard libraries or external frameworks. Without precise
+modeling of these frameworks, the algorithms cannot account for their
+internal workings.</li>
+<li><strong>Difficulty with Non-explicit Flows</strong>: Serialization
+and deserialization involve a series of implicit method calls not
+directly represented in the program's control flow</li>
+</ol></li>
+<li><code>API modeling</code> refers to the process of creating an
+abstraction of the various external libraries, frameworks, or APIs used
+within an application.</li>
+<li>key feature/ knowledge:
+<ol type="1">
+<li><code>Native code</code></li>
+<li><code>dynamic proxies</code></li>
+<li>programs with Remote Method Invocation (RMI)</li>
+<li>log4j
+<ol type="1">
+<li>JNDI</li>
+<li>LADP</li>
+</ol></li>
+</ol></li>
+<li><figure>
+<img src="https://s2.loli.net/2024/12/06/uFUp1qtAhVCoDlB.png"
+alt="image-20241206155756500" />
+<figcaption aria-hidden="true">image-20241206155756500</figcaption>
+</figure></li>
+<li>Existing pointer analysis algorithms leverage on
+<code>allocation instructions</code> (i.e.,new T()) within the program
+to infer the possible runtime types for objects</li>
+</ol>
+<h4
+id="seneca-taint-based-call-graph-construction-for-object-deserialization">Seneca:
+Taint-Based Call Graph Construction for Object Deserialization</h4>
+<h5 id="phase-1-initial-call-graph-construction">Phase 1: Initial Call
+Graph Construction</h5>
+<ol type="1">
+<li>Related work
+<ol type="1">
+<li>SALSA</li>
+<li>marshalling</li>
+</ol></li>
+</ol>
+<h3 id="section-1">2024-06-29</h3>
 <h4 id="java">Java</h4>
 <ol type="1">
 <li><a
@@ -688,7 +746,7 @@ Failures (Avalanche)</a></li>
 href="https://jf710001011.github.io/2024/05/03/springcloud/#toc-heading-62">Sentinel</a></li>
 </ol></li>
 </ol>
-<h3 id="section-1">2024-06-22</h3>
+<h3 id="section-2">2024-06-22</h3>
 <h4 id="java-1">Java</h4>
 <ol type="1">
 <li><a
@@ -737,7 +795,7 @@ principles</a></li>
 </ol></li>
 </ol></li>
 </ol>
-<h3 id="section-2">2024-06-15</h3>
+<h3 id="section-3">2024-06-15</h3>
 <h4 id="java-2">Java</h4>
 <ol type="1">
 <li><a
@@ -758,7 +816,7 @@ href="https://jf710001011.github.io/2024/05/03/springcloud/#toc-heading-51">Cust
 GlobalFilter</a></li>
 </ol></li>
 </ol>
-<h3 id="section-3">2024-06-08</h3>
+<h3 id="section-4">2024-06-08</h3>
 <h4 id="java-3">Java</h4>
 <ol type="1">
 <li><a
@@ -776,7 +834,7 @@ href="https://jf710001011.github.io/2024/05/03/springcloud/#toc-heading-45">Pay
 Service</a></li>
 </ol></li>
 </ol>
-<h3 id="section-4">2024-06-01</h3>
+<h3 id="section-5">2024-06-01</h3>
 <h4 id="java-4">Java</h4>
 <ol type="1">
 <li><a
@@ -855,7 +913,7 @@ href="https://jf710001011.github.io/2024/05/03/springcloud/#toc-heading-41">Open
 Best Practices</a></li>
 </ol></li>
 </ol>
-<h3 id="section-5">2024-05-25</h3>
+<h3 id="section-6">2024-05-25</h3>
 <ol type="1">
 <li><a
 href="https://jf710001011.github.io/2024/05/03/springcloud/#toc-heading-16">Docker</a>
@@ -877,7 +935,7 @@ href="https://jf710001011.github.io/2024/05/03/springcloud/#toc-heading-21">Moun
 MySQL locally</a></li>
 </ol></li>
 </ol>
-<h3 id="section-6">2024-05-18</h3>
+<h3 id="section-7">2024-05-18</h3>
 <ol type="1">
 <li><a
 href="https://jf710001011.github.io/2024/05/03/springcloud/#toc-heading-15">Plugins</a>
@@ -887,7 +945,7 @@ src="https://s2.loli.net/2024/05/19/AxcVRkTnHo8Dl3J.png"
 alt="image-20240519165526018" /></li>
 </ol></li>
 </ol>
-<h3 id="section-7">2024-05-11</h3>
+<h3 id="section-8">2024-05-11</h3>
 <h4 id="java-5">Java</h4>
 <ol type="1">
 <li><a
@@ -978,7 +1036,7 @@ handler</a></li>
 href="https://jf710001011.github.io/2024/05/03/springcloud/#toc-heading-15">Plugins</a></li>
 </ol></li>
 </ol>
-<h3 id="section-8">2024-04-28</h3>
+<h3 id="section-9">2024-04-28</h3>
 <h4 id="java-6">Java</h4>
 <ol type="1">
 <li><a
@@ -1022,7 +1080,7 @@ href="https://jf710001011.github.io/2024/04/21/java-web/#toc-heading-72">Filter<
 <li><a
 href="https://jf710001011.github.io/2024/04/21/java-web/#toc-heading-73">Intercepter</a></li>
 </ol>
-<h3 id="section-9">2024-04-20</h3>
+<h3 id="section-10">2024-04-20</h3>
 <h4 id="java-mybatis">Java Mybatis</h4>
 <ol type="1">
 <li><a
@@ -1125,7 +1183,7 @@ href="https://jf710001011.github.io/2024/03/29/java-web/#toc-heading-60">Add
 employee</a></li>
 </ol></li>
 </ol>
-<h3 id="section-10">2024-04-13</h3>
+<h3 id="section-11">2024-04-13</h3>
 <h4 id="java-springboot">Java Springboot</h4>
 <ol type="1">
 <li><a
@@ -1146,7 +1204,7 @@ protocol</a></li>
 <li><a
 href="https://jf710001011.github.io/2024/03/29/java-web/#toc-heading-24">Tomcat</a></li>
 </ol>
-<h3 id="section-11">2023-04-06</h3>
+<h3 id="section-12">2023-04-06</h3>
 <h4 id="学习soot">学习soot</h4>
 <ol type="1">
 <li><a
@@ -1186,7 +1244,7 @@ href="https://jf710001011.github.io/2024/04/07/soot/#toc-heading-11">Detecting
 Reflection Misuse</a></li>
 </ol></li>
 </ol>
-<h3 id="section-12">2023-03-30</h3>
+<h3 id="section-13">2023-03-30</h3>
 <h4 id="java程序设计">Java程序设计</h4>
 <ol type="1">
 <li><a
@@ -1273,7 +1331,7 @@ href="https://jf710001011.github.io/2024/01/13/java-blackhorse/#toc-heading-145"
 <li><a
 href="https://jf710001011.github.io/2024/01/13/java-blackhorse/#toc-heading-146">😁Annotations</a></li>
 </ol>
-<h3 id="section-13">2024-03-23</h3>
+<h3 id="section-14">2024-03-23</h3>
 <h4 id="java程序设计-1">Java程序设计</h4>
 <ol type="1">
 <li><del><a
@@ -1389,7 +1447,7 @@ exception</a></li>
 href="https://jf710001011.github.io/2024/01/13/java-blackhorse/#toc-heading-97">File</a></li>
 <li>https://jf710001011.github.io/2024/01/13/java-blackhorse/#toc-heading-146)</li>
 </ol>
-<h3 id="section-14">2024-03-16</h3>
+<h3 id="section-15">2024-03-16</h3>
 <h4 id="java程序">Java程序</h4>
 <ol type="1">
 <li><p><del><a
@@ -1485,7 +1543,7 @@ of all implemented collection classes</a></li>
 </ol></li>
 </ol></li>
 </ol>
-<h3 id="section-15">2024-03-09</h3>
+<h3 id="section-16">2024-03-09</h3>
 <h4 id="java编程实践">Java编程实践</h4>
 <ol type="1">
 <li><a
@@ -1512,7 +1570,7 @@ expression</a>
 href="https://jf710001011.github.io/2024/01/13/java-blackhorse/#toc-heading-49">basics</a></li>
 </ol></li>
 </ol>
-<h3 id="section-16">2024-03-02</h3>
+<h3 id="section-17">2024-03-02</h3>
 <h4 id="java编程实践-1">Java编程实践</h4>
 <ol type="1">
 <li><a
@@ -1560,7 +1618,7 @@ href="https://jf710001011.github.io/2024/01/13/java-blackhorse/#toc-heading-44">
 href="https://jf710001011.github.io/2024/01/13/java-blackhorse/#toc-heading-45">Runtime</a></li>
 </ol></li>
 </ol>
-<h3 id="section-17">2024-02-24</h3>
+<h3 id="section-18">2024-02-24</h3>
 <h4 id="java语言学习">Java语言学习</h4>
 <ol type="1">
 <li><a
@@ -1574,7 +1632,7 @@ knowledge</a></li>
 href="https://jf710001011.github.io/2024/01/13/java-blackhorse/#toc-heading-33">Implementation</a></li>
 </ol></li>
 </ol>
-<h3 id="section-18">2024-02-17</h3>
+<h3 id="section-19">2024-02-17</h3>
 <h4 id="java语言学习-1">Java语言学习</h4>
 <ol type="1">
 <li><p><a
@@ -2207,7 +2265,7 @@ analysis</a></li>
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2023-2024</span>
+                <span id="year">2023-2025</span>
             
             <span id="year">2023</span>
             <a href="/about" target="_blank">Jf71o0x1o1l</a>
@@ -2216,7 +2274,7 @@ analysis</a></li>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">299.3k</span>&nbsp;字
+                class="white-color">299.8k</span>&nbsp;字
             
             
             

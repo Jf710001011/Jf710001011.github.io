@@ -6,7 +6,7 @@
   <link href="https://jf710001011.github.io/atom.xml" rel="self"/>
   
   <link href="https://jf710001011.github.io/"/>
-  <updated>2024-06-23T08:26:14.587Z</updated>
+  <updated>2025-04-07T20:10:51.174Z</updated>
   <id>https://jf710001011.github.io/</id>
   
   <author>
@@ -15,6 +15,62 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MathType from 0 to 100</title>
+    <link href="https://jf710001011.github.io/2025/04/08/mathtype/"/>
+    <id>https://jf710001011.github.io/2025/04/08/mathtype/</id>
+    <published>2025-04-07T19:16:04.927Z</published>
+    <updated>2025-04-07T20:10:51.174Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;install&quot;&gt;Install&lt;/h3&gt;
+&lt;ol type=&quot;1&quot;&gt;
+&lt;li&gt;Extract Run</summary>
+        
+      
+    
+    
+    
+    <category term="Math" scheme="https://jf710001011.github.io/categories/Math/"/>
+    
+    
+    <category term="MathType" scheme="https://jf710001011.github.io/tags/MathType/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MacOS &amp; IOS</title>
+    <link href="https://jf710001011.github.io/2025/04/06/macos-ios/"/>
+    <id>https://jf710001011.github.io/2025/04/06/macos-ios/</id>
+    <published>2025-04-05T22:13:56.546Z</published>
+    <updated>2025-04-05T23:34:24.029Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;required-system-settings&quot;&gt;Required System Settings&lt;/h3&gt;
+&lt;ol type=&quot;1&quot;&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;Three-fingers-drag&lt;/code&gt;： accessibility -&amp;gt;</summary>
+        
+      
+    
+    
+    
+    <category term="OS" scheme="https://jf710001011.github.io/categories/OS/"/>
+    
+    
+    <category term="MacOS" scheme="https://jf710001011.github.io/tags/MacOS/"/>
+    
+    <category term="IOS" scheme="https://jf710001011.github.io/tags/IOS/"/>
+    
+  </entry>
   
   <entry>
     <title>Douyu_Java_Project</title>
@@ -50,7 +106,7 @@ foundational infrastructure&lt;/h3&gt;
     <link href="https://jf710001011.github.io/2024/05/03/springcloud/"/>
     <id>https://jf710001011.github.io/2024/05/03/springcloud/</id>
     <published>2024-05-02T18:42:29.481Z</published>
-    <updated>2024-07-09T02:40:57.616Z</updated>
+    <updated>2024-07-22T01:59:13.364Z</updated>
     
     
       
@@ -79,7 +135,7 @@ foundational infrastructure&lt;/h3&gt;
     <link href="https://jf710001011.github.io/2024/04/21/java-web/"/>
     <id>https://jf710001011.github.io/2024/04/21/java-web/</id>
     <published>2024-04-21T13:20:05.972Z</published>
-    <updated>2024-07-08T19:22:11.476Z</updated>
+    <updated>2024-07-10T16:56:36.994Z</updated>
     
     
       
@@ -101,28 +157,6 @@ foundational infrastructure&lt;/h3&gt;
     <category term="Web" scheme="https://jf710001011.github.io/tags/Web/"/>
     
     <category term="Java" scheme="https://jf710001011.github.io/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="https://jf710001011.github.io/2024/04/15/myacademic-xue-zhu-jin-zhan/"/>
-    <id>https://jf710001011.github.io/2024/04/15/myacademic-xue-zhu-jin-zhan/</id>
-    <published>2024-04-15T05:51:53.855Z</published>
-    <updated>2024-04-15T05:51:53.855Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">
-</summary>
-        
-      
-    
-    
-    
     
   </entry>
   
@@ -382,7 +416,7 @@ Java API (Application</summary>
     <link href="https://jf710001011.github.io/2024/01/13/java-blackhorse/"/>
     <id>https://jf710001011.github.io/2024/01/13/java-blackhorse/</id>
     <published>2024-01-13T12:40:48.724Z</published>
-    <updated>2024-07-07T21:06:49.308Z</updated>
+    <updated>2024-07-11T05:33:51.960Z</updated>
     
     
       
@@ -539,34 +573,6 @@ System Over NDN (PSNDN)&lt;/h2&gt;
     
     <category term="Academic" scheme="https://jf710001011.github.io/categories/Academic/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>WindTerm</title>
-    <link href="https://jf710001011.github.io/2023/12/09/windterm/"/>
-    <id>https://jf710001011.github.io/2023/12/09/windterm/</id>
-    <published>2023-12-09T11:25:07.962Z</published>
-    <updated>2024-01-13T03:28:53.375Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;工作目录&quot;&gt;工作目录&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;设置&lt;img src=&quot;https://s2.loli.net/2023/07/18/dP1cEpBnATFRZSN.png&quot;
-alt=&quot;image-20230718085116774&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Tools" scheme="https://jf710001011.github.io/categories/Tools/"/>
-    
-    
-    <category term="WindTerm" scheme="https://jf710001011.github.io/tags/WindTerm/"/>
     
   </entry>
   

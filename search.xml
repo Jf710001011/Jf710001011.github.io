@@ -4,6 +4,44 @@
   
     
     <entry>
+      <title>Forward Proxy vs Reverse Proxy</title>
+      <link href="/2025/04/25/proxy-in-compuetrscience/"/>
+      <url>/2025/04/25/proxy-in-compuetrscience/</url>
+      
+        <content type="html"><![CDATA[<h3 id="difference">Difference</h3><ol type="1"><li>A forward proxy serves the <code>client</code>, helping it accessexternal resources. A reverse proxy serves the<strong><code>server</code></strong>, helping it handle incomingrequests securely and efficiently.</li></ol><h3 id="forward-proxy-setup-with-squid-on-centos-vm">Forward Proxy Setupwith Squid on CentOS VM</h3><ol type="1"><li><p><code>yum update</code> failed due to a mirror error.</p><ol type="1"><li><p>Change the default mirror to Aliyun for better speed andstability.</p><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> /etc/yum.repos.d/<span class="token function">mkdir</span> <span class="token parameter variable">-p</span> backup <span class="token operator">&amp;&amp;</span> <span class="token function">mv</span> *.repo backup/<span class="token function">curl</span> <span class="token parameter variable">-o</span> CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo</code></pre><pre class="language-bash" data-language="bash"><code class="language-bash">yum clean allyum makecacheyum <span class="token function">install</span> squid <span class="token parameter variable">-y</span></code></pre></li></ol></li><li><p>install <code>squid</code></p></li><li><p>change configuration</p><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">vi</span> /etc/squid/squid.conf</code></pre><p>add configuration</p><pre class="language-bash" data-language="bash"><code class="language-bash">acl myclient src <span class="token number">202.113</span>.43.123http_access allow myclienthttp_access deny all</code></pre></li><li><p>enable port</p><pre class="language-bash" data-language="bash"><code class="language-bash">firewall-cmd --add-port<span class="token operator">=</span><span class="token number">3128</span>/tcp <span class="token parameter variable">--permanent</span></code></pre></li><li><p>Configure proxy in win system<imgsrc="https://s2.loli.net/2025/04/25/WeoXmavyn86MgKI.png"alt="image-20250425235416361" /></p><p>Uncheck the checkbox(Don't use the proxy server for local (intranet)addresses)</p></li><li><p>Check: access https://ip.sb</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> CN </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Proxy </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/2025/04/25/untitled/"/>
+      <url>/2025/04/25/untitled/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>MathType from 0 to 100</title>
       <link href="/2025/04/08/mathtype/"/>
       <url>/2025/04/08/mathtype/</url>
@@ -1001,7 +1039,7 @@
       <link href="/2023/03/08/post-template/"/>
       <url>/2023/03/08/post-template/</url>
       
-        <content type="html"><![CDATA[<h3 id="yaml">Yaml</h3><ul><li><p>yaml</p><pre class="language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">title</span><span class="token punctuation">:</span> MacOS &amp; IOS<span class="token key atrule">img</span><span class="token punctuation">:</span><span class="token key atrule">top</span><span class="token punctuation">:</span><span class="token key atrule">cover</span><span class="token punctuation">:</span><span class="token key atrule">coverImg</span><span class="token punctuation">:</span><span class="token key atrule">password</span><span class="token punctuation">:</span><span class="token key atrule">toc</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span class="token key atrule">mathjax</span><span class="token punctuation">:</span> <span class="token boolean important">false</span><span class="token key atrule">summary</span><span class="token punctuation">:</span> <span class="token key atrule">categories</span><span class="token punctuation">:</span> OS<span class="token comment">#Technique 、 Life 、 Notes 、 Tools 、Linux 、Leetcode、OS、Program design、Database、Cybersecurity、Machine Learning、Academic、Resource、Game Development、Tip、Project|Game|Lab|Math|Foreign language</span><span class="token key atrule">tags</span><span class="token punctuation">:</span>  <span class="token comment">#Hexo、Sql、Blue、Game Development、虚幻4、基础、核心、Web、VMware、Task、File、Language、#Binary exploition、Reverse engineering、C++、Python 、Easygoing 、VMware、CTF、Vscode、Json、#Academic、Lab、Windows、AIGC、Xss、php、File Upload、STL、ppt、Computer Network、 OS|Miscellaneous|Docker|Paper|Sekiro|WindTerm|Crypto|Java|Static-Analysis|RCE|Malware|Machine learning|Cybersecurity|Test|MacOS|IOS</span> <span class="token punctuation">-</span> MacOS <span class="token punctuation">-</span> IOS</code></pre></li></ul><h3 id="categories">Categories</h3><ul><li></li></ul><h3 id="tags">Tags</h3><ul><li></li></ul>]]></content>
+        <content type="html"><![CDATA[<h3 id="yaml">Yaml</h3><ul><li><p>yaml</p><pre class="language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">title</span><span class="token punctuation">:</span> Forward Proxy vs Reverse Proxy<span class="token key atrule">img</span><span class="token punctuation">:</span><span class="token key atrule">top</span><span class="token punctuation">:</span><span class="token key atrule">cover</span><span class="token punctuation">:</span><span class="token key atrule">coverImg</span><span class="token punctuation">:</span><span class="token key atrule">password</span><span class="token punctuation">:</span><span class="token key atrule">toc</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span class="token key atrule">mathjax</span><span class="token punctuation">:</span> <span class="token boolean important">false</span><span class="token key atrule">summary</span><span class="token punctuation">:</span> <span class="token key atrule">categories</span><span class="token punctuation">:</span> CN<span class="token comment">#Technique 、 Life 、 Notes 、 Tools 、Linux 、Leetcode、OS、Program design、Database、Cybersecurity、Machine Learning、Academic、Resource、Game Development、Tip、Project|Game|Lab|Math|Foreign language|CN</span><span class="token key atrule">tags</span><span class="token punctuation">:</span>  <span class="token comment">#Hexo、Sql、Blue、Game Development、虚幻4、基础、核心、Web、VMware、Task、File、Language、#Binary exploition、Reverse engineering、C++、Python 、Easygoing 、VMware、CTF、Vscode、Json、#Academic、Lab、Windows、AIGC、Xss、php、File Upload、STL、ppt、Computer Network、 OS|Miscellaneous|Docker|Paper|Sekiro|WindTerm|Crypto|Java|Static-Analysis|RCE|Malware|Machine learning|Cybersecurity|Test|MacOS|IOS|Proxy</span> <span class="token punctuation">-</span> Proxy <span class="token punctuation">-</span> </code></pre></li></ul><h3 id="categories">Categories</h3><ul><li></li></ul><h3 id="tags">Tags</h3><ul><li></li></ul>]]></content>
       
       
       <categories>

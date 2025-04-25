@@ -6,7 +6,7 @@
   <link href="https://jf710001011.github.io/atom.xml" rel="self"/>
   
   <link href="https://jf710001011.github.io/"/>
-  <updated>2025-04-07T20:10:51.174Z</updated>
+  <updated>2025-04-25T16:01:07.299Z</updated>
   <id>https://jf710001011.github.io/</id>
   
   <author>
@@ -17,11 +17,61 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Forward Proxy vs Reverse Proxy</title>
+    <link href="https://jf710001011.github.io/2025/04/25/proxy-in-compuetrscience/"/>
+    <id>https://jf710001011.github.io/2025/04/25/proxy-in-compuetrscience/</id>
+    <published>2025-04-25T15:16:11.891Z</published>
+    <updated>2025-04-25T16:01:07.299Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;difference&quot;&gt;Difference&lt;/h3&gt;
+&lt;ol type=&quot;1&quot;&gt;
+&lt;li&gt;A forward proxy serves the &lt;code&gt;client&lt;/code&gt;, helping it access
+external</summary>
+        
+      
+    
+    
+    
+    <category term="CN" scheme="https://jf710001011.github.io/categories/CN/"/>
+    
+    
+    <category term="Proxy" scheme="https://jf710001011.github.io/tags/Proxy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://jf710001011.github.io/2025/04/25/untitled/"/>
+    <id>https://jf710001011.github.io/2025/04/25/untitled/</id>
+    <published>2025-04-25T15:10:26.317Z</published>
+    <updated>2025-04-25T15:10:26.317Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">
+</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>MathType from 0 to 100</title>
     <link href="https://jf710001011.github.io/2025/04/08/mathtype/"/>
     <id>https://jf710001011.github.io/2025/04/08/mathtype/</id>
     <published>2025-04-07T19:16:04.927Z</published>
-    <updated>2025-04-07T20:10:51.174Z</updated>
+    <updated>2025-04-25T15:25:47.108Z</updated>
     
     
       
@@ -520,58 +570,6 @@ Scanner&lt;/h3&gt;
     
     
     <category term="Math" scheme="https://jf710001011.github.io/categories/Math/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>静态分析与漏洞-论文</title>
-    <link href="https://jf710001011.github.io/2023/12/09/jing-tai-fen-xi-zhong-wen-lun-wen/"/>
-    <id>https://jf710001011.github.io/2023/12/09/jing-tai-fen-xi-zhong-wen-lun-wen/</id>
-    <published>2023-12-09T11:25:08.221Z</published>
-    <updated>2024-01-13T03:28:53.371Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;源代码漏洞静态分析技术&quot;&gt;源代码漏洞静态分析技术&lt;/h3&gt;
-&lt;h3</summary>
-        
-      
-    
-    
-    
-    <category term="Academic" scheme="https://jf710001011.github.io/categories/Academic/"/>
-    
-    
-    <category term="paper" scheme="https://jf710001011.github.io/tags/paper/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>发布订阅系统</title>
-    <link href="https://jf710001011.github.io/2023/12/09/fa-bu-ding-yue-xi-tong/"/>
-    <id>https://jf710001011.github.io/2023/12/09/fa-bu-ding-yue-xi-tong/</id>
-    <published>2023-12-09T11:25:08.016Z</published>
-    <updated>2023-05-06T16:49:22.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;区块链与雾节点&quot;&gt;区块链与雾节点&lt;/h3&gt;
-&lt;h2 id=&quot;a-publish-subscribe-system-over-ndn-psndn&quot;&gt;A Publish Subscribe
-System Over NDN (PSNDN)&lt;/h2&gt;
-&lt;p&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="Academic" scheme="https://jf710001011.github.io/categories/Academic/"/>
     
     
   </entry>

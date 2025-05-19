@@ -477,14 +477,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2025-04-26
+                    2025-05-19
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    144
+                    501
                 </div>
                 
 
@@ -536,7 +536,7 @@ yum <span class="token function">install</span> squid <span class="token paramet
 <pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">vi</span> /etc/squid/squid.conf
 </code></pre>
 <p>add configuration</p>
-<pre class="language-bash" data-language="bash"><code class="language-bash">acl myclient src <span class="token number">202.113</span>.43.123
+<pre class="language-bash" data-language="bash"><code class="language-bash">acl myclient src <span class="token number">144.114</span>.253.145
 http_access allow myclient
 http_access deny all
 </code></pre></li>
@@ -549,6 +549,68 @@ alt="image-20250425235416361" /></p>
 addresses)</p></li>
 <li><p>Check: access https://ip.sb</p></li>
 </ol>
+<h3 id="用户密码认证">用户密码认证</h3>
+<h4 id="安装认证模块">🛠 1. 安装认证模块</h4>
+<p>Squid 使用 <code>basic_ncsa_auth</code> 来做用户名密码认证。</p>
+<p>执行：</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> update
+<span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> apache2-utils <span class="token parameter variable">-y</span></code></pre>
+<p>（<code>apache2-utils</code> 里面包含了 <code>htpasswd</code>
+工具）</p>
+<hr />
+<h4 id="创建认证文件并添加账号">🛠 2. 创建认证文件并添加账号</h4>
+<p>创建一个认证文件，比如：</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> htpasswd <span class="token parameter variable">-c</span> /etc/squid/passwd myuser</code></pre>
+<ul>
+<li><code>-c</code> 表示新建文件（注意：<strong>以后新增用户不要加
+<code>-c</code>，否则会覆盖掉</strong>）</li>
+<li><code>myuser</code> 是用户名，自定义</li>
+</ul>
+<p>然后输入两次密码。</p>
+<blockquote>
+<p>✅ 执行后 <code>/etc/squid/passwd</code>
+文件就保存了用户名和加密后的密码。</p>
+</blockquote>
+<p>如果你要添加更多用户（不要 <code>-c</code>）：</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> htpasswd /etc/squid/passwd anotheruser</code></pre>
+<hr />
+<h4 id="修改-squid.conf-配置认证逻辑">🛠 3. 修改 squid.conf
+配置认证逻辑</h4>
+<p>打开配置文件：</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">nano</span> /etc/squid/squid.conf</code></pre>
+<p>在 <code>http_port 3128</code> 那块附近，加上以下内容：</p>
+<pre class="language-conf" data-language="conf"><code class="language-conf"># 设置基本认证
+auth_param basic program &#x2F;usr&#x2F;lib&#x2F;squid&#x2F;basic_ncsa_auth &#x2F;etc&#x2F;squid&#x2F;passwd
+auth_param basic realm ProxyServer
+
+# 定义需要认证的 ACL
+acl authenticated proxy_auth REQUIRED
+
+# 允许认证通过的用户访问
+http_access allow authenticated
+
+# 拒绝其他所有
+http_access deny all
+
+# 监听端口
+http_port 3128</code></pre>
+<hr />
+<h3 id="保存并重启-squid">🛠 4. 保存并重启 Squid</h3>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> systemctl restart squid</code></pre>
+<hr />
+<h3 id="客户端连接测试">🛠 5. 客户端连接测试</h3>
+<p>在客户端（如浏览器、curl）配置代理后：</p>
+<ul>
+<li>访问网页时会弹出一个输入框，要求填写：
+<ul>
+<li>用户名</li>
+<li>密码</li>
+</ul></li>
+</ul>
+<p>输入你刚刚设置的账号密码即可！</p>
+<p>如果 curl 测试带认证参数：</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> <span class="token parameter variable">-x</span> http://myuser:mypassword@你的服务器IP:3128 http://www.baidu.com</code></pre>
+<hr />
 
                 
             </div>
@@ -1134,7 +1196,7 @@ addresses)</p></li>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">310.4k</span>&nbsp;字
+                class="white-color">310.8k</span>&nbsp;字
             
             
             

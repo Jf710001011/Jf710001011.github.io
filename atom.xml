@@ -6,7 +6,7 @@
   <link href="https://jf710001011.github.io/atom.xml" rel="self"/>
   
   <link href="https://jf710001011.github.io/"/>
-  <updated>2025-04-25T16:01:07.299Z</updated>
+  <updated>2025-05-13T22:33:07.100Z</updated>
   <id>https://jf710001011.github.io/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://jf710001011.github.io/2025/05/14/untitled-1/"/>
+    <id>https://jf710001011.github.io/2025/05/14/untitled-1/</id>
+    <published>2025-05-13T22:33:07.100Z</published>
+    <updated>2025-05-13T22:33:07.100Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">
+</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://jf710001011.github.io/2025/04/27/proxy-in-compuetrscience/"/>
+    <id>https://jf710001011.github.io/2025/04/27/proxy-in-compuetrscience/</id>
+    <published>2025-04-26T17:19:13.228Z</published>
+    <updated>2025-04-26T17:19:13.740Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;!doctype html&gt;
+&lt;html style=&#39;font-size:16px !important&#39;&gt;
+&lt;head&gt;
+&lt;meta charset=&#39;UTF-8&#39;&gt;&lt;meta name=&#39;viewport&#39; content=&#39;width=device-width</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Forward Proxy vs Reverse Proxy</title>
@@ -516,61 +562,6 @@ Scanner&lt;/h3&gt;
     <category term="Java" scheme="https://jf710001011.github.io/tags/Java/"/>
     
     <category term="Lab" scheme="https://jf710001011.github.io/tags/Lab/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Kali-Linux</title>
-    <link href="https://jf710001011.github.io/2024/01/11/kali-linux/"/>
-    <id>https://jf710001011.github.io/2024/01/11/kali-linux/</id>
-    <published>2024-01-10T21:43:49.278Z</published>
-    <updated>2024-05-26T17:48:39.483Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;linux-command&quot;&gt;Linux command&lt;/h3&gt;
-&lt;ol type=&quot;1&quot;&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;find&lt;/code&gt;&lt;/p&gt;
-&lt;pre class=&quot;language-bash&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="OS" scheme="https://jf710001011.github.io/categories/OS/"/>
-    
-    
-    <category term="Tools" scheme="https://jf710001011.github.io/tags/Tools/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Matrix Theory</title>
-    <link href="https://jf710001011.github.io/2023/12/10/matrix-theory/"/>
-    <id>https://jf710001011.github.io/2023/12/10/matrix-theory/</id>
-    <published>2023-12-10T07:50:00.032Z</published>
-    <updated>2024-01-13T03:28:53.407Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;目录&quot;&gt;目录&lt;/h3&gt;
-&lt;h4 id=&quot;chapter-1&quot;&gt;chapter 1&lt;/h4&gt;
-&lt;h4 id=&quot;chapter-2&quot;&gt;Chapter 2&lt;/h4&gt;
-&lt;figure&gt;
-&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Math" scheme="https://jf710001011.github.io/categories/Math/"/>
-    
     
   </entry>
   

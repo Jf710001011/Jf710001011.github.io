@@ -545,16 +545,17 @@ line.</p>
 <h5 id="input-format">📥 Input Format</h5>
 <p>The input consists of 5 lines:</p>
 <ol type="1">
-<li>Line 1: An integer <span class="math inline">\(a\)</span> (<span
-class="math inline">\(-10^9 \leq a \leq 10^9\)</span>)</li>
-<li>Line 2: A long integer <span class="math inline">\(b\)</span> (<span
-class="math inline">\(-10^{18} \leq b \leq 10^{18}\)</span>)</li>
+<li>Line 1: An integer <span class="math display">\[a\]</span> (<span
+class="math display">\[-10^9 \leq a \leq 10^9\]</span>)</li>
+<li>Line 2: A long integer <span class="math display">\[b\]</span>
+(<span class="math display">\[-10^{18} \leq b \leq
+10^{18}\]</span>)</li>
 <li>Line 3: A floating-point number <span
-class="math inline">\(c\)</span> (<span class="math inline">\(-10^9 \leq
-c \leq 10^9\)</span>)</li>
+class="math display">\[c\]</span> (<span class="math display">\[-10^9
+\leq c \leq 10^9\]</span>)</li>
 <li>Line 4: A single lowercase character <span
-class="math inline">\(d\)</span></li>
-<li>Line 5: A string <span class="math inline">\(e\)</span> (no spaces
+class="math display">\[d\]</span></li>
+<li>Line 5: A string <span class="math display">\[e\]</span> (no spaces
 or newlines inside)</li>
 </ol>
 <h5 id="output-format">📤 Output Format</h5>
@@ -595,13 +596,13 @@ percentage.</p>
 <h5 id="input-format-1">📥 Input Format</h5>
 <p>A single line containing two integers:</p>
 <ul>
-<li>The first integer <span class="math inline">\(c\)</span> is the
+<li>The first integer <span class="math display">\[c\]</span> is the
 number of <strong>confirmed cases</strong></li>
-<li>The second integer <span class="math inline">\(d\)</span> is the
+<li>The second integer <span class="math display">\[d\]</span> is the
 number of <strong>deaths</strong></li>
 </ul>
 <blockquote>
-<p><span class="math inline">\(1 \leq c &lt; 2^{31}\)</span></p>
+<p><span class="math display">\[1 \leq c &lt; 2^{31}\]</span></p>
 </blockquote>
 <hr />
 <h5 id="output-format-1">📤 Output Format</h5>
@@ -632,20 +633,20 @@ class="math display">\[
 {\begin{cases} a_{1,1} = 1 \\ a_{i,1} = a_{i-1,1} \quad (i \ge 2) \\
 a_{1,j} = a_{1,j-1} \quad (j \ge 2) \\ a_{i,j} = a_{i-1,j} + a_{i,j-1}
 \quad (i,j \ge 2) \end{cases}}
-\]</span> Given two integers <span class="math inline">\(n\)</span> and
-<span class="math inline">\(m\)</span>, compute <span
-class="math inline">\(a_{n,m}\)</span>.</p>
+\]</span> Given two integers <span class="math display">\[n\]</span> and
+<span class="math display">\[m\]</span>, compute <span
+class="math display">\[a_{n,m}\]</span>.</p>
 <p>Because the result can be large, you should return the value
-<strong>modulo <span class="math inline">\(10^9 +
-7\)</span></strong>.</p>
-<p>Two integers <span class="math inline">\(n\)</span>, <span
-class="math inline">\(m\)</span> — representing the number of rows and
+<strong>modulo <span class="math display">\[10^9 +
+7\]</span></strong>.</p>
+<p>Two integers <span class="math display">\[n\]</span>, <span
+class="math display">\[m\]</span> — representing the number of rows and
 columns.</p>
-<p><span class="math inline">\(1≤n, m \leq 10^3\)</span></p>
+<p><span class="math display">\[1≤n, m \leq 10^3\]</span></p>
 <h5
 id="output-formatoutput-a-single-integer-the-value-of-a_nm-bmod-109-7.">📤
 Output FormatOutput a single integer — the value of <span
-class="math inline">\(a_{n,m} \bmod 10^9 + 7\)</span>​.</h5>
+class="math display">\[a_{n,m} \bmod 10^9 + 7\]</span>​.</h5>
 <pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Scanner</span></span><span class="token punctuation">;</span>
 
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token punctuation">&#123;</span>
@@ -690,19 +691,19 @@ class="math inline">\(a_{n,m} \bmod 10^9 + 7\)</span>​.</h5>
 <h5 id="input-format-2">📥 Input Format</h5>
 <ul>
 <li>The first line contains two integers <span
-class="math inline">\(n\)</span> and <span
-class="math inline">\(m\)</span> — the number of <strong>rows</strong>
+class="math display">\[n\]</span> and <span
+class="math display">\[m\]</span> — the number of <strong>rows</strong>
 and <strong>columns</strong> of the matrix. <span
-class="math inline">\(1 \leq n, m \leq 10\)</span></li>
-<li>The next <span class="math inline">\(n\)</span> lines each contain
-<span class="math inline">\(m\)</span> integers separated by spaces,
+class="math display">\[1 \leq n, m \leq 10\]</span></li>
+<li>The next <span class="math display">\[n\]</span> lines each contain
+<span class="math display">\[m\]</span> integers separated by spaces,
 representing the matrix values. Each integer is in the range: <span
-class="math inline">\([-2^{31},\ 2^{31} - 1]\)</span></li>
+class="math display">\[[-2^{31},\ 2^{31} - 1]\]</span></li>
 </ul>
 <h5 id="output-format-2">📤 Output Format</h5>
 <ul>
 <li><p>Output the <strong>transposed matrix</strong> of size <span
-class="math inline">\(m \times n\)</span>.</p></li>
+class="math display">\[m \times n\]</span>.</p></li>
 <li><p>Each number should be followed by a <strong>space</strong>, and
 each row printed on a new line.</p>
 <pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Scanner</span></span><span class="token punctuation">;</span>
@@ -739,8 +740,8 @@ each row printed on a new line.</p>
 <h5 id="problem-description-3">📝 Problem Description</h5>
 <p>Pascal's Triangle (also known as <strong>Yang Hui's
 Triangle</strong>) is a triangular array where each row represents the
-coefficients of the binomial expansion of <span class="math inline">\((a
-+ b)^n\)</span>.</p>
+coefficients of the binomial expansion of <span
+class="math display">\[(a + b)^n\]</span>.</p>
 <p>One important property of the triangle is:</p>
 <ul>
 <li><strong>Each number is the sum of the two numbers directly above
@@ -751,16 +752,16 @@ it.</strong></li>
 1 1
 1 2 1
 1 3 3 1</code></pre>
-<p>Given an integer <span class="math inline">\(n\)</span>, output the
-first <span class="math inline">\(n\)</span> rows of Pascal's
+<p>Given an integer <span class="math display">\[n\]</span>, output the
+first <span class="math display">\[n\]</span> rows of Pascal's
 Triangle.</p>
 <h5 id="input-format-3">Input Format</h5>
 <ul>
-<li>A single integer <span class="math inline">\(n\)</span> — the number
-of rows to generate.</li>
+<li>A single integer <span class="math display">\[n\]</span> — the
+number of rows to generate.</li>
 </ul>
 <h5 id="output-format-3">Output Format</h5>
-<p>Print the first <span class="math inline">\(n\)</span> rows of
+<p>Print the first <span class="math display">\[n\]</span> rows of
 Pascal's Triangle.</p>
 <ul>
 <li><p>Each row starts from the first number of that row.</p></li>
@@ -805,27 +806,27 @@ appear on any line.</p>
 </ul>
 <h4 id="gra46-josephus-problem">📌 gra46: Josephus Problem</h4>
 <h5 id="problem-description-4">📝 Problem Description</h5>
-<p>There are <span class="math inline">\(n\)</span> people, numbered
-from <span class="math inline">\(0\)</span> to <span
-class="math inline">\(n - 1\)</span>, standing in a circle. Starting
-from person <span class="math inline">\(k\)</span>, they begin counting
+<p>There are <span class="math display">\[n\]</span> people, numbered
+from <span class="math display">\[0\]</span> to <span
+class="math display">\[n - 1\]</span>, standing in a circle. Starting
+from person <span class="math display">\[k\]</span>, they begin counting
 off in order. The person who counts to <span
-class="math inline">\(m\)</span> is eliminated from the circle.</p>
+class="math display">\[m\]</span> is eliminated from the circle.</p>
 <p>After each elimination, counting resumes from the next person in the
-circle, starting again from <span class="math inline">\(1\)</span>. This
-process continues in a loop until only one person remains. That person
-is declared the <strong>"king"</strong>.</p>
-<p>Given integers <span class="math inline">\(n\)</span>, <span
-class="math inline">\(k\)</span>, and <span
-class="math inline">\(m\)</span>, determine the number (label) of the
+circle, starting again from <span class="math display">\[1\]</span>.
+This process continues in a loop until only one person remains. That
+person is declared the <strong>"king"</strong>.</p>
+<p>Given integers <span class="math display">\[n\]</span>, <span
+class="math display">\[k\]</span>, and <span
+class="math display">\[m\]</span>, determine the number (label) of the
 last remaining person.</p>
 <h5 id="input-format-4">📥 Input Format</h5>
-<p>A single line with three integers: <span class="math inline">\(n\ k\
-m\)</span></p>
+<p>A single line with three integers: <span class="math display">\[n\ k\
+m\]</span></p>
 <ul>
-<li><span class="math inline">\(1 \leq n \leq 100\)</span></li>
-<li><span class="math inline">\(1 \leq k \leq n - 1\)</span></li>
-<li><span class="math inline">\(1 \leq m \leq 100\)</span></li>
+<li><span class="math display">\[1 \leq n \leq 100\]</span></li>
+<li><span class="math display">\[1 \leq k \leq n - 1\]</span></li>
+<li><span class="math display">\[1 \leq m \leq 100\]</span></li>
 </ul>
 <h5 id="output-format-4">📤 Output Format</h5>
 <p>Output a single integer — the number of the last person
@@ -936,18 +937,18 @@ bind his email or phone).</p>
 <p>He remembers that his password is generated by a <strong>Caesar
 cipher</strong> — a form of encryption where each character in the
 original string is shifted forward by <span
-class="math inline">\(n\)</span> positions in the alphabet (wrapping
+class="math display">\[n\]</span> positions in the alphabet (wrapping
 around after <code>'z'</code>).</p>
 <p>Please help Wangzai recover his password using the given shift value
 and original string.</p>
 <h5 id="input-format-6">📥 Input Format</h5>
 <ul>
-<li>The first line: an integer <span class="math inline">\(n\)</span> —
+<li>The first line: an integer <span class="math display">\[n\]</span> —
 the number of positions to shift each character forward <span
-class="math inline">\(1 \leq n \leq 100\)</span></li>
+class="math display">\[1 \leq n \leq 100\]</span></li>
 <li>The second line: a lowercase letter string <span
-class="math inline">\(s\)</span> — the original password <span
-class="math inline">\(1 \leq |s| \leq 10^3\)</span></li>
+class="math display">\[s\]</span> — the original password <span
+class="math display">\[1 \leq |s| \leq 10^3\]</span></li>
 </ul>
 <h5 id="output-format-6">📤 Output Format</h5>
 <ul>
@@ -1090,7 +1091,7 @@ public class Main &#123;
 <li>描述</li>
 </ol>
 <p>给定一个长度为 n的正整数数组 a，第 i个元素的值为 <span
-class="math inline">\(a_i\)</span> 。 请你求出数组元素之和。</p>
+class="math display">\[a_i\]</span> 。 请你求出数组元素之和。</p>
 <ol start="2" type="1">
 <li><p>Code</p>
 <pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Scanner</span></span><span class="token punctuation">;</span>
@@ -1112,37 +1113,37 @@ class="math inline">\(a_i\)</span> 。 请你求出数组元素之和。</p>
 <h4 id="pio7-multiple-array-queries-sum-of-elements">PIO7 Multiple Array
 Queries — Sum of Elements</h4>
 <h5 id="description">📝 Description</h5>
-<p>You are given <span class="math inline">\(t\)</span> queries. In each
-query, you are provided with a <strong>positive integer array</strong>
-<span class="math inline">\(a\)</span> of length <span
-class="math inline">\(n\)</span>, where the <span
-class="math inline">\(i\)</span>-th element is <span
-class="math inline">\(a_i\)</span>.</p>
+<p>You are given <span class="math display">\[t\]</span> queries. In
+each query, you are provided with a <strong>positive integer
+array</strong> <span class="math display">\[a\]</span> of length <span
+class="math display">\[n\]</span>, where the <span
+class="math display">\[i\]</span>-th element is <span
+class="math display">\[a_i\]</span>.</p>
 <p>For each query, your task is to compute and output the <strong>sum of
 elements in the array</strong>.</p>
 <hr />
 <h5 id="input">📥 Input</h5>
 <ul>
 <li>The first line contains one integer <span
-class="math inline">\(t\)</span> <span class="math inline">\((1 \leq t
-\leq 10^5)\)</span> — the number of queries.</li>
+class="math display">\[t\]</span> <span class="math display">\[(1 \leq t
+\leq 10^5)\]</span> — the number of queries.</li>
 <li>For each query:
 <ul>
 <li>The first line contains one integer <span
-class="math inline">\(n\)</span> <span class="math inline">\((1 \leq n
-\leq 10^5)\)</span> — the size of the array.</li>
-<li>The second line contains <span class="math inline">\(n\)</span>
-integers <span class="math inline">\(a_1, a_2, \dots, a_n\)</span> <span
-class="math inline">\((1 \leq a_i \leq 10^9)\)</span>.</li>
+class="math display">\[n\]</span> <span class="math display">\[(1 \leq n
+\leq 10^5)\]</span> — the size of the array.</li>
+<li>The second line contains <span class="math display">\[n\]</span>
+integers <span class="math display">\[a_1, a_2, \dots, a_n\]</span>
+<span class="math display">\[(1 \leq a_i \leq 10^9)\]</span>.</li>
 </ul></li>
 </ul>
 <blockquote>
 <p>It is guaranteed that the total number of elements across all queries
-does not exceed <span class="math inline">\(10^5\)</span>.</p>
+does not exceed <span class="math display">\[10^5\]</span>.</p>
 </blockquote>
 <hr />
 <h5 id="output">📤 Output</h5>
-<p>Print <span class="math inline">\(t\)</span> lines, each containing
+<p>Print <span class="math display">\[t\]</span> lines, each containing
 one integer — the <strong>sum of the array elements</strong> for each
 query.</p>
 <h5 id="code">Code</h5>
@@ -1150,38 +1151,38 @@ query.</p>
 <h4 id="pio9-multiple-2d-arrays-t-test-cases-format">PIO9: Multiple 2D
 Arrays — T Test Cases Format</h4>
 <h5 id="problem-description-7">📝 Problem Description</h5>
-<p>You are given <span class="math inline">\(t\)</span> test cases. In
+<p>You are given <span class="math display">\[t\]</span> test cases. In
 each test case, you are provided with an <strong><span
-class="math inline">\(n \times m\)</span> 2D integer array</strong>
-<span class="math inline">\(a\)</span>, where the element at row <span
-class="math inline">\(i\)</span> and column <span
-class="math inline">\(j\)</span> is <span
-class="math inline">\(a_{i,j}\)</span>.</p>
+class="math display">\[n \times m\]</span> 2D integer array</strong>
+<span class="math display">\[a\]</span>, where the element at row <span
+class="math display">\[i\]</span> and column <span
+class="math display">\[j\]</span> is <span
+class="math display">\[a_{i,j}\]</span>.</p>
 <p>Your task is to compute and output the <strong>sum of all
 elements</strong> in each 2D array.</p>
 <h5 id="input-format-7">📥 Input Format</h5>
 <ul>
 <li>The first line contains one integer <span
-class="math inline">\(t\)</span> <span class="math inline">\((1 \leq t
-\leq 10^5)\)</span> — the number of test cases.</li>
+class="math display">\[t\]</span> <span class="math display">\[(1 \leq t
+\leq 10^5)\]</span> — the number of test cases.</li>
 </ul>
 <p>For each test case:</p>
 <ul>
 <li>The first line contains two integers <span
-class="math inline">\(n\)</span> and <span
-class="math inline">\(m\)</span> <span class="math inline">\((1 \leq n
-\leq 10^3,\ 1 \leq m \leq 10^3)\)</span></li>
-<li>The next <span class="math inline">\(n\)</span> lines each contain
-<span class="math inline">\(m\)</span> integers: <span
-class="math inline">\(a_{i,j}\)</span> <span class="math inline">\((1
-\leq a_{i,j} \leq 10^9)\)</span></li>
+class="math display">\[n\]</span> and <span
+class="math display">\[m\]</span> <span class="math display">\[(1 \leq n
+\leq 10^3,\ 1 \leq m \leq 10^3)\]</span></li>
+<li>The next <span class="math display">\[n\]</span> lines each contain
+<span class="math display">\[m\]</span> integers: <span
+class="math display">\[a_{i,j}\]</span> <span class="math display">\[(1
+\leq a_{i,j} \leq 10^9)\]</span></li>
 </ul>
 <blockquote>
-<p>Guaranteed: <span class="math inline">\(\sum (n \cdot m) \leq
-10^6\)</span></p>
+<p>Guaranteed: <span class="math display">\[\sum (n \cdot m) \leq
+10^6\]</span></p>
 </blockquote>
 <h5 id="output-format-7">📤 Output Format</h5>
-<p>Print <span class="math inline">\(t\)</span> lines. Each line
+<p>Print <span class="math display">\[t\]</span> lines. Each line
 contains one integer — the <strong>sum of the elements</strong> of the
 corresponding 2D array.</p>
 <pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Scanner</span></span><span class="token punctuation">;</span>
@@ -1208,17 +1209,17 @@ corresponding 2D array.</p>
 <span class="token punctuation">&#125;</span></code></pre>
 <h4 id="pio10-single-string-reversal">PIO10: Single String Reversal</h4>
 <h5 id="problem-description-8">📝 Problem Description</h5>
-<p>You are given a string <span class="math inline">\(s\)</span> of
-length <span class="math inline">\(n\)</span>. Your task is to
+<p>You are given a string <span class="math display">\[s\]</span> of
+length <span class="math display">\[n\]</span>. Your task is to
 <strong>reverse the string</strong> and print the result.</p>
 <h5 id="input-format-8">📥 Input Format</h5>
 <ul>
 <li>The first line contains one integer <span
-class="math inline">\(n\)</span> <span class="math inline">\((1 \leq n
-\leq 10^5)\)</span> — the length of the string.</li>
+class="math display">\[n\]</span> <span class="math display">\[(1 \leq n
+\leq 10^5)\]</span> — the length of the string.</li>
 <li>The second line contains a string <span
-class="math inline">\(s\)</span> of length <span
-class="math inline">\(n\)</span>, consisting of only lowercase English
+class="math display">\[s\]</span> of length <span
+class="math display">\[n\]</span>, consisting of only lowercase English
 letters.</li>
 </ul>
 <h5 id="output-format-8">📤 Output Format</h5>
@@ -1240,21 +1241,21 @@ letters.</li>
 <h4 id="pio12-reverse-a-2d-character-grid">PIO12: Reverse a 2D Character
 Grid</h4>
 <h5 id="problem-description-9">📝 Problem Description</h5>
-<p>You are given an <span class="math inline">\(n \times m\)</span> 2D
-character array <span class="math inline">\(a\)</span>, where <span
-class="math inline">\(a_{i,j}\)</span> represents the character in the
-<span class="math inline">\(i\)</span>-th row and <span
-class="math inline">\(j\)</span>-th column.</p>
+<p>You are given an <span class="math display">\[n \times m\]</span> 2D
+character array <span class="math display">\[a\]</span>, where <span
+class="math display">\[a_{i,j}\]</span> represents the character in the
+<span class="math display">\[i\]</span>-th row and <span
+class="math display">\[j\]</span>-th column.</p>
 <p>Your task is to <strong>reverse both the rows and columns</strong> of
 the array, and then print the result.</p>
 <h5 id="input-format-9">Input Format</h5>
 <ul>
 <li>The first line contains two integers <span
-class="math inline">\(n\)</span> and <span
-class="math inline">\(m\)</span> <span class="math inline">\((1 \leq n
-\leq 10^3,\ 1 \leq m \leq 10^3)\)</span></li>
-<li>The next <span class="math inline">\(n\)</span> lines each contain a
-string of <span class="math inline">\(m\)</span> lowercase English
+class="math display">\[n\]</span> and <span
+class="math display">\[m\]</span> <span class="math display">\[(1 \leq n
+\leq 10^3,\ 1 \leq m \leq 10^3)\]</span></li>
+<li>The next <span class="math display">\[n\]</span> lines each contain
+a string of <span class="math display">\[m\]</span> lowercase English
 letters.</li>
 </ul>
 <h5 id="output-format-9">📤 Output Format</h5>
@@ -1363,7 +1364,7 @@ Handling in Java Strings</h4>
 Format Floating-Point Number to 3 Decimal Places</h4>
 <h5 id="problem-description-10">📝 Problem Description</h5>
 <p>You are given a <strong>floating-point number</strong> <span
-class="math inline">\(n\)</span>.</p>
+class="math display">\[n\]</span>.</p>
 <p>Your task is to <strong>format it to exactly 3 decimal
 places</strong>.</p>
 <ul>
@@ -1375,8 +1376,8 @@ it (round half up) to 3 digits.</li>
 <h5 id="input-format-10">📥 Input Format</h5>
 <ul>
 <li>A single floating-point number <span
-class="math inline">\(n\)</span> <span class="math inline">\((1 \leq n
-\leq 10^9)\)</span></li>
+class="math display">\[n\]</span> <span class="math display">\[(1 \leq n
+\leq 10^9)\]</span></li>
 </ul>
 <h5 id="output-format-10">📤 Output Format</h5>
 <ul>
@@ -1398,8 +1399,8 @@ places</strong>.</p>
 Leading Zeros to 9 Digits</h4>
 <h5 id="problem-description-11">📝 Problem Description</h5>
 <p>You are given a <strong>positive integer</strong> <span
-class="math inline">\(n\)</span>. Your task is to output the number with
-<strong>exactly 9 digits</strong>.</p>
+class="math display">\[n\]</span>. Your task is to output the number
+with <strong>exactly 9 digits</strong>.</p>
 <ul>
 <li>If the number has <strong>fewer than 9 digits</strong>, <strong>pad
 with leading zeros</strong>.</li>
@@ -1409,8 +1410,8 @@ as-is.</li>
 <h5 id="input-format-11">📥 Input Format</h5>
 <ul>
 <li>A single line containing an integer <span
-class="math inline">\(n\)</span> <span class="math inline">\((1 \leq n
-&lt; 10^9)\)</span></li>
+class="math display">\[n\]</span> <span class="math display">\[(1 \leq n
+&lt; 10^9)\]</span></li>
 </ul>
 <h5 id="output-format-11">📤 Output Format</h5>
 <ul>

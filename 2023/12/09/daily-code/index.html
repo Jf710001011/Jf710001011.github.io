@@ -481,14 +481,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2025-05-18
+                    2025-05-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    14.4k
+                    14.9k
                 </div>
                 
 
@@ -870,6 +870,122 @@ remaining.</p>
     <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
 <span class="token punctuation">&#125;</span></code></pre>
+<h4 id="gra54-animal-chess-斗兽棋">📌 gra54: Animal Chess (斗兽棋)</h4>
+<h5 id="problem-description-5">📝 Problem Description</h5>
+<p>In this mini animal chess game, each player chooses one of four
+animals:</p>
+<ul>
+<li><code>"elephant"</code>, <code>"tiger"</code>, <code>"cat"</code>,
+or <code>"mouse"</code></li>
+</ul>
+<p>The rules form a <strong>cyclic food chain</strong>:</p>
+<ul>
+<li><strong>Elephant beats tiger</strong></li>
+<li><strong>Tiger beats cat</strong></li>
+<li><strong>Cat beats mouse</strong></li>
+<li><strong>Mouse beats elephant</strong></li>
+</ul>
+<p>Each round, the "cow" and his "sister" both choose one animal. Your
+task is to determine the outcome of the round.</p>
+<h5 id="input-format-5">📥 Input Format</h5>
+<p>A single line containing two space-separated strings:</p>
+<ul>
+<li>The first string is the <strong>cow's animal</strong></li>
+<li>The second string is the <strong>sister's animal</strong></li>
+</ul>
+<p>Both strings are guaranteed to be one of: <code>"elephant"</code>,
+<code>"tiger"</code>, <code>"cat"</code>, or <code>"mouse"</code>.</p>
+<h3 id="output-format-5">📤 Output Format</h3>
+<ul>
+<li><p>If the cow <strong>wins</strong> or <strong>ties</strong>,
+print:</p>
+<pre class="language-none"><code class="language-none">tiangou yiwusuoyou</code></pre></li>
+<li><p>If the sister <strong>wins</strong>, print:</p>
+<pre class="language-none"><code class="language-none">tiangou txdy</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">HashMap</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Map</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Scanner</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Integer</span><span class="token punctuation">></span></span> m <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        m<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"elephant"</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        m<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"tiger"</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        m<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"cat"</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        m<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"mouse"</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token class-name">Scanner</span> in <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Scanner</span><span class="token punctuation">(</span><span class="token class-name">System</span><span class="token punctuation">.</span>in<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">String</span> line <span class="token operator">=</span> in<span class="token punctuation">.</span><span class="token function">nextLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> cheses <span class="token operator">=</span> line<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">" "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// Numbers value don't define the win/loss relationship</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>m<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>cheses<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">4</span> <span class="token operator">==</span> m<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>cheses<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">||</span> m<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>cheses<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">==</span> m<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>cheses<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"tiangou txdy"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"tiangou yiwusuoyou"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre></li>
+</ul>
+<h4 id="gra56-caesar-cipher-凯撒加密">📌 gra56: Caesar Cipher
+(凯撒加密)</h4>
+<h5 id="problem-description-6">📝 Problem Description</h5>
+<p>Wangzai often forgets his passwords. One day, while logging into an
+online platform, he suddenly couldn't recall his password (he didn’t
+bind his email or phone).</p>
+<p>He remembers that his password is generated by a <strong>Caesar
+cipher</strong> — a form of encryption where each character in the
+original string is shifted forward by <span
+class="math inline">\(n\)</span> positions in the alphabet (wrapping
+around after <code>'z'</code>).</p>
+<p>Please help Wangzai recover his password using the given shift value
+and original string.</p>
+<h5 id="input-format-6">📥 Input Format</h5>
+<ul>
+<li>The first line: an integer <span class="math inline">\(n\)</span> —
+the number of positions to shift each character forward <span
+class="math inline">\(1 \leq n \leq 100\)</span></li>
+<li>The second line: a lowercase letter string <span
+class="math inline">\(s\)</span> — the original password <span
+class="math inline">\(1 \leq |s| \leq 10^3\)</span></li>
+</ul>
+<h5 id="output-format-6">📤 Output Format</h5>
+<ul>
+<li><p>Output one line — the encrypted string after applying the Caesar
+cipher.</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Scanner</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Scanner</span> in <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Scanner</span><span class="token punctuation">(</span><span class="token class-name">System</span><span class="token punctuation">.</span>in<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> n <span class="token operator">=</span> in<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        in<span class="token punctuation">.</span><span class="token function">nextLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">StringBuilder</span> sb <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span>in<span class="token punctuation">.</span><span class="token function">nextLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// System.out.println((char)122);</span>
+
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> sb<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token comment">// Ascii 'z' = 122</span>
+            <span class="token keyword">int</span> offset <span class="token operator">=</span> n <span class="token operator">%</span> <span class="token number">26</span><span class="token punctuation">;</span>
+            <span class="token comment">// System.out.println(offset);</span>
+
+            <span class="token comment">// 0-26 represent a-z</span>
+            <span class="token keyword">int</span> codeFrom0 <span class="token operator">=</span> sb<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">+</span> offset <span class="token operator">-</span> <span class="token number">97</span><span class="token punctuation">;</span>
+            <span class="token comment">// if over 26</span>
+            <span class="token keyword">int</span> effectIndex <span class="token operator">=</span> codeFrom0 <span class="token operator">%</span> <span class="token number">26</span><span class="token punctuation">;</span>
+            sb<span class="token punctuation">.</span><span class="token function">setCharAt</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>effectIndex <span class="token operator">+</span> <span class="token char">'a'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>sb<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre></li>
+</ul>
+<h4 id="string-api">String API</h4>
+<ol type="1">
+<li><p>Code</p>
+<pre class="language-Java" data-language="Java"><code class="language-Java">String[] words &#x3D; str.split(&quot; &quot;);
+Character.toUpperCase(words[i].charAt(0))
+String s &#x3D; str.toUpperCase();</code></pre></li>
+</ol>
 <h3 id="input-and-output-pratice-java">2025-05-15: Input and Output
 pratice Java</h3>
 <h4 id="pio3-多组_ab_eof形式">PIO3 多组_A+B_EOF形式</h4>
@@ -1033,7 +1149,7 @@ query.</p>
 <pre class="language-none"><code class="language-none"></code></pre>
 <h4 id="pio9-multiple-2d-arrays-t-test-cases-format">PIO9: Multiple 2D
 Arrays — T Test Cases Format</h4>
-<h5 id="problem-description-5">📝 Problem Description</h5>
+<h5 id="problem-description-7">📝 Problem Description</h5>
 <p>You are given <span class="math inline">\(t\)</span> test cases. In
 each test case, you are provided with an <strong><span
 class="math inline">\(n \times m\)</span> 2D integer array</strong>
@@ -1043,7 +1159,7 @@ class="math inline">\(j\)</span> is <span
 class="math inline">\(a_{i,j}\)</span>.</p>
 <p>Your task is to compute and output the <strong>sum of all
 elements</strong> in each 2D array.</p>
-<h5 id="input-format-5">📥 Input Format</h5>
+<h5 id="input-format-7">📥 Input Format</h5>
 <ul>
 <li>The first line contains one integer <span
 class="math inline">\(t\)</span> <span class="math inline">\((1 \leq t
@@ -1064,7 +1180,7 @@ class="math inline">\(a_{i,j}\)</span> <span class="math inline">\((1
 <p>Guaranteed: <span class="math inline">\(\sum (n \cdot m) \leq
 10^6\)</span></p>
 </blockquote>
-<h5 id="output-format-5">📤 Output Format</h5>
+<h5 id="output-format-7">📤 Output Format</h5>
 <p>Print <span class="math inline">\(t\)</span> lines. Each line
 contains one integer — the <strong>sum of the elements</strong> of the
 corresponding 2D array.</p>
@@ -1091,11 +1207,11 @@ corresponding 2D array.</p>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span></code></pre>
 <h4 id="pio10-single-string-reversal">PIO10: Single String Reversal</h4>
-<h5 id="problem-description-6">📝 Problem Description</h5>
+<h5 id="problem-description-8">📝 Problem Description</h5>
 <p>You are given a string <span class="math inline">\(s\)</span> of
 length <span class="math inline">\(n\)</span>. Your task is to
 <strong>reverse the string</strong> and print the result.</p>
-<h5 id="input-format-6">📥 Input Format</h5>
+<h5 id="input-format-8">📥 Input Format</h5>
 <ul>
 <li>The first line contains one integer <span
 class="math inline">\(n\)</span> <span class="math inline">\((1 \leq n
@@ -1105,7 +1221,7 @@ class="math inline">\(s\)</span> of length <span
 class="math inline">\(n\)</span>, consisting of only lowercase English
 letters.</li>
 </ul>
-<h5 id="output-format-6">📤 Output Format</h5>
+<h5 id="output-format-8">📤 Output Format</h5>
 <p>Output the reversed string.</p>
 <pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Scanner</span></span><span class="token punctuation">;</span>
 
@@ -1123,7 +1239,7 @@ letters.</li>
 <span class="token punctuation">&#125;</span></code></pre>
 <h4 id="pio12-reverse-a-2d-character-grid">PIO12: Reverse a 2D Character
 Grid</h4>
-<h5 id="problem-description-7">📝 Problem Description</h5>
+<h5 id="problem-description-9">📝 Problem Description</h5>
 <p>You are given an <span class="math inline">\(n \times m\)</span> 2D
 character array <span class="math inline">\(a\)</span>, where <span
 class="math inline">\(a_{i,j}\)</span> represents the character in the
@@ -1131,7 +1247,7 @@ class="math inline">\(a_{i,j}\)</span> represents the character in the
 class="math inline">\(j\)</span>-th column.</p>
 <p>Your task is to <strong>reverse both the rows and columns</strong> of
 the array, and then print the result.</p>
-<h5 id="input-format-7">Input Format</h5>
+<h5 id="input-format-9">Input Format</h5>
 <ul>
 <li>The first line contains two integers <span
 class="math inline">\(n\)</span> and <span
@@ -1141,7 +1257,7 @@ class="math inline">\(m\)</span> <span class="math inline">\((1 \leq n
 string of <span class="math inline">\(m\)</span> lowercase English
 letters.</li>
 </ul>
-<h5 id="output-format-7">📤 Output Format</h5>
+<h5 id="output-format-9">📤 Output Format</h5>
 <ul>
 <li><p>Output the 2D character grid <strong>after reversing both rows
 and columns</strong>.</p>
@@ -1245,7 +1361,7 @@ Handling in Java Strings</h4>
 </table>
 <h4 id="pio14-format-floating-point-number-to-3-decimal-places">PIO14:
 Format Floating-Point Number to 3 Decimal Places</h4>
-<h5 id="problem-description-8">📝 Problem Description</h5>
+<h5 id="problem-description-10">📝 Problem Description</h5>
 <p>You are given a <strong>floating-point number</strong> <span
 class="math inline">\(n\)</span>.</p>
 <p>Your task is to <strong>format it to exactly 3 decimal
@@ -1256,13 +1372,13 @@ with trailing zeros.</li>
 <li>If the number has <strong>more than 3 decimal digits</strong>, round
 it (round half up) to 3 digits.</li>
 </ul>
-<h5 id="input-format-8">📥 Input Format</h5>
+<h5 id="input-format-10">📥 Input Format</h5>
 <ul>
 <li>A single floating-point number <span
 class="math inline">\(n\)</span> <span class="math inline">\((1 \leq n
 \leq 10^9)\)</span></li>
 </ul>
-<h5 id="output-format-8">📤 Output Format</h5>
+<h5 id="output-format-10">📤 Output Format</h5>
 <ul>
 <li><p>Print the number rounded to <strong>exactly 3 decimal
 places</strong>.</p>
@@ -1280,7 +1396,7 @@ places</strong>.</p>
 </ul>
 <h4 id="pio15-pad-with-leading-zeros-to-9-digits">PIO15: Pad with
 Leading Zeros to 9 Digits</h4>
-<h5 id="problem-description-9">📝 Problem Description</h5>
+<h5 id="problem-description-11">📝 Problem Description</h5>
 <p>You are given a <strong>positive integer</strong> <span
 class="math inline">\(n\)</span>. Your task is to output the number with
 <strong>exactly 9 digits</strong>.</p>
@@ -1290,13 +1406,13 @@ with leading zeros</strong>.</li>
 <li>If the number already has <strong>9 digits</strong>, just print it
 as-is.</li>
 </ul>
-<h5 id="input-format-9">📥 Input Format</h5>
+<h5 id="input-format-11">📥 Input Format</h5>
 <ul>
 <li>A single line containing an integer <span
 class="math inline">\(n\)</span> <span class="math inline">\((1 \leq n
 &lt; 10^9)\)</span></li>
 </ul>
-<h5 id="output-format-9">📤 Output Format</h5>
+<h5 id="output-format-11">📤 Output Format</h5>
 <ul>
 <li><p>Output the number as a <strong>9-digit string</strong>, with
 leading zeros if necessary.</p>
@@ -4025,7 +4141,7 @@ alt="image-20221226235202663" />
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">310.8k</span>&nbsp;字
+                class="white-color">311.3k</span>&nbsp;字
             
             
             

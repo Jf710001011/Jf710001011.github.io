@@ -490,14 +490,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2025-05-26
+                    2025-05-31
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    15.8k
+                    16.6k
                 </div>
                 
 
@@ -1517,6 +1517,218 @@ leading zeros if necessary.</p>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span></code></pre></li>
 </ul>
+<h4 id="stack">Stack</h4>
+<ol type="1">
+<li><p>Code</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token class-name">Deque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">BigInteger</span><span class="token punctuation">></span></span> stack <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayDeque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">BigInteger</span> x <span class="token operator">=</span> in<span class="token punctuation">.</span><span class="token function">nextBigInteger</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+stack<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+stack<span class="token punctuation">.</span><span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+stack<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre></li>
+</ol>
+<h4 id="gra78-stack-with-min-function">📌 gra78: Stack with
+<code>min()</code> Function</h4>
+<h5 id="problem-description-13">📝 Problem Description</h5>
+<p>Design a stack that supports the following operations and is able to
+return the <strong>minimum element</strong> in the stack at any time, in
+addition to the standard operations:</p>
+<ul>
+<li><code>push(value)</code>: Push an element onto the stack</li>
+<li><code>pop()</code>: Remove the top element</li>
+<li><code>top()</code>: Return the top element</li>
+<li><code>min()</code>: Return the smallest element in the stack</li>
+</ul>
+<p>You are given a list of operations. Simulate the operations and
+output the result for each valid <code>top()</code> and
+<code>min()</code> call.</p>
+<h5 id="input-format-13">📥 Input Format</h5>
+<ul>
+<li>A list of strings, each representing an operation:
+<ul>
+<li><code>PSH&#123;val&#125;</code> means push the value <code>val</code> onto the
+stack</li>
+<li><code>POP</code> means pop the top element</li>
+<li><code>TOP</code> means output the current top</li>
+<li><code>MIN</code> means output the current minimum</li>
+</ul></li>
+</ul>
+<h5 id="output-format-13">📤 Output Format</h5>
+<ul>
+<li>For every <code>TOP</code> or <code>MIN</code> operation, output the
+result.</li>
+<li>If the operation is invalid (e.g. calling <code>TOP</code> or
+<code>MIN</code> on an empty stack), return <code>-1</code>.</li>
+</ul>
+<h3 id="constraints">📈 Constraints</h3>
+<ul>
+<li>Number of operations: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>≤</mo><mi>n</mi><mo>≤</mo><mn>300</mn></mrow><annotation encoding="application/x-tex">0 \leq n \leq 300</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7804em;vertical-align:-0.136em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">300</span></span></span></span></li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∣</mi><mi>v</mi><mi>a</mi><mi>l</mi><mi mathvariant="normal">∣</mi><mo>&lt;</mo><msup><mn>10</mn><mn>4</mn></msup></mrow><annotation encoding="application/x-tex">|val| &lt; 10^4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">4</span></span></span></span></span></span></span></span></span></span></span></li>
+<li>Each stack operation runs in <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span> time</li>
+<li>Extra space complexity: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></li>
+</ul>
+<h3 id="example">🔍 Example</h3>
+<h4 id="input-1">Input:</h4>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token punctuation">[</span><span class="token string">"PSH1"</span><span class="token punctuation">,</span><span class="token string">"PSH2"</span><span class="token punctuation">,</span><span class="token string">"MIN"</span><span class="token punctuation">,</span><span class="token string">"TOP"</span><span class="token punctuation">,</span><span class="token string">"POP"</span><span class="token punctuation">,</span><span class="token string">"PSH1"</span><span class="token punctuation">,</span><span class="token string">"TOP"</span><span class="token punctuation">,</span><span class="token string">"MIN"</span><span class="token punctuation">]</span></code></pre>
+<h4 id="output-1">Output:</h4>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token number">2</span>
+<span class="token number">1</span>
+<span class="token number">1</span></code></pre>
+<pre class="language-none"><code class="language-none">import java.util.*;
+
+public class Solution &#123;
+
+    &#x2F;&#x2F; Main stack to store all values
+    private Deque&lt;Integer&gt; stack &#x3D; new ArrayDeque&lt;&gt;();
+
+    &#x2F;&#x2F; Auxiliary stack to keep track of the minimum value at each level
+    private Deque&lt;Integer&gt; minStack &#x3D; new ArrayDeque&lt;&gt;();
+
+    &#x2F;**
+     * Pushes a value onto the stack.
+     * Simultaneously updates the minStack to maintain the current minimum.
+     *&#x2F;
+    public void push(int node) &#123;
+        stack.push(node);
+        &#x2F;&#x2F; If stack is empty or the new node is smaller, push it as the new min
+        if (minStack.isEmpty() || node &lt; minStack.peek()) &#123;
+            minStack.push(node);
+        &#125; else &#123;
+            &#x2F;&#x2F; Otherwise, repeat the current min to maintain sync
+            minStack.push(minStack.peek());
+        &#125;
+    &#125;
+
+    &#x2F;**
+     * Pops the top element from both the main stack and min stack.
+     * Ensures that minStack stays in sync with stack.
+     *&#x2F;
+    public void pop() &#123;
+        if (!stack.isEmpty()) &#123;
+            stack.pop();
+            minStack.pop();
+        &#125;
+    &#125;
+
+    &#x2F;**
+     * Returns the top element of the stack.
+     *&#x2F;
+    public int top() &#123;
+        return stack.peek();
+    &#125;
+
+    &#x2F;**
+     * Returns the current minimum value in the stack.
+     *&#x2F;
+    public int min() &#123;
+        return minStack.peek();
+    &#125;
+&#125;
+</code></pre>
+<h2 id="gra80-bubble-merging-challenge">🐟 gra80: Bubble Merging
+Challenge</h2>
+<h3 id="problem-overview">💡 Problem Overview</h3>
+<p>In this whimsical string simulation problem, a little fish blows two
+types of bubbles:</p>
+<ul>
+<li><strong>Big bubbles</strong> represented by <code>'O'</code></li>
+<li><strong>Small bubbles</strong> represented by <code>'o'</code></li>
+</ul>
+<p>The bubbles interact in interesting ways as they float:</p>
+<ol type="1">
+<li><strong>Two adjacent small bubbles</strong> (<code>oo</code>) will
+<strong>merge</strong> into <strong>one big bubble</strong>
+(<code>O</code>).</li>
+<li><strong>Two adjacent big bubbles</strong> (<code>OO</code>) will
+<strong>explode</strong>, disappearing entirely.</li>
+</ol>
+<p>These transformations occur <strong>from left to right</strong>,
+repeating until no more changes can be made.</p>
+<h3 id="input-description">🧾 Input Description</h3>
+<ul>
+<li>The input contains <strong>multiple lines</strong>, each consisting
+of a string made up only of <code>'o'</code> and <code>'O'</code>.</li>
+<li>Each line represents one test case and should be processed
+independently.</li>
+</ul>
+<h3 id="output-description">📤 Output Description</h3>
+<ul>
+<li>For each input line, print the final result after all merging and
+exploding operations are complete.</li>
+</ul>
+<h3 id="example-1">🧪 Example</h3>
+<p><strong>Input:</strong></p>
+<pre class="language-nginx" data-language="nginx"><code class="language-nginx">ooOOoooO</code></pre>
+<p><strong>Output:</strong></p>
+<pre class="language-nginx" data-language="nginx"><code class="language-nginx">oO</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">ArrayDeque</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">ArrayList</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Deque</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">List</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Scanner</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>stream<span class="token punctuation">.</span></span><span class="token class-name">Collectors</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Collections</span></span><span class="token punctuation">;</span>
+
+<span class="token comment">// Class name must be 'Main'. Do not include any package declarations.</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Scanner</span> in <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Scanner</span><span class="token punctuation">(</span><span class="token class-name">System</span><span class="token punctuation">.</span>in<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// Read multiple lines until end-of-file (EOF)</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>in<span class="token punctuation">.</span><span class="token function">hasNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token class-name">String</span> s <span class="token operator">=</span> in<span class="token punctuation">.</span><span class="token function">nextLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">Deque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Character</span><span class="token punctuation">></span></span> stack <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayDeque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token comment">// Process the string from left to right</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">char</span> current <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                <span class="token comment">// If stack is empty, simply push the current character</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>stack<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                    stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>current<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">continue</span><span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+
+                <span class="token comment">// Handle small bubble 'o'</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>current <span class="token operator">==</span> <span class="token char">'o'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span>stack<span class="token punctuation">.</span><span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token char">'o'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                        <span class="token comment">// Two small bubbles merge into a big bubble 'O'</span>
+                        stack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                        <span class="token comment">// After merging, check if it forms two adjacent big bubbles</span>
+                        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>stack<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> stack<span class="token punctuation">.</span><span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token char">'O'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                            <span class="token comment">// Two big bubbles explode</span>
+                            stack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+                            stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token char">'O'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token punctuation">&#125;</span>
+                    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+                        stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token char">'o'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">&#125;</span>
+                <span class="token punctuation">&#125;</span>
+
+                <span class="token comment">// Handle big bubble 'O'</span>
+                <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>current <span class="token operator">==</span> <span class="token char">'O'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span>stack<span class="token punctuation">.</span><span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token char">'O'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                        <span class="token comment">// Two big bubbles explode</span>
+                        stack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+                        stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token char">'O'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">&#125;</span>
+                <span class="token punctuation">&#125;</span>
+            <span class="token punctuation">&#125;</span>
+
+            <span class="token comment">// Stack stores characters in reverse order, so reverse it to print correctly</span>
+            <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Character</span><span class="token punctuation">></span></span> result <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span>stack<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">Collections</span><span class="token punctuation">.</span><span class="token function">reverse</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>
+                result<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                      <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token operator">::</span><span class="token function">valueOf</span><span class="token punctuation">)</span>
+                      <span class="token punctuation">.</span><span class="token function">collect</span><span class="token punctuation">(</span><span class="token class-name">Collectors</span><span class="token punctuation">.</span><span class="token function">joining</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre>
 <h3 id="quicksort">2025-05-14: QuickSort</h3>
 <h4 id="implement">Implement</h4>
 <ol type="1">
@@ -4236,7 +4448,7 @@ alt="image-20221226235202663" />
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">313.8k</span>&nbsp;字
+                class="white-color">314.6k</span>&nbsp;字
             
             
             

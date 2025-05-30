@@ -1560,17 +1560,17 @@ result.</li>
 <li>If the operation is invalid (e.g. calling <code>TOP</code> or
 <code>MIN</code> on an empty stack), return <code>-1</code>.</li>
 </ul>
-<h3 id="constraints">📈 Constraints</h3>
+<h5 id="constraints">📈 Constraints</h5>
 <ul>
 <li>Number of operations: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>≤</mo><mi>n</mi><mo>≤</mo><mn>300</mn></mrow><annotation encoding="application/x-tex">0 \leq n \leq 300</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7804em;vertical-align:-0.136em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">300</span></span></span></span></li>
 <li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∣</mi><mi>v</mi><mi>a</mi><mi>l</mi><mi mathvariant="normal">∣</mi><mo>&lt;</mo><msup><mn>10</mn><mn>4</mn></msup></mrow><annotation encoding="application/x-tex">|val| &lt; 10^4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">4</span></span></span></span></span></span></span></span></span></span></span></li>
 <li>Each stack operation runs in <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span> time</li>
 <li>Extra space complexity: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></li>
 </ul>
-<h3 id="example">🔍 Example</h3>
-<h4 id="input-1">Input:</h4>
+<h5 id="example">🔍 Example</h5>
+<h5 id="input-1">Input:</h5>
 <pre class="language-java" data-language="java"><code class="language-java"><span class="token punctuation">[</span><span class="token string">"PSH1"</span><span class="token punctuation">,</span><span class="token string">"PSH2"</span><span class="token punctuation">,</span><span class="token string">"MIN"</span><span class="token punctuation">,</span><span class="token string">"TOP"</span><span class="token punctuation">,</span><span class="token string">"POP"</span><span class="token punctuation">,</span><span class="token string">"PSH1"</span><span class="token punctuation">,</span><span class="token string">"TOP"</span><span class="token punctuation">,</span><span class="token string">"MIN"</span><span class="token punctuation">]</span></code></pre>
-<h4 id="output-1">Output:</h4>
+<h5 id="output-1">Output:</h5>
 <pre class="language-java" data-language="java"><code class="language-java"><span class="token number">2</span>
 <span class="token number">1</span>
 <span class="token number">1</span></code></pre>
@@ -1625,9 +1625,9 @@ public class Solution &#123;
     &#125;
 &#125;
 </code></pre>
-<h2 id="gra80-bubble-merging-challenge">🐟 gra80: Bubble Merging
-Challenge</h2>
-<h3 id="problem-overview">💡 Problem Overview</h3>
+<h4 id="gra80-bubble-merging-challenge">🐟 gra80: Bubble Merging
+Challenge</h4>
+<h5 id="problem-overview">💡 Problem Overview</h5>
 <p>In this whimsical string simulation problem, a little fish blows two
 types of bubbles:</p>
 <ul>
@@ -1644,19 +1644,19 @@ types of bubbles:</p>
 </ol>
 <p>These transformations occur <strong>from left to right</strong>,
 repeating until no more changes can be made.</p>
-<h3 id="input-description">🧾 Input Description</h3>
+<h5 id="input-description">🧾 Input Description</h5>
 <ul>
 <li>The input contains <strong>multiple lines</strong>, each consisting
 of a string made up only of <code>'o'</code> and <code>'O'</code>.</li>
 <li>Each line represents one test case and should be processed
 independently.</li>
 </ul>
-<h3 id="output-description">📤 Output Description</h3>
+<h5 id="output-description">📤 Output Description</h5>
 <ul>
 <li>For each input line, print the final result after all merging and
 exploding operations are complete.</li>
 </ul>
-<h3 id="example-1">🧪 Example</h3>
+<h5 id="example-1">🧪 Example</h5>
 <p><strong>Input:</strong></p>
 <pre class="language-nginx" data-language="nginx"><code class="language-nginx">ooOOoooO</code></pre>
 <p><strong>Output:</strong></p>

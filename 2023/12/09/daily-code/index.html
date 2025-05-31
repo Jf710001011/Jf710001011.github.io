@@ -497,7 +497,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    17k
+                    17.5k
                 </div>
                 
 
@@ -1778,6 +1778,10 @@ Output: 26</code></pre>
     <span class="token keyword">private</span> <span class="token class-name">Deque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> numStack <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayDeque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">private</span> <span class="token class-name">Deque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Character</span><span class="token punctuation">></span></span> operatorStack <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayDeque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
+    
+    <span class="token comment">/*
+    * key: determine to when to calculate
+    */</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">solve</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
 
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -1877,6 +1881,114 @@ Output: 26</code></pre>
         <span class="token comment">// System.out.println(operatorStack);</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span>
+</code></pre>
+<h4 id="gra84-validate-stack-sequences">📌 gra84: Validate Stack
+Sequences</h4>
+<h5 id="problem-description-15">📝 Problem Description</h5>
+<p>You're given two integer sequences of length <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span>:
+<code>pushed</code> and <code>popped</code>. Both are permutations of
+numbers from <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> to <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span>.</p>
+<p>You are to simulate a stack (initially empty) using the
+<code>pushed</code> sequence — pushing each element in order. At any
+time, you're allowed to pop the top of the stack <strong>only if it
+matches the current element in <code>popped</code></strong>.</p>
+<p>Determine whether the given <code>popped</code> sequence is a valid
+pop sequence for the <code>pushed</code> order.</p>
+<h5 id="input-format-15">📥 Input Format</h5>
+<ul>
+<li>First line: an integer <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi></mrow><annotation encoding="application/x-tex">q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>1</mn><mo>≤</mo><mi>q</mi><mo>≤</mo><mn>5</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(1 \leq q \leq 5)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8304em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">5</span><span class="mclose">)</span></span></span></span> — number of
+test cases</li>
+<li>For each test case:
+<ul>
+<li>First line: integer <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>1</mn><mo>≤</mo><mi>n</mi><mo>≤</mo><msup><mn>10</mn><mn>5</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(1 \leq n \leq 10^5)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> — length of the
+sequences</li>
+<li>Second line: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> integers — the <code>pushed</code>
+sequence (a permutation of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> to <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span>)</li>
+<li>Third line: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> integers — the <code>popped</code>
+sequence (a permutation of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> to <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span>)</li>
+</ul></li>
+</ul>
+<h5 id="output-format-15">📤 Output Format</h5>
+<ul>
+<li>Output one line per test case:
+<ul>
+<li>If the <code>popped</code> sequence is a valid pop sequence of the
+stack operations based on <code>pushed</code>, print
+<strong><code>Yes</code></strong></li>
+<li>Otherwise, print <strong><code>No</code></strong></li>
+</ul></li>
+</ul>
+<h5 id="example-2">🧠 Example</h5>
+<h4 id="input-2">Input:</h4>
+<pre class="language-nginx" data-language="nginx"><code class="language-nginx">2
+5
+1 2 3 4 5
+2 5 3 4 1
+5
+1 2 3 4 5
+2 5 4 3 1</code></pre>
+<h4 id="output-2">Output:</h4>
+<pre class="language-nginx" data-language="nginx"><code class="language-nginx">No
+Yes</code></pre>
+<pre class="language-Java" data-language="Java"><code class="language-Java">import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.Scanner;
+
+&#x2F;&#x2F; Class name must be XXmain, Dont have any package xxx info
+public class Main &#123;
+    public static void main(String[] args) &#123;
+        &#x2F;* 
+        * Use elements in pushed[] as the reference; each element must be pushed before being popped
+        *&#x2F;
+        Scanner in &#x3D; new Scanner(System.in);
+        int q &#x3D; in.nextInt();
+
+        while (q-- &gt; 0) &#123;
+            int n &#x3D; in.nextInt();
+            int[] pushed &#x3D; new int[n];
+            for (int i &#x3D; 0; i &lt; n; i++) &#123;
+                pushed[i] &#x3D; in.nextInt();
+            &#125;
+
+            int[] poped &#x3D; new int[n];
+            for (int i &#x3D; 0; i &lt; n; i++) &#123;
+                poped[i] &#x3D; in.nextInt();
+            &#125;
+
+            Deque&lt;Integer&gt; stack &#x3D; new ArrayDeque&lt;&gt;();
+            int i &#x3D; 0, j &#x3D; 0;
+            for (; i &lt; n &amp;&amp; j &lt; n; ) &#123;
+                if (!stack.isEmpty()) &#123;
+                    &#x2F;&#x2F; Invariant: every element must be pushed before comparison
+                    if (stack.peek() &#x3D;&#x3D; poped[j]) &#123;
+                        stack.pop();
+                        j++;
+                        continue;
+                    &#125;
+                &#125;
+
+                while (i &lt; n &amp;&amp; pushed[i] !&#x3D; poped[j]) &#123;
+                    stack.push(pushed[i]);
+                    i++;
+                &#125;
+
+                if (i &lt; n &amp;&amp; pushed[i] &#x3D;&#x3D; poped[j]) &#123;
+                    i++;
+                    j++;
+                &#125;
+
+            &#125;
+            &#x2F;&#x2F; System.out.println(&quot;i: &quot;+i );
+            &#x2F;&#x2F; System.out.println(&quot;j: &quot;+j );
+
+            if (j &#x3D;&#x3D; n) &#123;
+                System.out.println(&quot;Yes&quot;);
+            &#125; else &#123;
+                System.out.println(&quot;No&quot;);
+            &#125;
+        &#125;
+    &#125;
+&#125;
 </code></pre>
 <h3 id="quicksort">2025-05-14: QuickSort</h3>
 <h4 id="implement">Implement</h4>
@@ -4597,7 +4709,7 @@ alt="image-20221226235202663" />
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">315.1k</span>&nbsp;字
+                class="white-color">315.5k</span>&nbsp;字
             
             
             

@@ -6,7 +6,7 @@
   <link href="https://jf710001011.github.io/atom.xml" rel="self"/>
   
   <link href="https://jf710001011.github.io/"/>
-  <updated>2025-05-31T11:18:38.155Z</updated>
+  <updated>2025-06-02T17:51:35.239Z</updated>
   <id>https://jf710001011.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Daily English</title>
+    <link href="https://jf710001011.github.io/2025/06/03/dailyenglish/"/>
+    <id>https://jf710001011.github.io/2025/06/03/dailyenglish/</id>
+    <published>2025-06-02T17:47:40.824Z</published>
+    <updated>2025-06-02T17:51:35.239Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Talk With FootBall Player&lt;/p&gt;
+&lt;pre class=&quot;language-latex&quot; data-language=&quot;latex&quot;&gt;&lt;code class=&quot;language-latex&quot;&gt;You:
+Hey, nice footwork!</summary>
+        
+      
+    
+    
+    
+    <category term="English" scheme="https://jf710001011.github.io/categories/English/"/>
+    
+    
+    <category term="Spoken English" scheme="https://jf710001011.github.io/tags/Spoken-English/"/>
+    
+  </entry>
   
   <entry>
     <title>CapCut</title>
@@ -532,34 +559,6 @@ Java API (Application</summary>
     
     
     <category term="English" scheme="https://jf710001011.github.io/tags/English/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java-Base</title>
-    <link href="https://jf710001011.github.io/2024/01/13/java-blackhorse/"/>
-    <id>https://jf710001011.github.io/2024/01/13/java-blackhorse/</id>
-    <published>2024-01-13T12:40:48.724Z</published>
-    <updated>2024-07-11T05:33:51.960Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;hello-wordld&quot;&gt;Hello Wordld&lt;/h3&gt;
-&lt;ol type=&quot;1&quot;&gt;
-&lt;li&gt;&lt;p&gt;you use &lt;code&gt;javac&lt;/code&gt; from the command line to compile your
-Java</summary>
-        
-      
-    
-    
-    
-    <category term="Program design" scheme="https://jf710001011.github.io/categories/Program-design/"/>
-    
-    
-    <category term="Java" scheme="https://jf710001011.github.io/tags/Java/"/>
     
   </entry>
   

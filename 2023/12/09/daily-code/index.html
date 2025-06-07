@@ -490,14 +490,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2025-06-04
+                    2025-06-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    18.1k
+                    18.8k
                 </div>
                 
 
@@ -690,6 +690,172 @@ sandwiches &#x3D; [1,0,0,1]</code></pre>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span>
 </code></pre>
+<h4 id="problem-implement-a-queue-using-two-stacks">🧩 Problem:
+Implement a Queue Using Two Stacks</h4>
+<h5 id="description">📝Description</h5>
+<p>You're given a sequence of operations that simulate a queue. However,
+instead of using a built-in queue, you're only allowed to use two
+stacks.</p>
+<p>Each operation is either:</p>
+<ul>
+<li><code>"PUSHx"</code> – which inserts an integer <code>x</code> into
+the queue</li>
+<li><code>"POP"</code> – which removes the element at the front of the
+queue and returns it</li>
+</ul>
+<p>You need to perform these operations in order and return the result
+of each <code>POP</code> operation as a list.</p>
+<p>The input is a list of strings representing the operations. The queue
+will only store integers, and all <code>POP</code> operations are
+guaranteed to be valid (the queue will not be empty when a
+<code>POP</code> happens).</p>
+<h5 id="example-1">✏️ Example</h5>
+<p><strong>Input:</strong></p>
+<p><code>["PUSH1", "PUSH2", "POP", "POP"]</code></p>
+<p><strong>Output:</strong></p>
+<p><code>[1, 2]</code></p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token operator">*</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Stack</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">Stack</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> stack1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Stack</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">Stack</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> stack2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Stack</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/*
+     * Because a stack is LIFO (Last In, First Out), which is the opposite of a queue (FIFO)
+     * We need to reverse the order of elements before removing them
+     * So every new element is pushed into stack1
+     * and we pop elements from stack2 after transferring them
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">push</span><span class="token punctuation">(</span><span class="token keyword">int</span> node<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        stack1<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>stack2<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> stack2<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span>stack1<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                stack2<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>stack1<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>stack2<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">return</span> stack2<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+</code></pre>
+<h4 id="problem-dota2-senate">🏛️ Problem: Dota2 Senate</h4>
+<p>In the world of Dota2, there are two factions:
+<strong>Radiant</strong> and <strong>Dire</strong>.</p>
+<p>The Dota2 Senate is formed by senators from both factions. They vote
+on game rule changes using a round-based system. Each round, a senator
+can either:</p>
+<ul>
+<li>Ban another senator from voting in future rounds, or</li>
+<li>Be banned by someone else.</li>
+</ul>
+<p>The goal is to predict <strong>which faction will win</strong> in the
+end, assuming all senators are smart and always act in favor of their
+team.=</p>
+<h5 id="rules">🧾 Rules:</h5>
+<ul>
+<li>In each round, senators take turns in the order given by the input
+string.</li>
+<li>A senator can ban an opposing senator who has not yet taken a turn
+in this round.</li>
+<li>If a senator is banned, they are skipped in all future rounds.</li>
+<li>This continues until only one faction has remaining senators.</li>
+</ul>
+<h5 id="input-1">💡 Input:</h5>
+<p>A string <code>senate</code>, where:</p>
+<ul>
+<li>Each character is <code>'R'</code> (Radiant) or <code>'D'</code>
+(Dire)</li>
+<li>The order of the characters represents the initial turn order</li>
+</ul>
+<h5 id="output-1">📤 Output:</h5>
+<p>Return the name of the winning faction as a string:
+<strong>"Radiant"</strong> or <strong>"Dire"</strong></p>
+<h5 id="example-1-1">📘 Example 1:</h5>
+<p><strong>Input:</strong> <code>"RD"</code> <strong>Output:</strong>
+<code>"Radiant"</code></p>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li>The Radiant senator bans the Dire senator immediately.</li>
+</ul>
+<h5 id="example-2">📘 Example 2:</h5>
+<p><strong>Input:</strong> <code>"RDD"</code> <strong>Output:</strong>
+<code>"Dire"</code></p>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li>Round 1: Radiant bans the first Dire</li>
+<li>Round 2: The remaining Dire senator bans Radiant, and Dire wins</li>
+</ul>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">predictPartyVictory</span><span class="token punctuation">(</span><span class="token class-name">String</span> senate<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">/*
+         * Example: "DDRRR"
+         * After one round: "DDR"
+         * (some senators are banned based on actions in the first round)
+         */</span>
+
+        <span class="token class-name">Queue</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> queueR <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayDeque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Queue</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> queueD <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayDeque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> n <span class="token operator">=</span> senate<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// Add the index of each senator to their respective queues</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> senate<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>senate<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token char">'R'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                queueR<span class="token punctuation">.</span><span class="token function">offer</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+                queueD<span class="token punctuation">.</span><span class="token function">offer</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+
+        <span class="token comment">/*
+         * If a senator is not banned, they will participate in the next round.
+         */</span>
+
+        <span class="token comment">/*
+         * It’s most effective to ban opponents who are still active in this round.
+         */</span>
+
+        <span class="token comment">/*
+         * Process senators in order based on their index values
+         */</span>
+
+        <span class="token comment">/*
+         * Continue the voting process until one party has no senators left
+         */</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span>queueD<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>queueR<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+
+            <span class="token comment">/*
+             * The senator with the smaller index acts first (earlier in round)
+             */</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>queueR<span class="token punctuation">.</span><span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> queueD<span class="token punctuation">.</span><span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                queueD<span class="token punctuation">.</span><span class="token function">poll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Radiant bans one Dire senator</span>
+
+                <span class="token comment">// Radiant senator joins the next round by re-adding with updated index</span>
+                queueR<span class="token punctuation">.</span><span class="token function">offer</span><span class="token punctuation">(</span>queueR<span class="token punctuation">.</span><span class="token function">poll</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+                queueR<span class="token punctuation">.</span><span class="token function">poll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Dire bans one Radiant senator</span>
+                queueD<span class="token punctuation">.</span><span class="token function">offer</span><span class="token punctuation">(</span>queueD<span class="token punctuation">.</span><span class="token function">poll</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Dire senator joins the next round</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+
+        <span class="token comment">// Whichever queue is non-empty, that party wins</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>queueR<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token string">"Radiant"</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token string">"Dire"</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+</code></pre>
 <h3 id="stack">2025-05-17: Stack</h3>
 <h4 id="gra85-stack-based-sorting">📌 gra85: Stack-Based Sorting</h4>
 <h5 id="problem-description-1">📝 Problem Description</h5>
@@ -708,10 +874,10 @@ descending order using this process, output
 <code>"impossible"</code>.</p>
 <h5 id="input-format">📥 Input Format</h5>
 <ul>
-<li>First line: an integer <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>1</mn><mo>≤</mo><mi>n</mi><mo>≤</mo><msup><mn>10</mn><mn>5</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(1 \leq n \leq 10^5)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> — the length of
-the permutation</li>
-<li>Second line: a permutation of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> integers — the sequence
-to push into the stack</li>
+<li>First line: an integer <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>1</mn><mo>≤</mo><mi>n</mi><mo>≤</mo><msup><mn>10</mn><mn>5</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(1 \leq n \leq 10^5)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> — the length
+of the permutation</li>
+<li>Second line: a permutation of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> integers — the
+sequence to push into the stack</li>
 </ul>
 <h5 id="output-format">📤 Output Format</h5>
 <ul>
@@ -719,7 +885,7 @@ to push into the stack</li>
 <li>If sorting is impossible using stack operations, print
 <code>impossible</code></li>
 </ul>
-<h5 id="example-1">💡 Example</h5>
+<h5 id="example-3">💡 Example</h5>
 <p>Input:</p>
 <pre class="language-none"><code class="language-none">5
 2 1 5 3 4</code></pre>
@@ -864,10 +1030,10 @@ result.</li>
 <li>Each stack operation runs in O(1)O(1) time</li>
 <li>Extra space complexity: O(n)O(n)</li>
 </ul>
-<h5 id="example-2">🔍 Example</h5>
-<h5 id="input-1">Input:</h5>
+<h5 id="example-4">🔍 Example</h5>
+<h5 id="input-2">Input:</h5>
 <pre class="language-java" data-language="java"><code class="language-java"><span class="token punctuation">[</span><span class="token string">"PSH1"</span><span class="token punctuation">,</span><span class="token string">"PSH2"</span><span class="token punctuation">,</span><span class="token string">"MIN"</span><span class="token punctuation">,</span><span class="token string">"TOP"</span><span class="token punctuation">,</span><span class="token string">"POP"</span><span class="token punctuation">,</span><span class="token string">"PSH1"</span><span class="token punctuation">,</span><span class="token string">"TOP"</span><span class="token punctuation">,</span><span class="token string">"MIN"</span><span class="token punctuation">]</span></code></pre>
-<h5 id="output-1">Output:</h5>
+<h5 id="output-2">Output:</h5>
 <pre class="language-java" data-language="java"><code class="language-java"><span class="token number">2</span>
 <span class="token number">1</span>
 <span class="token number">1</span></code></pre>
@@ -952,7 +1118,7 @@ independently.</li>
 <li>For each input line, print the final result after all merging and
 exploding operations are complete.</li>
 </ul>
-<h5 id="example-3">🧪 Example</h5>
+<h5 id="example-5">🧪 Example</h5>
 <p><strong>Input:</strong></p>
 <pre class="language-nginx" data-language="nginx"><code class="language-nginx">ooOOoooO</code></pre>
 <p><strong>Output:</strong></p>
@@ -1858,7 +2024,7 @@ public class Main &#123;
 </ol>
 <h4 id="pio7-multiple-array-queries-sum-of-elements">PIO7 Multiple Array
 Queries — Sum of Elements</h4>
-<h5 id="description">📝 Description</h5>
+<h5 id="description-1">📝 Description</h5>
 <p>You are given <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span> queries. In each query, you are
 provided with a <strong>positive integer array</strong> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span>
 of length <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span>, where the <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6595em;"></span><span class="mord mathnormal">i</span></span></span></span>-th element is
@@ -1866,7 +2032,7 @@ of length <span class="katex"><span class="katex-mathml"><math xmlns="http://www
 <p>For each query, your task is to compute and output the <strong>sum of
 elements in the array</strong>.</p>
 <hr />
-<h5 id="input-2">📥 Input</h5>
+<h5 id="input-3">📥 Input</h5>
 <ul>
 <li>The first line contains one integer <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>1</mn><mo>≤</mo><mi>t</mi><mo>≤</mo><msup><mn>10</mn><mn>5</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(1 \leq t \leq 10^5)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>
 — the number of queries.</li>
@@ -1883,7 +2049,7 @@ elements in the array</strong>.</p>
 does not exceed <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>10</mn><mn>5</mn></msup></mrow><annotation encoding="application/x-tex">10^5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span></span></span></span></span></span></span></span>.</p>
 </blockquote>
 <hr />
-<h5 id="output-2">📤 Output</h5>
+<h5 id="output-3">📤 Output</h5>
 <p>Print <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span> lines, each containing one integer — the
 <strong>sum of the array elements</strong> for each query.</p>
 <h5 id="code">Code</h5>
@@ -4889,7 +5055,7 @@ alt="image-20230113002007660" />
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">316.5k</span>&nbsp;字
+                class="white-color">317.1k</span>&nbsp;字
             
             
             

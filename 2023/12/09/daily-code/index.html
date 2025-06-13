@@ -490,14 +490,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2025-06-11
+                    2025-06-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    20.6k
+                    21k
                 </div>
                 
 
@@ -522,7 +522,124 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="collection">2025-06-09：Collection</h3>
+                <h3 id="priorityqueue">2025-06-13: PriorityQueue</h3>
+<h4 id="compare-rules">Compare rules</h4>
+<ol type="1">
+<li><p>Code</p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token operator">*</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Student</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> chinese<span class="token punctuation">,</span> math<span class="token punctuation">,</span> english<span class="token punctuation">,</span> sum<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token keyword">int</span> chinese<span class="token punctuation">,</span> <span class="token keyword">int</span> math<span class="token punctuation">,</span> <span class="token keyword">int</span> english<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>chinese <span class="token operator">=</span> chinese<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>math <span class="token operator">=</span> math<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>english <span class="token operator">=</span> english<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>sum <span class="token operator">=</span> chinese <span class="token operator">+</span> math <span class="token operator">+</span> english<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 使用Java的PriorityQueue实现成绩排序</span>
+    <span class="token keyword">static</span> <span class="token class-name">PriorityQueue</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Student</span><span class="token punctuation">></span></span> s <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">PriorityQueue</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token keyword">new</span>
+    <span class="token class-name">Comparator</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Student</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">compare</span><span class="token punctuation">(</span><span class="token class-name">Student</span> a<span class="token punctuation">,</span> <span class="token class-name">Student</span> b<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token comment">// TODO: 实现比较逻辑，按照总分、语文、数学、英语的优先级排序</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>a<span class="token punctuation">.</span>sum <span class="token operator">!=</span> b<span class="token punctuation">.</span>sum<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">return</span> b<span class="token punctuation">.</span>sum <span class="token operator">-</span> a<span class="token punctuation">.</span>sum<span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>a<span class="token punctuation">.</span>chinese <span class="token operator">!=</span> b<span class="token punctuation">.</span>chinese<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">return</span> b<span class="token punctuation">.</span>chinese <span class="token operator">-</span> a<span class="token punctuation">.</span>chinese<span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>a<span class="token punctuation">.</span>math <span class="token operator">!=</span> b<span class="token punctuation">.</span>math<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">return</span> b<span class="token punctuation">.</span>math <span class="token operator">-</span> a<span class="token punctuation">.</span>math<span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            <span class="token keyword">return</span> b<span class="token punctuation">.</span>english <span class="token operator">-</span> a<span class="token punctuation">.</span>english<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">insertValue</span><span class="token punctuation">(</span><span class="token keyword">int</span> chinese<span class="token punctuation">,</span> <span class="token keyword">int</span> math<span class="token punctuation">,</span> <span class="token keyword">int</span> english<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Student</span> stu <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span>chinese<span class="token punctuation">,</span> math<span class="token punctuation">,</span> english<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        s<span class="token punctuation">.</span><span class="token function">offer</span><span class="token punctuation">(</span>stu<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">deleteValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        s<span class="token punctuation">.</span><span class="token function">poll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Student</span> <span class="token function">getTop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// TODO: 返回成绩最好的学生</span>
+
+        <span class="token keyword">return</span> s<span class="token punctuation">.</span><span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Scanner</span> scanner <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Scanner</span><span class="token punctuation">(</span><span class="token class-name">System</span><span class="token punctuation">.</span>in<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> q <span class="token operator">=</span> scanner<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>q<span class="token operator">--</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">int</span> op <span class="token operator">=</span> scanner<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>op <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">int</span> chinese <span class="token operator">=</span> scanner<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">int</span> math <span class="token operator">=</span> scanner<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">int</span> english <span class="token operator">=</span> scanner<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token function">insertValue</span><span class="token punctuation">(</span>chinese<span class="token punctuation">,</span> math<span class="token punctuation">,</span> english<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>op <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token class-name">Student</span> top <span class="token operator">=</span> <span class="token function">getTop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>top <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>top<span class="token punctuation">.</span>chinese <span class="token operator">+</span> <span class="token string">" "</span> <span class="token operator">+</span> top<span class="token punctuation">.</span>math <span class="token operator">+</span> <span class="token string">" "</span> <span class="token operator">+</span> top<span class="token punctuation">.</span>english<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                <span class="token punctuation">&#125;</span>
+            <span class="token punctuation">&#125;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>op <span class="token operator">==</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token function">deleteValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        scanner<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre></li>
+</ol>
+<h4 id="basic">Basic</h4>
+<ol type="1">
+<li><p>Code</p>
+<pre class="language-java" data-language="java"><code class="language-java">
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">PriorityQueue</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Scanner</span></span><span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token punctuation">&#123;</span>
+	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token class-name">Scanner</span> in <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Scanner</span><span class="token punctuation">(</span><span class="token class-name">System</span><span class="token punctuation">.</span>in<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token comment">// Attention difference between hasNext and hasNextLine</span>
+		<span class="token class-name">PriorityQueue</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> pq <span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">PriorityQueue</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+		<span class="token keyword">int</span> n <span class="token operator">=</span> in<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">while</span> <span class="token punctuation">(</span>n<span class="token operator">--</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token keyword">int</span> op <span class="token operator">=</span> in<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token keyword">switch</span> <span class="token punctuation">(</span>op<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+				<span class="token keyword">case</span> <span class="token number">1</span><span class="token operator">:</span>
+					<span class="token keyword">int</span> x <span class="token operator">=</span> in<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+					pq<span class="token punctuation">.</span><span class="token function">offer</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+					<span class="token keyword">break</span><span class="token punctuation">;</span>
+
+				<span class="token keyword">case</span> <span class="token number">2</span><span class="token operator">:</span>
+					<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>pq<span class="token punctuation">.</span><span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+					<span class="token keyword">break</span><span class="token punctuation">;</span>
+				<span class="token keyword">case</span> <span class="token number">3</span><span class="token operator">:</span>
+					pq<span class="token punctuation">.</span><span class="token function">poll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+		<span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+</code></pre></li>
+</ol>
+<h3 id="class-and-struct">2025-06-13：Class and Struct</h3>
+<ol type="1">
+<li>a public class must be defined in a file with the exact same name as
+the class</li>
+</ol>
+<h3 id="collection">2025-06-09：Collection</h3>
 <h4 id="jewels-count">Jewels Count</h4>
 <h5 id="description">Description</h5>
 <p>Given two strings <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi></mrow><annotation encoding="application/x-tex">J</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.09618em;">J</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span>, calculate the
@@ -574,7 +691,6 @@ characters in <span class="katex"><span class="katex-mathml"><math xmlns="http:/
         <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>sharedCharCount<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span>
-<span class="token comment">//nowcoder submit region end(Prohibit modification and deletion)</span>
 
 </code></pre>
 <h4 id="title-noob95-counting-pairs-with-given-difference">📌 Title:
@@ -5508,7 +5624,7 @@ alt="image-20230113002007660" />
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">319k</span>&nbsp;字
+                class="white-color">319.3k</span>&nbsp;字
             
             
             

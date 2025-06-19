@@ -490,14 +490,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2025-06-18
+                    2025-06-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    24.6k
+                    24.9k
                 </div>
                 
 
@@ -2356,6 +2356,117 @@ in this round.</li>
 <span class="token punctuation">&#125;</span>
 </code></pre>
 <h3 id="stack">2025-05-17: Stack</h3>
+<h4 id="ab5---click-to-eliminate">AB5 - Click to Eliminate</h4>
+<h5 id="description-7">Description</h5>
+<p>The cow got a string. He can perform an operation called a "click" to
+eliminate <strong>any two adjacent identical characters</strong>. For
+example, from <code>"abbc"</code> you can eliminate <code>"bb"</code> to
+get <code>"ac"</code>.</p>
+<p>However, you <strong>cannot eliminate non-adjacent</strong> or
+<strong>non-matching</strong> characters.</p>
+<p>The cow wants to know: if he clicks as many times as possible, what
+will the final string look like?</p>
+<h5 id="input-description-5">Input Description</h5>
+<p>A single string, consisting only of lowercase English letters. (The
+string length does not exceed 300,000.)</p>
+<h5 id="output-description-5">Output Description</h5>
+<p>Output the final string after all eliminations. If the final string
+is empty, output <code>0</code>.</p>
+<h5 id="example-1-4">Example 1</h5>
+<p><strong>Input:</strong></p>
+<pre class="language-none"><code class="language-none">abbc</code></pre>
+<p><strong>Output:</strong></p>
+<pre class="language-none"><code class="language-none">ac</code></pre>
+<hr />
+<h5 id="example-2-2">Example 2</h5>
+<p><strong>Input:</strong></p>
+<pre class="language-none"><code class="language-none">abba</code></pre>
+<p><strong>Output:</strong></p>
+<pre class="language-none"><code class="language-none">0</code></pre>
+<hr />
+<h5 id="example-3-1">Example 3</h5>
+<p><strong>Input:</strong></p>
+<pre class="language-none"><code class="language-none">bbbbb</code></pre>
+<p><strong>Output:</strong></p>
+<pre class="language-none"><code class="language-none">b</code></pre>
+<hr />
+<h5 id="example-4-1">Example 4</h5>
+<p><strong>Input:</strong></p>
+<pre class="language-none"><code class="language-none">abbba</code></pre>
+<p><strong>Output:</strong></p>
+<pre class="language-none"><code class="language-none">aba</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">
+<span class="token comment">/**
+ * @nc app=nowcoder id=8d3643ec29654cf8908b5cf3a0479fd5 topic=308 question=952218 lang=Java
+ * 2025-06-20 05:17:06
+ * https://www.nowcoder.com/practice/8d3643ec29654cf8908b5cf3a0479fd5?tpId=308&amp;tqId=952218
+ * [AB5] 点击消除
+ */</span>
+
+<span class="token comment">/** @nc code=start */</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">ArrayDeque</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">ArrayList</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Collection</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Collections</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Deque</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">List</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Scanner</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Scanner</span> in <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Scanner</span><span class="token punctuation">(</span><span class="token class-name">System</span><span class="token punctuation">.</span>in<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// Any relationship with stack?</span>
+
+        <span class="token class-name">String</span> s <span class="token operator">=</span> in<span class="token punctuation">.</span><span class="token function">nextLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">StringBuilder</span> sb <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// for (int i = 0; i &lt; s.length(); i++) &#123;</span>
+
+        <span class="token comment">// &#125;</span>
+
+        <span class="token comment">/*
+         * Why need stack:
+         * case: abba -> aa -> ""
+         */</span>
+
+        <span class="token class-name">Deque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Character</span><span class="token punctuation">></span></span> stack <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayDeque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">char</span> ch <span class="token operator">:</span> s<span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>stack<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>ch <span class="token operator">==</span> stack<span class="token punctuation">.</span><span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                    stack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">continue</span><span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+            <span class="token punctuation">&#125;</span>
+            stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>ch<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token comment">// System.out.println(stack);</span>
+
+        <span class="token comment">/*
+         * Print from bottom to top
+         */</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>stack<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+            <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Character</span><span class="token punctuation">></span></span> list <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span>stack<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">Collections</span><span class="token punctuation">.</span><span class="token function">reverse</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            list<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>ch<span class="token operator">-></span><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span>ch<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+
+        <span class="token comment">// while (!stack.isEmpty()) &#123;</span>
+        <span class="token comment">// // System.out.println("!empty");</span>
+        <span class="token comment">// sb.insert(0, stack.pop());</span>
+        <span class="token comment">// &#125;</span>
+
+        <span class="token comment">// if (stack.isEmpty()) &#123;</span>
+        <span class="token comment">// System.out.println(0);</span>
+        <span class="token comment">// &#125; else &#123;</span>
+        <span class="token comment">// System.out.println(sb);</span>
+        <span class="token comment">// &#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">/** @nc code=end */</span>
+</code></pre>
 <h4 id="gra85-stack-based-sorting">📌 gra85: Stack-Based Sorting</h4>
 <h5 id="problem-description-3">📝 Problem Description</h5>
 <p>You're given a permutation of integers from <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> to
@@ -2606,14 +2717,14 @@ types of bubbles:</p>
 </ol>
 <p>These transformations occur <strong>from left to right</strong>,
 repeating until no more changes can be made.</p>
-<h5 id="input-description-5">🧾 Input Description</h5>
+<h5 id="input-description-6">🧾 Input Description</h5>
 <ul>
 <li>The input contains <strong>multiple lines</strong>, each consisting
 of a string made up only of <code>'o'</code> and <code>'O'</code>.</li>
 <li>Each line represents one test case and should be processed
 independently.</li>
 </ul>
-<h5 id="output-description-5">📤 Output Description</h5>
+<h5 id="output-description-6">📤 Output Description</h5>
 <ul>
 <li>For each input line, print the final result after all merging and
 exploding operations are complete.</li>
@@ -3524,7 +3635,7 @@ public class Main &#123;
 </ol>
 <h4 id="pio7-multiple-array-queries-sum-of-elements">PIO7 Multiple Array
 Queries — Sum of Elements</h4>
-<h5 id="description-7">📝 Description</h5>
+<h5 id="description-8">📝 Description</h5>
 <p>You are given <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span> queries. In each query, you are
 provided with a <strong>positive integer array</strong> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span>
 of length <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span>, where the <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6595em;"></span><span class="mord mathnormal">i</span></span></span></span>-th element is
@@ -6555,7 +6666,7 @@ alt="image-20230113002007660" />
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">322.9k</span>&nbsp;字
+                class="white-color">323.3k</span>&nbsp;字
             
             
             

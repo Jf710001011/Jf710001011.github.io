@@ -493,7 +493,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    245
+                    436
                 </div>
                 
 
@@ -519,6 +519,71 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h3 id="section">2025-06-20</h3>
+<h4
+id="case...when...then...else...end-as">CASE...WHEN...THEN...ELSE...END
+AS</h4>
+<ol type="1">
+<li><p>sql</p>
+<pre class="language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span>
+    device_id<span class="token punctuation">,</span>
+    gender<span class="token punctuation">,</span>
+    <span class="token keyword">CASE</span>
+        <span class="token keyword">WHEN</span> age <span class="token operator">&lt;</span> <span class="token number">20</span> <span class="token keyword">THEN</span> <span class="token string">'20岁以下'</span>
+        <span class="token keyword">WHEN</span> age <span class="token operator">BETWEEN</span> <span class="token number">20</span> <span class="token operator">AND</span> <span class="token number">24</span>  <span class="token keyword">THEN</span> <span class="token string">'20-24岁'</span>
+        <span class="token keyword">when</span> age <span class="token operator">>=</span> <span class="token number">25</span> <span class="token keyword">then</span> <span class="token string">'25岁及以上'</span>
+        <span class="token keyword">ELSE</span> <span class="token string">'其他'</span>
+    <span class="token keyword">END</span> <span class="token keyword">AS</span> age_cut
+<span class="token keyword">FROM</span> user_profile</code></pre></li>
+</ol>
+<h4 id="if">IF</h4>
+<ol type="1">
+<li><p><code>NULL</code> will be in <code>else</code> scope default</p>
+<pre class="language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token keyword">IF</span><span class="token punctuation">(</span>age <span class="token operator">>=</span> <span class="token number">25</span><span class="token punctuation">,</span> <span class="token string">'25岁及以上'</span><span class="token punctuation">,</span> <span class="token string">'25岁以下'</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> age_cut<span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> number
+<span class="token keyword">FROM</span> user_profile
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span>
+    age_cut</code></pre></li>
+</ol>
+<h4 id="union-all">UNION ALL</h4>
+<ol type="1">
+<li><p>sql</p>
+<pre class="language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> device_id<span class="token punctuation">,</span> gender<span class="token punctuation">,</span> age<span class="token punctuation">,</span> gpa
+<span class="token keyword">FROM</span> user_profile
+<span class="token keyword">WHERE</span>
+    university <span class="token operator">=</span> <span class="token string">"山东大学"</span>
+<span class="token keyword">UNION</span> <span class="token keyword">ALL</span>
+<span class="token keyword">SELECT</span> device_id<span class="token punctuation">,</span> gender<span class="token punctuation">,</span> age<span class="token punctuation">,</span> gpa
+<span class="token keyword">FROM</span> user_profile
+<span class="token keyword">WHERE</span>
+    gender <span class="token operator">=</span> <span class="token string">"male"</span>
+    
+<span class="token comment">-- SELECT device_id, gender, age, gpa</span>
+<span class="token comment">-- FROM user_profile</span>
+<span class="token comment">-- WHERE</span>
+<span class="token comment">--     university = "山东大学"</span>
+<span class="token comment">--     OR gender = "male"</span>
+<span class="token comment">-- ORDER BY</span>
+<span class="token comment">--     CASE</span>
+<span class="token comment">--         WHEN university = "山东大学" THEN 1</span>
+<span class="token comment">--         WHEN gender = "male" THEN 2</span>
+<span class="token comment">--         ELSE 3</span>
+<span class="token comment">--     END</span></code></pre></li>
+</ol>
+<h4 id="group-by-join-on-function">GROUP BY &amp; JOIN ON &amp;
+FUNCTION</h4>
+<ol type="1">
+<li><p>sql</p>
+<pre class="language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> university<span class="token punctuation">,</span> difficult_level<span class="token punctuation">,</span> <span class="token function">ROUND</span><span class="token punctuation">(</span>
+        <span class="token function">COUNT</span><span class="token punctuation">(</span>qpd<span class="token punctuation">.</span>question_id<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token keyword">DISTINCT</span> u<span class="token punctuation">.</span>device_id<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">4</span>
+    <span class="token punctuation">)</span>
+<span class="token keyword">FROM</span>
+    user_profile <span class="token keyword">AS</span> u
+    <span class="token keyword">JOIN</span> question_practice_detail <span class="token keyword">AS</span> qpd <span class="token keyword">on</span> u<span class="token punctuation">.</span>device_id <span class="token operator">=</span> qpd<span class="token punctuation">.</span>device_id
+    <span class="token keyword">JOIN</span> question_detail <span class="token keyword">as</span> qd <span class="token keyword">ON</span> qpd<span class="token punctuation">.</span>question_id <span class="token operator">=</span> qd<span class="token punctuation">.</span>question_id
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span>
+    university<span class="token punctuation">,</span>
+    difficult_level
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> university<span class="token punctuation">,</span> difficult_level</code></pre></li>
+</ol>
 <h4 id="inner-join">INNER JOIN</h4>
 <ol type="1">
 <li><p><code>DISTINCT</code>,<code>FROM...JOIN...ON</code></p>
@@ -1231,7 +1296,7 @@ once in the result.</p>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">323.5k</span>&nbsp;字
+                class="white-color">323.7k</span>&nbsp;字
             
             
             

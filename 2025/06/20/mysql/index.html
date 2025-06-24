@@ -486,14 +486,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2025-06-22
+                    2025-06-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    109
+                    245
                 </div>
                 
 
@@ -519,22 +519,85 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h3 id="section">2025-06-20</h3>
+<h4 id="inner-join">INNER JOIN</h4>
+<ol type="1">
+<li><p><code>DISTINCT</code>,<code>FROM...JOIN...ON</code></p>
+<pre class="language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> university<span class="token punctuation">,</span> <span class="token punctuation">(</span>
+        <span class="token function">COUNT</span><span class="token punctuation">(</span>q<span class="token punctuation">.</span>question_id<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token keyword">DISTINCT</span> q<span class="token punctuation">.</span>device_id<span class="token punctuation">)</span>
+    <span class="token punctuation">)</span> <span class="token keyword">AS</span> avg_answer_cnt
+<span class="token keyword">FROM</span>
+    user_profile <span class="token keyword">AS</span> u
+    <span class="token keyword">JOIN</span> question_practice_detail <span class="token keyword">AS</span> q <span class="token keyword">ON</span> u<span class="token punctuation">.</span>device_id <span class="token operator">=</span> q<span class="token punctuation">.</span>device_id
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span>
+    university</code></pre></li>
+</ol>
+<h4 id="subquery">SUBQUERY</h4>
+<ol type="1">
+<li><p>You <strong>cannot use <code>AS</code> alias</strong> on a
+subquery inside an <code>IN (...)</code> clause — it’s only allowed when
+using subqueries in the <code>FROM</code> clause (a derived table).</p>
+<pre class="language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> device_id<span class="token punctuation">,</span> question_id<span class="token punctuation">,</span> result
+<span class="token keyword">FROM</span> question_practice_detail
+<span class="token keyword">WHERE</span>
+    device_id <span class="token operator">IN</span> <span class="token punctuation">(</span>
+        <span class="token keyword">SELECT</span> device_id
+        <span class="token keyword">FROM</span> user_profile
+        <span class="token keyword">WHERE</span>
+            university <span class="token operator">=</span> <span class="token string">'浙江大学'</span>
+    <span class="token punctuation">)</span></code></pre></li>
+</ol>
+<h4 id="having">HAVING</h4>
+<table>
+<thead>
+<tr class="header">
+<th>1.</th>
+<th>Clause</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>WHERE</code></td>
+<td>Filter <strong>before</strong> <code>GROUP BY</code>, only on raw
+columns</td>
+</tr>
+<tr class="even">
+<td><code>HAVING</code></td>
+<td>Filter <strong>after</strong> aggregation, on <strong>aggregate
+results</strong></td>
+</tr>
+</tbody>
+</table>
+<p><pre class="language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span>
+    university<span class="token punctuation">,</span>
+    <span class="token function">AVG</span><span class="token punctuation">(</span>question_cnt<span class="token punctuation">)</span> <span class="token keyword">AS</span> avg_question_cnt<span class="token punctuation">,</span>
+    <span class="token function">AVG</span><span class="token punctuation">(</span>answer_cnt<span class="token punctuation">)</span> <span class="token keyword">AS</span> avg_answer_cnt
+<span class="token keyword">FROM</span> user_profile
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span>
+    university
+<span class="token keyword">HAVING</span>
+    avg_question_cnt <span class="token operator">&lt;</span> <span class="token number">5</span>
+    <span class="token operator">OR</span> avg_answer_cnt <span class="token operator">&lt;</span> <span class="token number">20</span></code></pre></p>
+<h4 id="as">AS</h4>
+<ol type="1">
+<li><p>sql</p>
+<pre class="language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token function">MAX</span><span class="token punctuation">(</span>gpa<span class="token punctuation">)</span> <span class="token keyword">as</span> gpa <span class="token keyword">FROM</span> user_profile <span class="token keyword">WHERE</span> university <span class="token operator">=</span> <span class="token string">"复旦大学"</span></code></pre></li>
+</ol>
 <h4 id="is-not-null">IS NOT NULL</h4>
 <ol type="1">
 <li><p>sql</p>
-<pre class="language-mysql" data-language="mysql"><code class="language-mysql">SELECT
-    device_id,
-    gender,
-    age,
+<pre class="language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span>
+    device_id<span class="token punctuation">,</span>
+    gender<span class="token punctuation">,</span>
+    age<span class="token punctuation">,</span>
     university
-from user_profile
-WHERE
-    age IS NOT NULL</code></pre></li>
+<span class="token keyword">from</span> user_profile
+<span class="token keyword">WHERE</span>
+    age <span class="token operator">IS</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span></code></pre></li>
 </ol>
 <h4 id="limit">LIMIT</h4>
 <ol type="1">
 <li><p>sql</p>
-<pre class="language-mysql" data-language="mysql"><code class="language-mysql">SELECT device_id FROM user_profile LIMIT 2 (OFFSET) (number);</code></pre></li>
+<pre class="language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> device_id <span class="token keyword">FROM</span> user_profile <span class="token keyword">LIMIT</span> <span class="token number">2</span> <span class="token punctuation">(</span><span class="token keyword">OFFSET</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>number<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></li>
 </ol>
 <h4 id="sql3-distinct-university-query">SQL3 – <code>Distinct</code>
 University Query</h4>
@@ -557,7 +620,7 @@ information table.</p>
 <p>Return a list of <strong>unique university names</strong> based on
 the <code>university</code> field. Each university should appear only
 once in the result.</p>
-<pre class="language-mysql" data-language="mysql"><code class="language-mysql">SELECT DISTINCT university FROM user_profile</code></pre>
+<pre class="language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token keyword">DISTINCT</span> university <span class="token keyword">FROM</span> user_profile</code></pre>
 
                 
             </div>
@@ -1168,7 +1231,7 @@ once in the result.</p>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">323.4k</span>&nbsp;字
+                class="white-color">323.5k</span>&nbsp;字
             
             
             

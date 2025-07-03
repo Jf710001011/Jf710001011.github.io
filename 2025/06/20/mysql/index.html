@@ -493,7 +493,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    584
+                    889
                 </div>
                 
 
@@ -518,8 +518,228 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="section">2025-06-20</h3>
-<h4 id="date-function">Date function</h4>
+                <h3 id="begin">2025-06-20: Begin</h3>
+<h4 id="sql34-august-practice-stats-for-fudan-university-users">SQL34 –
+August Practice Stats for Fudan University Users</h4>
+<h5 id="detail">Detail</h5>
+<p>The operations team wants to analyze how many questions each user
+from <strong>Fudan University</strong> practiced in
+<strong>August</strong>, and how many of them were <strong>answered
+correctly</strong>.</p>
+<p>Please return the following details for <strong>each Fudan University
+user</strong>:</p>
+<ul>
+<li>Total number of questions practiced in August</li>
+<li>Number of correctly answered questions in August</li>
+</ul>
+<p>If a user <strong>did not practice at all</strong> in August, return
+<code>0</code> for both counts.</p>
+<p>user_profile</p>
+<table>
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 15%" />
+<col style="width: 10%" />
+<col style="width: 6%" />
+<col style="width: 17%" />
+<col style="width: 6%" />
+<col style="width: 36%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>id</th>
+<th>device_id</th>
+<th>gender</th>
+<th>age</th>
+<th>university</th>
+<th>gpa</th>
+<th>active_days_within_30</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>2138</td>
+<td>male</td>
+<td>21</td>
+<td>北京大学</td>
+<td>3.4</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>3214</td>
+<td>male</td>
+<td></td>
+<td>复旦大学</td>
+<td>4.0</td>
+<td>15</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>6543</td>
+<td>female</td>
+<td>20</td>
+<td>北京大学</td>
+<td>3.2</td>
+<td>12</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>2315</td>
+<td>female</td>
+<td>23</td>
+<td>浙江大学</td>
+<td>3.6</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>5432</td>
+<td>male</td>
+<td>25</td>
+<td>山东大学</td>
+<td>3.8</td>
+<td>20</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>2131</td>
+<td>male</td>
+<td>28</td>
+<td>山东大学</td>
+<td>3.3</td>
+<td>15</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>4321</td>
+<td>female</td>
+<td>28</td>
+<td>复旦大学</td>
+<td>3.6</td>
+<td>9</td>
+</tr>
+</tbody>
+</table>
+<p>question_practice_detail</p>
+<table>
+<thead>
+<tr class="header">
+<th>id</th>
+<th>device_id</th>
+<th>question_id</th>
+<th>result</th>
+<th>date</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>2138</td>
+<td>111</td>
+<td>wrong</td>
+<td>2021-05-03</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>3214</td>
+<td>112</td>
+<td>wrong</td>
+<td>2021-05-09</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>3214</td>
+<td>113</td>
+<td>wrong</td>
+<td>2021-06-15</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>6543</td>
+<td>111</td>
+<td>right</td>
+<td>2021-08-13</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>2315</td>
+<td>115</td>
+<td>right</td>
+<td>2021-08-13</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>2315</td>
+<td>116</td>
+<td>right</td>
+<td>2021-08-14</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>2315</td>
+<td>117</td>
+<td>wrong</td>
+<td>2021-08-15</td>
+</tr>
+<tr class="even">
+<td>……</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>output：</p>
+<table>
+<thead>
+<tr class="header">
+<th>device_id</th>
+<th>university</th>
+<th>question_cnt</th>
+<th>right_question_cnt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>3214</td>
+<td>复旦大学</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>4321</td>
+<td>复旦大学</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<pre class="language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span>
+    <span class="token comment">-- qpd.device_id,</span>
+    u<span class="token punctuation">.</span>device_id<span class="token punctuation">,</span>
+    u<span class="token punctuation">.</span>university<span class="token punctuation">,</span>
+    <span class="token function">COUNT</span><span class="token punctuation">(</span>question_id<span class="token punctuation">)</span> <span class="token keyword">AS</span> question_cnt<span class="token punctuation">,</span>
+    <span class="token function">COUNT</span><span class="token punctuation">(</span>
+        <span class="token keyword">CASE</span>
+            <span class="token keyword">WHEN</span> result <span class="token operator">=</span> <span class="token string">'right'</span> <span class="token keyword">THEN</span> <span class="token number">1</span>
+        <span class="token keyword">END</span>
+    <span class="token punctuation">)</span> <span class="token keyword">AS</span> right_question_cnt
+<span class="token keyword">FROM</span>
+    user_profile <span class="token keyword">AS</span> u
+    <span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> question_practice_detail <span class="token keyword">AS</span> qpd <span class="token keyword">ON</span> u<span class="token punctuation">.</span>device_id <span class="token operator">=</span> qpd<span class="token punctuation">.</span>device_id
+    <span class="token operator">AND</span> qpd<span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>date<span class="token punctuation">`</span></span> <span class="token operator">>=</span> <span class="token string">'2021-08-01'</span>
+    <span class="token operator">AND</span> qpd<span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>date<span class="token punctuation">`</span></span> <span class="token operator">&lt;=</span> <span class="token string">'2021-08-31'</span>
+<span class="token keyword">WHERE</span>
+    u<span class="token punctuation">.</span>university <span class="token operator">=</span> <span class="token string">'复旦大学'</span>
+    <span class="token comment">-- AND qpd.`date` >= '2021-08-01'</span>
+    <span class="token comment">-- AND qpd.`date` &lt;= '2021-08-31'</span>
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span>
+    <span class="token comment">-- device_id</span>
+    u<span class="token punctuation">.</span>device_id</code></pre>
+<h5 id="date-function">Date function</h5>
 <ol type="1">
 <li><p>example：question_practice_detail**</p>
 <table>
@@ -1433,7 +1653,7 @@ once in the result.</p>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">323.9k</span>&nbsp;字
+                class="white-color">324.2k</span>&nbsp;字
             
             
             

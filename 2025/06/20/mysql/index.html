@@ -493,7 +493,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    889
+                    1.5k
                 </div>
                 
 
@@ -519,6 +519,408 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h3 id="begin">2025-06-20: Begin</h3>
+<h4 id="sql211-get-highest-paid-employee-per-department">SQL211 – Get
+Highest Paid Employee per Department</h4>
+<h5 id="description">Description</h5>
+<p>You are given two tables: <code>dept_emp</code> and
+<code>salaries</code>.</p>
+<p><strong>Table 1: <code>dept_emp</code></strong> Contains
+employee-to-department mapping:</p>
+<table>
+<thead>
+<tr class="header">
+<th>emp_no</th>
+<th>dept_no</th>
+<th>from_date</th>
+<th>to_date</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>10001</td>
+<td>d001</td>
+<td>1986-06-26</td>
+<td>9999-01-01</td>
+</tr>
+<tr class="even">
+<td>10002</td>
+<td>d001</td>
+<td>1996-08-03</td>
+<td>9999-01-01</td>
+</tr>
+<tr class="odd">
+<td>10003</td>
+<td>d002</td>
+<td>1996-08-03</td>
+<td>9999-01-01</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Table 2: <code>salaries</code></strong> Contains employee
+salary history:</p>
+<table>
+<thead>
+<tr class="header">
+<th>emp_no</th>
+<th>salary</th>
+<th>from_date</th>
+<th>to_date</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>10001</td>
+<td>88958</td>
+<td>2002-06-22</td>
+<td>9999-01-01</td>
+</tr>
+<tr class="even">
+<td>10002</td>
+<td>72527</td>
+<td>2001-08-02</td>
+<td>9999-01-01</td>
+</tr>
+<tr class="odd">
+<td>10003</td>
+<td>92527</td>
+<td>2001-08-02</td>
+<td>9999-01-01</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h5 id="task">Task</h5>
+<p>For each department, find the employee with the <strong>highest
+salary</strong>, and return their:</p>
+<ul>
+<li><code>dept_no</code></li>
+<li><code>emp_no</code></li>
+<li><code>salary</code></li>
+</ul>
+<p>Sort the result by <code>dept_no</code> in ascending order.</p>
+<hr />
+<h5 id="expected-output">Expected Output</h5>
+<table>
+<thead>
+<tr class="header">
+<th>dept_no</th>
+<th>emp_no</th>
+<th>salary</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>d001</td>
+<td>10001</td>
+<td>88958</td>
+</tr>
+<tr class="even">
+<td>d002</td>
+<td>10003</td>
+<td>92527</td>
+</tr>
+</tbody>
+</table>
+<h5 id="thought-process">Thought Process</h5>
+<ol type="1">
+<li>First, find the <strong>maximum salary</strong> for each
+<code>dept_no</code>. → Use <code>GROUP BY dept_no</code> and
+<code>MAX(salary)</code>.</li>
+<li>Then, find the corresponding <code>emp_no</code> for each
+department's maximum salary. → But note: <strong>multiple
+employees</strong> in the same department might have the <strong>same
+max salary</strong>.</li>
+<li>So, in the final query, join on both <code>dept_no</code> and
+<code>salary</code> to ensure you select the correct employee(s): → Add
+a condition: <code>salary = max_salary</code>.</li>
+</ol>
+<pre class="language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> m<span class="token punctuation">.</span>dept_no<span class="token punctuation">,</span> es<span class="token punctuation">.</span>emp_no<span class="token punctuation">,</span> m<span class="token punctuation">.</span>salary
+<span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+        <span class="token keyword">SELECT</span> e2<span class="token punctuation">.</span>emp_no <span class="token keyword">AS</span> emp_no<span class="token punctuation">,</span> e2<span class="token punctuation">.</span>dept_no <span class="token keyword">AS</span> dept_no<span class="token punctuation">,</span> s2<span class="token punctuation">.</span>salary <span class="token keyword">AS</span> salary
+        <span class="token keyword">FROM</span> dept_emp <span class="token keyword">AS</span> e2
+            <span class="token keyword">JOIN</span> salaries <span class="token keyword">AS</span> s2 <span class="token keyword">ON</span> e2<span class="token punctuation">.</span>emp_no <span class="token operator">=</span> s2<span class="token punctuation">.</span>emp_no
+    <span class="token punctuation">)</span> <span class="token keyword">AS</span> es
+    <span class="token keyword">JOIN</span> <span class="token punctuation">(</span>
+        <span class="token keyword">SELECT</span> e<span class="token punctuation">.</span>dept_no <span class="token keyword">AS</span> dept_no<span class="token punctuation">,</span> <span class="token function">MAX</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span>salary<span class="token punctuation">)</span> <span class="token keyword">AS</span> salary
+        <span class="token keyword">FROM</span> dept_emp <span class="token keyword">AS</span> e
+            <span class="token keyword">JOIN</span> salaries <span class="token keyword">AS</span> s <span class="token keyword">ON</span> e<span class="token punctuation">.</span>emp_no <span class="token operator">=</span> s<span class="token punctuation">.</span>emp_no
+        <span class="token keyword">GROUP</span> <span class="token keyword">BY</span>
+            e<span class="token punctuation">.</span>dept_no
+    <span class="token punctuation">)</span> <span class="token keyword">AS</span> m <span class="token keyword">ON</span> es<span class="token punctuation">.</span>dept_no <span class="token operator">=</span> m<span class="token punctuation">.</span>dept_no
+    <span class="token operator">AND</span> es<span class="token punctuation">.</span>salary <span class="token operator">=</span> m<span class="token punctuation">.</span>salary
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> m<span class="token punctuation">.</span>dept_no</code></pre>
+<h4
+id="sql35-accuracy-by-question-difficulty-for-zhejiang-university-users">SQL35
+– Accuracy by Question Difficulty for Zhejiang University Users</h4>
+<h5 id="description-1">Description</h5>
+<p>The operations team wants to analyze how accurately <strong>Zhejiang
+University</strong> users perform on questions of <strong>different
+difficulty levels</strong>.</p>
+<p>Please return the <strong>accuracy (correct rate)</strong> for each
+<code>difficult_level</code>, and sort the result by <strong>accuracy in
+ascending order</strong>.</p>
+<hr />
+<p>user_profile</p>
+<table>
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 11%" />
+<col style="width: 7%" />
+<col style="width: 5%" />
+<col style="width: 12%" />
+<col style="width: 5%" />
+<col style="width: 26%" />
+<col style="width: 15%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>id</th>
+<th>device_id</th>
+<th>gender</th>
+<th>age</th>
+<th>university</th>
+<th>gpa</th>
+<th>active_days_within_30</th>
+<th>question_cnt</th>
+<th>answer_cnt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>2138</td>
+<td>male</td>
+<td>21</td>
+<td>北京大学</td>
+<td>3.4</td>
+<td>7</td>
+<td>2</td>
+<td>12</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>3214</td>
+<td>male</td>
+<td></td>
+<td>复旦大学</td>
+<td>4</td>
+<td>15</td>
+<td>5</td>
+<td>25</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>6543</td>
+<td>female</td>
+<td>20</td>
+<td>北京大学</td>
+<td>3.2</td>
+<td>12</td>
+<td>3</td>
+<td>30</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>2315</td>
+<td>female</td>
+<td>23</td>
+<td>浙江大学</td>
+<td>3.6</td>
+<td>5</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>5432</td>
+<td>male</td>
+<td>25</td>
+<td>山东大学</td>
+<td>3.8</td>
+<td>20</td>
+<td>15</td>
+<td>70</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>2131</td>
+<td>male</td>
+<td>28</td>
+<td>山东大学</td>
+<td>3.3</td>
+<td>15</td>
+<td>7</td>
+<td>13</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>4321</td>
+<td>female</td>
+<td>26</td>
+<td>复旦大学</td>
+<td>3.6</td>
+<td>9</td>
+<td>6</td>
+<td>52</td>
+</tr>
+</tbody>
+</table>
+<p>question_practice_detail</p>
+<table>
+<thead>
+<tr class="header">
+<th>id</th>
+<th>device_id</th>
+<th>question_id</th>
+<th>result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>2138</td>
+<td>111</td>
+<td>wrong</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>3214</td>
+<td>112</td>
+<td>wrong</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>3214</td>
+<td>113</td>
+<td>wrong</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>6543</td>
+<td>111</td>
+<td>right</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>2315</td>
+<td>115</td>
+<td>right</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>2315</td>
+<td>116</td>
+<td>right</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>2315</td>
+<td>117</td>
+<td>wrong</td>
+</tr>
+</tbody>
+</table>
+<p>question_detail</p>
+<table>
+<thead>
+<tr class="header">
+<th>question_id</th>
+<th>difficult_level</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>111</td>
+<td>hard</td>
+</tr>
+<tr class="even">
+<td>112</td>
+<td>medium</td>
+</tr>
+<tr class="odd">
+<td>113</td>
+<td>easy</td>
+</tr>
+<tr class="even">
+<td>115</td>
+<td>easy</td>
+</tr>
+<tr class="odd">
+<td>116</td>
+<td>medium</td>
+</tr>
+<tr class="even">
+<td>117</td>
+<td>easy</td>
+</tr>
+</tbody>
+</table>
+<p>output:</p>
+<table>
+<thead>
+<tr class="header">
+<th>difficult_level</th>
+<th>correct_rate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>easy</td>
+<td>0.5000</td>
+</tr>
+<tr class="even">
+<td>medium</td>
+<td>1.0000</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h5 id="expected-output-1">Expected Output</h5>
+<table>
+<thead>
+<tr class="header">
+<th>difficult_level</th>
+<th>correct_rate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>easy</td>
+<td>0.5000</td>
+</tr>
+<tr class="even">
+<td>medium</td>
+<td>1.0000</td>
+</tr>
+</tbody>
+</table>
+<pre class="language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> qd<span class="token punctuation">.</span>difficult_level<span class="token punctuation">,</span>
+    <span class="token comment">-- ROUND(COUNT(CASE </span>
+    <span class="token comment">--     WHEN result = 'right'  THEN 1 </span>
+    <span class="token comment">--     ELSE  </span>
+    <span class="token comment">-- END)/COUNT(qpd.question_id),4) AS correct_rate</span>
+    IFNULL<span class="token punctuation">(</span>
+        <span class="token function">ROUND</span><span class="token punctuation">(</span>
+            <span class="token function">SUM</span><span class="token punctuation">(</span>
+                <span class="token keyword">CASE</span>
+                    <span class="token keyword">WHEN</span> result <span class="token operator">=</span> <span class="token string">'right'</span> <span class="token keyword">THEN</span> <span class="token number">1</span>
+                <span class="token keyword">END</span>
+            <span class="token punctuation">)</span> <span class="token operator">/</span> IFNULL<span class="token punctuation">(</span><span class="token function">COUNT</span><span class="token punctuation">(</span>qpd<span class="token punctuation">.</span>question_id<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">4</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0.0000</span>
+    <span class="token punctuation">)</span> <span class="token keyword">AS</span> correct_rate
+<span class="token keyword">FROM</span>
+    user_profile <span class="token keyword">AS</span> u
+    <span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> question_practice_detail <span class="token keyword">AS</span> qpd <span class="token keyword">ON</span> u<span class="token punctuation">.</span>device_id <span class="token operator">=</span> qpd<span class="token punctuation">.</span>device_id
+    <span class="token keyword">RIGHT</span> <span class="token keyword">JOIN</span> question_detail <span class="token keyword">AS</span> qd <span class="token keyword">ON</span> qpd<span class="token punctuation">.</span>question_id <span class="token operator">=</span> qd<span class="token punctuation">.</span>question_id
+<span class="token keyword">WHERE</span>
+    university <span class="token operator">=</span> <span class="token string">'浙江大学'</span>
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span>
+    qd<span class="token punctuation">.</span>difficult_level
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> correct_rate</code></pre>
+<p><code>IFNULL(ROUND(...), 0.0000)</code> → fills in NULL correct_rate
+with 0.0000</p>
+<p>Inner <code>IFNULL(COUNT(...), 1)</code> avoids division by zero</p>
 <h4 id="sql34-august-practice-stats-for-fudan-university-users">SQL34 –
 August Practice Stats for Fudan University Users</h4>
 <h5 id="detail">Detail</h5>
@@ -1023,7 +1425,7 @@ results</strong></td>
 </ol>
 <h4 id="sql3-distinct-university-query">SQL3 – <code>Distinct</code>
 University Query</h4>
-<h5 id="description">Description</h5>
+<h5 id="description-2">Description</h5>
 <p>The operator wants to know which universities users come from. Please
 extract the <strong>distinct university names</strong> from the user
 information table.</p>
@@ -1653,7 +2055,7 @@ once in the result.</p>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">324.2k</span>&nbsp;字
+                class="white-color">324.7k</span>&nbsp;字
             
             
             

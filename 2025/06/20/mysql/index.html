@@ -486,14 +486,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2025-07-04
+                    2025-07-05
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.5k
+                    1.6k
                 </div>
                 
 
@@ -518,7 +518,46 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="begin">2025-06-20: Begin</h3>
+                <h3 id="hot">2025-07-05: Hot</h3>
+<h4
+id="sql217-get-the-second-highest-current-salary-no-order-by-allowed">SQL217
+– Get the Second Highest Current Salary (No <code>ORDER BY</code>
+Allowed)</h4>
+<ol type="1">
+<li><p>sql</p>
+<pre class="language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> e<span class="token punctuation">.</span>emp_no<span class="token punctuation">,</span> s<span class="token punctuation">.</span>salary<span class="token punctuation">,</span> e<span class="token punctuation">.</span>last_name<span class="token punctuation">,</span> e<span class="token punctuation">.</span>first_name
+<span class="token keyword">FROM</span> employees <span class="token keyword">AS</span> e
+    <span class="token keyword">JOIN</span> salaries <span class="token keyword">AS</span> s <span class="token keyword">ON</span> e<span class="token punctuation">.</span>emp_no <span class="token operator">=</span> s<span class="token punctuation">.</span>emp_no
+<span class="token keyword">WHERE</span>
+    s<span class="token punctuation">.</span>salary <span class="token operator">=</span> <span class="token punctuation">(</span>
+        <span class="token keyword">SELECT</span> <span class="token function">MAX</span><span class="token punctuation">(</span>salary<span class="token punctuation">)</span>
+        <span class="token keyword">FROM</span> salaries
+        <span class="token keyword">WHERE</span>
+            salary <span class="token operator">&lt;</span> <span class="token punctuation">(</span>
+                <span class="token keyword">SELECT</span> <span class="token function">MAX</span><span class="token punctuation">(</span>salary<span class="token punctuation">)</span>
+                <span class="token keyword">FROM</span> salaries
+            <span class="token punctuation">)</span>
+    <span class="token punctuation">)</span></code></pre>
+<p>select( max &lt; max )= second</p></li>
+</ol>
+<h4 id="sql216-get-the-second-highest-current-salary">SQL216 – Get the
+Second Highest Current Salary</h4>
+<ol type="1">
+<li><p>sql</p>
+<pre class="language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> emp_no<span class="token punctuation">,</span> salary
+<span class="token keyword">FROM</span> salaries
+<span class="token keyword">WHERE</span>
+    salary <span class="token operator">=</span> <span class="token punctuation">(</span>
+        <span class="token keyword">SELECT</span> salary
+        <span class="token keyword">FROM</span> salaries <span class="token keyword">AS</span> s
+        <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> salary <span class="token keyword">DESC</span>
+        <span class="token keyword">LIMIT</span> <span class="token number">1</span>
+        <span class="token keyword">OFFSET</span>
+            <span class="token number">1</span>
+    <span class="token punctuation">)</span></code></pre></li>
+</ol>
+<p>duplicates are allowed</p>
+<h3 id="begin">2025-06-20: Begin</h3>
 <h4 id="sql211-get-highest-paid-employee-per-department">SQL211 – Get
 Highest Paid Employee per Department</h4>
 <h5 id="description">Description</h5>
@@ -1141,7 +1180,7 @@ user</strong>:</p>
 <span class="token keyword">GROUP</span> <span class="token keyword">BY</span>
     <span class="token comment">-- device_id</span>
     u<span class="token punctuation">.</span>device_id</code></pre>
-<h5 id="date-function">Date function</h5>
+<h4 id="date-function">Date function</h4>
 <ol type="1">
 <li><p>example：question_practice_detail**</p>
 <table>
@@ -2055,7 +2094,7 @@ once in the result.</p>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">324.7k</span>&nbsp;字
+                class="white-color">277k</span>&nbsp;字
             
             
             

